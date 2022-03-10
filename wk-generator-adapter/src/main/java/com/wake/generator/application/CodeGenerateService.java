@@ -1,7 +1,6 @@
 package com.wake.generator.application;
 
-import com.wake.generator.core.domain.Label;
-import java.util.Set;
+import com.wake.generator.core.domain.Project;
 
 /**
  * <p>Title: </p>
@@ -13,17 +12,10 @@ import java.util.Set;
 public interface CodeGenerateService {
 
     /**
-     * 解析labelDTO并执行代码生成
+     * 解析 project 中的文件并执行代码生成
      *
-     * @param label 标签DTO
+     * @param project 代码生成的项目单元
      */
-    void generateCode(Label label);
-
-    /**
-     * 查询所有模板的url
-     *
-     * @return 模板url集合
-     */
-    Set<String> queryTemplateFullPath();
+    void generateCode(Project project);
 
 }

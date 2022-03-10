@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public abstract class AbstractCodeGeneratorFile extends AbstractGeneratorFile {
+public abstract class AbstractCodeFile extends AbstractGeneratorFile {
 
     /**
      * 包路径
@@ -37,4 +37,8 @@ public abstract class AbstractCodeGeneratorFile extends AbstractGeneratorFile {
      */
     private String modifier;
 
+    /**
+     * 描述
+     */
+    private String description;
 }

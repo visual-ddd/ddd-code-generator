@@ -15,12 +15,12 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class InterfaceGeneratorFile extends AbstractCodeGeneratorFile {
+public class InterfaceFile extends AbstractCodeFile {
 
     /**
      * 继承的接口类
      */
-    private Set<InterfaceGeneratorFile> extendsInterfaceSet;
+    private Set<InterfaceFile> extendsInterfaceSet;
 
     /**
      * 方法列表

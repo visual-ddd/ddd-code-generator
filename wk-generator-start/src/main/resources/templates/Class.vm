@@ -1,13 +1,21 @@
-#parse("Annotation.vm")
-#macro(extendClass)
-    #if($classLabel.extendClass)extends ${classLabel.extendClass.name}#end
+package ${classLabel.packagePath};
+#parse("Method.vm")
+#parse("Field.vm")
+#parse("Head.vm")
+#foreach($importPackage in $classLabel.importPackages)
+import ${importPackage};
 #end
-#macro(implementClass)
-    #if($classLabel.implementDTOSet)implements #foreach($implementDTO in $classLabel.implementDTOSet)#if(${foreach.count} == 1)#else, #end${implementDTO.name}#end#end
-#end
-#macro(class)
-#classAnnotation()
-${classLabel.modifier} class ${classLabel.name} #extendClass() #implementClass()#end
-#macro(interface)
-    #classAnnotation()
-    ${classLabel.modifier} interface ${classLabel.name} #extendClass() #implementClass()#end
+
+/**
+ * $!{classLabel.description}
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+#class() {
+
+    #fileld()
+
+    #classMethod()
+
+}

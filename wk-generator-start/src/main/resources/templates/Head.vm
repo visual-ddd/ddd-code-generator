@@ -1,0 +1,11 @@
+#parse("Annotation.vm")
+#macro(extendClass)
+    #if($classLabel.extendClass)extends ${classLabel.extendClass.name}#end
+#end
+#macro(implementClass)
+    #if($classLabel.implementDTOSet)implements #foreach($implementDTO in $classLabel.implementDTOSet)#if(${foreach.count} == 1)#else, #end${implementDTO.name}#end#end
+#end
+#macro(class)
+#classAnnotation()
+${classLabel.modifier} ${classLabel.type} ${classLabel.name} #extendClass() #implementClass()#end
+

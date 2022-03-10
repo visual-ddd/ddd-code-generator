@@ -18,17 +18,17 @@ import lombok.extern.slf4j.Slf4j;
 @EqualsAndHashCode(callSuper = true)
 @Slf4j
 @Data
-public class ClassGeneratorFile extends AbstractCodeGeneratorFile {
+public class ClassFile extends AbstractCodeFile {
 
     /**
      * 继承的父类
      */
-    private ClassGeneratorFile extendsClass;
+    private ClassFile extendsClass;
 
     /**
      * 实现列表
      */
-    private Set<InterfaceGeneratorFile> implementSet;
+    private Set<InterfaceFile> implementSet;
 
     /**
      * 参数列表

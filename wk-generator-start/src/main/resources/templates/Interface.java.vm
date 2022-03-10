@@ -1,7 +1,7 @@
 package ${classLabel.packagePath};
 #parse("Method.vm")
 #parse("Field.vm")
-#parse("Class.vm")
+#parse("Head.vm")
 #foreach($importPackage in $classLabel.importPackages)
 import ${importPackage};
 #end

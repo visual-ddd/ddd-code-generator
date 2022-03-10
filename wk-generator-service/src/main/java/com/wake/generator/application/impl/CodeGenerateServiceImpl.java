@@ -2,10 +2,8 @@ package com.wake.generator.application.impl;
 
 
 import com.wake.generator.application.CodeGenerateService;
-import com.wake.generator.core.domain.Label;
+import com.wake.generator.core.domain.Project;
 import com.wake.generator.core.generator.CodeGenerator;
-import com.wake.generator.core.util.TemplateUtil;
-import java.util.Set;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,17 +17,12 @@ import org.springframework.stereotype.Service;
 public class CodeGenerateServiceImpl implements CodeGenerateService {
 
     @Override
-    public void generateCode(Label label) {
+    public void generateCode(Project project) {
         CodeGenerator codeGenerator = new CodeGenerator();
         // 执行代码生成
-        codeGenerator.codeGenerate(label);
+        codeGenerator.codeGenerate(project);
         // 保存项目列表
         codeGenerator.storeFileNames();
-    }
-
-    @Override
-    public Set<String> queryTemplateFullPath() {
-        return TemplateUtil.getTemplates();
     }
 
 }

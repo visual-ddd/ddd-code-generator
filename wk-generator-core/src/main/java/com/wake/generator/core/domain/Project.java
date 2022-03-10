@@ -7,13 +7,13 @@ import lombok.Data;
 
 /**
  * <p>Title: LabelDTO</p>
- * <p>Description: 标签信息</p>
+ * <p>Description: 项目信息</p>
  *
  * @author : ZhuXueLiang
  * @date : 2022/2/23 12:04
  */
 @Data
-public class Label {
+public class Project {
 
     /**
      * 全局配置信息

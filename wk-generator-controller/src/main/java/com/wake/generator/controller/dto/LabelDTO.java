@@ -1,9 +1,8 @@
 package com.wake.generator.controller.dto;
 
 import com.wake.generator.core.domain.Global;
-import com.wake.generator.core.domain.Label;
+import com.wake.generator.core.domain.Project;
 import com.wake.generator.core.domain.file.AbstractGeneratorFile;
-import java.util.HashSet;
 import java.util.Set;
 import lombok.Data;
 
@@ -32,8 +31,8 @@ public class LabelDTO {
      *
      * @return Label标签实体
      */
-    public Label transformToLabel() {
-        Label result = new Label();
+    public Project transformToLabel() {
+        Project result = new Project();
         result.setGlobal(global);
         Set<AbstractGeneratorFile> generatorFiles = result.getGeneratorFiles();
         for (GeneratorFileDTO generatorFileDTO : generatorFileDtoSet) {

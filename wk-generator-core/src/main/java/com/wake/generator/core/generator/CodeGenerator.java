@@ -3,11 +3,11 @@ package com.wake.generator.core.generator;
 
 import com.wake.generator.core.constant.TemplateConstant;
 import com.wake.generator.core.domain.Global;
-import com.wake.generator.core.domain.Label;
+import com.wake.generator.core.domain.Project;
 import com.wake.generator.core.domain.file.AbstractGeneratorFile;
-import com.wake.generator.core.domain.file.code.AbstractCodeGeneratorFile;
-import com.wake.generator.core.domain.file.code.ClassGeneratorFile;
-import com.wake.generator.core.domain.file.code.InterfaceGeneratorFile;
+import com.wake.generator.core.domain.file.code.AbstractCodeFile;
+import com.wake.generator.core.domain.file.code.ClassFile;
+import com.wake.generator.core.domain.file.code.InterfaceFile;
 import com.wake.generator.core.parser.ClassImportParser;
 import com.wake.generator.core.parser.ClassPackagePathParser;
 import java.io.File;
@@ -15,7 +15,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
@@ -49,32 +48,32 @@ public class CodeGenerator {
      * 根据 data 中提供的标签 和 读取的模板文件 生成代码，支持多个模板输出
      * </p>
      */
-    public void codeGenerate(Label label) {
+    public void codeGenerate(Project project) {
 
         // 初始化标签上下文
         initTemplateContext();
 
         // 填充全局配置标签
-        Global global = label.getGlobal();
+        Global global = project.getGlobal();
         velocityContext.put("globalLabel", global);
         // 文件列表
-        Set<AbstractGeneratorFile> generatorFiles = label.getGeneratorFiles();
+        Set<AbstractGeneratorFile> generatorFiles = project.getGeneratorFiles();
 
-        Set<AbstractCodeGeneratorFile> codeFiles = new HashSet<>();
+        Set<AbstractCodeFile> codeFiles = new HashSet<>();
         for (AbstractGeneratorFile generatorFile : generatorFiles) {
-            if (generatorFile instanceof AbstractCodeGeneratorFile) {
-                codeFiles.add((AbstractCodeGeneratorFile) generatorFile);
+            if (generatorFile instanceof AbstractCodeFile) {
+                codeFiles.add((AbstractCodeFile) generatorFile);
             }
         }
         // 初始化代码文件
         initCodeFiles(codeFiles);
 
-        for (AbstractCodeGeneratorFile codeFile : codeFiles) {
-            if (codeFile instanceof ClassGeneratorFile) {
-                ClassGeneratorFile classFile = (ClassGeneratorFile) codeFile;
+        for (AbstractCodeFile codeFile : codeFiles) {
+            if (codeFile instanceof ClassFile) {
+                ClassFile classFile = (ClassFile) codeFile;
                 velocityContext.put("classLabel", classFile);
-            } else if (codeFile instanceof InterfaceGeneratorFile) {
-                InterfaceGeneratorFile interfaceFile = (InterfaceGeneratorFile) codeFile;
+            } else if (codeFile instanceof InterfaceFile) {
+                InterfaceFile interfaceFile = (InterfaceFile) codeFile;
                 velocityContext.put("interfaceLabel", interfaceFile);
             }
 
@@ -102,9 +101,9 @@ public class CodeGenerator {
      *
      * @param codeFiles 需要生成的文件列表
      */
-    private void initCodeFiles(Set<AbstractCodeGeneratorFile> codeFiles) {
+    private void initCodeFiles(Set<AbstractCodeFile> codeFiles) {
         // 代码文件
-        for (AbstractCodeGeneratorFile codeFile : codeFiles) {
+        for (AbstractCodeFile codeFile : codeFiles) {
             String fullPath = codeFile.getOutputUrl();
             // 根据输出全路径解析包路径
             codeFile.setPackagePath(ClassPackagePathParser.parser(fullPath));

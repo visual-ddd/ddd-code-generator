@@ -2,9 +2,9 @@ package com.wake.generator.core.parser;
 
 import com.wake.generator.core.domain.Method;
 import com.wake.generator.core.domain.Property;
-import com.wake.generator.core.domain.file.code.AbstractCodeGeneratorFile;
-import com.wake.generator.core.domain.file.code.ClassGeneratorFile;
-import com.wake.generator.core.domain.file.code.InterfaceGeneratorFile;
+import com.wake.generator.core.domain.file.code.AbstractCodeFile;
+import com.wake.generator.core.domain.file.code.ClassFile;
+import com.wake.generator.core.domain.file.code.InterfaceFile;
 import com.wake.generator.core.util.PropertiesConfig;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -47,9 +47,9 @@ public class ClassImportParser {
      *
      * @param codeFiles 需要解析的文件列表
      */
-    public void parser(Set<AbstractCodeGeneratorFile> codeFiles) {
+    public void parser(Set<AbstractCodeFile> codeFiles) {
         this.initClassTypeMap(codeFiles);
-        for (AbstractCodeGeneratorFile codeFile : codeFiles) {
+        for (AbstractCodeFile codeFile : codeFiles) {
             codeFile.setImportClassSet(this.parseImportClass(classTypeMap, codeFile));
         }
     }
@@ -59,7 +59,7 @@ public class ClassImportParser {
      *
      * @param codeFiles 需要生成的文件集合
      */
-    private void initClassTypeMap(Set<AbstractCodeGeneratorFile> codeFiles) {
+    private void initClassTypeMap(Set<AbstractCodeFile> codeFiles) {
         this.classTypeMap = new HashMap<>(50);
         // 获取配置文件中系统支持的类型
         Map<String, Object> propertiesMap = PropertiesConfig.getPropertiesMap();
@@ -78,7 +78,7 @@ public class ClassImportParser {
      * @param codeFile     需要生成的代码文件
      * @return 当前类需要导入的包路径
      */
-    public Set<String> parseImportClass(Map<String, String> classTypeMap, AbstractCodeGeneratorFile codeFile) {
+    public Set<String> parseImportClass(Map<String, String> classTypeMap, AbstractCodeFile codeFile) {
         Set<String> result = new HashSet<>();
 
         // 需要排除的字段类型
@@ -109,14 +109,14 @@ public class ClassImportParser {
      * @param codeFile 类DTO
      * @return 类型集合
      */
-    private Set<String> getImportTypeSet(AbstractCodeGeneratorFile codeFile) {
+    private Set<String> getImportTypeSet(AbstractCodeFile codeFile) {
         Set<String> importTypeSet = new HashSet<>();
         Pattern fieldPattern = Pattern.compile(FIELD_TYPE_EXPRESSION);
         Pattern attributePattern = Pattern.compile(ATTRIBUTE_LIST_EXPRESSION);
 
         // 类文件
-        if (codeFile instanceof ClassGeneratorFile) {
-            ClassGeneratorFile classFile = (ClassGeneratorFile) codeFile;
+        if (codeFile instanceof ClassFile) {
+            ClassFile classFile = (ClassFile) codeFile;
             // 获取字段列表中用到的类型
             for (Property property : classFile.getPropertyList()) {
                 matchToTarget(importTypeSet, fieldPattern, property.getType());
@@ -126,9 +126,9 @@ public class ClassImportParser {
             for (Method method : classFile.getMethodList()) {
                 methodImport(importTypeSet, fieldPattern, attributePattern, method);
             }
-        } else if (codeFile instanceof InterfaceGeneratorFile) {
+        } else if (codeFile instanceof InterfaceFile) {
             // 接口文件
-            InterfaceGeneratorFile interfaceFile = (InterfaceGeneratorFile) codeFile;
+            InterfaceFile interfaceFile = (InterfaceFile) codeFile;
             // 获取方法列表中用到的类型
             for (Method method : interfaceFile.getMethodList()) {
                 methodImport(importTypeSet, fieldPattern, attributePattern, method);

@@ -4,9 +4,9 @@ import com.wake.generator.core.constant.TemplateType;
 import com.wake.generator.core.domain.Method;
 import com.wake.generator.core.domain.Property;
 import com.wake.generator.core.domain.file.AbstractGeneratorFile;
-import com.wake.generator.core.domain.file.code.AbstractCodeGeneratorFile;
-import com.wake.generator.core.domain.file.code.ClassGeneratorFile;
-import com.wake.generator.core.domain.file.code.InterfaceGeneratorFile;
+import com.wake.generator.core.domain.file.code.AbstractCodeFile;
+import com.wake.generator.core.domain.file.code.ClassFile;
+import com.wake.generator.core.domain.file.code.InterfaceFile;
 import java.util.List;
 import java.util.Set;
 import lombok.Data;
@@ -49,12 +49,12 @@ public class GeneratorFileDTO {
     /**
      * 继承的父类
      */
-    private ClassGeneratorFile extendsClass;
+    private ClassFile extendsClass;
 
     /**
      * 实现列表
      */
-    private Set<InterfaceGeneratorFile> implementSet;
+    private Set<InterfaceFile> implementSet;
 
     /**
      * 参数列表
@@ -67,14 +67,14 @@ public class GeneratorFileDTO {
     private List<Method> methodList;
 
     /**
-     * 第一个字母小写的类名
+     * 描述
      */
-    private String classLowName;
+    private String description;
 
     /**
      * 继承的接口类
      */
-    private Set<InterfaceGeneratorFile> extendsInterfaceSet;
+    private Set<InterfaceFile> extendsInterfaceSet;
 
     /**
      * 根据不同图形类型创建对应的实体并返回。
@@ -98,15 +98,14 @@ public class GeneratorFileDTO {
      *
      * @return 类文件对象
      */
-    public ClassGeneratorFile generateClassGeneratorFile() {
-        ClassGeneratorFile result = new ClassGeneratorFile();
+    public ClassFile generateClassGeneratorFile() {
+        ClassFile result = new ClassFile();
         dealGeneratorFileValue(result);
         dealCodeGeneratorFileValue(result);
         result.setExtendsClass(extendsClass);
         result.setImplementSet(implementSet);
         result.setPropertyList(propertyList);
         result.setMethodList(methodList);
-        result.setClassLowName(classLowName);
         return result;
     }
 
@@ -115,8 +114,8 @@ public class GeneratorFileDTO {
      *
      * @return 接口文件对象
      */
-    public InterfaceGeneratorFile generateInterfaceGeneratorFile() {
-        InterfaceGeneratorFile result = new InterfaceGeneratorFile();
+    public InterfaceFile generateInterfaceGeneratorFile() {
+        InterfaceFile result = new InterfaceFile();
         dealGeneratorFileValue(result);
         dealCodeGeneratorFileValue(result);
         result.setExtendsInterfaceSet(extendsInterfaceSet);
@@ -130,9 +129,10 @@ public class GeneratorFileDTO {
      * @param domainShape domainShape
      * @param <T>         T extends AbstractCodeGeneratorFile
      */
-    private <T extends AbstractCodeGeneratorFile> void dealCodeGeneratorFileValue(T domainShape) {
+    private <T extends AbstractCodeFile> void dealCodeGeneratorFileValue(T domainShape) {
         domainShape.setAnnotations(annotations);
         domainShape.setModifier(modifier);
+        domainShape.setDescription(description);
     }
 
     /**
