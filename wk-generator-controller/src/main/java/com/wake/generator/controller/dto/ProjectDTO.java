@@ -7,14 +7,14 @@ import java.util.Set;
 import lombok.Data;
 
 /**
- * <p>Title: LabelDto</p>
- * <p>Description: 标签信息DTO</p>
+ * <p>Title: ProjectDTO</p>
+ * <p>Description: 项目单元DTO</p>
  *
  * @author : ZhuXueLiang
  * @date : 2022/3/9 17:08
  */
 @Data
-public class LabelDTO {
+public class ProjectDTO {
 
     /**
      * 全局配置信息
@@ -27,11 +27,11 @@ public class LabelDTO {
     private Set<GeneratorFileDTO> generatorFileDtoSet;
 
     /**
-     * DTO 转 Label标签实体
+     * DTO 转 项目实体
      *
-     * @return Label标签实体
+     * @return 项目实体
      */
-    public Project transformToLabel() {
+    public Project transformToProject() {
         Project result = new Project();
         result.setGlobal(global);
         Set<AbstractGeneratorFile> generatorFiles = result.getGeneratorFiles();

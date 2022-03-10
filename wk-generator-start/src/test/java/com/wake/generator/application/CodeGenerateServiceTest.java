@@ -1,7 +1,7 @@
 package com.wake.generator.application;
 
 import com.wake.generator.controller.dto.GeneratorFileDTO;
-import com.wake.generator.controller.dto.LabelDTO;
+import com.wake.generator.controller.dto.ProjectDTO;
 import com.wake.generator.core.constant.TemplateType;
 import com.wake.generator.core.domain.Global;
 import com.wake.generator.core.domain.Project;
@@ -30,19 +30,19 @@ public class CodeGenerateServiceTest {
 
     @Test
     public void generateCode() {
-        LabelDTO labelDTO = getLabelDTO();
-        Project project = labelDTO.transformToLabel();
+        ProjectDTO projectDTO = getLabelDTO();
+        Project project = projectDTO.transformToProject();
         codeGenerateService.generateCode(project);
     }
 
-    private LabelDTO getLabelDTO() {
-        LabelDTO labelDTO = new LabelDTO();
+    private ProjectDTO getLabelDTO() {
+        ProjectDTO projectDTO = new ProjectDTO();
         Global global = new Global();
         global.setAuthor("shimmer");
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         global.setDateTime(formatter.format(date));
-        labelDTO.setGlobal(global);
+        projectDTO.setGlobal(global);
 
         GeneratorFileDTO classGeneratorFile = new GeneratorFileDTO();
         classGeneratorFile.setName("Domain");
@@ -57,7 +57,7 @@ public class CodeGenerateServiceTest {
         classGeneratorFile.setMethodList(new ArrayList<Method>());
         classGeneratorFile.setExtendsInterfaceSet(new HashSet<InterfaceFile>());
 
-        labelDTO.setGeneratorFileDtoSet(Collections.singleton(classGeneratorFile));
-        return labelDTO;
+        projectDTO.setGeneratorFileDtoSet(Collections.singleton(classGeneratorFile));
+        return projectDTO;
     }
 }

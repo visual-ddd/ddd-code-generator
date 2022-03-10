@@ -1,7 +1,7 @@
 package com.wake.generator.controller;
 
 import com.wake.generator.application.CodeGenerateService;
-import com.wake.generator.controller.dto.LabelDTO;
+import com.wake.generator.controller.dto.ProjectDTO;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +21,7 @@ public class CodeGeneratorController {
     CodeGenerateService codeGenerateService;
 
     @RequestMapping("test")
-    public void test(LabelDTO labelDTO) {
+    public void test(ProjectDTO projectDTO) {
 
     }
 
