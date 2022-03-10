@@ -1,0 +1,19 @@
+package ${classLabel.packagePath};
+#parse("Method.vm")
+#parse("Field.vm")
+#parse("Class.vm")
+#foreach($importPackage in $classLabel.importPackages)
+import ${importPackage};
+#end
+
+/**
+ * $!{classLabel.description}
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+#interface() {
+
+    #interfaceMethod()
+
+}

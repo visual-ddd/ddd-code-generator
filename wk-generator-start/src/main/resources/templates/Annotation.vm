@@ -1,0 +1,15 @@
+#macro(classAnnotation)
+#foreach($annotation in $classLabel.annotationList)
+${annotation}
+#end
+#end
+#macro(fieldAnnotation)
+#foreach($annotation in $fieldLabel.annotationList)
+    ${annotation}
+#end
+#end
+#macro(methodAnnotation)
+#foreach($annotation in $methodLabel.annotationList)
+    ${annotation}
+#end
+#end

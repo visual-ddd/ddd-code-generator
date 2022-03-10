@@ -1,0 +1,31 @@
+#parse("Annotation.vm")
+#macro(classMethod)
+    #foreach ($methodLabel in $methodLabels)
+    #if($methodLabel.comment)
+    /**
+     * ${methodLabel.comment}
+     */
+    #end
+    #methodAnnotation()
+    #foreach($methodAnnotations in $methodLabel.annotations)
+    ${methodAnnotations}
+    #end
+    ${methodLabel.modifier} ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel}) {
+        // Do something...
+        #if($methodLabel.returnType != "void")
+        return null;
+        #end
+    }
+    #end
+#end
+#macro(interfaceMethod)
+    #foreach($methodLabel in $methodLabels)
+    #if($methodLabel.comment)
+    /**
+    * ${methodLabel.comment}
+    */
+    #end
+    ${methodLabel.modifier} ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel})
+    #end
+
+#end

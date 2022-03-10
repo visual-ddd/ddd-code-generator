@@ -1,0 +1,15 @@
+#parse("Annotation.vm")
+#macro(fileld)
+    #foreach ($fieldLabel in $fieldLabels)
+    #if($fieldLabel.comment)
+    /**
+     * ${fieldLabel.comment}
+     */
+    #end
+    #fieldAnnotation()
+    #foreach($fieldAnnotation in $fieldLabel.annotations)
+    ${fieldAnnotation}
+    #end
+    ${fieldLabel.modifier} ${fieldLabel.type} ${fieldLabel.name};
+    #end
+#end
