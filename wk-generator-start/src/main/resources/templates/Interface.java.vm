@@ -1,19 +1,30 @@
-package ${classLabel.packagePath};
-#parse("Method.vm")
-#parse("Field.vm")
-#parse("Head.vm")
-#foreach($importPackage in $classLabel.importPackages)
-import ${importPackage};
+package ${interfaceFile.packagePath};
+
+#foreach($importClass in $interfaceFile.importClassSet)
+import ${importClass};
 #end
 
 /**
- * $!{classLabel.description}
+ * $!{interfaceFile.description}
  *
  * @author ${globalLabel.author}
  * @date ${globalLabel.dateTime}
  */
-#interface() {
+#foreach($annotation in $classFile.annotations)
+${annotation}
+#end
+${interfaceFile.modifier} interface ${interfaceFile.name} #if(${interface.extendsInterfaceSet})extends #foreach($interface in $interface.extendsInterfaceSet)#if(${foreach.count} == 1)#else, #end${interface.name}#end#end {
 
-    #interfaceMethod()
+    #foreach($methodLabel in $methodLabels)
+    #if($methodLabel.comment)
+    /**
+     * ${methodLabel.comment}
+     */
+    #end
+    #foreach($methodAnnotations in $methodLabel.annotations)
+    ${methodAnnotations}
+    #end
+    ${methodLabel.modifier} ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel})
+    #end
 
 }

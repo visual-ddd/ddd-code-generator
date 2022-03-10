@@ -1,0 +1,57 @@
+package ${classFile.packagePath};
+
+#macro(extendsClass)
+    #if($classFile.extendsClass)extends ${classFile.extendsClass.name}#end
+#end
+#macro(implementClass)
+    #if($classFile.implementSet)implements #foreach($implement in $classFile.implementSet)#if(${foreach.count} == 1)#else, #end${implement.name}#end#end
+#end
+#foreach($importClass in $classFile.importClassSet)
+import ${importClass};
+#end
+
+/**
+ * $!{classFile.description}
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+## 注解
+#foreach($annotation in $classFile.annotations)
+${annotation}
+#end
+## 类声明
+${classFile.modifier} class ${classFile.name} #extendsClass() #implementClass() {
+## 属性
+#foreach ($property in $classFile.propertySet)
+
+    #if($property.description)
+    /**
+     * ${property.description}
+     */
+    #end
+    #foreach($annotation in $property.annotations)
+    ${annotation}
+    #end
+    ${property.modifier} ${property.type} ${property.name};
+#end
+## 方法
+#foreach ($method in $classFile.methodSet)
+
+    #if($method.description)
+    /**
+     * ${method.description}
+     */
+    #end
+    #foreach($methodAnnotations in $method.annotations)
+    ${methodAnnotations}
+    #end
+    ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}) {
+        // Do something...
+        #if($method.returnType != "void")
+        return null;
+        #end
+    }
+#end
+
+}

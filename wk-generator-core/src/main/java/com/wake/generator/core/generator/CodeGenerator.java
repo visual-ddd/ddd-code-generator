@@ -71,10 +71,10 @@ public class CodeGenerator {
         for (AbstractCodeFile codeFile : codeFiles) {
             if (codeFile instanceof ClassFile) {
                 ClassFile classFile = (ClassFile) codeFile;
-                velocityContext.put("classLabel", classFile);
+                velocityContext.put("classFile", classFile);
             } else if (codeFile instanceof InterfaceFile) {
                 InterfaceFile interfaceFile = (InterfaceFile) codeFile;
-                velocityContext.put("interfaceLabel", interfaceFile);
+                velocityContext.put("interfaceFile", interfaceFile);
             }
 
             // 文件结构及代码生成

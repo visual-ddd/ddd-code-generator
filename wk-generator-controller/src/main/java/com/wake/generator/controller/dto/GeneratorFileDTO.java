@@ -59,12 +59,12 @@ public class GeneratorFileDTO {
     /**
      * 参数列表
      */
-    private List<Property> propertyList;
+    private Set<Property> propertySet;
 
     /**
      * 方法列表
      */
-    private List<Method> methodList;
+    private Set<Method> methodSet;
 
     /**
      * 描述
@@ -104,8 +104,8 @@ public class GeneratorFileDTO {
         dealCodeGeneratorFileValue(result);
         result.setExtendsClass(extendsClass);
         result.setImplementSet(implementSet);
-        result.setPropertyList(propertyList);
-        result.setMethodList(methodList);
+        result.setPropertySet(propertySet);
+        result.setMethodSet(methodSet);
         return result;
     }
 
@@ -119,7 +119,7 @@ public class GeneratorFileDTO {
         dealGeneratorFileValue(result);
         dealCodeGeneratorFileValue(result);
         result.setExtendsInterfaceSet(extendsInterfaceSet);
-        result.setMethodList(methodList);
+        result.setMethodSet(methodSet);
         return result;
     }
 

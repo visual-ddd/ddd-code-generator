@@ -25,6 +25,6 @@ public class InterfaceFile extends AbstractCodeFile {
     /**
      * 方法列表
      */
-    private List<Method> methodList;
+    private Set<Method> methodSet;
 
 }

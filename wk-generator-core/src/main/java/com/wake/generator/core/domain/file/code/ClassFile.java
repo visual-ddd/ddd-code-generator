@@ -33,12 +33,12 @@ public class ClassFile extends AbstractCodeFile {
     /**
      * 参数列表
      */
-    private List<Property> propertyList;
+    private Set<Property> propertySet;
 
     /**
      * 方法列表
      */
-    private List<Method> methodList;
+    private Set<Method> methodSet;
 
     /**
      * 第一个字母小写的类名

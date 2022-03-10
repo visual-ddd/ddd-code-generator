@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * <p>Title: ClassImportParser</p>
@@ -118,19 +119,19 @@ public class ClassImportParser {
         if (codeFile instanceof ClassFile) {
             ClassFile classFile = (ClassFile) codeFile;
             // 获取字段列表中用到的类型
-            for (Property property : classFile.getPropertyList()) {
+            for (Property property : classFile.getPropertySet()) {
                 matchToTarget(importTypeSet, fieldPattern, property.getType());
             }
 
             // 获取方法列表中用到的类型
-            for (Method method : classFile.getMethodList()) {
+            for (Method method : classFile.getMethodSet()) {
                 methodImport(importTypeSet, fieldPattern, attributePattern, method);
             }
         } else if (codeFile instanceof InterfaceFile) {
             // 接口文件
             InterfaceFile interfaceFile = (InterfaceFile) codeFile;
             // 获取方法列表中用到的类型
-            for (Method method : interfaceFile.getMethodList()) {
+            for (Method method : interfaceFile.getMethodSet()) {
                 methodImport(importTypeSet, fieldPattern, attributePattern, method);
             }
         }
@@ -158,6 +159,9 @@ public class ClassImportParser {
      * @param str     待匹配的字符串
      */
     private static void matchToTarget(Set<String> target, Pattern pattern, String str) {
+        if (StringUtils.isBlank(str)) {
+            return;
+        }
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
             target.add(matcher.group(1));
