@@ -15,12 +15,12 @@ public enum TemplateType {
     /**
      * 类文件
      */
-    CLASS("class", "class.vm"),
+    CLASS("class", "Class.vm"),
 
     /**
      * 接口文件
      */
-    INTERFACE("interface", "interface.vm"),
+    INTERFACE("interface", "Interface.vm"),
     ;
 
     private final String name;

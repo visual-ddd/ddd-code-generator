@@ -52,10 +52,10 @@ public class FileGenerator {
             String dir = outputUrl.substring(0, outputUrl.lastIndexOf("\\"));
             File folder = new File(dir);
             //判断文件夹是否存在,不存在则创建
-            if (folder.exists() || folder.mkdirs()) {
+            if (!folder.exists() && !folder.mkdirs()) {
                 log.error("创建文件夹失败！");
+                throw new RuntimeException("创建文件夹失败！");
             }
-
             try (StringWriter sw = new StringWriter();
                 FileOutputStream outputStream = new FileOutputStream(outputUrl)) {
                 // 获取输出流

@@ -10,8 +10,12 @@ import com.wake.generator.core.domain.Property;
 import com.wake.generator.core.domain.file.code.ClassGeneratorFile;
 import com.wake.generator.core.domain.file.code.InterfaceGeneratorFile;
 import com.wake.generator.start.WkCodeGeneratorApplication;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Resource;
@@ -20,6 +24,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.HttpClientErrorException.Gone;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = WkCodeGeneratorApplication.class)
@@ -46,21 +51,26 @@ public class CodeGenerateServiceTest {
 
     private LabelDTO getLabelDTO() {
         LabelDTO labelDTO = new LabelDTO();
-        labelDTO.setGlobal(new Global());
+        Global global = new Global();
+        global.setAuthor("shimmer");
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        global.setDateTime(formatter.format(date));
+        labelDTO.setGlobal(global);
 
-        GeneratorFileDTO generatorFileDTO = new GeneratorFileDTO();
-        generatorFileDTO.setName("");
-        generatorFileDTO.setOutputUrl("");
-        generatorFileDTO.setTemplateType(TemplateType.CLASS);
-        generatorFileDTO.setAnnotations(new ArrayList<String>());
-        generatorFileDTO.setModifier("");
-        generatorFileDTO.setExtendsClass(new ClassGeneratorFile());
-        generatorFileDTO.setImplementSet(new HashSet<InterfaceGeneratorFile>());
-        generatorFileDTO.setPropertyList(new ArrayList<Property>());
-        generatorFileDTO.setMethodList(new ArrayList<Method>());
-        generatorFileDTO.setExtendsInterfaceSet(new HashSet<InterfaceGeneratorFile>());
+        GeneratorFileDTO classGeneratorFile = new GeneratorFileDTO();
+        classGeneratorFile.setName("Domain");
+        classGeneratorFile.setOutputUrl("wk-code-generator\\wk-generator-domain\\src\\main\\java\\com\\wk\\generator\\domain\\Domain.java");
+        classGeneratorFile.setTemplateType(TemplateType.CLASS);
+        classGeneratorFile.setAnnotations(new ArrayList<String>());
+        classGeneratorFile.setModifier("public");
+        classGeneratorFile.setExtendsClass(new ClassGeneratorFile());
+        classGeneratorFile.setImplementSet(new HashSet<InterfaceGeneratorFile>());
+        classGeneratorFile.setPropertyList(new ArrayList<Property>());
+        classGeneratorFile.setMethodList(new ArrayList<Method>());
+        classGeneratorFile.setExtendsInterfaceSet(new HashSet<InterfaceGeneratorFile>());
 
-        labelDTO.setGeneratorFileDtoSet(Collections.singleton(generatorFileDTO));
+        labelDTO.setGeneratorFileDtoSet(Collections.singleton(classGeneratorFile));
         return labelDTO;
     }
 }
