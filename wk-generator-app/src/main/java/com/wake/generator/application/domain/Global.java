@@ -27,4 +27,15 @@ public class Global {
      */
     private String dateTime;
 
+    /**
+     * 组
+     */
+    private String group;
+
+    /**
+     * 领域名
+     */
+    private String filed;
+
+
 }

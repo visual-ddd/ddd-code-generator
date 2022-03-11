@@ -1,4 +1,4 @@
-#parse("../AggregationLabel.vm")
+#parse("AggregationLabel.vm")
 package ${AggregationpackagePath};
 
 import com.baomidou.mybatisplus.annotation.TableName;

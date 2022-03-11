@@ -7,11 +7,11 @@ import ${importPackage};
 ## 描述
 #macro(comment $description)
 /**
-* $description
-*
-* @author ${globalLabel.author}
-* @date ${globalLabel.dateTime}
-*/
+ * $description
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
 #end
 ## 字段属性列表
 #macro(filed $filedList)

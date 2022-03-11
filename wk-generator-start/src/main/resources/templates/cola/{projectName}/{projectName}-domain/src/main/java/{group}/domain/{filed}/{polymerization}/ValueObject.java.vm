@@ -1,4 +1,4 @@
-#parse("ValueObjectLabel.vm")
+#parse("../../../../../../../../../../ValueObjectLabel.vm")
 package $ValueObjectImportPackages
 
 import lombok.Data;

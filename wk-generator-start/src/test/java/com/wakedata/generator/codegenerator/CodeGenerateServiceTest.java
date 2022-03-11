@@ -47,6 +47,7 @@ public class CodeGenerateServiceTest {
         Global globalDTO = new Global();
         globalDTO.setAuthor("shimmer");
         globalDTO.setDateTime(LocalDate.now().toString());
+        globalDTO.setGroup("com.szy");
         project.setGlobal(globalDTO);
 
         codeGenerateService.generateCode(project);

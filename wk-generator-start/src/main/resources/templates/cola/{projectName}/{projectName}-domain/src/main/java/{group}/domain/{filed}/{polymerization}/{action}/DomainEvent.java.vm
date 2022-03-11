@@ -1,4 +1,4 @@
-#parse("../../../../../../../../../../../Event.vm")
+#parse("Event.vm")
 package ${EventpackagePath};
 
 #importPackage($AggregationImportPackages)

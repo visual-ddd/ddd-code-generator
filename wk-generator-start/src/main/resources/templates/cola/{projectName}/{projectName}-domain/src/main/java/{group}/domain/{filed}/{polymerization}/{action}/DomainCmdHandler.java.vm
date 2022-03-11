@@ -1,4 +1,4 @@
-#parse("../../../../../../../../../../../CmdLabel.vm")
+#parse("CmdLabel.vm")
 package $CmdpackagePath;
 
 #importPackage($CmdImportPackages)

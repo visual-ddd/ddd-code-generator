@@ -1,4 +1,4 @@
-#parse("../../../../../../../../../../ClassFunction.vm")
+#parse("ClassFunction.vm")
 ## valueObject
 #set($ValueObjectPath = ${classLabel.packagePath})
 #set($ValueObjectImportPackages = ${classLabel.importClassSet})
