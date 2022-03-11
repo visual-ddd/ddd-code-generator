@@ -1,0 +1,11 @@
+#parse("cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{filed}/{polymerization}/AggregationLabel.vm")
+package $AggregationpackagePath;
+
+import org.springframework.stereotype.Component;
+
+#comment($AggregationName"聚合工厂类")
+@Component
+public class ${AggregationName}Factory {
+
+
+}

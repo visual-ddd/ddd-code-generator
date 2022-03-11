@@ -1,0 +1,36 @@
+package ${classLabel.packagePath};
+
+#set ($implementsName = $classLabel.name.replace('Impl',''))
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+#foreach($importPackage in $classLabel.importPackages)
+import ${importPackage};
+#end
+
+
+/**
+ * ${classLabel.description}
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+@Slf4j
+@Component
+public class ${classLabel.name} implements ${implementsName} {
+
+#foreach ($methodLabel in $methodLabels)
+
+    /**
+     * ${methodLabel.comment}
+     */
+    ${methodLabel.modifier} ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel}) {
+
+
+    return null;
+    }
+
+
+#end
+}

@@ -1,0 +1,34 @@
+package ${classLabel.packagePath};
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * ${classLabel.description}
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+@Data
+@NoArgsConstructor
+public class ${classLabel.name}  {
+#foreach ($fieldLabel in $fieldLabels)
+
+        /**
+         * ${fieldLabel.comment}
+         */
+    ${fieldLabel.modifier} ${fieldLabel.type} ${fieldLabel.name};
+#end
+
+    public ${classLabel.name}(Long id, Object cmd) {
+
+    }
+
+    @Override
+    public String eventCode() {
+        //自定义eventCode，不能为空，需要符合既定格式，查看父类可以看到正则校验
+        //统一放在‘common-event-code.yml’中，本地直接通过spring el表达式获取，例如：organization.attribute.create.event-code}
+        return null;
+    }
+
+}

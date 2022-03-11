@@ -1,0 +1,12 @@
+#parse("cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{filed}/{polymerization}/AggregationLabel.vm")
+package $AggregationpackagePath;
+
+#importPackage($AggregationImportPackages)
+#comment($AggregationDescription)
+@Data
+@Entity
+public class $AggregationName implements I${AggregationName} {
+
+#filed($AggregationFields)
+#method($AggregationMethods)
+}

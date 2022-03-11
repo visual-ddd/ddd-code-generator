@@ -1,0 +1,29 @@
+package ${classLabel.packagePath};
+
+#set ($extendsName = $classLabel.name.replace('Mapper',''))
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
+
+#foreach($importPackage in $classLabel.importPackages)
+import ${importPackage};
+#end
+
+/**
+ * ${classLabel.description}
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+@Repository
+public interface ${classLabel.name} extends BaseMapper<${extendsName}DO> {
+
+    #foreach ($methodLabel in $methodLabels)
+
+        /**
+         * ${methodLabel.comment}
+         */
+        ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel});
+
+    #end
+
+    }

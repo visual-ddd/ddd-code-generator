@@ -1,0 +1,8 @@
+#parse("AggregationLabel.vm")
+package $AggregationpackagePath;
+
+#comment("聚合存储接口")
+public interface ${AggregationName}Repository {
+
+
+}

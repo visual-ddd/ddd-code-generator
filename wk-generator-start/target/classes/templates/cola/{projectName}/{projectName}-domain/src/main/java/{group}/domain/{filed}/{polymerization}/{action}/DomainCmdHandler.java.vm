@@ -1,0 +1,30 @@
+package ${classLabel.packagePath};
+
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+#foreach($importPackage in $classLabel.importPackages)
+import ${importPackage};
+#end
+
+/**
+ * ${classLabel.description}
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+@Component
+public class ${classLabel.name} {
+
+#foreach ($methodLabel in $methodLabels)
+
+    @Transactional(rollbackFor = Exception.class)
+    ${methodLabel.modifier} ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel}) {
+
+
+        return null;
+        }
+
+#end
+
+}

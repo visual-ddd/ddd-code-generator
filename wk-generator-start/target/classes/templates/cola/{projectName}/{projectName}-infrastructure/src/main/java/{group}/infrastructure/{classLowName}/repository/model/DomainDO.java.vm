@@ -1,0 +1,25 @@
+#parse("package.vm")
+#sayHello("hello")
+
+package ${classLabel.packagePath};
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+#import()
+
+
+/**
+ * ${classLabel.description}
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+@Data
+@ApiModel("${classLabel.description}")
+@TableName()
+public class ${classLabel.name} {
+
+    private static final long serialVersionUID = 1L;
+
+    #field()
+
+}

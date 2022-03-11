@@ -1,1 +1,2 @@
-wk-code-generator\wk-generator-domain\src\main\java\com\wk\generator\domain\Domain.java
+{projectName}\{projectName}-domain\src\main\java\{group}\domain\{filed}\{polymerization}\DemoClassFactory.java
+{projectName}\{projectName}-domain\src\main\java\{group}\domain\{filed}\{polymerization}\DemoClass.java
