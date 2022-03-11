@@ -1,39 +1,13 @@
-package ${classLabel.packagePath};
+#parse("../../../../../../../../../AggregationLabel.vm")
+package ${AggregationpackagePath};
 
-import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.web.bind.annotation.*;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 
-#foreach($importPackage in $classLabel.importPackages)
-import $(importPackage);
-#end
+#importPackage($AggregationImportPackages)
 
-/**
- * ${classLabel.description}
- *
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
- */
+#comment($AggregationDescription)
 @RestController
-@Api(tags = "${classLabel.name}", description = "${classLabel.description}")
-@RequestMapping("/${classLabel.classLowName}")
-public class ${classLabel.name} {
-
-#foreach ($methodLabel in $methodLabels)
-
-    /**
-    * ${methodLabel.comment}
-    */
-    @RequestMapping("/${methodLabel.name}")
-    @ApiOperation(value = "${methodLabel.comment}")
-    ${methodLabel.modifier} ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel}) {
-
-        return null;
-    }
-
-
-#end
+public class ${AggregationName} {
 
 
 }

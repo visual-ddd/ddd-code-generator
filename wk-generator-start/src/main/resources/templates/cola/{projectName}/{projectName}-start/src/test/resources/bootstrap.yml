@@ -25,7 +25,7 @@ spring:
   #          - data-id: common-redis.yml
             - data-id: common-mq.yml
 #            - data-id: common-mq-topic.yml
-  #          - data-id: common-com.wake.generator.application.handler.domain-event.yml
+  #          - data-id: common-domain-event.yml
             - data-id: common-mysql.yml
             - data-id: wk-cola-scaffold.yml
 

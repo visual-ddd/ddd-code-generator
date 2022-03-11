@@ -1,25 +1,15 @@
-#parse("package.vm")
-#sayHello("hello")
-
-package ${classLabel.packagePath};
+#parse("../AggregationLabel.vm")
+package ${AggregationpackagePath};
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-#import()
+#importPackage($AggregationImportPackages)
 
-
-/**
- * ${classLabel.description}
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
- */
+#comment($AggregationDescription)
 @Data
-@ApiModel("${classLabel.description}")
 @TableName()
-public class ${classLabel.name} {
+public class ${AggregationName} {
 
-    private static final long serialVersionUID = 1L;
-
-    #field()
+    #filed($AggregationFields)
 
 }

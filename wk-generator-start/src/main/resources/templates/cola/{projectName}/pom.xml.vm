@@ -26,7 +26,7 @@
       <!--COLA Components-->
       <dependency>
         <groupId>com.alibaba.cola</groupId>
-        <artifactId>cola-component-com.wake.generator.domain-starter</artifactId>
+        <artifactId>cola-component-domain-starter</artifactId>
         <version>${cola.components.version}</version>
             </dependency>
       <dependency>
@@ -64,7 +64,7 @@
       </dependency>
       <dependency>
         <groupId>${globalLabel.group}</groupId>
-        <artifactId>${globalLabel.projectName}-com.wake.generator.domain</artifactId>
+        <artifactId>${globalLabel.projectName}-domain</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -184,7 +184,7 @@
     <module>${globalLabel.projectName}-adapter</module>
     <module>${globalLabel.projectName}-app</module>
     <module>${globalLabel.projectName}-client</module>
-    <module>${globalLabel.projectName}-com.wake.generator.domain</module>
+    <module>${globalLabel.projectName}-domain</module>
     <module>${globalLabel.projectName}-infrastructure</module>
     <module>${globalLabel.projectName}-start</module>
   </modules>

@@ -4,5 +4,12 @@ package $AggregationpackagePath;
 #comment("聚合存储接口")
 public interface ${AggregationName}Repository {
 
+    Long create${AggregationName}(${AggregationName} aggregation);
+
+    void update${AggregationName}(${AggregationName} aggregation);
+
+    void delete${AggregationName}(Long id);
+
+    List<${AggregationName}> select${AggregationName}();
 
 }

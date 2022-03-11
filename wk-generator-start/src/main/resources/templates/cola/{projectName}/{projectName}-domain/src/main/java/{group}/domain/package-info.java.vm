@@ -2,4 +2,4 @@
  * @author ${globalLabel.author}
  * @date ${globalLabel.dateTime}
  */
-package ${globalLabel.group}.com.wake.generator.application.handler.domain;
+package ${globalLabel.group}.domain;

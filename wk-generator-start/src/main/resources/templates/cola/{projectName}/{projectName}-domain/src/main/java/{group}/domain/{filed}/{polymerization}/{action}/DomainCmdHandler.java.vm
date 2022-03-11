@@ -1,30 +1,20 @@
-package ${classLabel.packagePath};
+#parse("../../../../../../../../../../../CmdLabel.vm")
+package $CmdpackagePath;
 
+#importPackage($CmdImportPackages)
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-#foreach($importPackage in $classLabel.importPackages)
-import ${importPackage};
-#end
-
-/**
- * ${classLabel.description}
- *
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
- */
+#comment($CmdDescription)
 @Component
-public class ${classLabel.name} {
-
-#foreach ($methodLabel in $methodLabels)
+public class ${CmdName}Handler {
 
     @Transactional(rollbackFor = Exception.class)
-    ${methodLabel.modifier} ${methodLabel.returnType} ${methodLabel.name}(${methodLabel.attributeLabel}) {
+    public void handle(${CmdName}Handler cmd){
 
 
-        return null;
-        }
+    }
 
-#end
+
 
 }

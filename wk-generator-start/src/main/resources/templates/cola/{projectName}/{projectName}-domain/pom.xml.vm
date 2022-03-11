@@ -8,15 +8,15 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${globalLabel.projectName}-com.wake.generator.domain</artifactId>
+  <artifactId>${globalLabel.projectName}-domain</artifactId>
   <packaging>jar</packaging>
-  <name>${globalLabel.projectName}-com.wake.generator.application.handler.domain</name>
+  <name>${globalLabel.projectName}-domain</name>
 
   <dependencies>
     <!-- COLA components -->
     <dependency>
       <groupId>com.alibaba.cola</groupId>
-      <artifactId>cola-component-com.wake.generator.domain-starter</artifactId>
+      <artifactId>cola-component-domain-starter</artifactId>
     </dependency>
     <dependency>
       <groupId>com.alibaba.cola</groupId>

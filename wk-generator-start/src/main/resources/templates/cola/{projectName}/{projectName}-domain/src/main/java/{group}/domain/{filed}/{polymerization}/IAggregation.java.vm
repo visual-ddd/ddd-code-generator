@@ -4,6 +4,6 @@ package $AggregationpackagePath
 #comment("${AggregationName}聚合接口;")
 public interface I${AggregationName} {
 
-#method($AggregationMethods)
+#interfaceMethod($AggregationMethods)
 
 }

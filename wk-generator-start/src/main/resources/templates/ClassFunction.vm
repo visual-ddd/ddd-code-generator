@@ -1,25 +1,26 @@
 ## import
-#macro(importPackage $importPackages) {
-    #foreach ($importPackage in $importPackages)
-    import ${importPackage};
-    #end
+#macro(importPackage $importPackages)
+#foreach ($importPackage in $importPackages)
+import ${importPackage};
+#end
 #end
 ## 描述
 #macro(comment $description)
 /**
-* $description
-*
-* @author ${globalLabel.author}
-* @date ${globalLabel.dateTime}
-*/
+ * $description
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
 #end
 ## 字段属性列表
 #macro(filed $filedList)
     #foreach ($field in $filedList)
-
+    #if($field.comment)
     /**
     * ${field.comment}
     */
+    #end
     ${field.modifier} ${field.type} ${field.name};
     #end
 #end
@@ -27,9 +28,26 @@
 #macro(method $methodList)
     #foreach ($method in $methodList)
 
+    #if($method.comment)
     /**
      * ${method.comment}
      */
+    #end
+    ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}){
+     // Do Something
+     #if($method.returnType != "void")
+     return null;
+     #end
+    }
+    #end
+#end
+## 接口方法列表
+#macro(interfaceMethod)
+    #foreach ($method in $methodList)
+
+    /**
+    * ${method.comment}
+    */
     ${method.returnType} ${method.name}(${method.attributeLabel});
 
     #end

@@ -1,7 +1,9 @@
-#parse("cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{filed}/{polymerization}/AggregationLabel.vm")
-package $AggregationpackagePath;
+#parse("AggregationLabel.vm")package $AggregationpackagePath;
 
 #importPackage($AggregationImportPackages)
+import com.alibaba.cola.domain.Entity;
+import lombok.Data;
+
 #comment($AggregationDescription)
 @Data
 @Entity

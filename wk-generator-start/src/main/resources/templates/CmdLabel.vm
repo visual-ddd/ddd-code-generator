@@ -1,0 +1,8 @@
+#parse("ClassFunction.vm")
+## 指令元素提供的数据
+#set($CmdpackagePath = ${classLabel.packagePath})
+#set($CmdImportPackages = ${classLabel.importClassSet})
+#set($CmdName = ${classLabel.name})
+#set($CmdDescription = ${classLabel.description})
+#set($CmdFields = ${classLabel.fieldLabelList})
+#set($CmdMethods = ${classLabel.methodLabelList})

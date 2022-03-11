@@ -15,7 +15,7 @@
 
     <dependency>
       <groupId>${globalLabel.group}</groupId>
-      <artifactId>${globalLabel.projectName}-com.wake.generator.domain</artifactId>
+      <artifactId>${globalLabel.projectName}-domain</artifactId>
     </dependency>
     <dependency>
       <groupId>${globalLabel.group}</groupId>

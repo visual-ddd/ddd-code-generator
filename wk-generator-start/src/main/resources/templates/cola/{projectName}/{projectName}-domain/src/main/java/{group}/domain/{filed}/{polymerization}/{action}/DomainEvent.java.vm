@@ -1,28 +1,18 @@
-package ${classLabel.packagePath};
+#parse("../../../../../../../../../../../Event.vm")
+package ${EventpackagePath};
 
+#importPackage($AggregationImportPackages)
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-/**
- * ${classLabel.description}
- *
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
- */
+#comment($EventDescription)
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-public class ${classLabel.name}  {
-#foreach ($fieldLabel in $fieldLabels)
+public class ${EventName}  {
 
-        /**
-         * ${fieldLabel.comment}
-         */
-    ${fieldLabel.modifier} ${fieldLabel.type} ${fieldLabel.name};
-#end
-
-    public ${classLabel.name}(Long id, Object cmd) {
-
-    }
+    #filed($EventFields)
 
     @Override
     public String eventCode() {

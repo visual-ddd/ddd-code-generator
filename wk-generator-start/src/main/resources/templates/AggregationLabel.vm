@@ -4,5 +4,7 @@
 #set($AggregationImportPackages = ${classLabel.importClassSet})
 #set($AggregationName = ${classLabel.name})
 #set($AggregationDescription = ${classLabel.description})
-#set($AggregationFields = ${classLabel.fieldLabelList})
-#set($AggregationMethods = ${classLabel.methodLabelList})
+#set($AggregationFields = ${classLabel.fieldList})
+#set($AggregationMethods = ${classLabel.methodList})
+#set($AggregationLowName = ${AggregationName.substirng(0,1).toLowerCase()} + ${AggregationName.substring(1)})
+
