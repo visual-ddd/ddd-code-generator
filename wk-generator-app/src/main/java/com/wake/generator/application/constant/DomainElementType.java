@@ -14,40 +14,47 @@ import lombok.Getter;
  */
 @Getter
 public enum DomainElementType {
-
     /**
      * 聚合
      */
     AGGREGATION("Aggregation", new String[]{
-            "{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\Aggregation.java.vm",
-            "{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\AggregationFactory.java.vm",
-            "{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\AggregationRepository.java.vm",
-            "{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\IAggregation.java.vm",
-            "{projectName}\\{projectName}-adapter\\src\\main\\java\\{group}\\adapter\\{classLowName}\\DomainController.java.vm",
-            "{projectName}\\{projectName}-infrastructure\\src\\main\\java\\{group}\\infrastructure\\{classLowName}\\repository\\mapper\\DomainMapper.java.vm",
-            "{projectName}\\{projectName}-infrastructure\\src\\main\\java\\{group}\\infrastructure\\{classLowName}\\repository\\model\\DomainDO.java.vm",
-            "{projectName}\\{projectName}-infrastructure\\src\\main\\java\\{group}\\infrastructure\\{classLowName}\\repository\\DomainRepositoryImpl.java.vm"}),
+        // domain
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\Aggregation.java.vm",
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\AggregationFactory.java.vm",
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\AggregationRepository.java.vm",
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\IAggregation.java.vm",
+        // controller
+        "cola\\{projectName}\\{projectName}-adapter\\src\\main\\java\\{group}\\adapter\\{field}\\{polymerization}\\AggregationController.java.vm",
+        // repository
+        "cola\\{projectName}\\{projectName}-infrastructure\\src\\main\\java\\{group}\\infrastructure\\{field}\\{polymerization}\\repository\\mapper\\AggregationMapper.java.vm",
+        "cola\\{projectName}\\{projectName}-infrastructure\\src\\main\\java\\{group}\\infrastructure\\{field}\\{polymerization}\\repository\\model\\AggregationDO.java.vm",
+        "cola\\{projectName}\\{projectName}-infrastructure\\src\\main\\java\\{group}\\infrastructure\\{field}\\{polymerization}\\repository\\AggregationRepositoryImpl.java.vm"}),
 
     /**
      * 值对象
      */
     VALUE_OBJECT("ValueObject", new String[]{
-            "templates\\cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\ValueObject.java.vm"}),
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\ValueObject.java.vm"}),
 
     /**
      * 指令
      */
     COMMAND("Command", new String[]{
-            "templates\\cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\{action}\\DomainCmd.java.vm",
-            "templates\\cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\{action}\\DomainCmdHandler.java.vm"
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationCmd.java.vm",
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationCmdHandler.java.vm"
     }),
 
     /**
      * 事件
      */
     EVENT("Event", new String[]{
-            "templates\\cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\{action}\\DomainEvent.java.vm"
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationEvent.java.vm"
     }),
+
+    /**
+     * 规则
+     */
+    RULE("Rule", null),
     ;
 
     private final String name;

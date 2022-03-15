@@ -2,13 +2,15 @@ package com.wakedata.generator.codegenerator;
 
 import com.wake.generator.application.CodeGenerateServiceImpl;
 import com.wake.generator.application.constant.DomainElementType;
-import com.wake.generator.application.domain.DomainElement;
-import com.wake.generator.application.domain.Field;
-import com.wake.generator.application.domain.Global;
-import com.wake.generator.application.domain.Method;
-import com.wake.generator.application.domain.Project;
+import com.wake.generator.application.entity.ProjectChart;
+import com.wake.generator.application.entity.DomainElement;
+import com.wake.generator.application.entity.Field;
+import com.wake.generator.application.entity.Global;
+import com.wake.generator.application.entity.Method;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import org.junit.Test;
 
@@ -18,37 +20,52 @@ public class CodeGenerateServiceTest {
 
     @Test
     public void execute() {
-        Project project = new Project();
+        ProjectChart project = new ProjectChart();
 
-        DomainElement DomainElement = new DomainElement();
-        DomainElement.setName("DemoClass");
-        DomainElement.setOutputDir("{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{filed}\\{polymerization}\\");
+        Global global = new Global();
+        global.setAuthor("shimmer");
+        global.setProjectName("cola-project");
+        global.setDateTime(LocalDate.now().toString());
+        global.setGroup("com.szy");
+        global.setFiled("SpellGroup");
+        project.setGlobal(global);
 
+        // 聚合元素
+        DomainElement aggregation = new DomainElement();
+        aggregation.setName("DemoClass");
+        aggregation.setDescription("演示代码生成");
+        aggregation.setElementType(DomainElementType.AGGREGATION);
+
+        // 字段
         Field field = new Field();
         field.setName("name");
         field.setType("List<String>");
         field.setModifier("private");
         field.setDescription("类名称");
 
+        // 方法
         Method method = new Method();
         method.setName("execute");
         method.setModifier("public static");
         method.setReturnType("Set<List<Integer>>");
-        method.setAttributeLabel("LabelDTO labelDTO, Collection<Set<List<Integer>>> double");
+        method.setAttributeLabel("LabelDTO labelDTO, Collection<Set<List<Integer>>> test");
         method.setDescription("执行代码生成");
 
+        aggregation.setFieldList(Collections.singletonList(field));
+        aggregation.setMethodList(Collections.singletonList(method));
 
-        DomainElement.setFieldList(Collections.singletonList(field));
-        DomainElement.setMethodList(Collections.singletonList(method));
-        DomainElement.setElementType(DomainElementType.AGGREGATION);
-        DomainElement.setDescription("演示代码生成");
-        project.setDomainElementList(Collections.singletonList(DomainElement));
+        // cmd元素
+        DomainElement cmd = new DomainElement();
+        cmd.setName("Activity");
+        cmd.setDescription("Cmd");
+        cmd.setElementType(DomainElementType.COMMAND);
+        // 指定聚合下
+        cmd.setParentAggregation(aggregation);
 
-        Global globalDTO = new Global();
-        globalDTO.setAuthor("shimmer");
-        globalDTO.setDateTime(LocalDate.now().toString());
-        globalDTO.setGroup("com.szy");
-        project.setGlobal(globalDTO);
+        List<DomainElement> domainElements = new ArrayList<>();
+        domainElements.add(aggregation);
+        domainElements.add(cmd);
+        project.setDomainElementList(domainElements);
 
         codeGenerateService.generateCode(project);
     }

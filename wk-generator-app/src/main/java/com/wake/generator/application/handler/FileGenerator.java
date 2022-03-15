@@ -40,7 +40,7 @@ class FileGenerator {
             Template tpl;
             try {
                 // 获取模板(初始化templatePreUrl + templateUrl)
-                tpl = Velocity.getTemplate(templateUrl, "UTF-8");
+                tpl = Velocity. getTemplate(templateUrl, "UTF-8");
             } catch (ResourceNotFoundException | ParseErrorException e) {
                 e.printStackTrace();
                 return fileNames;

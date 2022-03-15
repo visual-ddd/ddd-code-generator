@@ -1,0 +1,17 @@
+#parse("CmdLabel.vm")
+package $CmdpackagePath;
+
+#importPackage($CmdImportPackages)
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+#comment($CmdDescription)
+@Component
+public class ${CmdName}Handler {
+
+    @Transactional(rollbackFor = Exception.class)
+    public void handle(${CmdName}Handler cmd){
+
+    }
+
+}

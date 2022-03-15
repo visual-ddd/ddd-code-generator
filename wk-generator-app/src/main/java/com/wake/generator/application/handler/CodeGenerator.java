@@ -1,16 +1,21 @@
 package com.wake.generator.application.handler;
 
-import com.wake.generator.application.domain.DomainElement;
-import com.wake.generator.application.domain.Project;
+import com.wake.generator.application.constant.DomainElementType;
 import com.wake.generator.application.constant.TemplateConstant;
+import com.wake.generator.application.entity.DomainElement;
+import com.wake.generator.application.entity.Global;
+import com.wake.generator.application.entity.ModelFile;
+import com.wake.generator.application.entity.ProjectChart;
 import java.io.File;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.velocity.VelocityContext;
@@ -38,29 +43,25 @@ public class CodeGenerator {
      * 根据 data 中提供的标签 和 读取的模板文件 生成代码，支持多个模板输出
      * </p>
      */
-    public void codeGenerate(Project project) {
-
-        // 加载配置文件标签
-        Map<String, Object> tags = new HashMap<>();
+    public void codeGenerate(ProjectChart project) {
+        // 创建模板文件并解析输出路径
+        this.parserModelFiles(project);
 
         // 初始化标签上下文
-        VelocityContext velocityContext = initTemplateContext(tags);
+        VelocityContext velocityContext = initTemplateContext(new HashMap<>(0));
 
         // 填充全局配置标签
         velocityContext.put("globalLabel", project.getGlobal());
 
         List<DomainElement> domainElementList = project.getDomainElementList();
-        // 初始化
-        initClassDTOList(domainElementList);
-        for (DomainElement domainElement : domainElementList) {
+        for (DomainElement element : domainElementList) {
             // 设置标签
-            velocityContext.put("classLabel", domainElement);
-            velocityContext.put("fieldLabels", domainElement.getFieldList());
-            velocityContext.put("methodLabels", domainElement.getMethodList());
-
+            velocityContext.put("classLabel", element);
+            velocityContext.put("fieldLabels", element.getFieldList());
+            velocityContext.put("methodLabels", element.getMethodList());
             // 文件结构及代码生成
             FileGenerator fileGenerator = new FileGenerator();
-            List<String> files = fileGenerator.run(velocityContext, domainElement.getTemplateMap());
+            List<String> files = fileGenerator.run(velocityContext, element.getModelMap());
             fileList.addAll(files);
         }
     }
@@ -78,23 +79,83 @@ public class CodeGenerator {
         Velocity.init(prop);
 
         // 初始化配置
-        //templateMap.put("globalLabel", new GlobalDTO());
         templateMap.put("datetime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         return new VelocityContext(templateMap);
     }
 
+
     /**
-     * 初始化类列表
+     * 解析模板文件
      *
-     * @param DomainElementList 需要生成的类列表
+     * @param projectChart 项目信息
      */
-    private void initClassDTOList(List<DomainElement> DomainElementList) {
-        for (DomainElement DomainElement : DomainElementList) {
-            String fullPath = DomainElement.getOutputDir();
-            DomainElement.setPackagePath(ClassPackagePathParser.getPackagePath(fullPath));
+    private void parserModelFiles(ProjectChart projectChart) {
+        List<DomainElement> domainElements = projectChart.getDomainElementList();
+        for (DomainElement domainElement : domainElements) {
+            List<ModelFile> modelFiles = domainElement.getModelFiles();
+            // 根据元素类型获取对应的模板集合
+            List<String> templateUrls = new ArrayList<>(
+                Arrays.asList(domainElement.getElementType().getTemplateUrlSet()));
+            for (String templateUrl : templateUrls) {
+                ModelFile modelFile = new ModelFile();
+                modelFile.setTemplateUrl(templateUrl);
+                // 解析输出路径
+                String outputPath;
+                DomainElement parentAggregation = domainElement.getParentAggregation();
+                if (Objects.isNull(parentAggregation)) {
+                    outputPath = parserAggregationPath(projectChart.getGlobal(), domainElement.getName(), templateUrl);
+                } else {
+                    outputPath = parserActionPath(projectChart.getGlobal(), parentAggregation.getName(),
+                        domainElement.getName(), templateUrl);
+                }
+                modelFile.setOutputUrl(outputPath);
+                modelFiles.add(modelFile);
+            }
         }
-        ClassImportParser classImportParser = new ClassImportParser();
-        classImportParser.run(DomainElementList);
+    }
+
+    /**
+     * 解析聚合路径
+     *
+     * @param templateUrl 模板路径
+     * @return 解析后的聚合路径
+     */
+    private String parserProjectPath(Global global, String templateUrl) {
+        return templateUrl
+            // 项目
+            .replace("{projectName}", global.getProjectName())
+            // 分组
+            .replace("{group}", global.getGroup().replace(".", "\\"))
+            // 领域
+            .replace("{field}", global.getFiled())
+            .replace("vm", "");
+    }
+
+    /**
+     * 解析聚合路径
+     *
+     * @param aggregationName 聚合名称
+     * @param templateUrl     模板路径
+     * @return 解析后的聚合路径
+     */
+    private String parserAggregationPath(Global global, String aggregationName, String templateUrl) {
+        return parserProjectPath(global, templateUrl)
+            // 聚合
+            .replace("{polymerization}", aggregationName)
+            .replace(DomainElementType.AGGREGATION.getName(), aggregationName);
+    }
+
+    /**
+     * 解析action路径
+     *
+     * @param aggregationName 聚合名称
+     * @param actionName      action包名
+     * @param templateUrl     模板路径
+     * @return 解析后的action路径
+     */
+    private String parserActionPath(Global global, String aggregationName, String actionName, String templateUrl) {
+        return parserAggregationPath(global, aggregationName, templateUrl)
+            .replace("{action}", actionName);
     }
 
     /**

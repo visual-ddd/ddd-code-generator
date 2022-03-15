@@ -1,9 +1,9 @@
 package com.wake.generator.application;
 
+import com.wake.generator.application.entity.ProjectChart;
 import com.wake.generator.application.handler.CodeGenerator;
 import com.wake.generator.application.util.TemplateUtil;
 import com.wake.generator.client.CodeGenerateService;
-import com.wake.generator.application.domain.Project;
 import java.util.Set;
 
 /**
@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class CodeGenerateServiceImpl implements CodeGenerateService {
 
-    public void generateCode(Project project) {
+    public void generateCode(ProjectChart project) {
         CodeGenerator codeGenerator = new CodeGenerator();
         // 执行代码生成
         codeGenerator.codeGenerate(project);

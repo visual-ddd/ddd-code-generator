@@ -1,0 +1,21 @@
+package ${globalLabel.group}.start;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * ${globalLabel.projectName}启动类
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+@SpringBootApplication(scanBasePackages = {"${globalLabel.group}", "com.alibaba.cola"})
+@MapperScan("")
+public class StartApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
+}

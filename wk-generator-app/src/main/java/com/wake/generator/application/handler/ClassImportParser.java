@@ -1,8 +1,8 @@
 package com.wake.generator.application.handler;
 
-import com.wake.generator.application.domain.DomainElement;
-import com.wake.generator.application.domain.Field;
-import com.wake.generator.application.domain.Method;
+import com.wake.generator.application.entity.DomainElement;
+import com.wake.generator.application.entity.Field;
+import com.wake.generator.application.entity.Method;
 import com.wake.generator.application.util.PropertiesConfig;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -45,10 +45,10 @@ public class ClassImportParser {
      * @param DomainElementList 需要解析的类列表
      */
     public void run(List<DomainElement> DomainElementList) {
-        this.initClassTypeMap(DomainElementList);
-        for (DomainElement DomainElement : DomainElementList) {
-            DomainElement.setImportClassSet(this.parseImportClass(classTypeMap, DomainElement));
-        }
+        //this.initClassTypeMap(DomainElementList);
+        //for (DomainElement DomainElement : DomainElementList) {
+        //    DomainElement.setImportClassSet(this.parseImportClass(classTypeMap, DomainElement));
+        //}
     }
 
     /**
@@ -64,7 +64,7 @@ public class ClassImportParser {
             classTypeMap.put(entry.getKey(), (String) entry.getValue());
         }
         // 获取环境中可供使用的类型
-        DomainElementList.forEach(DomainElement -> classTypeMap.put(DomainElement.getName(), DomainElement.getPackagePath()));
+        //DomainElementList.forEach(DomainElement -> classTypeMap.put(DomainElement.getName(), DomainElement.getPackagePath()));
     }
 
     /**
