@@ -1,8 +1,0 @@
-#parse("ClassFunction.vm")
-## 指令元素提供的数据
-#set($EventpackagePath = ${classLabel.packagePath})
-#set($EventImportPackages = ${classLabel.importClassSet})
-#set($EventName = ${classLabel.name})
-#set($EventDescription = ${classLabel.description})
-#set($EventFields = ${classLabel.fieldLabelList})
-#set($EventMethods = ${classLabel.methodLabelList})

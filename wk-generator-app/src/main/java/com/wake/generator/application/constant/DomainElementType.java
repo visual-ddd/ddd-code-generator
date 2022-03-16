@@ -40,15 +40,15 @@ public enum DomainElementType {
      * 指令
      */
     COMMAND("Command", new String[]{
-        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationCmd.java.vm",
-        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationCmdHandler.java.vm"
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationActionCmd.java.vm",
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationActionCmdHandler.java.vm"
     }),
 
     /**
      * 事件
      */
     EVENT("Event", new String[]{
-        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationEvent.java.vm"
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationActionEvent.java.vm"
     }),
 
     /**

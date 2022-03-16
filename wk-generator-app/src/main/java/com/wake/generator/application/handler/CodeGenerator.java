@@ -102,11 +102,23 @@ public class CodeGenerator {
                 // 解析输出路径
                 String outputPath;
                 DomainElement parentAggregation = domainElement.getParentAggregation();
-                if (Objects.isNull(parentAggregation)) {
-                    outputPath = parserAggregationPath(projectChart.getGlobal(), domainElement.getName(), templateUrl);
-                } else {
-                    outputPath = parserActionPath(projectChart.getGlobal(), parentAggregation.getName(),
-                        domainElement.getName(), templateUrl);
+                DomainElementType elementType = domainElement.getElementType();
+                switch (elementType) {
+                    case AGGREGATION:
+                        outputPath = parserAggregationPath(projectChart.getGlobal(), domainElement.getName(),
+                            templateUrl);
+                        break;
+                    case VALUE_OBJECT:
+                        outputPath = parserAggregationPath(projectChart.getGlobal(), parentAggregation.getName(),
+                            templateUrl);
+                        break;
+                    case COMMAND:
+                    case EVENT:
+                        outputPath = parserActionPath(projectChart.getGlobal(), parentAggregation.getName(),
+                            domainElement.getActionName(), templateUrl);
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + elementType);
                 }
                 modelFile.setOutputUrl(outputPath);
                 modelFiles.add(modelFile);
@@ -154,6 +166,7 @@ public class CodeGenerator {
      * @return 解析后的action路径
      */
     private String parserActionPath(Global global, String aggregationName, String actionName, String templateUrl) {
+        Objects.requireNonNull(actionName);
         return parserAggregationPath(global, aggregationName, templateUrl)
             .replace("{action}", actionName);
     }

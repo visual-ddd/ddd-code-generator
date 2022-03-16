@@ -6,5 +6,5 @@ cola\cola-project\cola-project-adapter\src\main\java\com\szy\adapter\SpellGroup\
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\DemoClass.java.
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\DemoClassFactory.java.
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\DemoClassRepository.java.
-cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\Activity\DemoClassCmd.java.
-cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\Activity\DemoClassCmdHandler.java.
+cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\create\DemoClassActionCmdHandler.java.
+cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\create\DemoClassActionCmd.java.

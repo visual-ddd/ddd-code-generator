@@ -1,7 +1,0 @@
-#parse("ClassFunction.vm")
-## valueObject
-#set($ValueObjectPath = ${classLabel.packagePath})
-#set($ValueObjectImportPackages = ${classLabel.importClassSet})
-#set($ValueObjectName = ${classLabel.name})
-#set($ValueObjectDescription = ${classLabel.description})
-#set($ValueObjectFields = ${classLabel.fieldLabelList})

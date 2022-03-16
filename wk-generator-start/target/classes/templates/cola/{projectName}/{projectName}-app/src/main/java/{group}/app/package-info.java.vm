@@ -1,5 +1,0 @@
-/**
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
- */
-package ${globalLabel.group}.app;

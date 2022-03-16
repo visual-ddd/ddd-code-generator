@@ -57,6 +57,7 @@ public class CodeGenerateServiceTest {
         // cmd元素
         DomainElement cmd = new DomainElement();
         cmd.setName("Activity");
+        cmd.setActionName("create");
         cmd.setDescription("Cmd");
         cmd.setElementType(DomainElementType.COMMAND);
         // 指定聚合下
