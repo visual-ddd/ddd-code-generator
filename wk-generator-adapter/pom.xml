@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-
+  <description>代码生成器适配器层，对web提供服务接口</description>
   <artifactId>wk-generator-adapter</artifactId>
 
   <properties>

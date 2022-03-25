@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-
+  <description>代码生成器应用层，实现具体的生成功能。</description>
   <artifactId>wk-generator-app</artifactId>
 
   <properties>
