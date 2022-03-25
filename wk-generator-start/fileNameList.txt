@@ -1,6 +1,5 @@
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\create\DemoClassActionCmdHandler.java.
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\create\DemoClassActionCmd.java.
-cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\create\DemoClassActionEvent.java.
 cola\cola-project\cola-project-infrastructure\src\main\java\com\szy\infrastructure\SpellGroup\DemoClass\repository\DemoClassRepositoryImpl.java.
 cola\cola-project\cola-project-infrastructure\src\main\java\com\szy\infrastructure\SpellGroup\DemoClass\repository\mapper\DemoClassMapper.java.
 cola\cola-project\cola-project-infrastructure\src\main\java\com\szy\infrastructure\SpellGroup\DemoClass\repository\model\DemoClassDO.java.
@@ -9,3 +8,4 @@ cola\cola-project\cola-project-adapter\src\main\java\com\szy\adapter\SpellGroup\
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\DemoClass.java.
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\DemoClassFactory.java.
 cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\DemoClassRepository.java.
+cola\cola-project\cola-project-domain\src\main\java\com\szy\domain\SpellGroup\DemoClass\create\DemoClassActionEvent.java.

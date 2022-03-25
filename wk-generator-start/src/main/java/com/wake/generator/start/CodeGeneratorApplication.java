@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 代码生成器启动类
  *
  * @author ZhuXueLiang
- * @date 2022/3/25 11:52
+ * @date 2022/3/25 14:33
  * @since 1.0
  */
 @SpringBootApplication(scanBasePackages = {"com.wake.generator.*"})
