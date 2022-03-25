@@ -1,17 +1,19 @@
-#parse("Event.vm")
-package ${EventPackagePath};
+package com.szy.domain.SpellGroup.DemoClass.DemoClassCreateEvent;
 
-#importPackage($AggregationImportPackages)
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-#comment($EventDescription)
+/**
+ * 事件类
+ *
+ * @author shimmer
+ * @date 2022-03-25
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-public class ${EventName}  {
-    #filed($EventFields)
+public class DemoClassCreateEvent  {
 
     @Override
     public String eventCode() {

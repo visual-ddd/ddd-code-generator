@@ -1,4 +1,4 @@
-package com.szy.domain.SpellGroup.DemoClass.Activity;
+package com.szy.domain.SpellGroup.DemoClass.DemoClassCreateCmd;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,13 +7,13 @@ import org.springframework.transaction.annotation.Transactional;
  * Cmd
  *
  * @author shimmer
- * @date 2022-03-16
+ * @date 2022-03-25
  */
 @Component
-public class ActivityHandler {
+public class DemoClassCreateCmdHandler {
 
     @Transactional(rollbackFor = Exception.class)
-    public void handle(ActivityHandler cmd){
+    public void handle(DemoClassCreateCmdHandler cmd){
 
     }
 

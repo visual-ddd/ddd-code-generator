@@ -16,6 +16,7 @@ import ${importPackage};
 ## 字段属性列表
 #macro(filed $filedList)
     #foreach ($field in $filedList)
+
     #if($field.comment)
     /**
     * ${field.comment}

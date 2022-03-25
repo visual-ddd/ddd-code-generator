@@ -39,12 +39,6 @@
       <artifactId>commons-io</artifactId>
     </dependency>
 
-    <!-- mapstruct对象映射 -->
-    <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct</artifactId>
-    </dependency>
-
     <!-- 读取配置文件 -->
     <dependency>
       <groupId>commons-configuration</groupId>

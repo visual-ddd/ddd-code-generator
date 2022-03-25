@@ -1,5 +1,5 @@
 #parse("CmdLabel.vm")
-package $CmdpackagePath;
+package $CmdPackagePath;
 
 #importPackage($CmdImportPackages)
 import org.springframework.stereotype.Component;

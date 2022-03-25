@@ -1,17 +1,15 @@
 package com.wakedata.generator.codegenerator;
 
-import com.wake.generator.application.CodeGenerateServiceImpl;
-import com.wake.generator.application.constant.DomainElementType;
-import com.wake.generator.application.entity.ProjectChart;
-import com.wake.generator.application.entity.DomainElement;
-import com.wake.generator.application.entity.Field;
-import com.wake.generator.application.entity.Global;
-import com.wake.generator.application.entity.Method;
+import com.wake.generator.application.cola.api.CodeGenerateServiceImpl;
+import com.wake.generator.client.cola.dto.DomainShapeDto;
+import com.wake.generator.client.cola.dto.FieldDto;
+import com.wake.generator.client.cola.dto.GlobalDto;
+import com.wake.generator.client.cola.dto.MethodDto;
+import com.wake.generator.client.cola.dto.ProjectChartDto;
+import com.wake.generator.client.common.DomainShapeEnum;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import org.assertj.core.util.Sets;
 import org.junit.Test;
 
 public class CodeGenerateServiceTest {
@@ -20,9 +18,9 @@ public class CodeGenerateServiceTest {
 
     @Test
     public void execute() {
-        ProjectChart project = new ProjectChart();
+        ProjectChartDto project = new ProjectChartDto();
 
-        Global global = new Global();
+        GlobalDto global = new GlobalDto();
         global.setAuthor("shimmer");
         global.setProjectName("cola-project");
         global.setDateTime(LocalDate.now().toString());
@@ -31,20 +29,20 @@ public class CodeGenerateServiceTest {
         project.setGlobal(global);
 
         // 聚合元素
-        DomainElement aggregation = new DomainElement();
+        DomainShapeDto aggregation = new DomainShapeDto();
         aggregation.setName("DemoClass");
         aggregation.setDescription("演示代码生成");
-        aggregation.setElementType(DomainElementType.AGGREGATION);
+        aggregation.setShapeType(DomainShapeEnum.AGGREGATION);
 
         // 字段
-        Field field = new Field();
+        FieldDto field = new FieldDto();
         field.setName("name");
         field.setType("List<String>");
         field.setModifier("private");
         field.setDescription("类名称");
 
         // 方法
-        Method method = new Method();
+        MethodDto method = new MethodDto();
         method.setName("execute");
         method.setModifier("public static");
         method.setReturnType("Set<List<Integer>>");
@@ -55,27 +53,20 @@ public class CodeGenerateServiceTest {
         aggregation.setMethodList(Collections.singletonList(method));
 
         // cmd元素
-        DomainElement cmd = new DomainElement();
-        cmd.setName("Activity");
+        DomainShapeDto cmd = new DomainShapeDto();
         cmd.setActionName("create");
         cmd.setDescription("Cmd");
-        cmd.setElementType(DomainElementType.COMMAND);
-        // 指定聚合下
+        cmd.setShapeType(DomainShapeEnum.COMMAND);
         cmd.setParentAggregation(aggregation);
+        // event元素
+        DomainShapeDto event = new DomainShapeDto();
+        event.setActionName("create");
+        event.setDescription("事件类");
+        event.setShapeType(DomainShapeEnum.EVENT);
+        event.setParentAggregation(aggregation);
 
-        List<DomainElement> domainElements = new ArrayList<>();
-        domainElements.add(aggregation);
-        domainElements.add(cmd);
-        project.setDomainElementList(domainElements);
+        project.setDomainShapeDtoSet(Sets.set(aggregation, cmd, event));
 
         codeGenerateService.generateCode(project);
-    }
-
-    @Test
-    public void getTemplateFullPath() {
-        Set<String> templateFullPath = codeGenerateService.queryTemplateFullPath();
-        for (String s : templateFullPath) {
-            System.out.println(s + "\n");
-        }
     }
 }

@@ -1,8 +1,12 @@
 #parse("ClassFunction.vm")
-## 指令元素提供的数据
-#set($EventpackagePath = ${classLabel.packagePath})
+## 聚合和action
+#set($AggregationName = ${classLabel.parentAggregation.name})
+#set($ActionName = ${classLabel.actionName})
+#set($ActionUpperName = "${ActionName.substring(0, 1).toUpperCase()}${ActionName.substring(1)}")
+## 事件标签
+#set($EventName = "${AggregationName}${ActionUpperName}Event")
+#set($EventPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${classLabel.parentAggregation.name}.${EventName}")
 #set($EventImportPackages = ${classLabel.importClassSet})
-#set($EventName = ${classLabel.name})
 #set($EventDescription = ${classLabel.description})
 #set($EventFields = ${classLabel.fieldLabelList})
 #set($EventMethods = ${classLabel.methodLabelList})
