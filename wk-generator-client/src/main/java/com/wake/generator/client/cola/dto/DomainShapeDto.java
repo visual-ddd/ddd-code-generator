@@ -1,10 +1,11 @@
 package com.wake.generator.client.cola.dto;
 
-import com.wake.generator.client.cola.dto.test.Field;
-import com.wake.generator.client.cola.dto.test.Method;
+import com.wake.generator.client.cola.dto.element.Field;
+import com.wake.generator.client.cola.dto.element.Method;
 import com.wake.generator.client.common.DomainShapeEnum;
-import java.util.List;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * 领域图形DTO

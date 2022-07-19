@@ -35,9 +35,9 @@ import ${importPackage};
      */
     #end
     ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}){
-     // Do Something
-     #if($method.returnType != "void")
-     return null;
+        // Do Something
+        #if($method.returnType != "void")
+        return null;
      #end
     }
     #end

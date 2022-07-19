@@ -2,12 +2,13 @@ package com.wake.generator.application.cola.entity;
 
 
 import com.wake.generator.client.common.DomainShapeEnum;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 图形信息
@@ -24,6 +25,11 @@ public class DomainShape {
      * 名称
      */
     private String name;
+
+    /**
+     * 颜色标识
+     */
+    private String color;
 
     /**
      * 参数列表

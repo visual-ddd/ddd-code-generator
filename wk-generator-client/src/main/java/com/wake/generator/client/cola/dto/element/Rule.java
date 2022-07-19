@@ -1,4 +1,6 @@
-package com.wake.generator.client.cola.dto.test;
+package com.wake.generator.client.cola.dto.element;
+
+import lombok.Data;
 
 /**
  * 规则
@@ -7,6 +9,7 @@ package com.wake.generator.client.cola.dto.test;
  * @date 2022/7/18
  * @since 1.0
  */
+@Data
 public class Rule {
 
     /**
@@ -15,8 +18,8 @@ public class Rule {
     private String description;
 
     /**
-     * 所属聚合
+     * 聚合颜色标识
      */
-    private Aggregation parentAggregation;
+    private String color;
 
 }

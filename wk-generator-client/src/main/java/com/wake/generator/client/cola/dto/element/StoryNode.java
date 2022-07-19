@@ -1,8 +1,7 @@
-package com.wake.generator.client.cola.dto.test;
+package com.wake.generator.client.cola.dto.element;
 
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,12 +27,12 @@ public class StoryNode {
     /**
      * 事件集合
      */
-    private List<Event> events;
+    private List<Domain> events;
 
     /**
      * 指令集合
      */
-    private List<Cmd> cmdList;
+    private List<Domain> cmdList;
 
     /**
      * 规则集合

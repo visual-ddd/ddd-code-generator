@@ -2,9 +2,9 @@ package com.wakedata.generator.codegenerator;
 
 import com.wake.generator.application.cola.api.CodeGenerateServiceImpl;
 import com.wake.generator.client.cola.dto.DomainShapeDto;
-import com.wake.generator.client.cola.dto.test.Field;
+import com.wake.generator.client.cola.dto.element.Field;
 import com.wake.generator.client.cola.dto.GlobalDto;
-import com.wake.generator.client.cola.dto.test.Method;
+import com.wake.generator.client.cola.dto.element.Method;
 import com.wake.generator.client.cola.dto.ProjectChartDto;
 import com.wake.generator.client.common.DomainShapeEnum;
 import java.time.LocalDate;

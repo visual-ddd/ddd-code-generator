@@ -1,29 +1,20 @@
 package com.wake.generator.application.cola.handler;
 
-import com.wake.generator.client.common.DomainShapeEnum;
-import com.wake.generator.client.common.TemplateConfig;
 import com.wake.generator.application.cola.entity.DomainShape;
 import com.wake.generator.application.cola.entity.Global;
 import com.wake.generator.application.cola.entity.ModelFile;
 import com.wake.generator.application.cola.entity.ProjectChart;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Properties;
-import java.util.Set;
-
+import com.wake.generator.client.common.DomainShapeEnum;
+import com.wake.generator.client.common.TemplateConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 实现项目代码的生成
@@ -117,19 +108,19 @@ public class CodeGenerator {
                 String outputPath;
                 DomainShape parentAggregation = domainShape.getParentAggregation();
                 DomainShapeEnum elementType = domainShape.getShapeType();
+                String shapeName = domainShape.getName();
+                Global global = projectChart.getGlobal();
                 switch (elementType) {
                     case AGGREGATION:
-                        outputPath = parserAggregationPath(projectChart.getGlobal(), domainShape.getName(),
-                                templateUrl);
+                        outputPath = parserAggregationPath(global, shapeName, templateUrl);
                         break;
                     case VALUE_OBJECT:
-                        outputPath = parserValueObjectPath(projectChart.getGlobal(), parentAggregation.getName(),
-                                domainShape.getName(), templateUrl);
+                        outputPath = parserValueObjectPath(global, parentAggregation.getName(), shapeName, templateUrl);
                         break;
                     case COMMAND:
                     case EVENT:
-                        outputPath = parserActionPath(projectChart.getGlobal(), parentAggregation.getName(),
-                                domainShape.getName(), domainShape.getActionName(), templateUrl);
+                        outputPath = parserActionPath(global, parentAggregation.getName(), shapeName,
+                                domainShape.getActionName(), templateUrl);
                         break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + elementType);

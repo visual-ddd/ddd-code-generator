@@ -1,7 +1,8 @@
-package com.wake.generator.client.cola.dto.test;
+package com.wake.generator.client.cola.dto.element;
+
+import lombok.Data;
 
 import java.util.List;
-import lombok.Data;
 
 /**
  * 方法信息DTO

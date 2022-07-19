@@ -1,6 +1,6 @@
 package com.wake.generator.application.cola.convert;
 
-import com.wake.generator.client.cola.dto.test.Method;
+import com.wake.generator.client.cola.dto.element.Method;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

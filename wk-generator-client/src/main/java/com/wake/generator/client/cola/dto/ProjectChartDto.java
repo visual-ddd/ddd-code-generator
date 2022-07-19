@@ -1,8 +1,7 @@
 package com.wake.generator.client.cola.dto;
 
-import com.wake.generator.client.cola.dto.test.Aggregation;
-import com.wake.generator.client.cola.dto.test.StoryNode;
-import com.wake.generator.client.cola.dto.test.ValueObject;
+import com.wake.generator.client.cola.dto.element.Domain;
+import com.wake.generator.client.cola.dto.element.StoryNode;
 import lombok.Data;
 
 import java.util.List;
@@ -34,11 +33,6 @@ public class ProjectChartDto {
      */
     private GlobalDto global;
 
-//    /**
-//     * 图形对象集合
-//     */
-//    private Set<DomainShapeDto> domainShapeDtoSet;
-
     /**
      * 故事节点集合
      */
@@ -47,12 +41,12 @@ public class ProjectChartDto {
     /**
      * 聚合集
      */
-    private List<Aggregation> aggregations;
+    private List<Domain> aggregations;
 
     /**
      * 值对象集
      */
-    private List<ValueObject> valueObjects;
+    private List<Domain> valueObjects;
 
     /**
      * Uml图形信息json
