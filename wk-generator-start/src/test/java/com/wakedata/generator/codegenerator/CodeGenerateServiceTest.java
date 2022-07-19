@@ -2,14 +2,14 @@ package com.wakedata.generator.codegenerator;
 
 import com.wake.generator.application.cola.api.CodeGenerateServiceImpl;
 import com.wake.generator.client.cola.dto.DomainShapeDto;
-import com.wake.generator.client.cola.dto.FieldDto;
+import com.wake.generator.client.cola.dto.test.Field;
 import com.wake.generator.client.cola.dto.GlobalDto;
-import com.wake.generator.client.cola.dto.MethodDto;
+import com.wake.generator.client.cola.dto.test.Method;
 import com.wake.generator.client.cola.dto.ProjectChartDto;
 import com.wake.generator.client.common.DomainShapeEnum;
 import java.time.LocalDate;
 import java.util.Collections;
-import org.assertj.core.util.Sets;
+
 import org.junit.Test;
 
 public class CodeGenerateServiceTest {
@@ -30,19 +30,19 @@ public class CodeGenerateServiceTest {
 
         // 聚合元素
         DomainShapeDto aggregation = new DomainShapeDto();
-        aggregation.setName("DemoClass");
-        aggregation.setDescription("演示代码生成");
+        aggregation.setName("Poly");
+        aggregation.setDescription("聚合类");
         aggregation.setShapeType(DomainShapeEnum.AGGREGATION);
 
         // 字段
-        FieldDto field = new FieldDto();
+        Field field = new Field();
         field.setName("name");
         field.setType("List<String>");
         field.setModifier("private");
         field.setDescription("类名称");
 
         // 方法
-        MethodDto method = new MethodDto();
+        Method method = new Method();
         method.setName("execute");
         method.setModifier("public static");
         method.setReturnType("Set<List<Integer>>");
@@ -65,7 +65,7 @@ public class CodeGenerateServiceTest {
         event.setShapeType(DomainShapeEnum.EVENT);
         event.setParentAggregation(aggregation);
 
-        project.setDomainShapeDtoSet(Sets.set(aggregation, cmd, event));
+//        project.setDomainShapeDtoSet(Sets.set(aggregation, cmd, event));
 
         codeGenerateService.generateCode(project);
     }

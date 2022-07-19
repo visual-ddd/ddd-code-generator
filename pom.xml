@@ -41,6 +41,7 @@
 
   <dependencyManagement>
     <dependencies>
+
       <!--Project modules-->
       <dependency>
         <groupId>com.wake.generator</groupId>
@@ -99,6 +100,12 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- springBoot web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
     <!-- mapstruct对象映射 -->
     <dependency>
       <groupId>org.mapstruct</groupId>

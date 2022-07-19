@@ -1,4 +1,4 @@
-package com.wake.generator.client.cola.dto;
+package com.wake.generator.client.cola.dto.test;
 
 import java.util.List;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.Data;
  * @since 1.0
  */
 @Data
-public class FieldDto {
+public class Field {
 
     /**
      * 字段名称

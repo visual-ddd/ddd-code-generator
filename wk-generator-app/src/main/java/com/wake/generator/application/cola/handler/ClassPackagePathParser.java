@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @description: 包路径提取工具
- * @date: 2022/2/24 21:27
- * @author: ZhuXueLiang
+ * @description 包路径提取工具
+ * @date 2022/2/24 21:27
+ * @author ZhuXueLiang
  */
 @Slf4j
 public class ClassPackagePathParser {

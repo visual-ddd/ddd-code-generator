@@ -1,4 +1,4 @@
-#parse("AggregationLabel.vm")
+#parse("Aggregation.vm")
 package ${AggregationpackagePath};
 
 import lombok.extern.slf4j.Slf4j;

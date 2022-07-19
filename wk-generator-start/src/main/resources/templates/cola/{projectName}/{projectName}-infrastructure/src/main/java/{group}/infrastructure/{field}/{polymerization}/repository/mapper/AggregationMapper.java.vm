@@ -1,4 +1,4 @@
-#parse("AggregationLabel.vm")
+#parse("Aggregation.vm")
 package ${AggregationImportPackages};
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

@@ -1,0 +1,17 @@
+#parse("Event.vm")
+package $EventPackagePath;
+
+#importPackage($AggregationImportPackages)
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+#comment($EventDescription)
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+public class ${EventName}  {
+    #filed($EventFields)
+    #method($EventMethods)
+
+}

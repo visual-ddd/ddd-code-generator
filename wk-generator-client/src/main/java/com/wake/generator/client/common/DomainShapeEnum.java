@@ -37,15 +37,15 @@ public enum DomainShapeEnum {
      * 指令
      */
     COMMAND("Command", new String[]{
-        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationActionCmd.java.vm",
-        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationActionCmdHandler.java.vm"
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\Command.java.vm",
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\CommandHandler.java.vm"
     }),
 
     /**
      * 事件
      */
     EVENT("Event", new String[]{
-        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\AggregationActionEvent.java.vm"
+        "cola\\{projectName}\\{projectName}-domain\\src\\main\\java\\{group}\\domain\\{field}\\{polymerization}\\{action}\\Event.java.vm"
     }),
 
     /**

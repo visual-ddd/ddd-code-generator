@@ -1,5 +1,7 @@
 package com.wake.generator.client.cola.dto;
 
+import com.wake.generator.client.cola.dto.test.Field;
+import com.wake.generator.client.cola.dto.test.Method;
 import com.wake.generator.client.common.DomainShapeEnum;
 import java.util.List;
 import lombok.Data;
@@ -8,7 +10,7 @@ import lombok.Data;
  * 领域图形DTO
  *
  * @author ZhuXueLiang
- * @date 2022/3/25 11:36
+ * @date 2022/3/25
  * @since 1.0
  */
 @Data
@@ -36,12 +38,12 @@ public class DomainShapeDto {
     /**
      * 参数列表
      */
-    private List<FieldDto> fieldList;
+    private List<Field> fieldList;
 
     /**
      * 方法列表
      */
-    private List<MethodDto> methodList;
+    private List<Method> methodList;
 
     /**
      * 描述信息

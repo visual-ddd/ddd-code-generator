@@ -1,9 +1,8 @@
-#parse("AggregationLabel.vm")
-package $AggregationpackagePath
+#parse("Aggregation.vm")
+package $AggregationPackagePath
 
 #comment("${AggregationName}聚合接口;")
 public interface I${AggregationName} {
-
-#interfaceMethod($AggregationMethods)
+    #interfaceMethod($AggregationMethods)
 
 }

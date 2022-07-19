@@ -1,5 +1,5 @@
-#parse("AggregationLabel.vm")
-package $AggregationpackagePath;
+#parse("Aggregation.vm")
+package $AggregationPackagePath;
 
 #importPackage($AggregationImportPackages)
 import com.alibaba.cola.domain.Entity;
@@ -9,8 +9,7 @@ import lombok.Data;
 @Data
 @Entity
 public class $AggregationName implements I${AggregationName} {
-
-#filed($AggregationFields)
-#method($AggregationMethods)
+    #filed($AggregationFields)
+    #method($AggregationMethods)
 
 }

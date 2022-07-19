@@ -17,10 +17,10 @@ import ${importPackage};
 #macro(filed $filedList)
     #foreach ($field in $filedList)
 
-    #if($field.comment)
+    #if($field.description)
     /**
-    * ${field.comment}
-    */
+     * ${field.description}
+     */
     #end
     ${field.modifier} ${field.type} ${field.name};
     #end
@@ -29,9 +29,9 @@ import ${importPackage};
 #macro(method $methodList)
     #foreach ($method in $methodList)
 
-    #if($method.comment)
+    #if($method.description)
     /**
-     * ${method.comment}
+     * ${method.description}
      */
     #end
     ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}){
@@ -43,13 +43,14 @@ import ${importPackage};
     #end
 #end
 ## 接口方法列表
-#macro(interfaceMethod)
+#macro(interfaceMethod $methodList)
     #foreach ($method in $methodList)
 
+    #if($method.description)
     /**
-    * ${method.comment}
-    */
+     * ${method.description}
+     */
+    #end
     ${method.returnType} ${method.name}(${method.attributeLabel});
-
     #end
 #end

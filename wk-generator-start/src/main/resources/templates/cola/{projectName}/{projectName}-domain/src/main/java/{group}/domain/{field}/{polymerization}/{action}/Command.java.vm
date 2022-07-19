@@ -1,4 +1,4 @@
-#parse("CmdLabel.vm")
+#parse("Cmd.vm")
 package $CmdPackagePath;
 
 #importPackage($CmdImportPackages)
@@ -10,5 +10,6 @@ import lombok.Data;
 @ApiModel(description = "${CmdDescription}")
 public class ${CmdName} {
     #filed($CmdFields)
+    #method($CmdMethods)
 
 }

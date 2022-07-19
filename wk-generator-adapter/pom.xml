@@ -19,11 +19,6 @@
       <groupId>com.wake.generator</groupId>
       <artifactId>wk-generator-app</artifactId>
     </dependency>
-
-    <!-- springboot web -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
   </dependencies>
+
 </project>

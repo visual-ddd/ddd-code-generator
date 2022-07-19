@@ -1,4 +1,4 @@
-#parse("CmdLabel.vm")
+#parse("Cmd.vm")
 package $CmdPackagePath;
 
 #importPackage($CmdImportPackages)

@@ -1,4 +1,4 @@
-#parse("AggregationLabel.vm")
+#parse("Aggregation.vm")
 package ${globalLabel.group}.adapter.${globalLabel.filed}.${AggregationLowName};
 
 import org.springframework.web.bind.annotation.*;

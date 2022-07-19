@@ -1,12 +1,12 @@
 #parse("ClassFunction.vm")
 ## 聚合和action
-#set($AggregationName = ${classLabel.parentAggregation.name})
 #set($ActionName = ${classLabel.actionName})
-#set($ActionUpperName = "${ActionName.substring(0, 1).toUpperCase()}${ActionName.substring(1)}")
+#set($AggregationName = ${classLabel.parentAggregation.name})
+#set($AggregationNameLowerName = "${AggregationName.substring(0, 1).toLowerCase()}${AggregationName.substring(1)}")
 ## 事件标签
-#set($EventName = "${AggregationName}${ActionUpperName}Event")
-#set($EventPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${classLabel.parentAggregation.name}.${EventName}")
+#set($EventName = ${classLabel.name})
+#set($EventPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationNameLowerName}.${ActionName}")
 #set($EventImportPackages = ${classLabel.importClassSet})
 #set($EventDescription = ${classLabel.description})
-#set($EventFields = ${classLabel.fieldLabelList})
-#set($EventMethods = ${classLabel.methodLabelList})
+#set($EventFields = ${classLabel.fieldList})
+#set($EventMethods = ${classLabel.methodList})

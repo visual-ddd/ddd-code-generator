@@ -1,6 +1,7 @@
 package com.wake.generator.client.cola.api;
 
 import com.wake.generator.client.cola.dto.ProjectChartDto;
+import org.springframework.stereotype.Service;
 
 /**
  * 代码生成器服务接口

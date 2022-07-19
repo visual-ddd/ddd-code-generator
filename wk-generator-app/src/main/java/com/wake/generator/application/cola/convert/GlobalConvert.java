@@ -1,9 +1,7 @@
 package com.wake.generator.application.cola.convert;
 
 import com.wake.generator.application.cola.entity.Global;
-import com.wake.generator.application.cola.entity.Method;
 import com.wake.generator.client.cola.dto.GlobalDto;
-import com.wake.generator.client.cola.dto.MethodDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

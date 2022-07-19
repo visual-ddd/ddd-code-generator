@@ -1,11 +1,11 @@
-#parse("../../../../../../../../../../ValueObjectLabel.vm")
-package $ValueObjectImportPackages
+#parse("ValueObject.vm")
+package $ValueObjectPackagePath
 
 import lombok.Data;
 
+#comment($ValueObjectDescription)
 @Data
 public class $ValueObjectName {
-
-#filed($ValueObjectFields)
+    #filed($ValueObjectFields)
 
 }

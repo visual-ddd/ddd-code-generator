@@ -1,9 +1,7 @@
 package com.wake.generator.application.cola.convert;
 
-import com.wake.generator.application.cola.entity.Field;
-import com.wake.generator.client.cola.dto.FieldDto;
+import com.wake.generator.client.cola.dto.test.Field;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -13,7 +11,7 @@ import org.mapstruct.factory.Mappers;
  * @date 2022/3/24 18:24
  */
 @Mapper
-public interface FiledConvert extends BaseConvert<FieldDto, Field>{
+public interface FiledConvert extends BaseConvert<Field, com.wake.generator.application.cola.entity.Field>{
 
     FiledConvert MAPPER = Mappers.getMapper(FiledConvert.class);
 

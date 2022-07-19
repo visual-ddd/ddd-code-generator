@@ -1,8 +1,6 @@
 package com.wake.generator.application.cola.convert;
 
-import com.wake.generator.application.cola.entity.Method;
 import com.wake.generator.application.cola.entity.ProjectChart;
-import com.wake.generator.client.cola.dto.MethodDto;
 import com.wake.generator.client.cola.dto.ProjectChartDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

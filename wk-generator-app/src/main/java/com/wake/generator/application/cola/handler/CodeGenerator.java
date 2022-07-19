@@ -6,6 +6,7 @@ import com.wake.generator.application.cola.entity.DomainShape;
 import com.wake.generator.application.cola.entity.Global;
 import com.wake.generator.application.cola.entity.ModelFile;
 import com.wake.generator.application.cola.entity.ProjectChart;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -107,7 +109,7 @@ public class CodeGenerator {
             List<ModelFile> modelFiles = domainShape.getModelFiles();
             // 根据元素类型获取对应的模板集合
             List<String> templateUrls = new ArrayList<>(
-                Arrays.asList(domainShape.getShapeType().getTemplateUrlSet()));
+                    Arrays.asList(domainShape.getShapeType().getTemplateUrlSet()));
             for (String templateUrl : templateUrls) {
                 ModelFile modelFile = new ModelFile();
                 modelFile.setTemplateUrl(templateUrl);
@@ -118,16 +120,16 @@ public class CodeGenerator {
                 switch (elementType) {
                     case AGGREGATION:
                         outputPath = parserAggregationPath(projectChart.getGlobal(), domainShape.getName(),
-                            templateUrl);
+                                templateUrl);
                         break;
                     case VALUE_OBJECT:
-                        outputPath = parserAggregationPath(projectChart.getGlobal(), parentAggregation.getName(),
-                            templateUrl);
+                        outputPath = parserValueObjectPath(projectChart.getGlobal(), parentAggregation.getName(),
+                                domainShape.getName(), templateUrl);
                         break;
                     case COMMAND:
                     case EVENT:
                         outputPath = parserActionPath(projectChart.getGlobal(), parentAggregation.getName(),
-                            domainShape.getActionName(), templateUrl);
+                                domainShape.getName(), domainShape.getActionName(), templateUrl);
                         break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + elementType);
@@ -146,13 +148,13 @@ public class CodeGenerator {
      */
     private String parserProjectPath(Global global, String templateUrl) {
         return templateUrl
-            // 项目
-            .replace("{projectName}", global.getProjectName())
-            // 分组
-            .replace("{group}", global.getGroup().replace(".", "\\"))
-            // 领域
-            .replace("{field}", global.getFiled())
-            .replace("vm", "");
+                // 项目
+                .replace("{projectName}", global.getProjectName())
+                // 分组
+                .replace("{group}", global.getGroup().replace(".", "\\"))
+                // 领域
+                .replace("{field}", global.getFiled())
+                .replace("vm", "");
     }
 
     /**
@@ -163,10 +165,23 @@ public class CodeGenerator {
      * @return 解析后的聚合路径
      */
     private String parserAggregationPath(Global global, String aggregationName, String templateUrl) {
+        String lowerName = aggregationName.substring(0, 1).toLowerCase() + aggregationName.substring(1);
         return parserProjectPath(global, templateUrl)
-            // 聚合
-            .replace("{polymerization}", aggregationName)
-            .replace(DomainShapeEnum.AGGREGATION.getName(), aggregationName);
+                .replace("{polymerization}", lowerName)
+                .replace(DomainShapeEnum.AGGREGATION.getName(), aggregationName);
+    }
+
+    /**
+     * 解析值对象路径
+     *
+     * @param aggregationName 聚合名称
+     * @param templateUrl     模板路径
+     * @return 解析后的聚合路径
+     */
+    private String parserValueObjectPath(Global global, String aggregationName, String valueObjectName,
+                                         String templateUrl) {
+        return parserAggregationPath(global, aggregationName, templateUrl)
+                .replace(DomainShapeEnum.VALUE_OBJECT.getName(), valueObjectName);
     }
 
     /**
@@ -177,10 +192,14 @@ public class CodeGenerator {
      * @param templateUrl     模板路径
      * @return 解析后的action路径
      */
-    private String parserActionPath(Global global, String aggregationName, String actionName, String templateUrl) {
+    private String parserActionPath(Global global, String aggregationName, String className, String actionName,
+                                    String templateUrl) {
         Objects.requireNonNull(actionName);
+        String lowerName = actionName.substring(0, 1).toLowerCase() + actionName.substring(1);
         return parserAggregationPath(global, aggregationName, templateUrl)
-            .replace("{action}", actionName);
+                .replace("{action}", lowerName)
+                .replace(DomainShapeEnum.COMMAND.getName(), className)
+                .replace(DomainShapeEnum.EVENT.getName(), className);
     }
 
     /**
@@ -198,5 +217,16 @@ public class CodeGenerator {
         }
     }
 
+    /**
+     * 字符转成大写
+     *
+     * @param c 需要转化的字符
+     */
+    public static char toUpperCase(char c) {
+        if (97 <= c && c <= 122) {
+            c ^= 32;
+        }
+        return c;
+    }
 }
 

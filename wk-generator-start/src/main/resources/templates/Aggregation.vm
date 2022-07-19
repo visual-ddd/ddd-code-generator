@@ -2,9 +2,8 @@
 ## 聚合元素提供的数据
 #set($AggregationName = ${classLabel.name})
 #set($AggregationLowName = "${AggregationName.substring(0, 1).toLowerCase()}${AggregationName.substring(1)}")
-#set($AggregationpackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationName}")
+#set($AggregationPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationLowName}")
 #set($AggregationImportPackages = ${classLabel.importClassSet})
 #set($AggregationDescription = ${classLabel.description})
 #set($AggregationFields = ${classLabel.fieldList})
 #set($AggregationMethods = ${classLabel.methodList})
-

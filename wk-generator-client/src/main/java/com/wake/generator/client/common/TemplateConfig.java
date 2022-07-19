@@ -15,6 +15,6 @@ public class TemplateConfig {
     /**
      * 模板文件夹位置
      */
-    public static final String TEMPLATE_PRE_URL = ".\\src\\main\\resources\\templates\\";
+    public static final String TEMPLATE_PRE_URL = "E:\\dev\\wake-code-generator\\wk-generator-start\\src\\main\\resources\\templates\\";
 
 }
