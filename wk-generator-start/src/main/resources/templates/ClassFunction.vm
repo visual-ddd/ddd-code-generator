@@ -11,6 +11,7 @@ import ${importPackage};
  *
  * @author ${globalLabel.author}
  * @date ${globalLabel.dateTime}
+ * @since 1.0
  */
 #end
 ## 字段属性列表
@@ -18,9 +19,7 @@ import ${importPackage};
     #foreach ($field in $filedList)
 
     #if($field.description)
-    /**
-     * ${field.description}
-     */
+    /** ${field.description} */
     #end
     ${field.modifier} ${field.type} ${field.name};
     #end
@@ -30,9 +29,7 @@ import ${importPackage};
     #foreach ($method in $methodList)
 
     #if($method.description)
-    /**
-     * ${method.description}
-     */
+     /** ${method.description} */
     #end
     ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}){
         // Do Something
@@ -47,9 +44,7 @@ import ${importPackage};
     #foreach ($method in $methodList)
 
     #if($method.description)
-    /**
-     * ${method.description}
-     */
+    /** ${method.description} */
     #end
     ${method.returnType} ${method.name}(${method.attributeLabel});
     #end

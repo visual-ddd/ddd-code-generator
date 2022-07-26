@@ -1,0 +1,7 @@
+/**
+ * 视图层
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+package ${globalLabel.group}.adapter;

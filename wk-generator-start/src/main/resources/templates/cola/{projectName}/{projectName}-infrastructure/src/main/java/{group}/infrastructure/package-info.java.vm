@@ -1,0 +1,7 @@
+/**
+ * 持久层
+ *
+ * @author ${globalLabel.author}
+ * @date ${globalLabel.dateTime}
+ */
+package ${globalLabel.group}.infrastructure;

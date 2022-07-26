@@ -1,8 +1,11 @@
 #parse("ClassFunction.vm")
 ## 聚合元素提供的数据
 #set($AggregationName = ${classLabel.name})
-#set($AggregationLowName = "${AggregationName.substring(0, 1).toLowerCase()}${AggregationName.substring(1)}")
+#set($AggregationLowName = "${AggregationName.toLowerCase()}")
 #set($AggregationPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationLowName}")
+#set($RepositoryImplPackagePath = "${globalLabel.group}.infrastructure.${globalLabel.filed}.repository")
+#set($DOPackagePath = "${globalLabel.group}.infrastructure.${globalLabel.filed}.repository.model")
+#set($MapperPackagePath = "${globalLabel.group}.infrastructure.${globalLabel.filed}.repository.mapper")
 #set($AggregationImportPackages = ${classLabel.importClassSet})
 #set($AggregationDescription = ${classLabel.description})
 #set($AggregationFields = ${classLabel.fieldList})

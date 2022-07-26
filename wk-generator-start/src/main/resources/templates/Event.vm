@@ -2,7 +2,7 @@
 ## 聚合和action
 #set($ActionName = ${classLabel.actionName})
 #set($AggregationName = ${classLabel.parentAggregation.name})
-#set($AggregationNameLowerName = "${AggregationName.substring(0, 1).toLowerCase()}${AggregationName.substring(1)}")
+#set($AggregationNameLowerName = "${AggregationName.toLowerCase()}")
 ## 事件标签
 #set($EventName = ${classLabel.name})
 #set($EventPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationNameLowerName}.${ActionName}")

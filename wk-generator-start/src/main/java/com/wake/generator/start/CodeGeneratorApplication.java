@@ -1,5 +1,6 @@
 package com.wake.generator.start;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0
  */
 @SpringBootApplication(scanBasePackages = {"com.wake.generator.*"})
+@MapperScan({"com.wake.generator.infra.*.repository.mapper"})
 public class CodeGeneratorApplication {
 
     public static void main(String[] args) {

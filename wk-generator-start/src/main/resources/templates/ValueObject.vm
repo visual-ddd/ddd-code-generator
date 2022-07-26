@@ -2,8 +2,8 @@
 ## valueObject
 #set($ValueObjectName = ${classLabel.name})
 #set($AggregationName = ${classLabel.parentAggregation.name})
-#set($AggregationLowerName = "${AggregationName.substring(0, 1).toLowerCase()}${AggregationName.substring(1)}")
-#set($ValueObjectPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationLowName}")
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+#set($ValueObjectPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationLowerName}")
 #set($ValueObjectImportPackages = ${classLabel.importClassSet})
 #set($ValueObjectDescription = ${classLabel.description})
 #set($ValueObjectFields = ${classLabel.fieldList})

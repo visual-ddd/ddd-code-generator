@@ -1,0 +1,12 @@
+#parse("ValueObject.vm")
+package $ValueObjectPackagePath;
+
+import lombok.Data;
+import java.time.LocalDateTime;
+
+#comment($ValueObjectDescription)
+@Data
+public class $ValueObjectName {
+    #filed($ValueObjectFields)
+
+}

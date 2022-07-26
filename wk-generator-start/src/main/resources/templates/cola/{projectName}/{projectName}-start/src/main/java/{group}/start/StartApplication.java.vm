@@ -5,17 +5,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * ${globalLabel.projectName}启动类
+ * ${globalLabel.projectName}项目启动类
  *
  * @author ${globalLabel.author}
  * @date ${globalLabel.dateTime}
  */
-@SpringBootApplication(scanBasePackages = {"${globalLabel.group}", "com.alibaba.cola"})
-@MapperScan("")
+@SpringBootApplication(scanBasePackages = {"${globalLabel.group}"})
+@MapperScan("${globalLabel.group}.infrastructure.*.repository.mapper")
 public class StartApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(StartApplication.class, args);
     }
 
 }

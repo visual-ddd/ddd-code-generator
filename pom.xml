@@ -36,6 +36,9 @@
     <commons-configuration.version>1.10</commons-configuration.version>
     <junit.version>4.13.2</junit.version>
     <commons-configuration.version>1.10</commons-configuration.version>
+
+    <mybatis-plus.version>3.4.2</mybatis-plus.version>
+    <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
   </properties>
 
 
@@ -96,6 +99,18 @@
         <artifactId>commons-configuration</artifactId>
         <version>${commons-configuration.version}</version>
       </dependency>
+
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>${mybatis-plus-generator.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
