@@ -1,5 +1,6 @@
 package com.wake.generator.client.generete.dto;
 
+import com.wake.generator.client.generete.common.DomainShapeEnum;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -43,8 +44,18 @@ public class DomainDto {
     private List<MethodDto> methodList = new ArrayList<>();
 
     /**
+     * 所属action包名称
+     */
+    private String actionName;
+
+    /**
+     * 类型
+     */
+    private DomainShapeEnum type;
+
+    /**
      * 所属聚合
      */
-    private Long aggregationId;
+    private DomainDto parentAggregation;
 
 }

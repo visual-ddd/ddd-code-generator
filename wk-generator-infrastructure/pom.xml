@@ -41,9 +41,8 @@
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>druid</artifactId>
-      <version>1.2.11</version>
     </dependency>
-    <!--  mybatis-plus  相关依赖 end      -->
+    <!--  mybatis-plus  相关依赖 end   -->
 
   </dependencies>
 </project>

@@ -1,5 +1,7 @@
 package com.wake.generator.client.generete.dto;
 
+import com.wake.generator.client.generete.dto.shape.CmdDto;
+import com.wake.generator.client.generete.dto.shape.EventDto;
 import lombok.Data;
 
 /**
@@ -22,11 +24,11 @@ public class ActionDto {
     /**
      * 指令
      */
-    private DomainDto cmd;
+    private CmdDto cmd;
 
     /**
      * 事件
      */
-    private DomainDto event;
+    private EventDto event;
 
 }

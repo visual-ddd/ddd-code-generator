@@ -2,6 +2,8 @@ package com.wake.generator.client.generete.api;
 
 import com.wake.generator.client.generete.dto.DomainChartGenerateDto;
 
+import java.util.zip.ZipOutputStream;
+
 /**
  * 代码生成器服务接口
  *
@@ -15,8 +17,9 @@ public interface CodeGenerateService {
      * 根据传入的DDD项目图谱生成对应的项目结构
      *
      * @param domainChartGenerateDto 项目图谱Dto
+     * @param destinationRealPath
      * @return 当生成完毕时，返回true
      */
-    boolean generateCode(DomainChartGenerateDto domainChartGenerateDto);
+    boolean generateCode(DomainChartGenerateDto domainChartGenerateDto, ZipOutputStream zipOutputStream);
 
 }

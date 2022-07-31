@@ -11,10 +11,9 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.zip.ZipOutputStream;
 
 /**
  * 实现项目代码的生成
@@ -26,30 +25,26 @@ import java.util.*;
 @Slf4j
 public class CodeGenerator {
 
-    /**
-     * 返回的文件列表
-     */
-    List<String> fileList = new ArrayList<>();
-
     public static CodeGenerator getInstance() {
         return new CodeGenerator();
     }
 
     /**
      * 代码生成方法
+     * 根据 data 中提供的标签 和 读取的模板文件 生成代码，支持多个模板输出
      *
-     * <p>根据 data 中提供的标签 和 读取的模板文件 生成代码，支持多个模板输出
+     * @param domainChart         领域图谱
      */
-    public void codeGenerate(DomainChart domainChart) {
+    public void codeGenerate(DomainChart domainChart, ZipOutputStream zipOutputStream) {
         // 创建模板文件并解析输出路径
-        this.parserModelFiles(domainChart);
+        this.parserModelFiles(domainChart, "//");
         // 初始化标签上下文
         VelocityContext velocityContext = initTemplateContext();
         // 填充全局配置标签
         velocityContext.put("globalLabel", domainChart.getGlobal());
         // 文件生成
         Set<DomainShape> domainShapeList = domainChart.getDomainShapeList();
-        domainShapeList.forEach(element -> generateSingleElement(velocityContext, element));
+        domainShapeList.forEach(element -> generateSingleElement(velocityContext, element, zipOutputStream));
     }
 
     /**
@@ -58,14 +53,14 @@ public class CodeGenerator {
      * @param velocityContext 上下文标签map
      * @param element         单个领域元素信息
      */
-    private void generateSingleElement(VelocityContext velocityContext, DomainShape element) {
+    private void generateSingleElement(VelocityContext velocityContext, DomainShape element,
+                                       ZipOutputStream zipOutputStream) {
         // 设置标签
         velocityContext.put("classLabel", element);
         velocityContext.put("fieldLabels", element.getFieldList());
         velocityContext.put("methodLabels", element.getMethodList());
         // 文件结构及代码生成
-        List<String> files = FileGenerator.run(velocityContext, element.getModelMap());
-        fileList.addAll(files);
+        FileGenerator.run(velocityContext, element.getModelMap(), zipOutputStream);
     }
 
     /**
@@ -84,13 +79,13 @@ public class CodeGenerator {
         return new VelocityContext(templateMap);
     }
 
-
     /**
      * 解析模板文件
      *
-     * @param domainChart 项目信息
+     * @param domainChart     项目信息
+     * @param destinationPath 目标输出路径
      */
-    private void parserModelFiles(DomainChart domainChart) {
+    private void parserModelFiles(DomainChart domainChart, String destinationPath) {
         for (DomainShape domainShape : domainChart.getDomainShapeList()) {
             List<ModelFile> modelFiles = domainShape.getModelFiles();
             // 根据元素类型获取对应的模板集合
@@ -123,7 +118,7 @@ public class CodeGenerator {
                     default:
                         throw new IllegalStateException("Unexpected value: " + elementType);
                 }
-                modelFile.setOutputUrl(TemplateConfig.OUTPUT_PRE_URL + outputPath);
+                modelFile.setOutputUrl(destinationPath + outputPath);
                 modelFiles.add(modelFile);
             }
         }
@@ -136,14 +131,18 @@ public class CodeGenerator {
      * @return 解析后的聚合路径
      */
     private String parserProjectPath(Global global, String templateUrl) {
-        return templateUrl
-                // 项目
-                .replace("{projectName}", global.getProjectName())
-                // 分组
-                .replace("{group}", global.getGroup().replace(".", "\\"))
-                // 领域
-                .replace("{field}", global.getFiled())
-                .replace(".vm", "");
+        String projectUrl = templateUrl;
+        try {
+            projectUrl = projectUrl
+                    .replace("{projectName}", global.getProjectName())
+                    .replace("{group}", global.getGroup().replace(".", "\\"))
+                    .replace("{field}", global.getFiled())
+                    .replace(".vm", "");
+        } catch (Exception e) {
+            log.error("路径中的参数不能为空！");
+            e.printStackTrace();
+        }
+        return projectUrl;
     }
 
     /**
@@ -189,21 +188,6 @@ public class CodeGenerator {
                 .replace("{action}", lowerName)
                 .replace(DomainShapeEnum.COMMAND.getName(), className)
                 .replace(DomainShapeEnum.EVENT.getName(), className);
-    }
-
-    /**
-     * 保存文件列表
-     */
-    public void storeFileNames() {
-        File file = new File("fileNameList.txt");
-        try (FileWriter fw = new FileWriter(file)) {
-            for (String s : fileList) {
-                s = "" + s.replace("..", "");
-                fw.write(s + "\n");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

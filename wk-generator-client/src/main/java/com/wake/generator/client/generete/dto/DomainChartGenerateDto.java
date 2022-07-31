@@ -1,9 +1,13 @@
 package com.wake.generator.client.generete.dto;
 
+import com.wake.generator.client.generete.dto.shape.AggregationDto;
+import com.wake.generator.client.generete.dto.shape.ValueObjectDto;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 领域图谱DTO
@@ -49,18 +53,36 @@ public class DomainChartGenerateDto {
     private String dateTime;
 
     /**
-     * 故事节点集
+     * 事件集合
      */
-    private List<StoryNodeDto> storyNodes = new ArrayList<>();
+    private List<ActionDto> actions = new ArrayList<>();
 
     /**
      * 聚合集
      */
-    private List<DomainDto> aggregations = new ArrayList<>();
+    private List<AggregationDto> aggregations = new ArrayList<>();
 
     /**
      * 值对象集
      */
-    private List<DomainDto> valueObjects = new ArrayList<>();
+    private List<ValueObjectDto> valueObjects = new ArrayList<>();
+
+    /**
+     * 设置action列表中的指令和事件元素的包名，并返回
+     * @return cmd 和 event 集合
+     */
+    public Set<DomainDto> getActionElements() {
+        // 元素填充action包
+        Set<DomainDto> actionElements = new HashSet<>();
+        for (ActionDto action : this.getActions()) {
+            DomainDto cmdDto = action.getCmd();
+            cmdDto.setActionName(action.getPackageName());
+            actionElements.add(cmdDto);
+            DomainDto eventDto = action.getEvent();
+            eventDto.setActionName(action.getPackageName());
+            actionElements.add(eventDto);
+        }
+        return actionElements;
+    }
 
 }
