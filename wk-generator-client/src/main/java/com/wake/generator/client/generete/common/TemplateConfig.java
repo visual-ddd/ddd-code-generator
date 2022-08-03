@@ -14,11 +14,6 @@ public class TemplateConfig {
     /**
      * 模板文件夹位置
      */
-    public static final String TEMPLATE_PRE_URL = ".\\wk-generator-start\\src\\main\\resources\\templates\\";
-
-    /**
-     * 输出文件夹位置
-     */
-    public static final String OUTPUT_PRE_URL = ".\\";
+    public static final String TEMPLATE_PRE_URL = "./wk-generator-start/src/main/resources/templates//";
 
 }

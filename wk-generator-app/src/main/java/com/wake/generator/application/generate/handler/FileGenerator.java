@@ -33,7 +33,7 @@ class FileGenerator {
      * @param templateMap key: 模板路径 value: 输出全路径
      */
     public static void run(VelocityContext context, Map<String, String> templateMap,
-                                   ZipOutputStream zipOutputStream) {
+                           ZipOutputStream zipOutputStream) {
         for (Entry<String, String> entry : templateMap.entrySet()) {
             String templateUrl = entry.getKey();
             String outputUrl = entry.getValue();
@@ -61,7 +61,11 @@ class FileGenerator {
         try {
             // 获取模板(初始化templatePreUrl + templateUrl)
             tpl = Velocity.getTemplate(templateUrl, "UTF-8");
-        } catch (ResourceNotFoundException | ParseErrorException e) {
+        } catch (ResourceNotFoundException e) {
+            log.error("模版文件资源找不到！");
+            e.printStackTrace();
+        } catch (ParseErrorException e) {
+            log.error("解析模版文件失败！");
             e.printStackTrace();
         }
         return tpl;
@@ -73,7 +77,7 @@ class FileGenerator {
      * @param outputUrl
      */
     private static void createFolder(String outputUrl) {
-        String dir = outputUrl.substring(0, outputUrl.lastIndexOf("\\"));
+        String dir = outputUrl.substring(0, outputUrl.lastIndexOf("/"));
         File folder = new File(dir);
         //判断文件夹是否存在,不存在则创建
         if (!folder.exists() && !folder.mkdirs()) {

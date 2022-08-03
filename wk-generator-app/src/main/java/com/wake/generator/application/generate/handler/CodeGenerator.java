@@ -135,7 +135,7 @@ public class CodeGenerator {
         try {
             projectUrl = projectUrl
                     .replace("{projectName}", global.getProjectName())
-                    .replace("{group}", global.getGroup().replace(".", "\\"))
+                    .replace("{group}", global.getGroup().replace(".", "/"))
                     .replace("{field}", global.getFiled())
                     .replace(".vm", "");
         } catch (Exception e) {
