@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2022-08-05T09:53:01.849Z"
+        agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Safari/605.1.15"
+        etag="k_XQCarqcGlzaldaheha" compressed="false" version="20.2.2" type="device">
+    <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+        <mxGraphModel dx="1156" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1"
+                      page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <object label="" chartName="拼团领域图谱" author="shimmer" domainPackage="spellgroup"
+                        projectPackage="com.wk.generator" projectName="wk-generator" shapeType="CHRT"
+                        id="WIyWlLk6GJQsqaUBKTNV-0">
+                    <mxCell/>
+                </object>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/>
+                <mxCell id="o2atcr2ot-UbcnoiGeXv-184" value=""
+                        style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;"
+                        parent="WIyWlLk6GJQsqaUBKTNV-1" source="o2atcr2ot-UbcnoiGeXv-99" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="170" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <object label="%nodeDesc%" placeholders="1" nodeDesc="创建拼团活动" shapeType="NODE"
+                        id="o2atcr2ot-UbcnoiGeXv-99">
+                    <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=1;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;"
+                            parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                        <mxGeometry x="-30" y="10" width="130" height="40" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="《AGGREGATION》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="AGGREGATION"
+                        className="SpellGroupActivity" classDesc="拼团活动聚合" id="o2atcr2ot-UbcnoiGeXv-143">
+                    <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fixDash=0;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=31;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=0;cloneable=1;"
+                            parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                        <mxGeometry x="-160" y="520" width="260" height="114" as="geometry">
+                            <mxRectangle x="100" y="760" width="100" height="30" as="alternateBounds"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1"
+                        shapeType="FIELD" fieldName="activityNo" fieldType="Long" fieldModify="-" fieldDesc="活动编码"
+                        id="o2atcr2ot-UbcnoiGeXv-144">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            parent="o2atcr2ot-UbcnoiGeXv-143" vertex="1">
+                        <mxGeometry y="50" width="260" height="26" as="geometry"/>
+                    </mxCell>
+                </object>
+                <mxCell id="o2atcr2ot-UbcnoiGeXv-145" value=""
+                        style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;cloneable=1;"
+                        parent="o2atcr2ot-UbcnoiGeXv-143" vertex="1">
+                    <mxGeometry y="76" width="260" height="8" as="geometry"/>
+                </mxCell>
+                <object label="%methodModify% %methodName%(%methodAttr%): %methodReturn%    #%methodDesc%"
+                        shapeType="METHOD" placeholders="1" methodReturn="Boolean" methodName="isProceed"
+                        methodModify="+" methodDesc="活动是否在进行中" methodAttr="" id="o2atcr2ot-UbcnoiGeXv-146">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            parent="o2atcr2ot-UbcnoiGeXv-143" vertex="1">
+                        <mxGeometry y="84" width="260" height="30" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="《rule》&lt;br&gt;%rule%" shapeType="RULE" rule="同一时间内，一个商品只能参加一次活动"
+                        placeholders="1" id="o2atcr2ot-UbcnoiGeXv-182">
+                    <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;labelBackgroundColor=none;labelBorderColor=none;sketch=0;fillStyle=auto;fontSize=12;strokeColor=#d79b00;strokeWidth=1;fillColor=#ffe6cc;cloneable=1;metaEdit=1;"
+                            parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                        <mxGeometry x="-50" y="380" width="100" height="70" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="%actionPackage%" placeholders="1" actionPackage="create" shapeType="ACTION"
+                        id="ySzC27o6xv88FL-viQqC-1">
+                    <mxCell style="swimlane;strokeWidth=0;metaEdit=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+                        <mxGeometry x="-110" y="60" width="300" height="290" as="geometry">
+                            <mxRectangle x="-80" y="70" width="80" height="30" as="alternateBounds"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="《EVENT》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="EVENT"
+                        className="SpellGroupActivityCreateedEvent" classDesc="活动已创建事件"
+                        id="o2atcr2ot-UbcnoiGeXv-152">
+                    <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fixDash=0;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=31;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=0;labelPadding=0;cloneable=1;"
+                            parent="ySzC27o6xv88FL-viQqC-1" vertex="1">
+                        <mxGeometry x="30" y="40" width="245" height="102" as="geometry">
+                            <mxRectangle width="100" height="30" as="alternateBounds"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1"
+                        shapeType="FIELD" fieldName="activityNo" fieldType="Long" fieldModify="-" fieldDesc="活动编码"
+                        id="o2atcr2ot-UbcnoiGeXv-153">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            parent="o2atcr2ot-UbcnoiGeXv-152" vertex="1">
+                        <mxGeometry y="50" width="245" height="26" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1"
+                        shapeType="FIELD" fieldName="itemNo" fieldType="Long" fieldModify="-" fieldDesc="商品编码"
+                        id="o2atcr2ot-UbcnoiGeXv-156">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            parent="o2atcr2ot-UbcnoiGeXv-152" vertex="1">
+                        <mxGeometry y="76" width="245" height="26" as="geometry"/>
+                    </mxCell>
+                </object>
+                <mxCell id="o2atcr2ot-UbcnoiGeXv-160"
+                        style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;cloneable=1;"
+                        parent="ySzC27o6xv88FL-viQqC-1" source="o2atcr2ot-UbcnoiGeXv-157"
+                        target="o2atcr2ot-UbcnoiGeXv-152" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <object label="《CMD》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="COMMAND"
+                        className="SpellGroupActivityCreateCmd" classDesc="活动创建指令" id="o2atcr2ot-UbcnoiGeXv-157">
+                    <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=52;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fixDash=0;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=31;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=0;cloneable=1;"
+                            parent="ySzC27o6xv88FL-viQqC-1" vertex="1">
+                        <mxGeometry x="30" y="168.00000000000003" width="245" height="104" as="geometry">
+                            <mxRectangle y="138" width="100" height="30" as="alternateBounds"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1"
+                        shapeType="FIELD" fieldName="activityName" fieldType="String" fieldModify="-"
+                        fieldDesc="活动名称" id="o2atcr2ot-UbcnoiGeXv-158">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            parent="o2atcr2ot-UbcnoiGeXv-157" vertex="1">
+                        <mxGeometry y="52" width="245" height="26" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1"
+                        shapeType="FIELD" fieldName="itemNo" fieldType="Long" fieldModify="-" fieldDesc="商品编码"
+                        id="o2atcr2ot-UbcnoiGeXv-159">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            parent="o2atcr2ot-UbcnoiGeXv-157" vertex="1">
+                        <mxGeometry y="78" width="245" height="26" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="《VALUE_OBJECT》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="VALUE_OBJECT"
+                        className="ValueObject" classDesc="拼团活动值对象" id="ySzC27o6xv88FL-viQqC-2">
+                    <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fixDash=0;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=31;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=0;cloneable=1;"
+                            vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+                        <mxGeometry x="190" y="520" width="260" height="114" as="geometry">
+                            <mxRectangle x="100" y="760" width="100" height="30" as="alternateBounds"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1"
+                        shapeType="FIELD" fieldName="activityNo" fieldType="Long" fieldModify="-" fieldDesc="活动编码"
+                        id="ySzC27o6xv88FL-viQqC-3">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            vertex="1" parent="ySzC27o6xv88FL-viQqC-2">
+                        <mxGeometry y="50" width="260" height="26" as="geometry"/>
+                    </mxCell>
+                </object>
+                <mxCell id="ySzC27o6xv88FL-viQqC-4" value=""
+                        style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;cloneable=1;"
+                        vertex="1" parent="ySzC27o6xv88FL-viQqC-2">
+                    <mxGeometry y="76" width="260" height="8" as="geometry"/>
+                </mxCell>
+                <object label="%methodModify% %methodName%(%methodAttr%): %methodReturn%    #%methodDesc%"
+                        shapeType="METHOD" placeholders="1" methodReturn="Boolean" methodName="isProceed"
+                        methodModify="+" methodDesc="活动是否在进行中" methodAttr="" id="ySzC27o6xv88FL-viQqC-5">
+                    <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;"
+                            vertex="1" parent="ySzC27o6xv88FL-viQqC-2">
+                        <mxGeometry y="84" width="260" height="30" as="geometry"/>
+                    </mxCell>
+                </object>
+                <mxCell id="ySzC27o6xv88FL-viQqC-6"
+                        value="&lt;ol&gt;&lt;li style=&quot;&quot;&gt;解析事件、指令、聚合、值对象、方法、属性&lt;/li&gt;&lt;li style=&quot;&quot;&gt;事件、指令依赖action包名&lt;/li&gt;&lt;li style=&quot;&quot;&gt;事件、指令、值对象依赖聚合颜色&lt;/li&gt;&lt;/ol&gt;"
+                        style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;strokeWidth=0;align=left;fillColor=#fff2cc;strokeColor=#d6b656;"
+                        vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+                    <mxGeometry x="270" y="180" width="320" height="70" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
