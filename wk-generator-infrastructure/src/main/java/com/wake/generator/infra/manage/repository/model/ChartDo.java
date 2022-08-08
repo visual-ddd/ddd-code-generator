@@ -8,15 +8,15 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * 项目图谱实体类
+ * 图谱实体类
  *
  * @author ZhuXueLiang
  * @date 2022/3/25 11:47
  * @since 1.0
  */
 @Data
-@TableName("domain_chart")
-public class ChartDo {
+@TableName("paas_code_generator_chart")
+public class ChartDO {
 
     /**
      * 主键
@@ -27,7 +27,7 @@ public class ChartDo {
     /**
      * 名称
      */
-    private String name;
+    private String chartName;
 
     /**
      * 作者
@@ -37,12 +37,17 @@ public class ChartDo {
     /**
      * 创建时间
      */
-    private LocalDateTime date;
+    private LocalDateTime dateTime;
 
     /**
      * 领域包名
      */
     private String domainPackage;
+
+    /**
+     * 绘制的xml文件
+     */
+    private String chartXml;
 
     /**
      * 项目id

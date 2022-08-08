@@ -75,9 +75,19 @@ public enum DomainShapeEnum {
     }),
 
     /**
-     * 规则
+     * 属性
      */
-    RULE("Rule", null),
+    FIELD("Field", null),
+
+    /**
+     * 方法
+     */
+    METHOD("Method", null),
+
+    /**
+     * 动作
+     */
+    ACTION("Action", null),
     ;
 
     private final String name;

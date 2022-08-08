@@ -2,7 +2,10 @@ package com.wake.generator.infra.manage.repository.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 /**
  * 项目
@@ -12,6 +15,7 @@ import lombok.Data;
  * @since 1.0
  */
 @Data
+@TableName("paas_code_generator_project")
 public class ProjectDO {
 
     /**
@@ -23,16 +27,36 @@ public class ProjectDO {
     /**
      * 名称
      */
-    private String name;
+    private String projectName;
 
     /**
-     * 项目包名
+     * 描述
      */
-    private String projectPackage;
+    private String description;
 
     /**
-     * 项目组包名
+     * 分组包名
      */
     private String groupPackage;
+
+    /**
+     * 版本号
+     */
+    private String projectVersion;
+
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    private LocalDateTime updateTime;
+
+    /**
+     * 所属用户ID
+     */
+    private Long userId;
 
 }

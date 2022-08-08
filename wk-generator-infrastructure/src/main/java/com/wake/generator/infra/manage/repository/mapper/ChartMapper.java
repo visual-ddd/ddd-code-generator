@@ -1,7 +1,7 @@
 package com.wake.generator.infra.manage.repository.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wake.generator.infra.manage.repository.model.ChartDo;
+import com.wake.generator.infra.manage.repository.model.ChartDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 1.0
  */
 @Mapper
-public interface ChartMapper extends BaseMapper<ChartDo> {
+public interface ChartMapper extends BaseMapper<ChartDO> {
 }

@@ -67,7 +67,7 @@ public class ClassImportParser {
      * 解析类的导入关系
      *
      * @param classTypeMap 可导入的类型map k: 类名, v: 包路径
-     * @param domainShape     待解析的类
+     * @param domainShape  待解析的类
      * @return 当前类需要导入的包路径
      */
     public Set<String> parseImportClass(Map<String, String> classTypeMap, DomainShape domainShape) {
@@ -128,9 +128,9 @@ public class ClassImportParser {
     /**
      * 根据 pattern 对 str 进行正则匹配，并将每次匹配的第一组结果存于 target
      *
-     * @param target     结果Set
-     * @param pattern    正则规则
-     * @param str 待匹配的字符串
+     * @param target  结果Set
+     * @param pattern 正则规则
+     * @param str     待匹配的字符串
      */
     private static void matchToTarget(Set<String> target, Pattern pattern, String str) {
         Matcher matcher = pattern.matcher(str);

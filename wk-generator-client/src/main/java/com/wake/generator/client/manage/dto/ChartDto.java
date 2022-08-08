@@ -1,11 +1,10 @@
 package com.wake.generator.client.manage.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * 领域图谱DTO
@@ -27,7 +26,7 @@ public class ChartDto {
     /**
      * 名称
      */
-    private String name;
+    private String chartName;
 
     /**
      * 作者
@@ -37,9 +36,9 @@ public class ChartDto {
     /**
      * 创建时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime date;
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private LocalDateTime dateTime;
 
     /**
      * 领域包名
@@ -47,29 +46,9 @@ public class ChartDto {
     private String domainPackage;
 
     /**
-     * 故事节点集
+     * 绘制的xml文件
      */
-    private List<StoryNodeDto> storyNodes;
-
-    /**
-     * 聚合集
-     */
-    private List<AggregationDto> aggregations;
-
-    /**
-     * 值对象集
-     */
-    private List<ValueObjectDto> valueObjects;
-
-    /**
-     * Uml图形信息json
-     */
-    private String umlShapeInfo;
-
-    /**
-     * 线条信息json
-     */
-    private String lineInfo;
+    private String chartXml;
 
     /**
      * 项目id

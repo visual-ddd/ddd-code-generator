@@ -1,35 +1,34 @@
 #### 需求分析
 
--   一个项目下包含多张领域图谱
--   每个领域图谱中结构如下
-    -   故事节点
-		- 动作
-			-   事件
-			-   指令
-    		-   规则
-    -   聚合
-    -   值对象
+- 一个项目下包含多张领域图谱
+- 每个领域图谱中结构如下
+    - 故事节点
+        - 动作
+            - 事件
+            - 指令
+            - 规则
+    - 聚合
+    - 值对象
 
--   能够进行图谱管理（存储、还原、修改、删除）
+- 能够进行图谱管理（存储、还原、修改、删除）
     -   [ ] 每个聚合都有唯一的颜色，通过颜色区分聚合对象
     -   [ ] 元素通过颜色绑定聚合
     -   [ ] 当聚合进行颜色修改、删除时，需要更新相应的元素
     -   [ ] 故事节点下的元素和故事节点用于相同生命周期
--   要求能够通过领域图谱的信息生成对应的领域层代码模板
-    -   项目
-    -   指令
-        -   Command.java.vm
-        -   CommandHandler.java.vm
-    -   事件
-        -   Event.java.vm
-    -   聚合
-        -   Aggregation.java.vm
-        -   AggregationFactory.java.vm
-        -   AggregationRepository.java.vm
-        -   IAggregation.java.vm
-    -   值对象
-        -   ValueObject.java.vm
-
+- 要求能够通过领域图谱的信息生成对应的领域层代码模板
+    - 项目
+    - 指令
+        - Command.java.vm
+        - CommandHandler.java.vm
+    - 事件
+        - Event.java.vm
+    - 聚合
+        - Aggregation.java.vm
+        - AggregationFactory.java.vm
+        - AggregationRepository.java.vm
+        - IAggregation.java.vm
+    - 值对象
+        - ValueObject.java.vm
 
 #### 功能实现
 
@@ -40,14 +39,14 @@
 
 说明
 
--   领域图谱	       -》	DomainChartGenerateDto
-    -   故事节点	-》	StoryNode
-		- 动作
-			- 事件	-》	event
-			- 指令	-》	cmd
-			- 规则	-》	无（只用于展示，不需要生成）
-    -   聚合	        -》	aggregations
-    -   值对象	    -》	valueObjects
+- 领域图谱 -》 DomainChartGenerateDto
+    - 故事节点 -》 StoryNode
+        - 动作
+            - 事件 -》 event
+            - 指令 -》 cmd
+            - 规则 -》 无（只用于展示，不需要生成）
+    - 聚合 -》 aggregations
+    - 值对象 -》 valueObjects
 
 json数据结构及映射关系
 
@@ -55,13 +54,11 @@ json数据结构及映射关系
 链接: https://www.apifox.cn/apidoc/shared-ddfabd53-ac7c-456e-9af0-a591a93e07ba  访问密码 : AiMnt9xo
 
 1. 与输出路径的映射
-![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726145948061-1949655835.jpg)
+   ![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726145948061-1949655835.jpg)
 
 
 2. 与前端的映射
-![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726150254933-1148833488.jpg)
-
-
+   ![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726150254933-1148833488.jpg)
 
 #### 主要问题
 
@@ -76,9 +73,9 @@ json数据结构及映射关系
 
 方案：
 
-1.   缓存所有生成的类对应的包路径，通过解析方法和属性的参数类型名映射对应类的包路径，其中基本类型使用配置文件加载
+1. 缓存所有生成的类对应的包路径，通过解析方法和属性的参数类型名映射对应类的包路径，其中基本类型使用配置文件加载
 
-2.   使用IDEA自带的优化导入功能（采用）
+2. 使用IDEA自带的优化导入功能（采用）
 
 **问题3：模板的输入文件夹和输出文件夹路径**
 
@@ -91,8 +88,6 @@ json数据结构及映射关系
 方案：采用Velocity模板引擎，基于velocity的模板语法编写好需要生成的模板，进行代码生成时，将封装的数据以map的形式保存到VelocityContext上下文中，将上下文和模板路径传递给velocity模板引擎，模板引擎将读取指定路径的模板文件，并从上下文中找到与之对应的value用来替换其中的变量。
 
 <img src="https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132152053-582330358.png" alt="DomainChartGenerateDto_structure" style="zoom:80%;" />
-
-
 
 #### 使用说明
 
@@ -1038,24 +1033,25 @@ json数据结构及映射关系
 
 ![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132228996-1008832281.png)
 
-
 第三步，右键项目，通过IDEA自带的优化导入功能优化代码
 
 ![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132255244-1889400543.png)
-
 
 第四步，正常配置数据库、端口等信息，启动项目
 
 ![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132309443-1593822570.png)
 
 ### 总结
-  本项目设计的代码生成器依赖于DDD领域建模，需要使用者具备基本的领域建模知识。实现原理也较为简单，采用的是Velocity模板引擎进行模板替换。
-  项目的主要工作：
+
+本项目设计的代码生成器依赖于DDD领域建模，需要使用者具备基本的领域建模知识。实现原理也较为简单，采用的是Velocity模板引擎进行模板替换。
+项目的主要工作：
+
 - 设计领域图谱数据模型
 - 实现数据模型与模板的映射规则
 - 规范COLA框架的模板文件
 
 目前支持的能力：
+
 -   [X] 支持COLA项目结构
 -   [X] 支持domain层代码
 -   [X] 支持infrastructure层代码

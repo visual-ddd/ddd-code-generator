@@ -63,6 +63,7 @@ public class DomainShape {
 
     /**
      * 元素类型
+     *
      * @see DomainShapeEnum
      */
     private DomainShapeEnum shapeType;

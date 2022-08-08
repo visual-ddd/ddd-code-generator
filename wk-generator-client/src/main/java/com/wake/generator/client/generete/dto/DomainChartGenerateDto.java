@@ -69,6 +69,7 @@ public class DomainChartGenerateDto {
 
     /**
      * 设置action列表中的指令和事件元素的包名，并返回
+     *
      * @return cmd 和 event 集合
      */
     public Set<DomainDto> getActionElements() {

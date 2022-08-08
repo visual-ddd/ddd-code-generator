@@ -6,14 +6,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * @author ZhuXueLiang
  * @description 包路径提取工具
  * @date 2022/2/24 21:27
- * @author ZhuXueLiang
  */
 @Slf4j
 public class ClassPackagePathParser {
 
-    private ClassPackagePathParser() {}
+    private ClassPackagePathParser() {
+    }
 
     private static final String REGULAR_EXPRESSION = ".*?\\\\src\\\\main\\\\java\\\\(.*)\\\\.*";
 

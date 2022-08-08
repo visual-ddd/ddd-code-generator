@@ -15,33 +15,13 @@ import java.util.Set;
 public class DomainChart {
 
     /**
-     * 主键
-     */
-    private Long id;
-
-    /**
-     * 名称
-     */
-    private String name;
-
-    /**
      * 全局配置
      */
     private Global global;
 
     /**
-     * 元素信息列表
+     * 元素列表
      */
     private Set<DomainShape> domainShapeList;
-
-    /**
-     * Uml图形信息json
-     */
-    private String umlShapeInfo;
-
-    /**
-     * 线条信息json
-     */
-    private String lineInfo;
 
 }

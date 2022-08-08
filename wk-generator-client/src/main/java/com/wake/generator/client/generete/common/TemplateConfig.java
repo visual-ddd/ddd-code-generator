@@ -9,7 +9,8 @@ package com.wake.generator.client.generete.common;
  */
 public class TemplateConfig {
 
-    private TemplateConfig() {}
+    private TemplateConfig() {
+    }
 
     /**
      * 模板文件夹位置

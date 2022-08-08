@@ -21,13 +21,13 @@ spring:
         #        group: DEFAULT_GROUP
         file-extension: yml
         shared-configs:
-            - data-id: common.yml
-  #          - data-id: common-redis.yml
-            - data-id: common-mq.yml
-#            - data-id: common-mq-topic.yml
-  #          - data-id: common-domain-event.yml
-            - data-id: common-mysql.yml
-            - data-id: wk-cola-scaffold.yml
+          - data-id: common.yml
+          #          - data-id: common-redis.yml
+          - data-id: common-mq.yml
+          #            - data-id: common-mq-topic.yml
+          #          - data-id: common-domain-event.yml
+          - data-id: common-mysql.yml
+          - data-id: wk-cola-scaffold.yml
 
 # 开启sql日志
 mybatis-plus:

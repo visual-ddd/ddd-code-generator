@@ -1,8 +1,10 @@
 package com.wake.generator.client.manage.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 /**
  * 项目
@@ -24,21 +26,40 @@ public class ProjectDto {
     /**
      * 名称
      */
-    private String name;
+    private String projectName;
 
     /**
-     * 项目包名
+     * 描述
      */
-    private String projectPackage;
+    private String description;
 
     /**
-     * 项目组包名
+     * 分组包名
      */
     private String groupPackage;
 
     /**
-     * 领域图谱集
+     * 版本号
      */
-    private List<ChartDto> domainCharts;
+    private String projectVersion;
+
+    /**
+     * 创建时间
+     */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private LocalDateTime updateTime;
+
+    /**
+     * 所属用户ID
+     */
+    private Long userId;
 
 }
