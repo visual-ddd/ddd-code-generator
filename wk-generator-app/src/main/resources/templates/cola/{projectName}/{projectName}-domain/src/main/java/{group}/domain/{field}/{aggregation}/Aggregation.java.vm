@@ -1,0 +1,16 @@
+#parse("templates/Aggregation.vm")
+package $AggregationPackagePath;
+
+import com.alibaba.cola.domain.Entity;
+import lombok.Data;
+import java.time.LocalDateTime;
+import java.util.List;
+
+#comment($AggregationDescription)
+@Data
+@Entity
+public class $AggregationName implements I${AggregationName} {
+    #filed($AggregationFields)
+    #method($AggregationMethods)
+
+}

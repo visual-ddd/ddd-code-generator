@@ -11,21 +11,31 @@ import com.wake.generator.infra.manage.repository.model.ChartDO;
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedata.common.core.util.BeanUtil;
+import com.wakedata.common.storage.service.FileStorageService;
+import java.util.Collections;
+import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
-import java.util.Collections;
-import java.util.List;
-
+/**
+ * 图谱服务实现类
+ *
+ * @author ZhuXueLiang
+ * @version 1.0
+ * @date 2022/8/15
+ */
 @Service
 public class ChartServiceImpl implements ChartService {
 
     @Resource
-    ChartMapper chartMapper;
+    private ChartMapper chartMapper;
 
     @Resource
-    ChartQueryHelper chartQueryHelper;
+    private ChartQueryHelper chartQueryHelper;
+
+    @Resource
+    private FileStorageService fileStorageService;
 
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -52,7 +62,8 @@ public class ChartServiceImpl implements ChartService {
     @Override
     public ResultDTO<ChartDto> detailChart(Long chartId) {
         ChartDO chartDO = chartMapper.selectById(chartId);
-        return ResultDTO.success(BeanUtil.copy(chartDO, ChartDto.class));
+        ChartDto chartDto = BeanUtil.copy(chartDO, ChartDto.class);
+        return ResultDTO.success(chartDto);
     }
 
     @Override
@@ -64,7 +75,7 @@ public class ChartServiceImpl implements ChartService {
         result.setCursor(iPage.getCurrent());
         result.setTotalCount(iPage.getTotal());
         List<ChartDto> dataList = ObjectUtil.isEmpty(iPage.getRecords()) ?
-                Collections.emptyList() : BeanUtil.copyList(iPage.getRecords(), ChartDto.class);
+            Collections.emptyList() : BeanUtil.copyList(iPage.getRecords(), ChartDto.class);
         result.setData(dataList);
         return result;
     }

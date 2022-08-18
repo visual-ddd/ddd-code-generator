@@ -1,13 +1,5 @@
 package com.wake.generator.application.generate.handler;
 
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.IOUtils;
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.Velocity;
-import org.apache.velocity.exception.ParseErrorException;
-import org.apache.velocity.exception.ResourceNotFoundException;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -16,6 +8,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
+import org.apache.velocity.exception.ParseErrorException;
+import org.apache.velocity.exception.ResourceNotFoundException;
 
 /**
  * 文件生成器
@@ -33,7 +32,7 @@ class FileGenerator {
      * @param templateMap key: 模板路径 value: 输出全路径
      */
     public static void run(VelocityContext context, Map<String, String> templateMap,
-                           ZipOutputStream zipOutputStream) {
+        ZipOutputStream zipOutputStream) {
         for (Entry<String, String> entry : templateMap.entrySet()) {
             String templateUrl = entry.getKey();
             String outputUrl = entry.getValue();
@@ -43,7 +42,7 @@ class FileGenerator {
     }
 
     private static void generateFile(VelocityContext context, String outputUrl, Template tpl,
-                                     ZipOutputStream zipOutputStream) {
+        ZipOutputStream zipOutputStream) {
         try (StringWriter sw = new StringWriter()) {
             // 获取输出流
             tpl.merge(context, sw);

@@ -1,19 +1,24 @@
 package com.wake.generator.application.generate.handler;
 
+import com.wake.generator.application.generate.common.DomainShapeEnum;
+import com.wake.generator.application.generate.config.TemplateConfig;
 import com.wake.generator.application.generate.entity.DomainChart;
 import com.wake.generator.application.generate.entity.DomainShape;
 import com.wake.generator.application.generate.entity.Global;
 import com.wake.generator.application.generate.entity.ModelFile;
-import com.wake.generator.client.generete.common.DomainShapeEnum;
-import com.wake.generator.client.generete.common.TemplateConfig;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.Properties;
+import java.util.Set;
+import java.util.zip.ZipOutputStream;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
-import org.apache.velocity.runtime.RuntimeConstants;
-
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.zip.ZipOutputStream;
 
 /**
  * 实现项目代码的生成
@@ -35,20 +40,20 @@ public class DomainChartCodeGenerator implements GeneratedCode {
     }
 
     /**
-     * 代码生成方法
-     * 根据 data 中提供的标签 和 读取的模板文件 生成代码，支持多个模板输出
+     * 代码生成方法 根据 data 中提供的标签 和 读取的模板文件 生成代码，支持多个模板输出
      */
     @Override
     public void run(ZipOutputStream zipOutputStream) {
         // 创建模板文件并解析输出路径
-        this.parserModelFiles(domainChart, "//");
+        this.parserModelFiles(domainChart);
         // 初始化标签上下文
         VelocityContext velocityContext = initTemplateContext();
         // 填充全局配置标签
         velocityContext.put("globalLabel", domainChart.getGlobal());
         // 文件生成
         Set<DomainShape> domainShapeList = domainChart.getDomainShapeList();
-        domainShapeList.forEach(element -> generateSingleElement(velocityContext, element, zipOutputStream));
+        domainShapeList.forEach(
+            element -> generateSingleElement(velocityContext, element, zipOutputStream));
     }
 
     /**
@@ -58,7 +63,7 @@ public class DomainChartCodeGenerator implements GeneratedCode {
      * @param element         单个领域元素信息
      */
     private void generateSingleElement(VelocityContext velocityContext, DomainShape element,
-                                       ZipOutputStream zipOutputStream) {
+        ZipOutputStream zipOutputStream) {
         // 设置标签
         velocityContext.put("classLabel", element);
         velocityContext.put("fieldLabels", element.getFieldList());
@@ -72,10 +77,14 @@ public class DomainChartCodeGenerator implements GeneratedCode {
      */
     public VelocityContext initTemplateContext() {
         // 设置velocity资源加载器
-        Properties prop = new Properties();
-        // 设置模板加载位置(velocity会自动在模板路径前追加资源路径，包括模板中的引用路径！)
-        prop.setProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, TemplateConfig.TEMPLATE_PRE_URL);
-        Velocity.init(prop);
+        Properties properties = new Properties();
+
+        // 加载classpath目录下的vm文件
+        properties.setProperty("resource.loader.file.class",
+            "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+        // 定义字符集
+        properties.setProperty(Velocity.ENCODING_DEFAULT, "UTF-8");
+        Velocity.init(properties);
 
         HashMap<String, Object> templateMap = new HashMap<>(1);
         // 初始化配置
@@ -86,18 +95,18 @@ public class DomainChartCodeGenerator implements GeneratedCode {
     /**
      * 解析模板文件
      *
-     * @param domainChart     项目信息
-     * @param destinationPath 目标输出路径
+     * @param domainChart 项目信息
      */
-    private void parserModelFiles(DomainChart domainChart, String destinationPath) {
+    private void parserModelFiles(DomainChart domainChart) {
         for (DomainShape domainShape : domainChart.getDomainShapeList()) {
             List<ModelFile> modelFiles = domainShape.getModelFiles();
             // 根据元素类型获取对应的模板集合
             List<String> templateUrls = new ArrayList<>(
-                    Arrays.asList(domainShape.getShapeType().getTemplateUrlSet()));
+                Arrays.asList(domainShape.getShapeType().getTemplateUrlSet()));
             for (String templateUrl : templateUrls) {
                 ModelFile modelFile = new ModelFile();
-                modelFile.setTemplateUrl(templateUrl);
+                // 类加载器加载资源
+                modelFile.setTemplateUrl(TemplateConfig.TEMPLATE_PRE_URL + templateUrl);
                 // 解析输出路径
                 String outputPath;
                 DomainShape parentAggregation = domainShape.getParentAggregation();
@@ -112,17 +121,19 @@ public class DomainChartCodeGenerator implements GeneratedCode {
                         outputPath = parserAggregationPath(global, shapeName, templateUrl);
                         break;
                     case VALUE_OBJECT:
-                        outputPath = parserValueObjectPath(global, parentAggregation.getName(), shapeName, templateUrl);
+                        outputPath = parserValueObjectPath(global, parentAggregation.getName(),
+                            shapeName, templateUrl);
                         break;
                     case COMMAND:
                     case EVENT:
-                        outputPath = parserActionPath(global, parentAggregation.getName(), shapeName,
-                                domainShape.getActionName(), templateUrl);
+                        outputPath = parserActionPath(global, parentAggregation.getName(),
+                            shapeName,
+                            domainShape.getActionName(), templateUrl);
                         break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + elementType);
                 }
-                modelFile.setOutputUrl(destinationPath + outputPath);
+                modelFile.setOutputUrl("//" + outputPath);
                 modelFiles.add(modelFile);
             }
         }
@@ -138,10 +149,10 @@ public class DomainChartCodeGenerator implements GeneratedCode {
         String projectUrl = templateUrl;
         try {
             projectUrl = projectUrl
-                    .replace("{projectName}", global.getProjectName())
-                    .replace("{group}", global.getGroup().replace(".", "/"))
-                    .replace("{field}", global.getFiled())
-                    .replace(".vm", "");
+                .replace("{projectName}", global.getProjectName())
+                .replace("{group}", global.getGroup().replace(".", "/"))
+                .replace("{field}", global.getFiled())
+                .replace(".vm", "");
         } catch (Exception e) {
             log.error("路径中的参数不能为空！");
             e.printStackTrace();
@@ -156,11 +167,12 @@ public class DomainChartCodeGenerator implements GeneratedCode {
      * @param templateUrl     模板路径
      * @return 解析后的聚合路径
      */
-    private String parserAggregationPath(Global global, String aggregationName, String templateUrl) {
+    private String parserAggregationPath(Global global, String aggregationName,
+        String templateUrl) {
         String lowerName = aggregationName.toLowerCase();
         return parserProjectPath(global, templateUrl)
-                .replace("{aggregation}", lowerName)
-                .replace(DomainShapeEnum.AGGREGATION.getName(), aggregationName);
+            .replace("{aggregation}", lowerName)
+            .replace(DomainShapeEnum.AGGREGATION.getName(), aggregationName);
     }
 
     /**
@@ -170,10 +182,11 @@ public class DomainChartCodeGenerator implements GeneratedCode {
      * @param templateUrl     模板路径
      * @return 解析后的聚合路径
      */
-    private String parserValueObjectPath(Global global, String aggregationName, String valueObjectName,
-                                         String templateUrl) {
+    private String parserValueObjectPath(Global global, String aggregationName,
+        String valueObjectName,
+        String templateUrl) {
         return parserAggregationPath(global, aggregationName, templateUrl)
-                .replace(DomainShapeEnum.VALUE_OBJECT.getName(), valueObjectName);
+            .replace(DomainShapeEnum.VALUE_OBJECT.getName(), valueObjectName);
     }
 
     /**
@@ -184,14 +197,15 @@ public class DomainChartCodeGenerator implements GeneratedCode {
      * @param templateUrl     模板路径
      * @return 解析后的action路径
      */
-    private String parserActionPath(Global global, String aggregationName, String className, String actionName,
-                                    String templateUrl) {
-        Objects.requireNonNull(actionName);
-        String lowerName = actionName.substring(0, 1).toLowerCase() + actionName.substring(1);
+    private String parserActionPath(Global global, String aggregationName, String className,
+        String actionName,
+        String templateUrl) {
+        String action = Optional.ofNullable(actionName).orElse("action");
+        String lowerName = action.substring(0, 1).toLowerCase() + action.substring(1);
         return parserAggregationPath(global, aggregationName, templateUrl)
-                .replace("{action}", lowerName)
-                .replace(DomainShapeEnum.COMMAND.getName(), className)
-                .replace(DomainShapeEnum.EVENT.getName(), className);
+            .replace("{action}", lowerName)
+            .replace(DomainShapeEnum.COMMAND.getName(), className)
+            .replace(DomainShapeEnum.EVENT.getName(), className);
     }
 
 }

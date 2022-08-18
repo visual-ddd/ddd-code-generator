@@ -8,10 +8,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wake.generator.client.manage.api.query.ProjectQuery;
 import com.wake.generator.infra.manage.repository.mapper.ProjectMapper;
 import com.wake.generator.infra.manage.repository.model.ProjectDO;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 @Component
 @Slf4j

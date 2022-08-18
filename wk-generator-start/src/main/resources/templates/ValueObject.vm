@@ -1,9 +1,0 @@
-#parse("ClassFunction.vm")
-## valueObject
-#set($ValueObjectName = ${classLabel.name})
-#set($AggregationName = ${classLabel.parentAggregation.name})
-#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
-#set($ValueObjectPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationLowerName}")
-#set($ValueObjectImportPackages = ${classLabel.importClassSet})
-#set($ValueObjectDescription = ${classLabel.description})
-#set($ValueObjectFields = ${classLabel.fieldList})

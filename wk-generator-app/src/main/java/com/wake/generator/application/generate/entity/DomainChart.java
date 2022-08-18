@@ -1,8 +1,7 @@
 package com.wake.generator.application.generate.entity;
 
-import lombok.Data;
-
 import java.util.Set;
+import lombok.Data;
 
 /**
  * 项目图谱实体类

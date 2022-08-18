@@ -1,10 +1,9 @@
 package com.wake.generator.client.manage.api.query;
 
 import com.wakedata.common.core.dto.PageQuery;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode(callSuper = true)

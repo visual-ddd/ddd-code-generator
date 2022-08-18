@@ -2,9 +2,8 @@ package com.wake.generator.client.manage.dto;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
-
 import java.time.LocalDateTime;
+import lombok.Data;
 
 /**
  * 项目
@@ -44,6 +43,11 @@ public class ProjectDto {
     private String projectVersion;
 
     /**
+     * 所属用户ID
+     */
+    private Long userId;
+
+    /**
      * 创建时间
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
@@ -56,10 +60,5 @@ public class ProjectDto {
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime updateTime;
-
-    /**
-     * 所属用户ID
-     */
-    private Long userId;
 
 }

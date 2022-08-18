@@ -1,23 +1,27 @@
 package com.wake.generator.application.generate.api;
 
+import com.wake.generator.application.generate.common.DomainShapeEnum;
 import com.wake.generator.application.generate.entity.DomainChart;
+import com.wake.generator.application.generate.entity.DomainShape;
 import com.wake.generator.application.generate.handler.DomainChartCodeGenerator;
 import com.wake.generator.application.generate.handler.GeneratedCode;
-import com.wake.generator.application.generate.util.JAXBContextParseXmlUtil;
 import com.wake.generator.application.generate.util.Xml2ChartConvert;
-import com.wake.generator.application.generate.util.model.MXFileRoot;
-import com.wake.generator.application.generate.util.model.ObjectLabel;
 import com.wake.generator.client.generete.api.CodeGenerateService;
+import com.wake.generator.client.generete.dto.GenerateDomainDto;
+import com.wake.generator.client.generete.dto.GenerateProjectDto;
+import com.wake.generator.infra.manage.repository.mapper.ChartMapper;
+import com.wake.generator.infra.manage.repository.mapper.DomainMapper;
+import com.wake.generator.infra.manage.repository.model.ChartDO;
+import com.wake.generator.infra.manage.repository.model.DomainDO;
+import com.wakedata.common.storage.enums.BucketEnum;
+import com.wakedata.common.storage.service.FileStorageService;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Set;
+import java.util.zip.ZipOutputStream;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.util.List;
-import java.util.zip.ZipOutputStream;
 
 /**
  * 代码生成器服务实现类
@@ -30,43 +34,41 @@ import java.util.zip.ZipOutputStream;
 @Service
 public class CodeGenerateByXmlServiceImpl implements CodeGenerateService {
 
+    @Resource
+    private DomainMapper domainMapper;
+
+    @Resource
+    private ChartMapper chartMapper;
+
+    @Resource
+    private FileStorageService fileStorageService;
+
+    private static void addProject(Set<DomainShape> domainShapes) {
+        DomainShape projectShape = new DomainShape();
+        projectShape.setShapeType(DomainShapeEnum.PROJECT);
+        domainShapes.add(projectShape);
+    }
+
     @Override
-    public void generateCodeByChartXml(Long chartId, ZipOutputStream zipOutputStream) {
-        // 查询图谱xml流
-        InputStream inputStream = null;
-        // 生成代码
-        this.generateCode(inputStream, zipOutputStream);
-    }
-
-    public static void main(String[] args) {
-        File file = new File("./newFile.zip");
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
-             ZipOutputStream zipOutputStream = new ZipOutputStream(fileOutputStream)) {
-            // 生成代码,并传递到输出流
-            CodeGenerateByXmlServiceImpl codeGenerateByXmlService = new CodeGenerateByXmlServiceImpl();
-            File file1 = new File("/Users/shimmer/IdeaProjects/wake-code-generator/a.xml");
-            codeGenerateByXmlService.generateCode(Files.newInputStream(file1.toPath()), zipOutputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public void generateCodeByChartXml(GenerateProjectDto projectDto,
+        ZipOutputStream zipOutputStream) {
+        List<GenerateDomainDto> domainDtoList = projectDto.getDomainList();
+        for (GenerateDomainDto domainDto : domainDtoList) {
+            // 获取最新的图谱文件
+            DomainDO domainDO = domainMapper.selectById(domainDto.getId());
+            ChartDO chartDO = chartMapper.selectById(domainDO.getChartId());
+            String fileKey = chartDO.getFileKey();
+            InputStream fileStream = fileStorageService.getFileStream(BucketEnum.MATERIAL, fileKey);
+            Set<DomainShape> domainShapes = Xml2ChartConvert.getDomainShape(fileStream);
+            // 添加项目元素
+            addProject(domainShapes);
+            DomainChart domainChart = new DomainChart();
+            domainChart.setDomainShapeList(domainShapes);
+            domainChart.setGlobal(Xml2ChartConvert.transformGlobal(projectDto, domainDto));
+            // 生成代码
+            GeneratedCode codeGenerator = new DomainChartCodeGenerator(domainChart);
+            codeGenerator.run(zipOutputStream);
         }
-    }
-
-    public void generateCode(InputStream inputStream, ZipOutputStream zipOutputStream) {
-        List<ObjectLabel> objectLabelList = this.parseXml(inputStream);
-        DomainChart domainChart = Xml2ChartConvert.transformDomainChart(objectLabelList);
-        GeneratedCode codeGenerator = new DomainChartCodeGenerator(domainChart);
-        codeGenerator.run(zipOutputStream);
-    }
-
-    private List<ObjectLabel> parseXml(InputStream inputStream) {
-        MXFileRoot mxFileRoot;
-        try {
-            mxFileRoot = JAXBContextParseXmlUtil
-                    .xml2javaFromRecource(inputStream, MXFileRoot.class);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return mxFileRoot.getDiagram().getMxGraphModel().getRoot().getObjectLabelList();
     }
 
 }

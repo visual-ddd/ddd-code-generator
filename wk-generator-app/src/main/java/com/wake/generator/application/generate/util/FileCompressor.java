@@ -18,6 +18,7 @@ import java.util.zip.ZipOutputStream;
  * @author xmfang
  */
 public class FileCompressor {
+
     private FileCompressor() {
     }
 
@@ -25,7 +26,8 @@ public class FileCompressor {
 
     public static void zipFile(String baseDir, String fileName) throws IOException {
         List<File> fileList = getSubFiles(new File(baseDir));
-        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(Paths.get(fileName)));
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(
+            Files.newOutputStream(Paths.get(fileName)));
 
         ) {
             ZipEntry zipEntry;
@@ -34,12 +36,14 @@ public class FileCompressor {
 
             for (File file : fileList) {
                 zipEntry = new ZipEntry(getAbsFileName(baseDir, file));
-                BasicFileAttributes fileAttributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
+                BasicFileAttributes fileAttributes = Files.readAttributes(file.toPath(),
+                    BasicFileAttributes.class);
                 zipEntry.setSize(fileAttributes.size());
                 zipEntry.setTime(fileAttributes.lastModifiedTime().toMillis());
                 zipOutputStream.putNextEntry(zipEntry);
 
-                try (InputStream is = new BufferedInputStream(Files.newInputStream(file.toPath()))) {
+                try (InputStream is = new BufferedInputStream(
+                    Files.newInputStream(file.toPath()))) {
                     while ((readLen = is.read(buf, 0, BUFFER_SIZE)) != -1) {
                         zipOutputStream.write(buf, 0, readLen);
                     }

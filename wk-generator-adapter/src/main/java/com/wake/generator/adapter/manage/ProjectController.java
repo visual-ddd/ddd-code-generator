@@ -5,11 +5,15 @@ import com.wake.generator.client.manage.api.query.ProjectQuery;
 import com.wake.generator.client.manage.dto.ProjectDto;
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
+import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 项目页面管理
@@ -35,7 +39,7 @@ public class ProjectController {
         return projectService.removeProject(Arrays.asList(projectIds));
     }
 
-    @GetMapping("/modify")
+    @PostMapping("/modify")
     public ResultDTO<Boolean> modify(@RequestBody ProjectDto projectDto) {
         return projectService.modifyProject(projectDto);
     }

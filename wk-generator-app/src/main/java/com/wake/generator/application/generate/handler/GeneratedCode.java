@@ -13,8 +13,7 @@ public interface GeneratedCode {
 
 
     /**
-     * 执行代码生成
-     * 将生成的代码输出到输出流
+     * 执行代码生成 将生成的代码输出到输出流
      *
      * @param zipOutputStream 压缩流
      */

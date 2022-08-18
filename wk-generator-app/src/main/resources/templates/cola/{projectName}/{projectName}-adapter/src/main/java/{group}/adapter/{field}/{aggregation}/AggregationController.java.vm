@@ -1,0 +1,11 @@
+#parse("templates/Aggregation.vm")
+package ${globalLabel.group}.adapter.${globalLabel.filed}.${AggregationLowName};
+
+import org.springframework.web.bind.annotation.*;
+
+#comment($AggregationDescription)
+@RestController
+public class ${AggregationName}Controller {
+
+
+}

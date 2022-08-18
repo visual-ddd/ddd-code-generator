@@ -1,0 +1,21 @@
+parse("templates/Aggregation.vm")
+package $DOPackagePath;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import java.time.LocalDateTime;
+import java.util.List;
+
+#comment("${AggregationDescription}实体类")
+@Data
+@TableName("${AggregationDescription}实体类")
+public class ${AggregationName}DO {
+
+    /** 主键 */
+    @TableId(type = IdType.AUTO)
+    private Long id;
+    #filed($AggregationFields)
+
+}

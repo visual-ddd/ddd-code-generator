@@ -1,0 +1,13 @@
+parse("templates/Aggregation.vm")
+package $MapperPackagePath;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
+import ${DOPackagePath}.${AggregationName}DO;
+
+#comment("${AggregationDescription}Mapper接口")
+@Mapper
+public interface ${AggregationName}Mapper extends BaseMapper<${AggregationName}DO> {
+
+}

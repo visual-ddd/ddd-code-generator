@@ -1,10 +1,7 @@
 package com.wake.generator.application.generate.util;
 
-import lombok.extern.slf4j.Slf4j;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
-
+import java.io.File;
+import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -13,8 +10,10 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
-import java.io.File;
-import java.io.InputStream;
+import lombok.extern.slf4j.Slf4j;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 
 /**
  * JAXB操作XML工具类
@@ -52,24 +51,6 @@ public class JAXBContextParseXmlUtil {
     }
 
     /**
-     * 把XML直接解析成对应的实体类实例
-     *
-     * @param xmlPath  xml路径
-     * @param cls      对象类
-     * @param <T>      实例类型
-     * @param pathType 读取方式{@link PathTypeEnum}
-     * @return returnInstance 返回实例
-     * @throws Exception
-     */
-    public static <T> T xml2java(String xmlPath, Class<T> cls, String pathType) throws Exception {
-        if (pathType.equals(PathTypeEnum.FULL_PATH.getType())) {
-            return xml2javaFromFullPath(xmlPath, cls);
-        }
-        return xml2javaFromRecource(xmlPath, cls);
-
-    }
-
-    /**
      * 通过全路径方式获取对象
      *
      * @param xmlFullPath xml全路径
@@ -91,31 +72,14 @@ public class JAXBContextParseXmlUtil {
     /**
      * 通过Recource文件方式获取对象
      *
-     * @param xmlPath recource下的文件目录
-     * @param cls     对象类
-     * @param <T>     实例类型
-     * @return returnInstance 返回实例
-     * @throws Exception
-     */
-    public static <T> T xml2javaFromRecource(String xmlPath, Class<T> cls) throws Exception {
-        Unmarshaller uma = getUnmarshaller(JAXBContext.newInstance(cls));
-        XMLReader xmlReader = getXmlReader();
-        Source source = new SAXSource(xmlReader, new InputSource(ReadRecourceUtil.getResourceFileAsInputStream(xmlPath)));
-        // 把XML文件解析为对象
-        T returnInstance = (T) uma.unmarshal(source);
-        return returnInstance;
-    }
-
-    /**
-     * 通过Recource文件方式获取对象
-     *
      * @param inputStream 文件流
      * @param cls         对象类
      * @param <T>         实例类型
      * @return returnInstance 返回实例
      * @throws Exception
      */
-    public static <T> T xml2javaFromRecource(InputStream inputStream, Class<T> cls) throws Exception {
+    public static <T> T xml2javaFromRecource(InputStream inputStream, Class<T> cls)
+        throws Exception {
         Unmarshaller uma = getUnmarshaller(JAXBContext.newInstance(cls));
         XMLReader xmlReader = getXmlReader();
         Source source = new SAXSource(xmlReader, new InputSource(inputStream));

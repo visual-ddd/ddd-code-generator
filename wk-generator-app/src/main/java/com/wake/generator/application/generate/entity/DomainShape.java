@@ -1,14 +1,13 @@
 package com.wake.generator.application.generate.entity;
 
 
-import com.wake.generator.client.generete.common.DomainShapeEnum;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
-
+import com.wake.generator.application.generate.common.DomainShapeEnum;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 图形信息

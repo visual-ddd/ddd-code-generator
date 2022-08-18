@@ -1,11 +1,12 @@
 package com.wake.generator.infra.manage.repository.model;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
 import java.time.LocalDateTime;
+import lombok.Data;
 
 /**
  * 图谱实体类
@@ -25,33 +26,25 @@ public class ChartDO {
     private Long id;
 
     /**
-     * 名称
+     * xml文件存储key
      */
-    private String chartName;
+    private String fileKey;
 
     /**
-     * 作者
+     * 所属领域
      */
-    private String author;
+    private Long domainId;
 
     /**
      * 创建时间
      */
-    private LocalDateTime dateTime;
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
 
     /**
-     * 领域包名
+     * 更新时间
      */
-    private String domainPackage;
-
-    /**
-     * 绘制的xml文件
-     */
-    private String chartXml;
-
-    /**
-     * 项目id
-     */
-    private Long projectId;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
 
 }

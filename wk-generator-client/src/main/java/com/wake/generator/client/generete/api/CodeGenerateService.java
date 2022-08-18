@@ -1,5 +1,6 @@
 package com.wake.generator.client.generete.api;
 
+import com.wake.generator.client.generete.dto.GenerateProjectDto;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -13,7 +14,10 @@ public interface CodeGenerateService {
 
     /**
      * 生成对应的项目结构
+     *
+     * @param projectDto      需要生成的项目结构
+     * @param zipOutputStream 结果输出压缩流
      */
-    void generateCodeByChartXml(Long chartId, ZipOutputStream zipOutputStream);
+    void generateCodeByChartXml(GenerateProjectDto projectDto, ZipOutputStream zipOutputStream);
 
 }

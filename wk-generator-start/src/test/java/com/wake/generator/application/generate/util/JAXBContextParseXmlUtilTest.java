@@ -1,18 +1,28 @@
 package com.wake.generator.application.generate.util;
 
-import com.wake.generator.application.generate.entity.*;
+import com.wake.generator.application.generate.common.DomainShapeEnum;
+import com.wake.generator.application.generate.common.ModifyEnum;
+import com.wake.generator.application.generate.entity.DomainChart;
+import com.wake.generator.application.generate.entity.DomainShape;
+import com.wake.generator.application.generate.entity.Field;
+import com.wake.generator.application.generate.entity.Global;
+import com.wake.generator.application.generate.entity.Method;
 import com.wake.generator.application.generate.util.model.MXFileRoot;
 import com.wake.generator.application.generate.util.model.ObjectLabel;
-import com.wake.generator.client.generete.common.DomainShapeEnum;
-import com.wake.generator.client.generete.common.ModifyEnum;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 
 @Slf4j
 public class JAXBContextParseXmlUtilTest {
@@ -20,9 +30,10 @@ public class JAXBContextParseXmlUtilTest {
     @Test
     public void xml2javaFromFullPath() throws Exception {
         MXFileRoot mxFileRoot = JAXBContextParseXmlUtil.xml2javaFromFullPath(
-                "/Users/shimmer/IdeaProjects/wake-code-generator/a.xml",
-                MXFileRoot.class);
-        List<ObjectLabel> objectLabelList = mxFileRoot.getDiagram().getMxGraphModel().getRoot().getObjectLabelList();
+            "/Users/shimmer/IdeaProjects/wake-code-generator/a.xml",
+            MXFileRoot.class);
+        List<ObjectLabel> objectLabelList = mxFileRoot.getDiagram().getMxGraphModel().getRoot()
+            .getObjectLabelList();
 
         DomainChart domainChart = new DomainChart();
         ObjectLabel globalInfo = objectLabelList.get(0);
@@ -142,8 +153,8 @@ public class JAXBContextParseXmlUtilTest {
     /**
      * 正则取出图形填充的聚合颜色标识
      *
-     * @param style
-     * @return
+     * @param style chartXml中style
+     * @return 聚合颜色标识
      */
     public String getAggregationColor(String style) {
         String result = null;
@@ -167,7 +178,7 @@ public class JAXBContextParseXmlUtilTest {
         field.setName(objectLabel.getFieldName());
         field.setType(objectLabel.getFieldType());
         ModifyEnum fieldModify = Optional.ofNullable(objectLabel.getFieldModify())
-                .orElse(ModifyEnum.PRIVATE);
+            .orElse(ModifyEnum.PRIVATE);
         field.setModifier(fieldModify.getValue());
         field.setDescription(objectLabel.getFieldDesc());
         return field;
@@ -186,7 +197,7 @@ public class JAXBContextParseXmlUtilTest {
         method.setAttributeLabel(objectLabel.getMethodAttr());
         method.setName(objectLabel.getMethodName());
         ModifyEnum methodModify = Optional.ofNullable(objectLabel.getMethodModify())
-                .orElse(ModifyEnum.PUBLIC);
+            .orElse(ModifyEnum.PUBLIC);
         method.setModifier(methodModify.getValue());
         method.setDescription(objectLabel.getMethodDesc());
         return method;

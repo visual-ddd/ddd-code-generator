@@ -1,11 +1,10 @@
 package com.wake.generator.application.generate.util.model;
 
-import lombok.Data;
-
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import java.util.List;
+import lombok.Data;
 
 @Data
 @XmlAccessorType(value = XmlAccessType.FIELD)
