@@ -2,6 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>com.wakedata</groupId>
     <artifactId>wd-parent</artifactId>
@@ -10,9 +12,8 @@
 
   <groupId>com.wake.generator</groupId>
   <artifactId>wake-code-generator</artifactId>
-  <packaging>pom</packaging>
   <version>1.1-SNAPSHOT</version>
-  <modelVersion>4.0.0</modelVersion>
+  <packaging>pom</packaging>
 
   <modules>
     <module>wk-generator-adapter</module>
@@ -167,38 +168,4 @@
     </dependency>
 
   </dependencies>
-
-  <build>
-
-    <plugins>
-      <!--maven compiler-->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-          <!-- 编译期需要运行的注解解析器 -->
-          <annotationProcessorPaths>
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>${org.projectlombok.version}</version>
-            </path>
-            <path>
-              <groupId>org.mapstruct</groupId>
-              <artifactId>mapstruct-processor</artifactId>
-              <version>${org.mapstruct.version}</version>
-            </path>
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok-mapstruct-binding</artifactId>
-              <version>0.1.0</version>
-            </path>
-          </annotationProcessorPaths>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
