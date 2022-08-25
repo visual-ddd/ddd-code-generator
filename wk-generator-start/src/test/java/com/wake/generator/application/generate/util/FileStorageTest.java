@@ -1,6 +1,6 @@
 package com.wake.generator.application.generate.util;
 
-import com.wake.generator.application.manage.config.FileKeyConfig;
+import com.wake.generator.application.generate.config.FileKeyConfig;
 import com.wake.generator.start.CodeGeneratorApplication;
 import com.wakedata.common.storage.enums.BucketEnum;
 import com.wakedata.common.storage.model.UploadRequest;

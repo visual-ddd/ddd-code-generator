@@ -1,6 +1,7 @@
 package com.wake.generator.application.manage.api;
 
-import com.wake.generator.application.manage.config.FileKeyConfig;
+import com.wake.generator.application.generate.common.ChartStatusEnum;
+import com.wake.generator.application.generate.config.FileKeyConfig;
 import com.wake.generator.client.manage.api.ChartStorageService;
 import com.wake.generator.client.manage.dto.ChartStorageDto;
 import com.wake.generator.infra.manage.repository.mapper.ChartMapper;
@@ -11,13 +12,13 @@ import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedata.common.core.exception.BizException;
 import com.wakedata.common.storage.enums.BucketEnum;
 import com.wakedata.common.storage.model.UploadRequest;
-import com.wakedata.common.storage.model.UploadResult;
 import com.wakedata.common.storage.service.FileStorageService;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Objects;
 import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -64,22 +65,38 @@ public class ChartStorageServiceImpl implements ChartStorageService {
     @Override
     public ResultDTO<Boolean> uploadChart(ChartStorageDto chartStorageDto) {
         parameterValid(chartStorageDto);
-        Long domainId = chartStorageDto.getDomainId();
+
         String newChartXml = chartStorageDto.getXml();
-        DomainDO domainDO = domainMapper.selectById(domainId);
-        ChartDO chartDO = chartMapper.selectById(domainDO.getChartId());
-        String fileKey = chartDO.getFileKey();
-        if (FileKeyConfig.INIT_CHART_FILE_KEY.equals(fileKey)) {
-            fileKey = createNewChart(domainDO);
-        } else {
-            chartMapper.updateById(chartDO);
-        }
+        DomainDO domainDO = domainMapper.selectById(chartStorageDto.getDomainId());
+        Long chartId = domainDO.getChartId();
+        String newChartKey = getChartKey(domainDO, chartId);
         // 上传文件
-        // TODO 上传失败
-        uploadChartFile(newChartXml, fileKey);
+        uploadChartFile(newChartXml, newChartKey);
         return ResultDTO.success(Boolean.TRUE);
     }
 
+    /**
+     * 获取图谱文件key
+     *
+     * @param domainDO 领域对象
+     * @param chartId  图谱id
+     * @return 文件key
+     */
+    private String getChartKey(DomainDO domainDO, Long chartId) {
+        if (Objects.equals(ChartStatusEnum.INIT.getValue(), chartId)) {
+            return createNewChart(domainDO);
+        } else {
+            ChartDO chartDO = chartMapper.selectById(chartId);
+            return chartDO.getFileKey();
+        }
+    }
+
+    /**
+     * 新增图谱文件
+     *
+     * @param domainDO 领域对象
+     * @return 新文件key
+     */
     private String createNewChart(DomainDO domainDO) {
         // 创建新版本
         String fileKey = UUID.randomUUID().toString();
@@ -123,15 +140,22 @@ public class ChartStorageServiceImpl implements ChartStorageService {
         }
     }
 
+    /**
+     * 上传图谱文件
+     *
+     * @param chartXml 图谱xml
+     * @param fileKey  文件key
+     */
     private void uploadChartFile(String chartXml, String fileKey) {
         UploadRequest request = UploadRequest.builder()
             .fileKey(fileKey)
             .bucket(BucketEnum.MATERIAL)
             .build();
-        UploadResult upload = fileStorageService.upload(request,
-            new ByteArrayInputStream(chartXml.getBytes()));
-        if (Boolean.FALSE.equals(upload.getSuccess())) {
-            log.error("上传失败！");
+        try {
+            fileStorageService.upload(request, new ByteArrayInputStream(chartXml.getBytes()));
+        } catch (Exception e) {
+            log.error("图谱上传失败！chartXml:{}, fileKey:{}", chartXml, fileKey);
+            throw new BizException("图谱更新失败!");
         }
     }
 

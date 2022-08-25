@@ -4,10 +4,9 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.wake.generator.application.manage.config.FileKeyConfig;
+import com.wake.generator.application.generate.common.ChartStatusEnum;
 import com.wake.generator.client.manage.api.DomainService;
 import com.wake.generator.client.manage.api.query.DomainQuery;
-import com.wake.generator.client.manage.dto.ChartDto;
 import com.wake.generator.client.manage.dto.DomainDto;
 import com.wake.generator.infra.manage.help.DomainQueryHelper;
 import com.wake.generator.infra.manage.repository.mapper.ChartMapper;
@@ -53,28 +52,9 @@ public class DomainServiceImpl implements DomainService {
     @Override
     public ResultDTO<Long> createDomain(DomainDto domainDto) {
         DomainDO domainDO = BeanUtil.copy(domainDto, DomainDO.class);
-        // 初始化图谱并关联当前领域
-        domainDO.setChartId(getInitChartId());
+        domainDO.setChartId(ChartStatusEnum.INIT.getValue());
         domainMapper.insert(domainDO);
         return ResultDTO.success(domainDO.getId());
-    }
-
-    /**
-     * 获取初始图谱模版id
-     *
-     * @return 初始图谱模版id
-     */
-    private Long getInitChartId() {
-        List<ChartDO> chartDOList = chartMapper.selectList(
-            new LambdaQueryWrapper<ChartDO>().eq(ChartDO::getDomainId, 0L));
-        if (CollectionUtil.isNotEmpty(chartDOList)) {
-            return chartDOList.get(0).getId();
-        }
-        ChartDO chartDO = new ChartDO();
-        chartDO.setDomainId(0L);
-        chartDO.setFileKey(FileKeyConfig.INIT_CHART_FILE_KEY);
-        chartMapper.insert(chartDO);
-        return chartDO.getId();
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -93,13 +73,19 @@ public class DomainServiceImpl implements DomainService {
     private void deleteChartsByDomain(List<Long> domainIds) {
         List<ChartDO> chartDOList = chartMapper.selectList(
             new LambdaQueryWrapper<ChartDO>().in(ChartDO::getDomainId, domainIds));
-        List<String> fileKeyList = chartDOList.stream().map(ChartDO::getFileKey)
+
+        List<String> fileKeyList = chartDOList.stream()
+            .map(ChartDO::getFileKey)
             .collect(Collectors.toCollection(ArrayList::new));
-        List<Long> chartIds = chartDOList.stream().map(ChartDO::getId)
+        List<Long> chartIds = chartDOList.stream()
+            .map(ChartDO::getId)
             .collect(Collectors.toCollection(ArrayList::new));
-        fileKeyList.forEach(fileKey -> fileStorageService.deleteFile(BucketEnum.MATERIAL, fileKey));
+
         if (CollectionUtil.isNotEmpty(chartIds)) {
             chartMapper.deleteBatchIds(chartIds);
+        }
+        for (String fileKey : fileKeyList) {
+            fileStorageService.deleteFile(BucketEnum.MATERIAL, fileKey);
         }
     }
 
@@ -114,7 +100,6 @@ public class DomainServiceImpl implements DomainService {
     public ResultDTO<DomainDto> detailDomain(Long domainId) {
         DomainDO domainDO = domainMapper.selectById(domainId);
         DomainDto domainDto = BeanUtil.copy(domainDO, DomainDto.class);
-        setChartDto(domainDto);
         return ResultDTO.success(domainDto);
     }
 
@@ -128,18 +113,8 @@ public class DomainServiceImpl implements DomainService {
         result.setTotalCount(iPage.getTotal());
         List<DomainDto> dataList = ObjectUtil.isEmpty(iPage.getRecords()) ?
             Collections.emptyList() : BeanUtil.copyList(iPage.getRecords(), DomainDto.class);
-        dataList.forEach(this::setChartDto);
         result.setData(dataList);
         return result;
-    }
-
-    private void setChartDto(DomainDto domainDto) {
-        if (domainDto == null) {
-            return;
-        }
-        ChartDO chartDO = chartMapper.selectById(domainDto.getChartId());
-        ChartDto chartDto = BeanUtil.copy(chartDO, ChartDto.class);
-        domainDto.setChartDto(chartDto);
     }
 
 }

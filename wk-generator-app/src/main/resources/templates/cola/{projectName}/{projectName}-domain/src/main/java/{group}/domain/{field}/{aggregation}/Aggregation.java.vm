@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class $AggregationName implements I${AggregationName} {
     #filed($AggregationFields)
-    #method($AggregationMethods)
+    #overrideMethod($AggregationMethods)
 
 }

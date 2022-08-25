@@ -5,6 +5,7 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>com.wakedata</groupId>
     <artifactId>wd-parent</artifactId>
@@ -15,7 +16,6 @@
   <artifactId>${ProjectName}</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>${ProjectName}</name>
 
   <properties>
     <wd-common-core.version>1.2.2-DDD11</wd-common-core.version>
@@ -103,40 +103,6 @@
     </dependencies>
   </dependencyManagement>
 
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <configuration>
-            <testFailureIgnore>true</testFailureIgnore>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.2.0</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <configuration>
-            <skip>true</skip>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
-
   <distributionManagement>
     <!-- 配置release版本发布的仓库-->
     <repository>
@@ -151,35 +117,6 @@
       <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
     </snapshotRepository>
   </distributionManagement>
-
-  <repositories>
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-      <id>central</id>
-      <name>libs-release-local</name>
-      <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
-    </repository>
-    <repository>
-      <id>snapshots</id>
-      <name>libs-snapshot-local</name>
-      <releases>
-        <enabled>false</enabled>
-        <updatePolicy>always</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-      <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local</url>
-    </repository>
-  </repositories>
 
   <modules>
     <module>${ProjectName}-adapter</module>

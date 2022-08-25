@@ -1,6 +1,7 @@
 package com.wake.generator.application.generate.api;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.wake.generator.application.generate.common.ChartStatusEnum;
 import com.wake.generator.application.generate.common.GenerateElementTypeEnum;
 import com.wake.generator.application.generate.entity.GenerateChart;
 import com.wake.generator.application.generate.entity.GenerateElement;
@@ -14,12 +15,14 @@ import com.wake.generator.infra.manage.repository.mapper.ChartMapper;
 import com.wake.generator.infra.manage.repository.mapper.DomainMapper;
 import com.wake.generator.infra.manage.repository.model.ChartDO;
 import com.wake.generator.infra.manage.repository.model.DomainDO;
+import com.wakedata.common.core.exception.BizException;
 import com.wakedata.common.core.util.BeanUtil;
 import com.wakedata.common.storage.enums.BucketEnum;
 import com.wakedata.common.storage.service.FileStorageService;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.zip.ZipOutputStream;
@@ -107,7 +110,11 @@ public class CodeGenerateByXmlServiceImpl implements CodeGenerateService {
      */
     private InputStream getChartXmlStreamByDomainId(Long domainId) {
         DomainDO domainDO = domainMapper.selectById(domainId);
-        ChartDO chartDO = chartMapper.selectById(domainDO.getChartId());
+        Long chartId = domainDO.getChartId();
+        if (Objects.equals(ChartStatusEnum.INIT.getValue(), chartId)) {
+            throw new BizException("领域图谱中没有可以生成的内容!");
+        }
+        ChartDO chartDO = chartMapper.selectById(chartId);
         String fileKey = chartDO.getFileKey();
         return fileStorageService.getFileStream(BucketEnum.MATERIAL, fileKey);
     }

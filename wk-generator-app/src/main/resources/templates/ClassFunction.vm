@@ -39,6 +39,22 @@ import ${importPackage};
     }
     #end
 #end
+## ============= 继承方法列表 =============
+#macro(overrideMethod $methodList)
+    #foreach ($method in $methodList)
+
+    #if($method.description)
+     /** ${method.description} */
+    #end
+    @Override
+    ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}){
+        // Do Something
+        #if($method.returnType != "void")
+        return null;
+     #end
+    }
+    #end
+#end
 ## ============= 接口方法列表 =============
 #macro(interfaceMethod $methodList)
     #foreach ($method in $methodList)

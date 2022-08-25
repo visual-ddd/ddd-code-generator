@@ -4,6 +4,7 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>${ProjectPackage}</groupId>
     <artifactId>${ProjectName}</artifactId>
@@ -12,7 +13,6 @@
 
   <artifactId>${ProjectName}-domain</artifactId>
   <packaging>jar</packaging>
-  <name>${ProjectName}-domain</name>
 
   <dependencies>
     <dependency>
@@ -66,19 +66,6 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
 
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <configuration>
-            <skip>true</skip>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
 </project>

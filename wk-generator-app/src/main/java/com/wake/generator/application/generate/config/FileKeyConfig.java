@@ -1,4 +1,4 @@
-package com.wake.generator.application.manage.config;
+package com.wake.generator.application.generate.config;
 
 /**
  * 远程存储文件的key
