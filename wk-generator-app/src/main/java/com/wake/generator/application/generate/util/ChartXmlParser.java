@@ -1,15 +1,16 @@
 package com.wake.generator.application.generate.util;
 
-import com.wake.generator.application.generate.common.DomainShapeEnum;
+import com.wake.generator.application.generate.common.GenerateElementTypeEnum;
 import com.wake.generator.application.generate.common.ModifyEnum;
-import com.wake.generator.application.generate.entity.DomainShape;
 import com.wake.generator.application.generate.entity.Field;
+import com.wake.generator.application.generate.entity.GenerateElement;
 import com.wake.generator.application.generate.entity.Global;
 import com.wake.generator.application.generate.entity.Method;
 import com.wake.generator.application.generate.util.model.MXFileRoot;
 import com.wake.generator.application.generate.util.model.ObjectLabel;
 import com.wake.generator.client.generete.dto.GenerateDomainDto;
 import com.wake.generator.client.generete.dto.GenerateProjectDto;
+import com.wakedata.common.core.exception.BizException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -35,7 +36,7 @@ import org.apache.commons.lang3.StringUtils;
  * @date 2022/8/15
  */
 @Slf4j
-public class Xml2ChartConvert {
+public class ChartXmlParser {
 
     public static final Pattern COLOR_PATTERN = Pattern.compile("fillColor=(.*?);");
 
@@ -45,9 +46,27 @@ public class Xml2ChartConvert {
      * @param chartXmlInputStream 图谱Xml文件流
      * @return 需要生成的图形集合
      */
-    public static Set<DomainShape> getDomainShape(InputStream chartXmlInputStream) {
-        List<ObjectLabel> objectLabels = Xml2ChartConvert.parseXmlByStream(chartXmlInputStream);
-        return Xml2ChartConvert.transformDomainShapes(objectLabels);
+    public static Set<GenerateElement> parse(InputStream chartXmlInputStream) {
+        List<ObjectLabel> objectLabels = ChartXmlParser.parseXmlByStream(chartXmlInputStream);
+        return ChartXmlParser.transformDomainShapes(objectLabels);
+    }
+
+    /**
+     * 解析chartXml文件流
+     *
+     * @param chartXmlInputStream chartXml输入流
+     * @return 解析后的标签集合
+     */
+    public static List<ObjectLabel> parseXmlByStream(InputStream chartXmlInputStream) {
+        MXFileRoot mxFileRoot;
+        try {
+            mxFileRoot = JAXBContextParseXmlUtil.xml2javaFromRecource(chartXmlInputStream,
+                MXFileRoot.class);
+        } catch (Exception e) {
+            throw new BizException(e);
+        }
+        // TODO Null
+        return mxFileRoot.getDiagram().getMxGraphModel().getRoot().getObjectLabelList();
     }
 
     /**
@@ -56,14 +75,15 @@ public class Xml2ChartConvert {
      * @param objectLabelList 解析后的标签列表
      * @return 需要生成的图形集合
      */
-    public static Set<DomainShape> transformDomainShapes(List<ObjectLabel> objectLabelList) {
+    public static Set<GenerateElement> transformDomainShapes(List<ObjectLabel> objectLabelList) {
         // 解析并缓存属性列表、方法列表和action包名
         Map<String, List<Field>> fieldsMap = new HashMap<>(100);
         Map<String, List<Method>> methodsMap = new HashMap<>(50);
         Map<String, String> actionMap = new HashMap<>(20);
-        ArrayList<ObjectLabel> umlElements = new ArrayList<>();
+        List<ObjectLabel> umlElements = new ArrayList<>();
+
         for (ObjectLabel objectLabel : objectLabelList) {
-            DomainShapeEnum shapeType = objectLabel.getShapeType();
+            GenerateElementTypeEnum shapeType = objectLabel.getShapeType();
             String parentId = objectLabel.getMxCell().getParent();
             if (Objects.isNull(shapeType)) {
                 continue;
@@ -99,43 +119,27 @@ public class Xml2ChartConvert {
                     break;
             }
         }
+
         // 解析需要生成的UML元素
-        Set<DomainShape> domainShapes = new HashSet<>();
+        Set<GenerateElement> generateElements = new HashSet<>();
         for (ObjectLabel element : umlElements) {
             String id = element.getId();
-            DomainShape domainShape = transformDomainShape(element);
-            domainShape.setFieldList(fieldsMap.get(id));
-            domainShape.setMethodList(methodsMap.get(id));
-            domainShape.setActionName(actionMap.get(element.getMxCell().getParent()));
-            domainShapes.add(domainShape);
+            GenerateElement generateElement = transformDomainShape(element);
+            generateElement.setFieldList(fieldsMap.get(id));
+            generateElement.setMethodList(methodsMap.get(id));
+            generateElement.setActionName(actionMap.get(element.getMxCell().getParent()));
+            generateElements.add(generateElement);
         }
         // 解析元素所属聚合
-        parseAggregationColor(domainShapes);
-        return domainShapes;
+        parseAggregationColor(generateElements);
+        return generateElements;
     }
 
-    /**
-     * 解析chartXml文件流
-     *
-     * @param chartXmlInputStream chartXml输入流
-     * @return 解析后的标签集合
-     */
-    public static List<ObjectLabel> parseXmlByStream(InputStream chartXmlInputStream) {
-        MXFileRoot mxFileRoot;
-        try {
-            mxFileRoot = JAXBContextParseXmlUtil.xml2javaFromRecource(chartXmlInputStream,
-                MXFileRoot.class);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return mxFileRoot.getDiagram().getMxGraphModel().getRoot().getObjectLabelList();
-    }
-
-    private static void parseAggregationColor(Set<DomainShape> domainShapes) {
+    private static void parseAggregationColor(Set<GenerateElement> generateElements) {
         // 缓存聚合颜色映射表
-        Map<String, DomainShape> aggregationColorMap = new HashMap<>(7);
-        for (DomainShape domainShape : domainShapes) {
-            if (DomainShapeEnum.AGGREGATION.equals(domainShape.getShapeType())) {
+        Map<String, GenerateElement> aggregationColorMap = new HashMap<>(7);
+        for (GenerateElement domainShape : generateElements) {
+            if (GenerateElementTypeEnum.AGGREGATION.equals(domainShape.getShapeType())) {
                 String color = domainShape.getColor();
                 // 聚合必须标颜色才加入生成列表
                 if (StringUtils.isEmpty(color)) {
@@ -144,56 +148,57 @@ public class Xml2ChartConvert {
                 aggregationColorMap.put(color, domainShape);
             }
         }
-        Iterator<DomainShape> iterator = domainShapes.iterator();
+
+        Iterator<GenerateElement> iterator = generateElements.iterator();
         while (iterator.hasNext()) {
-            DomainShape domainShape = iterator.next();
-            if (DomainShapeEnum.AGGREGATION.equals(domainShape.getShapeType())) {
+            GenerateElement generateElement = iterator.next();
+            if (GenerateElementTypeEnum.AGGREGATION.equals(generateElement.getShapeType())) {
                 continue;
             }
-            String color = domainShape.getColor();
-            DomainShape aggregation = aggregationColorMap.get(color);
+            String color = generateElement.getColor();
+            GenerateElement aggregation = aggregationColorMap.get(color);
             // 如果没有找到对应的聚合颜色,则从生成列表中删除
             if (Objects.isNull(aggregation)) {
                 iterator.remove();
+                log.info("未找到颜色对应的聚合,从生成列表中删除:{}", generateElement);
             }
-            domainShape.setParentAggregation(aggregation);
+            generateElement.setParentAggregation(aggregation);
         }
     }
 
     public static Global transformGlobal(GenerateProjectDto projectDto,
-        GenerateDomainDto chartDto) {
+        GenerateDomainDto domainDto) {
         Global global = new Global();
         global.setProjectName(projectDto.getProjectName());
         global.setGroup(projectDto.getGroupPackage());
         LocalDateTime dateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         global.setDateTime(dateTime.format(formatter));
-        global.setAuthor(chartDto.getAuthor());
-        global.setFiled(chartDto.getDomainPackage());
+        global.setAuthor(domainDto.getAuthor());
+        global.setFiled(domainDto.getDomainPackage());
         return global;
     }
 
     /**
      * 映射为需要生成的图形信息
      *
-     * @param element
+     * @param element xml标签
      * @return DomainShape
      */
-    private static DomainShape transformDomainShape(ObjectLabel element) {
-        DomainShape domainShape = new DomainShape();
-        domainShape.setName(element.getClassName());
-        domainShape.setDescription(element.getClassDesc());
-        domainShape.setShapeType(element.getShapeType());
-        String style = element.getMxCell().getStyle();
-        domainShape.setColor(getAggregationColor(style));
-        return domainShape;
+    private static GenerateElement transformDomainShape(ObjectLabel element) {
+        GenerateElement generateElement = new GenerateElement();
+        generateElement.setName(element.getClassName());
+        generateElement.setDescription(element.getClassDesc());
+        generateElement.setShapeType(element.getShapeType());
+        generateElement.setColor(getAggregationColor(element.getMxCell().getStyle()));
+        return generateElement;
     }
 
     /**
      * 正则取出图形填充的聚合颜色标识
      *
-     * @param style
-     * @return
+     * @param style xml属性
+     * @return 颜色值
      */
     public static String getAggregationColor(String style) {
         String result = null;
@@ -207,7 +212,7 @@ public class Xml2ChartConvert {
     /**
      * 映射为属性元素
      *
-     * @param objectLabel
+     * @param objectLabel xml标签
      * @return 属性对象
      */
     private static Field transformField(ObjectLabel objectLabel) {
@@ -224,7 +229,7 @@ public class Xml2ChartConvert {
     /**
      * 映射为方法元素
      *
-     * @param objectLabel
+     * @param objectLabel xml标签
      * @return 方法对象
      */
     private static Method transformMethod(ObjectLabel objectLabel) {

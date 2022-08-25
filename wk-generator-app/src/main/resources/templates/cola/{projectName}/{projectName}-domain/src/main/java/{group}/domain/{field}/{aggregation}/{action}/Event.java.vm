@@ -1,13 +1,21 @@
 #parse("templates/Event.vm")
+#set($encode = "{event.${ProjectName}.${DomainName}.${AggregationLowerName}.${ActionName}}")
 package $EventPackagePath;
 
+import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
-import java.time.LocalDateTime;
+import lombok.EqualsAndHashCode;
 
 #comment($EventDescription)
 @Data
-public class ${EventName}  {
+@EqualsAndHashCode(callSuper = true)
+public class ${EventName} extends BaseDomainEvent {
     #filed($EventFields)
     #method($EventMethods)
+
+    @Override
+    public String eventCode() {
+        return "$$encode";
+    }
 
 }

@@ -1,19 +1,19 @@
+#parse("templates/Project.vm")
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>${globalLabel.group}</groupId>
-    <artifactId>${globalLabel.projectName}</artifactId>
+    <groupId>${ProjectPackage}</groupId>
+    <artifactId>${ProjectName}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${globalLabel.projectName}-client</artifactId>
+  <artifactId>${ProjectName}-client</artifactId>
   <packaging>jar</packaging>
-  <name>${globalLabel.projectName}-client</name>
+  <name>${ProjectName}-client</name>
 
   <dependencies>
-
     <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
@@ -28,12 +28,6 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>com.alibaba.cola</groupId>
-            <artifactId>cola-component-dto</artifactId>
-        </dependency>
-
         <!--  引入springCloud  -->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.cloud</groupId>-->
@@ -48,6 +42,5 @@
 <!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
 <!--        </dependency>-->
         <!--  引入springCloud  end -->
-
     </dependencies>
 </project>

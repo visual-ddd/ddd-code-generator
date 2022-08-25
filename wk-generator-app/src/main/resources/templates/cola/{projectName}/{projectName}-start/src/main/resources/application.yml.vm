@@ -1,24 +1,56 @@
-# 配置端口
+#parse("templates/Project.vm")
 server:
   port: 8088
-# 配置数据源
+  servlet:
+    context-path: /${ProjectName}
+
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  messages:
+    basename: classpath:i18n/*/messages;classpath:i18n/*/validate;classpath:i18n/common;
   datasource:
+    name: ${ProjectName}
+    url: ${${ProjectName}.mysql.url}
+    username: ${${ProjectName}.mysql.username}
+    password: ${${ProjectName}.mysql.password}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    # 数据源名称
-    name: defaultDataSource
-    # 数据库连接地址
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
-    # 数据库用户名&密码：
-    username: root
-    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 10000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+
+# 分页查询插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 
 # mybatis-plus相关配置
 mybatis-plus:
-  type-aliases-package: ${globalLabel.group}.infrastructure.*.repository.model
-  mapper-locations: classpath*:mybatis/**/*.xml
+  type-aliases-package: ${ProjectPackage}.infrastructure.*.repository.model
+  mapper-locations: classpath:mapper/**/*.xml                 # 对应mapper映射xml文件的所在路径
   configuration:
-    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
-    map-underscore-to-camel-case: true
-    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true                        # 是否开启自动驼峰命名规则映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl     # sql打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl #关闭sql日志
+
+#启动事件重试
+domain:
+  event:
+    retry.enable: true

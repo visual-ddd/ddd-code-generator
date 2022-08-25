@@ -1,4 +1,4 @@
-parse("templates/Aggregation.vm")
+#parse("templates/Aggregation.vm")
 package $MapperPackagePath;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

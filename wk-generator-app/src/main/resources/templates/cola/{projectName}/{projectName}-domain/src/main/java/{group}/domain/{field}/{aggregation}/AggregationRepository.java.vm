@@ -1,8 +1,6 @@
 #parse("templates/Aggregation.vm")
 package $AggregationPackagePath;
 
-import java.util.List;
-
 #comment("${AggregationName}聚合存储接口")
 public interface ${AggregationName}Repository {
 

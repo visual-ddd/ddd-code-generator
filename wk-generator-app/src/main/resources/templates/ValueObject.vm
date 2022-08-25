@@ -1,9 +1,20 @@
+## 引入公共类方法
 #parse("templates/ClassFunction.vm")
-## valueObject
+## 引入领域图谱变量
+#parse("templates/DomainChart.vm")
+## ============= 定义值对象变量,用于生成绑定的模版文件 ==============
+## 值对象名
 #set($ValueObjectName = ${classLabel.name})
-#set($AggregationName = ${classLabel.parentAggregation.name})
-#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
-#set($ValueObjectPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationLowerName}")
-#set($ValueObjectImportPackages = ${classLabel.importClassSet})
+## 值对象类描述
 #set($ValueObjectDescription = ${classLabel.description})
+## 值对象属性列表
 #set($ValueObjectFields = ${classLabel.fieldList})
+## 值对象方法列表
+#set($ValueObjectMethods = ${classLabel.methodList})
+## 值对象所属聚合类名
+#set($AggregationName = ${classLabel.parentAggregation.name})
+## ==================== 值对象相关变量 =======================
+## 值对象所属聚合类名全小写
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+## 值对象类包路径
+#set($ValueObjectPackagePath = "${ProjectPackage}.domain.${DomainName}.${AggregationLowerName}")

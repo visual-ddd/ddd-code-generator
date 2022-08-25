@@ -1,4 +1,4 @@
-parse("templates/Aggregation.vm")
+#parse("templates/Aggregation.vm")
 package $RepositoryImplPackagePath;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,14 +21,14 @@ public class ${AggregationName}RepositoryImpl implements ${AggregationName}Repos
 
     @Override
     public Long insert(${AggregationName} aggregation) {
-        ${AggregationName}DO aggregationDO = BeanUtil.copy(aggregation, ${AggregationName}DO.class);
+        ${AggregationName}DO aggregationDO = ${AggregationName}DoConvert.INSTANCE.dto2Do(aggregation);
         mapper.insert(aggregationDO);
         return aggregationDO.getId();
     }
 
     @Override
     public void update(${AggregationName} aggregation) {
-        ${AggregationName}DO aggregationDO = BeanUtil.copy(aggregation, ${AggregationName}DO.class);
+        ${AggregationName}DO aggregationDO = ${AggregationName}DoConvert.INSTANCE.dto2Do(aggregation);
         mapper.updateById(aggregationDO);
     }
 
@@ -40,6 +40,6 @@ public class ${AggregationName}RepositoryImpl implements ${AggregationName}Repos
     @Override
     public ${AggregationName} selectById(Long id) {
         ${AggregationName}DO aggregationDO = mapper.selectById(id);
-        return BeanUtil.copy(aggregationDO, ${AggregationName}.class);
+        return ${AggregationName}DoConvert.INSTANCE.do2Dto(aggregationDO);
     }
 }

@@ -2,7 +2,6 @@
 package $ValueObjectPackagePath;
 
 import lombok.Data;
-import java.time.LocalDateTime;
 
 #comment($ValueObjectDescription)
 @Data

@@ -1,20 +1,20 @@
-## import
+## ============= 类import列表 =============
 #macro(importPackage $importPackages)
 #foreach ($importPackage in $importPackages)
 import ${importPackage};
 #end
 #end
-## 描述
+## ============= 类描述 =============
 #macro(comment $description)
 /**
  * $description
  *
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
+ * @author ${DomainAuthor}
+ * @date ${DateTime}
  * @since 1.0
  */
 #end
-## 字段属性列表
+## ============= 类字段列表 =============
 #macro(filed $filedList)
     #foreach ($field in $filedList)
 
@@ -24,7 +24,7 @@ import ${importPackage};
     ${field.modifier} ${field.type} ${field.name};
     #end
 #end
-## 方法列表
+## ============= 类方法列表 =============
 #macro(method $methodList)
     #foreach ($method in $methodList)
 
@@ -39,7 +39,7 @@ import ${importPackage};
     }
     #end
 #end
-## 接口方法列表
+## ============= 接口方法列表 =============
 #macro(interfaceMethod $methodList)
     #foreach ($method in $methodList)
 

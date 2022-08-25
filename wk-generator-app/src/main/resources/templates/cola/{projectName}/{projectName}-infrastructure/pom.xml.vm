@@ -1,31 +1,29 @@
+#parse("templates/Project.vm")
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>${globalLabel.group}</groupId>
-    <artifactId>${globalLabel.projectName}</artifactId>
+    <groupId>${ProjectPackage}</groupId>
+    <artifactId>${ProjectName}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${globalLabel.projectName}-infrastructure</artifactId>
-  <name>${globalLabel.projectName}-infrastructure</name>
+  <artifactId>${ProjectName}-infrastructure</artifactId>
+  <name>${ProjectName}-infrastructure</name>
 
   <dependencies>
-
+    <!--Project modules-->
     <dependency>
-      <groupId>${globalLabel.group}</groupId>
-      <artifactId>${globalLabel.projectName}-domain</artifactId>
+      <groupId>${ProjectPackage}</groupId>
+      <artifactId>${ProjectName}-domain</artifactId>
     </dependency>
     <dependency>
-      <groupId>${globalLabel.group}</groupId>
-      <artifactId>${globalLabel.projectName}-client</artifactId>
+      <groupId>${ProjectPackage}</groupId>
+      <artifactId>${ProjectName}-client</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>fastjson</artifactId>
-    </dependency>
+    <!--Project modules End -->
 
     <dependency>
       <groupId>mysql</groupId>
@@ -33,40 +31,40 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!--        <dependency>-->
-    <!--            <groupId>com.alibaba</groupId>-->
-    <!--            <artifactId>druid-spring-boot-starter</artifactId>-->
-    <!--        </dependency>-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
+      <artifactId>hutool-all</artifactId>
+    </dependency>
 
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-        </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+    </dependency>
 
-        <dependency>
-            <groupId>com.wakedata.common</groupId>
-            <artifactId>wd-common-mybatis</artifactId>
-        </dependency>
+    <dependency>
+      <groupId>com.wakedata.common</groupId>
+      <artifactId>wd-common-mybatis</artifactId>
+    </dependency>
 
-        <dependency>
-            <groupId>com.wakedata.common</groupId>
-            <artifactId>wd-common-redis</artifactId>
-        </dependency>
+    <dependency>
+      <groupId>com.wakedata.common</groupId>
+      <artifactId>wd-common-redis</artifactId>
+    </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>com.wakedata.common</groupId>-->
-        <!--            <artifactId>wd-common-spring</artifactId>-->
-        <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>com.wakedata.common</groupId>-->
+    <!--            <artifactId>wd-common-spring</artifactId>-->
+    <!--        </dependency>-->
 
-        <!--        <dependency>-->
-        <!--            <groupId>com.wakedata.common</groupId>-->
-        <!--            <artifactId>wd-common-elasticsearch</artifactId>-->
-        <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>com.wakedata.common</groupId>-->
+    <!--            <artifactId>wd-common-elasticsearch</artifactId>-->
+    <!--        </dependency>-->
 
-    </dependencies>
+  </dependencies>
 </project>

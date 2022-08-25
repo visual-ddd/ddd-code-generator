@@ -1,4 +1,4 @@
-package com.wake.generator.application.generate.handler;
+package com.wake.generator.application.generate.generator;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +41,14 @@ class FileGenerator {
         }
     }
 
+    /**
+     * 根据velocity上下文中的标签生成文件
+     *
+     * @param context         velocity上下文
+     * @param outputUrl       输出路径
+     * @param tpl             模版文件
+     * @param zipOutputStream 压缩输出流
+     */
     private static void generateFile(VelocityContext context, String outputUrl, Template tpl,
         ZipOutputStream zipOutputStream) {
         try (StringWriter sw = new StringWriter()) {
@@ -62,10 +70,8 @@ class FileGenerator {
             tpl = Velocity.getTemplate(templateUrl, "UTF-8");
         } catch (ResourceNotFoundException e) {
             log.error("模版文件资源找不到！");
-            e.printStackTrace();
         } catch (ParseErrorException e) {
             log.error("解析模版文件失败！");
-            e.printStackTrace();
         }
         return tpl;
     }
@@ -73,7 +79,7 @@ class FileGenerator {
     /**
      * 创建文件夹
      *
-     * @param outputUrl
+     * @param outputUrl 输出路径
      */
     private static void createFolder(String outputUrl) {
         String dir = outputUrl.substring(0, outputUrl.lastIndexOf("/"));

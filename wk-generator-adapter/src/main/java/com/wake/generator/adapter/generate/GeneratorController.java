@@ -29,21 +29,24 @@ public class GeneratorController {
     /**
      * 生成代码
      *
-     * @param projectDto 需要生成的模型
+     * @param projectDto 需要生成的项目模型
      * @param response   HttpServletResponse
      */
     @PostMapping(value = "/generateCodeByProject", consumes = "application/json")
     public void generateCodeByProject(@RequestBody GenerateProjectDto projectDto,
         HttpServletResponse response) {
+
         //设置response的header
         response.setContentType("application/zip");
         response.setHeader("Content-Disposition",
             "attachment;filename=" + projectDto.getProjectName() + ".zip");
+
         try (ZipOutputStream out = new ZipOutputStream(response.getOutputStream())) {
             // 生成代码,并传递到输出流
             codeGenerateService.generateCodeByChartXml(projectDto, out);
             response.flushBuffer();
         } catch (Exception e) {
+            log.error(projectDto.toString());
             log.error(this.getClass() + ".downloadFile error, error info :" + e);
         }
     }

@@ -8,6 +8,7 @@ import com.wake.generator.infra.manage.repository.mapper.DomainMapper;
 import com.wake.generator.infra.manage.repository.model.ChartDO;
 import com.wake.generator.infra.manage.repository.model.DomainDO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.wakedata.common.core.exception.BizException;
 import com.wakedata.common.storage.enums.BucketEnum;
 import com.wakedata.common.storage.model.UploadRequest;
 import com.wakedata.common.storage.model.UploadResult;
@@ -17,6 +18,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -44,6 +46,20 @@ public class ChartStorageServiceImpl implements ChartStorageService {
     @Resource
     private ChartMapper chartMapper;
 
+    private static void putFileStream(HttpServletResponse response, InputStream fileStream) {
+        try (BufferedInputStream bis = new BufferedInputStream(fileStream)) {
+            byte[] buff = new byte[1024];
+            OutputStream os = response.getOutputStream();
+            int i;
+            while ((i = bis.read(buff)) != -1) {
+                os.write(buff, 0, i);
+                os.flush();
+            }
+        } catch (IOException e) {
+            log.error("文件流传输异常! ", e);
+        }
+    }
+
     @Transactional(rollbackFor = Exception.class)
     @Override
     public ResultDTO<Boolean> uploadChart(ChartStorageDto chartStorageDto) {
@@ -52,10 +68,30 @@ public class ChartStorageServiceImpl implements ChartStorageService {
         String newChartXml = chartStorageDto.getXml();
         DomainDO domainDO = domainMapper.selectById(domainId);
         ChartDO chartDO = chartMapper.selectById(domainDO.getChartId());
-        String oldFileKey = chartDO.getFileKey();
-        // 覆盖旧版本文件
-        uploadChartFile(newChartXml, oldFileKey);
+        String fileKey = chartDO.getFileKey();
+        if (FileKeyConfig.INIT_CHART_FILE_KEY.equals(fileKey)) {
+            fileKey = createNewChart(domainDO);
+        } else {
+            chartMapper.updateById(chartDO);
+        }
+        // 上传文件
+        // TODO 上传失败
+        uploadChartFile(newChartXml, fileKey);
         return ResultDTO.success(Boolean.TRUE);
+    }
+
+    private String createNewChart(DomainDO domainDO) {
+        // 创建新版本
+        String fileKey = UUID.randomUUID().toString();
+
+        ChartDO newChart = new ChartDO();
+        newChart.setFileKey(fileKey);
+        newChart.setDomainId(domainDO.getId());
+        chartMapper.insert(newChart);
+
+        domainDO.setChartId(newChart.getId());
+        domainMapper.updateById(domainDO);
+        return fileKey;
     }
 
     @Override
@@ -80,24 +116,10 @@ public class ChartStorageServiceImpl implements ChartStorageService {
 
     private void parameterValid(ChartStorageDto chartStorageDto) {
         if (chartStorageDto.getDomainId() == null) {
-            throw new IllegalArgumentException("domainId不能为空!");
+            throw new BizException("domainId不能为空!");
         }
         if (StringUtils.isEmpty(chartStorageDto.getXml())) {
-            throw new IllegalArgumentException("chatXml不能为空!");
-        }
-    }
-
-    private static void putFileStream(HttpServletResponse response, InputStream fileStream) {
-        try (BufferedInputStream bis = new BufferedInputStream(fileStream)) {
-            byte[] buff = new byte[1024];
-            OutputStream os = response.getOutputStream();
-            int i;
-            while ((i = bis.read(buff)) != -1) {
-                os.write(buff, 0, i);
-                os.flush();
-            }
-        } catch (IOException e) {
-            log.error("文件流传输异常!");
+            throw new BizException("chatXml不能为空!");
         }
     }
 

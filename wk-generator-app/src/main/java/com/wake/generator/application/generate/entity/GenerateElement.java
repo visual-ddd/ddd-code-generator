@@ -1,7 +1,7 @@
 package com.wake.generator.application.generate.entity;
 
-
-import com.wake.generator.application.generate.common.DomainShapeEnum;
+import com.google.common.base.CaseFormat;
+import com.wake.generator.application.generate.common.GenerateElementTypeEnum;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,15 +10,16 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 图形信息
+ * 领域图谱中,需要进行代码生成的元素
  *
  * @author ZhuXueLiang
  * @date 2022/3/25 11:40
+ * @see GenerateElementTypeEnum 元素类型
  * @since 1.0
  */
 @Slf4j
 @Data
-public class DomainShape {
+public class GenerateElement {
 
     /**
      * 名称
@@ -53,7 +54,7 @@ public class DomainShape {
     /**
      * 所属聚合
      */
-    private DomainShape parentAggregation;
+    private GenerateElement parentAggregation;
 
     /**
      * 所属action包名称
@@ -63,9 +64,9 @@ public class DomainShape {
     /**
      * 元素类型
      *
-     * @see DomainShapeEnum
+     * @see GenerateElementTypeEnum
      */
-    private DomainShapeEnum shapeType;
+    private GenerateElementTypeEnum shapeType;
 
     /**
      * 获取输入路径和文件输出路径 Map
@@ -78,6 +79,14 @@ public class DomainShape {
             templateMap.put(modelFile.getTemplateUrl(), modelFile.getOutputUrl());
         }
         return templateMap;
+    }
+
+    /**
+     * 类名转小写加下划线
+     */
+    public String getLowerUnderscoreName() {
+        return CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE)
+            .convert(this.name);
     }
 
 }

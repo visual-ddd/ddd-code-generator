@@ -1,6 +1,5 @@
 package com.wake.generator.application.generate.entity;
 
-import java.util.Set;
 import lombok.Data;
 
 /**
@@ -25,14 +24,14 @@ public class ModelFile {
      */
     private String outputUrl;
 
-    /**
-     * 包路径
-     */
-    private String packagePath;
-
-    /**
-     * 生成类需要导入的包路径
-     */
-    private Set<String> importClassSet;
+//    /**
+//     * 包路径
+//     */
+//    private String packagePath;
+//
+//    /**
+//     * 生成类需要导入的包路径
+//     */
+//    private Set<String> importClassSet;
 
 }

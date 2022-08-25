@@ -1,6 +1,6 @@
 package com.wake.generator.application.generate.util.model;
 
-import com.wake.generator.application.generate.common.DomainShapeEnum;
+import com.wake.generator.application.generate.common.GenerateElementTypeEnum;
 import com.wake.generator.application.generate.common.ModifyEnum;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,23 +25,23 @@ public class ObjectLabel {
     @XmlAttribute(name = "id")
     private String id;
     @XmlAttribute(name = "shapeType")
-    private DomainShapeEnum shapeType;
+    private GenerateElementTypeEnum shapeType;
     @XmlElement(name = "mxCell")
     private MxCell mxCell;
 
-    /**
-     * 图谱
-     */
-    @XmlAttribute(name = "chartName")
-    private String chartName;
-    @XmlAttribute(name = "author")
-    private String author;
-    @XmlAttribute(name = "domainPackage")
-    private String domainPackage;
-    @XmlAttribute(name = "projectPackage")
-    private String projectPackage;
-    @XmlAttribute(name = "projectName")
-    private String projectName;
+//    /**
+//     * 图谱
+//     */
+//    @XmlAttribute(name = "chartName")
+//    private String chartName;
+//    @XmlAttribute(name = "author")
+//    private String author;
+//    @XmlAttribute(name = "domainPackage")
+//    private String domainPackage;
+//    @XmlAttribute(name = "projectPackage")
+//    private String projectPackage;
+//    @XmlAttribute(name = "projectName")
+//    private String projectName;
 
     /**
      * 节点

@@ -58,7 +58,7 @@ public class GenerateProjectDto {
     private LocalDateTime updateTime;
 
     /**
-     * 图谱列表
+     * 领域列表
      */
     private List<GenerateDomainDto> domainList;
 

@@ -13,7 +13,7 @@ import java.util.zip.ZipOutputStream;
 public interface CodeGenerateService {
 
     /**
-     * 生成对应的项目结构
+     * 通过解析领域图谱,生成源代码到输出流中
      *
      * @param projectDto      需要生成的项目结构
      * @param zipOutputStream 结果输出压缩流

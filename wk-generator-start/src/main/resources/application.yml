@@ -5,14 +5,25 @@ server:
 spring:
   # 配置数据源
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://172.26.63.165:3306/paas?useUnicode=true&characterEncoding=utf-8
     username: mysqluser
     password: mysqluser
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-  # velocity
-  velocity:
-    resource-loader-path: /
+    druid:
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 10000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
 
 # mybatis-plus相关配置
 mybatis-plus:

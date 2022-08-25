@@ -1,12 +1,22 @@
+## 引入公共类方法
 #parse("templates/ClassFunction.vm")
-## 聚合和action
-#set($ActionName = ${classLabel.actionName})
-#set($AggregationName = ${classLabel.parentAggregation.name})
-#set($AggregationNameLowerName = "${AggregationName.toLowerCase()}")
-## 事件标签
+## 引入领域图谱变量
+#parse("templates/DomainChart.vm")
+## ============= 定义事件变量,用于生成绑定的模版文件 ==============
+## 事件名
 #set($EventName = ${classLabel.name})
-#set($EventPackagePath = "${globalLabel.group}.domain.${globalLabel.filed}.${AggregationNameLowerName}.${ActionName}")
-#set($EventImportPackages = ${classLabel.importClassSet})
+## 事件类描述
 #set($EventDescription = ${classLabel.description})
+## 事件类属性列表
 #set($EventFields = ${classLabel.fieldList})
+## 事件类方法列表
 #set($EventMethods = ${classLabel.methodList})
+## 事件所属的动作包名
+#set($ActionName = ${classLabel.actionName})
+## 事件所属的聚合类名
+#set($AggregationName = ${classLabel.parentAggregation.name})
+## ==================== 事件相关变量 =======================
+## 事件所属的聚合类名全小写
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+## 事件类包路径
+#set($EventPackagePath = "${ProjectPackage}.domain.${DomainName}.${AggregationLowerName}.${ActionName}")

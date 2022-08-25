@@ -1,37 +1,31 @@
+#parse("templates/Project.vm")
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>${globalLabel.group}</groupId>
-    <artifactId>${globalLabel.projectName}</artifactId>
+    <groupId>${ProjectPackage}</groupId>
+    <artifactId>${ProjectName}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${globalLabel.projectName}-app</artifactId>
+  <artifactId>${ProjectName}-app</artifactId>
   <packaging>jar</packaging>
-  <name>${globalLabel.projectName}-app</name>
+  <name>${ProjectName}-app</name>
 
   <dependencies>
-
     <dependency>
-      <groupId>${globalLabel.group}</groupId>
-      <artifactId>${globalLabel.projectName}-client</artifactId>
+      <groupId>${ProjectPackage}</groupId>
+      <artifactId>${ProjectName}-client</artifactId>
     </dependency>
     <dependency>
-      <groupId>${globalLabel.group}</groupId>
-      <artifactId>${globalLabel.projectName}-infrastructure</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.alibaba.cola</groupId>
-      <artifactId>cola-component-catchlog-starter</artifactId>
+      <groupId>${ProjectPackage}</groupId>
+      <artifactId>${ProjectName}-infrastructure</artifactId>
     </dependency>
     <!--        <dependency>-->
     <!--            <groupId>com.wakedata</groupId>-->
     <!--            <artifactId>spring-boot-xxl-job-starter</artifactId>-->
     <!--        </dependency>-->
-
   </dependencies>
 
   <build>

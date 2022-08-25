@@ -1,17 +1,19 @@
-package ${globalLabel.group}.start;
+#parse("templates/Project.vm")
+package ${ProjectPackage}.start;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * ${globalLabel.projectName}项目启动类
+ * ${ProjectName}项目启动类
  *
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
+ * @author ${DomainAuthor}
+ * @date ${DateTime}
  */
-@SpringBootApplication(scanBasePackages = {"${globalLabel.group}"})
-@MapperScan("${globalLabel.group}.infrastructure.*.repository.mapper")
+@EnableMessageCenter
+@SpringBootApplication(scanBasePackages = {"${ProjectPackage}"})
+@MapperScan("${ProjectPackage}.infrastructure.*.repository.mapper")
 public class StartApplication {
 
     public static void main(String[] args) {

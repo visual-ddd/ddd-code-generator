@@ -1,4 +1,4 @@
-package com.wake.generator.application.generate.handler;
+package com.wake.generator.application.generate.generator;
 
 import java.util.zip.ZipOutputStream;
 

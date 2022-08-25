@@ -33,14 +33,14 @@ public class GenerateDomainDto {
     private String author;
 
     /**
-     * 创建时间
+     * 更新时间
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private LocalDateTime dateTime;
+    private LocalDateTime updateTime;
 
     /**
-     * 领域包名
+     * 领域名
      */
     private String domainPackage;
 

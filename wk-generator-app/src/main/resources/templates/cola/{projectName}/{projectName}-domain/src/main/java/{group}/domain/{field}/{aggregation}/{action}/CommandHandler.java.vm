@@ -1,16 +1,17 @@
 #parse("templates/Cmd.vm")
 package $CmdPackagePath;
 
-#importPackage($CmdImportPackages)
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import javax.annotation.Resource;
 
 #comment($CmdDescription)
 @Component
 public class ${CmdName}Handler {
 
-    @Transactional(rollbackFor = Exception.class)
-    public void handle(${CmdName}Handler cmd){
+    @Resource
+    ${AggregationName}Repository repository;
+
+    public void handle(${CmdName} cmd){
 
     }
 

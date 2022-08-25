@@ -1,8 +1,6 @@
 #parse("templates/Aggregation.vm")
 package $AggregationPackagePath;
 
-import java.time.LocalDateTime;
-
 #comment("${AggregationName}聚合接口;")
 public interface I${AggregationName} {
     #interfaceMethod($AggregationMethods)

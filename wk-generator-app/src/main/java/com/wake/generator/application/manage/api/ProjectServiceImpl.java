@@ -82,8 +82,10 @@ public class ProjectServiceImpl implements ProjectService {
             .collect(Collectors.toCollection(ArrayList::new));
         List<Long> chartIds = chartDOList.stream().map(ChartDO::getId)
             .collect(Collectors.toCollection(ArrayList::new));
-        fileKeyList.forEach(
-            fileKey -> fileStorageService.deleteFile(BucketEnum.MATERIAL, fileKey));
+        for (String fileKey : fileKeyList) {
+            // TODO try catch
+            fileStorageService.deleteFile(BucketEnum.MATERIAL, fileKey);
+        }
         chartMapper.deleteBatchIds(chartIds);
         domainMapper.deleteBatchIds(domainIds);
     }
@@ -104,11 +106,13 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public PageResultDTO<List<ProjectDto>> pageQueryProject(ProjectQuery query) {
         IPage<ProjectDO> iPage = projectQueryHelper.selectPage(query);
+
         PageResultDTO<List<ProjectDto>> result = new PageResultDTO<>();
         result.setPageNo(query.getPageNo());
         result.setPageSize(query.getPageSize());
         result.setCursor(iPage.getCurrent());
         result.setTotalCount(iPage.getTotal());
+
         List<ProjectDto> dataList = ObjectUtil.isEmpty(iPage.getRecords()) ?
             Collections.emptyList() : BeanUtil.copyList(iPage.getRecords(), ProjectDto.class);
         result.setData(dataList);

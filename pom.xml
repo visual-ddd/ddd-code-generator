@@ -28,7 +28,6 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 
-    <alibaba.druid.version>1.2.11</alibaba.druid.version>
     <org.apache.velocity.version>2.2</org.apache.velocity.version>
     <commons-io.version>2.5</commons-io.version>
     <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
@@ -111,11 +110,6 @@
         <version>${mybatis-plus-generator.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>druid</artifactId>
-        <version>${alibaba.druid.version}</version>
-      </dependency>
       <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>

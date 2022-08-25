@@ -3,7 +3,6 @@ package $CmdPackagePath;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
-import java.time.LocalDateTime;
 
 #comment($CmdDescription)
 @Data

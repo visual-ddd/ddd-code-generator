@@ -40,7 +40,7 @@
     <!-- 引入阿里数据库连接池 -->
     <dependency>
       <groupId>com.alibaba</groupId>
-      <artifactId>druid</artifactId>
+      <artifactId>druid-spring-boot-starter</artifactId>
     </dependency>
     <!--  mybatis-plus  相关依赖 end   -->
 

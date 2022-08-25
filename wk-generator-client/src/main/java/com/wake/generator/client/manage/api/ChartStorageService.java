@@ -16,15 +16,15 @@ public interface ChartStorageService {
     /**
      * 上传
      *
-     * @param chartStorageDto
-     * @return
+     * @param chartStorageDto 图谱存储Dto
+     * @return 上传结果
      */
     ResultDTO<Boolean> uploadChart(ChartStorageDto chartStorageDto);
 
     /**
      * 下载领域图谱文件
      *
-     * @param domainId
+     * @param domainId 领域id
      * @param response response
      */
     void download(Long domainId, HttpServletResponse response);
@@ -35,4 +35,5 @@ public interface ChartStorageService {
      * @param response response
      */
     void loadModel(HttpServletResponse response);
+
 }

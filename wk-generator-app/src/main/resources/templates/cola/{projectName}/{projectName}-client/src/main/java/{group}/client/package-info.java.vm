@@ -1,7 +1,8 @@
+#parse("templates/Project.vm")
 /**
- * 用户层
+ * 客户层
  *
- * @author ${globalLabel.author}
- * @date ${globalLabel.dateTime}
+ * @author ${DomainAuthor}
+ * @date ${DateTime}
  */
-package ${globalLabel.group}.client;
+package ${ProjectPackage}.client;

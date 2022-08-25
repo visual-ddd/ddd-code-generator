@@ -1,0 +1,9 @@
+## ============= 定义项目变量,用于生成绑定的模版文件 ==============
+## 项目名
+#set(${ProjectName} = ${globalLabel.projectName})
+## 项目包名,例如: com.wd.tool
+#set(${ProjectPackage} = ${globalLabel.group})
+## 项目作者
+#set($ProjectAuthor = "项目作者")
+## 代码生成时间
+#set($DateTime = ${globalLabel.dateTime})

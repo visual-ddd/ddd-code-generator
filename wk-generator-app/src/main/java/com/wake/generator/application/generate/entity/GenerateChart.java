@@ -4,14 +4,14 @@ import java.util.Set;
 import lombok.Data;
 
 /**
- * 项目图谱实体类
+ * 需要生成的图谱实体类
  *
  * @author ZhuXueLiang
- * @date 2022/3/25 11:47
- * @since 1.0
+ * @version 1.1
+ * @date 2022/8/23
  */
 @Data
-public class DomainChart {
+public class GenerateChart {
 
     /**
      * 全局配置
@@ -21,6 +21,6 @@ public class DomainChart {
     /**
      * 元素列表
      */
-    private Set<DomainShape> domainShapeList;
+    private Set<GenerateElement> generateElements;
 
 }
