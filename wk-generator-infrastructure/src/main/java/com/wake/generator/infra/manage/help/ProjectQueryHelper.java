@@ -37,7 +37,7 @@ public class ProjectQueryHelper {
      * @param query 查询条件
      * @return LambdaQueryWrapper<ProjectDO>
      */
-    private static LambdaQueryWrapper<ProjectDO> getQueryWrapper(ProjectQuery query) {
+    private LambdaQueryWrapper<ProjectDO> getQueryWrapper(ProjectQuery query) {
         LambdaQueryWrapper<ProjectDO> queryWrapper = new LambdaQueryWrapper<>();
         if (query.getUserId() != null) {
             queryWrapper.eq(ProjectDO::getUserId, query.getUserId());

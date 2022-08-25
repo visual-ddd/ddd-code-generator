@@ -37,7 +37,7 @@ public class DomainQueryHelper {
      * @param query 查询条件
      * @return LambdaQueryWrapper<DomainDo>
      */
-    private static LambdaQueryWrapper<DomainDO> getQueryWrapper(DomainQuery query) {
+    private LambdaQueryWrapper<DomainDO> getQueryWrapper(DomainQuery query) {
         LambdaQueryWrapper<DomainDO> queryWrapper = new LambdaQueryWrapper<>();
         if (query.getProjectId() != null) {
             queryWrapper.eq(DomainDO::getProjectId, query.getProjectId());

@@ -36,7 +36,7 @@ public class ChartQueryHelper {
      * @param query 查询条件
      * @return LambdaQueryWrapper<ChartDo>
      */
-    private static LambdaQueryWrapper<ChartDO> getQueryWrapper(ChartQuery query) {
+    private LambdaQueryWrapper<ChartDO> getQueryWrapper(ChartQuery query) {
         LambdaQueryWrapper<ChartDO> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.orderByDesc(ChartDO::getId);
         return queryWrapper;
