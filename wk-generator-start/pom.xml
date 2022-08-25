@@ -65,14 +65,29 @@
           <dockerHost>tcp://127.0.0.1:2375</dockerHost>
           <images>
             <image>
-              <name>ccr.ccs.tencentyun.com/wk-dss/${project.name}:${project.version}</name>
+              <name>172.26.59.200/wk-dss/origin/${git.branch}/wd-mtool:${project.version}</name>
+              <alias>dockerfile</alias>
               <build>
-                <contextDir>${project.basedir}/src/main/docker</contextDir>
+                <contextDir>${project.basedir}/dockerdev</contextDir>
                 <assembly>
                   <descriptorRef>artifact</descriptorRef>
                 </assembly>
               </build>
+              <run>
+                <ports>
+                  <port>8090:8090</port>
+                </ports>
+              </run>
             </image>
+            <!--            <image>-->
+            <!--              <name>ccr.ccs.tencentyun.com/wk-dss/${project.name}:${project.version}</name>-->
+            <!--              <build>-->
+            <!--                <contextDir>${project.basedir}/src/main/docker</contextDir>-->
+            <!--                <assembly>-->
+            <!--                  <descriptorRef>artifact</descriptorRef>-->
+            <!--                </assembly>-->
+            <!--              </build>-->
+            <!--            </image>-->
           </images>
           <authConfig>
             <username>100012941374</username>

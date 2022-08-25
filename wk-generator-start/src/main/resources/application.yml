@@ -3,6 +3,8 @@ server:
   port: 8888
 
 spring:
+  application:
+    name: wake-code-generator
   # 配置数据源
   datasource:
     url: jdbc:mysql://172.26.63.165:3306/paas?useUnicode=true&characterEncoding=utf-8
