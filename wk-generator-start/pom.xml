@@ -39,6 +39,47 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <dateFormat>yyyyMMddHHmmss</dateFormat>
+          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+          <generateGitPropertiesFile>false</generateGitPropertiesFile>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>0.31.0</version>
+        <configuration>
+          <dockerHost>tcp://127.0.0.1:2375</dockerHost>
+          <images>
+            <image>
+              <name>ccr.ccs.tencentyun.com/wk-dss/${project.name}:${project.version}</name>
+              <build>
+                <contextDir>${project.basedir}/src/main/docker</contextDir>
+                <assembly>
+                  <descriptorRef>artifact</descriptorRef>
+                </assembly>
+              </build>
+            </image>
+          </images>
+          <authConfig>
+            <username>100012941374</username>
+            <password>z8dFKIEz6QWqWCfD</password>
+          </authConfig>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>

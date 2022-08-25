@@ -32,7 +32,6 @@
     <org.apache.velocity.version>2.2</org.apache.velocity.version>
     <commons-io.version>2.5</commons-io.version>
     <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
-    <org.projectlombok.version>1.18.24</org.projectlombok.version>
     <commons-configuration.version>1.10</commons-configuration.version>
     <junit.version>4.13.2</junit.version>
     <commons-configuration.version>1.10</commons-configuration.version>
@@ -149,7 +148,6 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>${org.projectlombok.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -168,4 +166,18 @@
     </dependency>
 
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>libs-release-local</name>
+      <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>libs-snapshot-local</name>
+      <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
 </project>
