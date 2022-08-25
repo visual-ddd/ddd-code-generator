@@ -68,7 +68,7 @@
               <name>172.26.59.200/wk-dss/origin/${git.branch}/wd-mtool:${project.version}</name>
               <alias>dockerfile</alias>
               <build>
-                <contextDir>${project.basedir}/dockerdev</contextDir>
+                <contextDir>${project.basedir}/src/main/docker</contextDir>
                 <assembly>
                   <descriptorRef>artifact</descriptorRef>
                 </assembly>
