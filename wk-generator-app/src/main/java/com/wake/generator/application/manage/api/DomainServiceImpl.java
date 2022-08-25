@@ -80,7 +80,17 @@ public class DomainServiceImpl implements DomainService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public ResultDTO<Boolean> removeDomain(List<Long> domainIds) {
-        // 删除领域下的图谱
+        deleteChartsByDomain(domainIds);
+        domainMapper.deleteBatchIds(domainIds);
+        return ResultDTO.success(Boolean.TRUE);
+    }
+
+    /**
+     * 删除领域下的图谱
+     *
+     * @param domainIds 领域id
+     */
+    private void deleteChartsByDomain(List<Long> domainIds) {
         List<ChartDO> chartDOList = chartMapper.selectList(
             new LambdaQueryWrapper<ChartDO>().in(ChartDO::getDomainId, domainIds));
         List<String> fileKeyList = chartDOList.stream().map(ChartDO::getFileKey)
@@ -88,9 +98,9 @@ public class DomainServiceImpl implements DomainService {
         List<Long> chartIds = chartDOList.stream().map(ChartDO::getId)
             .collect(Collectors.toCollection(ArrayList::new));
         fileKeyList.forEach(fileKey -> fileStorageService.deleteFile(BucketEnum.MATERIAL, fileKey));
-        chartMapper.deleteBatchIds(chartIds);
-        domainMapper.deleteBatchIds(domainIds);
-        return ResultDTO.success(Boolean.TRUE);
+        if (CollectionUtil.isNotEmpty(chartIds)) {
+            chartMapper.deleteBatchIds(chartIds);
+        }
     }
 
     @Transactional(rollbackFor = Exception.class)
