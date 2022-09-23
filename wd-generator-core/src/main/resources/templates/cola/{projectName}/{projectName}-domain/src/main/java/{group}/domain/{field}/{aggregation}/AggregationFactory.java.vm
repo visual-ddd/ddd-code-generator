@@ -1,0 +1,15 @@
+#parse("templates/Aggregation.vm")
+package $AggregationPackagePath;
+
+import org.springframework.stereotype.Component;
+
+#comment("${AggregationDescription}-聚合根-工厂")
+@Component
+public class ${AggregationName}Factory {
+
+    public ${AggregationName} getInstance() {
+        ${AggregationName} instance = new ${AggregationName}();
+
+        return instance;
+    }
+}

@@ -1,0 +1,8 @@
+#parse("templates/Project.vm")
+/**
+ * 持久层
+ *
+ * @author ${ProjectAuthor}
+ * @date ${ProjectDateTime}
+ */
+package ${ProjectPackage}.infrastructure;

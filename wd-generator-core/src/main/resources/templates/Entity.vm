@@ -1,0 +1,20 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## 引入领域图谱变量
+#parse("templates/DomainChart.vm")
+## ============= 定义值对象变量,用于生成绑定的模版文件 ==============
+## 值对象名
+#set($EntityName = $ClassName)
+## 值对象类描述
+#set($EntityDescription = $ClassDescription)
+## 值对象属性列表
+#set($EntityFields = $ClassFields)
+## 值对象方法列表
+#set($EntityMethods = $ClassMethods)
+## 值对象所属聚合类名
+#set($AggregationName = $AggregationClassName)
+## ==================== 值对象相关变量 =======================
+## 值对象所属聚合类名全小写
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+## 值对象类包路径
+#set($EntityPackagePath = "${ProjectPackage}.domain.${DomainName}.${AggregationLowerName}")

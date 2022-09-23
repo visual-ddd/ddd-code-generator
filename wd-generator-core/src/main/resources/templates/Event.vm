@@ -1,0 +1,24 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## 引入领域图谱变量
+#parse("templates/DomainChart.vm")
+## ============= 定义事件变量,用于生成绑定的模版文件 ==============
+## 事件名
+#set($EventName = $ClassName)
+## 事件类描述
+#set($EventDescription = $ClassDescription)
+## 事件类属性列表
+#set($EventFields = $ClassFields)
+## 事件类方法列表
+#set($EventMethods = $ClassMethods)
+## 事件所属的动作包名
+#set($ActionName = $ClassPackage)
+## 事件所属的聚合类名
+#set($AggregationName = $AggregationClassName)
+## ==================== 事件相关变量 =======================
+## 事件所属的聚合类名全小写
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+## 事件类包路径
+#set($EventPackagePath = "${ProjectPackage}.domain.${DomainName}.${AggregationLowerName}.${ActionName}")
+#set($CmdClassName = $CmdClassName)
+#set($CmdFieldList = $CmdFieldList)

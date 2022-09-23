@@ -1,0 +1,29 @@
+#parse("templates/Aggregation.vm")
+package ${ProjectPackage}.adapter.${DomainName}.${AggregationLowName}.app;
+
+import javax.annotation.Resource;
+import com.wakedata.common.core.dto.ResultDTO;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiOperation;
+
+#comment("${AggregationDescription}-app-controller")
+@RestController
+@RequestMapping("/app/${CaseFormatLowerHyphen.convert(${AggregationName})}")
+@Api(value = "/app/${CaseFormatLowerHyphen.convert(${AggregationName})}", tags = "${AggregationDescription}")
+public class App${AggregationName}Controller {
+
+#foreach($cmd in ${CmdList})
+    @Resource
+    private ${cmd.umlClass.className}Handler ${cmd.umlClass.className.substring(0, 1).toLowerCase()}${cmd.umlClass.className.substring(1)}Handler;
+#end
+#foreach ($cmd in ${CmdList})
+
+    @ApiOperation("")
+    @RequestMapping("/${CaseFormatLowerHyphen.convert(${cmd.umlClass.classPackage})}")
+    public ResultDTO ${cmd.umlClass.classPackage}(${cmd.umlClass.className} cmd) {
+        ${cmd.umlClass.className.substring(0, 1).toLowerCase()}${cmd.umlClass.className.substring(1)}Handler.handle(cmd);
+        return ResultDTO.success();
+    }
+#end
+}

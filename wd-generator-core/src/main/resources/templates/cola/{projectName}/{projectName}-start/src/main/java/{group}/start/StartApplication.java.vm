@@ -1,0 +1,23 @@
+#parse("templates/Project.vm")
+package ${ProjectPackage}.start;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * ${ProjectName}项目启动类
+ *
+ * @author ${ProjectAuthor}
+ * @date ${ProjectDateTime}
+ */
+@EnableMessageCenter
+@SpringBootApplication(scanBasePackages = {"${ProjectPackage}"})
+@MapperScan("${ProjectPackage}.infrastructure.*.repository.mapper")
+public class StartApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(StartApplication.class, args);
+    }
+
+}

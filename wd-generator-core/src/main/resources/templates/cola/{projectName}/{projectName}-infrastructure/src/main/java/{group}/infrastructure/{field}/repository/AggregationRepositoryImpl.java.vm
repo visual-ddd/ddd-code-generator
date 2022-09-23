@@ -1,0 +1,43 @@
+#parse("templates/Aggregation.vm")
+package $RepositoryImplPackagePath;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import java.util.List;
+import javax.annotation.Resource;
+import ${AggregationPackagePath}.${AggregationName};
+import ${AggregationPackagePath}.${AggregationName}Repository;
+import ${DOPackagePath}.${AggregationName}DO;
+import ${MapperPackagePath}.${AggregationName}Mapper;
+import com.wakedata.common.core.util.BeanUtil;
+
+#comment("${AggregationDescription}存储接口实现类")
+@Slf4j
+@Component
+public class ${AggregationName}RepositoryImpl implements ${AggregationName}Repository {
+
+    @Resource
+    private ${AggregationName}Mapper mapper;
+
+    @Override
+    public Long insert${AggregationName}(${AggregationName} aggregation) {
+        ${AggregationName}DO aggregationDO = ${AggregationName}DoConvert.INSTANCE.dto2Do(aggregation);
+        mapper.insert(aggregationDO);
+        return aggregationDO.getId();
+    }
+
+    @Override
+    public void update${AggregationName}(${AggregationName} aggregation) {
+        mapper.updateById(${AggregationName}DoConvert.INSTANCE.dto2Do(aggregation));
+    }
+
+    @Override
+    public void delete${AggregationName}ById(Long id) {
+        mapper.deleteById(id);
+    }
+
+    @Override
+    public ${AggregationName} select${AggregationName}ById(Long id) {
+        return ${AggregationName}DoConvert.INSTANCE.do2Dto(mapper.selectById(id));
+    }
+}

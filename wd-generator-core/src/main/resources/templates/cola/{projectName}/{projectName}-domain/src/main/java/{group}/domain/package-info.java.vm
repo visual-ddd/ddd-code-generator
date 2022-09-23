@@ -1,0 +1,8 @@
+#parse("templates/Project.vm")
+/**
+ * 领域层
+ *
+ * @author ${ProjectAuthor}
+ * @date ${ProjectDateTime}
+ */
+package ${ProjectPackage}.domain;

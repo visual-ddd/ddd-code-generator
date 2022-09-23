@@ -1,8 +1,0 @@
-#parse("templates/Project.vm")
-/**
- * 客户层
- *
- * @author ${DomainAuthor}
- * @date ${DateTime}
- */
-package ${ProjectPackage}.client;

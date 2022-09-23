@@ -1,0 +1,12 @@
+#parse("templates/ValueObject.vm")
+package $ValueObjectPackagePath;
+
+import lombok.Data;
+
+#comment("${ValueObjectDescription}-值对象")
+@Data
+public class $ValueObjectName {
+    #filed($ValueObjectFields)
+    #method($ValueObjectMethods)
+
+}

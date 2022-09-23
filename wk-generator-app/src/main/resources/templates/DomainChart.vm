@@ -1,7 +1,0 @@
-## 引入项目变量
-#parse("templates/Project.vm")
-## ============= 定义领域图谱变量 ==============
-## 领域名
-#set($DomainName = ${globalLabel.filed})
-## 领域作者
-#set($DomainAuthor = ${globalLabel.author})

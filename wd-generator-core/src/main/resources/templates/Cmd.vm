@@ -1,0 +1,22 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## 引入领域图谱变量
+#parse("templates/DomainChart.vm")
+## ============= 定义聚合变量,用于生成绑定的模版文件 ==============
+## 指令名
+#set($CmdName = $ClassName)
+## 指令类描述
+#set($CmdDescription = $ClassDescription)
+## 指令类属性列表
+#set($CmdFields = $ClassFields)
+## 指令类方法列表
+#set($CmdMethods = $ClassMethods)
+## 指令所属的动作包名
+#set($ActionName = $ClassPackage)
+## 指令所属的聚合类名
+#set($AggregationName = $AggregationClassName)
+## ==================== 指令相关变量 =======================
+## 指令所属的所属聚合类名全小写
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+## 指令包路径
+#set($CmdPackagePath = "${ProjectPackage}.domain.${DomainName}.${AggregationLowerName}.${ActionName}")

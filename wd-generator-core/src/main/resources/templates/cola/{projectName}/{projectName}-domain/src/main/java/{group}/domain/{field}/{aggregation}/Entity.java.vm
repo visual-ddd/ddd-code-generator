@@ -1,0 +1,12 @@
+#parse("templates/Entity.vm")
+package $EntityPackagePath;
+
+import lombok.Data;
+
+#comment("${EntityDescription}-实体")
+@Data
+public class $EntityName {
+    #filed($EntityFields)
+    #method($EntityMethods)
+
+}

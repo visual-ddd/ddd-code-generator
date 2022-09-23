@@ -1,0 +1,8 @@
+#parse("templates/Aggregation.vm")
+package $AggregationPackagePath;
+
+#comment("${AggregationDescription}-聚合根-能力接口")
+public interface ${AggregationName}I {
+    #interfaceMethod($AggregationMethods)
+
+}
