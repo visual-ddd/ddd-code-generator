@@ -14,22 +14,22 @@ import lombok.Data;
  * @version 1.0
  */
 @Data
-public class ValueObjectGeneratorDTO extends AbstractUmlDTO {
+public class ValueObjectDTO extends AbstractUmlDTO {
 
     /**
      * 聚合颜色
      */
     private String aggregationColor;
 
-    public static List<ValueObjectGenerator> trans2ValueObjectList(AggregationGeneratorDTO dto,
-                                                                   ChartDTO chartDTO) {
+    public static List<ValueObjectGenerator> trans2ValueObjectList(AggregationDTO dto,
+        ChartDTO chartDTO) {
         String aggregationColor = dto.getAggregationColor();
         List<ValueObjectGenerator> valueObjectGenerators = new ArrayList<>();
-        for (ValueObjectGeneratorDTO valueObjectGeneratorDTO : chartDTO.getValueObjectDTOList()) {
-            if (valueObjectGeneratorDTO.getAggregationColor().equals(aggregationColor)) {
+        for (ValueObjectDTO valueObjectDTO : chartDTO.getValueObjectDTOList()) {
+            if (valueObjectDTO.getAggregationColor().equals(aggregationColor)) {
                 ValueObjectGenerator valueObjectGenerator = new ValueObjectGenerator();
                 valueObjectGenerator.setUmlClass(
-                    valueObjectGeneratorDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
+                    valueObjectDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
                         chartDTO.getUmlMethodDTOList()));
                 valueObjectGenerators.add(valueObjectGenerator);
             }

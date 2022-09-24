@@ -15,21 +15,22 @@ import lombok.Data;
  * @version 1.0
  */
 @Data
-public class EntityGeneratorDTO extends AbstractUmlDTO {
+public class EntityDTO extends AbstractUmlDTO {
 
     /**
      * 聚合颜色
      */
     private String aggregationColor;
 
-    public static List<EntityGenerator> trans2EntityList(AggregationGeneratorDTO dto, ChartDTO chartDTO) {
+    public static List<EntityGenerator> trans2EntityList(AggregationDTO dto, ChartDTO chartDTO) {
         String aggregationColor = dto.getAggregationColor();
+
         List<EntityGenerator> entityGenerators = new ArrayList<>();
-        for (EntityGeneratorDTO entityGeneratorDTO : chartDTO.getEntityGeneratorDTOList()) {
-            if (entityGeneratorDTO.getAggregationColor().equals(aggregationColor)) {
+        for (EntityDTO entityDTO : chartDTO.getEntityGeneratorDTOList()) {
+            if (entityDTO.getAggregationColor().equals(aggregationColor)) {
                 EntityGenerator entityGenerator = new EntityGenerator();
                 entityGenerator.setUmlClass(
-                    entityGeneratorDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
+                    entityDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
                         chartDTO.getUmlMethodDTOList()));
                 entityGenerators.add(entityGenerator);
             }

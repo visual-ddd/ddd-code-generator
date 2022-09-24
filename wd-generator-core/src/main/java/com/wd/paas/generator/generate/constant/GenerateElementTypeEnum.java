@@ -110,17 +110,37 @@ public enum GenerateElementTypeEnum {
     /**
      * 查询器
      */
-    QUERY_EXE("QueryExe", new String[]{}),
+    QUERY_EXE("QueryExe", new String[]{
+        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/QueryExe.java.vm",
+    }),
 
     /**
      * 分页查询器
      */
-    PAGE_QUERY_EXE("PageQueryExe", new String[]{}),
+    PAGE_QUERY_EXE("PageQueryExe", new String[]{
+        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/PageQueryExe.java.vm",
+    }),
 
     /**
-     * ResultDto 结果集
+     * 查询对象
      */
-    QUERY_RESULT("ResultDto", new String[]{}),
+    QUERY("Query", new String[]{
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/Query.java.vm",
+    }),
+
+    /**
+     * 分页查询对象
+     */
+    PAGE_QUERY("PageQuery", new String[]{
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/PageQuery.java.vm",
+    }),
+
+    /**
+     * QueryResult 结果集
+     */
+    QUERY_RESULT("QueryResult", new String[]{
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/dto/QueryResult.java.vm",
+    }),
 
     /**
      * 未定义

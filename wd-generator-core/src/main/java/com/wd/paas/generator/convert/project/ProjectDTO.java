@@ -1,6 +1,6 @@
 package com.wd.paas.generator.convert.project;
 
-import com.wd.paas.generator.convert.project.domainchart.DomainChartGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.DomainChartDTO;
 import com.wd.paas.generator.generate.generator.ProjectInfo;
 import com.wd.paas.generator.generate.generator.project.domainchart.DomainChartGenerator;
 import com.wd.paas.generator.generate.generator.project.ProjectGenerator;
@@ -17,7 +17,7 @@ import lombok.Data;
  * @date 2022/8/26
  */
 @Data
-public class ProjectGeneratorDTO {
+public class ProjectDTO {
 
     /**
      * 项目名称
@@ -42,7 +42,7 @@ public class ProjectGeneratorDTO {
     /**
      * 领域图谱列表
      */
-    private List<DomainChartGeneratorDTO> domainChartList;
+    private List<DomainChartDTO> domainChartList;
 
     /**
      * 转换为项目生成器
@@ -57,9 +57,9 @@ public class ProjectGeneratorDTO {
     }
 
     private List<DomainChartGenerator> trans2DomainCharts(
-        List<DomainChartGeneratorDTO> domainChartList) {
+        List<DomainChartDTO> domainChartList) {
         return domainChartList.stream()
-            .map(DomainChartGeneratorDTO::trans2DomainChart)
+            .map(DomainChartDTO::trans2DomainChart)
             .collect(Collectors.toCollection(ArrayList::new));
     }
 

@@ -3,10 +3,8 @@ package com.wd.paas.generator.convert.project.domainchart.aggregation.cmd;
 import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.AbstractUmlDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
 import com.wd.paas.generator.generate.constant.ModelUrlConstant;
-import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
-import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.CmdEventGenerator;
 import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.CmdGenerator;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,7 +28,7 @@ public class CmdGeneratorDTO extends AbstractUmlDTO {
      */
     private String aggregationColor;
 
-    public static List<CmdGenerator> trans2CmdList(AggregationGeneratorDTO aggregationDTO, ChartDTO chartDTO) {
+    public static List<CmdGenerator> trans2CmdList(AggregationDTO aggregationDTO, ChartDTO chartDTO) {
         String color = aggregationDTO.getAggregationColor();
 
         // 指令

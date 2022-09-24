@@ -75,4 +75,7 @@ public class ChartXmlObject {
     private String methodDesc;
     @XmlAttribute(name = "methodAttr")
     private String methodAttr;
+
+    @XmlAttribute(name = "queryResultType")
+    private String queryResultType;
 }

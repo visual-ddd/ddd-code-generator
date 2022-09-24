@@ -1,18 +1,24 @@
 package com.wd.paas.generator.convert.project.domainchart;
 
 
-import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.PageQueryExeFieldDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryExeFieldDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryExeDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryResultDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdGeneratorDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.EntityGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.EntityDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdEventGeneratorDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlFieldDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlMethodDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.ValueObjectGeneratorDTO;
-import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.AggregationGenerator;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.ValueObjectDTO;
+import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.PageQueryExeDTO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import lombok.Data;
+import org.checkerframework.checker.units.qual.A;
 
 /**
  * 领域图谱数据转换对象
@@ -38,17 +44,17 @@ public class ChartDTO {
     /**
      * 聚合
      */
-    private List<AggregationGeneratorDTO> aggregationDTOList;
+    private List<AggregationDTO> aggregationDTOList;
 
     /**
      * 值对象
      */
-    private List<ValueObjectGeneratorDTO> valueObjectDTOList;
+    private List<ValueObjectDTO> valueObjectDTOList;
 
     /**
      * 实体
      */
-    private List<EntityGeneratorDTO> entityGeneratorDTOList;
+    private List<EntityDTO> entityGeneratorDTOList;
 
     /**
      * 指令
@@ -61,11 +67,26 @@ public class ChartDTO {
     private List<CmdEventGeneratorDTO> eventDTOList;
 
     // ================================= 视图 =================================
-
+    /**
+     * 查询器
+     */
+    private List<QueryExeDTO> queryExeDTOList;
+    /**
+     * 分页查询器
+     */
+    private List<PageQueryExeDTO> pageQueryExeDTOList;
     /**
      * 查询结果集
      */
     private List<QueryResultDTO> queryResultDTOList;
+    /**
+     * 查询对象
+     */
+    private List<QueryExeFieldDTO> queryExeFieldDTOList;
+    /**
+     * 分页查询对象
+     */
+    private List<PageQueryExeFieldDTO> pageQueryExeFieldDTOList;
 
     public ChartDTO() {
         this.umlFieldDTOList = new ArrayList<>();
@@ -75,28 +96,25 @@ public class ChartDTO {
         this.entityGeneratorDTOList = new ArrayList<>();
         this.cmdDTOList = new ArrayList<>();
         this.eventDTOList = new ArrayList<>();
+        this.queryExeDTOList = new ArrayList<>();
+        this.pageQueryExeDTOList = new ArrayList<>();
+        this.pageQueryExeFieldDTOList = new ArrayList<>();
         this.queryResultDTOList = new ArrayList<>();
+        this.queryExeFieldDTOList = new ArrayList<>();
     }
 
-    public List<AggregationGenerator> trans2Aggregations() {
-        List<AggregationGenerator> aggregationGeneratorList = new ArrayList<>();
-        for (AggregationGeneratorDTO aggregationDTO : aggregationDTOList) {
-            AggregationGenerator aggregationGenerator = new AggregationGenerator();
-            aggregationGenerator.setUmlClass(
-                aggregationDTO.trans2UmlClass(umlFieldDTOList, umlMethodDTOList));
-
-            aggregationGenerator.setValueObjectList(
-                ValueObjectGeneratorDTO.trans2ValueObjectList(aggregationDTO, this));
-
-            aggregationGenerator.setEntityList(
-                EntityGeneratorDTO.trans2EntityList(aggregationDTO, this));
-
-            aggregationGenerator.setCmdList(
-                CmdGeneratorDTO.trans2CmdList(aggregationDTO, this)
-            );
-            aggregationGeneratorList.add(aggregationGenerator);
+    public static List<UmlField> getUmlFields(ChartDTO chartDTO, String classId) {
+        List<UmlField> fieldList = new ArrayList<>();
+        for (UmlFieldDTO umlFieldDTO : chartDTO.getUmlFieldDTOList()) {
+            if (Objects.equals(classId, umlFieldDTO.getClassId())) {
+                UmlField umlField = new UmlField();
+                umlField.setName(umlFieldDTO.getName());
+                umlField.setType(umlFieldDTO.getType());
+                umlField.setModifier(umlFieldDTO.getModifier());
+                umlField.setDescription(umlFieldDTO.getDescription());
+                fieldList.add(umlField);
+            }
         }
-        return aggregationGeneratorList;
+        return fieldList;
     }
-
 }

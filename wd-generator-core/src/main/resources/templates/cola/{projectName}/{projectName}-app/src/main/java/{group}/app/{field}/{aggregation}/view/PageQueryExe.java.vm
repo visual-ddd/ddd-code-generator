@@ -1,5 +1,28 @@
+#parse("templates/PageQueryExe.vm")
+package $PageQueryExePackagePath;
 
+import java.util.List;
+import com.wakedata.common.core.dto.PageResultDTO;
+import org.springframework.stereotype.Component;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
-class ProjectPageQueryExe {
+#comment("$PageQueryExeDescription-分页查询器")
+@Component
+public class ${PageQueryExeName} {
 
+    public PageResultDTO<List<${QueryResultType}>> execute(${AggregationName}PageQuery pageQuery) {
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+
+        //List<ChannelTapeDO> channelTapeDOS = channelOrderMapper.channelTapeList(pageQuery);
+        //List<ChannelTapeDTO> channelTapeDTOS = ChannelTapeDTOConvert.INSTANCE.doList2DtoList(channelTapeDOS);
+
+        PageInfo<${QueryResultType}> pageInfo = new PageInfo<>();
+        PageResultDTO<List<${QueryResultType}>> pageResultDTO = new PageResultDTO<>();
+        pageResultDTO.setData(pageInfo.getList());
+        pageResultDTO.setPageNo(pageInfo.getPageNum());
+        pageResultDTO.setPageSize(pageInfo.getSize());
+        pageResultDTO.setTotalCount(pageInfo.getTotal());
+        return pageResultDTO;
+    }
 }

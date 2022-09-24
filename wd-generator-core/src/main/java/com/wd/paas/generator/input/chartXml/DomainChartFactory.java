@@ -1,17 +1,21 @@
 package com.wd.paas.generator.input.chartXml;
 
 
+import com.wd.paas.generator.convert.project.domainchart.aggregation.PageQueryExeDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.PageQueryExeFieldDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryExeFieldDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryExeDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryResultDTO;
 import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.common.constant.ModifyEnum;
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdGeneratorDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.EntityGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.EntityDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdEventGeneratorDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlFieldDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlMethodDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.ValueObjectGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.ValueObjectDTO;
 import com.wd.paas.generator.input.chartXml.util.model.ChartXmlObject;
 import com.wd.paas.generator.input.chartXml.util.model.MxCell;
 import java.util.Optional;
@@ -50,7 +54,7 @@ public class DomainChartFactory {
 
         switch (shapeType) {
             case AGGREGATION:
-                AggregationGeneratorDTO aggregationDTO = new AggregationGeneratorDTO();
+                AggregationDTO aggregationDTO = new AggregationDTO();
                 aggregationDTO.setId(xmlObjectId);
                 aggregationDTO.setClassName(dddXmlObject.getClassName());
                 aggregationDTO.setDescription(dddXmlObject.getClassDesc());
@@ -58,7 +62,7 @@ public class DomainChartFactory {
                 domainChartDTO.getAggregationDTOList().add(aggregationDTO);
                 break;
             case ENTITY:
-                EntityGeneratorDTO entityGeneratorDTO = new EntityGeneratorDTO();
+                EntityDTO entityGeneratorDTO = new EntityDTO();
                 entityGeneratorDTO.setId(xmlObjectId);
                 entityGeneratorDTO.setAggregationColor(getColor(style));
                 entityGeneratorDTO.setClassName(dddXmlObject.getClassName());
@@ -66,7 +70,7 @@ public class DomainChartFactory {
                 domainChartDTO.getEntityGeneratorDTOList().add(entityGeneratorDTO);
                 break;
             case VALUE_OBJECT:
-                ValueObjectGeneratorDTO valueObjectDTO = new ValueObjectGeneratorDTO();
+                ValueObjectDTO valueObjectDTO = new ValueObjectDTO();
                 valueObjectDTO.setId(xmlObjectId);
                 valueObjectDTO.setAggregationColor(getColor(style));
                 valueObjectDTO.setClassName(dddXmlObject.getClassName());
@@ -108,9 +112,32 @@ public class DomainChartFactory {
                 domainChartDTO.getUmlMethodDTOList().add(umlMethodDTO);
                 break;
             case  QUERY_EXE:
+                QueryExeDTO queryExeDTO = new QueryExeDTO();
+                queryExeDTO.setId(xmlObjectId);
+                queryExeDTO.setAggregationColor(getColor(style));
+                queryExeDTO.setClassName(dddXmlObject.getClassName());
+                queryExeDTO.setDescription(dddXmlObject.getClassDesc());
+                queryExeDTO.setQueryResultType(dddXmlObject.getQueryResultType());
+                domainChartDTO.getQueryExeDTOList().add(queryExeDTO);
+                // query对象
+                QueryExeFieldDTO queryExeFieldDTO = new QueryExeFieldDTO();
+                queryExeFieldDTO.setId(xmlObjectId);
+                queryExeFieldDTO.setAggregationColor(getColor(style));
+                domainChartDTO.getQueryExeFieldDTOList().add(queryExeFieldDTO);
                 break;
             case PAGE_QUERY_EXE:
-
+                PageQueryExeDTO pageQueryExeDTO = new PageQueryExeDTO();
+                pageQueryExeDTO.setId(xmlObjectId);
+                pageQueryExeDTO.setAggregationColor(getColor(style));
+                pageQueryExeDTO.setClassName(dddXmlObject.getClassName());
+                pageQueryExeDTO.setDescription(dddXmlObject.getClassDesc());
+                pageQueryExeDTO.setQueryResultType(dddXmlObject.getQueryResultType());
+                domainChartDTO.getPageQueryExeDTOList().add(pageQueryExeDTO);
+                // pageQuery对象
+                PageQueryExeFieldDTO pageQueryExeFieldDTO = new PageQueryExeFieldDTO();
+                pageQueryExeFieldDTO.setId(xmlObjectId);
+                pageQueryExeFieldDTO.setAggregationColor(getColor(style));
+                domainChartDTO.getPageQueryExeFieldDTOList().add(pageQueryExeFieldDTO);
                 break;
             case QUERY_RESULT:
                 QueryResultDTO queryResultDTO = new QueryResultDTO();

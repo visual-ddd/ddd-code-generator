@@ -1,0 +1,16 @@
+#parse("templates/QueryExe.vm")
+package $QueryExePackagePath;
+
+import java.util.List;
+import com.wakedata.common.core.dto.ResultDTO;
+import org.springframework.stereotype.Component;
+
+#comment("${QueryExeDescription}-查询器")
+@Component
+public class ${QueryExeName} {
+
+    public ResultDTO<${QueryResultType}> execute(${AggregationName}Query query) {
+
+        return null;
+    }
+}

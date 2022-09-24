@@ -1,8 +1,8 @@
 package com.wd.paas.script;
 
-import com.wd.paas.generator.convert.project.ProjectGeneratorDTO;
+import com.wd.paas.generator.convert.project.ProjectDTO;
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
-import com.wd.paas.generator.convert.project.domainchart.DomainChartGeneratorDTO;
+import com.wd.paas.generator.convert.project.domainchart.DomainChartDTO;
 import com.wd.paas.generator.generate.GenerateContext;
 import com.wd.paas.generator.generate.generator.project.ProjectGenerator;
 import com.wd.paas.generator.input.chartXml.ChartXmlStream2DomainChartDTO;
@@ -33,7 +33,7 @@ public class Main {
         System.out.println("========== 启动代码生成器脚本🔧 ==========");
         consoleInputArguments(initConsole());
 
-        ProjectGeneratorDTO projectGeneratorDTO = getProjectGeneratorDTO(
+        ProjectDTO projectGeneratorDTO = getProjectGeneratorDTO(
             getDomainChartGeneratorDTO(getChartDTO()));
 
         ProjectGenerator projectGenerator = projectGeneratorDTO.trans2ProjectGenerator();
@@ -50,9 +50,9 @@ public class Main {
      * @param chartGeneratorDTO 领域图谱生成器dto
      * @return 项目生成器dto
      */
-    private static ProjectGeneratorDTO getProjectGeneratorDTO(
-        DomainChartGeneratorDTO chartGeneratorDTO) {
-        ProjectGeneratorDTO projectGeneratorDTO = new ProjectGeneratorDTO();
+    private static ProjectDTO getProjectGeneratorDTO(
+        DomainChartDTO chartGeneratorDTO) {
+        ProjectDTO projectGeneratorDTO = new ProjectDTO();
         projectGeneratorDTO.setName(UserArgument.projectName);
         projectGeneratorDTO.setAuthor(UserArgument.projectAuthor);
         projectGeneratorDTO.setDateTime(UserArgument.projectDateTime);
@@ -67,9 +67,9 @@ public class Main {
      * @param chartDTO 图谱dto
      * @return 领域图谱生成器dto
      */
-    private static DomainChartGeneratorDTO getDomainChartGeneratorDTO(
+    private static DomainChartDTO getDomainChartGeneratorDTO(
         ChartDTO chartDTO) {
-        DomainChartGeneratorDTO chartGeneratorDTO = new DomainChartGeneratorDTO();
+        DomainChartDTO chartGeneratorDTO = new DomainChartDTO();
         chartGeneratorDTO.setName(UserArgument.domainName);
         chartGeneratorDTO.setDescription(UserArgument.description);
         chartGeneratorDTO.setAuthor(UserArgument.domainAuthor);

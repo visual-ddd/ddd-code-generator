@@ -1,0 +1,15 @@
+#parse("templates/QueryResult.vm")
+package $QueryResultPackagePath;
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
+
+#comment("$QueryResultDescription-查询结果集")
+@Data
+@ApiModel(value = "${QueryResultDescription}-查询结果集")
+public class ${QueryResultName} {
+    #filedExt($QueryResultFields, ["swagger"])
+
+}

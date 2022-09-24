@@ -1,5 +1,6 @@
 package com.wd.paas.generator.convert.project.domainchart;
 
+import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
 import com.wd.paas.generator.generate.generator.DomainChartInfo;
 import com.wd.paas.generator.generate.generator.project.domainchart.DomainChartGenerator;
 import lombok.Data;
@@ -12,7 +13,7 @@ import lombok.Data;
  * @date 2022/8/23
  */
 @Data
-public class DomainChartGeneratorDTO {
+public class DomainChartDTO {
 
     /**
      * 领域名
@@ -42,7 +43,7 @@ public class DomainChartGeneratorDTO {
     public DomainChartGenerator trans2DomainChart() {
         DomainChartGenerator domainChartGenerator = new DomainChartGenerator();
         domainChartGenerator.setDomainChartInfo(trans2DomainChartInfo());
-        domainChartGenerator.setAggregationList(chartDTO.trans2Aggregations());
+        domainChartGenerator.setAggregationList(AggregationDTO.trans2Aggregations(chartDTO));
         return domainChartGenerator;
     }
 

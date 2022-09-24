@@ -1,0 +1,20 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## 引入领域图谱变量
+#parse("templates/DomainChart.vm")
+## ============= 定义聚合变量,用于生成绑定的模版文件 ==============
+## 分页查询对象名
+#set($PageQueryName = $ClassName)
+## 分页查询对象类描述
+#set($PageQueryDescription = $ClassDescription)
+## 分页查询对象类属性列表
+#set($PageQueryFields = $ClassFields)
+## 分页查询对象类方法列表
+#set($PageQueryMethods = $ClassMethods)
+## 分页查询对象所属的聚合类名
+#set($AggregationName = $AggregationClassName)
+## ==================== 分页查询对象相关变量 =======================
+## 分页查询对象所属的所属聚合类名全小写
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+## 分页查询对象包路径
+#set($PageQueryPackagePath = "${ProjectPackage}.client.${DomainName}.${AggregationLowerName}.query")

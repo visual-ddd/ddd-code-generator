@@ -28,3 +28,5 @@
 #set($DOPackagePath = "${ProjectPackage}.infrastructure.${DomainName}.repository.model")
 ## Mapper类的包路径
 #set($MapperPackagePath = "${ProjectPackage}.infrastructure.${DomainName}.repository.mapper")
+## view 包路径
+#set($ViewPackagePath = "${ProjectPackage}.app.${DomainName}.view")

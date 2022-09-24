@@ -1,0 +1,22 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## 引入领域图谱变量
+#parse("templates/DomainChart.vm")
+## ============= 定义聚合变量,用于生成绑定的模版文件 ==============
+## 查询器名
+#set($QueryExeName = $ClassName)
+## 查询器类描述
+#set($QueryExeDescription = $ClassDescription)
+## 查询器类属性列表
+#set($QueryExeFields = $ClassFields)
+## 查询器类方法列表
+#set($QueryExeMethods = $ClassMethods)
+## 查询器所属的聚合类名
+#set($AggregationName = $AggregationClassName)
+## ==================== 查询器相关变量 =======================
+## 查询器所属的所属聚合类名全小写
+#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
+## 查询器包路径
+#set($QueryExePackagePath = "${ProjectPackage}.app.${DomainName}.${AggregationLowerName}.view")
+## 查询结果集类型
+#set($QueryResultType = $QueryResultType)

@@ -31,4 +31,9 @@ public class ModelUrlConstant {
     public static final String COMMAND_CLASS_SUFFIX = "Cmd";
     public static final String EVENT_CLASS_SUFFIX = "Event";
 
+    public static final String QUERY_RESULT_CLASS = "QueryResult";
+    public static final String PAGE_QUERY_EXE_CLASS = "PageQueryExe";
+    public static final String QUERY_EXE_CLASS = "QueryExe";
+    public static final String QUERY_CLASS = "Query";
+    public static final String PAGE_QUERY_CLASS = "PageQuery";
 }
