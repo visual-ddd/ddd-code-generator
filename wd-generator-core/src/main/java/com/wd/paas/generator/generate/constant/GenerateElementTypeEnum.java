@@ -41,6 +41,7 @@ public enum GenerateElementTypeEnum {
         "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/StartApplication.java.vm",
         "cola/{projectName}/{projectName}-start/src/main/resources/application.yml.vm",
         "cola/{projectName}/{projectName}-start/src/main/resources/bootstrap.yml.vm",
+        "cola/{projectName}/{projectName}-start/src/main/resources/logback-spring.xml.vm",
     }),
 
     /**
