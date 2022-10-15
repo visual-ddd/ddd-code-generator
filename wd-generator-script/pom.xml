@@ -21,6 +21,13 @@
       <version>2.1-SNAPSHOT</version>
     </dependency>
 
+    <!--  console增强  -->
+    <dependency>
+      <groupId>com.beust</groupId>
+      <artifactId>jcommander</artifactId>
+      <version>1.78</version>
+    </dependency>
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>

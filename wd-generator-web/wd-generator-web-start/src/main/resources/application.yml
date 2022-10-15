@@ -1,0 +1,55 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /wd-generator-web
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  messages:
+    basename: classpath:i18n/*/messages;classpath:i18n/*/validate;classpath:i18n/common;
+  datasource:
+    name: wd-generator-web
+    url: ${wd-generator-web.mysql.url:jdbc:mysql://172.26.63.165:3306/paas?useUnicode=true&characterEncoding=utf-8}
+    username: ${wd-generator-web.mysql.username:mysqluser}
+    password: ${wd-generator-web.mysql.password:mysqluser}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 10000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+
+# 分页查询插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# mybatis-plus相关配置
+mybatis-plus:
+  type-aliases-package: com.wd.paas.generator.web.infrastructure.*.repository.model
+  mapper-locations: classpath:mapper/**/*.xml                 # 对应mapper映射xml文件的所在路径
+  configuration:
+    map-underscore-to-camel-case: true                        # 是否开启自动驼峰命名规则映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl     # sql打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl #关闭sql日志
+
+#启动事件重试
+domain:
+  event:
+    retry.enable: true

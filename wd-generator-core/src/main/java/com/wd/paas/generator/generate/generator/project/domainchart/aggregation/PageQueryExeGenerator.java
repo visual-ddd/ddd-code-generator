@@ -42,8 +42,8 @@ public class PageQueryExeGenerator extends AbstractGenerator {
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.PAGE_QUERY_EXE.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.PAGE_QUERY_EXE;
     }
 
     @Override

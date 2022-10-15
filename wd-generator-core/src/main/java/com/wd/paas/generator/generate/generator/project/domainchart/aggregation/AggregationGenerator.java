@@ -85,8 +85,8 @@ public class AggregationGenerator extends AbstractGenerator {
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.AGGREGATION.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.AGGREGATION;
     }
 
     @Override

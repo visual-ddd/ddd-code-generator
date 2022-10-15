@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: wd-generator-web
+
+  redis:
+    host: ${redis.host}
+    password: ${redis.password}
+    port: ${redis.port}
+
+  cloud:
+    nacos:
+      server-addr: ${NACOS_CONFIG_SERVER:172.26.63.188:25889}
+      username: wdcloud-test
+      password: wdcloud-test
+      discovery:
+        namespace: ${NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}
+      config:
+        namespace: ${NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}
+        group: DEFAULT_GROUP
+        file-extension: yml
+        shared-configs:
+          - data-id: wd-generator-web.yml
+          - data-id: common.yml
+          - data-id: common-mq.yml
+          - data-id: common-mq-topic.yml
+          - data-id: common-event-code.yml
+          - data-id: common-redis.yml
+          - data-id: common-tracelog.yml
+          - data-id: common-openfeign.yml
+          - data-id: common-services.yml
+          - data-id: common-storage-tencent.yml
+          - data-id: common-storage-aws.yml
+          - data-id: common-storage-aliyun.yml
+          - data-id: common-storage-huawei.yml
+          - data-id: xxl-job.yml
+          - data-id: common-seata.yml
+          - data-id: wd-event-source.yml
+          # - data-id: wd_mtool_mq.yml
+
+logging:
+  config: classpath:logback-spring.xml

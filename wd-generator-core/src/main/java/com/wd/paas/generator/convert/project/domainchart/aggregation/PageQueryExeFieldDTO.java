@@ -9,6 +9,7 @@ import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.
 import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.QueryGenerator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import lombok.Data;
 
 /**
@@ -30,20 +31,19 @@ public class PageQueryExeFieldDTO extends AbstractUmlDTO {
 
         List<UmlField> queryExeFieldList = new ArrayList<>();
         for (PageQueryExeFieldDTO queryExeFieldDTO : chartDTO.getPageQueryExeFieldDTOList()) {
-            if (queryExeFieldDTO.getAggregationColor().equals(aggregationColor)) {
-                List<UmlField> fieldList = ChartDTO.getUmlFields(chartDTO, queryExeFieldDTO.getId());
+            if (!Objects.equals(queryExeFieldDTO.getAggregationColor(), aggregationColor)) {
+                List<UmlField> fieldList = ChartDTO.getUmlFields(chartDTO,
+                    queryExeFieldDTO.getId());
                 queryExeFieldList.addAll(fieldList);
-            }
-        }
 
-        if (!queryExeFieldList.isEmpty()) {
-            PageQueryGenerator pageQueryGenerator = new PageQueryGenerator();
-            UmlClass umlClass = new UmlClass();
-            umlClass.setClassName(dto.className + "PageQuery");
-            umlClass.setClassDesc(dto.description);
-            umlClass.setFieldList(queryExeFieldList);
-            pageQueryGenerator.setUmlClass(umlClass);
-            return pageQueryGenerator;
+                PageQueryGenerator pageQueryGenerator = new PageQueryGenerator();
+                UmlClass umlClass = new UmlClass();
+                umlClass.setClassName(dto.className + "PageQuery");
+                umlClass.setClassDesc(dto.description);
+                umlClass.setFieldList(queryExeFieldList);
+                pageQueryGenerator.setUmlClass(umlClass);
+                return pageQueryGenerator;
+            }
         }
         return null;
     }

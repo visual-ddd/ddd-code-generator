@@ -48,4 +48,5 @@ public class VelocityLabel {
     public static final String QUERY_RESULT_TYPE = "QueryResultType";
     public static final String QUERY_EXE_LIST = "QueryExeList";
     public static final String PAGE_QUERY_EXE_LIST = "PageQueryExeList";
+    public static final String CMD_EVENT = "CmdEvent" ;
 }

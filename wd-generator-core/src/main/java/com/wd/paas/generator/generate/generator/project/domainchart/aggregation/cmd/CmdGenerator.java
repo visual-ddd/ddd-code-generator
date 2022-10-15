@@ -40,11 +40,12 @@ public class CmdGenerator extends AbstractGenerator {
         umlClass.putVelocityContext(context);
         context.put(VelocityLabel.CMD_CLASS_NAME, umlClass.getClassName());
         context.put(VelocityLabel.CMD_FIELD_LIST, umlClass.getFieldList());
+        context.put(VelocityLabel.CMD_EVENT, cmdEventGenerator);
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.COMMAND.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.COMMAND;
     }
 
     @Override

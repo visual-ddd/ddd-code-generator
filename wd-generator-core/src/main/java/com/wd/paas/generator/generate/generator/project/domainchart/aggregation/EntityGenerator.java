@@ -31,8 +31,8 @@ public class EntityGenerator extends AbstractGenerator {
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.ENTITY.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.ENTITY;
     }
 
     @Override

@@ -37,8 +37,8 @@ public class QueryResultGenerator extends AbstractGenerator {
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.QUERY_RESULT.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.QUERY_RESULT;
     }
 
     @Override

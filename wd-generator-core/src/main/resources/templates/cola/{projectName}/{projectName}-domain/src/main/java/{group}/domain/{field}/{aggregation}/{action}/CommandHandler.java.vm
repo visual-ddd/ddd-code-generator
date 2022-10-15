@@ -1,6 +1,7 @@
 #parse("templates/Cmd.vm")
 package $CmdPackagePath;
 
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
@@ -11,7 +12,9 @@ public class ${CmdName}Handler {
     @Resource
     private ${AggregationName}Repository repository;
 
-    public void handle(${CmdName} cmd){
+    public void handle(${CmdName} cmd) {
 
+        DomainEventPublisher.getInstance()
+            .postAfterCommit(new ${CmdEvent.umlClass.className}(cmd));
     }
 }

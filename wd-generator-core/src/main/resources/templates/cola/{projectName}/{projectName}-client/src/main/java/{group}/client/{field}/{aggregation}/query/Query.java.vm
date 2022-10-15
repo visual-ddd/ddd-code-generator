@@ -5,9 +5,12 @@ import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
+import lombok.EqualsAndHashCode;
+import java.util.List;
 
 #comment("$QueryDescription-查询对象")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "${QueryDescription}查询对象")
 public class ${QueryName} {
     #filedExt($QueryFields, ["swagger"])

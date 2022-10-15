@@ -42,31 +42,34 @@ public enum GenerateElementTypeEnum {
         "cola/{projectName}/{projectName}-start/src/main/resources/application.yml.vm",
         "cola/{projectName}/{projectName}-start/src/main/resources/bootstrap.yml.vm",
         "cola/{projectName}/{projectName}-start/src/main/resources/logback-spring.xml.vm",
-    }),
+        "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/Knife4jConfiguration.java.vm"},
+        new String[]{}),
 
     /**
      * 领域图谱
      */
-    DOMAIN_CHART("DomainChart", new String[]{}),
+    DOMAIN_CHART("DomainChart", new String[]{}, new String[]{}),
 
     /**
      * 聚合
      */
     AGGREGATION("Aggregation", new String[]{
         // domain
-        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationFactory.java.vm",
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationRepository.java.vm",
-        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationI.java.vm",
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
         // controller
-        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/{aggregation}/app/AppAggregationController.java.vm",
-        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/{aggregation}/web/WebAggregationController.java.vm",
+        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/{aggregation}/app/AggregationAppController.java.vm",
+        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/{aggregation}/web/AggregationWebController.java.vm",
         // repository
         "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/AggregationMapper.java.vm",
         "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/AggregationDO.java.vm",
         "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/AggregationRepositoryImpl.java.vm",
         "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/AggregationDoConvert.java.vm",
         "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
+    }, new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
     }),
 
     /**
@@ -74,12 +77,16 @@ public enum GenerateElementTypeEnum {
      */
     ENTITY("Entity", new String[]{
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Entity.java.vm",
+    }, new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Entity.java.vm",
     }),
 
     /**
      * 值对象
      */
     VALUE_OBJECT("ValueObject", new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObject.java.vm"
+    }, new String[]{
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObject.java.vm"
     }),
 
@@ -89,6 +96,8 @@ public enum GenerateElementTypeEnum {
     COMMAND("Command", new String[]{
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/CommandHandler.java.vm",
+    }, new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
     }),
 
     /**
@@ -96,36 +105,42 @@ public enum GenerateElementTypeEnum {
      */
     EVENT("Event", new String[]{
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Event.java.vm"
+    }, new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Event.java.vm"
     }),
 
     /**
      * 属性
      */
-    FIELD("Field", new String[]{}),
+    FIELD("Field", new String[]{},
+        new String[]{}),
 
     /**
      * 方法
      */
-    METHOD("Method", new String[]{}),
+    METHOD("Method", new String[]{},
+        new String[]{}),
 
     /**
      * 查询器
      */
     QUERY_EXE("QueryExe", new String[]{
         "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/QueryExe.java.vm",
-    }),
+    }, new String[]{}),
 
     /**
      * 分页查询器
      */
     PAGE_QUERY_EXE("PageQueryExe", new String[]{
         "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/PageQueryExe.java.vm",
-    }),
+    }, new String[]{}),
 
     /**
      * 查询对象
      */
     QUERY("Query", new String[]{
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/Query.java.vm",
+    }, new String[]{
         "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/Query.java.vm",
     }),
 
@@ -134,6 +149,8 @@ public enum GenerateElementTypeEnum {
      */
     PAGE_QUERY("PageQuery", new String[]{
         "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/PageQuery.java.vm",
+    }, new String[]{
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/PageQuery.java.vm",
     }),
 
     /**
@@ -141,19 +158,41 @@ public enum GenerateElementTypeEnum {
      */
     QUERY_RESULT("QueryResult", new String[]{
         "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/dto/QueryResult.java.vm",
+    }, new String[]{
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/dto/QueryResult.java.vm",
     }),
 
     /**
      * 未定义
      */
-    OTHER("Other", new String[]{}),
+    OTHER("Other", new String[]{}, new String[]{}),
     ;
 
     private final String name;
     private final String[] templateUrls;
+    private final String[] updateTemplateUrls;
 
-    GenerateElementTypeEnum(String name, String[] templateUrls) {
+    GenerateElementTypeEnum(String name, String[] templateUrls, String[] updateTemplateUrls) {
         this.name = name;
         this.templateUrls = templateUrls;
+        this.updateTemplateUrls = updateTemplateUrls;
+    }
+
+    /**
+     * 根据生成方式获取需要生成的模版数组
+     *
+     * @param way 生成方式
+     * @return 模版路径数组
+     */
+    public String[] getTemplateUrlsByWay(GenerateWayEnum way) {
+        switch (way) {
+            case OVERALL:
+                return templateUrls;
+            case PART:
+                return updateTemplateUrls;
+            default:
+                return new String[]{};
+        }
+
     }
 }

@@ -1,14 +1,8 @@
 #parse("templates/Aggregation.vm")
 package $AggregationPackagePath;
 
-import lombok.Data;
-
-import java.util.List;
-
-#comment("${AggregationDescription}-聚合根")
-@Data
-public class $AggregationName implements ${AggregationName}I {
-    #filed($AggregationFields)
+#comment("${AggregationDescription}-聚合根-能力")
+public class ${AggregationName} extends Abstract${AggregationName} {
     #overrideMethod($AggregationMethods)
 
 }

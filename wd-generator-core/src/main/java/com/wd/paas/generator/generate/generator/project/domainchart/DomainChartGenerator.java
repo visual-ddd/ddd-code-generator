@@ -46,8 +46,8 @@ public class DomainChartGenerator extends AbstractGenerator {
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.DOMAIN_CHART.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.DOMAIN_CHART;
     }
 
     @Override

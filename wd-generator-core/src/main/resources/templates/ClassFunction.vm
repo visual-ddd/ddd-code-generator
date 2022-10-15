@@ -83,3 +83,13 @@ import ${importPackage};
     ${method.returnType} ${method.name}(${method.attributeLabel});
     #end
 #end
+## ============= 抽象方法列表 =============
+#macro(abstractMethod $methodList)
+    #foreach ($method in $methodList)
+
+    #if($method.description)
+    /** ${method.description} */
+    #end
+    public abstract ${method.returnType} ${method.name}(${method.attributeLabel});
+    #end
+#end

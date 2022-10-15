@@ -14,9 +14,6 @@ public class ${PageQueryExeName} {
     public PageResultDTO<List<${QueryResultType}>> execute(${AggregationName}PageQuery pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
-        //List<ChannelTapeDO> channelTapeDOS = channelOrderMapper.channelTapeList(pageQuery);
-        //List<ChannelTapeDTO> channelTapeDTOS = ChannelTapeDTOConvert.INSTANCE.doList2DtoList(channelTapeDOS);
-
         PageInfo<${QueryResultType}> pageInfo = new PageInfo<>();
         PageResultDTO<List<${QueryResultType}>> pageResultDTO = new PageResultDTO<>();
         pageResultDTO.setData(pageInfo.getList());

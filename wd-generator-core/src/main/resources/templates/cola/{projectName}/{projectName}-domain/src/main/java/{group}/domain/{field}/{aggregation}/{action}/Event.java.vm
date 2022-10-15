@@ -15,7 +15,15 @@ public class ${EventName} extends BaseDomainEvent {
     #filed($EventFields)
     #method($EventMethods)
 
-    public ${EventName}(${CmdClassName} cmd) {
+    public ${EventName}(${CmdClassName} cmd
+        #foreach($eventField in ${EventFields})
+            #set($result = 0)
+            #isFieldParttern($eventField.name, $result)
+            #if($result == 0)
+        , $eventField.type $eventField.name
+            #end
+        #end
+    ) {
     #foreach ($eventField in ${EventFields})
         #set($hasPrint = 0)
     #foreach($cmdField in ${CmdFieldList})
@@ -25,7 +33,7 @@ public class ${EventName} extends BaseDomainEvent {
         #end
     #end
         #if($hasPrint == 0)
-        //this.${eventField.name} = ;
+        this.${eventField.name} = ${eventField.name};
         #set($hasPrint = 1)
         #end
     #end
@@ -35,4 +43,12 @@ public class ${EventName} extends BaseDomainEvent {
     public String eventCode() {
         return "$$encode";
     }
+
+#macro(isFieldParttern $eventFieldName, $result)
+    #foreach($cmdField in ${CmdFieldList})
+    #if($eventFieldName == $cmdField.name)
+        #set($result = 1)
+    #end
+    #end
+#end
 }

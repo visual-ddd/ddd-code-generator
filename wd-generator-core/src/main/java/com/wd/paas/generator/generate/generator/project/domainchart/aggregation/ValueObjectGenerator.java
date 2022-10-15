@@ -30,8 +30,8 @@ public class ValueObjectGenerator extends AbstractGenerator {
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.VALUE_OBJECT.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.VALUE_OBJECT;
     }
 
     @Override

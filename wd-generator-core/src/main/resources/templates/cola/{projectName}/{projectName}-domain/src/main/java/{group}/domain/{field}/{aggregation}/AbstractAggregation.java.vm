@@ -1,0 +1,14 @@
+#parse("templates/Aggregation.vm")
+package $AggregationPackagePath;
+
+import lombok.Data;
+
+import java.util.List;
+
+#comment("${AggregationDescription}-聚合根")
+@Data
+public abstract class Abstract$AggregationName {
+    #filed($AggregationFields)
+    #abstractMethod($AggregationMethods)
+
+}

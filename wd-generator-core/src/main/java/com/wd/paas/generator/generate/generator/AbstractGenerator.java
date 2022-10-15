@@ -1,7 +1,7 @@
 package com.wd.paas.generator.generate.generator;
 
-import com.wd.paas.generator.CodeGenerate;
 import com.wd.paas.generator.generate.GenerateContext;
+import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.generate.util.FileGenerator;
@@ -23,7 +23,8 @@ public abstract class AbstractGenerator implements CodeGenerate {
         // 填充上下文
         this.putVelocityContext(generateContext.getContext());
         // 获取模版映射表
-        String[] templateUrls = this.getElementTypeUrl();
+        GenerateElementTypeEnum elementType = this.getElementTypeUrl();
+        String[] templateUrls = elementType.getTemplateUrlsByWay(generateContext.getGenerateWay());
         HashMap<String, String> modelFileMap = new HashMap<>(templateUrls.length);
         // 获取模版文件列表
         for (String templateUrl : templateUrls) {

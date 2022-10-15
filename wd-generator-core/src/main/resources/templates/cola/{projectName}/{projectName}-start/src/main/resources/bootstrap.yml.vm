@@ -1,5 +1,5 @@
 #parse("templates/Project.vm")
-#set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.59.114:25889}")
+#set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.188:25889}")
 #set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
 #set($configNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
 spring:

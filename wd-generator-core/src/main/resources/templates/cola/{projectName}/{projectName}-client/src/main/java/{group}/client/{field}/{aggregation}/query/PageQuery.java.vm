@@ -6,9 +6,11 @@ import lombok.Data;
 import java.util.List;
 import io.swagger.annotations.ApiModelProperty;
 import com.wakedata.common.core.dto.PageQuery;
+import lombok.EqualsAndHashCode;
 
 #comment("$PageQueryDescription-分页查询对象")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "${PageQueryDescription}分页查询对象")
 public class ${PageQueryName}  extends PageQuery {
     #filedExt($PageQueryFields, ["swagger"])

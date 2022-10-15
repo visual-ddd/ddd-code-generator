@@ -42,8 +42,8 @@ public class QueryExeGenerator extends AbstractGenerator {
     }
 
     @Override
-    public String[] getElementTypeUrl() {
-        return GenerateElementTypeEnum.QUERY_EXE.getTemplateUrls();
+    public GenerateElementTypeEnum getElementTypeUrl() {
+        return GenerateElementTypeEnum.QUERY_EXE;
     }
 
     @Override
