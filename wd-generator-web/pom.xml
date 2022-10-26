@@ -17,6 +17,7 @@
 
   <properties>
     <wd-common-core.version>1.2.2-DDD11</wd-common-core.version>
+    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -98,12 +99,6 @@
         <artifactId>wd-common-redis</artifactId>
         <version>${wd-common-core.version}</version>
       </dependency>
-      <!--      <dependency>-->
-      <!--          <groupId>com.wakedata</groupId>-->
-      <!--          <artifactId>spring-boot-xxl-job-starter</artifactId>-->
-      <!--          <version>2.2.0-WK</version>-->
-      <!--      </dependency>-->
-      <!-- wd-common dependency end-->
 
       <!-- mockito -->
       <dependency>
@@ -113,6 +108,16 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
 
   <distributionManagement>
     <!-- 配置release版本发布的仓库-->

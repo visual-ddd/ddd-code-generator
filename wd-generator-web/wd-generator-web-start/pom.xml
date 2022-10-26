@@ -87,7 +87,7 @@
           <dockerHost>tcp://127.0.0.1:2375</dockerHost>
           <images>
             <image>
-              <name>172.26.59.200/paas/origin/${git.branch}/wd-generator-web:${project.version}</name>
+              <name>172.26.59.200/paas/${git.branch}/wd-generator-web:${project.version}</name>
               <alias>dockerfile</alias>
               <build>
                 <contextDir>${project.basedir}/src/main/docker</contextDir>
