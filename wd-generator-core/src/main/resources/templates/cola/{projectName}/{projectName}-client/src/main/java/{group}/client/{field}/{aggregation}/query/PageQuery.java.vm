@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "${PageQueryDescription}分页查询对象")
-public class ${PageQueryName}  extends PageQuery {
+public class ${PageQueryName} extends PageQuery {
     #filedExt($PageQueryFields, ["swagger"])
 
 }

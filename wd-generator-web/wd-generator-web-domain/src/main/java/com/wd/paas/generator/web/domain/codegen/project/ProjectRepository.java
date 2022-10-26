@@ -1,5 +1,7 @@
 package com.wd.paas.generator.web.domain.codegen.project;
 
+import com.wd.paas.generator.convert.project.ProjectDTO;
+
 /**
  * 项目-聚合根-仓储接口
  *
@@ -39,4 +41,10 @@ public interface ProjectRepository {
      */
     Project selectProjectById(Long id);
 
+    /**
+     * 构建需要生成的项目
+     * @param projectId 项目id
+     * @return 生成项目模型
+     */
+    ProjectDTO buildProjectDTO(Long projectId);
 }

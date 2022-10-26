@@ -20,6 +20,11 @@
     </dependency>
 
     <dependency>
+      <groupId>com.wakedata.common</groupId>
+      <artifactId>wd-common-storage</artifactId>
+    </dependency>
+    
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>

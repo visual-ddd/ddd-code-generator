@@ -18,7 +18,6 @@ public class DomainChartFactory {
         domainChart.setProjectId(cmd.getProjectId());
         domainChart.setDomainName(cmd.getDomainName());
         domainChart.setDomainDesc(cmd.getDomainDesc());
-        domainChart.setChartXmlUrl(cmd.getChartXmlUrl());
         domainChart.setDomainAuthor(cmd.getDomainAuthor());
         return domainChart;
     }

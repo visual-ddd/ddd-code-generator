@@ -21,10 +21,10 @@
       <groupId>com.wd.paas.generator.web</groupId>
       <artifactId>wd-generator-web-infrastructure</artifactId>
     </dependency>
-    <!--        <dependency>-->
-    <!--            <groupId>com.wakedata</groupId>-->
-    <!--            <artifactId>spring-boot-xxl-job-starter</artifactId>-->
-    <!--        </dependency>-->
+    <dependency>
+      <groupId>com.wakedata.common</groupId>
+      <artifactId>wd-common-storage</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

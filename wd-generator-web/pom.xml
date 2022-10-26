@@ -27,6 +27,13 @@
         <version>2.1-SNAPSHOT</version>
       </dependency>
 
+      <!--   存储云文件   -->
+      <dependency>
+        <groupId>com.wakedata.common</groupId>
+        <artifactId>wd-common-storage</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+
       <!--Project modules-->
       <dependency>
         <groupId>com.wd.paas.generator.web</groupId>

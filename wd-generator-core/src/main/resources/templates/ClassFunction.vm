@@ -40,7 +40,7 @@ import ${importPackage};
 #end
 ## ============= 类swagger字段注解 =============
 #macro(filedSwagger $filedList)
-    @ApiModelProperty(value="${field.description}")
+    @ApiModelProperty(value = "${field.description}")
 #end
 ## ============= 类方法列表 =============
 #macro(method $methodList)

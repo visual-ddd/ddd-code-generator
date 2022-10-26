@@ -69,7 +69,6 @@ public class AggregationGenerator extends AbstractGenerator {
             valueObjectGenerator -> valueObjectGenerator.generate(generateContext));
         entityList.forEach(entityGenerator -> entityGenerator.generate(generateContext));
         cmdList.forEach(cmdGenerator -> cmdGenerator.generate(generateContext));
-        entityList.forEach(entityGenerator -> entityGenerator.generate(generateContext));
         // 视图
         queryExeList.forEach(queryExeGenerator -> queryExeGenerator.generate(generateContext));
         pageQueryExeList.forEach(

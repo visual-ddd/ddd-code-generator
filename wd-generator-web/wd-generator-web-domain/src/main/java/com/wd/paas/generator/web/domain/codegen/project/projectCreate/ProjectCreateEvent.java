@@ -3,12 +3,13 @@ package com.wd.paas.generator.web.domain.codegen.project.projectCreate;
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import java.util.List;
 
 /**
  * 新增项目信息-指令事件
  *
  * @author GaoZhiYi, ZhuXueLiang
- * @date 2022/10/15 12:09:06
+ * @date 2022/10/22 12:43:01
  * @since 1.0
  */
 @Data

@@ -12,10 +12,10 @@ import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartUpdate.Do
 public class DomainChart extends AbstractDomainChart {
 
     public void modify(DomainChartUpdateCmd cmd) {
+        this.setProjectId(cmd.getProjectId());
         this.setId(cmd.getId());
         this.setDomainName(cmd.getDomainName());
         this.setDomainDesc(cmd.getDomainDesc());
-        this.setChartXmlUrl(cmd.getChartXmlUrl());
         this.setDomainAuthor(cmd.getDomainAuthor());
     }
 }

@@ -3,12 +3,13 @@ package com.wd.paas.generator.web.domain.codegen.domainchart.domainChartUpdate;
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import java.util.List;
 
 /**
  * 更新领域图谱-指令事件
  *
  * @author GaoZhiYi, ZhuXueLiang
- * @date 2022/10/15 12:09:06
+ * @date 2022/10/22 12:43:01
  * @since 1.0
  */
 @Data
@@ -30,9 +31,6 @@ public class DomainChartUpdateEvent extends BaseDomainEvent {
     /** 领域描述 */
     private String domainDesc;
 
-    /** 图谱xml存储URL地址 */
-    private String chartXmlUrl;
-
     public DomainChartUpdateEvent(DomainChartUpdateCmd cmd
     ) {
         this.projectId = cmd.getProjectId();
@@ -40,7 +38,6 @@ public class DomainChartUpdateEvent extends BaseDomainEvent {
         this.domainAuthor = cmd.getDomainAuthor();
         this.domainName = cmd.getDomainName();
         this.domainDesc = cmd.getDomainDesc();
-        this.chartXmlUrl = cmd.getChartXmlUrl();
     }
 
     @Override

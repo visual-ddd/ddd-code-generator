@@ -5,7 +5,6 @@ package $EventPackagePath;
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
 import java.util.List;
 
 #comment("$EventDescription-指令事件")

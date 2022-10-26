@@ -1,14 +1,15 @@
 package com.wd.paas.generator.web.domain.codegen.project;
 
 import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChart;
-import java.util.List;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * 项目-聚合根
  *
  * @author GaoZhiYi, ZhuXueLiang
- * @date 2022/10/15 12:09:06
+ * @date 2022/10/22 12:43:01
  * @since 1.0
  */
 @Data

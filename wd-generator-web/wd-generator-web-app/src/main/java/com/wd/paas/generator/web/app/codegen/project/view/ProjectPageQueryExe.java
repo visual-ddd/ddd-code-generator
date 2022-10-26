@@ -8,9 +8,11 @@ import com.wd.paas.generator.web.app.codegen.project.assember.ProjectDTOConvert;
 import com.wd.paas.generator.web.client.codegen.project.dto.ProjectDTO;
 import com.wd.paas.generator.web.client.codegen.project.query.ProjectPageQuery;
 import com.wd.paas.generator.web.infrastructure.codegen.repository.mapper.ProjectMapper;
+import com.wd.paas.generator.web.infrastructure.codegen.repository.model.DomainChartDO;
 import com.wd.paas.generator.web.infrastructure.codegen.repository.model.ProjectDO;
 import java.util.List;
 import javax.annotation.Resource;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 /**
@@ -29,7 +31,12 @@ public class ProjectPageQueryExe {
     public PageResultDTO<List<ProjectDTO>> execute(ProjectPageQuery pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
-        List<ProjectDO> projectDOS = projectMapper.selectList(new LambdaQueryWrapper<>());
+        LambdaQueryWrapper<ProjectDO> queryWrapper = new LambdaQueryWrapper<>();
+        if (StringUtils.isNotEmpty(pageQuery.getProjectName())) {
+            queryWrapper.eq(ProjectDO::getProjectName, pageQuery.getProjectName());
+        }
+
+        List<ProjectDO> projectDOS = projectMapper.selectList(queryWrapper);
         List<ProjectDTO> projectDTOList = ProjectDTOConvert.INSTANCE.doList2DtoList(projectDOS);
 
         PageInfo<ProjectDTO> pageInfo = new PageInfo<>(projectDTOList);

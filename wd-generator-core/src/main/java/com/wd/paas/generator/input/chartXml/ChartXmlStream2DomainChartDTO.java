@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public final class ChartXmlStream2DomainChartDTO {
 
     public static ChartDTO getDomainChartDTO(InputStream chartXmlInputStream) {
+
         // 解析需要生成的图谱
         List<ChartXmlObject> chartXmlObjects = ChartXmlObjectParser.parse(chartXmlInputStream);
 

@@ -3,6 +3,7 @@ package com.wd.paas.generator.web.infrastructure.codegen.repository.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.wakedata.common.mybatis.plus.po.BaseDO;
 import lombok.Data;
 
 /**
@@ -14,7 +15,7 @@ import lombok.Data;
  */
 @Data
 @TableName("paas_code_generator_project_new")
-public class ProjectDO {
+public class ProjectDO extends BaseDO {
 
     /** 项目id */
     @TableId(type = IdType.AUTO)

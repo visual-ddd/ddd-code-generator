@@ -31,7 +31,7 @@ public class PageQueryExeFieldDTO extends AbstractUmlDTO {
 
         List<UmlField> queryExeFieldList = new ArrayList<>();
         for (PageQueryExeFieldDTO queryExeFieldDTO : chartDTO.getPageQueryExeFieldDTOList()) {
-            if (!Objects.equals(queryExeFieldDTO.getAggregationColor(), aggregationColor)) {
+            if (Objects.equals(queryExeFieldDTO.getAggregationColor(), aggregationColor)) {
                 List<UmlField> fieldList = ChartDTO.getUmlFields(chartDTO,
                     queryExeFieldDTO.getId());
                 queryExeFieldList.addAll(fieldList);

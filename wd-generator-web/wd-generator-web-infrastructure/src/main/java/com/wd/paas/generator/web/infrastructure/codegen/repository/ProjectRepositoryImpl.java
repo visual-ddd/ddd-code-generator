@@ -1,5 +1,9 @@
 package com.wd.paas.generator.web.infrastructure.codegen.repository;
 
+import cn.hutool.core.date.DateTime;
+import com.wakedata.common.core.exception.BizException;
+import com.wd.paas.generator.convert.project.ProjectDTO;
+import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepository;
 import com.wd.paas.generator.web.domain.codegen.project.Project;
 import com.wd.paas.generator.web.domain.codegen.project.ProjectRepository;
 import com.wd.paas.generator.web.infrastructure.codegen.assembler.ProjectDoConvert;
@@ -22,6 +26,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 
     @Resource
     private ProjectMapper mapper;
+    @Resource
+    private DomainChartRepository domainChartRepository;
 
     @Override
     public Long insertProject(Project aggregation) {
@@ -43,5 +49,26 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     @Override
     public Project selectProjectById(Long id) {
         return ProjectDoConvert.INSTANCE.do2Dto(mapper.selectById(id));
+    }
+
+    @Override
+    public ProjectDTO buildProjectDTO(Long projectId) {
+        ProjectDO projectDO = mapper.selectById(projectId);
+        requireNotNull(projectDO);
+        ProjectDTO projectDTO = new ProjectDTO();
+        projectDTO.setName(projectDO.getProjectName());
+        projectDTO.setAuthor(projectDO.getProjectAuthor());
+        projectDTO.setDateTime(new DateTime().toStringDefaultTimeZone());
+        projectDTO.setGroup(projectDO.getPackagePath());
+        projectDTO.setDomainChartList(
+            domainChartRepository.buildDomainChartDTOList(projectDO.getId()));
+        return projectDTO;
+    }
+
+
+    private void requireNotNull(Object object) {
+        if (object == null) {
+            throw new BizException("数据为空!");
+        }
     }
 }

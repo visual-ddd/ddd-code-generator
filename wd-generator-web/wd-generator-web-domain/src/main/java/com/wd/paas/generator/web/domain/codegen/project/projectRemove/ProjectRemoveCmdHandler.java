@@ -1,6 +1,7 @@
 package com.wd.paas.generator.web.domain.codegen.project.projectRemove;
 
 import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepository;
 import com.wd.paas.generator.web.domain.codegen.project.ProjectRepository;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
@@ -17,9 +18,14 @@ public class ProjectRemoveCmdHandler {
 
     @Resource
     private ProjectRepository repository;
+    @Resource
+    private DomainChartRepository domainChartRepository;
 
     public void handle(ProjectRemoveCmd cmd) {
         repository.deleteProjectById(cmd.getId());
+
+        // 删除项目下的领域图谱
+        domainChartRepository.deleteDomainChartByProjectId(cmd.getId());
 
         DomainEventPublisher.getInstance()
             .postAfterCommit(new ProjectRemoveEvent(cmd));

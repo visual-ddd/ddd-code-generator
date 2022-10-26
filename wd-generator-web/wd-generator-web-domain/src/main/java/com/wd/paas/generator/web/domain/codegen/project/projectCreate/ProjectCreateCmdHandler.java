@@ -21,10 +21,11 @@ public class ProjectCreateCmdHandler {
     @Resource
     private ProjectFactory factory;
 
-    public void handle(ProjectCreateCmd cmd) {
+    public Long handle(ProjectCreateCmd cmd) {
         Long id = repository.insertProject(factory.getInstance(cmd));
 
         DomainEventPublisher.getInstance()
             .postAfterCommit(new ProjectCreateEvent(cmd, id));
+        return id;
     }
 }

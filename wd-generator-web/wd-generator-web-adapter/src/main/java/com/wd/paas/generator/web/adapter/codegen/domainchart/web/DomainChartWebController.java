@@ -1,13 +1,15 @@
 package com.wd.paas.generator.web.adapter.codegen.domainchart.web;
 
+import com.alibaba.druid.sql.visitor.functions.Char;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.wakedata.common.core.exception.BizException;
 import com.wd.paas.generator.web.app.codegen.domainchart.view.DomainChartPageQueryExe;
+import com.wd.paas.generator.web.client.codegen.domainchart.dto.ChartXmlUpdateRequest;
 import com.wd.paas.generator.web.client.codegen.domainchart.dto.DomainChartDTO;
 import com.wd.paas.generator.web.client.codegen.domainchart.query.DomainChartPageQuery;
-import com.wd.paas.generator.web.domain.codegen.domainchart.chartUpdate.ChartUpdateCmd;
-import com.wd.paas.generator.web.domain.codegen.domainchart.chartUpdate.ChartUpdateCmdHandler;
-import com.wd.paas.generator.web.domain.codegen.domainchart.codeGenerate.CodeGenerateCmd;
-import com.wd.paas.generator.web.domain.codegen.domainchart.codeGenerate.CodeGenerateCmdHandler;
+import com.wd.paas.generator.web.domain.codegen.domainchart.ChartXmlUpdate.ChartXmlUpdateCmd;
+import com.wd.paas.generator.web.domain.codegen.domainchart.ChartXmlUpdate.ChartXmlUpdateCmdHandler;
+import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepository;
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartCreate.DomainChartCreateCmd;
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartCreate.DomainChartCreateCmdHandler;
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartRemove.DomainChartRemoveCmd;
@@ -16,10 +18,19 @@ import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartUpdate.Do
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartUpdate.DomainChartUpdateCmdHandler;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +41,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2022/10/15 10:05:57
  * @since 1.0
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/web/domain-chart")
 @Api(value = "/web/domain-chart", tags = "领域图谱")
@@ -40,47 +52,70 @@ public class DomainChartWebController {
     @Resource
     private DomainChartUpdateCmdHandler domainChartUpdateCmdHandler;
     @Resource
+    private ChartXmlUpdateCmdHandler chartXmlUpdateCmdHandler;
+    @Resource
     private DomainChartRemoveCmdHandler domainChartRemoveCmdHandler;
     @Resource
-    private ChartUpdateCmdHandler chartUpdateCmdHandler;
-    @Resource
-    private CodeGenerateCmdHandler codeGenerateCmdHandler;
-    @Resource
     private DomainChartPageQueryExe domainChartPageQueryExe;
+    @Resource
+    private DomainChartRepository domainChartRepository;
 
 
     @ApiOperation("创建领域图谱")
     @PostMapping("/domain-chart-create")
-    public ResultDTO<Boolean> domainChartCreate(DomainChartCreateCmd cmd) {
+    public ResultDTO<Boolean> domainChartCreate(@RequestBody DomainChartCreateCmd cmd) {
         domainChartCreateCmdHandler.handle(cmd);
         return ResultDTO.success(Boolean.TRUE);
     }
 
     @ApiOperation("更新领域图谱")
     @PostMapping("/domain-chart-update")
-    public ResultDTO<Boolean> domainChartUpdate(DomainChartUpdateCmd cmd) {
+    public ResultDTO<Boolean> domainChartUpdate(@RequestBody DomainChartUpdateCmd cmd) {
         domainChartUpdateCmdHandler.handle(cmd);
+        return ResultDTO.success(Boolean.TRUE);
+    }
+
+    @ApiOperation("获取图谱组件库")
+    @GetMapping("/chart-xml-component")
+    public void charXmlDownload(HttpServletResponse response) {
+        response.setContentType("application/xml;charset=utf-8");
+        try (OutputStream outputStream = response.getOutputStream();
+            InputStream inputStream = domainChartRepository.downloadChartXmlComponent()) {
+
+            IOUtils.copy(inputStream, outputStream);
+        } catch (IOException e) {
+            throw new BizException("图谱组件库下载失败!");
+        }
+    }
+
+    @ApiOperation("下载图谱云文件")
+    @GetMapping("/chart-xml-download")
+    public void charXmlDownload(Long domainId, HttpServletResponse response) {
+        response.setContentType("application/xml;charset=utf-8");
+        try (OutputStream outputStream = response.getOutputStream();
+            InputStream inputStream = domainChartRepository.downloadChartXmlByDomainChartId(
+                domainId)) {
+
+            IOUtils.copy(inputStream, outputStream);
+        } catch (IOException e) {
+            throw new BizException("图谱云文件下载失败!");
+        }
+    }
+
+    @ApiOperation("更新图谱云文件")
+    @PostMapping("/chart-xml-update")
+    public ResultDTO<Boolean> charXmlUpdate(Long id, @RequestBody ChartXmlUpdateRequest request) {
+        ChartXmlUpdateCmd cmd = new ChartXmlUpdateCmd();
+        cmd.setId(id);
+        cmd.setChartXml(request.getXml());
+        chartXmlUpdateCmdHandler.handle(cmd);
         return ResultDTO.success(Boolean.TRUE);
     }
 
     @ApiOperation("删除领域图及云端文件")
     @PostMapping("/domain-chart-remove")
-    public ResultDTO<Boolean> domainChartRemove(DomainChartRemoveCmd cmd) {
+    public ResultDTO<Boolean> domainChartRemove(@RequestBody DomainChartRemoveCmd cmd) {
         domainChartRemoveCmdHandler.handle(cmd);
-        return ResultDTO.success(Boolean.TRUE);
-    }
-
-    @ApiOperation("更新云端图谱文件")
-    @PostMapping("/chart-update")
-    public ResultDTO<Boolean> chartUpdate(ChartUpdateCmd cmd) {
-        chartUpdateCmdHandler.handle(cmd);
-        return ResultDTO.success(Boolean.TRUE);
-    }
-
-    @ApiOperation("生成代码")
-    @PostMapping("/code-generate")
-    public ResultDTO<Boolean> codeGenerate(CodeGenerateCmd cmd) {
-        codeGenerateCmdHandler.handle(cmd);
         return ResultDTO.success(Boolean.TRUE);
     }
 

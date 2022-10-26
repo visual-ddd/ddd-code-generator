@@ -1,6 +1,9 @@
 package com.wd.paas.generator.web.infrastructure.codegen.repository.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.wakedata.common.mybatis.plus.po.BaseDO;
 import lombok.Data;
 
 /**
@@ -11,14 +14,15 @@ import lombok.Data;
  * @since 1.0
  */
 @Data
-@TableName("$AggregationLowerUnderscoreName")
-public class DomainChartDO {
+@TableName("paas_code_generator_domain_new")
+public class DomainChartDO extends BaseDO {
+
+    /** 领域图谱id */
+    @TableId(type = IdType.AUTO)
+    private Long id;
 
     /** 项目id */
     private Long projectId;
-
-    /** 领域图谱id */
-    private Long id;
 
     /** 领域名 */
     private String domainName;
@@ -27,7 +31,7 @@ public class DomainChartDO {
     private String domainDesc;
 
     /** 图谱xml存储URL地址 */
-    private String chartXmlUrl;
+    private String fileKey;
 
     /** 领域作者 */
     private String domainAuthor;

@@ -2,11 +2,13 @@ package com.wd.paas.generator.web.domain.codegen.domainchart;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 领域图谱-聚合根
  *
  * @author GaoZhiYi, ZhuXueLiang
- * @date 2022/10/15 12:09:06
+ * @date 2022/10/22 12:43:01
  * @since 1.0
  */
 @Data
@@ -24,8 +26,8 @@ public abstract class AbstractDomainChart {
     /** 领域描述 */
     private String domainDesc;
 
-    /** 图谱xml存储URL地址 */
-    private String chartXmlUrl;
+    /** 图谱xml文件内容 */
+    private String chartXml;
 
     /** 领域作者 */
     private String domainAuthor;
