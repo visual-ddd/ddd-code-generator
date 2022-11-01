@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.wakedata.common.mybatis.plus.po.BaseDO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 领域图谱实体类
@@ -14,6 +15,7 @@ import lombok.Data;
  * @since 1.0
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @TableName("paas_code_generator_domain")
 public class DomainChartDO extends BaseDO {
 
