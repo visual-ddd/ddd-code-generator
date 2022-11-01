@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 1.0
  */
 @Data
-@TableName("paas_code_generator_domain_new")
+@TableName("paas_code_generator_domain")
 public class DomainChartDO extends BaseDO {
 
     /** 领域图谱id */

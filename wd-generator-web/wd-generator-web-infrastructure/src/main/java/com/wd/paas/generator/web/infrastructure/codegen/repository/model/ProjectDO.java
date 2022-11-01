@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 1.0
  */
 @Data
-@TableName("paas_code_generator_project_new")
+@TableName("paas_code_generator_project")
 public class ProjectDO extends BaseDO {
 
     /** 项目id */
