@@ -32,7 +32,9 @@ public class CmdGenerator extends AbstractGenerator {
     @Override
     public void generate(GenerateContext generateContext) {
         super.generate(generateContext);
-        cmdEventGenerator.generate(generateContext);
+        if (cmdEventGenerator != null) {
+            cmdEventGenerator.generate(generateContext);
+        }
     }
 
     @Override
