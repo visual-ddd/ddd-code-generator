@@ -1,10 +1,9 @@
-#parse("templates/Project.vm")
 #set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.188:25889}")
 #set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
 #set($configNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
 spring:
   application:
-    name: ${ProjectName}
+    name: ${PROJECT_NAME}
 
   redis:
     host: ${redis.host}
@@ -23,7 +22,7 @@ spring:
         group: DEFAULT_GROUP
         file-extension: yml
         shared-configs:
-          - data-id: ${ProjectName}.yml
+          - data-id: ${PROJECT_NAME}.yml
           - data-id: common.yml
           - data-id: common-mq.yml
           - data-id: common-mq-topic.yml

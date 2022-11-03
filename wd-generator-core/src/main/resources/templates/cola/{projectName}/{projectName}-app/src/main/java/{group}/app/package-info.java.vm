@@ -1,8 +1,7 @@
-#parse("templates/Project.vm")
 /**
  * 应用层
  *
- * @author ${ProjectAuthor}
- * @date ${ProjectDateTime}
+ * @author ${PROJECT_AUTHOR}
+ * @date ${PROJECT_DATE_TIME}
  */
-package ${ProjectPackage}.app;
+package ${PROJECT_PACKAGE}.app;

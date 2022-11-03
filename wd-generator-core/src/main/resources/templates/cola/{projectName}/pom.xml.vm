@@ -1,4 +1,3 @@
-#parse("templates/Project.vm")
 #set($wdCommonVersion = "{wd-common-core.version}")
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -12,8 +11,8 @@
     <version>1.0.1-SNAPSHOT</version>
   </parent>
 
-  <groupId>${ProjectPackage}</groupId>
-  <artifactId>${ProjectName}</artifactId>
+  <groupId>${PROJECT_PACKAGE}</groupId>
+  <artifactId>${PROJECT_NAME}</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -25,28 +24,28 @@
     <dependencies>
       <!--Project modules-->
       <dependency>
-        <groupId>${ProjectPackage}</groupId>
-        <artifactId>${ProjectName}-adapter</artifactId>
+        <groupId>${PROJECT_PACKAGE}</groupId>
+        <artifactId>${PROJECT_NAME}-adapter</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>${ProjectPackage}</groupId>
-        <artifactId>${ProjectName}-app</artifactId>
+        <groupId>${PROJECT_PACKAGE}</groupId>
+        <artifactId>${PROJECT_NAME}-app</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>${ProjectPackage}</groupId>
-        <artifactId>${ProjectName}-client</artifactId>
+        <groupId>${PROJECT_PACKAGE}</groupId>
+        <artifactId>${PROJECT_NAME}-client</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>${ProjectPackage}</groupId>
-        <artifactId>${ProjectName}-domain</artifactId>
+        <groupId>${PROJECT_PACKAGE}</groupId>
+        <artifactId>${PROJECT_NAME}-domain</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>${ProjectPackage}</groupId>
-        <artifactId>${ProjectName}-infrastructure</artifactId>
+        <groupId>${PROJECT_PACKAGE}</groupId>
+        <artifactId>${PROJECT_NAME}-infrastructure</artifactId>
         <version>${project.version}</version>
       </dependency>
       <!--Project modules End-->
@@ -119,11 +118,11 @@
   </distributionManagement>
 
   <modules>
-    <module>${ProjectName}-adapter</module>
-    <module>${ProjectName}-app</module>
-    <module>${ProjectName}-client</module>
-    <module>${ProjectName}-domain</module>
-    <module>${ProjectName}-infrastructure</module>
-    <module>${ProjectName}-start</module>
+    <module>${PROJECT_NAME}-adapter</module>
+    <module>${PROJECT_NAME}-app</module>
+    <module>${PROJECT_NAME}-client</module>
+    <module>${PROJECT_NAME}-domain</module>
+    <module>${PROJECT_NAME}-infrastructure</module>
+    <module>${PROJECT_NAME}-start</module>
   </modules>
 </project>

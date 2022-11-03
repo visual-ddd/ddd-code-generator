@@ -1,15 +1,15 @@
 #parse("templates/Cmd.vm")
-package $CmdPackagePath;
+package ${CMD_PACKAGE_PATH};
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
-#comment("$CmdDescription-指令")
+#comment("${CMD_CLASS_DESCRIPTION}-指令")
 @Data
-@ApiModel(value = "${CmdDescription}指令")
-public class ${CmdName} {
+@ApiModel(value = "${CMD_CLASS_DESCRIPTION}指令")
+public class ${CMD_CLASS_NAME} {
     #filedExt($CmdFields, ["swagger"])
 
 }

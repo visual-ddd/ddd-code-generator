@@ -1,4 +1,4 @@
-package ${ProjectPackage}.app;
+package ${PROJECT_PACKAGE}.app;
 
 import java.util.List;
 

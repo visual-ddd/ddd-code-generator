@@ -1,8 +1,8 @@
 #parse("templates/Aggregation.vm")
-package $AggregationPackagePath;
+package $AGGREGATION_PACKAGE_PATH;
 
-#comment("${AggregationDescription}-聚合根-能力")
-public class ${AggregationName} extends Abstract${AggregationName} {
-    #overrideMethod($AggregationMethods)
+#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-能力")
+public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME} {
+    #overrideMethod($AGGREGATION_CLASS_METHODS)
 
 }

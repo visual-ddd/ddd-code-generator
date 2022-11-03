@@ -4,10 +4,10 @@ package $MapperPackagePath;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 import org.apache.ibatis.annotations.Mapper;
-import ${DOPackagePath}.${AggregationName}DO;
+import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
 
-#comment("${AggregationDescription}Mapper接口")
+#comment("${AGGREGATION_CLASS_DESCRIPTION}Mapper接口")
 @Mapper
-public interface ${AggregationName}Mapper extends BaseMapper<${AggregationName}DO> {
+public interface ${AGGREGATION_CLASS_NAME}Mapper extends BaseMapper<${AGGREGATION_CLASS_NAME}DO> {
 
 }

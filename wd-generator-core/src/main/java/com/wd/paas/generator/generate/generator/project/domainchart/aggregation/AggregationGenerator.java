@@ -42,45 +42,34 @@ public class AggregationGenerator extends AbstractGenerator {
      */
     private List<CmdGenerator> cmdList;
     /**
-     * 查询执行器列表
-     */
-    private List<QueryExeGenerator> queryExeList;
-    /**
-     * 分页查询执行器列表
-     */
-    private List<PageQueryExeGenerator> pageQueryExeList;
-    /**
      * 查询结果DTO列表
      */
     private List<QueryResultGenerator> queryResultList;
     /**
-     * 查询对象
+     * 查询对象列表
      */
-    private QueryGenerator queryGenerator;
+    private List<QueryGenerator> queryList;
     /**
-     * 分页查询对象
+     * 分页查询对象列表
      */
-    private PageQueryGenerator pageQueryGenerator;
+    private List<PageQueryGenerator> pageQueryList;
 
     @Override
     public void generate(GenerateContext generateContext) {
         super.generate(generateContext);
         valueObjectList.forEach(
             valueObjectGenerator -> valueObjectGenerator.generate(generateContext));
-        entityList.forEach(entityGenerator -> entityGenerator.generate(generateContext));
-        cmdList.forEach(cmdGenerator -> cmdGenerator.generate(generateContext));
+        entityList.forEach(
+            entityGenerator -> entityGenerator.generate(generateContext));
+        cmdList.forEach(
+            cmdGenerator -> cmdGenerator.generate(generateContext));
         // 视图
-        queryExeList.forEach(queryExeGenerator -> queryExeGenerator.generate(generateContext));
-        pageQueryExeList.forEach(
-            pageQueryExeGenerator -> pageQueryExeGenerator.generate(generateContext));
         queryResultList.forEach(
             queryResultGenerator -> queryResultGenerator.generate(generateContext));
-        if (queryGenerator != null) {
-            queryGenerator.generate(generateContext);
-        }
-        if (pageQueryGenerator != null) {
-            pageQueryGenerator.generate(generateContext);
-        }
+        queryList.forEach(
+            queryGenerator -> queryGenerator.generate(generateContext));
+        pageQueryList.forEach(
+            pageQueryGenerator -> pageQueryGenerator.generate(generateContext));
     }
 
     @Override
@@ -90,15 +79,20 @@ public class AggregationGenerator extends AbstractGenerator {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        umlClass.putVelocityContext(context);
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME, umlClass.getClassName());
-        context.put(VelocityLabel.AGGREGATION_ALL_LOWER_NAME,
+        context.put(VelocityLabel.AGGREGATION_CLASS_PACKAGE, umlClass.getClassPackage());
+        context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, umlClass.getClassDesc());
+        context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, umlClass.getFieldList());
+        context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, umlClass.getMethodList());
+        context.put(VelocityLabel.AGGREGATION_CMD_LIST, cmdList);
+        context.put(VelocityLabel.AGGREGATION_QUERY_LIST, queryList);
+        context.put(VelocityLabel.AGGREGATION_PAGE_QUERY_LIST, pageQueryList);
+        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER,
             umlClass.getClassName().toLowerCase());
         context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
             CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));
-        context.put(VelocityLabel.CMD_LIST, cmdList);
-        context.put(VelocityLabel.QUERY_EXE_LIST, queryExeList);
-        context.put(VelocityLabel.PAGE_QUERY_EXE_LIST, pageQueryExeList);
+        context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
+            CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
     }
 
     @Override

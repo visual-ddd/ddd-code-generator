@@ -1,20 +1,5 @@
 ## 引入公共类方法
 #parse("templates/ClassFunction.vm")
-## 引入领域图谱变量
-#parse("templates/DomainChart.vm")
-## ============= 定义聚合变量,用于生成绑定的模版文件 ==============
-## 查询结果集名
-#set($QueryResultName = $ClassName)
-## 查询结果集类描述
-#set($QueryResultDescription = $ClassDescription)
-## 查询结果集类属性列表
-#set($QueryResultFields = $ClassFields)
-## 查询结果集类方法列表
-#set($QueryResultMethods = $ClassMethods)
-## 查询结果集所属的聚合类名
-#set($AggregationName = $AggregationClassName)
 ## ==================== 查询结果集相关变量 =======================
-## 查询结果集所属的所属聚合类名全小写
-#set($AggregationLowerName = "${AggregationName.toLowerCase()}")
 ## 查询结果集包路径
-#set($QueryResultPackagePath = "${ProjectPackage}.client.${DomainName}.${AggregationLowerName}.dto")
+#set($QUERY_RESULT_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.dto")

@@ -26,7 +26,11 @@ public class ValueObjectGenerator extends AbstractGenerator {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        umlClass.putVelocityContext(context);
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_NAME, umlClass.getClassName());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_PACKAGE, umlClass.getClassPackage());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_DESCRIPTION, umlClass.getClassDesc());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_FIELDS, umlClass.getFieldList());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_METHODS, umlClass.getMethodList());
     }
 
     @Override
@@ -39,7 +43,7 @@ public class ValueObjectGenerator extends AbstractGenerator {
         return super.parseOutputPath(templateUrl, context, targetPath)
                 .replace(ModelUrlConstant.FIELD, (String) context.get(VelocityLabel.DOMAIN_NAME))
                 .replace(ModelUrlConstant.AGGREGATION,
-                        (String) context.get(VelocityLabel.AGGREGATION_ALL_LOWER_NAME))
+                        (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER))
                 .replace(ModelUrlConstant.VALUE_OBJECT_CLASS, umlClass.getClassName());
     }
 }

@@ -40,11 +40,4 @@ public class UmlClass {
      */
     public String classDesc;
 
-    public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.CLASS_NAME, className);
-        context.put(VelocityLabel.CLASS_PACKAGE, classPackage);
-        context.put(VelocityLabel.CLASS_DESCRIPTION, classDesc);
-        context.put(VelocityLabel.CLASS_FIELDS, fieldList);
-        context.put(VelocityLabel.CLASS_METHODS, methodList);
-    }
 }

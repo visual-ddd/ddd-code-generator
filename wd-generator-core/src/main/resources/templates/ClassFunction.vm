@@ -9,9 +9,9 @@ import ${importPackage};
 /**
  * $description
  *
- * @author ${DomainAuthor}
- * @date ${DomainDateTime}
- * @since 1.0
+ * @author ${DOMAIN_AUTHOR}
+## * @date ${DOMAIN_DATE_TIME}
+## * @since 1.0
  */
 #end
 ## ============= 类字段列表 =============

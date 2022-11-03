@@ -1,15 +1,16 @@
-#parse("templates/QueryExe.vm")
-package $QueryExePackagePath;
+#parse("templates/Query.vm")
+package ${QUERY_EXE_PACKAGE_PATH};
 
 import java.util.List;
 import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.stereotype.Component;
+import ${QUERY_PACKAGE_PATH}.${QUERY_CLASS_NAME};
 
-#comment("${QueryExeDescription}-查询器")
+#comment("${QUERY_CLASS_DESCRIPTION}-查询器")
 @Component
-public class ${QueryExeName} {
+public class ${QUERY_CLASS_NAME}Exe {
 
-    public ResultDTO<${QueryResultType}> execute(${AggregationName}Query query) {
+    public ResultDTO<${QUERY_RESULT_TYPE}> execute(${QUERY_CLASS_NAME} query) {
 
         return null;
     }

@@ -1,4 +1,4 @@
-package ${ProjectPackage}.infrastructure;
+package ${PROJECT_PACKAGE}.infrastructure;
 
 import com.github.pagehelper.PageInfo;
 import com.wakedata.common.core.dto.PageResultDTO;

@@ -1,14 +1,14 @@
 #parse("templates/Aggregation.vm")
-package $AggregationPackagePath;
+package $AGGREGATION_PACKAGE_PATH;
 
 import org.springframework.stereotype.Component;
 
-#comment("${AggregationDescription}-聚合根-工厂")
+#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-工厂")
 @Component
-public class ${AggregationName}Factory {
+public class ${AGGREGATION_CLASS_NAME}Factory {
 
-    public ${AggregationName} getInstance() {
-        ${AggregationName} instance = new ${AggregationName}();
+    public ${AGGREGATION_CLASS_NAME} getInstance() {
+        ${AGGREGATION_CLASS_NAME} instance = new ${AGGREGATION_CLASS_NAME}();
 
         return instance;
     }

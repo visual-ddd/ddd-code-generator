@@ -1,15 +1,18 @@
 #parse("templates/QueryResult.vm")
-package $QueryResultPackagePath;
+package $QUERY_RESULT_PACKAGE_PATH;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
+import com.wakedata.common.core.base.BaseDTO;
+import lombok.EqualsAndHashCode;
 
-#comment("$QueryResultDescription-查询结果集")
+#comment("$QUERY_RESULT_CLASS_DESCRIPTION-查询结果集")
 @Data
-@ApiModel(value = "${QueryResultDescription}-查询结果集")
-public class ${QueryResultName} {
-    #filedExt($QueryResultFields, ["swagger"])
+@EqualsAndHashCode(callSuper = true)
+@ApiModel(value = "${QUERY_RESULT_CLASS_DESCRIPTION}-查询结果集")
+public class ${QUERY_RESULT_CLASS_NAME} extends BaseDTO {
+    #filedExt($QUERY_RESULT_CLASS_FIELDS, ["swagger"])
 
 }

@@ -1,9 +1,0 @@
-## ============= 定义项目变量,用于生成绑定的模版文件 ==============
-## 项目名
-#set($ProjectName = $ProjectName)
-## 项目包名,例如: com.wd.tool
-#set($ProjectPackage = $ProjectGroup)
-## 项目作者
-#set($ProjectAuthor = $ProjectAuthor)
-## 代码生成时间
-#set($ProjectDateTime = ${ProjectDateTime})

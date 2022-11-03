@@ -25,6 +25,10 @@ public class QueryGenerator extends AbstractGenerator {
      * 类信息
      */
     private UmlClass umlClass;
+    /**
+     * 查询结果集类型
+     */
+    private String QUERY_RESULT_TYPE;
 
     @Override
     public void generate(GenerateContext generateContext) {
@@ -33,7 +37,12 @@ public class QueryGenerator extends AbstractGenerator {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        umlClass.putVelocityContext(context);
+        context.put(VelocityLabel.QUERY_CLASS_NAME, umlClass.getClassName());
+        context.put(VelocityLabel.QUERY_CLASS_PACKAGE, umlClass.getClassPackage());
+        context.put(VelocityLabel.QUERY_CLASS_DESCRIPTION, umlClass.getClassDesc());
+        context.put(VelocityLabel.QUERY_CLASS_FIELDS, umlClass.getFieldList());
+        context.put(VelocityLabel.QUERY_CLASS_METHODS, umlClass.getMethodList());
+        context.put(VelocityLabel.QUERY_RESULT_TYPE, QUERY_RESULT_TYPE);
     }
 
     @Override
@@ -45,7 +54,7 @@ public class QueryGenerator extends AbstractGenerator {
     public String parseOutputPath(String templateUrl, VelocityContext context, String targetPath) {
         return super.parseOutputPath(templateUrl, context, targetPath)
             .replace(ModelUrlConstant.FIELD, (String) context.get(VelocityLabel.DOMAIN_NAME))
-            .replace(ModelUrlConstant.AGGREGATION, (String) context.get(VelocityLabel.AGGREGATION_ALL_LOWER_NAME))
+            .replace(ModelUrlConstant.AGGREGATION, (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER))
             .replace(ModelUrlConstant.QUERY_CLASS, umlClass.getClassName());
     }
 }

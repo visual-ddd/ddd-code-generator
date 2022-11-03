@@ -1,8 +1,7 @@
-#parse("templates/Project.vm")
 /**
  * 视图层
  *
- * @author ${ProjectAuthor}
- * @date ${ProjectDateTime}
+ * @author ${PROJECT_AUTHOR}
+ * @date ${PROJECT_DATE_TIME}
  */
-package ${ProjectPackage}.adapter;
+package ${PROJECT_PACKAGE}.adapter;

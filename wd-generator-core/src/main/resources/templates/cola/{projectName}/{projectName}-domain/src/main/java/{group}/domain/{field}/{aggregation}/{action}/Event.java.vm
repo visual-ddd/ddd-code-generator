@@ -1,21 +1,21 @@
 #parse("templates/Event.vm")
-#set($encode = "{event.${ProjectName}.${DomainName}.${AggregationLowerName}.${ActionName}}")
-package $EventPackagePath;
+#set($encode = "{event.${PROJECT_NAME}.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${CMD_CLASS_PACKAGE}}")
+package $EVENT_PACKAGE_PATH;
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.util.List;
 
-#comment("$EventDescription-指令事件")
+#comment("$CMD_EVENT_CLASS_DESCRIPTION-指令事件")
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ${EventName} extends BaseDomainEvent {
-    #filed($EventFields)
-    #method($EventMethods)
+public class ${CMD_EVENT_CLASS_NAME} extends BaseDomainEvent {
+    #filed($CMD_EVENT_CLASS_FIELDS)
+    #method($CMD_EVENT_CLASS_METHODS)
 
-    public ${EventName}(${CmdClassName} cmd
-        #foreach($eventField in ${EventFields})
+    public ${CMD_EVENT_CLASS_NAME}(${CMD_CLASS_NAME} cmd
+        #foreach($eventField in ${CMD_EVENT_CLASS_FIELDS})
             #set($result = 0)
             #isFieldParttern($eventField.name, $result)
             #if($result == 0)
@@ -23,9 +23,9 @@ public class ${EventName} extends BaseDomainEvent {
             #end
         #end
     ) {
-    #foreach ($eventField in ${EventFields})
+    #foreach ($eventField in ${CMD_EVENT_CLASS_FIELDS})
         #set($hasPrint = 0)
-    #foreach($cmdField in ${CmdFieldList})
+    #foreach($cmdField in ${CMD_CLASS_FIELDS})
         #if($eventField.name == $cmdField.name)
         this.${eventField.name} = cmd.get${eventField.name.substring(0, 1).toUpperCase()}${eventField.name.substring(1)}();
         #set($hasPrint = 1)
@@ -42,12 +42,11 @@ public class ${EventName} extends BaseDomainEvent {
     public String eventCode() {
         return "$$encode";
     }
-
+}
 #macro(isFieldParttern $eventFieldName, $result)
-    #foreach($cmdField in ${CmdFieldList})
-    #if($eventFieldName == $cmdField.name)
-        #set($result = 1)
-    #end
+    #foreach($cmdField in ${CMD_CLASS_FIELDS})
+        #if($eventFieldName == $cmdField.name)
+            #set($result = 1)
+        #end
     #end
 #end
-}

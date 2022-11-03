@@ -22,20 +22,20 @@ public enum GenerateElementTypeEnum {
         "cola/{projectName}/pom.xml.vm",
         // domain
         "cola/{projectName}/{projectName}-domain/pom.xml.vm",
-        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/package-info.java.vm",
+//        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/package-info.java.vm",
         // adapter
         "cola/{projectName}/{projectName}-adapter/pom.xml.vm",
-        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/package-info.java.vm",
+//        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/package-info.java.vm",
         // app
         "cola/{projectName}/{projectName}-app/pom.xml.vm",
-        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/package-info.java.vm",
+//        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/package-info.java.vm",
         // client
         "cola/{projectName}/{projectName}-client/pom.xml.vm",
-        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/package-info.java.vm",
+//        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/package-info.java.vm",
         // infrastructure
         "cola/{projectName}/{projectName}-infrastructure/pom.xml.vm",
-        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/package-info.java.vm",
         "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
+//        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/package-info.java.vm",
         // start
         "cola/{projectName}/{projectName}-start/pom.xml.vm",
         "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/StartApplication.java.vm",
@@ -123,24 +123,11 @@ public enum GenerateElementTypeEnum {
         new String[]{}),
 
     /**
-     * 查询器
-     */
-    QUERY_EXE("QueryExe", new String[]{
-        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/QueryExe.java.vm",
-    }, new String[]{}),
-
-    /**
-     * 分页查询器
-     */
-    PAGE_QUERY_EXE("PageQueryExe", new String[]{
-        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/PageQueryExe.java.vm",
-    }, new String[]{}),
-
-    /**
      * 查询对象
      */
     QUERY("Query", new String[]{
         "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/Query.java.vm",
+        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/QueryExe.java.vm",
     }, new String[]{
         "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/Query.java.vm",
     }),
@@ -150,6 +137,7 @@ public enum GenerateElementTypeEnum {
      */
     PAGE_QUERY("PageQuery", new String[]{
         "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/PageQuery.java.vm",
+        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/PageQueryExe.java.vm",
     }, new String[]{
         "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/PageQuery.java.vm",
     }),

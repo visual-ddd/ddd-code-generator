@@ -1,16 +1,19 @@
 #parse("templates/Query.vm")
-package $QueryPackagePath;
+package $QUERY_PACKAGE_PATH;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.List;
+import com.wakedata.common.core.base.BaseQuery;
+import lombok.EqualsAndHashCode;
 
-#comment("$QueryDescription-查询对象")
+#comment("$QUERY_CLASS_DESCRIPTION-查询对象")
 @Data
-@ApiModel(value = "${QueryDescription}查询对象")
-public class ${QueryName} {
-    #filedExt($QueryFields, ["swagger"])
+@EqualsAndHashCode(callSuper = true)
+@ApiModel(value = "${QUERY_CLASS_DESCRIPTION}查询对象")
+public class ${QUERY_CLASS_NAME} extends BaseQuery {
+    #filedExt($QUERY_CLASS_FIELDS, ["swagger"])
 
 }

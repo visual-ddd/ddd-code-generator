@@ -1,4 +1,3 @@
-#parse("templates/Project.vm")
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
@@ -6,23 +5,23 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>${ProjectPackage}</groupId>
-    <artifactId>${ProjectName}</artifactId>
+    <groupId>${PROJECT_PACKAGE}</groupId>
+    <artifactId>${PROJECT_NAME}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${ProjectName}-infrastructure</artifactId>
+  <artifactId>${PROJECT_NAME}-infrastructure</artifactId>
   <packaging>jar</packaging>
 
   <dependencies>
     <!--Project modules-->
     <dependency>
-      <groupId>${ProjectPackage}</groupId>
-      <artifactId>${ProjectName}-domain</artifactId>
+      <groupId>${PROJECT_PACKAGE}</groupId>
+      <artifactId>${PROJECT_NAME}-domain</artifactId>
     </dependency>
     <dependency>
-      <groupId>${ProjectPackage}</groupId>
-      <artifactId>${ProjectName}-client</artifactId>
+      <groupId>${PROJECT_PACKAGE}</groupId>
+      <artifactId>${PROJECT_NAME}-client</artifactId>
     </dependency>
     <!--Project modules End -->
 

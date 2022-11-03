@@ -1,26 +1,25 @@
-#parse("templates/Project.vm")
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>${ProjectPackage}</groupId>
-    <artifactId>${ProjectName}</artifactId>
+    <groupId>${PROJECT_PACKAGE}</groupId>
+    <artifactId>${PROJECT_NAME}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${ProjectName}-app</artifactId>
+  <artifactId>${PROJECT_NAME}-app</artifactId>
   <packaging>jar</packaging>
 
   <dependencies>
     <dependency>
-      <groupId>${ProjectPackage}</groupId>
-      <artifactId>${ProjectName}-client</artifactId>
+      <groupId>${PROJECT_PACKAGE}</groupId>
+      <artifactId>${PROJECT_NAME}-client</artifactId>
     </dependency>
     <dependency>
-      <groupId>${ProjectPackage}</groupId>
-      <artifactId>${ProjectName}-infrastructure</artifactId>
+      <groupId>${PROJECT_PACKAGE}</groupId>
+      <artifactId>${PROJECT_NAME}-infrastructure</artifactId>
     </dependency>
     <!--        <dependency>-->
     <!--            <groupId>com.wakedata</groupId>-->

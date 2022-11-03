@@ -8,10 +8,10 @@ import lombok.Data;
 
 import java.util.List;
 
-#comment("${AggregationDescription}实体类")
+#comment("${AGGREGATION_CLASS_DESCRIPTION}实体类")
 @Data
-@TableName("${AggregationLowerUnderscoreName}")
-public class ${AggregationName}DO {
-    #filed($AggregationFields)
+@TableName("${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
+public class ${AGGREGATION_CLASS_NAME}DO {
+    #filed($AGGREGATION_CLASS_FIELDS)
 
 }

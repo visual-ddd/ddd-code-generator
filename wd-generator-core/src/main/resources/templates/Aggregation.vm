@@ -1,32 +1,19 @@
 ## 引入公共类方法
 #parse("templates/ClassFunction.vm")
-## 引入领域图谱变量
-#parse("templates/DomainChart.vm")
 ## ============= 定义聚合变量,用于生成绑定的模版文件 ==============
-## 聚合名
-#set($AggregationName = $ClassName)
-## 聚合类的描述信息
-#set($AggregationDescription = $ClassDescription)
-## 聚合类的属性列表
-#set($AggregationFields = $ClassFields)
-## 聚合类的方法列表
-#set($AggregationMethods = $ClassMethods)
 ## 聚合名小写加下划线, 例如: spell_group
-#set($AggregationLowerUnderscoreName = "$AggregationLowerUnderscoreName")
-## 聚合名全小写
-#set($AggregationLowName = "${AggregationName.toLowerCase()}")
-#set($CmdList = $CmdList)
-#set($EventList = $EventList)
-#set($ValueObjectList = $ValueObjectList)
+#set($AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE = "${CASE_FORMAT_LOWER_HYPHEN.convert(${AGGREGATION_CLASS_NAME})}")
+## 聚合名首字母小写
+#set($AGGREGATION_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}")
 ## 聚合的包路径
-#set($AggregationPackagePath = "${ProjectPackage}.domain.${DomainName}.${AggregationLowName}")
+#set($AGGREGATION_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")
 ## 仓储实现类的包路径
-#set($RepositoryImplPackagePath = "${ProjectPackage}.infrastructure.${DomainName}.repository")
+#set($RepositoryImplPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository")
 ## 实体聚合转换器的包路径
-#set($ConvertPackagePath = "${ProjectPackage}.infrastructure.${DomainName}.assembler")
+#set($InfraConvertPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.assembler")
 ## 实体类的包路径
-#set($DOPackagePath = "${ProjectPackage}.infrastructure.${DomainName}.repository.model")
+#set($DOPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.model")
 ## Mapper类的包路径
-#set($MapperPackagePath = "${ProjectPackage}.infrastructure.${DomainName}.repository.mapper")
+#set($MapperPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")
 ## view 包路径
-#set($ViewPackagePath = "${ProjectPackage}.app.${DomainName}.view")
+#set($ViewPackagePath = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")

@@ -1,21 +1,22 @@
-#parse("templates/PageQueryExe.vm")
-package $PageQueryExePackagePath;
+#parse("templates/PageQuery.vm")
+package ${PAGE_QUERY_EXE_PACKAGE_PATH};
 
 import java.util.List;
 import com.wakedata.common.core.dto.PageResultDTO;
 import org.springframework.stereotype.Component;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import ${PAGE_QUERY_PACKAGE_PATH}.${PAGE_QUERY_CLASS_NAME};
 
-#comment("$PageQueryExeDescription-分页查询器")
+#comment("${PAGE_QUERY_CLASS_DESCRIPTION}-分页查询器")
 @Component
-public class ${PageQueryExeName} {
+public class ${PAGE_QUERY_CLASS_NAME}Exe {
 
-    public PageResultDTO<List<${QueryResultType}>> execute(${AggregationName}PageQuery pageQuery) {
+    public PageResultDTO<List<${QUERY_RESULT_TYPE}>> execute(${PAGE_QUERY_CLASS_NAME} pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
-        PageInfo<${QueryResultType}> pageInfo = new PageInfo<>();
-        PageResultDTO<List<${QueryResultType}>> pageResultDTO = new PageResultDTO<>();
+        PageInfo<${QUERY_RESULT_TYPE}> pageInfo = new PageInfo<>();
+        PageResultDTO<List<${QUERY_RESULT_TYPE}>> pageResultDTO = new PageResultDTO<>();
         pageResultDTO.setData(pageInfo.getList());
         pageResultDTO.setPageNo(pageInfo.getPageNum());
         pageResultDTO.setPageSize(pageInfo.getSize());

@@ -1,37 +1,15 @@
 #parse("templates/Aggregation.vm")
-package $AggregationPackagePath;
+package $AGGREGATION_PACKAGE_PATH;
 
-#comment("${AggregationDescription}-聚合根-仓储接口")
-public interface ${AggregationName}Repository {
+#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-仓储接口")
+public interface ${AGGREGATION_CLASS_NAME}Repository {
 
-    /**
-     * 新增
-     *
-     * @param aggregation 聚合
-     * @return 主键id
-     */
-    Long insert${AggregationName}(${AggregationName} aggregation);
+    ${AGGREGATION_CLASS_NAME} save(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER});
 
-    /**
-     * 更新
-     *
-     * @param aggregation 聚合
-     */
-    void update${AggregationName}(${AggregationName} aggregation);
+    ${AGGREGATION_CLASS_NAME} update(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER});
 
-    /**
-     * 删除
-     *
-     * @param id 主键
-     */
-    void delete${AggregationName}ById(Long id);
+    void remove(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER});
 
-    /**
-     * 查询
-     *
-     * @param id 主键
-     * @return 查询结果
-     */
-    ${AggregationName} select${AggregationName}ById(Long id);
+    ${AGGREGATION_CLASS_NAME} find(Long id);
 
 }

@@ -46,7 +46,7 @@ public class ProjectGenerator extends AbstractGenerator {
     @Override
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.PROJECT_NAME, projectInfo.getName());
-        context.put(VelocityLabel.PROJECT_GROUP, projectInfo.getGroup());
+        context.put(VelocityLabel.PROJECT_PACKAGE, projectInfo.getGroup());
         context.put(VelocityLabel.PROJECT_AUTHOR, projectInfo.getAuthor());
         context.put(VelocityLabel.PROJECT_DATE_TIME, projectInfo.getDateTime());
         context.put(VelocityLabel.PROJECT_SLASH_GROUP, trans2Slash(projectInfo.getGroup()));

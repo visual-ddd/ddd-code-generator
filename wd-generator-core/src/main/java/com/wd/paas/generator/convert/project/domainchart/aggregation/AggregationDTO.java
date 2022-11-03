@@ -42,20 +42,14 @@ public class AggregationDTO extends AbstractUmlDTO {
                 CmdGeneratorDTO.trans2CmdList(aggregationDTO, chartDTO));
 
             // ================ 视图 =================
-            aggregationGenerator.setQueryExeList(
-                QueryExeDTO.trans2QueryExeList(aggregationDTO, chartDTO));
-
-            aggregationGenerator.setPageQueryExeList(
-                PageQueryExeDTO.trans2PageQueryExeList(aggregationDTO, chartDTO));
-
             aggregationGenerator.setQueryResultList(
                 QueryResultDTO.trans2QueryResultList(aggregationDTO, chartDTO));
 
-            aggregationGenerator.setQueryGenerator(
-                QueryExeFieldDTO.trans2Query(aggregationDTO,chartDTO));
+            aggregationGenerator.setQueryList(
+                QueryDTO.trans2Query(aggregationDTO,chartDTO));
 
-            aggregationGenerator.setPageQueryGenerator(
-                PageQueryExeFieldDTO.trans2PageQuery(aggregationDTO,chartDTO));
+            aggregationGenerator.setPageQueryList(
+                PageQueryDTO.trans2PageQuery(aggregationDTO,chartDTO));
 
             aggregationGeneratorList.add(aggregationGenerator);
         }
