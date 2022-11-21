@@ -5,8 +5,8 @@ package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_L
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-web-controller")
 @RestController
-@RequestMapping("/web/${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
-@Api(value = "/web/${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}", tags = "${AGGREGATION_CLASS_DESCRIPTION}")
+@RequestMapping("/web/${AGGREGATION_CLASS_NAME_LOWER_HYPHEN}")
+@Api(value = "/web/${AGGREGATION_CLASS_NAME_LOWER_HYPHEN}", tags = "${AGGREGATION_CLASS_DESCRIPTION}")
 public class ${AGGREGATION_CLASS_NAME}WebController {
 #controller()
 }
@@ -21,45 +21,41 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import javax.validation.Valid;
+import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcService;
+#dependencyCmdDTO()
+#dependencyQuery()
+#dependencyQueryResult()
 #end
 
 #macro(controller)
-#foreach($cmd in ${AGGREGATION_CMD_LIST})
+
     @Resource
-    private ${cmd.umlClass.className}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Handler;
-#end
-#foreach($query in ${AGGREGATION_QUERY_LIST})
-    @Resource
-    private ${query.umlClass.className}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}Exe;
-#end
-#foreach($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
-    @Resource
-    private ${pageQuery.umlClass.className}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}Exe;
-#end
+    private ${AGGREGATION_CLASS_NAME}RpcService ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService;
 
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
 
     @ApiOperation("${cmd.umlClass.classDesc}")
-    @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.umlClass.classPackage})}")
-    public ResultDTO<Boolean> ${cmd.umlClass.classPackage}(${cmd.umlClass.className} cmd) {
-        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Handler.handle(cmd);
-        return ResultDTO.success(Boolean.TRUE);
+    @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.umlClass.className})}")
+    public ResultDTO<Boolean> ${cmd.umlClass.className}(@RequestBody @Valid ${cmd.umlClass.className}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto);
     }
 #end
 #foreach ($query in ${AGGREGATION_QUERY_LIST})
 
     @ApiOperation("${query.umlClass.classDesc}")
     @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.umlClass.className})}")
-    public ResultDTO<${query.QUERY_RESULT_TYPE}> ${query.umlClass.className}(${AGGREGATION_CLASS_NAME}Query query) {
-        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}Exe.execute(query);
+    public ResultDTO<${query.QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${AGGREGATION_CLASS_NAME}Query query) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(query);
     }
 #end
 #foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
 
     @ApiOperation("${pageQuery.umlClass.classDesc}")
     @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${pageQuery.umlClass.className})}")
-    public ResultDTO<List<${pageQuery.QUERY_RESULT_TYPE}>> ${pageQuery.umlClass.className}(${AGGREGATION_CLASS_NAME}PageQuery pageQuery) {
-        return ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}Exe.execute(pageQuery);
+    public ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${AGGREGATION_CLASS_NAME}PageQuery pageQuery) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(pageQuery);
      }
 #end
 #end

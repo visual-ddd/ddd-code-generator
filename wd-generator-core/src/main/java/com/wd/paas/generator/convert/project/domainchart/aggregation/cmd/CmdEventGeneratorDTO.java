@@ -8,6 +8,7 @@ import com.wd.paas.generator.convert.project.domainchart.aggregation.Aggregation
 import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
 import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.CmdEventGenerator;
+import java.util.Optional;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -36,7 +37,7 @@ public class CmdEventGeneratorDTO extends AbstractUmlDTO {
     private String cmdId;
 
     public static CmdEventGenerator trans2Event(ChartDTO chartDTO, AggregationDTO aggregationDTO,
-                                                CmdGeneratorDTO cmdGeneratorDTO) {
+        CmdGeneratorDTO cmdGeneratorDTO) {
         String color = aggregationDTO.getAggregationColor();
 
         for (CmdEventGeneratorDTO cmdEventDTO : chartDTO.getEventDTOList()) {
@@ -47,9 +48,11 @@ public class CmdEventGeneratorDTO extends AbstractUmlDTO {
             String cmdId = cmdEventDTO.getCmdId();
             if (Objects.equals(cmdId, cmdGeneratorDTO.getId())) {
 
-                String classPackage = cmdGeneratorDTO.getClassPackage();
-                String upperName = CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL, classPackage);
-                String className = upperName + ModelUrlConstant.EVENT_CLASS_SUFFIX;
+                String classPackage = FormatUtil.formatPackage(cmdGeneratorDTO.getClassPackage());
+                String inputClassName = Optional.ofNullable(cmdGeneratorDTO.getClassName())
+                    .orElse(classPackage);
+                String className = FormatUtil.formatClassName(inputClassName,
+                    ModelUrlConstant.EVENT_CLASS_SUFFIX);
 
                 cmdEventDTO.setClassPackage(classPackage);
                 cmdEventDTO.setClassName(className);
@@ -57,8 +60,8 @@ public class CmdEventGeneratorDTO extends AbstractUmlDTO {
 
                 CmdEventGenerator cmdEventGenerator = new CmdEventGenerator();
                 cmdEventGenerator.setUmlClass(
-                        cmdEventDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
-                                chartDTO.getUmlMethodDTOList()));
+                    cmdEventDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
+                        chartDTO.getUmlMethodDTOList()));
 
                 List<UmlField> cmdFieldList = ChartDTO.getUmlFields(chartDTO, cmdId);
                 cmdEventGenerator.getUmlClass().getFieldList().addAll(cmdFieldList);

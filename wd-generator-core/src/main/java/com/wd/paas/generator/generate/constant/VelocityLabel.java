@@ -35,6 +35,7 @@ public class VelocityLabel {
     public static final String AGGREGATION_CMD_LIST = "AGGREGATION_CMD_LIST";
     public static final String AGGREGATION_QUERY_LIST = "AGGREGATION_QUERY_LIST";
     public static final String AGGREGATION_PAGE_QUERY_LIST = "AGGREGATION_PAGE_QUERY_LIST";
+    public static final String AGGREGATION_QUERY_RESULT_LIST = "AGGREGATION_QUERY_RESULT_LIST";
 
     // 实体
     public static final String ENTITY_CLASS_NAME = "ENTITY_CLASS_NAME";
@@ -92,4 +93,5 @@ public class VelocityLabel {
     public static final String PROJECT_SLASH_GROUP = "ProjectSlashGroup";
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";
+    public static final String CASE_FORMAT_LOWER_UNDERSCORE = "CASE_FORMAT_LOWER_UNDERSCORE";
 }

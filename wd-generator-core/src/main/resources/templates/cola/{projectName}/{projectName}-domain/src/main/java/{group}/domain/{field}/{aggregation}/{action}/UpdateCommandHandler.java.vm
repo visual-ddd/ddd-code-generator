@@ -1,0 +1,26 @@
+#parse("templates/Cmd.vm")
+#set($aggregation = ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})})
+package ${CMD_PACKAGE_PATH};
+
+import com.wakedata.common.domainevent.DomainEventPublisher;
+import org.springframework.stereotype.Component;
+import javax.annotation.Resource;
+import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME};
+import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}Repository;
+import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}Factory;
+
+#comment("${CMD_CLASS_DESCRIPTION}-指令处理器")
+@Component
+public class ${CMD_CLASS_NAME}Handler {
+
+    @Resource
+    private ${AGGREGATION_CLASS_NAME}Repository repository;
+
+    public void handle(${CMD_CLASS_NAME} updateCmd) {
+        ${AGGREGATION_CLASS_NAME} ${aggregation} = repository.find(updateCmd.getId());
+        ${aggregation}.modify(updateCmd);
+        repository.update(${aggregation});
+
+        // DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT.umlClass.className}(updateCmd));
+    }
+}

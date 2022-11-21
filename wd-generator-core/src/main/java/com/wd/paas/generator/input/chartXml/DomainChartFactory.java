@@ -79,8 +79,10 @@ public class DomainChartFactory {
                 CmdGeneratorDTO cmdDTO = new CmdGeneratorDTO();
                 cmdDTO.setId(xmlObjectId);
                 cmdDTO.setAggregationColor(getColor(style));
+                cmdDTO.setClassName(dddXmlObject.getClassName());
                 cmdDTO.setClassPackage(dddXmlObject.getClassPackage());
                 cmdDTO.setDescription(dddXmlObject.getClassDesc());
+                cmdDTO.setCmdType(dddXmlObject.getCmdType());
                 domainChartDTO.getCmdDTOList().add(cmdDTO);
                 break;
             case EVENT:

@@ -5,6 +5,7 @@ import java.util.List;
 import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.stereotype.Component;
 import ${QUERY_PACKAGE_PATH}.${QUERY_CLASS_NAME};
+#dependencyQueryResult()
 
 #comment("${QUERY_CLASS_DESCRIPTION}-查询器")
 @Component

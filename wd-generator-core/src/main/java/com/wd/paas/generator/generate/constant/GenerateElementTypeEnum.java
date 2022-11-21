@@ -42,8 +42,9 @@ public enum GenerateElementTypeEnum {
         "cola/{projectName}/{projectName}-start/src/main/resources/application.yml.vm",
         "cola/{projectName}/{projectName}-start/src/main/resources/bootstrap.yml.vm",
         "cola/{projectName}/{projectName}-start/src/main/resources/logback-spring.xml.vm",
-        "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/Knife4jConfiguration.java.vm"},
-        new String[]{}),
+        "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/Knife4jConfiguration.java.vm",
+        "cola/{projectName}/{projectName}-start/src/main/docker/Dockerfile",
+    }, new String[]{}),
 
     /**
      * 领域图谱
@@ -68,6 +69,10 @@ public enum GenerateElementTypeEnum {
         "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/AggregationRepositoryImpl.java.vm",
         "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/AggregationDoConvert.java.vm",
         "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
+        // app
+        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/AggregationRpcServiceImpl.java.vm",
+        // client
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/AggregationRpcService.java.vm",
     }, new String[]{
         // domain
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
@@ -96,10 +101,39 @@ public enum GenerateElementTypeEnum {
      */
     COMMAND("Command", new String[]{
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
-        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/CommandHandler.java.vm",
+        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/dto/CommandDTO.java.vm",
+        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/assembler/CommandDTOConvert.java.vm",
     }, new String[]{
         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
     }),
+
+    /**
+     * 指令处理器
+     */
+    COMMAND_HANDLER("CommandHandler", new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/CommandHandler.java.vm",
+    }, new String[]{}),
+
+    /**
+     * 新增指令处理器
+     */
+    ADD_COMMAND_HANDLER("AddCommandHandler", new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/AddCommandHandler.java.vm",
+    }, new String[]{}),
+
+    /**
+     * 更新指令处理器
+     */
+    UPDATE_COMMAND_HANDLER("UpdateCommandHandler", new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/UpdateCommandHandler.java.vm",
+    }, new String[]{}),
+
+    /**
+     * 删除指令处理器
+     */
+    DELETE_COMMAND_HANDLER("DeleteCommandHandler", new String[]{
+        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/DeleteCommandHandler.java.vm",
+    }, new String[]{}),
 
     /**
      * 事件

@@ -5,8 +5,8 @@ package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_L
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-app-controller")
 @RestController
-@RequestMapping("/app/${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
-@Api(value = "/app/${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}", tags = "${AGGREGATION_CLASS_DESCRIPTION}")
+@RequestMapping("/app/${AGGREGATION_CLASS_NAME_LOWER_HYPHEN}")
+@Api(value = "/app/${AGGREGATION_CLASS_NAME_LOWER_HYPHEN}", tags = "${AGGREGATION_CLASS_DESCRIPTION}")
 public class ${AGGREGATION_CLASS_NAME}AppController {
 #controller()
 }

@@ -2,7 +2,9 @@
 #parse("templates/ClassFunction.vm")
 ## ============= 定义聚合变量,用于生成绑定的模版文件 ==============
 ## 聚合名小写加下划线, 例如: spell_group
-#set($AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE = "${CASE_FORMAT_LOWER_HYPHEN.convert(${AGGREGATION_CLASS_NAME})}")
+#set($AGGREGATION_CLASS_NAME_LOWER_HYPHEN = "${CASE_FORMAT_LOWER_HYPHEN.convert(${AGGREGATION_CLASS_NAME})}")
+## 聚合名小写加下划线, 例如: spell_group
+#set($AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE = "${CASE_FORMAT_LOWER_UNDERSCORE.convert(${AGGREGATION_CLASS_NAME})}")
 ## 聚合名首字母小写
 #set($AGGREGATION_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}")
 ## 聚合的包路径
@@ -17,3 +19,50 @@
 #set($MapperPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")
 ## view 包路径
 #set($ViewPackagePath = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")
+## RPCService接口 包路径
+#set($AGGREGATION_RPC_SERVICE_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")
+## RPCServiceImpl 包路径
+#set($AGGREGATION_RPC_SERVICE_IMPL_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")
+##
+## 依赖
+#macro(dependencyCmdDTO)
+#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.dto.${cmd.umlClass.className}DTO;
+#end
+#end
+#macro(dependencyCmdDTOConvert)
+#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.assembler.${cmd.umlClass.className}DTOConvert;
+#end
+#end
+#macro(dependencyCmd)
+#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.umlClass.classPackage}.${cmd.umlClass.className};
+#end
+#end
+#macro(dependencyCmdHandler)
+#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.umlClass.classPackage}.${cmd.umlClass.className}Handler;
+#end
+#end
+#macro(dependencyQuery)
+#foreach ($query in ${AGGREGATION_QUERY_LIST})
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query.${query.umlClass.className};
+#end
+#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query.${pageQuery.umlClass.className};
+#end
+#end
+#macro(dependencyQueryExe)
+#foreach ($query in ${AGGREGATION_QUERY_LIST})
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.view.${query.umlClass.className}Exe;
+#end
+#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.view.${pageQuery.umlClass.className}Exe;
+#end
+#end
+#macro(dependencyQueryResult)
+#foreach ($queryResult in ${AGGREGATION_QUERY_RESULT_LIST})
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.dto.${queryResult.umlClass.className};
+#end
+#end

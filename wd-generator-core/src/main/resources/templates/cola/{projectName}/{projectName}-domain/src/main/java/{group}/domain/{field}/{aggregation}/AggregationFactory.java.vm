@@ -2,14 +2,26 @@
 package $AGGREGATION_PACKAGE_PATH;
 
 import org.springframework.stereotype.Component;
+#foreach($cmd in ${AGGREGATION_CMD_LIST})
+#if(${cmd.cmdType} == "ADD")
+import ${AGGREGATION_PACKAGE_PATH}.${cmd.umlClass.classPackage}.${cmd.umlClass.className};
+#end
+#end
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-工厂")
 @Component
 public class ${AGGREGATION_CLASS_NAME}Factory {
+#foreach($cmd in ${AGGREGATION_CMD_LIST})
+#if(${cmd.cmdType} == "ADD")
 
-    public ${AGGREGATION_CLASS_NAME} getInstance() {
+    public ${AGGREGATION_CLASS_NAME} getInstance(${cmd.umlClass.className} createCmd) {
         ${AGGREGATION_CLASS_NAME} instance = new ${AGGREGATION_CLASS_NAME}();
-
+        #foreach($cmdField in ${cmd.umlClass.fieldList})
+        instance.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
+        #end
         return instance;
     }
+#end
+#end
+
 }

@@ -87,10 +87,13 @@ public class AggregationGenerator extends AbstractGenerator {
         context.put(VelocityLabel.AGGREGATION_CMD_LIST, cmdList);
         context.put(VelocityLabel.AGGREGATION_QUERY_LIST, queryList);
         context.put(VelocityLabel.AGGREGATION_PAGE_QUERY_LIST, pageQueryList);
+        context.put(VelocityLabel.AGGREGATION_QUERY_RESULT_LIST, queryResultList);
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER,
             umlClass.getClassName().toLowerCase());
         context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
             CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));
+        context.put(VelocityLabel.CASE_FORMAT_LOWER_UNDERSCORE,
+            CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
             CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
     }

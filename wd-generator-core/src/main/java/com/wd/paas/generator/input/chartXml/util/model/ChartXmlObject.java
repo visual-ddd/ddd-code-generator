@@ -1,5 +1,6 @@
 package com.wd.paas.generator.input.chartXml.util.model;
 
+import com.wd.paas.generator.generate.constant.CmdTypeEnum;
 import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -78,4 +79,7 @@ public class ChartXmlObject {
 
     @XmlAttribute(name = "queryResultType")
     private String queryResultType;
+
+    @XmlAttribute(name = "cmdType")
+    private CmdTypeEnum cmdType;
 }

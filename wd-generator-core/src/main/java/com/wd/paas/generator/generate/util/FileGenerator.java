@@ -68,7 +68,7 @@ public class FileGenerator {
             IOUtils.write(sw.toString(), getOutputStream(outputUrl, zipOutputStream), StandardCharsets.UTF_8);
             IOUtils.closeQuietly();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

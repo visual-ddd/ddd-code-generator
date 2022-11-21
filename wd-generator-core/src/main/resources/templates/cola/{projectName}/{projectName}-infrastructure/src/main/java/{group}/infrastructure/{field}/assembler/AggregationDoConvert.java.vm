@@ -1,13 +1,13 @@
 #parse("templates/Aggregation.vm")
 package $InfraConvertPackagePath;
 
-import com.wakedata.common.mybatis.convert.BaseConvert;
+import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME};
 import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
 
-#comment("${AGGREGATION_CLASS_DESCRIPTION}和DO转换器")
+#comment("${AGGREGATION_CLASS_NAME}和DO转换器")
 @Mapper
 public interface ${AGGREGATION_CLASS_NAME}DoConvert extends
     BaseConvert<${AGGREGATION_CLASS_NAME}, ${AGGREGATION_CLASS_NAME}DO> {

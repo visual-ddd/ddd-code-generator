@@ -1,0 +1,15 @@
+#parse("templates/Cmd.vm")
+package ${CMD_DTO_PACKAGE_PATH};
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
+
+#comment("${CMD_CLASS_DESCRIPTION}-指令DTO")
+@Data
+@ApiModel(value = "${CMD_CLASS_DESCRIPTION}指令DTO")
+public class ${CMD_CLASS_NAME}DTO {
+    #filedExt($CMD_CLASS_FIELDS, ["swagger"])
+
+}

@@ -38,7 +38,7 @@ public class QueryDTO extends AbstractUmlDTO {
                     queryDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
                         chartDTO.getUmlMethodDTOList()));
 
-                queryGenerator.setQUERY_RESULT_TYPE(queryDTO.getQueryResultType());
+                queryGenerator.setQueryResultType(queryDTO.getQueryResultType());
 
                 queryGenerators.add(queryGenerator);
             }

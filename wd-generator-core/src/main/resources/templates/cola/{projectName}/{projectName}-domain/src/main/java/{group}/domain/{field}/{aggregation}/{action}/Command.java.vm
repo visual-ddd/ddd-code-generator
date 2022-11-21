@@ -2,14 +2,18 @@
 package ${CMD_PACKAGE_PATH};
 
 import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
+import lombok.NoArgsConstructor;
 
 #comment("${CMD_CLASS_DESCRIPTION}-指令")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(value = "${CMD_CLASS_DESCRIPTION}指令")
 public class ${CMD_CLASS_NAME} {
-    #filedExt($CMD_CLASS_FIELDS, ["swagger"])
+    #filed($CMD_CLASS_FIELDS)
 
 }

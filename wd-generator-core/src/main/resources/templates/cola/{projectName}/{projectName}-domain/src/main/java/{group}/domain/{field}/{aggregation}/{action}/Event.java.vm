@@ -1,6 +1,6 @@
 #parse("templates/Event.vm")
 #set($encode = "{event.${PROJECT_NAME}.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${CMD_CLASS_PACKAGE}}")
-package $EVENT_PACKAGE_PATH;
+package ${EVENT_PACKAGE_PATH};
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
@@ -13,6 +13,8 @@ import java.util.List;
 public class ${CMD_EVENT_CLASS_NAME} extends BaseDomainEvent {
     #filed($CMD_EVENT_CLASS_FIELDS)
     #method($CMD_EVENT_CLASS_METHODS)
+
+    public ${CMD_EVENT_CLASS_NAME}() {}
 
     public ${CMD_EVENT_CLASS_NAME}(${CMD_CLASS_NAME} cmd
         #foreach($eventField in ${CMD_EVENT_CLASS_FIELDS})

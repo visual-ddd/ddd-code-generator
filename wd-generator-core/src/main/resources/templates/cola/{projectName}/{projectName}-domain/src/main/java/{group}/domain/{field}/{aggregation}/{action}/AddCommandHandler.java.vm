@@ -1,0 +1,26 @@
+#parse("templates/Cmd.vm")
+package ${CMD_PACKAGE_PATH};
+
+import com.wakedata.common.domainevent.DomainEventPublisher;
+import org.springframework.stereotype.Component;
+import javax.annotation.Resource;
+import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME};
+import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}Repository;
+import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}Factory;
+
+#comment("${CMD_CLASS_DESCRIPTION}-指令处理器")
+@Component
+public class ${CMD_CLASS_NAME}Handler {
+
+    @Resource
+    private ${AGGREGATION_CLASS_NAME}Repository repository;
+    @Resource
+    private ${AGGREGATION_CLASS_NAME}Factory factory;
+
+    public void handle(${CMD_CLASS_NAME} createCmd) {
+        ${AGGREGATION_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})} = factory.getInstance(createCmd);
+        repository.save(${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})});
+
+        // DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT.umlClass.className}(createCmd));
+    }
+}

@@ -1,0 +1,34 @@
+#parse("templates/Aggregation.vm")
+package ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH};
+
+import java.util.List;
+import com.wakedata.common.core.dto.ResultDTO;
+#dependencyCmdDTO()
+#dependencyQuery()
+#dependencyQueryResult()
+
+#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-RPC能力接口")
+public interface ${AGGREGATION_CLASS_NAME}RpcService {
+#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+
+    /**
+    * ${cmd.umlClass.classDesc}
+    */
+    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}(${cmd.umlClass.className}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto);
+#end
+#foreach ($query in ${AGGREGATION_QUERY_LIST})
+
+    /**
+     * ${query.umlClass.classDesc}
+     */
+    ResultDTO<${query.QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${AGGREGATION_CLASS_NAME}Query query);
+#end
+#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+
+    /**
+     * ${pageQuery.umlClass.classDesc}
+     */
+    ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${AGGREGATION_CLASS_NAME}PageQuery pageQuery);
+#end
+
+}

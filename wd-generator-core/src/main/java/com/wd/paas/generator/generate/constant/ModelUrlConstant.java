@@ -25,6 +25,9 @@ public class ModelUrlConstant {
     public static final String ENTITY_CLASS = "Entity";
     public static final String VALUE_OBJECT_CLASS = "ValueObject";
     public static final String COMMAND_CLASS = "Command";
+    public static final String ADD_COMMAND_HANDLER_CLASS = "AddCommand";
+    public static final String UPDATE_COMMAND_HANDLER_CLASS = "UpdateCommand";
+    public static final String DELETE_COMMAND_HANDLER_CLASS = "DeleteCommand";
     public static final String EVENT_CLASS = "Event";
     public static final String DOMAIN_CHART = "DomainChart";
 

@@ -1,11 +1,17 @@
 package com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd;
 
+import com.wd.paas.generator.generate.constant.CmdTypeEnum;
 import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.GenerateContext;
 import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.generate.generator.AbstractGenerator;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlClass;
+import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.AddCmdHandlerGenerator;
+import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.CmdHandlerGenerator;
+import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.DefaultCmdHandlerGenerator;
+import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.DeleteCmdHandlerGenerator;
+import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.UpdateCmdHandlerGenerator;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.velocity.VelocityContext;
@@ -28,6 +34,10 @@ public class CmdGenerator extends AbstractGenerator {
      * 指令事件
      */
     private CmdEventGenerator cmdEventGenerator;
+    /**
+     * 指令操作类型
+     */
+    private CmdTypeEnum cmdType;
 
     @Override
     public void generate(GenerateContext generateContext) {
@@ -35,6 +45,26 @@ public class CmdGenerator extends AbstractGenerator {
         if (cmdEventGenerator != null) {
             cmdEventGenerator.generate(generateContext);
         }
+        getCmdHandlerGenerator().generate(generateContext);
+    }
+
+    private CmdHandlerGenerator getCmdHandlerGenerator() {
+        CmdHandlerGenerator cmdHandlerGenerator;
+        switch (cmdType) {
+            case ADD:
+                cmdHandlerGenerator = new AddCmdHandlerGenerator();
+                break;
+            case UPDATE:
+                cmdHandlerGenerator = new UpdateCmdHandlerGenerator();
+                break;
+            case DELETE:
+                cmdHandlerGenerator = new DeleteCmdHandlerGenerator();
+                break;
+            default:
+                cmdHandlerGenerator = new DefaultCmdHandlerGenerator();
+                break;
+        }
+        return cmdHandlerGenerator;
     }
 
     @Override
@@ -57,7 +87,7 @@ public class CmdGenerator extends AbstractGenerator {
         return super.parseOutputPath(templateUrl, context, targetPath)
                 .replace(ModelUrlConstant.FIELD, (String) context.get(VelocityLabel.DOMAIN_NAME))
                 .replace(ModelUrlConstant.AGGREGATION, (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER))
-                .replace(ModelUrlConstant.ACTION, (String) context.get(VelocityLabel.CMD_CLASS_PACKAGE))
+                .replace(ModelUrlConstant.ACTION, ((String) context.get(VelocityLabel.CMD_CLASS_PACKAGE)))
                 .replace(ModelUrlConstant.COMMAND_CLASS, umlClass.getClassName());
     }
 }

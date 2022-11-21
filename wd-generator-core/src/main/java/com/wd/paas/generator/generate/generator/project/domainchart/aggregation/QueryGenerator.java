@@ -28,7 +28,7 @@ public class QueryGenerator extends AbstractGenerator {
     /**
      * 查询结果集类型
      */
-    private String QUERY_RESULT_TYPE;
+    private String queryResultType;
 
     @Override
     public void generate(GenerateContext generateContext) {
@@ -42,7 +42,7 @@ public class QueryGenerator extends AbstractGenerator {
         context.put(VelocityLabel.QUERY_CLASS_DESCRIPTION, umlClass.getClassDesc());
         context.put(VelocityLabel.QUERY_CLASS_FIELDS, umlClass.getFieldList());
         context.put(VelocityLabel.QUERY_CLASS_METHODS, umlClass.getMethodList());
-        context.put(VelocityLabel.QUERY_RESULT_TYPE, QUERY_RESULT_TYPE);
+        context.put(VelocityLabel.QUERY_RESULT_TYPE, queryResultType);
     }
 
     @Override

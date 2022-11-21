@@ -1,0 +1,59 @@
+#parse("templates/Aggregation.vm")
+package $AGGREGATION_RPC_SERVICE_IMPL_PACKAGE_PATH;
+
+import lombok.Data;
+import java.util.List;
+import javax.annotation.Resource;
+import com.wakedata.common.core.dto.ResultDTO;
+import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcService;
+#dependencyCmdDTO()
+#dependencyQuery()
+#dependencyQueryResult()
+#dependencyCmdHandler()
+#dependencyQueryExe()
+#dependencyCmdDTOConvert()
+#dependencyCmd()
+
+#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-RPC能力接口实现")
+@Data
+public class ${AGGREGATION_CLASS_NAME}RpcServiceImpl implements ${AGGREGATION_CLASS_NAME}RpcService {
+
+#foreach($cmd in ${AGGREGATION_CMD_LIST})
+    @Resource
+    private ${cmd.umlClass.className}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Handler;
+#end
+#foreach($query in ${AGGREGATION_QUERY_LIST})
+    @Resource
+    private ${query.umlClass.className}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}Exe;
+#end
+#foreach($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+    @Resource
+    private ${pageQuery.umlClass.className}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}Exe;
+#end
+
+#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+
+    @Override
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}(${cmd.umlClass.className}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto) {
+        ${cmd.umlClass.className} ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})} =
+            ${cmd.umlClass.className}DTOConvert.INSTANCE.dto2Do(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto);
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Handler.handle(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})});
+        return ResultDTO.success(Boolean.TRUE);
+    }
+#end
+#foreach ($query in ${AGGREGATION_QUERY_LIST})
+
+    @Override
+    public ResultDTO<${query.QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${AGGREGATION_CLASS_NAME}Query query) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}Exe.execute(query);
+    }
+#end
+#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+
+    @Override
+    public ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${AGGREGATION_CLASS_NAME}PageQuery pageQuery) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}Exe.execute(pageQuery);
+    }
+#end
+
+}

@@ -2,7 +2,6 @@
 package $AGGREGATION_PACKAGE_PATH;
 
 import lombok.Data;
-
 import java.util.List;
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根")
