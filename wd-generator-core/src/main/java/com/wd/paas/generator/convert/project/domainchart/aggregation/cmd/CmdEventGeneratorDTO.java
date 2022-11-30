@@ -38,15 +38,15 @@ public class CmdEventGeneratorDTO extends AbstractUmlDTO {
 
     public static CmdEventGenerator trans2Event(ChartDTO chartDTO, AggregationDTO aggregationDTO,
         CmdGeneratorDTO cmdGeneratorDTO) {
-        String color = aggregationDTO.getAggregationColor();
+//        String color = aggregationDTO.getAggregationColor();
 
         for (CmdEventGeneratorDTO cmdEventDTO : chartDTO.getEventDTOList()) {
-            if (!Objects.equals(cmdEventDTO.getAggregationColor(), color)) {
-                continue;
-            }
+//            if (!Objects.equals(cmdEventDTO.getAggregationColor(), color)) {
+//                continue;
+//            }
 
-            String cmdId = cmdEventDTO.getCmdId();
-            if (Objects.equals(cmdId, cmdGeneratorDTO.getId())) {
+            String parentCmdId = cmdEventDTO.getCmdId();
+            if (Objects.equals(parentCmdId, cmdGeneratorDTO.getId())) {
 
                 String classPackage = FormatUtil.formatPackage(cmdGeneratorDTO.getClassPackage());
                 String inputClassName = Optional.ofNullable(cmdGeneratorDTO.getClassName())
@@ -63,7 +63,7 @@ public class CmdEventGeneratorDTO extends AbstractUmlDTO {
                     cmdEventDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
                         chartDTO.getUmlMethodDTOList()));
 
-                List<UmlField> cmdFieldList = ChartDTO.getUmlFields(chartDTO, cmdId);
+                List<UmlField> cmdFieldList = ChartDTO.getUmlFields(chartDTO, parentCmdId);
                 cmdEventGenerator.getUmlClass().getFieldList().addAll(cmdFieldList);
                 return cmdEventGenerator;
             }

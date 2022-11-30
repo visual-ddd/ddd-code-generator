@@ -60,6 +60,7 @@ public class CmdGenerator extends AbstractGenerator {
             case DELETE:
                 cmdHandlerGenerator = new DeleteCmdHandlerGenerator();
                 break;
+            case DEFAULT:
             default:
                 cmdHandlerGenerator = new DefaultCmdHandlerGenerator();
                 break;

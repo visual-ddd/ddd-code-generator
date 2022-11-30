@@ -1,11 +1,11 @@
 #parse("templates/Cmd.vm")
 package ${CMD_APP_CONVERT_PACKAGE_PATH};
 
-import com.wakedata.common.mybatis.convert.BaseConvert;
+import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ${CMD_DTO_PACKAGE_PATH}.${CMD_CLASS_NAME}DTO;    ## 指令DTO
-import ${CMD_PACKAGE_PATH}.${CMD_CLASS_NAME};   ## 指令
+import ${CMD_DTO_PACKAGE_PATH}.${CMD_CLASS_NAME}DTO;
+import ${CMD_PACKAGE_PATH}.${CMD_CLASS_NAME};
 
 #comment("${CMD_CLASS_NAME}和DTO转换器")
 @Mapper

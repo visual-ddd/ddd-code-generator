@@ -34,7 +34,6 @@ public enum GenerateElementTypeEnum {
 //        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/package-info.java.vm",
         // infrastructure
         "cola/{projectName}/{projectName}-infrastructure/pom.xml.vm",
-        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
 //        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/package-info.java.vm",
         // start
         "cola/{projectName}/{projectName}-start/pom.xml.vm",
@@ -49,7 +48,9 @@ public enum GenerateElementTypeEnum {
     /**
      * 领域图谱
      */
-    DOMAIN_CHART("DomainChart", new String[]{}, new String[]{}),
+    DOMAIN_CHART("DomainChart", new String[]{
+        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
+    }, new String[]{}),
 
     /**
      * 聚合

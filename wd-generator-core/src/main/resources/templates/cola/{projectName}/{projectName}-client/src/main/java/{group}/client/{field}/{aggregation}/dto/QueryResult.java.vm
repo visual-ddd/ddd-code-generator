@@ -8,10 +8,10 @@ import java.util.List;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
 
-#comment("$QUERY_RESULT_CLASS_DESCRIPTION-查询结果集")
+#comment("$QUERY_RESULT_CLASS_DESCRIPTION")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "${QUERY_RESULT_CLASS_DESCRIPTION}-查询结果集")
+@ApiModel(value = "${QUERY_RESULT_CLASS_DESCRIPTION}")
 public class ${QUERY_RESULT_CLASS_NAME} extends BaseDTO {
     #filedExt($QUERY_RESULT_CLASS_FIELDS, ["swagger"])
 

@@ -6,9 +6,9 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
-#comment("${CMD_CLASS_DESCRIPTION}-指令DTO")
+#comment("${CMD_CLASS_DESCRIPTION}")
 @Data
-@ApiModel(value = "${CMD_CLASS_DESCRIPTION}指令DTO")
+@ApiModel(value = "${CMD_CLASS_DESCRIPTION}")
 public class ${CMD_CLASS_NAME}DTO {
     #filedExt($CMD_CLASS_FIELDS, ["swagger"])
 

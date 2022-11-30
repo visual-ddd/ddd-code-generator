@@ -6,6 +6,7 @@ import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.util.List;
+import ${AGGREGATION_PACKAGE_PATH}.*;
 
 #comment("$CMD_EVENT_CLASS_DESCRIPTION-指令事件")
 @Data

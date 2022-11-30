@@ -6,7 +6,7 @@ package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_L
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-web-controller")
 @RestController
 @RequestMapping("/web/${AGGREGATION_CLASS_NAME_LOWER_HYPHEN}")
-@Api(value = "/web/${AGGREGATION_CLASS_NAME_LOWER_HYPHEN}", tags = "${AGGREGATION_CLASS_DESCRIPTION}")
+@Api(value = "/web/${AGGREGATION_CLASS_NAME_LOWER_HYPHEN}", tags = "B端-${AGGREGATION_CLASS_DESCRIPTION}")
 public class ${AGGREGATION_CLASS_NAME}WebController {
 #controller()
 }
@@ -38,7 +38,7 @@ import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcServi
 
     @ApiOperation("${cmd.umlClass.classDesc}")
     @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.umlClass.className})}")
-    public ResultDTO<Boolean> ${cmd.umlClass.className}(@RequestBody @Valid ${cmd.umlClass.className}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto) {
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}(@RequestBody @Valid ${cmd.umlClass.className}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto);
     }
 #end
@@ -46,7 +46,7 @@ import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcServi
 
     @ApiOperation("${query.umlClass.classDesc}")
     @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.umlClass.className})}")
-    public ResultDTO<${query.QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${AGGREGATION_CLASS_NAME}Query query) {
+    public ResultDTO<${query.queryResultType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${query.umlClass.className} query) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(query);
     }
 #end
@@ -54,7 +54,7 @@ import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcServi
 
     @ApiOperation("${pageQuery.umlClass.classDesc}")
     @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${pageQuery.umlClass.className})}")
-    public ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${AGGREGATION_CLASS_NAME}PageQuery pageQuery) {
+    public ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(pageQuery);
      }
 #end

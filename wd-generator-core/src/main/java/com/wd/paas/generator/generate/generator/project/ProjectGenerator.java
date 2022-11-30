@@ -40,7 +40,9 @@ public class ProjectGenerator extends AbstractGenerator {
 
     @Override
     public GenerateElementTypeEnum getElementTypeUrl() {
-        return GenerateElementTypeEnum.PROJECT;
+        // 代码生成时，项目一般已经构建完成
+//        return GenerateElementTypeEnum.PROJECT;
+        return GenerateElementTypeEnum.OTHER;
     }
 
     @Override

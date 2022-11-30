@@ -21,14 +21,14 @@ public interface ${AGGREGATION_CLASS_NAME}RpcService {
     /**
      * ${query.umlClass.classDesc}
      */
-    ResultDTO<${query.QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${AGGREGATION_CLASS_NAME}Query query);
+    ResultDTO<${query.queryResultType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${query.umlClass.className} query);
 #end
 #foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
 
     /**
      * ${pageQuery.umlClass.classDesc}
      */
-    ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${AGGREGATION_CLASS_NAME}PageQuery pageQuery);
+    ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery);
 #end
 
 }

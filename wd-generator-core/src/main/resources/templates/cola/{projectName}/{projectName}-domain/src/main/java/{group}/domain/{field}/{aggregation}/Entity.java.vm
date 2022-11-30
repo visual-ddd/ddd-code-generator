@@ -1,12 +1,12 @@
 #parse("templates/Entity.vm")
-package $ENTITY_PACKAGE_PATH;
+package ${ENTITY_PACKAGE_PATH};
 
 import lombok.Data;
 
 #comment("${ENTITY_CLASS_DESCRIPTION}-实体")
 @Data
-public class $ENTITY_CLASS_NAME {
-    #filed($ENTITY_CLASS_FIELDS)
-    #method($ENTITY_CLASS_METHODS)
+public class ${ENTITY_CLASS_NAME} {
+    #filed(${ENTITY_CLASS_FIELDS})
+    #method(${ENTITY_CLASS_METHODS})
 
 }
