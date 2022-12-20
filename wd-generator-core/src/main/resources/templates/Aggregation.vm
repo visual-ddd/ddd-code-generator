@@ -1,7 +1,7 @@
 ## 引入公共类方法
 #parse("templates/ClassFunction.vm")
 ## ============= 定义聚合变量,用于生成绑定的模版文件 ==============
-## 聚合名小写加下划线, 例如: spell_group
+## 聚合名小写加中划线, 例如: spell-group
 #set($AGGREGATION_CLASS_NAME_LOWER_HYPHEN = "${CASE_FORMAT_LOWER_HYPHEN.convert(${AGGREGATION_CLASS_NAME})}")
 ## 聚合名小写加下划线, 例如: spell_group
 #set($AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE = "${CASE_FORMAT_LOWER_UNDERSCORE.convert(${AGGREGATION_CLASS_NAME})}")
@@ -19,6 +19,8 @@
 #set($MapperPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")
 ## view 包路径
 #set($ViewPackagePath = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")
+## 查询对象包路径
+#set($QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query")
 ## RPCService接口 包路径
 #set($AGGREGATION_RPC_SERVICE_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")
 ## RPCServiceImpl 包路径

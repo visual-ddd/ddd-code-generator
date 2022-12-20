@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /${PROJECT_NAME}
+    context-path: /
 
 spring:
   main:
@@ -11,11 +11,16 @@ spring:
     time-zone: GMT+8
   messages:
     basename: classpath:i18n/*/messages;classpath:i18n/*/validate;classpath:i18n/common;
+  jpa:
+    # 启用 DDL 自动执行
+    generate-ddl: true
+    # 更新策略
+    ddl-auto: update
   datasource:
     name: ${PROJECT_NAME}
-    url: ${${PROJECT_NAME}.mysql.url:jdbc:mysql://172.26.63.165:3306/paas?useUnicode=true&characterEncoding=utf-8}
-    username: ${${PROJECT_NAME}.mysql.username:mysqluser}
-    password: ${${PROJECT_NAME}.mysql.password:mysqluser}
+    url: ${${PROJECT_NAME}.mysql.url:jdbc:mysql://172.26.61.32:3306/paas?useUnicode=true&characterEncoding=utf-8}
+    username: ${${PROJECT_NAME}.mysql.username:root}
+    password: ${${PROJECT_NAME}.mysql.password:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -53,3 +58,5 @@ mybatis-plus:
 domain:
   event:
     retry.enable: true
+
+env: dev

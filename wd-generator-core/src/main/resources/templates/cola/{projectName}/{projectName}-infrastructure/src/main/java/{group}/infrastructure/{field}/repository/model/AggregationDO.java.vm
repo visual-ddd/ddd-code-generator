@@ -1,17 +1,20 @@
 #parse("templates/Aggregation.vm")
 package $DOPackagePath;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-
+import lombok.EqualsAndHashCode;
+import javax.persistence.*;
 import java.util.List;
+import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}实体类")
+@Entity
 @Data
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
 @TableName("${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
-public class ${AGGREGATION_CLASS_NAME}DO {
+public class ${AGGREGATION_CLASS_NAME}DO extends BaseJpaAggregate {
     #filed($AGGREGATION_CLASS_FIELDS)
 
 }

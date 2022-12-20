@@ -4,12 +4,6 @@
 spring:
   application:
     name: ${PROJECT_NAME}
-
-  redis:
-    host: ${redis.host}
-    password: ${redis.password}
-    port: ${redis.port}
-
   cloud:
     nacos:
       server-addr: $$serverAddr

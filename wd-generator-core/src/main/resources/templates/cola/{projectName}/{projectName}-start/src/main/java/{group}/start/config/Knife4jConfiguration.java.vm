@@ -1,4 +1,4 @@
-package com.wd.paas.generator.web.start.config;
+package ${PROJECT_PACKAGE}.start.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

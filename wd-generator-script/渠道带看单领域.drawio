@@ -694,7 +694,7 @@
             <mxGeometry y="439" width="370" height="30" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderUserListQuery" classDesc="登录人待签名带看单列表" queryResultType="ChannelOrderUserDTO" id="nGND3f3CGXmP6KKQ90eg-247">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderUserListQuery" classDesc="登录人待签名带看单列表" QUERY_RESULT_TYPE="ChannelOrderUserDTO" id="nGND3f3CGXmP6KKQ90eg-247">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=3;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
             <mxGeometry x="1023.38" y="960" width="317.25" height="384" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
@@ -777,7 +777,7 @@
             <mxGeometry x="1822" y="864" width="168" height="40" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderListQueryExe" classDesc="线索查询带看单列表" queryResultType="ChannelOrderDTO" id="nGND3f3CGXmP6KKQ90eg-267">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderListQueryExe" classDesc="线索查询带看单列表" QUERY_RESULT_TYPE="ChannelOrderDTO" id="nGND3f3CGXmP6KKQ90eg-267">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=3;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
             <mxGeometry x="1428.37" y="962" width="317.25" height="90" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
@@ -789,7 +789,7 @@
             <mxGeometry y="60" width="317.25" height="30" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="QUERY_EXE" className="channelOrderDetailQueryExe" queryResultType="ChannelOrderDTO" classDesc="带看单详情" id="nGND3f3CGXmP6KKQ90eg-270">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="QUERY_EXE" className="channelOrderDetailQueryExe" QUERY_RESULT_TYPE="ChannelOrderDTO" classDesc="带看单详情" id="nGND3f3CGXmP6KKQ90eg-270">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=2;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
             <mxGeometry x="1781" y="963" width="249" height="84" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
@@ -809,7 +809,7 @@
             <mxGeometry x="2137" y="864" width="168" height="40" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderTimeListQueryByClueId" classDesc="线索查询带看单时间轴" queryResultType="ChannelOrderTimeDTO" id="nGND3f3CGXmP6KKQ90eg-278">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderTimeListQueryByClueId" classDesc="线索查询带看单时间轴" QUERY_RESULT_TYPE="ChannelOrderTimeDTO" id="nGND3f3CGXmP6KKQ90eg-278">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=3;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
             <mxGeometry x="2062.37" y="960" width="317.25" height="120" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
@@ -834,7 +834,7 @@
             <mxGeometry x="2493" y="864" width="168" height="40" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderTimeListQueryByNichId" classDesc="商机查询带看单时间轴" queryResultType="ChannelOrderTimeDTO" id="nGND3f3CGXmP6KKQ90eg-282">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="ChannelOrderTimeListQueryByNichId" classDesc="商机查询带看单时间轴" QUERY_RESULT_TYPE="ChannelOrderTimeDTO" id="nGND3f3CGXmP6KKQ90eg-282">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=3;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
             <mxGeometry x="2416" y="958" width="317.25" height="120" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
@@ -859,7 +859,7 @@
             <mxGeometry x="2810" y="864" width="168" height="40" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="QUERY_EXE" className="ChannelOrderCountQueryExe" queryResultType="Integer" classDesc="未签名带看单数量" id="nGND3f3CGXmP6KKQ90eg-288">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="QUERY_EXE" className="ChannelOrderCountQueryExe" QUERY_RESULT_TYPE="Integer" classDesc="未签名带看单数量" id="nGND3f3CGXmP6KKQ90eg-288">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=2;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
             <mxGeometry x="2777" y="956" width="249" height="84" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
@@ -980,7 +980,7 @@
             <mxGeometry x="3170" y="864" width="168" height="40" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="QUERY_EXE" className="SignaturePresetDetailQueryExe" queryResultType="SignaturePresetDTO" classDesc="获取预设签名" id="nGND3f3CGXmP6KKQ90eg-381">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="QUERY_EXE" className="SignaturePresetDetailQueryExe" QUERY_RESULT_TYPE="SignaturePresetDTO" classDesc="获取预设签名" id="nGND3f3CGXmP6KKQ90eg-381">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=2;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
             <mxGeometry x="3125" y="951" width="249" height="90" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
@@ -1000,7 +1000,7 @@
             <mxGeometry x="3485" y="864" width="168" height="40" as="geometry" />
           </mxCell>
         </object>
-        <object label="《%shapeType%》&#xa;%className%&#xa;%queryResultType%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="channelTapeListQueryExe" classDesc="分页查询渠道带看单列表" queryResultType="ChannelTapeDTO" id="nGND3f3CGXmP6KKQ90eg-399">
+        <object label="《%shapeType%》&#xa;%className%&#xa;%QUERY_RESULT_TYPE%" placeholders="1" shapeType="PAGE_QUERY_EXE" className="channelTapeListQueryExe" classDesc="分页查询渠道带看单列表" QUERY_RESULT_TYPE="ChannelTapeDTO" id="nGND3f3CGXmP6KKQ90eg-399">
           <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=3;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
             <mxGeometry x="3424" y="953" width="317.25" height="780" as="geometry">
               <mxRectangle y="28" width="250" height="50" as="alternateBounds" />

@@ -1,0 +1,16 @@
+#parse("templates/QueryResult.vm")
+package ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH};
+
+import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+import ${QUERY_RESULT_PACKAGE_PATH}.${QUERY_RESULT_CLASS_NAME};
+import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
+
+#comment("${QUERY_RESULT_CLASS_NAME}和DO转换器")
+@Mapper
+public interface ${QUERY_RESULT_CLASS_NAME}2DOConvert extends
+    BaseConvert<${QUERY_RESULT_CLASS_NAME}, ${AGGREGATION_CLASS_NAME}DO> {
+
+    ${QUERY_RESULT_CLASS_NAME}2DOConvert INSTANCE = Mappers.getMapper(${QUERY_RESULT_CLASS_NAME}2DOConvert.class);
+}

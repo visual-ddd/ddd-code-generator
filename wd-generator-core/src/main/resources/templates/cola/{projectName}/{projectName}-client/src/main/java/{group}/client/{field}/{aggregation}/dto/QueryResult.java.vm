@@ -1,5 +1,5 @@
 #parse("templates/QueryResult.vm")
-package $QUERY_RESULT_PACKAGE_PATH;
+package ${QUERY_RESULT_PACKAGE_PATH};
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;

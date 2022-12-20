@@ -1,4 +1,4 @@
-package com.baidu.translate.demo;
+package com.wd.paas.baidu.translate.demo;
 
 import java.io.BufferedReader;
 import java.io.Closeable;
@@ -52,7 +52,7 @@ class HttpGet {
             InputStream is = conn.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             StringBuilder builder = new StringBuilder();
-            String line = null;
+            String line;
             while ((line = br.readLine()) != null) {
                 builder.append(line);
             }

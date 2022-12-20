@@ -1,0 +1,269 @@
+<mxfile host="domain-lowcode.wakedt.cn" modified="2022-12-12T07:55:05.064Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="rcBCNmR0iDPiOMv7Q9dF" version="20.2.3" type="WAKEDATA">
+  <diagram id="ycGnjYmzJwle-k11gkEK" name="第 1 页">
+    <mxGraphModel dx="2666" dy="2084" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="找回密码" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="-717.5" y="-40" width="135" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》&#xa;%className%&#xa;%classDesc%&#xa;%queryResultType%" placeholders="1" shapeType="QUERY" className="UserAccountDetailQuery" queryResultType="UserAccountDTO" classDesc="查询用户账号信息详情" id="sKvUZOpLVJZpcuS5SLXf-2">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=70;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=2;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="-789.9999999999995" y="90" width="280" height="118" as="geometry">
+              <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="accountNo" fieldType="String" fieldModify="-" fieldDesc="账号" id="sKvUZOpLVJZpcuS5SLXf-3">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-2">
+            <mxGeometry y="70" width="280" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="password" fieldType="String" fieldModify="-" fieldDesc="密码" id="sKvUZOpLVJZpcuS5SLXf-4">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-2">
+            <mxGeometry y="94" width="280" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="注册账号" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-5">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="-687.5" y="-950" width="135" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="COMMAND" classPackage="create" classDesc="创建用户账号" className="UserAccountCreate" cmdType="ADD" id="sKvUZOpLVJZpcuS5SLXf-6">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=9;strokeWidth=1;fillStyle=auto;swimlaneFillColor=default;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=1;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="-795" y="-880" width="350" height="242" as="geometry">
+              <mxRectangle x="-950" y="80" width="350" height="70" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="userName" fieldType="String" fieldModify="-" fieldDesc="用户名" id="sKvUZOpLVJZpcuS5SLXf-30">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-6">
+            <mxGeometry y="60" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="accountNo" fieldType="String" fieldModify="-" fieldDesc="账号" id="sKvUZOpLVJZpcuS5SLXf-11">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-6">
+            <mxGeometry y="84" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="password" fieldType="String" fieldModify="-" fieldDesc="密码" id="sKvUZOpLVJZpcuS5SLXf-12">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-6">
+            <mxGeometry y="108" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》" placeholders="1" shapeType="RULE_LIST" id="sKvUZOpLVJZpcuS5SLXf-8">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=19;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;glass=0;editable=1;movable=1;deletable=1;fillColor=none;strokeColor=#b85450;gradientColor=none;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-6">
+            <mxGeometry y="132" width="350" height="58" as="geometry">
+              <mxRectangle y="256" width="420" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="rule: %ruleDesc%" placeholders="1" shapeType="RULE_ITEM" ruleDesc="邮箱为用户唯一标识，同一个邮箱不可重复注册" id="sKvUZOpLVJZpcuS5SLXf-9">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-8">
+            <mxGeometry y="28" width="350" height="30" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》" placeholders="1" shapeType="EVENT" id="sKvUZOpLVJZpcuS5SLXf-10">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=19;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;glass=0;editable=1;movable=1;deletable=1;fillColor=none;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-6">
+            <mxGeometry y="190" width="350" height="52" as="geometry">
+              <mxRectangle y="204" width="420" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="账号登录" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-14">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="-717.5" y="-90" width="135" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="编辑用户基本信息" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-16">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="-243.62" y="-950" width="135" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="COMMAND" classPackage="update" classDesc="更新用户账号基本信息" className="UserAccountUpdate" cmdType="UPDATE" id="sKvUZOpLVJZpcuS5SLXf-17">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=9;strokeWidth=1;fillStyle=auto;swimlaneFillColor=default;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=1;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="-360" y="-880" width="350" height="290" as="geometry">
+              <mxRectangle x="-950" y="80" width="350" height="70" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="accountNo" fieldType="String" fieldModify="-" fieldDesc="账号" id="sKvUZOpLVJZpcuS5SLXf-18">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-17">
+            <mxGeometry y="60" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="userName" fieldType="String" fieldModify="-" fieldDesc="用户名" id="sKvUZOpLVJZpcuS5SLXf-23">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-17">
+            <mxGeometry y="84" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="position" fieldType="String" fieldModify="-" fieldDesc="职位" id="sKvUZOpLVJZpcuS5SLXf-24">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-17">
+            <mxGeometry y="108" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="description" fieldType="String" fieldModify="-" fieldDesc="描述" id="sKvUZOpLVJZpcuS5SLXf-25">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-17">
+            <mxGeometry y="132" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="password" fieldType="String" fieldModify="-" fieldDesc="密码" id="sKvUZOpLVJZpcuS5SLXf-19">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-17">
+            <mxGeometry y="156" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》" placeholders="1" shapeType="RULE_LIST" id="sKvUZOpLVJZpcuS5SLXf-20">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=19;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;glass=0;editable=1;movable=1;deletable=1;fillColor=none;strokeColor=#b85450;gradientColor=none;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-17">
+            <mxGeometry y="180" width="350" height="58" as="geometry">
+              <mxRectangle y="256" width="420" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="rule: %ruleDesc%" placeholders="1" shapeType="RULE_ITEM" ruleDesc="邮箱为用户唯一标识，同一个邮箱不可重复注册" id="sKvUZOpLVJZpcuS5SLXf-21">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-20">
+            <mxGeometry y="28" width="350" height="30" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》" placeholders="1" shapeType="EVENT" id="sKvUZOpLVJZpcuS5SLXf-22">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=19;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;glass=0;editable=1;movable=1;deletable=1;fillColor=none;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-17">
+            <mxGeometry y="238" width="350" height="52" as="geometry">
+              <mxRectangle y="204" width="420" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="重置密码" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-26">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="-243.62" y="-1010" width="135" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="用户管理-分页查询用户账号信息" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-27">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="-378.62" y="-10" width="210" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》&#xa;%className%&#xa;%classDesc%&#xa;%queryResultType%" placeholders="1" shapeType="PAGE_QUERY" className="UserAccountPageQuery" classDesc="分页查询用户账号信息" queryResultType="UserAccountDTO" id="sKvUZOpLVJZpcuS5SLXf-28">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=80;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=3;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="-418.62" y="90" width="317.24999999999955" height="104" as="geometry">
+              <mxRectangle y="28" width="250" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="userName" fieldType="String" fieldModify="-" fieldDesc="用户名" id="sKvUZOpLVJZpcuS5SLXf-56">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-28">
+            <mxGeometry y="80" width="317.24999999999955" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="删除账号" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-31">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="167.5" y="-950" width="135" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="COMMAND" classPackage="delete" classDesc="删除用户账号" className="UserAccountDelete" cmdType="DELETE" id="sKvUZOpLVJZpcuS5SLXf-32">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=9;strokeWidth=1;fillStyle=auto;swimlaneFillColor=default;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=1;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="60" y="-880" width="350" height="194" as="geometry">
+              <mxRectangle x="-950" y="80" width="350" height="70" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="userAccountId" fieldType="Long" fieldModify="-" fieldDesc="用户ID" id="sKvUZOpLVJZpcuS5SLXf-33">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-32">
+            <mxGeometry y="60" width="350" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》" placeholders="1" shapeType="RULE_LIST" id="sKvUZOpLVJZpcuS5SLXf-36">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=19;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;glass=0;editable=1;movable=1;deletable=1;fillColor=none;strokeColor=#b85450;gradientColor=none;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-32">
+            <mxGeometry y="84" width="350" height="58" as="geometry">
+              <mxRectangle y="256" width="420" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="rule: %ruleDesc%" placeholders="1" shapeType="RULE_ITEM" ruleDesc="不能删除系统管理员" id="sKvUZOpLVJZpcuS5SLXf-37">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-36">
+            <mxGeometry y="28" width="350" height="30" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》" placeholders="1" shapeType="EVENT" id="sKvUZOpLVJZpcuS5SLXf-38">
+          <mxCell style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=0;swimlaneLine=1;sketch=0;shadow=0;arcSize=19;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=0;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;fontFamily=Helvetica;fontSize=13;glass=0;editable=1;movable=1;deletable=1;fillColor=none;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-32">
+            <mxGeometry y="142" width="350" height="52" as="geometry">
+              <mxRectangle y="204" width="420" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="AGGREGATION" className="UserAccount" classDesc="用户账号" id="sKvUZOpLVJZpcuS5SLXf-39">
+          <mxCell style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=55;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=7;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1;fillStyle=auto;swimlaneFillColor=default;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;glass=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="1">
+            <mxGeometry x="-780" y="-450" width="343" height="209" as="geometry">
+              <mxRectangle x="70" y="410" width="250" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="accountNo" fieldType="String" fieldModify="-" fieldDesc="账号" id="sKvUZOpLVJZpcuS5SLXf-43">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-39">
+            <mxGeometry y="55" width="343" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="userName" fieldType="String" fieldModify="-" fieldDesc="用户名" id="sKvUZOpLVJZpcuS5SLXf-44">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-39">
+            <mxGeometry y="79" width="343" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="password" fieldType="String" fieldModify="-" fieldDesc="密码" id="sKvUZOpLVJZpcuS5SLXf-47">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-39">
+            <mxGeometry y="103" width="343" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="description" fieldType="String" fieldModify="-" fieldDesc="描述" id="sKvUZOpLVJZpcuS5SLXf-46">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-39">
+            <mxGeometry y="127" width="343" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="position" fieldType="String" fieldModify="-" fieldDesc="职位" id="sKvUZOpLVJZpcuS5SLXf-45">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-39">
+            <mxGeometry y="151" width="343" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="sKvUZOpLVJZpcuS5SLXf-41" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;cloneable=1;rounded=0;part=1;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-39">
+          <mxGeometry y="175" width="343" height="8" as="geometry" />
+        </mxCell>
+        <object label="%methodModify% %methodName%(%methodAttr%): %methodReturn%    #%methodDesc%" shapeType="METHOD" placeholders="1" methodReturn="返回值类型" methodName="方法名" methodModify="修饰符(-/+)" methodDesc="方法描述" methodAttr="方法参数" id="sKvUZOpLVJZpcuS5SLXf-42">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;metaEdit=1;cloneable=1;rounded=0;part=1;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-39">
+            <mxGeometry y="183" width="343" height="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="《%shapeType%》&#xa;%className%&#xa;%classDesc%" placeholders="1" shapeType="QUERY_RESULT" className="UserAccountDTO" classDesc="用户账号信息" id="sKvUZOpLVJZpcuS5SLXf-48">
+          <mxCell style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=55;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fixDash=1;container=1;enumerate=0;treeMoving=1;swimlaneBody=1;fillOpacity=100;strokeOpacity=100;overflow=visible;rounded=1;swimlaneLine=1;sketch=0;shadow=0;arcSize=12;strokeWidth=1;fillStyle=auto;swimlaneFillColor=none;metaEdit=1;labelPadding=0;cloneable=1;separatorColor=none;swimlaneHead=1;noLabel=0;direction=east;portConstraint=none;portConstraintRotation=0;rotation=0;connectable=1;snapToPoint=0;perimeter=rectanglePerimeter;dropTarget=1;expand=1;part=1;backgroundOutline=1;movableLabel=1;autosize=1;fixedWidth=0;resizable=1;resizeWidth=0;resizeHeight=0;rotatable=1;treeFolding=0;pointerEvents=1;moveCells=0;comic=0;enumerateValue=123;allowArrows=0;glass=0;fontFamily=Helvetica;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="-800" y="310" width="330" height="151" as="geometry">
+              <mxRectangle x="70" y="410" width="250" height="50" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="accountNo" fieldType="String" fieldModify="-" fieldDesc="账号" id="sKvUZOpLVJZpcuS5SLXf-50">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-48">
+            <mxGeometry y="55" width="330" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="userName" fieldType="String" fieldModify="-" fieldDesc="用户名" id="sKvUZOpLVJZpcuS5SLXf-51">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-48">
+            <mxGeometry y="79" width="330" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="position" fieldType="String" fieldModify="-" fieldDesc="职位" id="sKvUZOpLVJZpcuS5SLXf-54">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-48">
+            <mxGeometry y="103" width="330" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%fieldModify% %fieldName%: %fieldType%    #%fieldDesc%" placeholders="1" shapeType="FIELD" fieldName="description" fieldType="String" fieldModify="-" fieldDesc="描述" id="sKvUZOpLVJZpcuS5SLXf-53">
+          <mxCell style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[];portConstraint=none;metaEdit=1;cloneable=1;rotation=0;connectable=1;container=0;dropTarget=1;imageAspect=1;absoluteArcSize=0;portConstraintRotation=0;snapToPoint=0;fixDash=0;pointerEvents=0;enumerate=0;resizeHeight=1;resizeWidth=1;autosize=1;part=1;movable=1;rounded=0;fontFamily=Helvetica;fontSize=13;fontColor=default;" vertex="1" parent="sKvUZOpLVJZpcuS5SLXf-48">
+            <mxGeometry y="127" width="330" height="24" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%nodeDesc%" placeholders="1" nodeDesc="重置密码" shapeType="NODE" id="sKvUZOpLVJZpcuS5SLXf-55">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillStyle=auto;strokeWidth=1;metaEdit=1;resizable=1;rotatable=0;snapToPoint=0;connectable=1;absoluteArcSize=0;noLabel=0;labelPadding=0;allowArrows=1;recursiveResize=1;expand=1;editable=1;movable=1;deletable=1;fixDash=0;collapsible=0;portConstraintRotation=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];backgroundOutline=0;resizeHeight=1;resizeWidth=1;" vertex="1" parent="1">
+            <mxGeometry x="-717.5" y="10" width="135" height="40" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

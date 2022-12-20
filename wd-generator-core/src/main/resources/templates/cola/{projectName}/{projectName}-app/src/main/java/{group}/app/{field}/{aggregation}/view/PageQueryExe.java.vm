@@ -6,17 +6,27 @@ import com.wakedata.common.core.dto.PageResultDTO;
 import org.springframework.stereotype.Component;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import javax.annotation.Resource;
 import ${PAGE_QUERY_PACKAGE_PATH}.${PAGE_QUERY_CLASS_NAME};
+import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
+import ${MapperPackagePath}.${AGGREGATION_CLASS_NAME}Mapper;
 #dependencyQueryResult()
+import ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH}.${QUERY_RESULT_TYPE}2DOConvert;
 
 #comment("${PAGE_QUERY_CLASS_DESCRIPTION}-分页查询器")
 @Component
 public class ${PAGE_QUERY_CLASS_NAME}Exe {
 
+    @Resource
+    private ${AGGREGATION_CLASS_NAME}Mapper ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper;
+
     public PageResultDTO<List<${QUERY_RESULT_TYPE}>> execute(${PAGE_QUERY_CLASS_NAME} pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
-        PageInfo<${QUERY_RESULT_TYPE}> pageInfo = new PageInfo<>();
+        List<${AGGREGATION_CLASS_NAME}DO> ${AGGREGATION_CLASS_NAME_ALL_LOWER}doList = ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${PAGE_QUERY_CLASS_NAME})}(pageQuery);
+        List<${QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})}List = ${QUERY_RESULT_TYPE}2DOConvert.INSTANCE.doList2DtoList(${AGGREGATION_CLASS_NAME_ALL_LOWER}doList);
+
+        PageInfo<${QUERY_RESULT_TYPE}> pageInfo = new PageInfo<>(${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})}List);
         PageResultDTO<List<${QUERY_RESULT_TYPE}>> pageResultDTO = new PageResultDTO<>();
         pageResultDTO.setData(pageInfo.getList());
         pageResultDTO.setPageNo(pageInfo.getPageNum());

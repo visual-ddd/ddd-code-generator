@@ -3,6 +3,7 @@ package com.wd.paas.generator.convert.project.domainchart.aggregation;
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.AbstractUmlDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdGeneratorDTO;
+import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
 import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.AggregationGenerator;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,9 @@ public class AggregationDTO extends AbstractUmlDTO {
             aggregationGenerator.setUmlClass(
                 aggregationDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
                     chartDTO.getUmlMethodDTOList()));
+            
+            // 由于当前没有区分主键，默认排除id字段
+            excludeId(aggregationGenerator);
 
             aggregationGenerator.setValueObjectList(
                 ValueObjectDTO.trans2ValueObjectList(aggregationDTO, chartDTO));
@@ -54,5 +58,10 @@ public class AggregationDTO extends AbstractUmlDTO {
             aggregationGeneratorList.add(aggregationGenerator);
         }
         return aggregationGeneratorList;
+    }
+
+    private static void excludeId(AggregationGenerator aggregationGenerator) {
+        List<UmlField> fieldList = aggregationGenerator.getUmlClass().getFieldList();
+        fieldList.removeIf(umlField -> umlField.getName().equals("id"));
     }
 }

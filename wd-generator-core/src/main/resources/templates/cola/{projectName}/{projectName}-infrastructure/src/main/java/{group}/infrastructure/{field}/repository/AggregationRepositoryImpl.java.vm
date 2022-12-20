@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.util.Assert;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME};
 import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}Repository;
 import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
@@ -32,9 +31,7 @@ public class ${AGGREGATION_CLASS_NAME}RepositoryImpl implements ${AGGREGATION_CL
     @Override
     public ${AGGREGATION_CLASS_NAME} update(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
         ${AGGREGATION_CLASS_NAME}DO ${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO = ${AGGREGATION_CLASS_NAME}DoConvert.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
-        UpdateWrapper<${AGGREGATION_CLASS_NAME}DO> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("id", ${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO.getId());
-        int update = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.update(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO, updateWrapper);
+        int update = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.updateById(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO);
         Assert.isTrue(update == 1, "更新数据库异常，请联系管理员");
         return ${AGGREGATION_CLASS_NAME}DoConvert.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO);
     }

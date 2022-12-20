@@ -1,0 +1,27 @@
+#parse("templates/Aggregation.vm")
+package ${PROJECT_PACKAGE}.infrastructure;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.data.domain.AbstractAggregateRoot;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.IdType;
+
+import javax.persistence.*;
+
+@Data
+@EqualsAndHashCode(callSuper = true)
+@MappedSuperclass
+public abstract class BaseJpaAggregate extends AbstractAggregateRoot<BaseJpaAggregate> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableId(type = IdType.AUTO)
+    private Long id;
+
+//    @Version
+//    @Column(name = "version")
+//    @Setter(AccessLevel.PRIVATE)
+//    private Integer version;
+
+}

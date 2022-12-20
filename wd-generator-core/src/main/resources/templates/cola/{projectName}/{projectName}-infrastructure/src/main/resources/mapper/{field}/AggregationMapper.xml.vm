@@ -5,4 +5,61 @@
 
 <mapper namespace="${MapperPackagePath}.${AGGREGATION_CLASS_NAME}Mapper">
 
+#foreach ($query in ${AGGREGATION_QUERY_LIST})
+    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}" parameterType="${QUERY_PACKAGE_PATH}.${query.umlClass.className}"
+            resultType="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+        SELECT *
+        FROM ${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE} t1
+        WHERE 1=1
+        #foreach($queryFiled in $query.umlClass.fieldList)
+        <if test="${queryFiled.name}!=null">
+            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
+        </if>
+        #end
+    </select>
+#end
+
+
+#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}" parameterType="${QUERY_PACKAGE_PATH}.${pageQuery.umlClass.className}"
+            resultType="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+        SELECT *
+        FROM ${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE} t1
+        WHERE 1=1
+        #foreach($pageQueryFiled in $pageQuery.umlClass.fieldList)
+            <if test="${pageQueryFiled.name}!=null">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
+            </if>
+        #end
+    </select>
+#end
+
+
+##    <resultMap id="BaseResultMap" type="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+##
+##        <id property="id" column="id" jdbcType="BIGINT"/>
+##        #foreach($field in ${AGGREGATION_CLASS_FIELDS})
+##            <result property="tenantId" column="tenant_id" jdbcType="BIGINT"/>
+##            <result property="activityNo" column="activity_no" jdbcType="BIGINT"/>
+##            <result property="ticketNo" column="ticket_no" jdbcType="BIGINT"/>
+##            <result property="uniqueAccountId" column="unique_account_id" jdbcType="BIGINT"/>
+##            <result property="avatarImgUrl" column="avatar_img_url" jdbcType="VARCHAR"/>
+##            <result property="memberName" column="member_name" jdbcType="VARCHAR"/>
+##            <result property="memberPhone" column="member_phone" jdbcType="VARCHAR"/>
+##            <result property="ticketType" column="ticket_type" jdbcType="INTEGER"/>
+##            <result property="orderNo" column="order_no" jdbcType="BIGINT"/>
+##            <result property="createOrderTime" column="create_order_time" jdbcType="DATETIMEOFFSET"/>
+##            <result property="ticketStatus" column="ticket_status" jdbcType="INTEGER"/>
+##            <result property="writeOffNo" column="write_off_no" jdbcType="VARCHAR"/>
+##            <result property="writeOffBy" column="write_off_by" jdbcType="VARCHAR"/>
+##            <result property="writeOffTime" column="write_off_time" jdbcType="DATETIMEOFFSET"/>
+##            <result property="formInfo" column="form_info" jdbcType="VARCHAR"/>
+##            <result property="refundReason" column="refund_reason" jdbcType="VARCHAR"/>
+##            <result property="ticketName" column="ticket_name" jdbcType="VARCHAR"/>
+##            <result property="unitPrice" column="unit_price" jdbcType="BIGINT"/>
+##        #end
+##    </resultMap>
+
+
+
 </mapper>
