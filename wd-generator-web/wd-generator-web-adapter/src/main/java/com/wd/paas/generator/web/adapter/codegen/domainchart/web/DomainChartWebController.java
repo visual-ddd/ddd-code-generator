@@ -7,6 +7,8 @@ import com.wd.paas.generator.web.client.codegen.domainchart.dto.ChartXmlUpdateRe
 import com.wd.paas.generator.web.client.codegen.domainchart.dto.DomainChartDTO;
 import com.wd.paas.generator.web.client.codegen.domainchart.query.DomainChartPageQuery;
 import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepository;
+import com.wd.paas.generator.web.domain.codegen.domainchart.chart.shell.DomainChartShellCreateCmd;
+import com.wd.paas.generator.web.domain.codegen.domainchart.chart.shell.DomainChartShellCreateCmdHandler;
 import com.wd.paas.generator.web.domain.codegen.domainchart.chartXmlUpdate.ChartXmlUpdateCmd;
 import com.wd.paas.generator.web.domain.codegen.domainchart.chartXmlUpdate.ChartXmlUpdateCmdHandler;
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartCreate.DomainChartCreateCmd;
@@ -26,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.zip.ZipOutputStream;
 
 /**
  * 领域图谱-web-controller
@@ -52,6 +55,8 @@ public class DomainChartWebController {
     private DomainChartPageQueryExe domainChartPageQueryExe;
     @Resource
     private DomainChartRepository domainChartRepository;
+    @Resource
+    private DomainChartShellCreateCmdHandler domainChartShellCreateCmdHandler;
 
 
     @ApiOperation("创建领域图谱")
@@ -114,7 +119,27 @@ public class DomainChartWebController {
 
     @ApiOperation("分页查询领域图谱信息")
     @GetMapping("/domain-chart-page-query-exe")
-    public ResultDTO<List<DomainChartDTO>> DomainChartPageQueryExe(DomainChartPageQuery pageQuery) {
+    public ResultDTO<List<DomainChartDTO>> domainChartPageQueryExe(DomainChartPageQuery pageQuery) {
         return domainChartPageQueryExe.execute(pageQuery);
     }
+
+    @ApiOperation("获取脚本文件")
+    @GetMapping(value = "/get-shell-file")
+    public void codeGenerate(@RequestParam Long domainChartId, HttpServletResponse response) {
+        response.setContentType("application/zip");
+        response.setHeader("Content-Disposition", "attachment;filename=source.zip");
+        try (ZipOutputStream out = new ZipOutputStream(response.getOutputStream())) {
+
+            DomainChartShellCreateCmd cmd = new DomainChartShellCreateCmd();
+            cmd.setId(domainChartId);
+            cmd.setZipOutputStream(out);
+            // 生成代码,并输出到输出流中
+            domainChartShellCreateCmdHandler.handle(cmd);
+
+            response.flushBuffer();
+        } catch (IOException e) {
+            throw new BizException("执行流异常!");
+        }
+    }
+
 }

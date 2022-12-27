@@ -6,13 +6,12 @@ import com.wd.paas.generator.convert.project.ProjectDTO;
 import com.wd.paas.generator.generate.GenerateContext;
 import com.wd.paas.generator.generate.constant.GenerateWayEnum;
 import com.wd.paas.generator.web.client.codegen.project.dto.CodeGenerateRequest;
-import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepository;
 import com.wd.paas.generator.web.domain.codegen.project.ProjectRepository;
-import com.wd.paas.generator.web.infrastructure.codegen.repository.mapper.ProjectMapper;
-import java.util.zip.ZipOutputStream;
-import javax.annotation.Resource;
 import org.apache.velocity.VelocityContext;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.zip.ZipOutputStream;
 
 @Service
 public class CodeGenServiceImpl implements CodeGenService {

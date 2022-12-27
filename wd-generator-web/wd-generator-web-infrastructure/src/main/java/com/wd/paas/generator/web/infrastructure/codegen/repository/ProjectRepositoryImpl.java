@@ -60,8 +60,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         projectDTO.setAuthor(projectDO.getProjectAuthor());
         projectDTO.setDateTime(new DateTime().toStringDefaultTimeZone());
         projectDTO.setGroup(projectDO.getPackagePath());
-        projectDTO.setDomainChartList(
-            domainChartRepository.buildDomainChartDTOList(projectDO.getId()));
+        // 只构建项目结构
+//        projectDTO.setDomainChartList(domainChartRepository.buildDomainChartDTOList(projectDO.getId()));
         return projectDTO;
     }
 

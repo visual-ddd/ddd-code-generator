@@ -3,6 +3,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>com.wakedata</groupId>
+    <artifactId>wd-parent</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+  </parent>
+
   <groupId>com.wd.paas</groupId>
   <artifactId>wd-generator-script</artifactId>
   <packaging>jar</packaging>
@@ -67,6 +73,32 @@
       <version>3.24.7</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.wakedata.common</groupId>
+      <artifactId>wd-common-spring</artifactId>
+      <version>1.2.2-DDD11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wakedata.common</groupId>
+      <artifactId>wd-common-storage</artifactId>
+      <version>1.2.2-DDD11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <repositories>
@@ -82,30 +114,35 @@
   </repositories>
 
   <build>
+    <finalName>wd-generator-script</finalName>
     <plugins>
       <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-          <archive>
-            <manifest>
-              <mainClass>com.wd.paas.script.Main</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.3.2.RELEASE</version>
         <executions>
           <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
             <goals>
-              <goal>single</goal>
+              <goal>repackage</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
+
+  <distributionManagement>
+    <!-- 配置release版本发布的仓库-->
+    <repository>
+      <id>central</id>
+      <name>libs-release-local</name>
+      <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
+    </repository>
+    <!-- 配置快照版本发布的仓库-->
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>libs-snapshot-local</name>
+      <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>

@@ -64,7 +64,7 @@ public class CLI {
      */
     @Parameter(names = {"-dn", "--domainName"}, description = "领域名称", required = true)
     public String domainName = "codegen";
-    @Parameter(names = {"-dc", "--description"}, description = "领域描述", required = true)
+    @Parameter(names = {"-dc", "--domainDesc"}, description = "领域描述")
     public String description = "代码生成领域";
     @Parameter(names = {"-da", "--domainAuthor"}, description = "领域作者")
     public String domainAuthor = "GaoZhiYi, ZhuXueLiang";
@@ -73,7 +73,7 @@ public class CLI {
         new Date());
 
     @Parameter(names = {"-w", "--generateWay"}, description = "生成方式: 全量, 增量")
-    public GenerateWayEnum generateWay = GenerateWayEnum.PART;
+    public GenerateWayEnum generateWay = GenerateWayEnum.OVERALL;
 
 
     /**
@@ -99,6 +99,8 @@ public class CLI {
             getDomainChartGeneratorDTO(getChartDTO()));
         GenerateContext generateContext = new GenerateContext(new VelocityContext(),
             outputPath, null, generateWay);
+
+        generateContext.setIsGenerateProjectFrame(false);
 
         CodeGenerateService codeGenerateService = new CodeGenerateServiceImpl();
         codeGenerateService.generate(projectGeneratorDTO, generateContext);

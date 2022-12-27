@@ -111,6 +111,9 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
 
         String fileKey = domainChartDO.getFileKey();
         InputStream ossFileStream = this.getOSSFileStream(fileKey);
+        if (ossFileStream == null) {
+            return domainChart;
+        }
         try {
             String chartXml = IOUtils.toString(ossFileStream, Charset.defaultCharset());
             domainChart.setChartXml(chartXml);
@@ -165,7 +168,7 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
                 .build();
             fileStorageService.upload(request, fileInput);
         } catch (Exception e) {
-            throw new BizException("上传领域图谱云文件失败!");
+            log.error("上传领域图谱云文件失败!");
         }
     }
 
@@ -178,7 +181,7 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
         try {
             fileStorageService.deleteFile(BucketEnum.MATERIAL, key);
         } catch (Exception e) {
-            throw new BizException("删除领域图谱云文件失败!");
+            log.error("删除领域图谱云文件失败!");
         }
     }
 
@@ -189,11 +192,11 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
      * @return 云文件流
      */
     public InputStream getOSSFileStream(String fileKey) {
-        InputStream fileStream;
+        InputStream fileStream = null;
         try {
             fileStream = fileStorageService.getFileStream(BucketEnum.MATERIAL, fileKey);
         } catch (Exception e) {
-            throw new BizException("获取领域图谱云文件失败,fileKey: " + fileKey);
+            log.error("获取领域图谱云文件失败,fileKey: " + fileKey);
         }
         return fileStream;
     }
