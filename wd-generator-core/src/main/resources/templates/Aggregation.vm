@@ -29,12 +29,12 @@
 ## 依赖
 #macro(dependencyCmdDTO)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.dto.${cmd.umlClass.className}DTO;
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.dto.${cmd.inputClassName}DTO;
 #end
 #end
 #macro(dependencyCmdDTOConvert)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.assembler.${cmd.umlClass.className}DTOConvert;
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.assembler.${cmd.inputClassName}DTOConvert;
 #end
 #end
 #macro(dependencyCmd)

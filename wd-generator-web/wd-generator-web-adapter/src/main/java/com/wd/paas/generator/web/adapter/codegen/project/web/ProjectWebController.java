@@ -76,13 +76,13 @@ public class ProjectWebController {
 
     @ApiOperation("查询项目详情")
     @GetMapping("/project-query-exe")
-    public ResultDTO<ProjectDTO> ProjectQueryExe(ProjectQuery projectQuery) {
+    public ResultDTO<ProjectDTO> projectQueryExe(ProjectQuery projectQuery) {
         return projectQueryExe.execute(projectQuery);
     }
 
     @ApiOperation("分页查询项目信息")
     @GetMapping("/project-page-query-exe")
-    public ResultDTO<List<ProjectDTO>> ProjectPageQueryExe(ProjectPageQuery pageQuery) {
+    public ResultDTO<List<ProjectDTO>> projectPageQueryExe(ProjectPageQuery pageQuery) {
         return projectPageQueryExe.execute(pageQuery);
     }
 

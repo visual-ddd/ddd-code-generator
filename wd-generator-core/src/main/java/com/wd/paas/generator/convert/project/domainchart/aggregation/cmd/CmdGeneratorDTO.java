@@ -1,5 +1,6 @@
 package com.wd.paas.generator.convert.project.domainchart.aggregation.cmd;
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.AbstractUmlDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
@@ -48,6 +49,7 @@ public class CmdGeneratorDTO extends AbstractUmlDTO {
                 // 默认不填，使用包名拼接
                 String inputClassName = Optional.ofNullable(cmdGeneratorDTO.getClassName())
                     .orElse(classPackage);
+                inputClassName = CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL, inputClassName);
                 String className = FormatUtil.formatClassName(inputClassName,
                     ModelUrlConstant.COMMAND_CLASS_SUFFIX);
 
@@ -55,11 +57,10 @@ public class CmdGeneratorDTO extends AbstractUmlDTO {
                 cmdGeneratorDTO.setClassName(className);
 
                 CmdGenerator cmdGenerator = new CmdGenerator();
+                cmdGenerator.setInputClassName(inputClassName);
                 cmdGenerator.setUmlClass(
                     cmdGeneratorDTO.trans2UmlClass(chartDTO.getUmlFieldDTOList(),
                         chartDTO.getUmlMethodDTOList()));
-                cmdGenerators.add(cmdGenerator);
-
                 // 指令事件
                 cmdGenerator.setCmdEventGenerator(
                     CmdEventGeneratorDTO.trans2Event(chartDTO, aggregationDTO, cmdGeneratorDTO)
@@ -67,6 +68,8 @@ public class CmdGeneratorDTO extends AbstractUmlDTO {
                 // 指令类型
                 cmdGenerator.setCmdType(
                     Optional.ofNullable(cmdGeneratorDTO.getCmdType()).orElse(CmdTypeEnum.DEFAULT));
+
+                cmdGenerators.add(cmdGenerator);
             }
         }
         return cmdGenerators;

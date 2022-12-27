@@ -31,6 +31,10 @@ public class CmdGenerator extends AbstractGenerator {
      */
     private UmlClass umlClass;
     /**
+     * 输入的类名
+     */
+    private String inputClassName;
+    /**
      * 指令事件
      */
     private CmdEventGenerator cmdEventGenerator;
@@ -71,6 +75,7 @@ public class CmdGenerator extends AbstractGenerator {
     @Override
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.CMD_CLASS_NAME, umlClass.getClassName());
+        context.put(VelocityLabel.CMD_INPUT_CLASS_NAME, this.inputClassName);
         context.put(VelocityLabel.CMD_CLASS_PACKAGE, umlClass.getClassPackage());
         context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, umlClass.getClassDesc());
         context.put(VelocityLabel.CMD_CLASS_FIELDS, umlClass.getFieldList());
@@ -89,6 +94,7 @@ public class CmdGenerator extends AbstractGenerator {
                 .replace(ModelUrlConstant.FIELD, (String) context.get(VelocityLabel.DOMAIN_NAME))
                 .replace(ModelUrlConstant.AGGREGATION, (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER))
                 .replace(ModelUrlConstant.ACTION, ((String) context.get(VelocityLabel.CMD_CLASS_PACKAGE)))
+                .replace(ModelUrlConstant.COMMAND_DTO_CLASS, this.inputClassName + "DTO")
                 .replace(ModelUrlConstant.COMMAND_CLASS, umlClass.getClassName());
     }
 }

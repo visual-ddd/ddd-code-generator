@@ -35,9 +35,9 @@ public class ${AGGREGATION_CLASS_NAME}RpcServiceImpl implements ${AGGREGATION_CL
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
 
     @Override
-    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}(${cmd.umlClass.className}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto) {
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}(${cmd.inputClassName}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}Dto) {
         ${cmd.umlClass.className} ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})} =
-            ${cmd.umlClass.className}DTOConvert.INSTANCE.dto2Do(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Dto);
+            ${cmd.inputClassName}DTOConvert.INSTANCE.dto2Do(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}Dto);
         ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Handler.handle(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})});
         return ResultDTO.success(Boolean.TRUE);
     }

@@ -1,12 +1,10 @@
 package com.wd.paas.generator.generate.generator.project.domainchart.abstractuml;
 
-import com.wd.paas.generator.generate.constant.VelocityLabel;
-import java.util.Optional;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.velocity.VelocityContext;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * UML抽象类

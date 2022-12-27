@@ -24,6 +24,7 @@ public class ModelUrlConstant {
     public static final String AGGREGATION_CLASS = "Aggregation";
     public static final String ENTITY_CLASS = "Entity";
     public static final String VALUE_OBJECT_CLASS = "ValueObject";
+    public static final String COMMAND_DTO_CLASS = "CommandDTO";
     public static final String COMMAND_CLASS = "Command";
     public static final String ADD_COMMAND_HANDLER_CLASS = "AddCommand";
     public static final String UPDATE_COMMAND_HANDLER_CLASS = "UpdateCommand";
