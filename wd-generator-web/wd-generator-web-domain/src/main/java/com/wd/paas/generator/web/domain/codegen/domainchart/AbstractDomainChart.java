@@ -29,6 +29,8 @@ public abstract class AbstractDomainChart {
     /** 图谱xml文件内容 */
     private String chartXml;
 
+    private String fileKey;
+
     /** 领域作者 */
     private String domainAuthor;
 

@@ -110,6 +110,7 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
         DomainChart domainChart = DomainChartDoConvert.INSTANCE.do2Dto(domainChartDO);
 
         String fileKey = domainChartDO.getFileKey();
+        domainChart.setChartXml(fileKey);
         InputStream ossFileStream = this.getOSSFileStream(fileKey);
         if (ossFileStream == null) {
             return domainChart;

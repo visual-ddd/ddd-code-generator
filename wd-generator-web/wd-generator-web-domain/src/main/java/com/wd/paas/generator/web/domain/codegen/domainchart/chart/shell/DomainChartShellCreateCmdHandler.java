@@ -35,7 +35,8 @@ public class DomainChartShellCreateCmdHandler {
 
         String shellUrl = "generator\\" + domainChart.getDomainName() + "\\" + "run.sh";
 
-        String shell = "wget https://test-material-1259575047.cos.ap-guangzhou.myqcloud.com/wd-generator-script-latest.jar -O ../wd-generator-script-latest.jar \n\n" +
+        String shell = "wget https://test-material-1259575047.cos.ap-guangzhou.myqcloud.com/wd-generator-script-latest.jar -O ../wd-generator-script-latest.jar \n" +
+                "wget https://test-material-1259575047.cos.ap-guangzhou.myqcloud.com/" + domainChart.getFileKey() + " -O " + domainChart.getDomainName() + ".drawio \n\n" +
                 "java -jar ../wd-generator-script-latest.jar \\\n" +
                 "--chartXmlPath " + domainChart.getDomainName() + ".drawio \\\n" +
                 "--projectName " + project.getProjectName() + " \\\n" +
@@ -51,18 +52,6 @@ public class DomainChartShellCreateCmdHandler {
             zipOutputStream.putNextEntry(new ZipEntry(shellUrl));
 
             IoUtil.copy(inputStream, zipOutputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        String chartXmlUrl = "generator\\" + domainChart.getDomainName() + "\\" + domainChart.getDomainName() + ".drawio";
-
-        try (InputStream chartXml = repository.downloadChartXmlByDomainChartId(cmd.getId());) {
-            ZipOutputStream zipOutputStream = cmd.getZipOutputStream();
-            zipOutputStream.putNextEntry(new ZipEntry(chartXmlUrl));
-
-            IoUtil.copy(chartXml, zipOutputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
