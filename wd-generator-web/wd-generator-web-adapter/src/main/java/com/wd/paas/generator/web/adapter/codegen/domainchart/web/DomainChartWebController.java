@@ -1,15 +1,14 @@
 package com.wd.paas.generator.web.adapter.codegen.domainchart.web;
 
-import com.alibaba.druid.sql.visitor.functions.Char;
 import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedata.common.core.exception.BizException;
 import com.wd.paas.generator.web.app.codegen.domainchart.view.DomainChartPageQueryExe;
 import com.wd.paas.generator.web.client.codegen.domainchart.dto.ChartXmlUpdateRequest;
 import com.wd.paas.generator.web.client.codegen.domainchart.dto.DomainChartDTO;
 import com.wd.paas.generator.web.client.codegen.domainchart.query.DomainChartPageQuery;
-import com.wd.paas.generator.web.domain.codegen.domainchart.ChartXmlUpdate.ChartXmlUpdateCmd;
-import com.wd.paas.generator.web.domain.codegen.domainchart.ChartXmlUpdate.ChartXmlUpdateCmdHandler;
 import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepository;
+import com.wd.paas.generator.web.domain.codegen.domainchart.chartXmlUpdate.ChartXmlUpdateCmd;
+import com.wd.paas.generator.web.domain.codegen.domainchart.chartXmlUpdate.ChartXmlUpdateCmdHandler;
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartCreate.DomainChartCreateCmd;
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartCreate.DomainChartCreateCmdHandler;
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartRemove.DomainChartRemoveCmd;
@@ -18,21 +17,15 @@ import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartUpdate.Do
 import com.wd.paas.generator.web.domain.codegen.domainchart.domainChartUpdate.DomainChartUpdateCmdHandler;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import java.io.BufferedInputStream;
+import org.apache.commons.io.IOUtils;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
-import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.io.IOUtils;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 领域图谱-web-controller
