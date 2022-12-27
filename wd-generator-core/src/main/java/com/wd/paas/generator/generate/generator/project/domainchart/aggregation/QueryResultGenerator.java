@@ -1,6 +1,5 @@
 package com.wd.paas.generator.generate.generator.project.domainchart.aggregation;
 
-import com.wd.paas.generator.generate.GenerateContext;
 import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.constant.VelocityLabel;
@@ -25,11 +24,6 @@ public class QueryResultGenerator extends AbstractGenerator {
      * 类信息
      */
     private UmlClass umlClass;
-
-    @Override
-    public void generate(GenerateContext generateContext) {
-        super.generate(generateContext);
-    }
 
     @Override
     public void putVelocityContext(VelocityContext context) {

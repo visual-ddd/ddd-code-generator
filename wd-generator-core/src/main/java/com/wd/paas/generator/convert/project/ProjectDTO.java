@@ -5,9 +5,12 @@ import com.wd.paas.generator.generate.generator.ProjectInfo;
 import com.wd.paas.generator.generate.generator.project.domainchart.DomainChartGenerator;
 import com.wd.paas.generator.generate.generator.project.ProjectGenerator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.Data;
+
+import javax.annotation.Nullable;
 
 /**
  * DDD项目生成信息
@@ -56,8 +59,10 @@ public class ProjectDTO {
         return projectGenerator;
     }
 
-    private List<DomainChartGenerator> trans2DomainCharts(
-        List<DomainChartDTO> domainChartList) {
+    private List<DomainChartGenerator> trans2DomainCharts(List<DomainChartDTO> domainChartList) {
+        if (domainChartList == null) {
+            return Collections.emptyList();
+        }
         return domainChartList.stream()
             .map(DomainChartDTO::trans2DomainChart)
             .collect(Collectors.toCollection(ArrayList::new));

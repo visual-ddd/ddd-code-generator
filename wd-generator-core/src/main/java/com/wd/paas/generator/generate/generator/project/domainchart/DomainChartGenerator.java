@@ -35,7 +35,7 @@ public class DomainChartGenerator extends AbstractGenerator {
     @Override
     public void generate(GenerateContext generateContext) {
         super.generate(generateContext);
-        aggregationList.forEach(aggregation -> aggregation.generate(generateContext));
+        aggregationList.forEach(aggregation -> aggregation.run(generateContext));
     }
 
     @Override

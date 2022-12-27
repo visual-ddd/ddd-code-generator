@@ -1,5 +1,6 @@
 package com.wd.paas.generator.convert.project.domainchart.abstractuml;
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlClass;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlMethod;
@@ -50,7 +51,7 @@ public abstract class AbstractUmlDTO {
         for (UmlFieldDTO umlFieldDTO : fields) {
             if (Objects.equals(classId, umlFieldDTO.getClassId())) {
                 UmlField umlField = new UmlField();
-                umlField.setName(umlFieldDTO.getName());
+                umlField.setName(CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, umlFieldDTO.getName()));
                 umlField.setType(umlFieldDTO.getType());
                 umlField.setModifier(umlFieldDTO.getModifier());
                 umlField.setDescription(umlFieldDTO.getDescription());
@@ -61,7 +62,7 @@ public abstract class AbstractUmlDTO {
         for (UmlMethodDTO umlMethodDTO : methods) {
             if (Objects.equals(classId, umlMethodDTO.getClassId())) {
                 UmlMethod umlMethod = new UmlMethod();
-                umlMethod.setName(umlMethodDTO.getName());
+                umlMethod.setName(CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, umlMethodDTO.getName()));
                 umlMethod.setModifier(umlMethodDTO.getModifier());
                 umlMethod.setReturnType(umlMethodDTO.getReturnType());
                 umlMethod.setAttributeLabel(umlMethodDTO.getAttributeLabel());

@@ -1,5 +1,6 @@
 package com.wd.paas.generator.convert.project.domainchart;
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
 import com.wd.paas.generator.generate.generator.DomainChartInfo;
 import com.wd.paas.generator.generate.generator.project.domainchart.DomainChartGenerator;
@@ -49,7 +50,7 @@ public class DomainChartDTO {
 
     private DomainChartInfo trans2DomainChartInfo() {
         DomainChartInfo domainChartInfo = new DomainChartInfo();
-        domainChartInfo.setName(name);
+        domainChartInfo.setName(name.toLowerCase());
         domainChartInfo.setDescription(description);
         domainChartInfo.setAuthor(author);
         domainChartInfo.setDateTime(dateTime);

@@ -1,6 +1,7 @@
 package com.wd.paas.generator.convert.project.domainchart;
 
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlFieldDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlMethodDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
@@ -12,9 +13,11 @@ import com.wd.paas.generator.convert.project.domainchart.aggregation.ValueObject
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdEventGeneratorDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdGeneratorDTO;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import lombok.Data;
 
 /**

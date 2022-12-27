@@ -1,5 +1,5 @@
 #parse("templates/Aggregation.vm")
-package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.app;
+package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.app;
 
 #controllerImport()
 

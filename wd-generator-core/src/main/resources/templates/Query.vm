@@ -2,9 +2,9 @@
 #parse("templates/ClassFunction.vm")
 ## ==================== 查询对象相关变量 =======================
 ## 查询对象包路径
-#set($QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query")
+#set($QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query")
 ## ======================= 查询器 =======================
 ## 查询器包路径
-#set($QUERY_EXE_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.view")
+#set($QUERY_EXE_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")
 ## 查询结果集类型
 #set($QUERY_RESULT_TYPE = $QUERY_RESULT_TYPE)

@@ -1,7 +1,6 @@
 #parse("templates/Aggregation.vm")
 package $AGGREGATION_RPC_SERVICE_IMPL_PACKAGE_PATH;
 
-import lombok.Data;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;

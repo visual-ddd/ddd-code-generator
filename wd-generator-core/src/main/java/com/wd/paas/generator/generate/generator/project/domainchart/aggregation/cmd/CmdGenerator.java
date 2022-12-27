@@ -1,17 +1,13 @@
 package com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd;
 
+import com.wd.paas.generator.generate.GenerateContext;
 import com.wd.paas.generator.generate.constant.CmdTypeEnum;
 import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.GenerateContext;
 import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.generate.generator.AbstractGenerator;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlClass;
-import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.AddCmdHandlerGenerator;
-import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.CmdHandlerGenerator;
-import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.DefaultCmdHandlerGenerator;
-import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.DeleteCmdHandlerGenerator;
-import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.UpdateCmdHandlerGenerator;
+import com.wd.paas.generator.generate.generator.project.domainchart.aggregation.cmd.handler.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.velocity.VelocityContext;
@@ -47,9 +43,9 @@ public class CmdGenerator extends AbstractGenerator {
     public void generate(GenerateContext generateContext) {
         super.generate(generateContext);
         if (cmdEventGenerator != null) {
-            cmdEventGenerator.generate(generateContext);
+            cmdEventGenerator.run(generateContext);
         }
-        getCmdHandlerGenerator().generate(generateContext);
+        getCmdHandlerGenerator().run(generateContext);
     }
 
     private CmdHandlerGenerator getCmdHandlerGenerator() {

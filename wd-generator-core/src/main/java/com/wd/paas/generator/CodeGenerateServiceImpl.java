@@ -16,6 +16,6 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
     @Override
     public void generate(ProjectDTO projectDTO, GenerateContext context) {
         ProjectGenerator projectGenerator = projectDTO.trans2ProjectGenerator();
-        projectGenerator.generate(context);
+        projectGenerator.run(context);
     }
 }

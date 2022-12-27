@@ -20,21 +20,21 @@
 ## view 包路径
 #set($ViewPackagePath = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")
 ## 查询对象包路径
-#set($QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query")
+#set($QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query")
 ## RPCService接口 包路径
-#set($AGGREGATION_RPC_SERVICE_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")
+#set($AGGREGATION_RPC_SERVICE_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}")
 ## RPCServiceImpl 包路径
-#set($AGGREGATION_RPC_SERVICE_IMPL_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")
+#set($AGGREGATION_RPC_SERVICE_IMPL_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}")
 ##
 ## 依赖
 #macro(dependencyCmdDTO)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.dto.${cmd.inputClassName}DTO;
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${cmd.inputClassName}DTO;
 #end
 #end
 #macro(dependencyCmdDTOConvert)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.assembler.${cmd.inputClassName}DTOConvert;
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.assembler.${cmd.inputClassName}DTOConvert;
 #end
 #end
 #macro(dependencyCmd)
@@ -49,22 +49,22 @@ import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOW
 #end
 #macro(dependencyQuery)
 #foreach ($query in ${AGGREGATION_QUERY_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query.${query.umlClass.className};
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query.${query.umlClass.className};
 #end
 #foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query.${pageQuery.umlClass.className};
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query.${pageQuery.umlClass.className};
 #end
 #end
 #macro(dependencyQueryExe)
 #foreach ($query in ${AGGREGATION_QUERY_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.view.${query.umlClass.className}Exe;
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view.${query.umlClass.className}Exe;
 #end
 #foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.view.${pageQuery.umlClass.className}Exe;
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view.${pageQuery.umlClass.className}Exe;
 #end
 #end
 #macro(dependencyQueryResult)
 #foreach ($queryResult in ${AGGREGATION_QUERY_RESULT_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.dto.${queryResult.umlClass.className};
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${queryResult.umlClass.className};
 #end
 #end

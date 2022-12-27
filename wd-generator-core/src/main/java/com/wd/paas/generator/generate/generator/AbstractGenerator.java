@@ -18,10 +18,13 @@ import java.util.HashMap;
  */
 public abstract class AbstractGenerator implements CodeGenerate {
 
+    public void run(GenerateContext generateContext) {
+        this.putVelocityContext(generateContext.getContext());
+        this.generate(generateContext);
+    }
+
     @Override
     public void generate(GenerateContext generateContext) {
-        // 填充上下文
-        this.putVelocityContext(generateContext.getContext());
         // 获取模版映射表
         GenerateElementTypeEnum elementType = this.getElementTypeUrl();
         String[] templateUrls = elementType.getTemplateUrlsByWay(generateContext.getGenerateWay());

@@ -61,8 +61,8 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/DomainEntity.java.vm",
             // controller
-            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/{aggregation}/app/AggregationAppController.java.vm",
-            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/{aggregation}/web/AggregationWebController.java.vm",
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/AggregationAppController.java.vm",
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/AggregationWebController.java.vm",
             // repository
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/AggregationMapper.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/AggregationDO.java.vm",
@@ -72,9 +72,9 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
             // app
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/AggregationRpcServiceImpl.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/AggregationRpcServiceImpl.java.vm",
             // client
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/AggregationRpcService.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/AggregationRpcService.java.vm",
     }, new String[]{
             // domain
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
@@ -103,8 +103,8 @@ public enum GenerateElementTypeEnum {
      */
     COMMAND("Command", new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/dto/CommandDTO.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/assembler/CommandDTOConvert.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/CommandDTO.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/CommandDTOConvert.java.vm",
     }, new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
     }),
@@ -162,30 +162,30 @@ public enum GenerateElementTypeEnum {
      * 查询对象
      */
     QUERY("Query", new String[]{
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/Query.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/QueryExe.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/Query.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/view/QueryExe.java.vm",
     }, new String[]{
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/Query.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/Query.java.vm",
     }),
 
     /**
      * 分页查询对象
      */
     PAGE_QUERY("PageQuery", new String[]{
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/PageQuery.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/view/PageQueryExe.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/PageQuery.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/view/PageQueryExe.java.vm",
     }, new String[]{
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/query/PageQuery.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/PageQuery.java.vm",
     }),
 
     /**
      * QueryResult 结果集
      */
     QUERY_RESULT("QueryResult", new String[]{
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/dto/QueryResult.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{aggregation}/assembler/QueryResult2DOConvert.java.vm"
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/QueryResult.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/QueryResult2DOConvert.java.vm"
     }, new String[]{
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{aggregation}/dto/QueryResult.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/QueryResult.java.vm",
     }),
 
     /**

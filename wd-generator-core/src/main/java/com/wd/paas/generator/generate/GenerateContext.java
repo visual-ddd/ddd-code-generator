@@ -26,6 +26,8 @@ public class GenerateContext {
      */
     private GenerateWayEnum generateWay;
 
+    private Boolean isGenerateProjectFrame = true;
+
     public GenerateContext(VelocityContext context, String outputPath,
                            ZipOutputStream zipOutputStream, GenerateWayEnum generateWay) {
         this.context = context;

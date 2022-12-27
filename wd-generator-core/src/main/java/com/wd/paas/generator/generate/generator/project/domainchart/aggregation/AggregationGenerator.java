@@ -1,8 +1,8 @@
 package com.wd.paas.generator.generate.generator.project.domainchart.aggregation;
 
 import com.google.common.base.CaseFormat;
-import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.GenerateContext;
+import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.generate.generator.AbstractGenerator;
@@ -58,18 +58,18 @@ public class AggregationGenerator extends AbstractGenerator {
     public void generate(GenerateContext generateContext) {
         super.generate(generateContext);
         valueObjectList.forEach(
-            valueObjectGenerator -> valueObjectGenerator.generate(generateContext));
+            valueObjectGenerator -> valueObjectGenerator.run(generateContext));
         entityList.forEach(
-            entityGenerator -> entityGenerator.generate(generateContext));
+            entityGenerator -> entityGenerator.run(generateContext));
         cmdList.forEach(
-            cmdGenerator -> cmdGenerator.generate(generateContext));
+            cmdGenerator -> cmdGenerator.run(generateContext));
         // 视图
         queryResultList.forEach(
-            queryResultGenerator -> queryResultGenerator.generate(generateContext));
+            queryResultGenerator -> queryResultGenerator.run(generateContext));
         queryList.forEach(
-            queryGenerator -> queryGenerator.generate(generateContext));
+            queryGenerator -> queryGenerator.run(generateContext));
         pageQueryList.forEach(
-            pageQueryGenerator -> pageQueryGenerator.generate(generateContext));
+            pageQueryGenerator -> pageQueryGenerator.run(generateContext));
     }
 
     @Override

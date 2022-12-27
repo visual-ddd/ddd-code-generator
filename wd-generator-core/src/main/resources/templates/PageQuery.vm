@@ -2,9 +2,9 @@
 #parse("templates/ClassFunction.vm")
 ## ==================== 分页查询对象相关变量 =======================
 ## 分页查询对象包路径
-#set($PAGE_QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.query")
+#set($PAGE_QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query")
 ## ======================= 分页查询器 =======================
 ## 分页查询器包路径
-#set($PAGE_QUERY_EXE_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.view")
+#set($PAGE_QUERY_EXE_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")
 ## 查询结果集类型
 #set($QUERY_RESULT_TYPE = $QUERY_RESULT_TYPE)
