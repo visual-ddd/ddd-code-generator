@@ -36,16 +36,16 @@ public class DomainChartShellCreateCmdHandler {
         String shellUrl = "generator\\" + domainChart.getDomainName() + "\\" + "run.sh";
 
         String shell = "wget https://test-material-1259575047.cos.ap-guangzhou.myqcloud.com/wd-generator-script-latest.jar -O ../wd-generator-script-latest.jar \n" +
-                "wget https://test-material-1259575047.cos.ap-guangzhou.myqcloud.com/" + domainChart.getFileKey() + " -O " + domainChart.getDomainName() + ".drawio \n\n" +
+                "wget https://test-material-1259575047.cos.ap-guangzhou.myqcloud.com/" + domainChart.getFileKey() + " -O '" + domainChart.getDomainName() + ".drawio' \n\n" +
                 "java -jar ../wd-generator-script-latest.jar \\\n" +
-                "--chartXmlPath " + domainChart.getDomainName() + ".drawio \\\n" +
-                "--projectName " + project.getProjectName() + " \\\n" +
-                "--projectAuthor " + project.getProjectAuthor() + " \\\n" +
-                "--projectGroup " + project.getPackagePath() + " \\\n" +
-                "--domainName " + domainChart.getDomainName() + " \\\n" +
-                "--domainDesc " + domainChart.getDomainDesc() + " \\\n" +
-                "--domainAuthor " + domainChart.getDomainAuthor() + " \\\n" +
-                "--outputPath " + "../../../";
+                "--chartXmlPath '" + domainChart.getDomainName() + ".drawio' \\\n" +
+                "--projectName '" + project.getProjectName() + "' \\\n" +
+                "--projectAuthor '" + project.getProjectAuthor() + "' \\\n" +
+                "--projectGroup '" + project.getPackagePath() + "' \\\n" +
+                "--domainName '" + domainChart.getDomainName() + "' \\\n" +
+                "--domainDesc '" + domainChart.getDomainDesc() + "' \\\n" +
+                "--domainAuthor '" + domainChart.getDomainAuthor() + "' \\\n" +
+                "--outputPath ../../../";
 
         try (InputStream inputStream = new ByteArrayInputStream(shell.getBytes())) {
             ZipOutputStream zipOutputStream = cmd.getZipOutputStream();
