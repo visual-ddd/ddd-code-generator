@@ -1,10 +1,6 @@
 package wd.paas.script;
 
-import com.spire.doc.Document;
-import com.spire.doc.DocumentObject;
-import com.spire.doc.Section;
-import com.spire.doc.Table;
-import com.spire.doc.TableRow;
+import com.spire.doc.*;
 import com.spire.doc.documents.DocumentObjectType;
 import com.spire.doc.documents.Paragraph;
 

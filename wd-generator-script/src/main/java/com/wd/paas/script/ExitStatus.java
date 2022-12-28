@@ -1,14 +1,11 @@
 package com.wd.paas.script;
 
-import lombok.Getter;
-
 /**
  * 离开状态码
  *
  * @author ZhuXueLiang
  * @version 1.0
  */
-@Getter
 public enum ExitStatus {
 
     /**/
@@ -23,4 +20,13 @@ public enum ExitStatus {
         this.value = value;
         this.desc = desc;
     }
+
+    public int getValue() {
+        return value;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
 }

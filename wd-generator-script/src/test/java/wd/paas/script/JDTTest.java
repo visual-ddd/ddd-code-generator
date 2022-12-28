@@ -3,15 +3,13 @@ package wd.paas.script;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.printer.DotPrinter;
-import com.github.javaparser.printer.XmlPrinter;
-import com.github.javaparser.printer.YamlPrinter;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Optional;
-import org.junit.Test;
 
 public class JDTTest {
 

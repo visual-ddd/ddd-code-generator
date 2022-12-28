@@ -3,7 +3,11 @@ package wd.paas.script;
 import com.huaban.analysis.jieba.WordDictionary;
 import com.qianxinyao.analysis.jieba.keyword.Keyword;
 import com.qianxinyao.analysis.jieba.keyword.TFIDFAnalyzer;
-import com.wd.paas.baidu.translate.demo.TransApi;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
+import wd.paas.baidu.translate.demo.TransApi;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -14,9 +18,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 
 public class KeyWordTest {
 

@@ -1,4 +1,4 @@
-package com.wd.paas.baidu.translate.demo;
+package wd.paas.baidu.translate.demo;
 
 import java.util.HashMap;
 import java.util.Map;
