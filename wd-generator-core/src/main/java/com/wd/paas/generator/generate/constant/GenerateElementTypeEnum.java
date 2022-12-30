@@ -25,6 +25,8 @@ public enum GenerateElementTypeEnum {
 //        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/package-info.java.vm",
             // adapter
             "cola/{projectName}/{projectName}-adapter/pom.xml.vm",
+            "cola/{projectName}/{projectName}-adapter/src/resources/i18n/messages_zh_CN.properties",
+            "cola/{projectName}/{projectName}-adapter/src/resources/i18n/messages_en_US.properties",
 //        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/package-info.java.vm",
             // app
             "cola/{projectName}/{projectName}-app/pom.xml.vm",
@@ -42,6 +44,7 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-start/src/main/resources/bootstrap.yml.vm",
             "cola/{projectName}/{projectName}-start/src/main/resources/logback-spring.xml.vm",
             "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/Knife4jConfiguration.java.vm",
+            "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/ProjectExceptionHandler.java.vm",
             "cola/{projectName}/{projectName}-start/src/main/docker/Dockerfile",
     }, new String[]{}),
 
