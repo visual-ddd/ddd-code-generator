@@ -1,0 +1,5 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## ==================== 枚举相关变量 =======================
+## 枚举类包路径
+#set($ENUM_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")

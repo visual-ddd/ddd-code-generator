@@ -102,6 +102,17 @@ public enum GenerateElementTypeEnum {
     }),
 
     /**
+     * 枚举
+     */
+    ENUM("Enum", new String[]{
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Enum.java.vm",
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/EnumConverter.java.vm",
+    }, new String[]{
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Enum.java.vm",
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/EnumConverter.java.vm",
+    }),
+
+    /**
      * 指令
      */
     COMMAND("Command", new String[]{
@@ -153,6 +164,12 @@ public enum GenerateElementTypeEnum {
      * 属性
      */
     FIELD("Field", new String[]{},
+            new String[]{}),
+
+    /**
+     * 常量字段
+     */
+    CONSTANT("Constant", new String[]{},
             new String[]{}),
 
     /**

@@ -42,6 +42,9 @@ public class AggregationDTO extends AbstractUmlDTO {
             aggregationGenerator.setEntityList(
                 EntityDTO.trans2EntityList(aggregationDTO, chartDTO));
 
+            aggregationGenerator.setEnumList(
+                    EnumDTO.trans2EnumList(aggregationDTO, chartDTO));
+
             aggregationGenerator.setCmdList(
                 CmdGeneratorDTO.trans2CmdList(aggregationDTO, chartDTO));
 

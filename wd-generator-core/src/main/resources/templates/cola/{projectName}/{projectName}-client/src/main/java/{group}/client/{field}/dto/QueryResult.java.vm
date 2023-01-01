@@ -13,6 +13,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "${QUERY_RESULT_CLASS_DESCRIPTION}")
 public class ${QUERY_RESULT_CLASS_NAME} extends BaseDTO {
-    #filedExt($QUERY_RESULT_CLASS_FIELDS, ["swagger"])
+#foreach ($field in $QUERY_RESULT_CLASS_FIELDS)
 
+    #if($field.description)
+    @ApiModelProperty(value = "${field.description}")
+    #end
+    ${field.modifier} ${AGGREGATION_GENERATOR_UTIL.enumType2Value(${field.type})} ${field.name};
+#end
 }

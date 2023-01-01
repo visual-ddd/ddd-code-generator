@@ -1,8 +1,8 @@
-package com.wd.paas.generator.input.chartXml;
+package com.wd.paas.generator.input.chartxml;
 
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
-import com.wd.paas.generator.input.chartXml.util.ChartXmlObjectParser;
-import com.wd.paas.generator.input.chartXml.util.model.ChartXmlObject;
+import com.wd.paas.generator.input.chartxml.util.ChartXmlObjectParser;
+import com.wd.paas.generator.input.chartxml.util.model.ChartXmlObject;
 import java.io.InputStream;
 import java.util.List;
 import lombok.Data;
@@ -24,6 +24,11 @@ public final class ChartXmlStream2DomainChartDTO {
         List<ChartXmlObject> chartXmlObjects = ChartXmlObjectParser.parse(chartXmlInputStream);
 
         ChartDTO domainChartDTO = new ChartDTO();
+        if(chartXmlObjects.isEmpty()) {
+            System.out.println("领域图谱元素为空！");
+            return domainChartDTO;
+        }
+
         DomainChartFactory domainChartFactory = new DomainChartFactory(domainChartDTO);
 
         for (ChartXmlObject chartXmlObject : chartXmlObjects) {

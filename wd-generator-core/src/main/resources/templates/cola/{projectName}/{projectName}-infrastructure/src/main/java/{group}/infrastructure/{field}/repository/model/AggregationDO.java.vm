@@ -15,6 +15,11 @@ import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 @Table(name = "${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
 @TableName("${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
 public class ${AGGREGATION_CLASS_NAME}DO extends BaseJpaAggregate {
-    #filed($AGGREGATION_CLASS_FIELDS)
+#foreach ($field in $AGGREGATION_CLASS_FIELDS)
 
+    #if($field.description)
+    /** ${field.description} */
+    #end
+    ${field.modifier} ${AGGREGATION_GENERATOR_UTIL.enumType2Value(${field.type})} ${field.name};
+#end
 }

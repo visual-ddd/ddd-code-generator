@@ -32,6 +32,8 @@ public class VelocityLabel {
     public static final String AGGREGATION_CLASS_FIELDS = "AGGREGATION_CLASS_FIELDS";
     public static final String AGGREGATION_CLASS_METHODS = "AGGREGATION_CLASS_METHODS";
     public static final String AGGREGATION_CLASS_PACKAGE = "AGGREGATION_CLASS_PACKAGE";
+
+    public static final String AGGREGATION_ENUM_LIST = "AGGREGATION_ENUM_LIST";
     public static final String AGGREGATION_CMD_LIST = "AGGREGATION_CMD_LIST";
     public static final String AGGREGATION_QUERY_LIST = "AGGREGATION_QUERY_LIST";
     public static final String AGGREGATION_PAGE_QUERY_LIST = "AGGREGATION_PAGE_QUERY_LIST";
@@ -43,6 +45,12 @@ public class VelocityLabel {
     public static final String ENTITY_CLASS_FIELDS = "ENTITY_CLASS_FIELDS";
     public static final String ENTITY_CLASS_DESCRIPTION = "ENTITY_CLASS_DESCRIPTION";
     public static final String ENTITY_CLASS_METHODS = "ENTITY_CLASS_METHODS";
+
+    // 枚举
+    public static final String ENUM_CLASS_NAME = "ENUM_CLASS_NAME";
+    public static final String ENUM_CLASS_PACKAGE = "ENUM_CLASS_PACKAGE";
+    public static final String ENUM_CLASS_CONSTANTS = "ENUM_CLASS_CONSTANTS";
+    public static final String ENUM_CLASS_DESCRIPTION = "ENUM_CLASS_DESCRIPTION";
 
     // 值对象
     public static final String VALUE_OBJECT_CLASS_NAME = "VALUE_OBJECT_CLASS_NAME";
@@ -95,4 +103,5 @@ public class VelocityLabel {
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";
     public static final String CASE_FORMAT_LOWER_UNDERSCORE = "CASE_FORMAT_LOWER_UNDERSCORE";
+    public static final String AGGREGATION_GENERATOR_UTIL = "AGGREGATION_GENERATOR_UTIL";
 }

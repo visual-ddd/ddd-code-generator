@@ -68,3 +68,8 @@ import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view.${pageQuery.umlClass.className
 import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${queryResult.umlClass.className};
 #end
 #end
+#macro(dependencyEnumConverter)
+#foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
+import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${aggregatioEnum.umlClass.className}Converter;
+#end
+#end

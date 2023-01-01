@@ -6,11 +6,16 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import ${AGGREGATION_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME};
 import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
+#dependencyEnumConverter()
 
 #comment("${AGGREGATION_CLASS_NAME}和DO转换器")
-@Mapper
+@Mapper(uses = {
+    #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
+        ${aggregationEnum.umlClass.className}Converter.class,
+    #end
+})
 public interface ${AGGREGATION_CLASS_NAME}DoConvert extends
-    BaseConvert<${AGGREGATION_CLASS_NAME}, ${AGGREGATION_CLASS_NAME}DO> {
+        BaseConvert<${AGGREGATION_CLASS_NAME}, ${AGGREGATION_CLASS_NAME}DO> {
 
     ${AGGREGATION_CLASS_NAME}DoConvert INSTANCE = Mappers.getMapper(${AGGREGATION_CLASS_NAME}DoConvert.class);
 }

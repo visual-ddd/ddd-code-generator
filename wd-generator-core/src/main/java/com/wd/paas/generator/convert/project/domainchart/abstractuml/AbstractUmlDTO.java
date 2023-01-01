@@ -2,6 +2,7 @@ package com.wd.paas.generator.convert.project.domainchart.abstractuml;
 
 import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlClass;
+import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlConstant;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlMethod;
 import java.util.ArrayList;
@@ -46,10 +47,9 @@ public abstract class AbstractUmlDTO {
      * @return
      */
     public UmlClass trans2UmlClass(List<UmlFieldDTO> fields, List<UmlMethodDTO> methods) {
-        String classId = this.id;
         List<UmlField> fieldList = new ArrayList<>();
         for (UmlFieldDTO umlFieldDTO : fields) {
-            if (Objects.equals(classId, umlFieldDTO.getClassId())) {
+            if (belongCurrentClass(umlFieldDTO.getClassId())) {
                 UmlField umlField = new UmlField();
                 umlField.setName(CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, umlFieldDTO.getName()));
                 umlField.setType(umlFieldDTO.getType());
@@ -60,7 +60,7 @@ public abstract class AbstractUmlDTO {
         }
         List<UmlMethod> umlMethods = new ArrayList<>();
         for (UmlMethodDTO umlMethodDTO : methods) {
-            if (Objects.equals(classId, umlMethodDTO.getClassId())) {
+            if (belongCurrentClass(umlMethodDTO.getClassId())) {
                 UmlMethod umlMethod = new UmlMethod();
                 umlMethod.setName(CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, umlMethodDTO.getName()));
                 umlMethod.setModifier(umlMethodDTO.getModifier());
@@ -77,5 +77,35 @@ public abstract class AbstractUmlDTO {
         umlClass.setClassPackage(classPackage);
         umlClass.setClassDesc(description);
         return umlClass;
+    }
+
+    /**
+     * 转化为枚举类结构
+     *
+     * @return 枚举类结构
+     */
+    public UmlClass trans2EnumUmlClass(List<UmlConstantDTO> constantDTOList) {
+        List<UmlConstant> umlConstants = new ArrayList<>();
+        for (UmlConstantDTO umlConstantDTO : constantDTOList) {
+            if (belongCurrentClass(umlConstantDTO.getClassId())) {
+                UmlConstant umlConstant = new UmlConstant();
+                umlConstant.setName(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_UNDERSCORE, umlConstantDTO.getName()));
+                umlConstant.setCode(umlConstantDTO.getCode());
+                umlConstant.setDesc(umlConstantDTO.getDesc());
+                umlConstant.setNote(umlConstantDTO.getNote());
+                umlConstants.add(umlConstant);
+            }
+        }
+
+        UmlClass umlClass = new UmlClass();
+        umlClass.setClassName(className);
+        umlClass.setConstantList(umlConstants);
+        umlClass.setClassPackage(classPackage);
+        umlClass.setClassDesc(description);
+        return umlClass;
+    }
+
+    private boolean belongCurrentClass(String id) {
+        return Objects.equals(this.id, id);
     }
 }

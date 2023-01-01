@@ -10,6 +10,11 @@ import java.util.List;
 @Data
 @ApiModel(value = "${CMD_CLASS_DESCRIPTION}")
 public class ${CMD_INPUT_CLASS_NAME}DTO {
-    #filedExt($CMD_CLASS_FIELDS, ["swagger"])
+#foreach ($field in $CMD_CLASS_FIELDS)
 
+#if($field.description)
+    @ApiModelProperty(value = "${field.description}")
+#end
+    ${field.modifier} ${AGGREGATION_GENERATOR_UTIL.enumType2Value(${field.type})} ${field.name};
+#end
 }

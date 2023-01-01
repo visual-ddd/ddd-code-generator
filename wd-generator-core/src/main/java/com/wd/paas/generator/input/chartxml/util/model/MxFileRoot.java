@@ -1,4 +1,4 @@
-package com.wd.paas.generator.input.chartXml.util.model;
+package com.wd.paas.generator.input.chartxml.util.model;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;

@@ -7,7 +7,7 @@
   <parent>
     <groupId>com.wakedata</groupId>
     <artifactId>wd-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.0-DDD04</version>
   </parent>
 
   <groupId>com.wd.paas.generator.web</groupId>
@@ -17,7 +17,6 @@
 
   <properties>
     <wd-common-core.version>1.2.2-DDD11</wd-common-core.version>
-    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -108,16 +107,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin.version}</version>
-      </plugin>
-    </plugins>
-  </build>
 
   <distributionManagement>
     <!-- 配置release版本发布的仓库-->

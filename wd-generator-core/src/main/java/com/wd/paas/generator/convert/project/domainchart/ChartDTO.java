@@ -1,24 +1,18 @@
 package com.wd.paas.generator.convert.project.domainchart;
 
 
-import com.google.common.base.CaseFormat;
+import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlConstantDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlFieldDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlMethodDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.EntityDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.PageQueryDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryResultDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.ValueObjectDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.*;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdEventGeneratorDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdGeneratorDTO;
 import com.wd.paas.generator.generate.generator.project.domainchart.abstractuml.UmlField;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import lombok.Data;
 
 /**
  * 领域图谱数据转换对象
@@ -35,6 +29,11 @@ public class ChartDTO {
      * 字段列表
      */
     private List<UmlFieldDTO> umlFieldDTOList;
+
+    /**
+     * 常量列表
+     */
+    private List<UmlConstantDTO> umlConstantDTOList;
 
     /**
      * 方法列表
@@ -55,6 +54,11 @@ public class ChartDTO {
      * 实体
      */
     private List<EntityDTO> entityGeneratorDTOList;
+
+    /**
+     * 枚举
+     */
+    private List<EnumDTO> enumGeneratorDTOList;
 
     /**
      * 指令
@@ -82,9 +86,11 @@ public class ChartDTO {
 
     public ChartDTO() {
         this.umlFieldDTOList = new ArrayList<>();
+        this.umlConstantDTOList = new ArrayList<>();
         this.umlMethodDTOList = new ArrayList<>();
         this.aggregationDTOList = new ArrayList<>();
         this.valueObjectDTOList = new ArrayList<>();
+        this.enumGeneratorDTOList = new ArrayList<>();
         this.entityGeneratorDTOList = new ArrayList<>();
         this.cmdDTOList = new ArrayList<>();
         this.eventDTOList = new ArrayList<>();

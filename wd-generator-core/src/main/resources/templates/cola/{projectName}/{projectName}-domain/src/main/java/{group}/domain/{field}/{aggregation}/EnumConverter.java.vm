@@ -1,0 +1,18 @@
+#parse("templates/Enum.vm")
+package ${ENUM_PACKAGE_PATH};
+
+import com.wakedata.common.core.util.BaseEnumUtil;
+import lombok.AllArgsConstructor;
+
+#comment("${ENUM_CLASS_DESCRIPTION}-枚举转换器")
+@AllArgsConstructor
+public class ${ENUM_CLASS_NAME}Converter {
+
+    public Integer convertToDatabaseColumn(${ENUM_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${ENUM_CLASS_NAME})}) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${ENUM_CLASS_NAME})}.getValue();
+    }
+
+    public MemberType convertToEntityAttribute(Integer value) {
+        return BaseEnumUtil.getEnumByValue(value, ${ENUM_CLASS_NAME}.class);
+    }
+}

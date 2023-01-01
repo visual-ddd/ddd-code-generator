@@ -1,4 +1,4 @@
-package com.wd.paas.generator.input.chartXml.util.model;
+package com.wd.paas.generator.input.chartxml.util.model;
 
 import com.wd.paas.generator.generate.constant.CmdTypeEnum;
 import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
@@ -62,6 +62,18 @@ public class ChartXmlObject {
     private String fieldType;
     @XmlAttribute(name = "fieldModify")
     private String fieldModify;
+
+    /**
+     * 常量
+     */
+    @XmlAttribute(name = "constantCode")
+    private String constantCode;
+    @XmlAttribute(name = "constantName")
+    private String constantName;
+    @XmlAttribute(name = "constantDesc")
+    private String constantDesc;
+    @XmlAttribute(name = "constantNote")
+    private String constantNote;
 
     /**
      * 方法

@@ -1,0 +1,37 @@
+#parse("templates/Enum.vm")
+package ${ENUM_PACKAGE_PATH};
+
+import com.wakedata.common.core.base.BaseEnum;
+import lombok.AllArgsConstructor;
+
+#comment("${ENUM_CLASS_DESCRIPTION}-枚举")
+@AllArgsConstructor
+public enum ${ENUM_CLASS_NAME} implements BaseEnum {
+    #enumConstant(${ENUM_CLASS_CONSTANTS})
+    ;
+
+    private final Integer value;
+    private final String desc;
+
+    @Override
+    public Integer getValue() {
+        return this.value;
+    }
+
+    @Override
+    public String getDesc() {
+        return this.desc;
+    }
+}
+
+#macro(enumConstant $constantList)
+#foreach ($constant in $constantList)
+
+    #if($constant.note)
+    /**
+     * ${constant.note}
+     */
+    #end
+    ${constant.name}(${constant.code}, "${constant.desc}"),
+#end
+#end

@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 聚合生成器
@@ -33,6 +34,10 @@ public class AggregationGenerator extends AbstractGenerator {
      * 实体
      */
     private List<EntityGenerator> entityList;
+    /**
+     * 枚举
+     */
+    private List<EnumGenerator> enumList;
     /**
      * 值对象列表
      */
@@ -61,6 +66,8 @@ public class AggregationGenerator extends AbstractGenerator {
             valueObjectGenerator -> valueObjectGenerator.run(generateContext));
         entityList.forEach(
             entityGenerator -> entityGenerator.run(generateContext));
+        enumList.forEach(
+            enumGenerator -> enumGenerator.run(generateContext));
         cmdList.forEach(
             cmdGenerator -> cmdGenerator.run(generateContext));
         // 视图
@@ -84,6 +91,7 @@ public class AggregationGenerator extends AbstractGenerator {
         context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, umlClass.getClassDesc());
         context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, umlClass.getFieldList());
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, umlClass.getMethodList());
+        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, enumList);
         context.put(VelocityLabel.AGGREGATION_CMD_LIST, cmdList);
         context.put(VelocityLabel.AGGREGATION_QUERY_LIST, queryList);
         context.put(VelocityLabel.AGGREGATION_PAGE_QUERY_LIST, pageQueryList);
@@ -96,6 +104,7 @@ public class AggregationGenerator extends AbstractGenerator {
             CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
             CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
+        context.put(VelocityLabel.AGGREGATION_GENERATOR_UTIL, new AggregationGeneratorUtil());
     }
 
     @Override
@@ -104,5 +113,18 @@ public class AggregationGenerator extends AbstractGenerator {
             .replace(ModelUrlConstant.FIELD, (String) context.get(VelocityLabel.DOMAIN_NAME))
             .replace(ModelUrlConstant.AGGREGATION, StringUtils.lowerCase(umlClass.getClassName()))
             .replace(ModelUrlConstant.AGGREGATION_CLASS, umlClass.getClassName());
+    }
+
+    public class AggregationGeneratorUtil {
+
+        public String enumType2Value(String umlFieldType) {
+            for (EnumGenerator enumGenerator : enumList) {
+                String enumName = enumGenerator.getUmlClass().getClassName();
+                if (Objects.equals(enumName, umlFieldType)) {
+                    return "Integer";
+                }
+            }
+            return umlFieldType;
+        }
     }
 }

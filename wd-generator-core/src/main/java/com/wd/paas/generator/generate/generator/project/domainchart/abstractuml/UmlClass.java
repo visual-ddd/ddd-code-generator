@@ -26,6 +26,11 @@ public class UmlClass {
     public List<UmlField> fieldList;
 
     /**
+     * 枚举类常量列表
+     */
+    public List<UmlConstant> constantList;
+
+    /**
      * 类方法列表
      */
     public List<UmlMethod> methodList;

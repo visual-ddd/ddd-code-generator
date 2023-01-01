@@ -1,26 +1,23 @@
-package com.wd.paas.generator.input.chartXml;
+package com.wd.paas.generator.input.chartxml;
 
 
 import com.wd.paas.generator.common.constant.ModifyEnum;
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
+import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlConstantDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlFieldDTO;
 import com.wd.paas.generator.convert.project.domainchart.abstractuml.UmlMethodDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.EntityDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.PageQueryDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.QueryResultDTO;
-import com.wd.paas.generator.convert.project.domainchart.aggregation.ValueObjectDTO;
+import com.wd.paas.generator.convert.project.domainchart.aggregation.*;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdEventGeneratorDTO;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.cmd.CmdGeneratorDTO;
 import com.wd.paas.generator.generate.constant.GenerateElementTypeEnum;
-import com.wd.paas.generator.input.chartXml.util.model.ChartXmlObject;
-import com.wd.paas.generator.input.chartXml.util.model.MxCell;
+import com.wd.paas.generator.input.chartxml.util.model.ChartXmlObject;
+import com.wd.paas.generator.input.chartxml.util.model.MxCell;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * chartXml工厂类
@@ -39,16 +36,16 @@ public class DomainChartFactory {
         this.domainChartDTO = domainChartDTO;
     }
 
-    public void putInstance( ChartXmlObject dddXmlObject) {
+    public void putInstance(ChartXmlObject dddXmlObject) {
         GenerateElementTypeEnum shapeType = Optional.ofNullable(dddXmlObject)
-            .map(ChartXmlObject::getShapeType).
-            orElse(GenerateElementTypeEnum.OTHER);
+                .map(ChartXmlObject::getShapeType).
+                orElse(GenerateElementTypeEnum.OTHER);
 
         String xmlObjectId = Optional.ofNullable(dddXmlObject).map(ChartXmlObject::getId)
-            .orElse(null);
+                .orElse(null);
 
         String style = Optional.ofNullable(dddXmlObject).map(ChartXmlObject::getMxCell)
-            .map(MxCell::getStyle).orElse(null);
+                .map(MxCell::getStyle).orElse(null);
 
         switch (shapeType) {
             case AGGREGATION:
@@ -66,6 +63,14 @@ public class DomainChartFactory {
                 entityGeneratorDTO.setClassName(dddXmlObject.getClassName());
                 entityGeneratorDTO.setDescription(dddXmlObject.getClassDesc());
                 domainChartDTO.getEntityGeneratorDTOList().add(entityGeneratorDTO);
+                break;
+            case ENUM:
+                EnumDTO enumDTO = new EnumDTO();
+                enumDTO.setId(xmlObjectId);
+                enumDTO.setAggregationColor(getColor(style));
+                enumDTO.setClassName(dddXmlObject.getClassName());
+                enumDTO.setDescription(dddXmlObject.getClassDesc());
+                domainChartDTO.getEnumGeneratorDTOList().add(enumDTO);
                 break;
             case VALUE_OBJECT:
                 ValueObjectDTO valueObjectDTO = new ValueObjectDTO();
@@ -101,6 +106,15 @@ public class DomainChartFactory {
                 umlFieldDTO.setDescription(dddXmlObject.getFieldDesc());
                 domainChartDTO.getUmlFieldDTOList().add(umlFieldDTO);
                 break;
+            case CONSTANT:
+                UmlConstantDTO umlConstantDTO = new UmlConstantDTO();
+                umlConstantDTO.setClassId(dddXmlObject.getMxCell().getParent());
+                umlConstantDTO.setName(dddXmlObject.getConstantName());
+                umlConstantDTO.setCode(dddXmlObject.getConstantCode());
+                umlConstantDTO.setDesc(dddXmlObject.getConstantDesc());
+                umlConstantDTO.setNote(dddXmlObject.getConstantNote());
+                domainChartDTO.getUmlConstantDTOList().add(umlConstantDTO);
+                break;
             case METHOD:
                 UmlMethodDTO umlMethodDTO = new UmlMethodDTO();
                 umlMethodDTO.setReturnType(dddXmlObject.getMethodReturn());
@@ -111,7 +125,7 @@ public class DomainChartFactory {
                 umlMethodDTO.setDescription(dddXmlObject.getMethodDesc());
                 domainChartDTO.getUmlMethodDTOList().add(umlMethodDTO);
                 break;
-            case  QUERY:
+            case QUERY:
                 // query对象
                 QueryDTO queryDTO = new QueryDTO();
                 queryDTO.setId(xmlObjectId);
@@ -139,6 +153,7 @@ public class DomainChartFactory {
                 queryResultDTO.setDescription(dddXmlObject.getClassDesc());
                 domainChartDTO.getQueryResultDTOList().add(queryResultDTO);
                 break;
+            case OTHER:
             default:
                 break;
         }

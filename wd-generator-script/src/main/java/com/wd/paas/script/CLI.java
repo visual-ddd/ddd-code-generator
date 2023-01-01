@@ -9,7 +9,7 @@ import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
 import com.wd.paas.generator.convert.project.domainchart.DomainChartDTO;
 import com.wd.paas.generator.generate.GenerateContext;
 import com.wd.paas.generator.generate.constant.GenerateWayEnum;
-import com.wd.paas.generator.input.chartXml.ChartXmlStream2DomainChartDTO;
+import com.wd.paas.generator.input.chartxml.ChartXmlStream2DomainChartDTO;
 import org.apache.velocity.VelocityContext;
 
 import java.io.IOException;
@@ -92,8 +92,7 @@ public class CLI {
 
         jCommander.getConsole().println("========== 启动代码生成器脚本 ==========");
 
-        ProjectDTO projectGeneratorDTO = getProjectGeneratorDTO(
-            getDomainChartGeneratorDTO(getChartDTO()));
+        ProjectDTO projectGeneratorDTO = getProjectGeneratorDTO(getDomainChartGeneratorDTO(getChartDTO()));
         GenerateContext generateContext = new GenerateContext(new VelocityContext(),
             outputPath, null, generateWay);
 

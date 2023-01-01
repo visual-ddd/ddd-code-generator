@@ -1,4 +1,4 @@
-package com.wd.paas.generator.input.chartXml.util;
+package com.wd.paas.generator.input.chartxml.util;
 
 import java.io.InputStream;
 import javax.xml.bind.JAXBContext;

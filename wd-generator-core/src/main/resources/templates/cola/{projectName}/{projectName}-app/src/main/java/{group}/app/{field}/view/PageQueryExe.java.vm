@@ -23,8 +23,8 @@ public class ${PAGE_QUERY_CLASS_NAME}Exe {
     public PageResultDTO<List<${QUERY_RESULT_TYPE}>> execute(${PAGE_QUERY_CLASS_NAME} pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
-        List<${AGGREGATION_CLASS_NAME}DO> ${AGGREGATION_CLASS_NAME_ALL_LOWER}doList = ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${PAGE_QUERY_CLASS_NAME})}(pageQuery);
-        List<${QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})}List = ${QUERY_RESULT_TYPE}2DOConvert.INSTANCE.doList2DtoList(${AGGREGATION_CLASS_NAME_ALL_LOWER}doList);
+        List<${AGGREGATION_CLASS_NAME}DO> ${AGGREGATION_CLASS_NAME_ALL_LOWER}DoList = ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${PAGE_QUERY_CLASS_NAME})}(pageQuery);
+        List<${QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})}List = ${QUERY_RESULT_TYPE}2DOConvert.INSTANCE.doList2DtoList(${AGGREGATION_CLASS_NAME_ALL_LOWER}DoList);
 
         PageInfo<${QUERY_RESULT_TYPE}> pageInfo = new PageInfo<>(${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})}List);
         PageResultDTO<List<${QUERY_RESULT_TYPE}>> pageResultDTO = new PageResultDTO<>();

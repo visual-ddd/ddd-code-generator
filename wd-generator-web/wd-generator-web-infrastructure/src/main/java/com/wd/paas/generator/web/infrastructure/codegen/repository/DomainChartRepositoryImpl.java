@@ -9,7 +9,7 @@ import com.wakedata.common.storage.model.UploadRequest;
 import com.wakedata.common.storage.service.FileStorageService;
 import com.wd.paas.generator.convert.project.domainchart.ChartDTO;
 import com.wd.paas.generator.convert.project.domainchart.DomainChartDTO;
-import com.wd.paas.generator.input.chartXml.ChartXmlStream2DomainChartDTO;
+import com.wd.paas.generator.input.chartxml.ChartXmlStream2DomainChartDTO;
 import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChart;
 import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepository;
 import com.wd.paas.generator.web.infrastructure.codegen.assembler.DomainChartDoConvert;

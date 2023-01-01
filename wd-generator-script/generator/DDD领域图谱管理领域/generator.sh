@@ -11,7 +11,7 @@ java -jar target/wd-generator-script.jar \
 --projectName wd-generator-web-test \
 --projectAuthor ZhuXueLiang \
 --projectGroup com.wd.paas.generator.web.test \
---domainName Team \
---domainDesc 团队领域 \
+--domainName Organization \
+--domainDesc 组织域 \
 --domainAuthor "GaoZhiYi, ZhuXueLiang" \
 --outputPath target

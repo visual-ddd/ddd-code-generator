@@ -1,6 +1,5 @@
 package com.wd.paas.generator.convert.project.domainchart;
 
-import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.convert.project.domainchart.aggregation.AggregationDTO;
 import com.wd.paas.generator.generate.generator.DomainChartInfo;
 import com.wd.paas.generator.generate.generator.project.domainchart.DomainChartGenerator;

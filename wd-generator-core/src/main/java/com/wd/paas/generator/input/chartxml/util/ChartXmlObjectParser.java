@@ -1,10 +1,10 @@
-package com.wd.paas.generator.input.chartXml.util;
+package com.wd.paas.generator.input.chartxml.util;
 
-import com.wd.paas.generator.input.chartXml.util.model.ChartXmlObject;
-import com.wd.paas.generator.input.chartXml.util.model.Diagram;
-import com.wd.paas.generator.input.chartXml.util.model.MxFileRoot;
-import com.wd.paas.generator.input.chartXml.util.model.MxGraphModel;
-import com.wd.paas.generator.input.chartXml.util.model.Root;
+import com.wd.paas.generator.input.chartxml.util.model.ChartXmlObject;
+import com.wd.paas.generator.input.chartxml.util.model.Diagram;
+import com.wd.paas.generator.input.chartxml.util.model.MxFileRoot;
+import com.wd.paas.generator.input.chartxml.util.model.MxGraphModel;
+import com.wd.paas.generator.input.chartxml.util.model.Root;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
