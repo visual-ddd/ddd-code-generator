@@ -117,11 +117,27 @@ public class AggregationGenerator extends AbstractGenerator {
 
     public class AggregationGeneratorUtil {
 
-        public String enumType2Value(String umlFieldType) {
+        public String dtoEnumType2Value(String umlFieldType) {
             for (EnumGenerator enumGenerator : enumList) {
                 String enumName = enumGenerator.getUmlClass().getClassName();
                 if (Objects.equals(enumName, umlFieldType)) {
                     return "Integer";
+                }
+                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
+                    return "List<Integer>";
+                }
+            }
+            return umlFieldType;
+        }
+
+        public String doEnumType2Value(String umlFieldType) {
+            for (EnumGenerator enumGenerator : enumList) {
+                String enumName = enumGenerator.getUmlClass().getClassName();
+                if (Objects.equals(enumName, umlFieldType)) {
+                    return "Integer";
+                }
+                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
+                    return "String";
                 }
             }
             return umlFieldType;

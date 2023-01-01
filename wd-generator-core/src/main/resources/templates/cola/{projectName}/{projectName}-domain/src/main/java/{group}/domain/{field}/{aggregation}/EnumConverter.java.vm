@@ -1,8 +1,15 @@
 #parse("templates/Enum.vm")
 package ${ENUM_PACKAGE_PATH};
 
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONUtil;
 import com.wakedata.common.core.util.BaseEnumUtil;
 import lombok.AllArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 #comment("${ENUM_CLASS_DESCRIPTION}-枚举转换器")
 @AllArgsConstructor
@@ -14,5 +21,23 @@ public class ${ENUM_CLASS_NAME}Converter {
 
     public MemberType convertToEntityAttribute(Integer value) {
         return BaseEnumUtil.getEnumByValue(value, ${ENUM_CLASS_NAME}.class);
+    }
+
+    public String convertToDatabaseColumn(List<${ENUM_CLASS_NAME}> enumList) {
+        JSONArray jsonArray = new JSONArray();
+        for (${ENUM_CLASS_NAME} enumType : Optional.ofNullable(enumList).orElse(Collections.emptyList())) {
+            Integer value = convertToDatabaseColumn(enumType);
+            jsonArray.add(value);
+        }
+        return jsonArray.toString();
+    }
+
+    public List<MemberType> convertToDatabaseColumn(String jsonArray) {
+        List<${ENUM_CLASS_NAME}> enumList = new ArrayList<>();
+        List<Integer> values = JSONUtil.toList(jsonArray, Integer.class);
+        for (Integer value : values) {
+            enumList.add(convertToEntityAttribute(value));
+        }
+        return enumList;
     }
 }

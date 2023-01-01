@@ -1,7 +1,6 @@
 package ${PROJECT_PACKAGE}.infrastructure;
 
 import java.util.List;
-import org.mapstruct.Mapping;
 
 /**
  * 持久层基础转换接口

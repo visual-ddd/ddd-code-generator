@@ -15,6 +15,6 @@ public class ${CMD_INPUT_CLASS_NAME}DTO {
 #if($field.description)
     @ApiModelProperty(value = "${field.description}")
 #end
-    ${field.modifier} ${AGGREGATION_GENERATOR_UTIL.enumType2Value(${field.type})} ${field.name};
+    ${field.modifier} ${AGGREGATION_GENERATOR_UTIL.dtoEnumType2Value(${field.type})} ${field.name};
 #end
 }

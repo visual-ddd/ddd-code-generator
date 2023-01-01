@@ -51,7 +51,19 @@ public enum GenerateElementTypeEnum {
     /**
      * 领域图谱
      */
-    DOMAIN_CHART("DomainChart", new String[]{}, new String[]{}),
+    DOMAIN_CHART("DomainChart", new String[]{
+            // domain
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/DomainEntity.java.vm",
+            // controller
+
+            // repository
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
+            // app
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/JsonConverter.java.vm",
+            // client
+
+    }, new String[]{}),
 
     /**
      * 聚合
@@ -62,7 +74,6 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationFactory.java.vm",
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationRepository.java.vm",
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
-            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/DomainEntity.java.vm",
             // controller
             "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/AggregationAppController.java.vm",
             "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/AggregationWebController.java.vm",
@@ -72,8 +83,6 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/AggregationRepositoryImpl.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/AggregationDoConvert.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
             // app
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/AggregationRpcServiceImpl.java.vm",
             // client
