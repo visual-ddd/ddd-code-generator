@@ -48,4 +48,8 @@ public class UmlClass {
     public String getClassPackage() {
         return Optional.ofNullable(classPackage).map(String::toLowerCase).orElse(StringUtils.EMPTY);
     }
+
+    public String getOriginalClassPackage() {
+        return this.classPackage;
+    }
 }

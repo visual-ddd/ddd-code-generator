@@ -17,7 +17,7 @@ public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME}
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.cmdType} == "UPDATE")
 
-    public void modify(${cmd.umlClass.className} updateCmd) {
+    public void ${cmd.umlClass.getOriginalClassPackage()}(${cmd.umlClass.className} updateCmd) {
     #foreach($cmdField in ${cmd.umlClass.fieldList})
         this.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
     #end
@@ -25,7 +25,7 @@ public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME}
 #end
 #if(${cmd.cmdType} == "DELETE")
 
-    public void deletable(${cmd.umlClass.className} removeCmd) {
+    public void ${cmd.umlClass.getOriginalClassPackage()}(${cmd.umlClass.className} removeCmd) {
 
     }
 #end

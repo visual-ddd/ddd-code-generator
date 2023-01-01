@@ -73,6 +73,7 @@ public class CmdGenerator extends AbstractGenerator {
         context.put(VelocityLabel.CMD_CLASS_NAME, umlClass.getClassName());
         context.put(VelocityLabel.CMD_INPUT_CLASS_NAME, this.inputClassName);
         context.put(VelocityLabel.CMD_CLASS_PACKAGE, umlClass.getClassPackage());
+        context.put(VelocityLabel.CMD_CLASS_PACKAGE_ORIGINAL, umlClass.getOriginalClassPackage());
         context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, umlClass.getClassDesc());
         context.put(VelocityLabel.CMD_CLASS_FIELDS, umlClass.getFieldList());
         context.put(VelocityLabel.CMD_CLASS_METHODS, umlClass.getMethodList());

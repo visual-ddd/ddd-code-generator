@@ -16,7 +16,7 @@ public class ${CMD_CLASS_NAME}Handler {
 
     public void handle(${CMD_CLASS_NAME} removeCmd) {
         ${AGGREGATION_CLASS_NAME} ${aggregation} = repository.find(removeCmd.getId());
-        ${aggregation}.deletable(removeCmd);
+        ${aggregation}.${CMD_CLASS_PACKAGE_ORIGINAL}(removeCmd);
         repository.remove(${aggregation});
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT.umlClass.className}(removeCmd));
