@@ -19,7 +19,7 @@ public class ${ENUM_CLASS_NAME}Converter {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${ENUM_CLASS_NAME})}.getValue();
     }
 
-    public MemberType convertToEntityAttribute(Integer value) {
+    public ${ENUM_CLASS_NAME} convertToEntityAttribute(Integer value) {
         return BaseEnumUtil.getEnumByValue(value, ${ENUM_CLASS_NAME}.class);
     }
 
@@ -32,7 +32,7 @@ public class ${ENUM_CLASS_NAME}Converter {
         return jsonArray.toString();
     }
 
-    public List<MemberType> convertToDatabaseColumn(String jsonArray) {
+    public List<${ENUM_CLASS_NAME}> convertToDatabaseColumn(String jsonArray) {
         List<${ENUM_CLASS_NAME}> enumList = new ArrayList<>();
         List<Integer> values = JSONUtil.toList(jsonArray, Integer.class);
         for (Integer value : values) {
