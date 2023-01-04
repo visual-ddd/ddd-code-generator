@@ -24,8 +24,7 @@ public class ProjectCreateCmdHandler {
     public Long handle(ProjectCreateCmd cmd) {
         Long id = repository.insertProject(factory.getInstance(cmd));
 
-        DomainEventPublisher.getInstance()
-            .postAfterCommit(new ProjectCreateEvent(cmd, id));
+//        DomainEventPublisher.getInstance().postAfterCommit(new ProjectCreateEvent(cmd, id));
         return id;
     }
 }

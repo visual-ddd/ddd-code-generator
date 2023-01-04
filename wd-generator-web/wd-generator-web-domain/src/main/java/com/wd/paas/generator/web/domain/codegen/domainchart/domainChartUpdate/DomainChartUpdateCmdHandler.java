@@ -24,7 +24,6 @@ public class DomainChartUpdateCmdHandler {
         domainChart.modify(cmd);
         repository.updateDomainChart(domainChart);
 
-        DomainEventPublisher.getInstance()
-            .postAfterCommit(new DomainChartUpdateEvent(cmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new DomainChartUpdateEvent(cmd));
     }
 }

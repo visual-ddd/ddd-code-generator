@@ -21,7 +21,6 @@ public class DomainChartRemoveCmdHandler {
     public void handle(DomainChartRemoveCmd cmd) {
         repository.deleteDomainChartById(cmd.getId());
 
-        DomainEventPublisher.getInstance()
-            .postAfterCommit(new DomainChartRemoveEvent(cmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new DomainChartRemoveEvent(cmd));
     }
 }

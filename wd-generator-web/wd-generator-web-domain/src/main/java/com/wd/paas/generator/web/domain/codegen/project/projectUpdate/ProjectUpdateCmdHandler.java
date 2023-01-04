@@ -27,7 +27,6 @@ public class ProjectUpdateCmdHandler {
         project.modify(cmd);
         repository.updateProject(project);
 
-        DomainEventPublisher.getInstance()
-            .postAfterCommit(new ProjectUpdateEvent(cmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new ProjectUpdateEvent(cmd));
     }
 }

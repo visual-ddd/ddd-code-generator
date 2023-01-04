@@ -24,7 +24,6 @@ public class DomainChartCreateCmdHandler {
     public void handle(DomainChartCreateCmd cmd) {
         Long id = repository.insertDomainChart(factory.getInstance(cmd));
 
-        DomainEventPublisher.getInstance()
-            .postAfterCommit(new DomainChartCreateEvent(cmd, id));
+//        DomainEventPublisher.getInstance().postAfterCommit(new DomainChartCreateEvent(cmd, id));
     }
 }

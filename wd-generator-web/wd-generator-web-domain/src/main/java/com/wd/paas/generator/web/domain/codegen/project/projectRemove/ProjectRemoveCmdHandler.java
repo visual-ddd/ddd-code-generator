@@ -27,7 +27,6 @@ public class ProjectRemoveCmdHandler {
         // 删除项目下的领域图谱
         domainChartRepository.deleteDomainChartByProjectId(cmd.getId());
 
-        DomainEventPublisher.getInstance()
-            .postAfterCommit(new ProjectRemoveEvent(cmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new ProjectRemoveEvent(cmd));
     }
 }

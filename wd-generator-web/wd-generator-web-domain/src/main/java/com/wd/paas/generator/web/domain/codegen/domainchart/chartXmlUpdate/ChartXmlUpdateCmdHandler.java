@@ -28,7 +28,6 @@ public class ChartXmlUpdateCmdHandler {
         domainChart.setChartXml(cmd.getChartXml());
         repository.updateChartXml(domainChart);
 
-        DomainEventPublisher.getInstance()
-            .postAfterCommit(new ChartXmlUpdateEvent(cmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new ChartXmlUpdateEvent(cmd));
     }
 }
