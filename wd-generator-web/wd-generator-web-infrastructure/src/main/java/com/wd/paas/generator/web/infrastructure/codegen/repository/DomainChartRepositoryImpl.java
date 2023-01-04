@@ -18,6 +18,7 @@ import com.wd.paas.generator.web.infrastructure.codegen.repository.model.DomainC
 import com.wd.paas.generator.web.infrastructure.codegen.repository.util.SingleVelocityFileGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.VelocityContext;
 import org.springframework.stereotype.Component;
 
@@ -64,12 +65,20 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
     private String initChartXml(DomainChart domainChart) {
         VelocityContext velocityContext = new VelocityContext();
         velocityContext.put("DOMAIN_NAME", domainChart.getDomainName());
-        velocityContext.put("DOMAIN_DESC", domainChart.getDomainDesc());
+        velocityContext.put("DOMAIN_DESC", excludeStr(domainChart));
         InputStream inputStream = SingleVelocityFileGenerator.run(velocityContext, CHART_XML_INIT_DRAWIO_VM);
 
         String key = UUID.randomUUID().toString();
         this.uploadOSSFile(key, inputStream);
         return key;
+    }
+
+    private static String excludeStr(DomainChart domainChart) {
+        String domainDesc = domainChart.getDomainDesc();
+        int indexOf = domainDesc.lastIndexOf("域");
+        return indexOf > 0
+                ? StringUtils.substring(domainDesc, 0, indexOf)
+                : domainDesc;
     }
 
     @Override
