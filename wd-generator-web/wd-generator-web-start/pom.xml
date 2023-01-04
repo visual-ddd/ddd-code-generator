@@ -87,6 +87,7 @@
           <dockerHost>tcp://127.0.0.1:2375</dockerHost>
           <images>
             <image>
+              <!--suppress UnresolvedMavenProperty -->
               <name>172.26.59.200/paas/wake-code-genrerator/${git.branch}/wd-generator-web:${project.version}</name>
               <alias>dockerfile</alias>
               <build>
