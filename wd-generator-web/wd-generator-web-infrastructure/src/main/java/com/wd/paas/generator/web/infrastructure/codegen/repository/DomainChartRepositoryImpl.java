@@ -15,13 +15,16 @@ import com.wd.paas.generator.web.domain.codegen.domainchart.DomainChartRepositor
 import com.wd.paas.generator.web.infrastructure.codegen.assembler.DomainChartDoConvert;
 import com.wd.paas.generator.web.infrastructure.codegen.repository.mapper.DomainChartMapper;
 import com.wd.paas.generator.web.infrastructure.codegen.repository.model.DomainChartDO;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.annotation.Resource;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Component;
@@ -37,6 +40,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DomainChartRepositoryImpl implements DomainChartRepository {
 
+    public static final String CHART_XML_INIT_DRAWIO = "chartXmlInit.drawio";
+    public static final String CHART_XML_COMPONENT_XML = "chartXmlComponent.xml";
     @Resource
     private DomainChartMapper mapper;
     @Resource
@@ -58,17 +63,40 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
     private String initChartXml() {
         String key = UUID.randomUUID().toString();
 
+        // 尝试从云端获取初始化文件
+        InputStream chartXmlInitStream = getOSSFileStream(CHART_XML_INIT_DRAWIO);
+        if (chartXmlInitStream != null) {
+            this.uploadOSSFile(key, chartXmlInitStream);
+        } else {
+            getInitFileFromLocal(key);
+        }
+        return key;
+    }
+
+    private void getInitFileFromLocal(String key) {
         try (InputStream fileInput = this.getClass().getClassLoader()
-            .getResourceAsStream("chartXmlInit.drawio")) {
+                .getResourceAsStream(CHART_XML_INIT_DRAWIO)) {
             if (fileInput == null) {
                 throw new BizException("图片初始化文件不存在!");
             }
-
+            this.uploadOSSFile(CHART_XML_INIT_DRAWIO, fileInput);
             this.uploadOSSFile(key, fileInput);
         } catch (IOException e) {
             throw new BizException("图片初始化文件资源读取失败!");
         }
-        return key;
+    }
+
+    private InputStream getComponentFileFromLocal() {
+        try (InputStream fileInput = this.getClass().getClassLoader()
+                .getResourceAsStream(CHART_XML_COMPONENT_XML)) {
+            if (fileInput == null) {
+                throw new BizException("图片初始化文件不存在!");
+            }
+            this.uploadOSSFile(CHART_XML_COMPONENT_XML, fileInput);
+            return fileInput;
+        } catch (IOException e) {
+            throw new BizException("图片初始化文件资源读取失败!");
+        }
     }
 
     @Override
@@ -93,15 +121,15 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
     @Override
     public void deleteDomainChartByProjectId(Long projectId) {
         List<DomainChartDO> domainChartDOS = mapper.selectList(
-            new LambdaQueryWrapper<DomainChartDO>()
-                .eq(DomainChartDO::getProjectId, projectId));
+                new LambdaQueryWrapper<DomainChartDO>()
+                        .eq(DomainChartDO::getProjectId, projectId));
 
         domainChartDOS.stream()
-            .map(DomainChartDO::getFileKey)
-            .forEach(this::deleteOSSFile);
+                .map(DomainChartDO::getFileKey)
+                .forEach(this::deleteOSSFile);
 
         mapper.delete(new LambdaQueryWrapper<DomainChartDO>()
-            .eq(DomainChartDO::getProjectId, projectId));
+                .eq(DomainChartDO::getProjectId, projectId));
     }
 
     @Override
@@ -127,8 +155,8 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
     @Override
     public List<DomainChartDTO> buildDomainChartDTOList(Long projectId) {
         List<DomainChartDO> domainChartDOS = mapper.selectList(
-            new LambdaQueryWrapper<DomainChartDO>()
-                .eq(DomainChartDO::getProjectId, projectId));
+                new LambdaQueryWrapper<DomainChartDO>()
+                        .eq(DomainChartDO::getProjectId, projectId));
         List<DomainChartDTO> domainChartDTOS = new ArrayList<>();
         domainChartDOS.forEach(domainChartDO -> {
             DomainChartDTO domainChartDTO = new DomainChartDTO();
@@ -137,7 +165,7 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
             domainChartDTO.setAuthor(domainChartDO.getDomainAuthor());
             domainChartDTO.setDateTime(new DateTime().toStringDefaultTimeZone());
             ChartDTO chartDTO = ChartXmlStream2DomainChartDTO.getDomainChartDTO(
-                this.getOSSFileStream(domainChartDO.getFileKey()));
+                    this.getOSSFileStream(domainChartDO.getFileKey()));
             domainChartDTO.setChartDTO(chartDTO);
             domainChartDTOS.add(domainChartDTO);
         });
@@ -153,7 +181,9 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
 
     @Override
     public InputStream downloadChartXmlComponent() {
-        return getOSSFileStream("chartXmlComponent.xml");
+        // 尝试从云端获取初始化文件
+        InputStream componentXml = getOSSFileStream(CHART_XML_COMPONENT_XML);
+        return componentXml == null ? getComponentFileFromLocal() : componentXml;
     }
 
 
@@ -166,7 +196,7 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
     private void uploadOSSFile(String key, InputStream fileInput) {
         try {
             UploadRequest request = UploadRequest.builder().fileKey(key).bucket(BucketEnum.MATERIAL)
-                .build();
+                    .build();
             fileStorageService.upload(request, fileInput);
         } catch (Exception e) {
             log.error("上传领域图谱云文件失败!");
