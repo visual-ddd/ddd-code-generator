@@ -12,8 +12,8 @@ import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
-@TableName("${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
+@Table(name = "${AGGREGATION_TABLE_NAME}")
+@TableName("${AGGREGATION_TABLE_NAME}")
 public class ${AGGREGATION_CLASS_NAME}DO extends BaseJpaAggregate {
 #foreach ($field in $AGGREGATION_CLASS_FIELDS)
 
