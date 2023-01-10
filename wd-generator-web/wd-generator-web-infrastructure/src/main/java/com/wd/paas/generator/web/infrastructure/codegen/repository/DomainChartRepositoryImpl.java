@@ -3,6 +3,7 @@ package com.wd.paas.generator.web.infrastructure.codegen.repository;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.lang.UUID;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.google.common.base.CaseFormat;
 import com.wakedata.common.core.exception.BizException;
 import com.wakedata.common.storage.enums.BucketEnum;
 import com.wakedata.common.storage.model.UploadRequest;
@@ -64,7 +65,7 @@ public class DomainChartRepositoryImpl implements DomainChartRepository {
      */
     private String initChartXml(DomainChart domainChart) {
         VelocityContext velocityContext = new VelocityContext();
-        velocityContext.put("DOMAIN_NAME", domainChart.getDomainName());
+        velocityContext.put("DOMAIN_NAME", CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL).convert(domainChart.getDomainName()));
         velocityContext.put("DOMAIN_DESC", excludeStr(domainChart));
         InputStream inputStream = SingleVelocityFileGenerator.run(velocityContext, CHART_XML_INIT_DRAWIO_VM);
 
