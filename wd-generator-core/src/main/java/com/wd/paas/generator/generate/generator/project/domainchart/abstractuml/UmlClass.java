@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.generator.project.domainchart.abstractuml;
 
+import com.google.common.base.CaseFormat;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
@@ -44,6 +45,10 @@ public class UmlClass {
      * 类描述信息
      */
     public String classDesc;
+
+    public String getClassName() {
+        return CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL).convert(this.className);
+    }
 
     public String getClassPackage() {
         return Optional.ofNullable(classPackage).map(String::toLowerCase).orElse(StringUtils.EMPTY);

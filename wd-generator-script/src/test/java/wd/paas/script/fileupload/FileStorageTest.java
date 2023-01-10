@@ -1,4 +1,4 @@
-package wd.paas.script;
+package wd.paas.script.fileupload;
 
 import com.wakedata.common.storage.enums.BucketEnum;
 import com.wakedata.common.storage.model.UploadRequest;
@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import wd.paas.script.StartApplication;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -35,6 +36,19 @@ public class FileStorageTest {
             .bucket(BucketEnum.MATERIAL)
             .build();
         try (InputStream fileInput = Files.newInputStream(Paths.get("target/wd-generator-script.jar"))) {
+
+            fileStorageService.upload(request, fileInput);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    public void testUploadChartXmlInit() {
+        UploadRequest request = UploadRequest.builder().fileKey("chartXmlInit.drawio.vm")
+                .bucket(BucketEnum.MATERIAL)
+                .build();
+        try (InputStream fileInput = Files.newInputStream(Paths.get("/Users/shimmer/Project/Idea/Company/wake/wake-code-generator/wd-generator-web/wd-generator-web-infrastructure/src/main/resources/chartXmlInit.drawio"))) {
 
             fileStorageService.upload(request, fileInput);
         } catch (IOException e) {

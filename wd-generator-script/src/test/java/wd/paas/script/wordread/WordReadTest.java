@@ -1,4 +1,4 @@
-package wd.paas.script;
+package wd.paas.script.wordread;
 
 import com.spire.doc.*;
 import com.spire.doc.documents.DocumentObjectType;

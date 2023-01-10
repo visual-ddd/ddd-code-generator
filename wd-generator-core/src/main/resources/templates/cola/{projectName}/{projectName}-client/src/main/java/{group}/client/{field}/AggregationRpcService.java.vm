@@ -1,11 +1,13 @@
 #parse("templates/Aggregation.vm")
 package ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH};
 
-import java.util.List;
+import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 #dependencyCmdDTO()
 #dependencyQuery()
 #dependencyQueryResult()
+
+import java.util.List;
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-RPC能力接口")
 public interface ${AGGREGATION_CLASS_NAME}RpcService {
@@ -28,7 +30,7 @@ public interface ${AGGREGATION_CLASS_NAME}RpcService {
     /**
      * ${pageQuery.umlClass.classDesc}
      */
-    ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery);
+    PageResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery);
 #end
 
 }

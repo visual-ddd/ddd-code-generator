@@ -14,6 +14,8 @@ public class ${AGGREGATION_CLASS_NAME}WebController {
 #macro(controllerImport)
 import java.util.List;
 import javax.annotation.Resource;
+
+import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,7 +56,7 @@ import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcServi
 
     @ApiOperation("${pageQuery.umlClass.classDesc}")
     @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${pageQuery.umlClass.className})}")
-    public ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery) {
+    public PageResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(pageQuery);
      }
 #end

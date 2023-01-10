@@ -1,9 +1,7 @@
 #parse("templates/Aggregation.vm")
 package $AGGREGATION_RPC_SERVICE_IMPL_PACKAGE_PATH;
 
-import java.util.List;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
+import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcService;
 #dependencyCmdDTO()
@@ -13,6 +11,10 @@ import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcServi
 #dependencyQueryExe()
 #dependencyCmdDTOConvert()
 #dependencyCmd()
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-RPC能力接口实现")
 @Service
@@ -51,7 +53,7 @@ public class ${AGGREGATION_CLASS_NAME}RpcServiceImpl implements ${AGGREGATION_CL
 #foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
 
     @Override
-    public ResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery) {
+    public PageResultDTO<List<${pageQuery.queryResultType}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}Exe.execute(pageQuery);
     }
 #end

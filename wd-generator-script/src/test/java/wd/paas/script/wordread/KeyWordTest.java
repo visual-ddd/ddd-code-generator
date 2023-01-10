@@ -1,4 +1,4 @@
-package wd.paas.script;
+package wd.paas.script.wordread;
 
 import com.huaban.analysis.jieba.WordDictionary;
 import com.qianxinyao.analysis.jieba.keyword.Keyword;
@@ -7,6 +7,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import wd.paas.baidu.translate.demo.TransApi;
+import wd.paas.script.wordread.WordReadTest;
 
 import java.io.FileInputStream;
 import java.io.IOException;

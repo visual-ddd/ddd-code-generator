@@ -26,9 +26,9 @@
         FROM ${AGGREGATION_TABLE_NAME} t1
         WHERE 1=1
         #foreach($pageQueryFiled in $pageQuery.umlClass.fieldList)
-            <if test="${pageQueryFiled.name}!=null">
-                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
-            </if>
+        <if test="${pageQueryFiled.name}!=null">
+            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
+        </if>
         #end
     </select>
 #end

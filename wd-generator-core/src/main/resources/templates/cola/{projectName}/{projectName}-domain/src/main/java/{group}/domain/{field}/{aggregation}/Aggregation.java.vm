@@ -26,7 +26,7 @@ public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME}
 #if(${cmd.cmdType} == "DELETE")
 
     public void ${cmd.umlClass.getOriginalClassPackage()}(${cmd.umlClass.className} removeCmd) {
-
+        this.setId = removeCmd.getId();
     }
 #end
 #end
