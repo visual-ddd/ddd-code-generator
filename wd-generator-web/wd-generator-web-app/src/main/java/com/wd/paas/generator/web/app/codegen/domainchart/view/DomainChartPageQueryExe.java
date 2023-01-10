@@ -34,12 +34,12 @@ public class DomainChartPageQueryExe {
             queryWrapper.eq(DomainChartDO::getProjectId, pageQuery.getProjectId());
         }
         List<DomainChartDO> domainChartDOS = domainChartMapper.selectList(queryWrapper);
-        List<DomainChartDTO> domainChartDTOS = DomainChartDTOConvert.INSTANCE.doList2DtoList(
-            domainChartDOS);
 
-        PageInfo<DomainChartDTO> pageInfo = new PageInfo<>(domainChartDTOS);
+        PageInfo<DomainChartDO> pageInfo = new PageInfo<>(domainChartDOS);
+        List<DomainChartDTO> domainChartDTOS = DomainChartDTOConvert.INSTANCE.doList2DtoList(
+                pageInfo.getList());
         PageResultDTO<List<DomainChartDTO>> pageResultDTO = new PageResultDTO<>();
-        pageResultDTO.setData(pageInfo.getList());
+        pageResultDTO.setData(domainChartDTOS);
         pageResultDTO.setPageNo(pageInfo.getPageNum());
         pageResultDTO.setPageSize(pageInfo.getSize());
         pageResultDTO.setTotalCount(pageInfo.getTotal());

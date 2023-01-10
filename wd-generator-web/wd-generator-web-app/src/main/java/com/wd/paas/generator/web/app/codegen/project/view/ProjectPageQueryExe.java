@@ -37,11 +37,11 @@ public class ProjectPageQueryExe {
         }
 
         List<ProjectDO> projectDOS = projectMapper.selectList(queryWrapper);
-        List<ProjectDTO> projectDTOList = ProjectDTOConvert.INSTANCE.doList2DtoList(projectDOS);
 
-        PageInfo<ProjectDTO> pageInfo = new PageInfo<>(projectDTOList);
+        PageInfo<ProjectDO> pageInfo = new PageInfo<>(projectDOS);
+        List<ProjectDTO> projectDTOList = ProjectDTOConvert.INSTANCE.doList2DtoList(pageInfo.getList());
         PageResultDTO<List<ProjectDTO>> pageResultDTO = new PageResultDTO<>();
-        pageResultDTO.setData(pageInfo.getList());
+        pageResultDTO.setData(projectDTOList);
         pageResultDTO.setPageNo(pageInfo.getPageNum());
         pageResultDTO.setPageSize(pageInfo.getSize());
         pageResultDTO.setTotalCount(pageInfo.getTotal());
