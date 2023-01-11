@@ -3,6 +3,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>com.wakedata</groupId>
+    <artifactId>wd-parent</artifactId>
+    <version>1.1.0-DDD04</version>
+  </parent>
+
   <groupId>com.wd.paas</groupId>
   <artifactId>wd-generator-core</artifactId>
   <version>2.2-SNAPSHOT</version>
@@ -17,7 +23,6 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
       <scope>provided</scope>
     </dependency>
 
@@ -32,19 +37,22 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.11.0</version>
     </dependency>
 
+    <!-- 驼峰命名转换 -->
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>31.1-jre</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
     </dependency>
 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

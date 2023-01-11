@@ -2,15 +2,14 @@ package com.wd.paas.generator.convert.project;
 
 import com.wd.paas.generator.convert.project.domainchart.DomainChartDTO;
 import com.wd.paas.generator.generate.generator.ProjectInfo;
-import com.wd.paas.generator.generate.generator.project.domainchart.DomainChartGenerator;
 import com.wd.paas.generator.generate.generator.project.ProjectGenerator;
+import com.wd.paas.generator.generate.generator.project.domainchart.DomainChartGenerator;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.Data;
-
-import javax.annotation.Nullable;
 
 /**
  * DDD项目生成信息
