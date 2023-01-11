@@ -31,10 +31,10 @@ public class ApplicationDTOTest {
         ApplicationDsl applicationDTO = new ApplicationDsl();
         applicationDTO.setInfo(Info.builder().name(appName).build());
 
-        applicationDTO.setBusinessDomainDTOList(Collections.singletonList(
+        applicationDTO.setBusinessDomainList(Collections.singletonList(
                 new BusinessDomainDsl(Info.builder().name((appName + "业务域")).build(), null, null)));
 
-        applicationDTO.setBusinessScenarioDTOList(Collections.singletonList(
+        applicationDTO.setBusinessScenarioList(Collections.singletonList(
                 new BusinessScenarioDsl(Info.builder().name((appName + "业务场景")).build(), new Versionable())));
         return applicationDTO;
     }

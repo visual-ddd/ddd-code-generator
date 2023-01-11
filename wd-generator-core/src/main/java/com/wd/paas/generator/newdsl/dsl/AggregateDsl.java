@@ -6,20 +6,18 @@ import java.io.Serializable;
 import java.util.List;
 
 /***
- * @author： wangchensheng
- * @date： 2023-01-11 16:44
- * @version 1.0
+ * @author wangchensheng
  */
 @Data
 public class AggregateDsl implements Serializable {
 
     private AggregateRootDsl root;
 
-    private List<EntityDsl> entities;
+    private List<EntityDsl> entityList;
 
-    private List<ValueObjectDsl> valueObjects;
+    private List<ValueObjectDsl> valueObjectList;
 
-    private List<EnumDsl> enums;
+    private List<EnumDsl> enumList;
 
-    private List<CommandDsl> commands;
+    private List<CommandDsl> commandList;
 }

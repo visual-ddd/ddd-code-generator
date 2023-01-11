@@ -94,10 +94,4 @@ public interface Visitor {
      */
     void visit(Event event);
 
-    /**
-     * 访问发送事件
-     *
-     * @param eventSendAble 发送事件
-     */
-    void visit(EventSendAble eventSendAble);
 }

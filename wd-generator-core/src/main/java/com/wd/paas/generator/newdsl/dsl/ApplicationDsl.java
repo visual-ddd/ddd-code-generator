@@ -26,15 +26,15 @@ public class ApplicationDsl {
 
     private String packageName;
 
-    private List<BusinessDomainDsl> businessDomainDTOList;
+    private List<BusinessDomainDsl> businessDomainList;
 
-    private List<BusinessScenarioDsl> businessScenarioDTOList;
+    private List<BusinessScenarioDsl> businessScenarioList;
 
     public Application buildApplication() {
         Application application = ApplicationConvert.INSTANCE.dto2Do(this);
 
-        List<BusinessDomain> businessDomains = BusinessDomainConvert.INSTANCE.dtoList2DoList(businessDomainDTOList);
-        List<BusinessScenario> businessScenarios = BusinessScenarioConvert.INSTANCE.dtoList2DoList(businessScenarioDTOList);
+        List<BusinessDomain> businessDomains = BusinessDomainConvert.INSTANCE.dtoList2DoList(businessDomainList);
+        List<BusinessScenario> businessScenarios = BusinessScenarioConvert.INSTANCE.dtoList2DoList(businessScenarioList);
 
         businessDomains.forEach(application::add);
         businessScenarios.forEach(application::add);

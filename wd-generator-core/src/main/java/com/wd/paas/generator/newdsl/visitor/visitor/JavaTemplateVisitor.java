@@ -113,9 +113,5 @@ public class JavaTemplateVisitor extends JavaBaseVisitor implements Visitor {
 
     }
 
-    @Override
-    public void visit(EventSendAble eventSendAble) {
-
-    }
 
 }

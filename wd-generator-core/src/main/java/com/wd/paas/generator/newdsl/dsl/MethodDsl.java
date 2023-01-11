@@ -15,7 +15,7 @@ public class MethodDsl implements Serializable {
 
     private String description;
 
-    private List<SignatureDsl> signatureDslList;
+    private List<SignatureDsl> signatureList;
 
     private String access;
 

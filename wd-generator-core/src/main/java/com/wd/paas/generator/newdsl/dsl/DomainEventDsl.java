@@ -14,6 +14,6 @@ public class DomainEventDsl {
 
     private String description;
 
-    private List<PropertyDsl> propertyDslList;
+    private List<PropertyDsl> propertyList;
 
 }

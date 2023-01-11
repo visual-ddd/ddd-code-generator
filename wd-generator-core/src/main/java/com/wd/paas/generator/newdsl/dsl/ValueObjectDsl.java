@@ -15,7 +15,7 @@ public class ValueObjectDsl implements Serializable {
 
     private String description;
 
-    private List<PropertyDsl> properties;
+    private List<PropertyDsl> propertyList;
 
     private List<MethodDsl> methodList;
 }

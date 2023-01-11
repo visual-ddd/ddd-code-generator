@@ -17,6 +17,6 @@ public class EnumDsl implements Serializable {
 
     private String baseType;
 
-    private List<EnumMember> members;
+    private List<EnumMember> memberList;
 
 }

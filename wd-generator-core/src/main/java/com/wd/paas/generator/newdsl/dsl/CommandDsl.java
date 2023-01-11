@@ -15,13 +15,11 @@ public class CommandDsl implements Serializable {
 
     private String description;
 
-    private List<SourceDsl> sources;
+    private List<SourceDsl> sourceList;
 
     private RepositoryDsl repository;
 
-    private List<PropertyDsl> properties;
-
-    private HandlerDsl handler;
+    private List<PropertyDsl> propertyList;
 
     private DomainEventDsl domainEvent;
 

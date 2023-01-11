@@ -3,9 +3,7 @@ package com.wd.paas.generator.newdsl.visitor.element;
 import com.wd.paas.generator.newdsl.visitor.visitor.Visitor;
 
 /***
- * @author： wangchensheng
- * @date： 2023-01-11 16:33
- * @version 1.0
+ * @author wangchensheng
  */
 public class Event extends LeafElement{
     @Override

@@ -18,6 +18,6 @@ public class BusinessDomainDsl {
 
     private Versionable versionable;
 
-    private DomainModelDsl domainModelDTO;
+    private DomainModelDsl domainModel;
 
 }

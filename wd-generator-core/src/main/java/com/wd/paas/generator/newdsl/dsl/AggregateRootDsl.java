@@ -21,5 +21,5 @@ public class AggregateRootDsl implements Serializable {
 
     private List<PropertyDsl> propertyList;
 
-    private List<MethodDsl> methodDslList;
+    private List<MethodDsl> methodList;
 }
