@@ -9,12 +9,16 @@ import java.util.List;
  * @author wangchensheng
  */
 @Data
-public class Method implements Serializable {
+public class MethodDsl implements Serializable {
 
     private String name;
 
     private String description;
 
     private List<SignatureDsl> signatureDslList;
+
+    private String access;
+
+    private Boolean isAbstract;
 
 }

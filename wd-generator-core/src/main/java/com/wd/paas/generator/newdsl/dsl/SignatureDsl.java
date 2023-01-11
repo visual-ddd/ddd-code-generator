@@ -10,8 +10,6 @@ import java.util.List;
 @Data
 public class SignatureDsl {
 
-    private String description;
-
     private List<ParameterDsl> parameterList;
 
     private ReturnDsl returnDsl;
