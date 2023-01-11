@@ -28,4 +28,8 @@ public class GsonUtil {
     public static <T> T fromJson(String json, Type type) {
         return getGson().fromJson(json, type);
     }
+
+    public static <T> String toJson(T t) {
+        return getGson().toJson(t);
+    }
 }
