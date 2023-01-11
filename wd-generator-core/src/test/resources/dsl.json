@@ -1,0 +1,250 @@
+{
+  "packageDsl": "",
+  "businessDomains": "",
+  "businessScenarios": [{
+    "domainModel": [{
+      "aggregates": [{
+        "root": {
+          "name": "useraccount",
+          "description": "用户账号聚合",
+          "abstractDsl": "true",
+          "id": {
+            "type": "Long",
+            "name": "id",
+            "description": "唯一标识"
+          },
+          "properties": [{
+            "type": "String",
+            "name": "accountNo",
+            "description": "账号"
+          }, {
+            "type": "String",
+            "name": "username",
+            "description": "用户名"
+          }, {
+            "type": "String",
+            "name": "password",
+            "description": "密码"
+          }, {
+            "type": "String",
+            "name": "description",
+            "description": "描述"
+          }, {
+            "type": "Position",
+            "name": "position",
+            "description": "职位"
+          }
+          ],
+          "methods": [{
+            "name": "modify",
+            "description": "更新用户信息",
+            "signature": [{
+              "description": "更新用户信息",
+              "parameters": [{
+                "name": "updateCmd     ",
+                "description": "更新用户的指令",
+                "type": "UserAccountUpdateCmd"
+              }
+              ],
+              "returnDsl": {
+                "type": "void"
+              }
+            }
+            ],
+            "access": "public",
+            "abstractDsl": true
+          }
+          ]
+        },
+        "entities": [],
+        "valueObjects": [{
+          "name": "Position",
+          "description": "职位值对象",
+          "properties": [{
+            "type": "String",
+            "name": "position",
+            "description": "岗位信息"
+          }
+          ],
+          "methods": []
+        }
+        ],
+        "enums": [{
+          "name": "UserStatusEnum",
+          "description": "用户的状态的枚举",
+          "basetype": "number",
+          "members": [{
+            "name": "ACTIVE",
+            "description": "激活",
+            "code": 1
+          }, {
+            "name": "STOP",
+            "description": "冻结",
+            "code": 0
+          }
+          ]
+        }
+        ],
+        "commands": [{
+          "name": "create",
+          "description": "创建用户账号",
+          "source": [{
+            "type": "http"
+          }, {
+            "type": "rpc"
+          }
+          ],
+          "repository": "save",
+          "commandParameter": {
+            "name": "UserAccountCreateCmd",
+            "description": "创建用户账号-指令参数",
+            "properties": [{
+              "type": "String",
+              "name": "accountNo",
+              "description": "账号"
+            }, {
+              "type": "String",
+              "name": "username",
+              "description": "用户名"
+            }, {
+              "type": "String",
+              "name": "password",
+              "description": "密码"
+            }
+            ]
+          },
+          "event": {
+            "name": "UserAccountCreateCmdEvent",
+            "description": "创建用户账号-指令事件",
+            "properties": [{
+              "type": "String",
+              "name": "accountNo",
+              "description": "账号"
+            }, {
+              "type": "String",
+              "name": "username",
+              "description": "用户名"
+            }, {
+              "type": "String",
+              "name": "password",
+              "description": "密码"
+            }
+            ]
+          },
+          "eventSendAble" : true,
+          "rules": [{
+            "name": "emailUnique",
+            "description": "邮箱为用户唯一标识，同一个邮箱不可重复注册"
+          }
+          ],
+          "returnDsl": {
+            "type": "void"
+          }
+        }
+        ]
+      }
+      ]
+    }
+    ],
+    "dataModel": [{}
+    ],
+    "queryModel": {
+      "queries": [{
+        "name":"UserAccountDetailQueryExe",
+        "description":"询用户账号信息详情-查询器",
+        "source": [{
+          "type": "http"
+        }, {
+          "type": "rpc"
+        }
+        ],
+        "queryParameter":{
+          "name":"UserAccountDetailQuery",
+          "description":"查询用户账号信息详情-查询对象",
+          "properties":[{
+            "type": "String",
+            "name": "accountNo",
+            "description": "账号"
+          }, {
+            "type": "String",
+            "name": "username",
+            "description": "用户名"
+          }, {
+            "type": "String",
+            "name": "password",
+            "description": "密码"
+          }, {
+            "type": "String",
+            "name": "description",
+            "description": "描述"
+          }, {
+            "type": "Position",
+            "name": "position",
+            "description": "职位"
+          }
+          ]
+        } ,
+        "returnDsl": {
+          "type": "UserAccountDTO"
+        }
+      }
+      ],
+      "dtos": [{
+        "name": "UserAccountDTO",
+        "description": "用户账号信息DTO",
+        "properties": [{
+          "type": "String",
+          "name": "accountNo",
+          "description": "账号"
+        }
+        ]
+      }
+      ]
+    },
+    "objectMapper": {
+      "mappers": [{
+        "name": "UserAccountDTO2DOConvert",
+        "description": "UserAccountDTO和DO转换器",
+        "source": "UserAccountDTO",
+        "target": "UserAccountDO",
+        "mapper": [{
+          "sourceField": "accountNo",
+          "targetField": "accountNo"
+        }, {
+          "sourceField": "username",
+          "targetField": "usename"
+        }, {
+          "sourceField": "position",
+          "targetField": "position"
+        }, {
+          "sourceField": "description",
+          "targetField": "description"
+        }
+        ]
+      }, {
+        "name": "UserAccountDoConvert",
+        "description": "UserAccountDTO和DO转换器",
+        "source": "UserAccount",
+        "target": "UserAccountDO",
+        "mapper": [{
+          "sourceField": "accountNo",
+          "targetField": "accountNo"
+        }, {
+          "sourceField": "username",
+          "targetField": "usename"
+        }, {
+          "sourceField": "position",
+          "targetField": "position"
+        }, {
+          "sourceField": "description",
+          "targetField": "description"
+        }
+        ]
+      }
+      ]
+    },
+    "vison": "",
+    "document": ""
+  }
+  ]
+}

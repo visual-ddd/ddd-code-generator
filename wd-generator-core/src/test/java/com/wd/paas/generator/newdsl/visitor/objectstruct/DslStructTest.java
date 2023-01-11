@@ -2,10 +2,10 @@ package com.wd.paas.generator.newdsl.visitor.objectstruct;
 
 import com.wd.paas.generator.newdsl.common.Info;
 import com.wd.paas.generator.newdsl.common.Versionable;
-import com.wd.paas.generator.newdsl.visitor.element.Application;
-import com.wd.paas.generator.newdsl.visitor.element.BusinessDomain;
-import com.wd.paas.generator.newdsl.visitor.element.BusinessScenario;
-import com.wd.paas.generator.newdsl.visitor.visitor.JavaTemplateVisitor;
+import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
+import com.wd.paas.generator.newdsl.generate.visitor.element.BusinessDomain;
+import com.wd.paas.generator.newdsl.generate.visitor.objectstruct.DslStruct;
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.JavaTemplateVisitor;
 import org.junit.Assert;
 import org.junit.Test;
 
