@@ -1,27 +1,21 @@
 package com.wd.paas.generator.newdsl.visitor.visitor;
 
-import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.newdsl.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.newdsl.util.FileGenerator;
-import com.wd.paas.generator.newdsl.visitor.element.Application;
-import com.wd.paas.generator.newdsl.visitor.element.BusinessDomain;
-import com.wd.paas.generator.newdsl.visitor.element.BusinessScenario;
-import org.apache.commons.lang3.StringUtils;
+import com.wd.paas.generator.newdsl.visitor.element.*;
+import com.wd.paas.generator.newdsl.visitor.element.Enum;
 import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.Velocity;
-import org.apache.velocity.runtime.RuntimeConstants;
 
-import java.util.Properties;
 import java.util.zip.ZipOutputStream;
 
 /**
  * @author shimmer
  */
-public class JavaTemplateVisitor extends Visitor {
+public class JavaTemplateVisitor extends JavaBaseVisitor implements Visitor {
 
     private final VelocityContext context = new VelocityContext();
-    private String preFixOutPath;
+    private final String preFixOutPath;
     private final ZipOutputStream zipOutputStream;
     private Boolean isGenerateProjectFrame = true;
 
@@ -50,7 +44,7 @@ public class JavaTemplateVisitor extends Visitor {
         // 获取模版文件列表
         String[] templateUrls = GenerateElementTypeEnum.PROJECT.getTemplateUrls();
         for (String templateUrl : templateUrls) {
-            String outputPath = parseApplicationOutPath(templateUrl);
+            String outputPath = parseApplicationOutPath(templateUrl, context, preFixOutPath);
             FileGenerator.run(context, zipOutputStream, templateUrl, outputPath);
         }
     }
@@ -64,7 +58,7 @@ public class JavaTemplateVisitor extends Visitor {
         // 获取模版文件列表
         String[] templateUrls = GenerateElementTypeEnum.DOMAIN_CHART.getTemplateUrls();
         for (String templateUrl : templateUrls) {
-            String outputPath = parseBusinessDomainOutPath(templateUrl);
+            String outputPath = parseBusinessDomainOutPath(templateUrl, context, preFixOutPath);
             FileGenerator.run(context, zipOutputStream, templateUrl, outputPath);
         }
     }
@@ -74,47 +68,54 @@ public class JavaTemplateVisitor extends Visitor {
         System.out.println(businessScenario.getInfo().getName());
     }
 
-    private String parseApplicationOutPath(String templateUrl) {
-        String[] searchList = {
-                ModelUrlConstant.PROJECT_NAME,
-                ModelUrlConstant.GROUP,
-                ModelUrlConstant.VM
-        };
+    @Override
+    public void visit(DomainModel domainModel) {
 
-        String[] replacementList = {
-                (String) context.get(VelocityLabel.PROJECT_NAME),
-                (String) context.get(VelocityLabel.PROJECT_SLASH_GROUP),
-                ModelUrlConstant.EMPTY
-        };
-
-        String outputUrl = StringUtils.replaceEach(templateUrl, searchList, replacementList);
-        if (StringUtils.isNotBlank(preFixOutPath)) {
-            outputUrl = outputUrl.replace(ModelUrlConstant.OUTPUT_PATH, preFixOutPath);
-        }
-        return outputUrl;
     }
 
-    private String parseBusinessDomainOutPath(String templateUrl) {
-        String[] searchList = {
-                ModelUrlConstant.FIELD
-        };
-        String[] replacementList = {
-                (String) context.get(VelocityLabel.DOMAIN_NAME)
-        };
-        return StringUtils.replaceEach(parseApplicationOutPath(templateUrl), searchList, replacementList);
+    @Override
+    public void visit(Aggregate aggregate) {
+
     }
 
-    /**
-     * 配置velocity上下文
-     */
-    private static void initTemplateContext() {
-        // 设置velocity资源加载器
-        Properties properties = new Properties();
-        // 加载classpath目录下的vm文件
-        properties.setProperty("resource.loader.file.class",
-                "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
-        // 定义字符集
-        properties.setProperty(RuntimeConstants.ENCODING_DEFAULT, "UTF-8");
-        Velocity.init(properties);
+    @Override
+    public void visit(AggregateRoot aggregateRoot) {
+
     }
+
+    @Override
+    public void visit(Entity entity) {
+
+    }
+
+    @Override
+    public void visit(Enum anEnum) {
+
+    }
+
+    @Override
+    public void visit(Command command) {
+
+    }
+
+    @Override
+    public void visit(ValueObject valueObject) {
+
+    }
+
+    @Override
+    public void visit(CommandParameter commandParameter) {
+
+    }
+
+    @Override
+    public void visit(Event event) {
+
+    }
+
+    @Override
+    public void visit(EventSendAble eventSendAble) {
+
+    }
+
 }
