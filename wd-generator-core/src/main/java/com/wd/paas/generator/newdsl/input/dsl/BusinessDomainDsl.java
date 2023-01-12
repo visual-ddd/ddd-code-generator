@@ -6,6 +6,8 @@ import com.wd.paas.generator.newdsl.common.Versionable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 描述一个完整业务提供的原子能力，以及实现细节
  *

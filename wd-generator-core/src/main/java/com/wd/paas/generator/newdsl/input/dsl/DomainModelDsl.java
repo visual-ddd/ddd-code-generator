@@ -11,5 +11,4 @@ import java.util.List;
 public class DomainModelDsl {
 
     private List<AggregateDsl> aggregates;
-
 }

@@ -19,6 +19,8 @@ public class CommandDsl implements Serializable {
 
     private RepositoryDsl repository;
 
+    private CommandParameterDsl commandParameter;
+
     private List<PropertyDsl> propertyList;
 
     private DomainEventDsl domainEvent;

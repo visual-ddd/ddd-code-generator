@@ -1,5 +1,7 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
+import com.google.gson.JsonNull;
+import com.google.gson.JsonObject;
 import com.wd.paas.generator.newdsl.util.GsonUtil;
 import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
@@ -17,8 +19,6 @@ public class GsonUtilTest {
         String json = IOUtils.toString(Files.newInputStream(Paths.get("./src/test/resources/dsl.json")), StandardCharsets.UTF_8);
         ApplicationDsl applicationDsl = GsonUtil.fromJson(json, ApplicationDsl.class);
         Assert.assertNotNull(applicationDsl);
-//        System.out.println(applicationDsl);
         System.out.println(GsonUtil.toJson(applicationDsl));
-
     }
 }
