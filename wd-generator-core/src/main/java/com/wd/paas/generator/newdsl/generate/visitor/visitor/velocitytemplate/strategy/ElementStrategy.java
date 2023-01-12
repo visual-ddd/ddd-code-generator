@@ -1,4 +1,6 @@
-package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate;
+package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy;
+
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
 
 /**
  * @author shimmer

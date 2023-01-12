@@ -4,7 +4,6 @@ import com.wd.paas.generator.generate.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.newdsl.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
-import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.AbstractElementStrategy;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;

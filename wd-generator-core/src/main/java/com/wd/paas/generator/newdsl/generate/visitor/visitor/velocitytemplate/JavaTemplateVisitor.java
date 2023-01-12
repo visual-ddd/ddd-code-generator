@@ -2,6 +2,7 @@ package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate;
 
 import com.wd.paas.generator.newdsl.generate.visitor.element.*;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.Visitor;
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy.ElementStrategy;
 
 /**
  * @author shimmer

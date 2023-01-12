@@ -1,5 +1,6 @@
 package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate;
 
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy.ElementStrategy;
 import org.apache.velocity.VelocityContext;
 
 import java.util.List;

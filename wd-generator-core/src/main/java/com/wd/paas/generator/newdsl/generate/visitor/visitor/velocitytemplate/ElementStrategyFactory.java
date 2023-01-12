@@ -6,6 +6,7 @@ import com.wd.paas.generator.newdsl.generate.visitor.element.BusinessDomain;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy.ApplicationStrategy;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy.BusinessDomainStrategy;
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy.ElementStrategy;
 
 /**
  * @author shimmer

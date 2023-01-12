@@ -1,5 +1,7 @@
-package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate;
+package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.VelocityTemplateGenerate;
 import com.wd.paas.generator.newdsl.util.FileGenerator;
 
 import java.util.List;
@@ -15,7 +17,7 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
     @Override
     public void execute(TemplateContext templateContext){
         this.putVelocityContext(templateContext.getContext());
-        if (this.process(templateContext)){
+        if (Boolean.TRUE.equals(this.process(templateContext))){
             this.generateFile(templateContext);
         }
     }
