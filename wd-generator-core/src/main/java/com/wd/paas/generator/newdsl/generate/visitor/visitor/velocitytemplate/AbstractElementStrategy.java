@@ -13,13 +13,24 @@ import java.util.List;
 public abstract class AbstractElementStrategy implements VelocityTemplateGenerate {
 
     @Override
-    public void codeGenerate(TemplateContext templateContext) {
+    public void execute(TemplateContext templateContext){
         this.putVelocityContext(templateContext.getContext());
-        this.generateFile(templateContext);
+        if (this.process(templateContext)){
+            this.generateFile(templateContext);
+        }
     }
 
     @Override
-    public void generateFile(TemplateContext templateContext) {
+    public Boolean process(TemplateContext templateContext) {
+        return Boolean.TRUE;
+    }
+
+    /**
+     * 生成代码模板文件
+     *
+     * @param templateContext 上下文信息
+     */
+    protected void generateFile(TemplateContext templateContext) {
         // 获取模版文件列表
         List<String> templatePathList = this.getTemplatePathList();
         for (String templateUrl : templatePathList) {

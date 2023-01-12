@@ -13,11 +13,12 @@ import java.util.List;
 public interface VelocityTemplateGenerate extends ElementStrategy {
 
     /**
-     * 生成具体模版文件
+     * 处理逻辑(处理各个元素的单独逻辑)
      *
-     * @param templateContext 环境上下文
+     * @param templateContext 上下文信息
+     * @return true/false
      */
-    void generateFile(TemplateContext templateContext);
+    Boolean process(TemplateContext templateContext);
 
     /**
      * 获取需要生成的模版路径列表

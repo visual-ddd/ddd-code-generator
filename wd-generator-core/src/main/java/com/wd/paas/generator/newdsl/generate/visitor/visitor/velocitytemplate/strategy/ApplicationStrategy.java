@@ -55,13 +55,7 @@ public class ApplicationStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public void codeGenerate(TemplateContext templateContext) {
-        this.putVelocityContext(templateContext.getContext());
-
-        if (Boolean.FALSE.equals(templateContext.getIsGenerateProjectFrame())) {
-            return;
-        }
-
-        this.generateFile(templateContext);
+    public Boolean process(TemplateContext templateContext) {
+        return templateContext.getIsGenerateProjectFrame();
     }
 }

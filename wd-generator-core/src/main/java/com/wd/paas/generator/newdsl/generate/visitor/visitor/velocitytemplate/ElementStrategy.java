@@ -10,6 +10,6 @@ public interface ElementStrategy {
      *
      * @param templateContext 上下文信息
      */
-    void codeGenerate(TemplateContext templateContext);
+    void execute(TemplateContext templateContext);
 
 }
