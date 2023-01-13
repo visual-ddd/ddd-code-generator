@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ValueObjectStrategy extends AbstractElementStrategy {
 
-    private ValueObject valueObject;
+    private final ValueObject valueObject;
 
     public ValueObjectStrategy(ValueObject valueObject){
         this.valueObject = valueObject;

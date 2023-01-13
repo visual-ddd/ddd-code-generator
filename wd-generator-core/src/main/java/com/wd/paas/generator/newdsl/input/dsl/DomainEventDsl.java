@@ -2,7 +2,7 @@ package com.wd.paas.generator.newdsl.input.dsl;
 
 import com.wd.paas.generator.newdsl.common.PropertyInfo;
 import com.wd.paas.generator.newdsl.generate.visitor.element.DomainEvent;
-import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
+import com.wd.paas.generator.newdsl.input.dsl.convert.DomainEventDslConvert;
 import lombok.Data;
 
 import java.util.List;
@@ -21,6 +21,6 @@ public class DomainEventDsl implements ElementBuildable {
 
     @Override
     public DomainEvent build() {
-        return null;
+        return DomainEventDslConvert.INSTANCE.dto2Do(this);
     }
 }

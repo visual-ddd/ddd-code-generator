@@ -10,6 +10,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DomainEvent extends LeafElement{
+
+    private String name;
+
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);

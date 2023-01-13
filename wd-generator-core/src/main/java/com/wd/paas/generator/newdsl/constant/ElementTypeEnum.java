@@ -16,6 +16,7 @@ public enum ElementTypeEnum {
     BUSINESS_DOMAIN("BusinessDomain"),
     AGGREGATE("Aggregate"),
     VALUE_OBJECT("ValueObject"),
+    COMMAND("Command"),
     ;
 
     private final String value;

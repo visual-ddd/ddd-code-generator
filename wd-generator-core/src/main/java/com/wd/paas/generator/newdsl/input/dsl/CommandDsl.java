@@ -2,10 +2,14 @@ package com.wd.paas.generator.newdsl.input.dsl;
 
 import com.wd.paas.generator.newdsl.common.PropertyInfo;
 import com.wd.paas.generator.newdsl.common.ReturnInfo;
+import com.wd.paas.generator.newdsl.common.RuleInfo;
+import com.wd.paas.generator.newdsl.common.SourceInfo;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Command;
+import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import com.wd.paas.generator.newdsl.input.dsl.convert.CommandDslConvert;
 import lombok.Data;
 
+import java.util.Collections;
 import java.util.List;
 
 /***
@@ -18,11 +22,11 @@ public class CommandDsl implements ElementBuildable {
 
     private String description;
 
-    private List<SourceDsl> sourceList;
+    private List<SourceInfo> sourceList;
 
-    private RepositoryDsl repository;
+    private String repository;
 
-    private CommandParameterDsl commandParameter;
+    private String category;
 
     private List<PropertyInfo> propertyList;
 
@@ -30,13 +34,15 @@ public class CommandDsl implements ElementBuildable {
 
     private Boolean eventEnable;
 
-    private List<RuleDsl> ruleList;
+    private List<RuleInfo> ruleList;
 
     private ReturnInfo returnInfo;
 
     @Override
     public Command build() {
         Command command = CommandDslConvert.INSTANCE.dto2Do(this);
+        List<Element> elements = Collections.singletonList(domainEvent.build());
+        command.addAll(elements);
         return command;
     }
 

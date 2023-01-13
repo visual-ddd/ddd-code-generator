@@ -1,17 +1,17 @@
 package com.wd.paas.generator.newdsl.common;
 
+import lombok.Builder;
 import lombok.Data;
 
 /***
  * @author wangchensheng
  */
 @Data
-public class EnumMemberInfo {
+@Builder
+public class RuleInfo {
 
     private String name;
 
     private String description;
-
-    private Integer code;
 
 }

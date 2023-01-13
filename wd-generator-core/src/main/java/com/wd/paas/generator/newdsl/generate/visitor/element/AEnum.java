@@ -1,8 +1,8 @@
 package com.wd.paas.generator.newdsl.generate.visitor.element;
 
 
-import com.wd.paas.generator.newdsl.generate.visitor.visitor.Visitor;
 import com.wd.paas.generator.newdsl.common.EnumMemberInfo;
+import com.wd.paas.generator.newdsl.generate.visitor.visitor.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

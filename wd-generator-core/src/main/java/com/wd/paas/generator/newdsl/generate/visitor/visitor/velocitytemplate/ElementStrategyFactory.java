@@ -20,6 +20,8 @@ public class ElementStrategyFactory {
                 return new AggregationStrategy((Aggregate) element);
             case VALUE_OBJECT:
                 return new ValueObjectStrategy((ValueObject) element);
+            case COMMAND:
+                return new CommandStrategy((Command) element);
             default:
                 throw new IllegalStateException("element type is empty.");
         }

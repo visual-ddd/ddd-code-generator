@@ -2,6 +2,9 @@ package com.wd.paas.generator.newdsl.constant;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 /**
  * 代码生成方式
  *
@@ -13,16 +16,26 @@ import lombok.Getter;
 public enum CmdTypeEnum {
 
     /**/
-    DEFAULT(0, "默认指令"),
-    ADD(1, "创建指令"),
-    UPDATE(2, "更新指令"),
-    DELETE(3, "删除指令");
+    SAVE(1, "save"),
+    MODIFY(2, "modify"),
+    REMOVE(3, "remove");
 
-    private final Integer value;
-    private final String desc;
+    private final Integer code;
+    private final String value;
 
-    CmdTypeEnum(Integer value, String desc) {
+    CmdTypeEnum(Integer code, String value) {
+        this.code = code;
         this.value = value;
-        this.desc = desc;
+    }
+
+    /**
+     * 根据枚举类字符串找到对应枚举类型
+     *
+     * @param enumName 枚举类名称
+     * @return CmdTypeEnum
+     */
+    public static CmdTypeEnum of(String enumName) {
+        Optional<CmdTypeEnum> optional = Arrays.stream(CmdTypeEnum.values()).filter(x -> x.value.equals(enumName)).findFirst();
+        return optional.orElseThrow(() -> new IllegalArgumentException("ElementTypeEnum find error，not found:" + enumName));
     }
 }
