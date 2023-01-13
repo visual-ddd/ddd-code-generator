@@ -14,6 +14,10 @@ public abstract class CompositeElement extends Element {
         this.elementList.add(element);
     }
 
+    public void addAll(List<Element> elementList) {
+        this.elementList.addAll(elementList);
+    }
+
     public void remove(Element element) {
         this.elementList.remove(element);
     }
