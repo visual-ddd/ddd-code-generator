@@ -1,0 +1,17 @@
+{
+  "info": {
+    "title": "组织域",
+    "name": "origination",
+    "description": "组织域，提供组织管理能力",
+    "meta": []
+  },
+  "versionable": {
+    "version": "1.0"
+  },
+  "domainModel": {},
+  "dataModel": {},
+  "queryModel": {},
+  "objectMapperModel": {},
+  "vision": "产品愿景",
+  "document": "https://visual-ddd.yuque.com/tp6sfc/project_doc/afext6f43p74ml1y"
+}

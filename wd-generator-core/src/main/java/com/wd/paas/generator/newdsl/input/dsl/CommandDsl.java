@@ -9,8 +9,9 @@ import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import com.wd.paas.generator.newdsl.input.dsl.convert.CommandDslConvert;
 import lombok.Data;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /***
  * @author wangchensheng
@@ -41,9 +42,9 @@ public class CommandDsl implements ElementBuildable {
     @Override
     public Command build() {
         Command command = CommandDslConvert.INSTANCE.dto2Do(this);
-        List<Element> elements = Collections.singletonList(domainEvent.build());
+        List<Element> elements = new ArrayList<>();
+        Optional.ofNullable(domainEvent).map(ElementBuildable::build).ifPresent(elements::add);
         command.addAll(elements);
         return command;
     }
-
 }

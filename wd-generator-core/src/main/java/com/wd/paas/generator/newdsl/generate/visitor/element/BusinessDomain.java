@@ -17,6 +17,10 @@ public class BusinessDomain extends CompositeElement {
 
     private Versionable versionable;
 
+    private String vision;
+
+    private String document;
+
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);

@@ -22,6 +22,8 @@ public class ElementStrategyFactory {
                 return new ValueObjectStrategy((ValueObject) element);
             case COMMAND:
                 return new CommandStrategy((Command) element);
+            case DEFAULT:
+                return new DefaultStrategy();
             default:
                 throw new IllegalStateException("element type is empty.");
         }

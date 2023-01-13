@@ -7,6 +7,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /***
  * @author wangchensheng
@@ -28,10 +29,10 @@ public class AggregateDsl implements ElementBuildable {
     public Aggregate build() {
         Aggregate aggregate = AggregateDslConvert.INSTANCE.dto2Do(this);
         List<Element> elements = new ArrayList<>();
-        entityList.stream().map(ElementBuildable::build).forEach(elements::add);
-        valueObjectList.stream().map(ElementBuildable::build).forEach(elements::add);
-        enumList.stream().map(ElementBuildable::build).forEach(elements::add);
-        commandList.stream().map(ElementBuildable::build).forEach(elements::add);
+        Optional.ofNullable(entityList).ifPresent(e -> e.stream().map(ElementBuildable::build).forEach(elements::add));
+        Optional.ofNullable(valueObjectList).ifPresent(e -> e.stream().map(ElementBuildable::build).forEach(elements::add));
+        Optional.ofNullable(enumList).ifPresent(e -> e.stream().map(ElementBuildable::build).forEach(elements::add));
+        Optional.ofNullable(commandList).ifPresent(e -> e.stream().map(ElementBuildable::build).forEach(elements::add));
         aggregate.addAll(elements);
         return aggregate;
     }

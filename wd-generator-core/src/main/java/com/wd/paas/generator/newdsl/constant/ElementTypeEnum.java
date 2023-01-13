@@ -17,6 +17,7 @@ public enum ElementTypeEnum {
     AGGREGATE("Aggregate"),
     VALUE_OBJECT("ValueObject"),
     COMMAND("Command"),
+    DEFAULT("Default"),
     ;
 
     private final String value;
@@ -33,7 +34,6 @@ public enum ElementTypeEnum {
      */
     public static ElementTypeEnum of(String enumName) {
         Optional<ElementTypeEnum> optional = Arrays.stream(ElementTypeEnum.values()).filter(x -> x.value.equals(enumName)).findFirst();
-        return optional.orElseThrow(() -> new IllegalArgumentException("ElementTypeEnum find error，not found:" + enumName));
+        return optional.orElse(DEFAULT);
     }
-
 }

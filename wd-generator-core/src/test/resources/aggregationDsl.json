@@ -1,0 +1,150 @@
+{
+  "root": {
+    "name": "",
+    "description": "",
+    "isAbstract": false,
+    "id": {
+      "name": "",
+      "type": "",
+      "description": "",
+      "access": ""
+    },
+    "propertyList": [
+      {
+        "name": "",
+        "type": "",
+        "description": "",
+        "access": ""
+      }
+    ],
+    "methodList": [
+      {
+        "name": "",
+        "description": "",
+        "signatureList": [
+          {
+            "parameterList": [
+              {
+                "name": "",
+                "description": "",
+                "type": ""
+              }
+            ],
+            "returnInfo": {
+              "type": ""
+            }
+          }
+        ],
+        "access": "",
+        "isAbstract": false
+      }
+    ]
+  },
+  "entityList": [
+    {}
+  ],
+  "valueObjectList": [
+    {
+      "name": "",
+      "description": "",
+      "propertyList": [
+        {
+          "name": "",
+          "type": "",
+          "description": "",
+          "access": ""
+        }
+      ],
+      "methodList": [
+        {
+          "name": "",
+          "description": "",
+          "signatureList": [
+            {
+              "parameterList": [
+                {
+                  "name": "",
+                  "description": "",
+                  "type": ""
+                }
+              ],
+              "returnInfo": {
+                "type": ""
+              }
+            }
+          ],
+          "access": "",
+          "isAbstract": false
+        }
+      ]
+    }
+  ],
+  "enumList": [
+    {
+      "name": "",
+      "description": "",
+      "baseType": "",
+      "memberList": [
+        {
+          "name": "",
+          "description": "",
+          "code": 0
+        }
+      ]
+    }
+  ],
+  "commandList": [
+    {
+      "name": "",
+      "description": "",
+      "sourceList": [
+        {
+          "type": ""
+        }
+      ],
+      "repository": {},
+      "commandParameter": {
+        "name": "",
+        "description": "",
+        "propertyList": [
+          {
+            "name": "",
+            "type": "",
+            "description": "",
+            "access": ""
+          }
+        ]
+      },
+      "propertyList": [
+        {
+          "name": "",
+          "type": "",
+          "description": "",
+          "access": ""
+        }
+      ],
+      "domainEvent": {
+        "name": "",
+        "description": "",
+        "propertyList": [
+          {
+            "name": "",
+            "type": "",
+            "description": "",
+            "access": ""
+          }
+        ]
+      },
+      "eventEnable": false,
+      "ruleList": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ],
+      "returnInfo": {
+        "type": ""
+      }
+    }
+  ]
+}
