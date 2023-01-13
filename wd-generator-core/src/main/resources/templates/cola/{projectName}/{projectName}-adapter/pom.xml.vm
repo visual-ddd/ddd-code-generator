@@ -6,7 +6,7 @@
   <parent>
     <groupId>${PROJECT_PACKAGE}</groupId>
     <artifactId>${PROJECT_NAME}</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${PROJECT_VERSION}</version>
   </parent>
 
   <artifactId>${PROJECT_NAME}-adapter</artifactId>

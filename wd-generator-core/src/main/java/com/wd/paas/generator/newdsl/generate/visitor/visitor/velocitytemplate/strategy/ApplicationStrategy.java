@@ -1,8 +1,8 @@
 package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.generate.constant.ModelUrlConstant;
-import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.newdsl.constant.GenerateElementTypeEnum;
+import com.wd.paas.generator.newdsl.constant.ModelUrlConstant;
+import com.wd.paas.generator.newdsl.constant.VelocityLabel;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
 import org.apache.commons.lang3.StringUtils;
@@ -24,11 +24,11 @@ public class ApplicationStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
+        context.put(VelocityLabel.PROJECT_TITLE, application.getInfo().getTitle());
         context.put(VelocityLabel.PROJECT_NAME, application.getInfo().getName());
+        context.put(VelocityLabel.PROJECT_DESCRIPTION, application.getInfo().getDescription());
         context.put(VelocityLabel.PROJECT_PACKAGE, application.getPackageName());
-        context.put(VelocityLabel.PROJECT_AUTHOR, "projectInfo.getAuthor()");
-        context.put(VelocityLabel.PROJECT_DATE_TIME, "projectInfo.getDateTime()");
-        context.put(VelocityLabel.PROJECT_SLASH_GROUP, "trans2Slash(projectInfo.getGroup())");
+        context.put(VelocityLabel.PROJECT_VERSION, application.getVersionable().getVersion());
     }
 
     @Override
@@ -44,10 +44,12 @@ public class ApplicationStrategy extends AbstractElementStrategy {
                 ModelUrlConstant.GROUP,
                 ModelUrlConstant.VM
         };
+        String projectPackage = (String) context.get(VelocityLabel.PROJECT_PACKAGE);
+        String projectPath = trans2Slash(projectPackage);
         String[] replacementList = {
                 preFixOutPath,
                 (String) context.get(VelocityLabel.PROJECT_NAME),
-                (String) context.get(VelocityLabel.PROJECT_SLASH_GROUP),
+                projectPath,
                 ModelUrlConstant.EMPTY
         };
         return StringUtils.replaceEach(templateUrl, searchList, replacementList);
@@ -56,5 +58,9 @@ public class ApplicationStrategy extends AbstractElementStrategy {
     @Override
     public Boolean process(TemplateContext templateContext) {
         return templateContext.getIsGenerateProjectFrame();
+    }
+
+    private String trans2Slash(String target) {
+        return StringUtils.replace(target, ModelUrlConstant.POINT, ModelUrlConstant.SLASH);
     }
 }

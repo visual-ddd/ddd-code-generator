@@ -7,10 +7,7 @@ import com.wakedata.common.mq.annotation.EnableMessageCenter;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
- * ${PROJECT_NAME}项目启动类
-## *
-## * @author ${PROJECT_AUTHOR}
-## * @date ${PROJECT_DATE_TIME}
+ * ${PROJECT_TITLE}-启动类
  */
 @EnableMessageCenter
 @SpringBootApplication(scanBasePackages = {"${PROJECT_PACKAGE}"})

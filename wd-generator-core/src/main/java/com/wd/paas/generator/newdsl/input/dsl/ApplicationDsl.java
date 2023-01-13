@@ -42,11 +42,11 @@ public class ApplicationDsl {
     public Application buildApplication() {
         Application application = ApplicationDslConvert.INSTANCE.dto2Do(this);
 
-        List<BusinessDomain> businessDomains = BusinessDomainDslConvert.INSTANCE.dtoList2DoList(businessDomainList);
-        List<BusinessScenario> businessScenarios = BusinessScenarioDslConvert.INSTANCE.dtoList2DoList(businessScenarioList);
-
-        businessDomains.forEach(application::add);
-        businessScenarios.forEach(application::add);
+//        List<BusinessDomain> businessDomains = BusinessDomainDslConvert.INSTANCE.dtoList2DoList(businessDomainList);
+//        List<BusinessScenario> businessScenarios = BusinessScenarioDslConvert.INSTANCE.dtoList2DoList(businessScenarioList);
+//
+//        businessDomains.forEach(application::add);
+//        businessScenarios.forEach(application::add);
 
         return application;
     }

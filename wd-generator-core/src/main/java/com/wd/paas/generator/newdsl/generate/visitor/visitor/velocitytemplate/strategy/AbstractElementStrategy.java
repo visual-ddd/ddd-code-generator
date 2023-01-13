@@ -15,9 +15,9 @@ import java.util.List;
 public abstract class AbstractElementStrategy implements VelocityTemplateGenerate {
 
     @Override
-    public void execute(TemplateContext templateContext){
+    public void execute(TemplateContext templateContext) {
         this.putVelocityContext(templateContext.getContext());
-        if (Boolean.TRUE.equals(this.process(templateContext))){
+        if (Boolean.TRUE.equals(this.process(templateContext))) {
             this.generateFile(templateContext);
         }
     }

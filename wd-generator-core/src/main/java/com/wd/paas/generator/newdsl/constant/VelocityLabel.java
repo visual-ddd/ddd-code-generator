@@ -17,6 +17,9 @@ public class VelocityLabel {
     public static final String PROJECT_PACKAGE = "PROJECT_PACKAGE";
     public static final String PROJECT_AUTHOR = "PROJECT_AUTHOR";
     public static final String PROJECT_DATE_TIME = "PROJECT_DATE_TIME";
+    public static final String PROJECT_TITLE = "PROJECT_TITLE";
+    public static final String PROJECT_DESCRIPTION = "PROJECT_DESCRIPTION";
+    public static final String PROJECT_VERSION = "PROJECT_VERSION";
 
     /**
      * 领域
