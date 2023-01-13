@@ -10,6 +10,7 @@ import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author shimmer
@@ -24,17 +25,17 @@ public class AggregationStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.AGGREGATION_CLASS_NAME, "umlClass.getClassName()");
-        context.put(VelocityLabel.AGGREGATION_CLASS_PACKAGE, "umlClass.getClassPackage()");
-        context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, "umlClass.getClassDesc()");
-        context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, "umlClass.getFieldList()");
-        context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, "umlClass.getMethodList()");
+        context.put(VelocityLabel.AGGREGATION_CLASS_NAME, aggregate.getAggregateRoot().getName());
+//        context.put(VelocityLabel.AGGREGATION_CLASS_PACKAGE, "umlClass.getClassPackage()");
+        context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, aggregate.getAggregateRoot().getDescription());
+        context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, aggregate.getAggregateRoot().getPropertyList());
+        context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, aggregate.getAggregateRoot().getMethodList());
         context.put(VelocityLabel.AGGREGATION_ENUM_LIST, "enumList");
         context.put(VelocityLabel.AGGREGATION_CMD_LIST, "cmdList");
         context.put(VelocityLabel.AGGREGATION_QUERY_LIST, "queryList");
         context.put(VelocityLabel.AGGREGATION_PAGE_QUERY_LIST, "pageQueryList");
         context.put(VelocityLabel.AGGREGATION_QUERY_RESULT_LIST, "queryResultList");
-        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER, "umlClass.getClassName().toLowerCase()");
+        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER, aggregate.getAggregateRoot().getName().toLowerCase(Locale.ROOT));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_UNDERSCORE,
@@ -56,6 +57,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
                 ModelUrlConstant.FIELD,
                 ModelUrlConstant.PROJECT_NAME,
                 ModelUrlConstant.GROUP,
+                ModelUrlConstant.AGGREGATION,
                 ModelUrlConstant.VM
         };
         String[] replacementList = {
@@ -63,6 +65,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
                 (String) context.get(VelocityLabel.DOMAIN_NAME),
                 (String) context.get(VelocityLabel.PROJECT_NAME),
                 (String) context.get(VelocityLabel.PROJECT_SLASH_GROUP),
+                (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME),
                 ModelUrlConstant.EMPTY
         };
         return StringUtils.replaceEach(templateUrl, searchList, replacementList);

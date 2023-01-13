@@ -23,5 +23,5 @@ public class Info {
     private String description;
 
     @SerializedName("meta")
-    private List<CodeValue> meta;
+    private List<PropertyInfo> meta;
 }

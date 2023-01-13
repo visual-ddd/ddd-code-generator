@@ -1,8 +1,8 @@
 package com.wd.paas.generator.newdsl.generate.visitor.objectstruct;
 
+import com.wd.paas.generator.newdsl.generate.visitor.element.CompositeElement;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.Visitor;
-import com.wd.paas.generator.newdsl.generate.visitor.element.CompositeElement;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;

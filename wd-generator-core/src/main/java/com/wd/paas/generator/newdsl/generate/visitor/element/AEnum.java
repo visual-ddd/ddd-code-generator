@@ -1,9 +1,8 @@
 package com.wd.paas.generator.newdsl.generate.visitor.element;
 
-import com.wd.paas.generator.newdsl.common.MethodInfo;
-import com.wd.paas.generator.newdsl.common.PropertyInfo;
+
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.Visitor;
-import lombok.Builder;
+import com.wd.paas.generator.newdsl.common.EnumMemberInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,20 +13,15 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
-public class AggregateRoot extends LeafElement{
+public class AEnum extends LeafElement{
 
     private String name;
 
     private String description;
 
-    private Boolean isAbstract;
+    private String baseType;
 
-    private PropertyInfo id;
-
-    private List<PropertyInfo> propertyList;
-
-    private List<MethodInfo> methodList;
+    private List<EnumMemberInfo> memberList;
 
     @Override
     public void accept(Visitor visitor) {

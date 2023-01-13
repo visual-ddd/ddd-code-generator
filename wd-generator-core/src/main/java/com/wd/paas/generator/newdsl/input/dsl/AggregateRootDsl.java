@@ -1,15 +1,17 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
+import com.wd.paas.generator.newdsl.common.MethodInfo;
+import com.wd.paas.generator.newdsl.common.PropertyInfo;
+import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.List;
 
 /***
  * @author wangchensheng
  */
 @Data
-public class AggregateRootDsl implements Serializable {
+public class AggregateRootDsl {
 
     private String name;
 
@@ -17,9 +19,9 @@ public class AggregateRootDsl implements Serializable {
 
     private Boolean isAbstract;
 
-    private PropertyDsl id;
+    private PropertyInfo id;
 
-    private List<PropertyDsl> propertyList;
+    private List<PropertyInfo> propertyList;
 
-    private List<MethodDsl> methodList;
+    private List<MethodInfo> methodList;
 }

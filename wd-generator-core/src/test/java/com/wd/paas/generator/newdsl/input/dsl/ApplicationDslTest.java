@@ -16,7 +16,7 @@ public class ApplicationDslTest {
     public void buildApplication() throws IOException {
         // DSL json 转 dsl
         ApplicationDsl applicationDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/applicationDsl.json", ApplicationDsl.class);
-        Application app = applicationDsl.buildApplication();
+        Application app = applicationDsl.build();
 
         DslStruct dslStruct = new DslStruct();
         dslStruct.add(app);

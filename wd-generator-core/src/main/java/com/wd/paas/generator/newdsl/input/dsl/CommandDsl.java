@@ -1,15 +1,18 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
+import com.wd.paas.generator.newdsl.common.PropertyInfo;
+import com.wd.paas.generator.newdsl.common.ReturnInfo;
+import com.wd.paas.generator.newdsl.generate.visitor.element.Command;
+import com.wd.paas.generator.newdsl.input.dsl.convert.CommandDslConvert;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.List;
 
 /***
  * @author wangchensheng
  */
 @Data
-public class CommandDsl implements Serializable {
+public class CommandDsl implements ElementBuildable {
 
     private String name;
 
@@ -21,7 +24,7 @@ public class CommandDsl implements Serializable {
 
     private CommandParameterDsl commandParameter;
 
-    private List<PropertyDsl> propertyList;
+    private List<PropertyInfo> propertyList;
 
     private DomainEventDsl domainEvent;
 
@@ -29,6 +32,12 @@ public class CommandDsl implements Serializable {
 
     private List<RuleDsl> ruleList;
 
-    private ReturnDsl returnDsl;
+    private ReturnInfo returnInfo;
+
+    @Override
+    public Command build() {
+        Command command = CommandDslConvert.INSTANCE.dto2Do(this);
+        return command;
+    }
 
 }

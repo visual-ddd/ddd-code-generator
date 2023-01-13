@@ -21,7 +21,7 @@ import ${importPackage};
     #if($field.description)
     /** ${field.description} */
     #end
-    ${field.modifier} ${field.type} ${field.name};
+    ${field.access} ${field.type} ${field.name};
     #end
 #end
 ## ============= 类拓展字段列表 =============
@@ -35,7 +35,7 @@ import ${importPackage};
                 #end
             #end
         #end
-    ${field.modifier} ${field.type} ${field.name};
+    ${field.access} ${field.type} ${field.name};
     #end
 #end
 ## ============= 类swagger字段注解 =============

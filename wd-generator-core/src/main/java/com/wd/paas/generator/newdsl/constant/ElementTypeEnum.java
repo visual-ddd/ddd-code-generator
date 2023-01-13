@@ -13,7 +13,10 @@ public enum ElementTypeEnum {
 
     /**/
     APPLICATION("Application"),
-    BUSINESS_DOMAIN("BusinessDomain");
+    BUSINESS_DOMAIN("BusinessDomain"),
+    AGGREGATE("Aggregate"),
+    VALUE_OBJECT("ValueObject"),
+    ;
 
     private final String value;
 

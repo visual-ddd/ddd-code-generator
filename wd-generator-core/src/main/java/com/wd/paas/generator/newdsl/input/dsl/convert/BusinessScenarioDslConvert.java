@@ -1,7 +1,7 @@
 package com.wd.paas.generator.newdsl.input.dsl.convert;
 
-import com.wd.paas.generator.newdsl.input.dsl.BusinessScenarioDsl;
 import com.wd.paas.generator.newdsl.generate.visitor.element.BusinessScenario;
+import com.wd.paas.generator.newdsl.input.dsl.BusinessScenarioDsl;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

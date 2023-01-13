@@ -14,12 +14,12 @@ public class DslStructTest {
 
     @Test
     public void accept() {
-        Application application = getApplication("app");
+        Application application = getApplication("app1");
 
         DslStruct dslStruct = new DslStruct();
         dslStruct.add(application);
 
-        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
+        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./",null));
         dslStruct.accept(javaTemplateVisitor);
 
         Assert.assertTrue(true);
@@ -29,7 +29,7 @@ public class DslStructTest {
         Application application = new Application();
         application.setInfo(Info.builder().name(appName).build());
 
-        application.add(new BusinessDomain(Info.builder().name((appName + "业务域")).build(), new Versionable()));
+//        application.add(new BusinessDomain(Info.builder().name((appName + "业务域")).build(), new Versionable()));
 //        applicationDTO.add(new BusinessScenario(Info.builder().name((appName + "业务场景")).build(), new Versionable()));
         return application;
     }

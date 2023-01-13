@@ -1,14 +1,13 @@
-package com.wd.paas.generator.newdsl.input.dsl;
+package com.wd.paas.generator.newdsl.common;
 
+import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import lombok.Data;
-
-import java.io.Serializable;
 
 /***
  * @author wangchensheng
  */
 @Data
-public class EnumMember implements Serializable {
+public class EnumMemberInfo {
 
     private String name;
 

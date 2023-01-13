@@ -1,4 +1,4 @@
-package com.wd.paas.generator.newdsl.input.dsl;
+package com.wd.paas.generator.newdsl.common;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * @author wangchensheng
  */
 @Data
-public class ReturnDsl {
+public class ReturnInfo {
 
     private String type;
 }

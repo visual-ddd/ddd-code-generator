@@ -1,21 +1,20 @@
-package com.wd.paas.generator.newdsl.input.dsl;
+package com.wd.paas.generator.newdsl.common;
 
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.List;
 
 /***
  * @author wangchensheng
  */
 @Data
-public class MethodDsl implements Serializable {
+public class MethodInfo {
 
     private String name;
 
     private String description;
 
-    private List<SignatureDsl> signatureList;
+    private List<SignatureInfo> signatureList;
 
     private String access;
 

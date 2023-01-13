@@ -3,9 +3,7 @@ package com.wd.paas.generator.newdsl.input.dsl;
 import com.google.gson.annotations.SerializedName;
 import com.wd.paas.generator.newdsl.common.Info;
 import com.wd.paas.generator.newdsl.common.Versionable;
-import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
 import com.wd.paas.generator.newdsl.generate.visitor.element.BusinessDomain;
-import com.wd.paas.generator.newdsl.input.dsl.convert.ApplicationDslConvert;
 import com.wd.paas.generator.newdsl.input.dsl.convert.BusinessDomainDslConvert;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +15,7 @@ import lombok.Data;
  */
 @AllArgsConstructor
 @Data
-public class BusinessDomainDsl {
+public class BusinessDomainDsl implements ElementBuildable {
 
     @SerializedName("info")
     private Info info;
@@ -28,7 +26,8 @@ public class BusinessDomainDsl {
     @SerializedName("domainModel")
     private DomainModelDsl domainModel;
 
-    public BusinessDomain buildBusinessDomain() {
+    @Override
+    public BusinessDomain build() {
         BusinessDomain businessDomain = BusinessDomainDslConvert.INSTANCE.dto2Do(this);
 
 

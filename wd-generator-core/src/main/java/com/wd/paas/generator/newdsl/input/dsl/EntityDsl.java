@@ -1,9 +1,15 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
-import java.io.Serializable;
+import com.wd.paas.generator.newdsl.generate.visitor.element.Entity;
+
 
 /***
  * @author wangchensheng
  */
-public class EntityDsl implements Serializable {
+public class EntityDsl implements ElementBuildable {
+
+    @Override
+    public Entity build(){
+        return null;
+    }
 }
