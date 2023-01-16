@@ -19,6 +19,6 @@ public class ${CMD_CLASS_NAME}Handler {
         ${aggregation}.${CMD_CLASS_PACKAGE_ORIGINAL}(removeCmd);
         repository.remove(${aggregation});
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT.umlClass.className}(removeCmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(removeCmd));
     }
 }

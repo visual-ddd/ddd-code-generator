@@ -37,6 +37,7 @@ public class VelocityLabel {
     public static final String AGGREGATION_CLASS_PACKAGE = "AGGREGATION_CLASS_PACKAGE";
 
     public static final String AGGREGATION_ENUM_LIST = "AGGREGATION_ENUM_LIST";
+    public static final String AGGREGATION_ENTITY_LIST = "AGGREGATION_ENTITY_LIST";
     public static final String AGGREGATION_CMD_LIST = "AGGREGATION_CMD_LIST";
     public static final String AGGREGATION_QUERY_LIST = "AGGREGATION_QUERY_LIST";
     public static final String AGGREGATION_PAGE_QUERY_LIST = "AGGREGATION_PAGE_QUERY_LIST";
@@ -88,7 +89,7 @@ public class VelocityLabel {
     // 指令
     public static final String CMD_CLASS_NAME = "CMD_CLASS_NAME";
     public static final String CMD_INPUT_CLASS_NAME = "CMD_INPUT_CLASS_NAME";
-    public static final String CMD_CLASS_PACKAGE = "CMD_CLASS_PACKAGE";
+    public static final String CMD_EVENT_CODE_SUFFIX = "CMD_EVENT_CODE";
     public static final String CMD_CLASS_PACKAGE_ORIGINAL = "CMD_CLASS_PACKAGE_ORIGINAL";
     public static final String CMD_CLASS_DESCRIPTION = "CMD_CLASS_DESCRIPTION";
     public static final String CMD_CLASS_FIELDS = "CMD_CLASS_FIELDS";

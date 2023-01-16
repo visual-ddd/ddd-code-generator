@@ -3,11 +3,8 @@ package $AGGREGATION_PACKAGE_PATH;
 
 import java.util.List;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
-#if(${cmd.cmdType} == "UPDATE")
-import ${AGGREGATION_PACKAGE_PATH}.${cmd.umlClass.classPackage}.${cmd.umlClass.className};
-#end
-#if(${cmd.cmdType} == "DELETE")
-import ${AGGREGATION_PACKAGE_PATH}.${cmd.umlClass.classPackage}.${cmd.umlClass.className};
+#if(${cmd.repository} == "MODIFY" || ${cmd.repository} == "REMOVE")
+import ${AGGREGATION_PACKAGE_PATH}.${cmd.category}.${cmd.name};
 #end
 #end
 
@@ -15,17 +12,17 @@ import ${AGGREGATION_PACKAGE_PATH}.${cmd.umlClass.classPackage}.${cmd.umlClass.c
 public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME} {
     #overrideMethod($AGGREGATION_CLASS_METHODS)
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
-#if(${cmd.cmdType} == "UPDATE")
+    #if(${cmd.repository} == "MODIFY")
 
-    public void ${cmd.umlClass.getOriginalClassPackage()}(${cmd.umlClass.className} updateCmd) {
-    #foreach($cmdField in ${cmd.umlClass.fieldList})
+    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} updateCmd) {
+    #foreach($cmdField in ${cmd.propertyList})
         this.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
     #end
     }
 #end
-#if(${cmd.cmdType} == "DELETE")
+#if(${cmd.repository} == "REMOVE")
 
-    public void ${cmd.umlClass.getOriginalClassPackage()}(${cmd.umlClass.className} removeCmd) {
+    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} removeCmd) {
         this.setId = removeCmd.getId();
     }
 #end

@@ -19,6 +19,6 @@ public class ${CMD_CLASS_NAME}Handler {
         ${AGGREGATION_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})} = factory.getInstance(createCmd);
         repository.save(${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})});
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT.umlClass.className}(createCmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(createCmd));
     }
 }

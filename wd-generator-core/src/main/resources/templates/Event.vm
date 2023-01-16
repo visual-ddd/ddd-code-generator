@@ -2,4 +2,4 @@
 #parse("templates/ClassFunction.vm")
 ## ==================== 事件相关变量 =======================
 ## 事件类包路径
-#set($EVENT_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${CMD_CLASS_PACKAGE}")
+#set($EVENT_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${URL_ACTION}")

@@ -10,6 +10,7 @@ import org.apache.velocity.VelocityContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /***
  * @author wangchensheng
@@ -44,18 +45,12 @@ public class CommandStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
+        context.put(VelocityLabel.URL_ACTION, command.getCategory().toLowerCase(Locale.ROOT));
+
         context.put(VelocityLabel.CMD_CLASS_NAME, command.getName());
-        context.put(VelocityLabel.CMD_INPUT_CLASS_NAME, "this.inputClassName");
-        context.put(VelocityLabel.CMD_CLASS_PACKAGE, StringUtils.isBlank(command.getCategory()) ? command.getName() : command.getCategory());
-        context.put(VelocityLabel.CMD_CLASS_PACKAGE_ORIGINAL, "umlClass.getOriginalClassPackage()");
         context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, command.getDescription());
         context.put(VelocityLabel.CMD_CLASS_FIELDS, command.getPropertyList());
-        context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, command.getName().concat(ModelUrlConstant.COMMAND_CLASS_SUFFIX).concat(ModelUrlConstant.EVENT_CLASS_SUFFIX));
-        context.put(VelocityLabel.CMD_CLASS_NAME, command.getName().concat(ModelUrlConstant.COMMAND_CLASS_SUFFIX));
-
-        context.put(VelocityLabel.URL_ACTION, command.getName().toLowerCase());
-//        context.put(VelocityLabel.CMD_CLASS_METHODS, command.getMethodList());
-//        context.put(VelocityLabel.CMD_EVENT, command.getDomainEvent().getName());
+        context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, command.getDomainEvent().getName());
     }
 
     @Override
@@ -63,17 +58,35 @@ public class CommandStrategy extends AbstractElementStrategy {
         String outputPath = AggregationStrategy.getOutputPath(templateUrl, context, preFixOutPath);
 
         String[] searchList = {
+                // url
+                ModelUrlConstant.ACTION,
+
+                // cmd
                 ModelUrlConstant.COMMAND_CLASS,
-                ModelUrlConstant.ADD_COMMAND_HANDLER_CLASS,
+
+                // event
                 ModelUrlConstant.EVENT_CLASS,
-                ModelUrlConstant.ACTION
+
+                // Handler
+                ModelUrlConstant.ADD_COMMAND_HANDLER_CLASS,
+                ModelUrlConstant.UPDATE_COMMAND_HANDLER_CLASS,
+                ModelUrlConstant.DELETE_COMMAND_HANDLER_CLASS
         };
         String[] replacementList = {
+                // url
+                (String) context.get(VelocityLabel.URL_ACTION),
+
+                // cmd
                 (String) context.get(VelocityLabel.CMD_CLASS_NAME),
-                (String) context.get(VelocityLabel.CMD_CLASS_NAME),
+
+                // event
                 (String) context.get(VelocityLabel.CMD_EVENT_CLASS_NAME),
 
-                (String) context.get(VelocityLabel.URL_ACTION)
+                // handler
+                (String) context.get(VelocityLabel.CMD_CLASS_NAME),
+                (String) context.get(VelocityLabel.CMD_CLASS_NAME),
+                (String) context.get(VelocityLabel.CMD_CLASS_NAME)
+
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

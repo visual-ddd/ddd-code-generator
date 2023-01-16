@@ -4,15 +4,12 @@ import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.newdsl.constant.GenerateElementTypeEnum;
 import com.wd.paas.generator.newdsl.constant.ModelUrlConstant;
 import com.wd.paas.generator.newdsl.constant.VelocityLabel;
-import com.wd.paas.generator.newdsl.generate.visitor.element.Aggregate;
-import com.wd.paas.generator.newdsl.generate.visitor.element.AggregateRoot;
+import com.wd.paas.generator.newdsl.generate.visitor.element.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author shimmer
@@ -29,16 +26,19 @@ public class AggregationStrategy extends AbstractElementStrategy {
     public void putVelocityContext(VelocityContext context) {
         AggregateRoot aggregateRoot = Optional.of(aggregate.getRoot()).orElse(new AggregateRoot());
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME, aggregateRoot.getName());
-//        context.put(VelocityLabel.AGGREGATION_CLASS_PACKAGE, "umlClass.getClassPackage()");
         context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, aggregateRoot.getDescription());
         context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, aggregateRoot.getPropertyList());
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, aggregateRoot.getMethodList());
-        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, "enumList");
-        context.put(VelocityLabel.AGGREGATION_CMD_LIST, "cmdList");
+
+        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, getTargetElementList(AEnum.class));
+        context.put(VelocityLabel.AGGREGATION_CMD_LIST, getTargetElementList(Command.class));
+        context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, getTargetElementList(Entity.class));
         context.put(VelocityLabel.AGGREGATION_QUERY_LIST, "queryList");
         context.put(VelocityLabel.AGGREGATION_PAGE_QUERY_LIST, "pageQueryList");
         context.put(VelocityLabel.AGGREGATION_QUERY_RESULT_LIST, "queryResultList");
-        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER, aggregateRoot.getName().toLowerCase(Locale.ROOT));
+
+        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER,
+                aggregateRoot.getName().toLowerCase(Locale.ROOT));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_UNDERSCORE,
@@ -74,6 +74,10 @@ public class AggregationStrategy extends AbstractElementStrategy {
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 
+    private List<Element> getTargetElementList(Class<? extends Element> targetClass) {
+        return aggregate.getElementList().stream()
+                .filter(element -> Objects.equals(element.getClass(), targetClass)).collect(Collectors.toList());
+    }
 
     public class AggregationGeneratorUtil {
 

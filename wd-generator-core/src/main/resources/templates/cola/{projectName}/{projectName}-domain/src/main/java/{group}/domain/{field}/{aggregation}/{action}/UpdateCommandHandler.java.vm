@@ -19,6 +19,6 @@ public class ${CMD_CLASS_NAME}Handler {
         ${aggregation}.${CMD_CLASS_PACKAGE_ORIGINAL}(updateCmd);
         repository.update(${aggregation});
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT.umlClass.className}(updateCmd));
+//        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(updateCmd));
     }
 }

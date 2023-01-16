@@ -1,45 +1,137 @@
-{
-  "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
-  "title": "添加用户",
-  "name": "UserCreate",
-  "description": "",
-  "meta": {},
-  "rules": [
-    {
-      "uuid": "7e14013a-b907-4513-8d3a-34dd8b180009",
-      "title": "姓名唯一",
-      "name": "Rule1",
-      "description": "姓名必须是唯一的",
-      "meta": {}
-    }
-  ],
-  "repository": "save",
-  "eventSendable": false,
-  "source": [
-    {
-      "type": "http"
-    },
-    {
-      "type": "rpc"
-    }
-  ],
-  "properties": [
-    {
-      "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
-      "title": "用户Id",
-      "name": "userId",
-      "description": "",
-      "meta": {},
-      "access": "public",
-      "type": "Long"
-    }
-  ],
-  "event": {
+[
+  {
     "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
-    "name": "UserCreateEvent",
-    "properties": []
+    "title": "添加用户",
+    "name": "UserCreate",
+    "description": "",
+    "meta": {},
+    "rules": [
+      {
+        "uuid": "7e14013a-b907-4513-8d3a-34dd8b180009",
+        "title": "姓名唯一",
+        "name": "Rule1",
+        "description": "姓名必须是唯一的",
+        "meta": {}
+      }
+    ],
+    "repository": "save",
+    "eventSendable": false,
+    "source": [
+      {
+        "type": "http"
+      },
+      {
+        "type": "rpc"
+      }
+    ],
+    "properties": [
+      {
+        "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
+        "title": "用户Id",
+        "name": "userId",
+        "description": "",
+        "meta": {},
+        "access": "public",
+        "type": "Long"
+      }
+    ],
+    "event": {
+      "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
+      "name": "UserCreateEvent",
+      "properties": []
+    },
+    "return": {
+      "type": "void"
+    }
   },
-  "return": {
-    "type": "void"
+  {
+    "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
+    "title": "更新用户",
+    "name": "UserUpdate",
+    "description": "",
+    "meta": {},
+    "rules": [
+      {
+        "uuid": "7e14013a-b907-4513-8d3a-34dd8b180009",
+        "title": "姓名唯一",
+        "name": "Rule1",
+        "description": "姓名必须是唯一的",
+        "meta": {}
+      }
+    ],
+    "repository": "modify",
+    "eventSendable": false,
+    "source": [
+      {
+        "type": "http"
+      },
+      {
+        "type": "rpc"
+      }
+    ],
+    "properties": [
+      {
+        "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
+        "title": "用户Id",
+        "name": "userId",
+        "description": "",
+        "meta": {},
+        "access": "public",
+        "type": "Long"
+      }
+    ],
+    "event": {
+      "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
+      "name": "UserUpdateEvent",
+      "properties": []
+    },
+    "return": {
+      "type": "void"
+    }
+  },
+  {
+    "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
+    "title": "删除用户",
+    "name": "UserDelete",
+    "description": "",
+    "meta": {},
+    "rules": [
+      {
+        "uuid": "7e14013a-b907-4513-8d3a-34dd8b180009",
+        "title": "姓名唯一",
+        "name": "Rule1",
+        "description": "姓名必须是唯一的",
+        "meta": {}
+      }
+    ],
+    "repository": "remove",
+    "eventSendable": false,
+    "source": [
+      {
+        "type": "http"
+      },
+      {
+        "type": "rpc"
+      }
+    ],
+    "properties": [
+      {
+        "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
+        "title": "用户Id",
+        "name": "userId",
+        "description": "",
+        "meta": {},
+        "access": "public",
+        "type": "Long"
+      }
+    ],
+    "event": {
+      "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
+      "name": "UserDeleteEvent",
+      "properties": []
+    },
+    "return": {
+      "type": "void"
+    }
   }
-}
+]

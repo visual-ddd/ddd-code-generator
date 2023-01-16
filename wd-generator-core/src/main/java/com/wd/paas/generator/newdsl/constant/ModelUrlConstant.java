@@ -34,7 +34,7 @@ public class ModelUrlConstant {
     public static final String DOMAIN_CHART = "DomainChart";
 
     public static final String COMMAND_CLASS_SUFFIX = "Cmd";
-    public static final String EVENT_CLASS_SUFFIX = "Event";
+    public static final String EVENT_CLASS_SUFFIX = "CmdEvent";
 
     public static final String QUERY_RESULT_CLASS = "QueryResult";
     public static final String QUERY_CLASS = "Query";

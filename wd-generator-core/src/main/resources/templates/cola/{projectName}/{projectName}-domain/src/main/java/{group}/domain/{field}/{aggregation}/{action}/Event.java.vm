@@ -1,5 +1,5 @@
 #parse("templates/Event.vm")
-#set($encode = "{event.${PROJECT_NAME}.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${CMD_CLASS_PACKAGE}}")
+#set($encode = "{event.${PROJECT_NAME}.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${URL_ACTION}}")
 package ${EVENT_PACKAGE_PATH};
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
