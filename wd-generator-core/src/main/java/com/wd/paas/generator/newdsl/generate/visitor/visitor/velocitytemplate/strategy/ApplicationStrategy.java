@@ -46,7 +46,7 @@ public class ApplicationStrategy extends AbstractElementStrategy {
         return templateContext.getIsGenerateProjectFrame();
     }
 
-    private static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+    protected static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
         String[] searchList = {
                 ModelUrlConstant.OUTPUT_PATH,
                 ModelUrlConstant.PROJECT_NAME,

@@ -1,5 +1,7 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
+import com.google.gson.annotations.SerializedName;
+import com.wd.paas.generator.newdsl.common.Info;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Aggregate;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import com.wd.paas.generator.newdsl.input.dsl.convert.AggregateDslConvert;
@@ -13,16 +15,21 @@ import java.util.Optional;
  * @author wangchensheng
  */
 @Data
-public class AggregateDsl implements ElementBuildable {
+public class AggregateDsl extends Info implements ElementBuildable {
 
+    @SerializedName("root")
     private AggregateRootDsl root;
 
+    @SerializedName("entities")
     private List<EntityDsl> entityList;
 
+    @SerializedName("valueObjects")
     private List<ValueObjectDsl> valueObjectList;
 
+    @SerializedName("enums")
     private List<EnumDsl> enumList;
 
+    @SerializedName("commands")
     private List<CommandDsl> commandList;
 
     @Override

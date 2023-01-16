@@ -33,14 +33,14 @@ public class ValueObjectDslTest {
 
     private static Application getApplication(String appName,String domainName,String aggregateName, String valueObjectName,String commandName) {
         Application application = new Application();
-        application.setInfo(Info.builder().name(appName).build());
+/*        application.setInfo(Info.builder().name(appName).build());
         application.setVersionable(Versionable.builder().version("R5.0").build());
 
         BusinessDomain businessDomain = new BusinessDomain();
-        businessDomain.setInfo(Info.builder().name(appName + domainName).build());
+        businessDomain.setInfo(Info.builder().name(appName + domainName).build());*/
 
         Aggregate aggregate = new Aggregate();
-        aggregate.setAggregateRoot(AggregateRoot.builder().name(aggregateName).build());
+        aggregate.setRoot(AggregateRoot.builder().name(aggregateName).build());
 
         ValueObject valueObject = new ValueObject();
         valueObject.setDescription("值对象");
@@ -64,8 +64,8 @@ public class ValueObjectDslTest {
 
         aggregate.add(command);
         aggregate.add(valueObject);
-        businessDomain.add(aggregate);
-        application.add(businessDomain);
+//        businessDomain.add(aggregate);
+//        application.add(businessDomain);
         return application;
     }
 

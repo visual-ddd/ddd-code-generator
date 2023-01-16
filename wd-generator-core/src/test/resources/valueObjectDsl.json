@@ -1,0 +1,19 @@
+{
+  "uuid": "634ebe2d-c691-41ea-818b-c08adfe97293",
+  "title": "地址",
+  "name": "Address",
+  "description": "",
+  "meta": {},
+  "properties": [
+    {
+      "uuid": "49d225da-d273-493d-909b-94dd62e5c613",
+      "title": "用户Id",
+      "name": "userId",
+      "description": "用户Id",
+      "meta": {},
+      "access": "public",
+      "type": "Long"
+    }
+  ],
+  "methods": []
+}

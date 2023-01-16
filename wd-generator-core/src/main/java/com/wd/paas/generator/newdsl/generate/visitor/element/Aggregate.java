@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class Aggregate extends CompositeElement {
 
-    private AggregateRoot aggregateRoot;
+    private AggregateRoot root;
 
     @Override
     public void accept(Visitor visitor) {

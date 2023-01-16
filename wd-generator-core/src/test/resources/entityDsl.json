@@ -1,0 +1,35 @@
+{
+  "uuid": "1b3d7da5-896c-4854-b15e-e3692e715089",
+  "title": "未命名",
+  "name": "Untitled",
+  "description": "",
+  "meta": {},
+  "id": {
+    "uuid": "6958a6ad-e0a0-4346-8ab6-25b09a8cc16d",
+    "title": "未命名",
+    "name": "untitled",
+    "description": "",
+    "meta": {},
+    "access": "public",
+    "type": "String"
+  },
+  "properties": [],
+  "methods": [
+    {
+      "uuid": "b6c2eb03-c44d-49c8-8d08-b74c3760903e",
+      "title": "",
+      "name": "untitled",
+      "description": "",
+      "meta": {},
+      "access": "public",
+      "abstract": false,
+      "signature": {
+        "description": "",
+        "parameters": [],
+        "return": {
+          "type": "void"
+        }
+      }
+    }
+  ]
+}

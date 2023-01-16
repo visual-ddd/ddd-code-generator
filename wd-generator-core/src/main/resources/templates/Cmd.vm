@@ -2,7 +2,7 @@
 #parse("templates/ClassFunction.vm")
 ## ==================== 指令相关变量 =======================
 ## 指令包路径
-#set($CMD_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${CMD_CLASS_PACKAGE}")
+#set($CMD_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${URL_AGGREGATION}.${URL_ACTION}")
 ## 指令DTO包路径
 #set($CMD_DTO_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto")
 ## 指令DTO转换器 包路径

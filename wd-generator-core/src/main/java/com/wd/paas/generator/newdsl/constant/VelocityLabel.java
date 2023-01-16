@@ -108,4 +108,7 @@ public class VelocityLabel {
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";
     public static final String CASE_FORMAT_LOWER_UNDERSCORE = "CASE_FORMAT_LOWER_UNDERSCORE";
     public static final String AGGREGATION_GENERATOR_UTIL = "AGGREGATION_GENERATOR_UTIL";
+
+    public static final String URL_ACTION = "URL_ACTION";
+    public static final String URL_AGGREGATION = "URL_AGGREGATION";
 }

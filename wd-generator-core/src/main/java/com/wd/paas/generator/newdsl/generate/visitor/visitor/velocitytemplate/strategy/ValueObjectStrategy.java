@@ -17,7 +17,7 @@ public class ValueObjectStrategy extends AbstractElementStrategy {
 
     private final ValueObject valueObject;
 
-    public ValueObjectStrategy(ValueObject valueObject){
+    public ValueObjectStrategy(ValueObject valueObject) {
         this.valueObject = valueObject;
     }
 
@@ -37,25 +37,15 @@ public class ValueObjectStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+        String outputPath = AggregationStrategy.getOutputPath(templateUrl, context, preFixOutPath);
 
         String[] searchList = {
-                ModelUrlConstant.OUTPUT_PATH,
-                ModelUrlConstant.PROJECT_NAME,
-                ModelUrlConstant.GROUP,
-                ModelUrlConstant.FIELD,
-                ModelUrlConstant.AGGREGATION,
-                ModelUrlConstant.VALUE_OBJECT_CLASS,
-                ModelUrlConstant.VM
+                ModelUrlConstant.VALUE_OBJECT_CLASS
         };
         String[] replacementList = {
-                preFixOutPath,
-                (String) context.get(VelocityLabel.PROJECT_NAME),
-                (String) context.get(VelocityLabel.PROJECT_SLASH_GROUP),
-                (String) context.get(VelocityLabel.DOMAIN_NAME),
-                (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME),
-                (String) context.get(VelocityLabel.VALUE_OBJECT_CLASS_NAME),
-                ModelUrlConstant.EMPTY
+                (String) context.get(VelocityLabel.VALUE_OBJECT_CLASS_NAME)
         };
-        return StringUtils.replaceEach(templateUrl, searchList, replacementList);
+
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 }

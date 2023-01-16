@@ -33,20 +33,19 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+        return getOutputPath(templateUrl, context, preFixOutPath);
+    }
+
+    protected static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+        String outputPath = ApplicationStrategy.getOutputPath(templateUrl, context, preFixOutPath);
+
         String[] searchList = {
-                ModelUrlConstant.OUTPUT_PATH,
-                ModelUrlConstant.FIELD,
-                ModelUrlConstant.PROJECT_NAME,
-                ModelUrlConstant.GROUP,
-                ModelUrlConstant.VM
+                ModelUrlConstant.FIELD
         };
         String[] replacementList = {
-                preFixOutPath,
-                (String) context.get(VelocityLabel.DOMAIN_NAME),
-                (String) context.get(VelocityLabel.PROJECT_NAME),
-                (String) context.get(VelocityLabel.PROJECT_SLASH_GROUP),
-                ModelUrlConstant.EMPTY
+                (String) context.get(VelocityLabel.DOMAIN_NAME)
         };
-        return StringUtils.replaceEach(templateUrl, searchList, replacementList);
+
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 }

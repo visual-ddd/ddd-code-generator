@@ -1,8 +1,5 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
-import com.wd.paas.generator.newdsl.generate.visitor.element.Aggregate;
-import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
-import com.wd.paas.generator.newdsl.generate.visitor.element.BusinessDomain;
 import com.wd.paas.generator.newdsl.generate.visitor.objectstruct.DslStruct;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.JavaTemplateVisitor;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
@@ -13,7 +10,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Collections;
 
-public class AggregationDslTest {
+public class CommandDslTest {
 
     @Test
     public void buildApplication() throws IOException {
@@ -21,7 +18,9 @@ public class AggregationDslTest {
         ApplicationDsl applicationDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/applicationDsl.json", ApplicationDsl.class);
         BusinessDomainDsl businessDomainDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/businessDomainDsl.json", BusinessDomainDsl.class);
         AggregateDsl aggregateDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/aggregationDsl.json", AggregateDsl.class);
+        CommandDsl commandDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/commandDsl.json", CommandDsl.class);
 
+        aggregateDsl.setCommandList(Collections.singletonList(commandDsl));
         businessDomainDsl.getDomainModel().setAggregateList(Collections.singletonList(aggregateDsl));
         applicationDsl.setBusinessDomainList(Collections.singletonList(businessDomainDsl));
 

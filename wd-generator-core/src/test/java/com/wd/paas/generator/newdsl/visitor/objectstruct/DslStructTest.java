@@ -27,7 +27,7 @@ public class DslStructTest {
 
     private static Application getApplication(String appName) {
         Application application = new Application();
-        application.setInfo(Info.builder().name(appName).build());
+//        application.setInfo(Info.builder().name(appName).build());
 
 //        application.add(new BusinessDomain(Info.builder().name((appName + "业务域")).build(), new Versionable()));
 //        applicationDTO.add(new BusinessScenario(Info.builder().name((appName + "业务场景")).build(), new Versionable()));

@@ -1,9 +1,9 @@
 package com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.strategy;
 
 import com.google.common.base.CaseFormat;
-import com.wd.paas.generator.generate.constant.ModelUrlConstant;
-import com.wd.paas.generator.generate.constant.VelocityLabel;
 import com.wd.paas.generator.newdsl.constant.GenerateElementTypeEnum;
+import com.wd.paas.generator.newdsl.constant.ModelUrlConstant;
+import com.wd.paas.generator.newdsl.constant.VelocityLabel;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Aggregate;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
@@ -25,17 +25,17 @@ public class AggregationStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.AGGREGATION_CLASS_NAME, aggregate.getAggregateRoot().getName());
+        context.put(VelocityLabel.AGGREGATION_CLASS_NAME, aggregate.getRoot().getName());
 //        context.put(VelocityLabel.AGGREGATION_CLASS_PACKAGE, "umlClass.getClassPackage()");
-        context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, aggregate.getAggregateRoot().getDescription());
-        context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, aggregate.getAggregateRoot().getPropertyList());
-        context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, aggregate.getAggregateRoot().getMethodList());
+        context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, aggregate.getRoot().getDescription());
+        context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, aggregate.getRoot().getPropertyList());
+        context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, aggregate.getRoot().getMethodList());
         context.put(VelocityLabel.AGGREGATION_ENUM_LIST, "enumList");
         context.put(VelocityLabel.AGGREGATION_CMD_LIST, "cmdList");
         context.put(VelocityLabel.AGGREGATION_QUERY_LIST, "queryList");
         context.put(VelocityLabel.AGGREGATION_PAGE_QUERY_LIST, "pageQueryList");
         context.put(VelocityLabel.AGGREGATION_QUERY_RESULT_LIST, "queryResultList");
-        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER, aggregate.getAggregateRoot().getName().toLowerCase(Locale.ROOT));
+        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER, aggregate.getRoot().getName().toLowerCase(Locale.ROOT));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_UNDERSCORE,
@@ -43,6 +43,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
                 CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
         context.put(VelocityLabel.AGGREGATION_GENERATOR_UTIL, new AggregationStrategy.AggregationGeneratorUtil());
+        context.put(VelocityLabel.URL_AGGREGATION, aggregate.getRoot().getName().toLowerCase());
     }
 
     @Override
@@ -52,23 +53,22 @@ public class AggregationStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+        return getOutputPath(templateUrl, context, preFixOutPath);
+    }
+
+    protected static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+        String outputPath = BusinessDomainStrategy.getOutputPath(templateUrl, context, preFixOutPath);
+
         String[] searchList = {
-                ModelUrlConstant.OUTPUT_PATH,
-                ModelUrlConstant.FIELD,
-                ModelUrlConstant.PROJECT_NAME,
-                ModelUrlConstant.GROUP,
                 ModelUrlConstant.AGGREGATION,
-                ModelUrlConstant.VM
+                ModelUrlConstant.AGGREGATION_CLASS
         };
         String[] replacementList = {
-                preFixOutPath,
-                (String) context.get(VelocityLabel.DOMAIN_NAME),
-                (String) context.get(VelocityLabel.PROJECT_NAME),
-                (String) context.get(VelocityLabel.PROJECT_SLASH_GROUP),
-                (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME),
-                ModelUrlConstant.EMPTY
+                (String) context.get(VelocityLabel.URL_AGGREGATION),
+                (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME)
         };
-        return StringUtils.replaceEach(templateUrl, searchList, replacementList);
+
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 
 

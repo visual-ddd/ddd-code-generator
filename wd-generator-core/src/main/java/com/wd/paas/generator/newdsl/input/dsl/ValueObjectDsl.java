@@ -1,5 +1,6 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
+import com.google.gson.annotations.SerializedName;
 import com.wd.paas.generator.newdsl.common.MethodInfo;
 import com.wd.paas.generator.newdsl.common.PropertyInfo;
 import com.wd.paas.generator.newdsl.generate.visitor.element.ValueObject;
@@ -14,17 +15,20 @@ import java.util.List;
 @Data
 public class ValueObjectDsl implements ElementBuildable {
 
+    @SerializedName("name")
     private String name;
 
+    @SerializedName("description")
     private String description;
 
+    @SerializedName("properties")
     private List<PropertyInfo> propertyList;
 
+    @SerializedName("methods")
     private List<MethodInfo> methodList;
 
     @Override
     public ValueObject build() {
-        ValueObject ValueObject = ValueObjectDslConvert.INSTANCE.dto2Do(this);
-        return ValueObject;
+        return ValueObjectDslConvert.INSTANCE.dto2Do(this);
     }
 }

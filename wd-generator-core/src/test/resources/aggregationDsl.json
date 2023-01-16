@@ -1,150 +1,39 @@
 {
+  "uuid": "92c49da1-1e43-44f9-9dcb-001312c134cd",
+  "title": "用户的聚合",
+  "name": "User",
+  "description": "",
+  "meta": [],
   "root": {
-    "name": "",
-    "description": "",
-    "isAbstract": false,
+    "uuid": "9cc9bb37-0db8-4949-a0f6-5f1e467aef82",
+    "title": "用户",
+    "name": "User",
+    "description": "用户的聚合根",
+    "meta": {},
     "id": {
-      "name": "",
-      "type": "",
-      "description": "",
-      "access": ""
+      "uuid": "f7655716-a0bf-4dff-98f4-ff4ef7b931b5",
+      "title": "密码",
+      "name": "password",
+      "description": "密码",
+      "meta": {},
+      "access": "public",
+      "type": "String"
     },
-    "propertyList": [
+    "properties": [
       {
-        "name": "",
-        "type": "",
-        "description": "",
-        "access": ""
+        "uuid": "f1bf5c48-9146-44f3-a154-37957e1b43da",
+        "title": "用户名",
+        "name": "userName",
+        "description": "用户名",
+        "meta": {},
+        "access": "public",
+        "type": "String"
       }
     ],
-    "methodList": [
-      {
-        "name": "",
-        "description": "",
-        "signatureList": [
-          {
-            "parameterList": [
-              {
-                "name": "",
-                "description": "",
-                "type": ""
-              }
-            ],
-            "returnInfo": {
-              "type": ""
-            }
-          }
-        ],
-        "access": "",
-        "isAbstract": false
-      }
-    ]
+    "methods": []
   },
-  "entityList": [
-    {}
-  ],
-  "valueObjectList": [
-    {
-      "name": "",
-      "description": "",
-      "propertyList": [
-        {
-          "name": "",
-          "type": "",
-          "description": "",
-          "access": ""
-        }
-      ],
-      "methodList": [
-        {
-          "name": "",
-          "description": "",
-          "signatureList": [
-            {
-              "parameterList": [
-                {
-                  "name": "",
-                  "description": "",
-                  "type": ""
-                }
-              ],
-              "returnInfo": {
-                "type": ""
-              }
-            }
-          ],
-          "access": "",
-          "isAbstract": false
-        }
-      ]
-    }
-  ],
-  "enumList": [
-    {
-      "name": "",
-      "description": "",
-      "baseType": "",
-      "memberList": [
-        {
-          "name": "",
-          "description": "",
-          "code": 0
-        }
-      ]
-    }
-  ],
-  "commandList": [
-    {
-      "name": "",
-      "description": "",
-      "sourceList": [
-        {
-          "type": ""
-        }
-      ],
-      "repository": {},
-      "commandParameter": {
-        "name": "",
-        "description": "",
-        "propertyList": [
-          {
-            "name": "",
-            "type": "",
-            "description": "",
-            "access": ""
-          }
-        ]
-      },
-      "propertyList": [
-        {
-          "name": "",
-          "type": "",
-          "description": "",
-          "access": ""
-        }
-      ],
-      "domainEvent": {
-        "name": "",
-        "description": "",
-        "propertyList": [
-          {
-            "name": "",
-            "type": "",
-            "description": "",
-            "access": ""
-          }
-        ]
-      },
-      "eventEnable": false,
-      "ruleList": [
-        {
-          "name": "",
-          "description": ""
-        }
-      ],
-      "returnInfo": {
-        "type": ""
-      }
-    }
-  ]
+  "entities": [],
+  "valueObjects": [],
+  "enums": [],
+  "commands": []
 }
