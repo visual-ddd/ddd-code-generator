@@ -11,7 +11,7 @@
   "domainModel": {},
   "dataModel": {},
   "queryModel": {},
-  "objectMapperModel": {},
+  "objectMapper": {},
   "vision": "产品愿景",
   "document": "https://visual-ddd.yuque.com/tp6sfc/project_doc/afext6f43p74ml1y"
 }

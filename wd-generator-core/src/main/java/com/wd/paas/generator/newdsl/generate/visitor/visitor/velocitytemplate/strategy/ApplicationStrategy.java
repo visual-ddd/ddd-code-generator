@@ -38,6 +38,15 @@ public class ApplicationStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+        return getOutputPath(templateUrl, context, preFixOutPath);
+    }
+
+    @Override
+    public Boolean process(TemplateContext templateContext) {
+        return templateContext.getIsGenerateProjectFrame();
+    }
+
+    private static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
         String[] searchList = {
                 ModelUrlConstant.OUTPUT_PATH,
                 ModelUrlConstant.PROJECT_NAME,
@@ -55,12 +64,7 @@ public class ApplicationStrategy extends AbstractElementStrategy {
         return StringUtils.replaceEach(templateUrl, searchList, replacementList);
     }
 
-    @Override
-    public Boolean process(TemplateContext templateContext) {
-        return templateContext.getIsGenerateProjectFrame();
-    }
-
-    private String trans2Slash(String target) {
+    private static String trans2Slash(String target) {
         return StringUtils.replace(target, ModelUrlConstant.POINT, ModelUrlConstant.SLASH);
     }
 }
