@@ -1,11 +1,12 @@
 package com.wd.paas.generator.newdsl.generate.visitor.element;
 
-import com.wd.paas.generator.newdsl.common.Info;
-import com.wd.paas.generator.newdsl.common.Versionable;
+import com.wd.paas.generator.newdsl.common.PropertyInfo;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.Visitor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * @author shimmer
@@ -15,9 +16,15 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class BusinessScenario extends CompositeElement {
 
-    private Info info;
+    private String title;
 
-    private Versionable versionable;
+    private String name;
+
+    private String description;
+
+    private List<PropertyInfo> meta;
+
+    private String version;
 
     @Override
     public void accept(Visitor visitor) {

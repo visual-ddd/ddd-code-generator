@@ -6,6 +6,7 @@ import com.wd.paas.generator.newdsl.generate.visitor.element.Aggregate;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import com.wd.paas.generator.newdsl.input.dsl.convert.AggregateDslConvert;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Optional;
 /***
  * @author wangchensheng
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class AggregateDsl extends Info implements ElementBuildable {
 

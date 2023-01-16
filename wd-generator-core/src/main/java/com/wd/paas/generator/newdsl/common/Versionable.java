@@ -1,11 +1,11 @@
 package com.wd.paas.generator.newdsl.common;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
-public class Versionable {
+public class Versionable extends Info {
 
     private String version;
 

@@ -1,12 +1,12 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
 import com.google.gson.annotations.SerializedName;
-import com.wd.paas.generator.newdsl.common.Info;
 import com.wd.paas.generator.newdsl.common.Versionable;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
 import com.wd.paas.generator.newdsl.generate.visitor.element.Element;
 import com.wd.paas.generator.newdsl.input.dsl.convert.ApplicationDslConvert;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +17,9 @@ import java.util.Optional;
  *
  * @author zhuxueliang
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class ApplicationDsl implements ElementBuildable {
-
-    @SerializedName("info")
-    private Info info;
-
-    @SerializedName("versionable")
-    private Versionable versionable;
+public class ApplicationDsl extends Versionable implements ElementBuildable {
 
     @SerializedName("package")
     private String packageName;

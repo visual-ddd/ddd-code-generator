@@ -23,7 +23,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.DOMAIN_NAME, businessDomain.getInfo().getName());
+        context.put(VelocityLabel.DOMAIN_NAME, businessDomain.getName());
     }
 
     @Override

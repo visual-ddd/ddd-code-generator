@@ -24,11 +24,11 @@ public class ApplicationStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.PROJECT_TITLE, application.getInfo().getTitle());
-        context.put(VelocityLabel.PROJECT_NAME, application.getInfo().getName());
-        context.put(VelocityLabel.PROJECT_DESCRIPTION, application.getInfo().getDescription());
+        context.put(VelocityLabel.PROJECT_TITLE, application.getTitle());
+        context.put(VelocityLabel.PROJECT_NAME, application.getName());
+        context.put(VelocityLabel.PROJECT_DESCRIPTION, application.getDescription());
         context.put(VelocityLabel.PROJECT_PACKAGE, application.getPackageName());
-        context.put(VelocityLabel.PROJECT_VERSION, application.getVersionable().getVersion());
+        context.put(VelocityLabel.PROJECT_VERSION, application.getVersion());
     }
 
     @Override

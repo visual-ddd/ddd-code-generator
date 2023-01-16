@@ -1,14 +1,10 @@
 [
   {
-    "info": {
-      "title": "组织域",
-      "name": "origination",
-      "description": "组织域，提供组织管理能力",
-      "meta": []
-    },
-    "versionable": {
-      "version": "1.0"
-    },
+    "title": "组织域",
+    "name": "origination",
+    "description": "组织域，提供组织管理能力",
+    "meta": [],
+    "version": "1.0",
     "domainModel": {},
     "dataModel": {},
     "queryModel": {},

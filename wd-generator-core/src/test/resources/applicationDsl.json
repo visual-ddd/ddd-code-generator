@@ -1,13 +1,9 @@
 {
-  "info": {
-    "title": "DDD可视化开发平台",
-    "name": "wd-visual-ddd",
-    "description": "DDD可视化开发平台，实现项目可视化开发",
-    "meta": []
-  },
-  "versionable": {
-    "version": "1.0-SNAPSHOT"
-  },
+  "title": "DDD可视化开发平台",
+  "name": "wd-visual-ddd",
+  "description": "DDD可视化开发平台，实现项目可视化开发",
+  "meta": [],
+  "version": "1.0-SNAPSHOT",
   "package": "com.wd.paas",
   "businessDomainList": [],
   "businessScenarioList": []

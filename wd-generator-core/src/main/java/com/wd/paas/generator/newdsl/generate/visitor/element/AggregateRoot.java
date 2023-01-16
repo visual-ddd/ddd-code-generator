@@ -3,7 +3,6 @@ package com.wd.paas.generator.newdsl.generate.visitor.element;
 import com.wd.paas.generator.newdsl.common.MethodInfo;
 import com.wd.paas.generator.newdsl.common.PropertyInfo;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.Visitor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +13,6 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
 public class AggregateRoot extends LeafElement{
 
     private String name;
