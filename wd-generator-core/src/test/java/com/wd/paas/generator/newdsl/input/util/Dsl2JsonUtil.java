@@ -1,12 +1,11 @@
 package com.wd.paas.generator.newdsl.input.util;
 
 import com.wd.paas.generator.newdsl.util.GsonUtil;
-import org.apache.commons.io.IOUtils;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.lang.reflect.Type;
 
 /**
  * 指定元素类型进行解析
@@ -14,8 +13,13 @@ import java.nio.file.Paths;
 public class Dsl2JsonUtil {
 
     public static <T> T getDslElement(String path, Class<T> cls) throws IOException {
-        String json = IOUtils.toString(Files.newInputStream(Paths.get(path)), StandardCharsets.UTF_8);
-        T dslElemnt = GsonUtil.fromJson(json, cls);
+        T dslElemnt = GsonUtil.fromJson(new FileReader(path), cls);
+        System.out.println(GsonUtil.toJson(dslElemnt));
+        return dslElemnt;
+    }
+
+    public static <T> T getDslElement(String path, Type type) throws FileNotFoundException {
+        T dslElemnt = GsonUtil.fromJson(new FileReader(path), type);
         System.out.println(GsonUtil.toJson(dslElemnt));
         return dslElemnt;
     }

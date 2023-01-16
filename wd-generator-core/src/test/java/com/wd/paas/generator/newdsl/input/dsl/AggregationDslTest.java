@@ -1,8 +1,6 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
-import com.wd.paas.generator.newdsl.generate.visitor.element.Aggregate;
-import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
-import com.wd.paas.generator.newdsl.generate.visitor.element.BusinessDomain;
+import com.google.common.reflect.TypeToken;
 import com.wd.paas.generator.newdsl.generate.visitor.objectstruct.DslStruct;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.JavaTemplateVisitor;
 import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
@@ -11,7 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.List;
 
 public class AggregationDslTest {
 
@@ -19,11 +17,13 @@ public class AggregationDslTest {
     public void buildApplication() throws IOException {
         // DSL json 转 dsl
         ApplicationDsl applicationDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/applicationDsl.json", ApplicationDsl.class);
-        BusinessDomainDsl businessDomainDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/businessDomainDsl.json", BusinessDomainDsl.class);
-        AggregateDsl aggregateDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/aggregationDsl.json", AggregateDsl.class);
+        List<BusinessDomainDsl> businessDomainDslList = Dsl2JsonUtil
+                .getDslElement("./src/test/resources/businessDomainDsl.json", new TypeToken<List<BusinessDomainDsl>>(){}.getType());
+        List<AggregateDsl> aggregateDslList = Dsl2JsonUtil
+                .getDslElement("./src/test/resources/aggregationDsl.json", new TypeToken<List<AggregateDsl>>(){}.getType());
 
-        businessDomainDsl.getDomainModel().setAggregateList(Collections.singletonList(aggregateDsl));
-        applicationDsl.setBusinessDomainList(Collections.singletonList(businessDomainDsl));
+        businessDomainDslList.get(0).getDomainModel().setAggregateList(aggregateDslList);
+        applicationDsl.setBusinessDomainList(businessDomainDslList);
 
         DslStruct dslStruct = new DslStruct();
         dslStruct.add(applicationDsl.build());
