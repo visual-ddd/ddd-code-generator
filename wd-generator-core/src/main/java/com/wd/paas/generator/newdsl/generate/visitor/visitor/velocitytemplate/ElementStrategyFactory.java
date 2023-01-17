@@ -22,6 +22,8 @@ public class ElementStrategyFactory {
                 return new ValueObjectStrategy((ValueObject) element);
             case COMMAND:
                 return new CommandStrategy((Command) element);
+            case AENUM:
+                return new EnumStrategy((AEnum) element);
             case DEFAULT:
                 return new DefaultStrategy();
             default:

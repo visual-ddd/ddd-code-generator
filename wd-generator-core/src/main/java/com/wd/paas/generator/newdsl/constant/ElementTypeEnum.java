@@ -17,6 +17,7 @@ public enum ElementTypeEnum {
     AGGREGATE("Aggregate"),
     VALUE_OBJECT("ValueObject"),
     COMMAND("Command"),
+    AENUM("AEnum"),
     DEFAULT("Default"),
     ;
 

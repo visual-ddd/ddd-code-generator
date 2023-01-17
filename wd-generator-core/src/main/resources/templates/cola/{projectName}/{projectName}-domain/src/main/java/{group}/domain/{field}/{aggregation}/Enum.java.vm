@@ -32,6 +32,6 @@ public enum ${ENUM_CLASS_NAME} implements BaseEnum {
      * ${constant.note}
      */
     #end
-    ${constant.name}(${constant.code}, "${constant.desc}"),
+    ${constant.name}(${constant.code}, "${constant.description}"),
 #end
 #end
