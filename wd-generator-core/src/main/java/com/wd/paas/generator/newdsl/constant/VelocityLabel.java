@@ -98,6 +98,7 @@ public class VelocityLabel {
 
     // 指令事件
     public static final String CMD_EVENT_CLASS_NAME = "CMD_EVENT_CLASS_NAME";
+    public static final String CMD_CATEGORY = "CMD_CATEGORY";
     public static final String CMD_EVENT_CLASS_PACKAGE = "CMD_EVENT_CLASS_PACKAGE";
     public static final String CMD_EVENT_CLASS_DESCRIPTION = "CMD_EVENT_CLASS_DESCRIPTION";
     public static final String CMD_EVENT_CLASS_FIELDS = "CMD_EVENT_CLASS_FIELDS";
