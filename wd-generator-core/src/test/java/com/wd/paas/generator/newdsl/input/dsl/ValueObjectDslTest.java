@@ -5,7 +5,8 @@ import com.wd.paas.dsl.AggregateDsl;
 import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
 import com.wd.paas.dsl.ValueObjectDsl;
-import com.wd.paas.generator.builder.ElementBuilder;
+import com.wd.paas.generator.builder.ApplicationBuilder;
+import com.wd.paas.generator.builder.DomainEventBuilder;
 import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.JavaTemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
@@ -34,7 +35,7 @@ public class ValueObjectDslTest {
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
         DslParser dslStruct = new DslParser();
-        dslStruct.add(ElementBuilder.build(applicationDsl));
+        dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./",null));
         dslStruct.accept(javaTemplateVisitor);

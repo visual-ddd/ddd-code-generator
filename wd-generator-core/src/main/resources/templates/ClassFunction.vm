@@ -51,7 +51,7 @@ import ${importPackage};
     #end
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(#foreach($parameter in ${method.signatureInfo.parameterList})${parameter.type} ${parameter.name}#end){
         // Do Something
-        #if($method.returnType != "void")
+        #if($method.signature.returnInfo.type != "void")
         return null;
      #end
     }

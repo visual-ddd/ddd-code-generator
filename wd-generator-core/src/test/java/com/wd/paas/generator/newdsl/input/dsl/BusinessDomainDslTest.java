@@ -3,7 +3,8 @@ package com.wd.paas.generator.newdsl.input.dsl;
 import com.google.common.reflect.TypeToken;
 import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
-import com.wd.paas.generator.builder.ElementBuilder;
+import com.wd.paas.generator.builder.ApplicationBuilder;
+import com.wd.paas.generator.builder.DomainEventBuilder;
 import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.element.Application;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.JavaTemplateVisitor;
@@ -28,7 +29,7 @@ public class BusinessDomainDslTest {
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
         DslParser dslStruct = new DslParser();
-        Application app = ElementBuilder.build(applicationDsl);
+        Application app = ApplicationBuilder.build(applicationDsl);
         dslStruct.add(app);
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
