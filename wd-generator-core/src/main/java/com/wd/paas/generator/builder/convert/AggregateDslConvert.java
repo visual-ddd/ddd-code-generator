@@ -1,7 +1,7 @@
 package com.wd.paas.generator.builder.convert;
 
+import com.wd.paas.dsl.AggregateDsl;
 import com.wd.paas.generator.generate.element.Aggregate;
-import com.wd.paas.generator.input.AggregateDsl;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

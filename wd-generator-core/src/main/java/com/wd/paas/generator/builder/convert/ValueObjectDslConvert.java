@@ -1,7 +1,7 @@
 package com.wd.paas.generator.builder.convert;
 
+import com.wd.paas.dsl.ValueObjectDsl;
 import com.wd.paas.generator.generate.element.ValueObject;
-import com.wd.paas.generator.input.ValueObjectDsl;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

@@ -1,10 +1,10 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
+import com.wd.paas.generator.common.constant.VelocityLabel;
+import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.Application;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
-import com.wd.paas.generator.constant.GenerateElementTypeEnum;
-import com.wd.paas.generator.constant.ModelUrlConstant;
-import com.wd.paas.generator.constant.VelocityLabel;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 

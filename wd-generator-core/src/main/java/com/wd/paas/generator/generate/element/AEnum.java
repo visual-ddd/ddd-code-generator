@@ -1,7 +1,7 @@
 package com.wd.paas.generator.generate.element;
 
 
-import com.wd.paas.generator.common.EnumMemberInfo;
+import com.wd.paas.common.EnumMemberInfo;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

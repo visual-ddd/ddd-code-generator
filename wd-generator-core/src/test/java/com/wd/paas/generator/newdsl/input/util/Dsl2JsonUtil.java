@@ -1,6 +1,6 @@
 package com.wd.paas.generator.newdsl.input.util;
 
-import com.wd.paas.generator.util.GsonUtil;
+import com.wd.paas.generator.common.util.GsonUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

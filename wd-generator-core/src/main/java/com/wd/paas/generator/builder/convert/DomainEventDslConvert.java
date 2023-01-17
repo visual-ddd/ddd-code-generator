@@ -1,7 +1,7 @@
 package com.wd.paas.generator.builder.convert;
 
+import com.wd.paas.dsl.DomainEventDsl;
 import com.wd.paas.generator.generate.element.DomainEvent;
-import com.wd.paas.generator.input.DomainEventDsl;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

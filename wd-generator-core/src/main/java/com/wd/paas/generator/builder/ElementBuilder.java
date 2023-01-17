@@ -1,9 +1,9 @@
 package com.wd.paas.generator.builder;
 
+import com.wd.paas.dsl.*;
 import com.wd.paas.generator.builder.convert.*;
-import com.wd.paas.generator.constant.ModelUrlConstant;
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.element.*;
-import com.wd.paas.generator.input.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;

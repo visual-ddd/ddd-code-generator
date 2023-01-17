@@ -1,6 +1,6 @@
 package com.wd.paas.generator.builder.convert;
 
-import com.wd.paas.generator.input.BusinessScenarioDsl;
+import com.wd.paas.dsl.BusinessScenarioDsl;
 import com.wd.paas.generator.generate.element.BusinessScenario;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

@@ -1,8 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
+import com.wd.paas.generator.common.enums.ElementTypeEnum;
 import com.wd.paas.generator.generate.element.*;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.strategy.*;
-import com.wd.paas.generator.constant.ElementTypeEnum;
 
 /**
  * @author shimmer

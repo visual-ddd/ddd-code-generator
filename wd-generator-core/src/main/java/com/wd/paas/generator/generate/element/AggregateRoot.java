@@ -1,7 +1,7 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.generator.common.MethodInfo;
-import com.wd.paas.generator.common.PropertyInfo;
+import com.wd.paas.common.MethodInfo;
+import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

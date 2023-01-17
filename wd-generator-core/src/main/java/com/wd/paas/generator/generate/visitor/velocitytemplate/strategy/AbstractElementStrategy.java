@@ -1,8 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.generator.common.util.FileGenerator;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.VelocityTemplateGenerate;
-import com.wd.paas.generator.util.FileGenerator;
 
 import java.util.List;
 

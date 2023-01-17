@@ -1,11 +1,11 @@
 package com.wd.paas.generator.generate.element;
 
 
-import com.wd.paas.generator.common.PropertyInfo;
-import com.wd.paas.generator.common.ReturnInfo;
-import com.wd.paas.generator.common.RuleInfo;
-import com.wd.paas.generator.common.SourceInfo;
-import com.wd.paas.generator.constant.CmdTypeEnum;
+import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.common.ReturnInfo;
+import com.wd.paas.common.RuleInfo;
+import com.wd.paas.common.SourceInfo;
+import com.wd.paas.generator.common.enums.CmdTypeEnum;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

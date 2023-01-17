@@ -1,7 +1,7 @@
 package com.wd.paas.generator.builder.convert;
 
+import com.wd.paas.dsl.DomainModelDsl;
 import com.wd.paas.generator.generate.element.DomainModel;
-import com.wd.paas.generator.input.DomainModelDsl;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
