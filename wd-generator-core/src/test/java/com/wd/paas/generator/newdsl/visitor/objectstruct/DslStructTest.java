@@ -1,12 +1,9 @@
 package com.wd.paas.generator.newdsl.visitor.objectstruct;
 
-import com.wd.paas.generator.newdsl.common.Info;
-import com.wd.paas.generator.newdsl.common.Versionable;
-import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
-import com.wd.paas.generator.newdsl.generate.visitor.element.BusinessDomain;
-import com.wd.paas.generator.newdsl.generate.visitor.objectstruct.DslStruct;
-import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.JavaTemplateVisitor;
-import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
+import com.wd.paas.generator.generate.element.Application;
+import com.wd.paas.generator.generate.DslParser;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.JavaTemplateVisitor;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +13,7 @@ public class DslStructTest {
     public void accept() {
         Application application = getApplication("app1");
 
-        DslStruct dslStruct = new DslStruct();
+        DslParser dslStruct = new DslParser();
         dslStruct.add(application);
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./",null));

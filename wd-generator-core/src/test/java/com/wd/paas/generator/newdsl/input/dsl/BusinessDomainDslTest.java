@@ -1,10 +1,13 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
 import com.google.common.reflect.TypeToken;
-import com.wd.paas.generator.newdsl.generate.visitor.element.Application;
-import com.wd.paas.generator.newdsl.generate.visitor.objectstruct.DslStruct;
-import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.JavaTemplateVisitor;
-import com.wd.paas.generator.newdsl.generate.visitor.visitor.velocitytemplate.TemplateContext;
+import com.wd.paas.generator.builder.ElementBuilder;
+import com.wd.paas.generator.generate.element.Application;
+import com.wd.paas.generator.generate.DslParser;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.JavaTemplateVisitor;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
+import com.wd.paas.generator.input.ApplicationDsl;
+import com.wd.paas.generator.input.BusinessDomainDsl;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,8 +27,8 @@ public class BusinessDomainDslTest {
 
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
-        DslStruct dslStruct = new DslStruct();
-        Application app = applicationDsl.build();
+        DslParser dslStruct = new DslParser();
+        Application app = ElementBuilder.build(applicationDsl);
         dslStruct.add(app);
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
