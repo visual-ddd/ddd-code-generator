@@ -14,7 +14,7 @@ public class MethodInfo {
 
     private String description;
 
-    private List<SignatureInfo> signatureList;
+    private SignatureInfo signature;
 
     private String access;
 

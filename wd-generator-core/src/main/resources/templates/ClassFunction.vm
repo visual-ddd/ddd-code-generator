@@ -49,7 +49,7 @@ import ${importPackage};
     #if($method.description)
      /** ${method.description} */
     #end
-    ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}){
+    ${method.access} ${method.signature.returnInfo.type} ${method.name}(#foreach($parameter in ${method.signatureInfo.parameterList})${parameter.type} ${parameter.name}#end){
         // Do Something
         #if($method.returnType != "void")
         return null;

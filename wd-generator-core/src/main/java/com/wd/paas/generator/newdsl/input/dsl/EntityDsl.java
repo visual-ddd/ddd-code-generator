@@ -31,11 +31,12 @@ public class EntityDsl implements ElementBuildable {
     @SerializedName("properties")
     private List<PropertyInfo> propertyList;
 
-    @SerializedName("methodInfos")
+    @SerializedName("methods")
     private List<MethodInfo> methodInfoList;
 
     @Override
     public Entity build(){
+        propertyList.forEach(propertyInfo -> propertyInfo.setAccess("private"));
         return EntityDslConvert.INSTANCE.dto2Do(this);
     }
 }

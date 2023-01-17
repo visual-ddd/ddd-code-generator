@@ -24,6 +24,8 @@ public class ElementStrategyFactory {
                 return new CommandStrategy((Command) element);
             case AENUM:
                 return new EnumStrategy((AEnum) element);
+            case ENTITY:
+                return new EntityStrategy((Entity) element);
             case DEFAULT:
                 return new DefaultStrategy();
             default:

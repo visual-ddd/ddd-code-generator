@@ -1,35 +1,60 @@
-{
-  "uuid": "1b3d7da5-896c-4854-b15e-e3692e715089",
-  "title": "未命名",
-  "name": "Untitled",
-  "description": "",
-  "meta": {},
-  "id": {
-    "uuid": "6958a6ad-e0a0-4346-8ab6-25b09a8cc16d",
-    "title": "未命名",
-    "name": "untitled",
-    "description": "",
-    "meta": {},
-    "access": "public",
-    "type": "String"
-  },
-  "properties": [],
-  "methods": [
-    {
-      "uuid": "b6c2eb03-c44d-49c8-8d08-b74c3760903e",
-      "title": "",
-      "name": "untitled",
-      "description": "",
-      "meta": {},
-      "access": "public",
-      "abstract": false,
-      "signature": {
-        "description": "",
-        "parameters": [],
-        "return": {
-          "type": "void"
-        }
+[
+  {
+    "name": "OrderItem",
+    "description": "订单商品",
+    "abstract": "true",
+    "id": {
+      "type": "Long",
+      "name": "id",
+      "description": "唯一标识"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "name": "orderNo",
+        "description": "订单编码"
+      },
+      {
+        "type": "String",
+        "name": "orderItemNo",
+        "description": "订单商品编码"
+      },
+      {
+        "type": "String",
+        "name": "password",
+        "description": "密码"
+      },
+      {
+        "type": "String",
+        "name": "description",
+        "description": "描述"
+      },
+      {
+        "type": "Position",
+        "name": "position",
+        "description": "职位"
       }
-    }
-  ]
-}
+    ],
+    "methods": [
+      {
+        "name": "modify",
+        "description": "更新订单信息",
+        "signature": {
+          "description": "更新订单信息",
+          "parameters": [
+            {
+              "name": "updateCmd",
+              "description": "更新订单的指令",
+              "type": "UserAccountUpdateCmd"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        "access": "public",
+        "abstract": true
+      }
+    ]
+  }
+]

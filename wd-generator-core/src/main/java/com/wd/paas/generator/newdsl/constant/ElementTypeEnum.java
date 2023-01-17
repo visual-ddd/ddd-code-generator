@@ -18,6 +18,7 @@ public enum ElementTypeEnum {
     VALUE_OBJECT("ValueObject"),
     COMMAND("Command"),
     AENUM("AEnum"),
+    ENTITY("Entity"),
     DEFAULT("Default"),
     ;
 

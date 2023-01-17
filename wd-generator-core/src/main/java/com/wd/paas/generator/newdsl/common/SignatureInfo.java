@@ -1,5 +1,6 @@
 package com.wd.paas.generator.newdsl.common;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 import java.util.List;
@@ -10,7 +11,12 @@ import java.util.List;
 @Data
 public class SignatureInfo {
 
+    @SerializedName("description")
+    private String description;
+
+    @SerializedName("parameters")
     private List<ParameterInfo> parameterList;
 
+    @SerializedName("return")
     private ReturnInfo returnInfo;
 }
