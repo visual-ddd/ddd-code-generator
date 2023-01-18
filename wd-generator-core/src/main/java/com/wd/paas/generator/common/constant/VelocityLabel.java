@@ -32,6 +32,7 @@ public class VelocityLabel {
     public static final String AGGREGATION_CLASS_NAME = "AGGREGATION_CLASS_NAME";
     public static final String AGGREGATION_CLASS_NAME_ALL_LOWER = "AGGREGATION_CLASS_NAME_ALL_LOWER";
     public static final String AGGREGATION_CLASS_DESCRIPTION = "AGGREGATION_CLASS_DESCRIPTION";
+    public static final String AGGREGATION_CLASS_ID = "AGGREGATION_CLASS_ID";
     public static final String AGGREGATION_CLASS_FIELDS = "AGGREGATION_CLASS_FIELDS";
     public static final String AGGREGATION_CLASS_METHODS = "AGGREGATION_CLASS_METHODS";
     public static final String AGGREGATION_CLASS_PACKAGE = "AGGREGATION_CLASS_PACKAGE";
@@ -88,7 +89,7 @@ public class VelocityLabel {
 
     // 指令
     public static final String CMD_CLASS_NAME = "CMD_CLASS_NAME";
-    public static final String CMD_INPUT_CLASS_NAME = "CMD_INPUT_CLASS_NAME";
+    public static final String CMD_DTO_CLASS = "CMD_DTO_CLASS";
     public static final String CMD_EVENT_CODE_SUFFIX = "CMD_EVENT_CODE";
     public static final String CMD_CLASS_PACKAGE_ORIGINAL = "CMD_CLASS_PACKAGE_ORIGINAL";
     public static final String CMD_CLASS_DESCRIPTION = "CMD_CLASS_DESCRIPTION";
@@ -113,4 +114,6 @@ public class VelocityLabel {
 
     public static final String URL_ACTION = "URL_ACTION";
     public static final String URL_AGGREGATION = "URL_AGGREGATION";
+
+    public static final String CLASS_DTO_SUFFIX = "DTO";
 }

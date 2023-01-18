@@ -30,7 +30,7 @@
         "description": "描述"
       },
       {
-        "type": "Position",
+        "type": "String",
         "name": "position",
         "description": "职位"
       }

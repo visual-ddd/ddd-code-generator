@@ -52,6 +52,7 @@ public class CommandStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.CMD_CLASS_FIELDS, command.getPropertyList());
         context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, command.getDomainEvent().getName());
         context.put(VelocityLabel.CMD_CATEGORY, command.getCategory());
+        context.put(VelocityLabel.CMD_DTO_CLASS, command.getCategory().concat(VelocityLabel.CLASS_DTO_SUFFIX));
     }
 
     @Override
@@ -63,6 +64,7 @@ public class CommandStrategy extends AbstractElementStrategy {
                 ModelUrlConstant.ACTION,
 
                 // cmd
+                ModelUrlConstant.COMMAND_DTO_CLASS,
                 ModelUrlConstant.COMMAND_CLASS,
 
                 // event
@@ -78,6 +80,7 @@ public class CommandStrategy extends AbstractElementStrategy {
                 (String) context.get(VelocityLabel.URL_ACTION),
 
                 // cmd
+                (String) context.get(VelocityLabel.CMD_DTO_CLASS),
                 (String) context.get(VelocityLabel.CMD_CLASS_NAME),
 
                 // event

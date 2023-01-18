@@ -4,7 +4,7 @@ package $AGGREGATION_PACKAGE_PATH;
 import org.springframework.stereotype.Component;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "SAVE")
-import ${AGGREGATION_PACKAGE_PATH};
+import ${AGGREGATION_PACKAGE_PATH}.${cmd.category.toLowerCase()}.${cmd.name};
 #end
 #end
 

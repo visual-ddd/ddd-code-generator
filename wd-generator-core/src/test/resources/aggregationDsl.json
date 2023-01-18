@@ -13,12 +13,12 @@
       "meta": {},
       "id": {
         "uuid": "f7655716-a0bf-4dff-98f4-ff4ef7b931b5",
-        "title": "密码",
-        "name": "password",
-        "description": "密码",
+        "title": "主键id",
+        "name": "id",
+        "description": "主键id",
         "meta": {},
         "access": "public",
-        "type": "String"
+        "type": "Long"
       },
       "properties": [
         {

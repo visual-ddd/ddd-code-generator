@@ -28,7 +28,7 @@
       {
         "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
         "title": "用户Id",
-        "name": "userId",
+        "name": "id",
         "description": "",
         "meta": {},
         "access": "public",
@@ -73,7 +73,7 @@
       {
         "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
         "title": "用户Id",
-        "name": "userId",
+        "name": "id",
         "description": "",
         "meta": {},
         "access": "public",
@@ -118,7 +118,7 @@
       {
         "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
         "title": "用户Id",
-        "name": "userId",
+        "name": "id",
         "description": "",
         "meta": {},
         "access": "public",

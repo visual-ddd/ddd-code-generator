@@ -22,7 +22,7 @@ public class ${AGGREGATION_CLASS_NAME}RpcServiceImpl implements ${AGGREGATION_CL
 
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
     @Resource
-    private ${cmd.umlClass.className}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Handler;
+    private ${cmd.name}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler;
 #end
 #foreach($query in ${AGGREGATION_QUERY_LIST})
     @Resource
@@ -36,10 +36,10 @@ public class ${AGGREGATION_CLASS_NAME}RpcServiceImpl implements ${AGGREGATION_CL
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
 
     @Override
-    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}(${cmd.inputClassName}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}Dto) {
-        ${cmd.umlClass.className} ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})} =
-            ${cmd.inputClassName}DTOConvert.INSTANCE.dto2Do(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}Dto);
-        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})}Handler.handle(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.umlClass.className})});
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto) {
+        ${cmd.name} ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})} =
+            ${cmd.category}DTOConvert.INSTANCE.dto2Do(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto);
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})});
         return ResultDTO.success(Boolean.TRUE);
     }
 #end

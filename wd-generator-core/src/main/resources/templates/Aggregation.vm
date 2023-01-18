@@ -31,22 +31,22 @@
 ## 依赖
 #macro(dependencyCmdDTO)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${cmd.inputClassName}DTO;
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${cmd.category}DTO;
 #end
 #end
 #macro(dependencyCmdDTOConvert)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.assembler.${cmd.inputClassName}DTOConvert;
+import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.assembler.${cmd.category}DTOConvert;
 #end
 #end
 #macro(dependencyCmd)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.umlClass.classPackage}.${cmd.umlClass.className};
+import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.category.toLowerCase()}.${cmd.name};
 #end
 #end
 #macro(dependencyCmdHandler)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.umlClass.classPackage}.${cmd.umlClass.className}Handler;
+import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.category.toLowerCase()}.${cmd.name}Handler;
 #end
 #end
 #macro(dependencyQuery)
@@ -72,6 +72,6 @@ import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${queryResult.umlClass.class
 #end
 #macro(dependencyEnumConverter)
 #foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
-import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${aggregatioEnum.umlClass.className}Converter;
+import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${aggregatioEnum.name}Converter;
 #end
 #end

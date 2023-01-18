@@ -27,6 +27,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
         AggregateRoot aggregateRoot = Optional.of(aggregate.getRoot()).orElse(new AggregateRoot());
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME, aggregateRoot.getName());
         context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, aggregateRoot.getDescription());
+        context.put(VelocityLabel.AGGREGATION_CLASS_ID, aggregateRoot.getId());
         context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, aggregateRoot.getPropertyList());
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, aggregateRoot.getMethodList());
 
@@ -81,30 +82,34 @@ public class AggregationStrategy extends AbstractElementStrategy {
 
     public class AggregationGeneratorUtil {
 
-//        public String dtoEnumType2Value(String umlFieldType) {
-//            for (EnumGenerator enumGenerator : enumList) {
-//                String enumName = enumGenerator.getUmlClass().getClassName();
-//                if (Objects.equals(enumName, umlFieldType)) {
-//                    return "Integer";
-//                }
-//                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
-//                    return "List<Integer>";
-//                }
-//            }
-//            return umlFieldType;
-//        }
-//
-//        public String doEnumType2Value(String umlFieldType) {
-//            for (EnumGenerator enumGenerator : enumList) {
-//                String enumName = enumGenerator.getUmlClass().getClassName();
-//                if (Objects.equals(enumName, umlFieldType)) {
-//                    return "Integer";
-//                }
-//                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
-//                    return "String";
-//                }
-//            }
-//            return umlFieldType;
-//        }
+        public String dtoEnumType2Value(String umlFieldType) {
+            List<Element> targetElementList = getTargetElementList(AEnum.class);
+
+            for (Element aEnum: targetElementList) {
+                String enumName = ((AEnum) aEnum).getName();
+                if (Objects.equals(enumName, umlFieldType)) {
+                    return "Integer";
+                }
+                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
+                    return "List<Integer>";
+                }
+            }
+            return umlFieldType;
+        }
+
+        public String doEnumType2Value(String umlFieldType) {
+
+            List<Element> targetElementList = getTargetElementList(AEnum.class);
+            for (Element aEnum: targetElementList) {
+                String enumName = ((AEnum) aEnum).getName();
+                if (Objects.equals(enumName, umlFieldType)) {
+                    return "Integer";
+                }
+                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
+                    return "String";
+                }
+            }
+            return umlFieldType;
+        }
     }
 }

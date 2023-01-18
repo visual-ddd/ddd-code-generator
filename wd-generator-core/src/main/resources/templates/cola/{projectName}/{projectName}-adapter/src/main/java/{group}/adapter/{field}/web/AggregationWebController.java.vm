@@ -38,10 +38,10 @@ import ${AGGREGATION_RPC_SERVICE_PACKAGE_PATH}.${AGGREGATION_CLASS_NAME}RpcServi
 
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
 
-    @ApiOperation("${cmd.umlClass.classDesc}")
-    @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.inputClassName})}")
-    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}(@RequestBody @Valid ${cmd.inputClassName}DTO dto) {
-        return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}(dto);
+    @ApiOperation("${cmd.description}")
+    @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.category})}")
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.category}DTO dto) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
     }
 #end
 #foreach ($query in ${AGGREGATION_QUERY_LIST})

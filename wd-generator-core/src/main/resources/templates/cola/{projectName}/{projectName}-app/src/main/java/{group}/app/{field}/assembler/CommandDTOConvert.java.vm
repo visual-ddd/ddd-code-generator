@@ -4,18 +4,18 @@ package ${CMD_APP_CONVERT_PACKAGE_PATH};
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ${CMD_DTO_PACKAGE_PATH}.${CMD_INPUT_CLASS_NAME}DTO;
+import ${CMD_DTO_PACKAGE_PATH}.${CMD_DTO_CLASS};
 import ${CMD_PACKAGE_PATH}.${CMD_CLASS_NAME};
 #dependencyEnumConverter()
 
 #comment("${CMD_CLASS_NAME}和DTO转换器")
 @Mapper(uses = {
     #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
-        ${aggregationEnum.umlClass.className}Converter.class,
+        ${aggregationEnum.name}Converter.class,
     #end
 })
-public interface ${CMD_INPUT_CLASS_NAME}DTOConvert extends
-        BaseConvert<${CMD_INPUT_CLASS_NAME}DTO, ${CMD_CLASS_NAME}> {
+public interface ${CMD_DTO_CLASS}Convert extends
+        BaseConvert<${CMD_DTO_CLASS}, ${CMD_CLASS_NAME}> {
 
-    ${CMD_INPUT_CLASS_NAME}DTOConvert INSTANCE = Mappers.getMapper(${CMD_INPUT_CLASS_NAME}DTOConvert.class);
+    ${CMD_DTO_CLASS}Convert INSTANCE = Mappers.getMapper(${CMD_DTO_CLASS}Convert.class);
 }

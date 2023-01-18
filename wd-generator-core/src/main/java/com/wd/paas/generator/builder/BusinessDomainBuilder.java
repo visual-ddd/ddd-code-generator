@@ -17,7 +17,7 @@ public class BusinessDomainBuilder {
         List<Element> elements = new ArrayList<>();
         Optional.ofNullable(businessDomainDsl.getDomainModel()).map(DomainModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getDataModel()).map(DataModelBuilder::build).ifPresent(elements::add);
-        Optional.ofNullable(businessDomainDsl.getQueryModel()).map(QueryModelBuidler::build).ifPresent(elements::add);
+        Optional.ofNullable(businessDomainDsl.getQueryModel()).map(QueryModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getObjectMapperModel()).map(ObjectMapperModelBuilder::build).ifPresent(elements::add);
         businessDomain.addAll(elements);
         return businessDomain;

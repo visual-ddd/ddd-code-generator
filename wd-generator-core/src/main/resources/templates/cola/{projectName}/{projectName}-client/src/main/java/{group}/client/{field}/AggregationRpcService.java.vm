@@ -14,9 +14,9 @@ public interface ${AGGREGATION_CLASS_NAME}RpcService {
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
 
     /**
-    * ${cmd.umlClass.classDesc}
+    * ${cmd.description}
     */
-    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}(${cmd.inputClassName}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.inputClassName})}Dto);
+    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto);
 #end
 #foreach ($query in ${AGGREGATION_QUERY_LIST})
 

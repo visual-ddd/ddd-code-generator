@@ -4,7 +4,7 @@ package $AGGREGATION_PACKAGE_PATH;
 import java.util.List;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "MODIFY" || ${cmd.repository} == "REMOVE")
-import ${AGGREGATION_PACKAGE_PATH}.${cmd.category}.${cmd.name};
+import ${AGGREGATION_PACKAGE_PATH}.${cmd.category.toLowerCase()}.${cmd.name};
 #end
 #end
 
@@ -23,7 +23,7 @@ public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME}
 #if(${cmd.repository} == "REMOVE")
 
     public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} removeCmd) {
-        this.setId = removeCmd.getId();
+        this.${AGGREGATION_CLASS_ID.getName()} = removeCmd.getId();
     }
 #end
 #end
