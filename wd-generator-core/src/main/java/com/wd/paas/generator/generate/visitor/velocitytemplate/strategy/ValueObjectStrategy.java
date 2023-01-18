@@ -29,7 +29,6 @@ public class ValueObjectStrategy extends AbstractElementStrategy {
     @Override
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.VALUE_OBJECT_CLASS_NAME, ASTValueObject.getName());
-//        context.put(VelocityLabel.VALUE_OBJECT_CLASS_PACKAGE, valueObject.getClassPackage());
         context.put(VelocityLabel.VALUE_OBJECT_CLASS_DESCRIPTION, ASTValueObject.getDescription());
         context.put(VelocityLabel.VALUE_OBJECT_CLASS_FIELDS, ASTValueObject.getPropertyList());
         context.put(VelocityLabel.VALUE_OBJECT_CLASS_METHODS, ASTValueObject.getMethodList());

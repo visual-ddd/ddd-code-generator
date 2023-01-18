@@ -24,7 +24,8 @@ public enum ElementTypeEnum {
     QUERY("ASTQuery"),
     DTO("ASTDto"),
     OBJECT_MAPPER_MODEL("ASTObjectMapperModel"),
-    OBJECT_MAPPER_MODEL("ASTObjectMapperModel");
+
+    ;
 
     private final String value;
 

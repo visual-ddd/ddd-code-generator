@@ -25,6 +25,10 @@ public class QueryModelStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
+        return getOutputPath(templateUrl, context, preFixOutPath);
+    }
+
+    public static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
         return null;
     }
 }
