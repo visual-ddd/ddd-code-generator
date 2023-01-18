@@ -1,97 +1,107 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.wakedata</groupId>
-    <artifactId>wd-parent</artifactId>
-    <version>1.1.0-DDD04</version>
-  </parent>
+    <parent>
+        <groupId>com.wakedata</groupId>
+        <artifactId>wd-parent</artifactId>
+        <version>1.1.0-DDD04</version>
+    </parent>
 
-  <groupId>com.wd.paas</groupId>
-  <artifactId>wd-generator-core</artifactId>
-  <version>2.2-SNAPSHOT</version>
+    <groupId>com.wd.paas</groupId>
+    <artifactId>wd-generator-core</artifactId>
+    <version>2.2-SNAPSHOT</version>
 
-  <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-  <dependencies>
-    <!--  DSL协议  -->
-    <dependency>
-      <groupId>com.wd.paas</groupId>
-      <artifactId>wd-generator-dsl</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
+    <dependencies>
+        <!--  DSL协议  -->
+        <dependency>
+            <groupId>com.wd.paas</groupId>
+            <artifactId>wd-generator-dsl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>provided</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
-    <!-- velocity模板引擎 -->
-    <dependency>
-      <groupId>org.apache.velocity</groupId>
-      <artifactId>velocity-engine-core</artifactId>
-      <version>2.3</version>
-    </dependency>
+        <!-- velocity模板引擎 -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.3</version>
+        </dependency>
 
-    <!-- IO操作 -->
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-    </dependency>
+        <!-- IO操作 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
 
-    <!-- 驼峰命名转换 -->
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-    </dependency>
+        <!-- 驼峰命名转换 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
 
-    <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
 
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <scope>compile</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <scope>compile</scope>
+        </dependency>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-    </dependency>
-  </dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+    </dependencies>
 
-  <distributionManagement>
-    <!-- 配置release版本发布的仓库-->
-    <repository>
-      <id>central</id>
-      <name>libs-release-local</name>
-      <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
-    </repository>
-    <!-- 配置快照版本发布的仓库-->
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>libs-snapshot-local</name>
-      <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
-    </snapshotRepository>
-  </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <!-- 配置release版本发布的仓库-->
+        <repository>
+            <id>central</id>
+            <name>libs-release-local</name>
+            <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
+        </repository>
+        <!-- 配置快照版本发布的仓库-->
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>libs-snapshot-local</name>
+            <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
