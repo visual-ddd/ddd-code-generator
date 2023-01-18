@@ -35,7 +35,7 @@ public class ElementStrategyFactory {
             case DTO:
                 return new DTOStrategy((ASTDto) element);
             case DEFAULT:
-                log.warn("没有找到对应的处理类型：{}", element.getClass());
+                log.debug("没有找到对应的处理类型：{}", element.getClass());
                 return new DefaultStrategy();
             default:
                 throw new IllegalStateException("element type is empty.");

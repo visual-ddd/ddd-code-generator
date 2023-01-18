@@ -15,7 +15,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.List;
 
-public class QueryModelDslTest {
+public class ASTQueryModelDslTest {
 
     @Test
     public void buildApplication() throws IOException {

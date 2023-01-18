@@ -73,6 +73,7 @@ public class VelocityLabel {
 
     // 查询
     public static final String QUERY_CLASS_NAME = "QUERY_CLASS_NAME";
+    public static final String QUERY_PAGINATION = "QUERY_PAGINATION";
     public static final String QUERY_CLASS_PACKAGE = "QUERY_CLASS_PACKAGE";
     public static final String QUERY_CLASS_DESCRIPTION = "QUERY_CLASS_DESCRIPTION";
     public static final String QUERY_CLASS_FIELDS = "QUERY_CLASS_FIELDS";

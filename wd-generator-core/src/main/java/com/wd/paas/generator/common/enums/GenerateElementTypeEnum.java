@@ -52,7 +52,7 @@ public enum GenerateElementTypeEnum {
      */
     DOMAIN_CHART("DomainChart", new String[]{
             // domain
-            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/DomainEntity.java.vm",
+            // "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/DomainEntity.java.vm",
             // controller
 
             // repository

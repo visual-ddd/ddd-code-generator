@@ -8,11 +8,11 @@ import java.util.List;
 import com.wakedata.common.core.base.BaseQuery;
 import lombok.EqualsAndHashCode;
 
-#comment("$QUERY_CLASS_DESCRIPTION-查询对象")
+#comment("${QUERY_CLASS_DESCRIPTION}")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "${QUERY_CLASS_DESCRIPTION}查询对象")
-public class ${QUERY_CLASS_NAME} extends BaseQuery {
-    #filedExt($QUERY_CLASS_FIELDS, ["swagger"])
+@ApiModel(value = "${QUERY_CLASS_DESCRIPTION}")
+public class ${QUERY_CLASS_NAME} extends #if(!${QUERY_PAGINATION})BaseQuery#end#if(${QUERY_PAGINATION})PageQuery#end {
+    #filedExt(${QUERY_CLASS_FIELDS}, ["swagger"])
 
 }

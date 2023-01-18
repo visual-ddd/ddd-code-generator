@@ -28,6 +28,7 @@ public class QueryStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.QUERY_CLASS_NAME, query.getName());
         context.put(VelocityLabel.QUERY_CLASS_DESCRIPTION, query.getDescription());
         context.put(VelocityLabel.QUERY_CLASS_FIELDS, query.getPropertyList());
+        context.put(VelocityLabel.QUERY_PAGINATION, query.getPagination());
     }
 
     @Override
