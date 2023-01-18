@@ -36,12 +36,10 @@ public class DTOStrategy extends AbstractElementStrategy {
         String outputPath = BusinessDomainStrategy.getOutputPath(templateUrl, context, preFixOutPath);
 
         String[] searchList = {
-                ModelUrlConstant.QUERY_RESULT_CLASS,
-                ModelUrlConstant.QUERY_CLASS
+                ModelUrlConstant.QUERY_RESULT_CLASS
         };
 
         String[] replacementList = {
-                (String) context.get(VelocityLabel.QUERY_RESULT_CLASS_NAME),
                 (String) context.get(VelocityLabel.QUERY_RESULT_CLASS_NAME)
         };
 

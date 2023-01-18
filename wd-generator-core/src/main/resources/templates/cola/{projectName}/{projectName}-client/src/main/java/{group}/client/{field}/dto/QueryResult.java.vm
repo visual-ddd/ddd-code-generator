@@ -18,6 +18,6 @@ public class ${QUERY_RESULT_CLASS_NAME} extends BaseDTO {
     #if($field.description)
     @ApiModelProperty(value = "${field.description}")
     #end
-    ${field.modifier} ${AGGREGATION_GENERATOR_UTIL.dtoEnumType2Value(${field.type})} ${field.name};
+    ${field.access} ${field.type} ${field.name};
 #end
 }
