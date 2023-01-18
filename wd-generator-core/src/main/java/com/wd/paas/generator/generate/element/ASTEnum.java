@@ -2,7 +2,6 @@ package com.wd.paas.generator.generate.element;
 
 
 import com.wd.paas.common.EnumMemberInfo;
-import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,7 +12,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTEnum extends LeafElement{
+public class ASTEnum extends LeafElement {
 
     private String name;
 
@@ -22,9 +21,4 @@ public class ASTEnum extends LeafElement{
     private String baseType;
 
     private List<EnumMemberInfo> memberList;
-
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
 }

@@ -1,0 +1,72 @@
+{
+  "queries": [
+    {
+      "uuid": "a96cd6ac-d9c8-4b14-bc02-71f5b62c8498",
+      "title": "用户信息查询",
+      "name": "UserDetailQuery",
+      "description": "",
+      "meta": {},
+      "source": [
+        {
+          "type": "http"
+        },
+        {
+          "type": "rpc"
+        }
+      ],
+      "rules": [
+        {
+          "uuid": "992e6304-e1df-47f1-a5e5-cc0ae134b797",
+          "title": "test",
+          "name": "Rule1",
+          "description": "",
+          "meta": {}
+        }
+      ],
+      "pagination": false,
+      "properties": [
+        {
+          "uuid": "80a78190-d7ec-4fa9-b457-45e879c82d92",
+          "title": "主键",
+          "name": "id",
+          "description": "",
+          "meta": {},
+          "access": "public",
+          "type": "Long"
+        }
+      ],
+      "return": {
+        "type": "UserDTO"
+      }
+    }
+  ],
+  "dtos": [
+    {
+      "uuid": "dc3e009e-2317-4f77-ab3e-c49b215b541b",
+      "title": "用户信息",
+      "name": "UserDTO",
+      "description": "",
+      "meta": {},
+      "properties": [
+        {
+          "uuid": "fc7b6a6f-2570-42a0-a566-064754b1bd57",
+          "title": "主键",
+          "name": "id",
+          "description": "",
+          "meta": {},
+          "access": "public",
+          "type": "Long"
+        },
+        {
+          "uuid": "6f1abe32-4995-4c13-8a2b-a3c2bce12f46",
+          "title": "用户名",
+          "name": "userName",
+          "description": "",
+          "meta": {},
+          "access": "public",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

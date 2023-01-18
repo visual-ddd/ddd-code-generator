@@ -5,8 +5,10 @@ import com.wd.paas.generator.generate.Visitor;
 /**
  * @author shimmer
  */
-public abstract class Element {
+public class Element {
 
-    public abstract void accept(Visitor visitor);
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
 }

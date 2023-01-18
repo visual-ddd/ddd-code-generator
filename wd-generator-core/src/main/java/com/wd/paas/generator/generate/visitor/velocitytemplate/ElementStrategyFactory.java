@@ -3,16 +3,18 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate;
 import com.wd.paas.generator.common.enums.ElementTypeEnum;
 import com.wd.paas.generator.generate.element.*;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.strategy.*;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author shimmer
  */
+@Slf4j
 public class ElementStrategyFactory {
-    
+
     public static ElementStrategy getInstance(Element element) {
         ElementTypeEnum type = ElementTypeEnum.of(element.getClass().getSimpleName());
         switch (type) {
-            case APPLICATION :
+            case APPLICATION:
                 return new ApplicationStrategy((ASTApplication) element);
             case BUSINESS_DOMAIN:
                 return new BusinessDomainStrategy((ASTBusinessDomain) element);
@@ -26,7 +28,14 @@ public class ElementStrategyFactory {
                 return new EnumStrategy((ASTEnum) element);
             case ENTITY:
                 return new EntityStrategy((ASTEntity) element);
+            case QUERY_MODEL:
+                return new QueryModelStrategy((ASTQueryModel) element);
+            case QUERY:
+                return new QueryStrategy((ASTQuery) element);
+            case DTO:
+                return new DTOStrategy((ASTDto) element);
             case DEFAULT:
+                log.warn("没有找到对应的处理类型：{}", element.getClass());
                 return new DefaultStrategy();
             default:
                 throw new IllegalStateException("element type is empty.");

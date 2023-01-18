@@ -11,7 +11,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DomainModel extends CompositeElement {
+public class ASTDomainModel extends CompositeElement {
 
     private List<ASTAggregate> ASTAggregateList;
 
