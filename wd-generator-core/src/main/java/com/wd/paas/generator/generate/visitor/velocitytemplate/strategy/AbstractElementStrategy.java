@@ -4,7 +4,9 @@ import com.wd.paas.generator.common.util.FileGenerator;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.VelocityTemplateGenerate;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 元素生成策略抽象类（Velocity 模版生成）
@@ -34,7 +36,7 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
      */
     protected void generateFile(TemplateContext templateContext) {
         // 获取模版文件列表
-        List<String> templatePathList = this.getTemplatePathList();
+        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getContext(),
                     templateContext.getPreFixOutPath());

@@ -20,11 +20,9 @@ public enum ElementTypeEnum {
     ENUM("ASTEnum"),
     ENTITY("ASTEntity"),
     DEFAULT("Default"),
-    QUERY_MODEL("ASTQueryModel"),
     QUERY("ASTQuery"),
     DTO("ASTDto"),
     OBJECT_MAPPER_MODEL("ASTObjectMapperModel"),
-
     ;
 
     private final String value;

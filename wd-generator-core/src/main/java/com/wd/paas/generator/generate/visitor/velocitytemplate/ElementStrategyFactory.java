@@ -30,8 +30,6 @@ public class ElementStrategyFactory {
                 return new EntityStrategy((ASTEntity) element);
             case OBJECT_MAPPER_MODEL:
                 return new ObjectMapperModelStrategy((ASTObjectMapperModel) element);
-            case QUERY_MODEL:
-                return new QueryModelStrategy((ASTQueryModel) element);
             case QUERY:
                 return new QueryStrategy((ASTQuery) element);
             case DTO:
