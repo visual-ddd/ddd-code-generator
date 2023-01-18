@@ -3,7 +3,7 @@
     "title": "组织域",
     "name": "origination",
     "description": "组织域，提供组织管理能力",
-    "meta": [],
+    "meta": {},
     "version": "1.0",
     "domainModel": {},
     "dataModel": {},

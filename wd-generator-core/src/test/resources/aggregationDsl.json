@@ -4,7 +4,7 @@
     "title": "用户的聚合",
     "name": "User",
     "description": "",
-    "meta": [],
+    "meta": {},
     "root": {
       "uuid": "9cc9bb37-0db8-4949-a0f6-5f1e467aef82",
       "title": "用户",

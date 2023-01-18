@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.element;
 
+import com.wd.paas.common.MetaInfo;
 import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
@@ -20,7 +21,7 @@ public class ASTBusinessDomain extends CompositeElement {
 
     private String description;
 
-    private List<PropertyInfo> meta;
+    private MetaInfo meta;
 
     private String vision;
 

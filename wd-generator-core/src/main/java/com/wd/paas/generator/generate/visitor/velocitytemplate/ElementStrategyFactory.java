@@ -22,7 +22,7 @@ public class ElementStrategyFactory {
                 return new ValueObjectStrategy((ASTValueObject) element);
             case COMMAND:
                 return new CommandStrategy((ASTCommand) element);
-            case AENUM:
+            case ENUM:
                 return new EnumStrategy((ASTEnum) element);
             case ENTITY:
                 return new EntityStrategy((ASTEntity) element);

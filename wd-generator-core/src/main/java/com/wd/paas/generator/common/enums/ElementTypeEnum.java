@@ -12,13 +12,13 @@ import java.util.Optional;
 public enum ElementTypeEnum {
 
     /**/
-    APPLICATION("Application"),
-    BUSINESS_DOMAIN("BusinessDomain"),
-    AGGREGATE("Aggregate"),
-    VALUE_OBJECT("ValueObject"),
-    COMMAND("Command"),
-    AENUM("AEnum"),
-    ENTITY("Entity"),
+    APPLICATION("ASTApplication"),
+    BUSINESS_DOMAIN("ASTBusinessDomain"),
+    AGGREGATE("ASTAggregate"),
+    VALUE_OBJECT("ASTValueObject"),
+    COMMAND("ASTCommand"),
+    ENUM("ASTEnum"),
+    ENTITY("ASTEntity"),
     DEFAULT("Default"),
     ;
 

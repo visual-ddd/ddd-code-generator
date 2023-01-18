@@ -1,33 +1,25 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.common.MetaInfo;
-import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.common.MapperInfo;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-/**
- * 应用元素
- *
- * @author zhuxueliang
- */
-@Data
 @EqualsAndHashCode(callSuper = true)
-public class ASTApplication extends CompositeElement {
-
-    private String title;
+@Data
+public class ASTConvert extends LeafElement{
 
     private String name;
 
     private String description;
 
-    private MetaInfo meta;
+    private String source;
 
-    private String version;
+    private String target;
 
-    private String packageName;
+    private List<MapperInfo> mapperList;
 
     @Override
     public void accept(Visitor visitor) {
