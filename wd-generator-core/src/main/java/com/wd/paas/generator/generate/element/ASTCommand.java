@@ -1,8 +1,11 @@
 package com.wd.paas.generator.generate.element;
 
 
-import com.wd.paas.common.MethodInfo;
 import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.common.ReturnInfo;
+import com.wd.paas.common.RuleInfo;
+import com.wd.paas.common.SourceInfo;
+import com.wd.paas.generator.common.enums.CmdTypeEnum;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,19 +17,27 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class Entity extends LeafElement{
+public class ASTCommand extends CompositeElement{
 
     private String name;
 
     private String description;
 
-    private Boolean isAbstract;
+    private List<SourceInfo> sourceList;
 
-    private PropertyInfo id;
+    private CmdTypeEnum repository;
+
+    private String category;
 
     private List<PropertyInfo> propertyList;
 
-    private List<MethodInfo> methodInfoList;
+    private ASTDomainEvent ASTDomainEvent;
+
+    private Boolean eventEnable;
+
+    private List<RuleInfo> ruleList;
+
+    private ReturnInfo returnInfo;
 
     @Override
     public void accept(Visitor visitor) {

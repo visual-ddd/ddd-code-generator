@@ -30,11 +30,11 @@ public class StartInfoPrintListener implements ApplicationListener<ApplicationCo
     /**
      * 打印启动日志
      *
-     * @param application application
+     * @param ASTApplication ASTApplication
      * @throws UnknownHostException UnknownHostException
      */
-    private static void startInfoPrint(ApplicationContext application) throws UnknownHostException {
-        Environment env = application.getEnvironment();
+    private static void startInfoPrint(ApplicationContext ASTApplication) throws UnknownHostException {
+        Environment env = ASTApplication.getEnvironment();
         String ip = InetAddress.getLocalHost().getHostAddress();
         String port = env.getProperty(PORT);
         port = port == null ? DEFAULT_PORT : port;

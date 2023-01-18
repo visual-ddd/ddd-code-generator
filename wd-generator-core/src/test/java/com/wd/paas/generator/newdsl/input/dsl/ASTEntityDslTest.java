@@ -17,7 +17,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.List;
 
-public class EntityDslTest {
+public class ASTEntityDslTest {
 
     @Test
     public void buildApplication() throws IOException {

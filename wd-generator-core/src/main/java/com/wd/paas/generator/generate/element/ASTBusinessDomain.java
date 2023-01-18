@@ -2,7 +2,6 @@ package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.generate.Visitor;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,10 +10,9 @@ import java.util.List;
 /**
  * @author shimmer
  */
-@AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class BusinessScenario extends CompositeElement {
+public class ASTBusinessDomain extends CompositeElement {
 
     private String title;
 
@@ -24,7 +22,9 @@ public class BusinessScenario extends CompositeElement {
 
     private List<PropertyInfo> meta;
 
-    private String version;
+    private String vision;
+
+    private String document;
 
     @Override
     public void accept(Visitor visitor) {

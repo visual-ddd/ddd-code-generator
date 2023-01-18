@@ -3,7 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.BusinessDomain;
+import com.wd.paas.generator.generate.element.ASTBusinessDomain;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
@@ -15,15 +15,15 @@ import java.util.List;
  */
 public class BusinessDomainStrategy extends AbstractElementStrategy {
 
-    private final BusinessDomain businessDomain;
+    private final ASTBusinessDomain ASTBusinessDomain;
 
-    public BusinessDomainStrategy(BusinessDomain businessDomain) {
-        this.businessDomain = businessDomain;
+    public BusinessDomainStrategy(ASTBusinessDomain ASTBusinessDomain) {
+        this.ASTBusinessDomain = ASTBusinessDomain;
     }
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.DOMAIN_NAME, businessDomain.getName());
+        context.put(VelocityLabel.DOMAIN_NAME, ASTBusinessDomain.getName());
     }
 
     @Override

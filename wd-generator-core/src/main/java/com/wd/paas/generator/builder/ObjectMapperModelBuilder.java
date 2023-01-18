@@ -1,10 +1,10 @@
 package com.wd.paas.generator.builder;
 
 import com.wd.paas.dsl.ObjectMapperModelDsl;
-import com.wd.paas.generator.generate.element.ObjectMapperModel;
+import com.wd.paas.generator.generate.element.ASTObjectMapperModel;
 
 public class ObjectMapperModelBuilder {
-    static ObjectMapperModel build(ObjectMapperModelDsl objectMapperModelDsl) {
+    static ASTObjectMapperModel build(ObjectMapperModelDsl objectMapperModelDsl) {
         return null;
     }
 }

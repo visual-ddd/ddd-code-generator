@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 public class DomainModel extends CompositeElement {
 
-    private List<Aggregate> aggregateList;
+    private List<ASTAggregate> ASTAggregateList;
 
     @Override
     public void accept(Visitor visitor) {

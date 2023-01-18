@@ -3,7 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.ValueObject;
+import com.wd.paas.generator.generate.element.ASTValueObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class ValueObjectStrategy extends AbstractElementStrategy {
 
-    private final ValueObject valueObject;
+    private final ASTValueObject ASTValueObject;
 
-    public ValueObjectStrategy(ValueObject valueObject) {
-        this.valueObject = valueObject;
+    public ValueObjectStrategy(ASTValueObject ASTValueObject) {
+        this.ASTValueObject = ASTValueObject;
     }
 
     @Override
@@ -28,11 +28,11 @@ public class ValueObjectStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.VALUE_OBJECT_CLASS_NAME, valueObject.getName());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_NAME, ASTValueObject.getName());
 //        context.put(VelocityLabel.VALUE_OBJECT_CLASS_PACKAGE, valueObject.getClassPackage());
-        context.put(VelocityLabel.VALUE_OBJECT_CLASS_DESCRIPTION, valueObject.getDescription());
-        context.put(VelocityLabel.VALUE_OBJECT_CLASS_FIELDS, valueObject.getPropertyList());
-        context.put(VelocityLabel.VALUE_OBJECT_CLASS_METHODS, valueObject.getMethodList());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_DESCRIPTION, ASTValueObject.getDescription());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_FIELDS, ASTValueObject.getPropertyList());
+        context.put(VelocityLabel.VALUE_OBJECT_CLASS_METHODS, ASTValueObject.getMethodList());
     }
 
     @Override

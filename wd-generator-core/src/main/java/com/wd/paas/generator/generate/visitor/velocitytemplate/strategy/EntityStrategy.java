@@ -3,7 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.Entity;
+import com.wd.paas.generator.generate.element.ASTEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class EntityStrategy extends AbstractElementStrategy{
 
-    private final Entity entity;
+    private final ASTEntity ASTEntity;
 
-    public EntityStrategy(Entity entity) {
-        this.entity = entity;
+    public EntityStrategy(ASTEntity ASTEntity) {
+        this.ASTEntity = ASTEntity;
     }
 
     @Override
@@ -28,10 +28,10 @@ public class EntityStrategy extends AbstractElementStrategy{
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.ENTITY_CLASS_NAME, entity.getName());
-        context.put(VelocityLabel.ENTITY_CLASS_DESCRIPTION, entity.getDescription());
-        context.put(VelocityLabel.ENTITY_CLASS_FIELDS, entity.getPropertyList());
-        context.put(VelocityLabel.ENTITY_CLASS_METHODS, entity.getMethodInfoList());
+        context.put(VelocityLabel.ENTITY_CLASS_NAME, ASTEntity.getName());
+        context.put(VelocityLabel.ENTITY_CLASS_DESCRIPTION, ASTEntity.getDescription());
+        context.put(VelocityLabel.ENTITY_CLASS_FIELDS, ASTEntity.getPropertyList());
+        context.put(VelocityLabel.ENTITY_CLASS_METHODS, ASTEntity.getMethodInfoList());
     }
 
     @Override

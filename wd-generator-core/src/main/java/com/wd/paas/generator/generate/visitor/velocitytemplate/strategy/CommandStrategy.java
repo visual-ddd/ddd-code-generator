@@ -3,7 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.Command;
+import com.wd.paas.generator.generate.element.ASTCommand;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
@@ -17,10 +17,10 @@ import java.util.Locale;
  */
 public class CommandStrategy extends AbstractElementStrategy {
 
-    private final Command command;
+    private final ASTCommand ASTCommand;
 
-    public CommandStrategy(Command command) {
-        this.command = command;
+    public CommandStrategy(ASTCommand ASTCommand) {
+        this.ASTCommand = ASTCommand;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class CommandStrategy extends AbstractElementStrategy {
         list.addAll(Arrays.asList(GenerateElementTypeEnum.COMMAND.getTemplateUrls()));
         list.addAll(Arrays.asList(GenerateElementTypeEnum.EVENT.getTemplateUrls()));
 
-        switch (command.getRepository()) {
+        switch (ASTCommand.getRepository()) {
             case SAVE:
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.ADD_COMMAND_HANDLER.getTemplateUrls()));
                 break;
@@ -45,14 +45,14 @@ public class CommandStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.URL_ACTION, command.getCategory().toLowerCase(Locale.ROOT));
+        context.put(VelocityLabel.URL_ACTION, ASTCommand.getCategory().toLowerCase(Locale.ROOT));
 
-        context.put(VelocityLabel.CMD_CLASS_NAME, command.getName());
-        context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, command.getDescription());
-        context.put(VelocityLabel.CMD_CLASS_FIELDS, command.getPropertyList());
-        context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, command.getDomainEvent().getName());
-        context.put(VelocityLabel.CMD_CATEGORY, command.getCategory());
-        context.put(VelocityLabel.CMD_DTO_CLASS, command.getCategory().concat(VelocityLabel.CLASS_DTO_SUFFIX));
+        context.put(VelocityLabel.CMD_CLASS_NAME, ASTCommand.getName());
+        context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, ASTCommand.getDescription());
+        context.put(VelocityLabel.CMD_CLASS_FIELDS, ASTCommand.getPropertyList());
+        context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, ASTCommand.getASTDomainEvent().getName());
+        context.put(VelocityLabel.CMD_CATEGORY, ASTCommand.getCategory());
+        context.put(VelocityLabel.CMD_DTO_CLASS, ASTCommand.getCategory().concat(VelocityLabel.CLASS_DTO_SUFFIX));
     }
 
     @Override

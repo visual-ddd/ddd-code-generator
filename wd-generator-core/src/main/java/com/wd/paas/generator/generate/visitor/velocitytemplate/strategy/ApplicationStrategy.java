@@ -3,7 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.Application;
+import com.wd.paas.generator.generate.element.ASTApplication;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
@@ -16,19 +16,19 @@ import java.util.List;
  */
 public class ApplicationStrategy extends AbstractElementStrategy {
 
-    private final Application application;
+    private final ASTApplication ASTApplication;
 
-    public ApplicationStrategy(Application application) {
-        this.application = application;
+    public ApplicationStrategy(ASTApplication ASTApplication) {
+        this.ASTApplication = ASTApplication;
     }
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.PROJECT_TITLE, application.getTitle());
-        context.put(VelocityLabel.PROJECT_NAME, application.getName());
-        context.put(VelocityLabel.PROJECT_DESCRIPTION, application.getDescription());
-        context.put(VelocityLabel.PROJECT_PACKAGE, application.getPackageName());
-        context.put(VelocityLabel.PROJECT_VERSION, application.getVersion());
+        context.put(VelocityLabel.PROJECT_TITLE, ASTApplication.getTitle());
+        context.put(VelocityLabel.PROJECT_NAME, ASTApplication.getName());
+        context.put(VelocityLabel.PROJECT_DESCRIPTION, ASTApplication.getDescription());
+        context.put(VelocityLabel.PROJECT_PACKAGE, ASTApplication.getPackageName());
+        context.put(VelocityLabel.PROJECT_VERSION, ASTApplication.getVersion());
     }
 
     @Override

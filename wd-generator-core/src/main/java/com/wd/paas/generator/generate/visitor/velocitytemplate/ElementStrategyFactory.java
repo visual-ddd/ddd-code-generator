@@ -13,19 +13,19 @@ public class ElementStrategyFactory {
         ElementTypeEnum type = ElementTypeEnum.of(element.getClass().getSimpleName());
         switch (type) {
             case APPLICATION :
-                return new ApplicationStrategy((Application) element);
+                return new ApplicationStrategy((ASTApplication) element);
             case BUSINESS_DOMAIN:
-                return new BusinessDomainStrategy((BusinessDomain) element);
+                return new BusinessDomainStrategy((ASTBusinessDomain) element);
             case AGGREGATE:
-                return new AggregationStrategy((Aggregate) element);
+                return new AggregationStrategy((ASTAggregate) element);
             case VALUE_OBJECT:
-                return new ValueObjectStrategy((ValueObject) element);
+                return new ValueObjectStrategy((ASTValueObject) element);
             case COMMAND:
-                return new CommandStrategy((Command) element);
+                return new CommandStrategy((ASTCommand) element);
             case AENUM:
-                return new EnumStrategy((AEnum) element);
+                return new EnumStrategy((ASTEnum) element);
             case ENTITY:
-                return new EntityStrategy((Entity) element);
+                return new EntityStrategy((ASTEntity) element);
             case DEFAULT:
                 return new DefaultStrategy();
             default:

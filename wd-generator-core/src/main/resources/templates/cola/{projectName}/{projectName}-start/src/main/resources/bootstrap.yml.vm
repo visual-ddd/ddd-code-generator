@@ -2,7 +2,7 @@
 #set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
 #set($configNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
 spring:
-  application:
+  ASTApplication:
     name: ${PROJECT_NAME}
   cloud:
     nacos:

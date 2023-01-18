@@ -1,10 +1,10 @@
 package com.wd.paas.generator.builder;
 
 import com.wd.paas.dsl.DataModelDsl;
-import com.wd.paas.generator.generate.element.DataModel;
+import com.wd.paas.generator.generate.element.ASTDataModel;
 
 public class DataModelBuilder {
-    static DataModel build(DataModelDsl dataModelDsl) {
+    static ASTDataModel build(DataModelDsl dataModelDsl) {
         return null;
     }
 }

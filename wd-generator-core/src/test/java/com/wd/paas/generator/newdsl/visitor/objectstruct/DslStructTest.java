@@ -1,6 +1,6 @@
 package com.wd.paas.generator.newdsl.visitor.objectstruct;
 
-import com.wd.paas.generator.generate.element.Application;
+import com.wd.paas.generator.generate.element.ASTApplication;
 import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.JavaTemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
@@ -11,10 +11,10 @@ public class DslStructTest {
 
     @Test
     public void accept() {
-        Application application = getApplication("app1");
+        ASTApplication ASTApplication = getApplication("app1");
 
         DslParser dslStruct = new DslParser();
-        dslStruct.add(application);
+        dslStruct.add(ASTApplication);
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./",null));
         dslStruct.accept(javaTemplateVisitor);
@@ -22,12 +22,12 @@ public class DslStructTest {
         Assert.assertTrue(true);
     }
 
-    private static Application getApplication(String appName) {
-        Application application = new Application();
+    private static ASTApplication getApplication(String appName) {
+        ASTApplication ASTApplication = new ASTApplication();
 //        application.setInfo(Info.builder().name(appName).build());
 
 //        application.add(new BusinessDomain(Info.builder().name((appName + "业务域")).build(), new Versionable()));
 //        applicationDTO.add(new BusinessScenario(Info.builder().name((appName + "业务场景")).build(), new Versionable()));
-        return application;
+        return ASTApplication;
     }
 }

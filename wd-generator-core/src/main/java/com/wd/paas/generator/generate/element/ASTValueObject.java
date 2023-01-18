@@ -1,5 +1,7 @@
 package com.wd.paas.generator.generate.element;
 
+
+import com.wd.paas.common.MethodInfo;
 import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
@@ -7,26 +9,20 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-/**
- * 应用元素
- *
- * @author zhuxueliang
+/***
+ * @author  wangchensheng
  */
-@Data
 @EqualsAndHashCode(callSuper = true)
-public class Application extends CompositeElement {
-
-    private String title;
+@Data
+public class ASTValueObject extends LeafElement {
 
     private String name;
 
     private String description;
 
-    private List<PropertyInfo> meta;
+    private List<PropertyInfo> propertyList;
 
-    private String version;
-
-    private String packageName;
+    private List<MethodInfo> methodList;
 
     @Override
     public void accept(Visitor visitor) {

@@ -4,15 +4,15 @@ import com.wd.paas.dsl.CommandDsl;
 import com.wd.paas.dsl.DomainEventDsl;
 import com.wd.paas.generator.builder.convert.CommandDslConvert;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
-import com.wd.paas.generator.generate.element.Command;
-import com.wd.paas.generator.generate.element.DomainEvent;
+import com.wd.paas.generator.generate.element.ASTCommand;
+import com.wd.paas.generator.generate.element.ASTDomainEvent;
 import com.wd.paas.generator.generate.element.Element;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Optional;
 
 public class CommandBuilder {
-    public static Command build(CommandDsl commandDsl) {
+    public static ASTCommand build(CommandDsl commandDsl) {
         String category = commandDsl.getCategory();
         String name = commandDsl.getName();
         DomainEventDsl domainEvent = commandDsl.getDomainEvent();
@@ -24,11 +24,11 @@ public class CommandBuilder {
 
         commandDsl.setCategory(StringUtils.isBlank(category) ? name : category);
         commandDsl.setName(name.concat(ModelUrlConstant.COMMAND_CLASS_SUFFIX));
-        Command command = CommandDslConvert.INSTANCE.dto2Do(commandDsl);
+        ASTCommand ASTCommand = CommandDslConvert.INSTANCE.dto2Do(commandDsl);
 
         Optional<Element> element = Optional.of(domainEvent).map(DomainEventBuilder::build);
-        command.setDomainEvent((DomainEvent) element.orElse(new DomainEvent()));
+        ASTCommand.setASTDomainEvent((ASTDomainEvent) element.orElse(new ASTDomainEvent()));
 
-        return command;
+        return ASTCommand;
     }
 }

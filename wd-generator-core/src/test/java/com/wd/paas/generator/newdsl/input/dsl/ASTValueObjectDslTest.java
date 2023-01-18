@@ -4,7 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.wd.paas.dsl.AggregateDsl;
 import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
-import com.wd.paas.dsl.CommandDsl;
+import com.wd.paas.dsl.ValueObjectDsl;
 import com.wd.paas.generator.builder.ApplicationBuilder;
 import com.wd.paas.generator.builder.DomainEventBuilder;
 import com.wd.paas.generator.generate.DslParser;
@@ -17,7 +17,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.List;
 
-public class CommandDslTest {
+public class ASTValueObjectDslTest {
 
     @Test
     public void buildApplication() throws IOException {
@@ -27,17 +27,17 @@ public class CommandDslTest {
                 .getDslElement("./src/test/resources/businessDomainDsl.json", new TypeToken<List<BusinessDomainDsl>>(){}.getType());
         List<AggregateDsl> aggregateDslList = Dsl2JsonUtil
                 .getDslElement("./src/test/resources/aggregationDsl.json", new TypeToken<List<AggregateDsl>>(){}.getType());
-        List<CommandDsl> commandDslList = Dsl2JsonUtil
-                .getDslElement("./src/test/resources/commandDsl.json", new TypeToken<List<CommandDsl>>(){}.getType());
+        List<ValueObjectDsl> valueObjectDslList = Dsl2JsonUtil
+                .getDslElement("./src/test/resources/valueObjectDsl.json", new TypeToken<List<ValueObjectDsl>>(){}.getType());
 
-        aggregateDslList.get(0).setCommandList(commandDslList);
+        aggregateDslList.get(0).setValueObjectList(valueObjectDslList);
         businessDomainDslList.get(0).getDomainModel().setAggregateList(aggregateDslList);
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
         DslParser dslStruct = new DslParser();
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
-        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
+        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./",null));
         dslStruct.accept(javaTemplateVisitor);
 
         Assert.assertTrue(true);

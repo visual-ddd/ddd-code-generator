@@ -1,5 +1,7 @@
 package com.wd.paas.generator.generate.element;
 
+
+import com.wd.paas.common.MethodInfo;
 import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
@@ -12,13 +14,19 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DomainEvent extends LeafElement {
+public class ASTEntity extends LeafElement{
 
     private String name;
 
     private String description;
 
+    private Boolean isAbstract;
+
+    private PropertyInfo id;
+
     private List<PropertyInfo> propertyList;
+
+    private List<MethodInfo> methodInfoList;
 
     @Override
     public void accept(Visitor visitor) {
