@@ -3,13 +3,14 @@ package com.wd.paas.common;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
-import java.util.List;
-
 /**
  * @author shimmer
  */
 @Data
 public class Info {
+
+    @SerializedName("uuid")
+    private String identity;
 
     @SerializedName("title")
     private String title;
@@ -21,5 +22,5 @@ public class Info {
     private String description;
 
     @SerializedName("meta")
-    private List<PropertyInfo> meta;
+    private MetaInfo meta;
 }
