@@ -4,6 +4,7 @@ import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.util.EnumTypeUtil;
 import com.wd.paas.generator.generate.element.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
@@ -46,7 +47,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
                 CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
-        context.put(VelocityLabel.AGGREGATION_GENERATOR_UTIL, new AggregationStrategy.AggregationGeneratorUtil());
+        context.put(VelocityLabel.AGGREGATION_GENERATOR_UTIL, new EnumTypeUtil(this));
         context.put(VelocityLabel.URL_AGGREGATION, ASTAggregateRoot.getName().toLowerCase());
     }
 
@@ -75,41 +76,8 @@ public class AggregationStrategy extends AbstractElementStrategy {
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 
-    private List<Element> getTargetElementList(Class<? extends Element> targetClass) {
+    public List<Element> getTargetElementList(Class<? extends Element> targetClass) {
         return ASTAggregate.getElementList().stream()
                 .filter(element -> Objects.equals(element.getClass(), targetClass)).collect(Collectors.toList());
-    }
-
-    public class AggregationGeneratorUtil {
-
-        public String dtoEnumType2Value(String umlFieldType) {
-            List<Element> targetElementList = getTargetElementList(ASTEnum.class);
-
-            for (Element aEnum: targetElementList) {
-                String enumName = ((ASTEnum) aEnum).getName();
-                if (Objects.equals(enumName, umlFieldType)) {
-                    return "Integer";
-                }
-                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
-                    return "List<Integer>";
-                }
-            }
-            return umlFieldType;
-        }
-
-        public String doEnumType2Value(String umlFieldType) {
-
-            List<Element> targetElementList = getTargetElementList(ASTEnum.class);
-            for (Element aEnum: targetElementList) {
-                String enumName = ((ASTEnum) aEnum).getName();
-                if (Objects.equals(enumName, umlFieldType)) {
-                    return "Integer";
-                }
-                if (Objects.equals("List<"+enumName+">", umlFieldType)) {
-                    return "String";
-                }
-            }
-            return umlFieldType;
-        }
     }
 }
