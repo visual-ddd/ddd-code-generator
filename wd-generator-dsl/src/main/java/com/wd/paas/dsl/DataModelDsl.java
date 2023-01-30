@@ -9,7 +9,10 @@ import lombok.Data;
 @Data
 public class DataModelDsl {
 
-    @SerializedName("eRModel")
-    private ERModelDsl eRModel;
+    @SerializedName("dataObjects")
+    private DataObjectDsl dataObjectDsl;
+
+    @SerializedName("references")
+    private DataObjectReferenceDsl dataObjectReferenceDsl;
 
 }
