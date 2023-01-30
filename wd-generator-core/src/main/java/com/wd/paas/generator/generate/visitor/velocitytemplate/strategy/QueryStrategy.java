@@ -14,12 +14,15 @@ public class QueryStrategy extends AbstractElementStrategy {
 
     private ASTQuery query;
 
-    public QueryStrategy(ASTQuery element) {
-        this.query = element;
+    public QueryStrategy(ASTQuery astQuery) {
+        this.query = astQuery;
     }
 
     @Override
     public List<String> getTemplatePathList() {
+        if (Boolean.TRUE.equals(query.getPagination())) {
+            return Arrays.asList(GenerateElementTypeEnum.PAGE_QUERY.getTemplateUrls());
+        }
         return Arrays.asList(GenerateElementTypeEnum.QUERY.getTemplateUrls());
     }
 
@@ -29,6 +32,7 @@ public class QueryStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.QUERY_CLASS_DESCRIPTION, query.getDescription());
         context.put(VelocityLabel.QUERY_CLASS_FIELDS, query.getPropertyList());
         context.put(VelocityLabel.QUERY_PAGINATION, query.getPagination());
+        context.put(VelocityLabel.QUERY_RETURN_INFO, query.getReturnInfo());
     }
 
     @Override
@@ -36,10 +40,12 @@ public class QueryStrategy extends AbstractElementStrategy {
         String outputPath = BusinessDomainStrategy.getOutputPath(templateUrl, context, preFixOutPath);
 
         String[] searchList = {
-                ModelUrlConstant.QUERY_CLASS
+                ModelUrlConstant.QUERY_CLASS,
+                ModelUrlConstant.PAGE_QUERY_CLASS,
         };
         String[] replacementList = {
-                (String) context.get(VelocityLabel.QUERY_CLASS_NAME)
+                (String) context.get(VelocityLabel.QUERY_CLASS_NAME),
+                (String) context.get(VelocityLabel.QUERY_CLASS_NAME),
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

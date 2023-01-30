@@ -13,14 +13,14 @@ import ${MapperPackagePath}.${AGGREGATION_CLASS_NAME}Mapper;
 #dependencyQueryResult()
 import ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH}.${QUERY_RESULT_TYPE}2DOConvert;
 
-#comment("${PAGE_QUERY_CLASS_DESCRIPTION}-分页查询器")
+#comment("${QUERY_CLASS_DESCRIPTION}-分页查询器")
 @Component
-public class ${PAGE_QUERY_CLASS_NAME}Exe {
+public class ${QUERY_CLASS_NAME}Exe {
 
     @Resource
     private ${AGGREGATION_CLASS_NAME}Mapper ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper;
 
-    public PageResultDTO<List<${QUERY_RESULT_TYPE}>> execute(${PAGE_QUERY_CLASS_NAME} pageQuery) {
+    public PageResultDTO<List<${QUERY_RETURN_INFO.type}>> execute(${QUERY_CLASS_NAME} pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
         List<${AGGREGATION_CLASS_NAME}DO> ${AGGREGATION_CLASS_NAME_ALL_LOWER}DoList = ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${PAGE_QUERY_CLASS_NAME})}(pageQuery);

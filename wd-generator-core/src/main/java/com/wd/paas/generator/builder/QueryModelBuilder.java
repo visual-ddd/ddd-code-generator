@@ -12,10 +12,10 @@ import java.util.Optional;
 public class QueryModelBuilder {
 
     static ASTQueryModel build(QueryModelDsl queryModelDsl) {
-        ASTQueryModel queryModel = QueryModelDslConvert.INSTANCE.dto2Do(queryModelDsl);
         List<Element> elements = new ArrayList<>();
         Optional.ofNullable(queryModelDsl.getQueryDslList()).ifPresent(e -> e.stream().map(QueryBuilder::build).forEach(elements::add));
         Optional.ofNullable(queryModelDsl.getDtoDslList()).ifPresent(e -> e.stream().map(DTOBuilder::build).forEach(elements::add));
+        ASTQueryModel queryModel = QueryModelDslConvert.INSTANCE.dto2Do(queryModelDsl);
         queryModel.addAll(elements);
         return queryModel;
     }

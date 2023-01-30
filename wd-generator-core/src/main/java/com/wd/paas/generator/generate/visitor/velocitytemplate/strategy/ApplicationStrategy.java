@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
@@ -16,19 +17,26 @@ import java.util.List;
  */
 public class ApplicationStrategy extends AbstractElementStrategy {
 
-    private final ASTApplication ASTApplication;
+    private final ASTApplication astApplication;
 
-    public ApplicationStrategy(ASTApplication ASTApplication) {
-        this.ASTApplication = ASTApplication;
+    public ApplicationStrategy(ASTApplication astApplication) {
+        this.astApplication = astApplication;
     }
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.PROJECT_TITLE, ASTApplication.getTitle());
-        context.put(VelocityLabel.PROJECT_NAME, ASTApplication.getName());
-        context.put(VelocityLabel.PROJECT_DESCRIPTION, ASTApplication.getDescription());
-        context.put(VelocityLabel.PROJECT_PACKAGE, ASTApplication.getPackageName());
-        context.put(VelocityLabel.PROJECT_VERSION, ASTApplication.getVersion());
+        context.put(VelocityLabel.PROJECT_TITLE, astApplication.getTitle());
+        context.put(VelocityLabel.PROJECT_NAME, astApplication.getName());
+        context.put(VelocityLabel.PROJECT_DESCRIPTION, astApplication.getDescription());
+        context.put(VelocityLabel.PROJECT_PACKAGE, astApplication.getPackageName());
+        context.put(VelocityLabel.PROJECT_VERSION, astApplication.getVersion());
+
+        context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
+                CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));
+        context.put(VelocityLabel.CASE_FORMAT_LOWER_UNDERSCORE,
+                CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE));
+        context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
+                CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
     }
 
     @Override

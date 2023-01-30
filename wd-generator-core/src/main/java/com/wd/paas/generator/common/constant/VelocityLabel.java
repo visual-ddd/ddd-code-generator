@@ -10,9 +10,7 @@ package com.wd.paas.generator.common.constant;
  */
 public class VelocityLabel {
 
-    /**
-     * 项目
-     */
+    // 项目
     public static final String PROJECT_NAME = "PROJECT_NAME";
     public static final String PROJECT_PACKAGE = "PROJECT_PACKAGE";
     public static final String PROJECT_AUTHOR = "PROJECT_AUTHOR";
@@ -21,12 +19,15 @@ public class VelocityLabel {
     public static final String PROJECT_DESCRIPTION = "PROJECT_DESCRIPTION";
     public static final String PROJECT_VERSION = "PROJECT_VERSION";
 
-    /**
-     * 领域
-     */
+    // 业务域
     public static final String DOMAIN_NAME = "DOMAIN_NAME";
+    public static final String DOMAIN_CLASS_NAME = "DOMAIN_CLASS_NAME";
+    public static final String DOMAIN_URL_NAME = "DOMAIN_URL_NAME";
+    public static final String DOMAIN_DESCRIPTION = "DOMAIN_DESCRIPTION";
     public static final String DOMAIN_AUTHOR = "DOMAIN_AUTHOR";
     public static final String DOMAIN_DATE_TIME = "DOMAIN_DATE_TIME";
+    public static final String DOMAIN_QUERY_LIST = "DOMAIN_QUERY_LIST";
+    public static final String DOMAIN_CMD_LIST = "DOMAIN_CMD_LIST";
 
     // 聚合
     public static final String AGGREGATION_CLASS_NAME = "AGGREGATION_CLASS_NAME";
@@ -40,9 +41,6 @@ public class VelocityLabel {
     public static final String AGGREGATION_ENUM_LIST = "AGGREGATION_ENUM_LIST";
     public static final String AGGREGATION_ENTITY_LIST = "AGGREGATION_ENTITY_LIST";
     public static final String AGGREGATION_CMD_LIST = "AGGREGATION_CMD_LIST";
-    public static final String AGGREGATION_QUERY_LIST = "AGGREGATION_QUERY_LIST";
-    public static final String AGGREGATION_PAGE_QUERY_LIST = "AGGREGATION_PAGE_QUERY_LIST";
-    public static final String AGGREGATION_QUERY_RESULT_LIST = "AGGREGATION_QUERY_RESULT_LIST";
 
     // 实体
     public static final String ENTITY_CLASS_NAME = "ENTITY_CLASS_NAME";
@@ -74,6 +72,7 @@ public class VelocityLabel {
     // 查询
     public static final String QUERY_CLASS_NAME = "QUERY_CLASS_NAME";
     public static final String QUERY_PAGINATION = "QUERY_PAGINATION";
+    public static final String QUERY_RETURN_INFO = "QUERY_RETURN_INFO";
     public static final String QUERY_CLASS_PACKAGE = "QUERY_CLASS_PACKAGE";
     public static final String QUERY_CLASS_DESCRIPTION = "QUERY_CLASS_DESCRIPTION";
     public static final String QUERY_CLASS_FIELDS = "QUERY_CLASS_FIELDS";

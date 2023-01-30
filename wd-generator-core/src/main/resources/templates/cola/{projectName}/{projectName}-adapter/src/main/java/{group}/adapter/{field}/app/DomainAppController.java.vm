@@ -1,0 +1,12 @@
+#parse("templates/Aggregation.vm")
+package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.app;
+
+#controllerImport()
+
+#comment("${DOMAIN_DESCRIPTION}-app-controller")
+@RestController
+@RequestMapping("/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}")
+@Api(value = "/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}", tags = "C端-${DOMAIN_DESCRIPTION}")
+public class ${DOMAIN_CLASS_NAME}AppController {
+#controller()
+}

@@ -48,20 +48,22 @@ public enum GenerateElementTypeEnum {
     }),
 
     /**
-     * 领域图谱
+     * 业务域
      */
     DOMAIN_CHART("DomainChart", new String[]{
             // domain
             // "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/DomainEntity.java.vm",
             // controller
-
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/DomainAppController.java.vm",
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/DomainWebController.java.vm",
             // repository
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
             // app
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/JsonConverter.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/DomainRpcServiceImpl.java.vm",
             // client
-
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/DomainRpcService.java.vm",
     }),
 
     /**
@@ -74,8 +76,8 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationRepository.java.vm",
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
             // controller
-            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/AggregationAppController.java.vm",
-            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/AggregationWebController.java.vm",
+//            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/DomainAppController.java.vm",
+//            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/DomainWebController.java.vm",
             // repository
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/AggregationMapper.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/AggregationDO.java.vm",
@@ -83,9 +85,9 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/AggregationDoConvert.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
             // app
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/AggregationRpcServiceImpl.java.vm",
+//            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/DomainRpcServiceImpl.java.vm",
             // client
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/AggregationRpcService.java.vm",
+//            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/DomainRpcService.java.vm",
     }),
 
     /**

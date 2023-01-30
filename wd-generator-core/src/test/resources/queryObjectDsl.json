@@ -4,7 +4,7 @@
       "uuid": "a96cd6ac-d9c8-4b14-bc02-71f5b62c8498",
       "title": "用户信息查询",
       "name": "UserDetailQuery",
-      "description": "",
+      "description": "用户信息查询",
       "meta": {},
       "source": [
         {
@@ -38,6 +38,37 @@
       "return": {
         "type": "UserDTO"
       }
+    },
+    {
+      "uuid": "6925f8eb-85ec-43e4-963d-822592380eb8",
+      "title": "分页查询用户信息",
+      "name": "UserPageQuery",
+      "description": "分页查询用户信息",
+      "meta": {},
+      "source": [
+        {
+          "type": "http"
+        },
+        {
+          "type": "rpc"
+        }
+      ],
+      "rules": [],
+      "pagination": true,
+      "properties": [
+        {
+          "uuid": "0ba349f5-964d-487b-8c7d-b9325a43cd28",
+          "title": "主键",
+          "name": "id",
+          "description": "主键",
+          "meta": {},
+          "access": "public",
+          "type": "Long"
+        }
+      ],
+      "return": {
+        "type": "UserDTO"
+      }
     }
   ],
   "dtos": [
@@ -45,14 +76,14 @@
       "uuid": "dc3e009e-2317-4f77-ab3e-c49b215b541b",
       "title": "用户信息",
       "name": "UserDTO",
-      "description": "maZaHai",
+      "description": "",
       "meta": {},
       "properties": [
         {
           "uuid": "fc7b6a6f-2570-42a0-a566-064754b1bd57",
           "title": "主键",
           "name": "id",
-          "description": "maZaHai1",
+          "description": "",
           "meta": {},
           "access": "public",
           "type": "Long"
@@ -61,7 +92,7 @@
           "uuid": "6f1abe32-4995-4c13-8a2b-a3c2bce12f46",
           "title": "用户名",
           "name": "userName",
-          "description": "maZaHai2",
+          "description": "",
           "meta": {},
           "access": "public",
           "type": "String"

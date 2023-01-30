@@ -1,0 +1,34 @@
+#parse("templates/Aggregation.vm")
+package ${PROJECT_PACKAGE}.client.${DOMAIN_CLASS_NAME};
+
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
+#dependencyCmdDTO()
+#dependencyQuery()
+#dependencyQueryResult()
+
+import java.util.List;
+
+#comment("${DOMAIN_DESCRIPTION}-RPC能力接口")
+public interface ${DOMAIN_CLASS_NAME}RpcService {
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+
+    /**
+    * ${cmd.description}
+    */
+    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto);
+#end
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+    /**
+     * ${query.description}
+     */
+    #if(${query.pagination})
+    PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
+    #end
+    #if(!${query.pagination})
+    ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
+    #end
+#end
+
+}

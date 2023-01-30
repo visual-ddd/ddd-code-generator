@@ -1,6 +1,5 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
@@ -9,44 +8,37 @@ import com.wd.paas.generator.generate.element.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author shimmer
  */
 public class AggregationStrategy extends AbstractElementStrategy {
 
-    private final ASTAggregate ASTAggregate;
+    private final ASTAggregate astAggregate;
 
-    public AggregationStrategy(ASTAggregate ASTAggregate) {
-        this.ASTAggregate = ASTAggregate;
+    public AggregationStrategy(ASTAggregate astAggregate) {
+        this.astAggregate = astAggregate;
     }
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        ASTAggregateRoot ASTAggregateRoot = Optional.of(ASTAggregate.getRoot()).orElse(new ASTAggregateRoot());
+        ASTAggregateRoot ASTAggregateRoot = Optional.of(astAggregate.getRoot()).orElse(new ASTAggregateRoot());
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME, ASTAggregateRoot.getName());
         context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, ASTAggregateRoot.getDescription());
         context.put(VelocityLabel.AGGREGATION_CLASS_ID, ASTAggregateRoot.getId());
         context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, ASTAggregateRoot.getPropertyList());
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, ASTAggregateRoot.getMethodList());
 
-        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, getTargetElementList(ASTEnum.class));
-        context.put(VelocityLabel.AGGREGATION_CMD_LIST, getTargetElementList(ASTCommand.class));
-        context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, getTargetElementList(ASTEntity.class));
-        context.put(VelocityLabel.AGGREGATION_QUERY_LIST, "queryList");
-        context.put(VelocityLabel.AGGREGATION_PAGE_QUERY_LIST, "pageQueryList");
-        context.put(VelocityLabel.AGGREGATION_QUERY_RESULT_LIST, "queryResultList");
+        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, astAggregate.getTargetElementList(ASTEnum.class));
+        context.put(VelocityLabel.AGGREGATION_CMD_LIST, astAggregate.getTargetElementList(ASTCommand.class));
+        context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, astAggregate.getTargetElementList(ASTEntity.class));
 
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER,
                 ASTAggregateRoot.getName().toLowerCase(Locale.ROOT));
-        context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
-                CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));
-        context.put(VelocityLabel.CASE_FORMAT_LOWER_UNDERSCORE,
-                CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE));
-        context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
-                CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
         context.put(VelocityLabel.AGGREGATION_GENERATOR_UTIL, new EnumTypeUtil(this));
         context.put(VelocityLabel.URL_AGGREGATION, ASTAggregateRoot.getName().toLowerCase());
     }
@@ -76,8 +68,4 @@ public class AggregationStrategy extends AbstractElementStrategy {
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 
-    public List<Element> getTargetElementList(Class<? extends Element> targetClass) {
-        return ASTAggregate.getElementList().stream()
-                .filter(element -> Objects.equals(element.getClass(), targetClass)).collect(Collectors.toList());
-    }
 }

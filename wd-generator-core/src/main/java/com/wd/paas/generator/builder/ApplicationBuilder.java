@@ -12,12 +12,13 @@ import java.util.Optional;
 public class ApplicationBuilder {
 
     public static ASTApplication build(ApplicationDsl applicationDsl) {
-        ASTApplication ASTApplication = ApplicationDslConvert.INSTANCE.dto2Do(applicationDsl);
 
         List<Element> elements = new ArrayList<>();
         Optional.ofNullable(applicationDsl.getBusinessDomainList()).ifPresent(e -> e.stream().map(BusinessDomainBuilder::build).forEach(elements::add));
         Optional.ofNullable(applicationDsl.getBusinessScenarioList()).ifPresent(e -> e.stream().map(BusinessScenarioBuilder::build).forEach(elements::add));
-        ASTApplication.addAll(elements);
-        return ASTApplication;
+
+        ASTApplication astApplication = ApplicationDslConvert.INSTANCE.dto2Do(applicationDsl);
+        astApplication.addAll(elements);
+        return astApplication;
     }
 }

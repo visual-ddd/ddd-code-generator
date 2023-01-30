@@ -1,0 +1,55 @@
+#parse("templates/Aggregation.vm")
+package ${PROJECT_PACKAGE}.app.${DOMAIN_CLASS_NAME};
+
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
+import ${DOMAIN_RPC_SERVICE_PACKAGE_PATH}.${DOMAIN_CLASS_NAME}RpcService;
+#dependencyCmdDTO()
+#dependencyQuery()
+#dependencyQueryResult()
+#dependencyCmdHandler()
+#dependencyQueryExe()
+#dependencyCmdDTOConvert()
+#dependencyCmd()
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+#comment("${DOMAIN_DESCRIPTION}-RPC能力接口实现")
+@Service
+public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}RpcService {
+
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+    @Resource
+    private ${cmd.name}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler;
+#end
+#foreach($query in ${DOMAIN_QUERY_LIST})
+    @Resource
+    private ${query.name}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe;
+#end
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+
+    @Override
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto) {
+        ${cmd.name} ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})} = ${cmd.category}DTOConvert.INSTANCE.dto2Do(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto);
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})});
+        return ResultDTO.success(Boolean.TRUE);
+    }
+#end
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+    @Override
+    #if(${query.pagination})
+    public ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
+    }
+    #end
+    #if(!${query.pagination})
+    public PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
+    }
+    #end
+#end
+
+}

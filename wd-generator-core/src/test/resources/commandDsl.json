@@ -3,7 +3,7 @@
     "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
     "title": "添加用户",
     "name": "UserCreate",
-    "description": "",
+    "description": "添加用户",
     "meta": {},
     "rules": [
       {
@@ -29,7 +29,7 @@
         "uuid": "d3ce207e-2907-4d71-8bd7-416b4c7a0cb9",
         "title": "用户Id",
         "name": "id",
-        "description": "",
+        "description": "用户Id",
         "meta": {},
         "access": "public",
         "type": "Long"
@@ -48,7 +48,7 @@
     "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
     "title": "更新用户",
     "name": "UserUpdate",
-    "description": "",
+    "description": "更新用户",
     "meta": {},
     "rules": [
       {
@@ -93,7 +93,7 @@
     "uuid": "e628833f-57ea-45b4-9bab-124482b5793b",
     "title": "删除用户",
     "name": "UserDelete",
-    "description": "",
+    "description": "删除用户",
     "meta": {},
     "rules": [
       {

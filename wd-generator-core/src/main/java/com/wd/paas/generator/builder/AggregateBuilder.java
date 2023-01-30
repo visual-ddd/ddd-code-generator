@@ -16,8 +16,8 @@ public class AggregateBuilder {
         Optional.ofNullable(aggregateDsl.getValueObjectList()).ifPresent(e -> e.stream().map(ValueObjectBuilder::build).forEach(elements::add));
         Optional.ofNullable(aggregateDsl.getCommandList()).ifPresent(e -> e.stream().map(CommandBuilder::build).forEach(elements::add));
         Optional.ofNullable(aggregateDsl.getEnumList()).ifPresent(e -> e.stream().map(EnumBuilder::build).forEach(elements::add));
-        ASTAggregate ASTAggregate = AggregateDslConvert.INSTANCE.dto2Do(aggregateDsl);
-        ASTAggregate.addAll(elements);
-        return ASTAggregate;
+        ASTAggregate astAggregate = AggregateDslConvert.INSTANCE.dto2Do(aggregateDsl);
+        astAggregate.addAll(elements);
+        return astAggregate;
     }
 }
