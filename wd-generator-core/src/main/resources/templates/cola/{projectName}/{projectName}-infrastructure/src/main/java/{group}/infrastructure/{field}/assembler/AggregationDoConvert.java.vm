@@ -11,7 +11,7 @@ import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
 #comment("${AGGREGATION_CLASS_NAME}和DO转换器")
 @Mapper(uses = {
     #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
-        ${aggregationEnum.umlClass.className}Converter.class,
+        ${aggregationEnum.name}Converter.class,
     #end
 })
 public interface ${AGGREGATION_CLASS_NAME}DoConvert extends

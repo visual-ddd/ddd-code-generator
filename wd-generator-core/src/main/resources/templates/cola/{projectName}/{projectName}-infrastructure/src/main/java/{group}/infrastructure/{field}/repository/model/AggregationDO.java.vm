@@ -20,6 +20,6 @@ public class ${AGGREGATION_CLASS_NAME}DO extends BaseJpaAggregate {
     #if($field.description)
     /** ${field.description} */
     #end
-    ${field.modifier} ${AGGREGATION_GENERATOR_UTIL.doEnumType2Value(${field.type})} ${field.name};
+    ${field.access} ${AGGREGATION_GENERATOR_UTIL.doEnumType2Value(${field.type})} ${field.name};
 #end
 }
