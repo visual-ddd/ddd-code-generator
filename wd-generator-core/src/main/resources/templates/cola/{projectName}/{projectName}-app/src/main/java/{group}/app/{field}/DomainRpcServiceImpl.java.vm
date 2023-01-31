@@ -1,15 +1,14 @@
-#parse("templates/Aggregation.vm")
-package ${PROJECT_PACKAGE}.app.${DOMAIN_CLASS_NAME};
+#parse("templates/Domain.vm")
+package ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import ${DOMAIN_RPC_SERVICE_PACKAGE_PATH}.${DOMAIN_CLASS_NAME}RpcService;
-#dependencyCmdDTO()
-#dependencyQuery()
-#dependencyQueryResult()
+#dependencyAllDTO()
+#dependencyAllQuery()
+#dependencyAllView()
+#dependencyAllAssembler()
 #dependencyCmdHandler()
-#dependencyQueryExe()
-#dependencyCmdDTOConvert()
 #dependencyCmd()
 import org.springframework.stereotype.Service;
 
@@ -41,12 +40,12 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 
     @Override
     #if(${query.pagination})
-    public ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
-        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
+        public PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
     }
     #end
     #if(!${query.pagination})
-    public PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+    public ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
     }
     #end

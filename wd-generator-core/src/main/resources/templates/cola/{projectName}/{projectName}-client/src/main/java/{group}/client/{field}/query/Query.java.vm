@@ -6,13 +6,19 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import com.wakedata.common.core.base.BaseQuery;
+import com.wakedata.common.core.dto.PageQuery;
 import lombok.EqualsAndHashCode;
 
 #comment("${QUERY_CLASS_DESCRIPTION}")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "${QUERY_CLASS_DESCRIPTION}")
-public class ${QUERY_CLASS_NAME} extends #if(!${QUERY_PAGINATION})BaseQuery#end#if(${QUERY_PAGINATION})PageQuery#end {
+#if(!${QUERY_PAGINATION})
+public class ${QUERY_CLASS_NAME} extends BaseQuery {
+#end
+#if(${QUERY_PAGINATION})
+public class ${QUERY_CLASS_NAME} extends PageQuery {
+#end
     #filedExt(${QUERY_CLASS_FIELDS}, ["swagger"])
 
 }

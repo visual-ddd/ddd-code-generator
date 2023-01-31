@@ -24,11 +24,11 @@ public class CommandBuilder {
 
         commandDsl.setCategory(StringUtils.isBlank(category) ? name : category);
         commandDsl.setName(name.concat(ModelUrlConstant.COMMAND_CLASS_SUFFIX));
-        ASTCommand ASTCommand = CommandDslConvert.INSTANCE.dto2Do(commandDsl);
+        ASTCommand command = CommandDslConvert.INSTANCE.dto2Do(commandDsl);
 
         Optional<Element> element = Optional.of(domainEvent).map(DomainEventBuilder::build);
-        ASTCommand.setASTDomainEvent((ASTDomainEvent) element.orElse(new ASTDomainEvent()));
+        command.setAstDomainEvent((ASTDomainEvent) element.orElse(new ASTDomainEvent()));
 
-        return ASTCommand;
+        return command;
     }
 }

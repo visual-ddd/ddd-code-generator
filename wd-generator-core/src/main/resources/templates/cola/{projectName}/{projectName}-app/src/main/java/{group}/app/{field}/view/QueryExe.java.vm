@@ -3,24 +3,46 @@ package ${QUERY_EXE_PACKAGE_PATH};
 
 import java.util.List;
 import javax.annotation.Resource;
+import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.stereotype.Component;
 import ${QUERY_PACKAGE_PATH}.${QUERY_CLASS_NAME};
 import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
 import ${MapperPackagePath}.${AGGREGATION_CLASS_NAME}Mapper;
-#dependencyQueryResult()
-import ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH}.${QUERY_RESULT_TYPE}2DOConvert;
+import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${QUERY_RETURN_INFO.type};
+##import ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH}.${QUERY_RESULT_TYPE}2DOConvert;
 
 #comment("${QUERY_CLASS_DESCRIPTION}-查询器")
 @Component
 public class ${QUERY_CLASS_NAME}Exe {
+##    @Resource
+##    private ${AGGREGATION_CLASS_NAME}Mapper ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper;
 
-    @Resource
-    private ${AGGREGATION_CLASS_NAME}Mapper ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper;
+    #if(${QUERY_PAGINATION})
+    public PageResultDTO<List<${QUERY_RETURN_INFO.type}>> execute(${QUERY_CLASS_NAME} pageQuery) {
 
-    public ResultDTO<${QUERY_RETURN_INFO.type}> execute(${QUERY_CLASS_NAME} query) {
-        ${AGGREGATION_CLASS_NAME}DO ${AGGREGATION_CLASS_NAME_ALL_LOWER}DO = ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query);
-        ${QUERY_RESULT_TYPE} ${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})} = ${QUERY_RESULT_TYPE}2DOConvert.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_ALL_LOWER}DO);
-        return ResultDTO.success(${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})});
+##        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+##
+##        List<${AGGREGATION_CLASS_NAME}DO> ${AGGREGATION_CLASS_NAME_ALL_LOWER}DoList = ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${PAGE_QUERY_CLASS_NAME})}(pageQuery);
+##        PageInfo<${AGGREGATION_CLASS_NAME}DO> pageInfo = new PageInfo<>(${AGGREGATION_CLASS_NAME_ALL_LOWER}DoList);
+##        List<${QUERY_RESULT_TYPE}> ${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})}List = ${QUERY_RESULT_TYPE}2DOConvert.INSTANCE.doList2DtoList(pageInfo.getList());
+##
+##        PageResultDTO<List<${QUERY_RESULT_TYPE}>> pageResultDTO = new PageResultDTO<>();
+##        pageResultDTO.setData(${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})}List);
+##        pageResultDTO.setPageNo(pageInfo.getPageNum());
+##        pageResultDTO.setPageSize(pageInfo.getSize());
+##        pageResultDTO.setTotalCount(pageInfo.getTotal());
+##        return pageResultDTO;
+        return null;
     }
+    #end
+    #if(!${QUERY_PAGINATION})
+    public ResultDTO<${QUERY_RETURN_INFO.type}> execute(${QUERY_CLASS_NAME} query) {
+##        ${AGGREGATION_CLASS_NAME}DO ${AGGREGATION_CLASS_NAME_ALL_LOWER}DO = ${AGGREGATION_CLASS_NAME_ALL_LOWER}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query);
+##        ${QUERY_RESULT_TYPE} ${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})} = ${QUERY_RESULT_TYPE}2DOConvert.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_ALL_LOWER}DO);
+##        return ResultDTO.success(${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_RESULT_TYPE})});
+        return null;
+    }
+    #end
+
 }

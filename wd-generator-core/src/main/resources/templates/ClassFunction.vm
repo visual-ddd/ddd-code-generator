@@ -25,22 +25,14 @@ import ${importPackage};
     #end
 #end
 ## ============= 类拓展字段列表 =============
-#macro(filedExt $filedList, $arguments)
+#macro(filedExt $filedList, $arg)
     #foreach ($field in $filedList)
 
-        #foreach($arg in $arguments)
-            #if($field.description)
-                #if($arg == "swagger")
-                    #filedSwagger($filedList)
-                #end
-            #end
-        #end
+    #if($arg == "swagger")
+    @ApiModelProperty(value = "${field.description}")
+    #end
     ${field.access} ${field.type} ${field.name};
     #end
-#end
-## ============= 类swagger字段注解 =============
-#macro(filedSwagger $filedList)
-    @ApiModelProperty(value = "${field.description}")
 #end
 ## ============= 类方法列表 =============
 #macro(method $methodList)

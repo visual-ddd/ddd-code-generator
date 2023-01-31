@@ -1,4 +1,4 @@
-#parse("templates/Aggregation.vm")
+#parse("templates/Controller.vm")
 package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.app;
 
 #controllerImport()

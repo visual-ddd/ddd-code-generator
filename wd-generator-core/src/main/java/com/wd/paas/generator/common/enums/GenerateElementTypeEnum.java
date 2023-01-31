@@ -180,14 +180,6 @@ public enum GenerateElementTypeEnum {
     }),
 
     /**
-     * 分页查询对象
-     */
-    PAGE_QUERY("PageQuery", new String[]{
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/PageQuery.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/view/PageQueryExe.java.vm",
-    }),
-
-    /**
      * QueryResult 结果集
      */
     QUERY_RESULT("QueryResult", new String[]{

@@ -20,9 +20,6 @@ public class QueryStrategy extends AbstractElementStrategy {
 
     @Override
     public List<String> getTemplatePathList() {
-        if (Boolean.TRUE.equals(query.getPagination())) {
-            return Arrays.asList(GenerateElementTypeEnum.PAGE_QUERY.getTemplateUrls());
-        }
         return Arrays.asList(GenerateElementTypeEnum.QUERY.getTemplateUrls());
     }
 
@@ -41,10 +38,8 @@ public class QueryStrategy extends AbstractElementStrategy {
 
         String[] searchList = {
                 ModelUrlConstant.QUERY_CLASS,
-                ModelUrlConstant.PAGE_QUERY_CLASS,
         };
         String[] replacementList = {
-                (String) context.get(VelocityLabel.QUERY_CLASS_NAME),
                 (String) context.get(VelocityLabel.QUERY_CLASS_NAME),
         };
 

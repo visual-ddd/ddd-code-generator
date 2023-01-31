@@ -17,10 +17,10 @@ import java.util.Locale;
  */
 public class CommandStrategy extends AbstractElementStrategy {
 
-    private final ASTCommand ASTCommand;
+    private final ASTCommand astCommand;
 
-    public CommandStrategy(ASTCommand ASTCommand) {
-        this.ASTCommand = ASTCommand;
+    public CommandStrategy(ASTCommand astCommand) {
+        this.astCommand = astCommand;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class CommandStrategy extends AbstractElementStrategy {
         list.addAll(Arrays.asList(GenerateElementTypeEnum.COMMAND.getTemplateUrls()));
         list.addAll(Arrays.asList(GenerateElementTypeEnum.EVENT.getTemplateUrls()));
 
-        switch (ASTCommand.getRepository()) {
+        switch (astCommand.getRepository()) {
             case SAVE:
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.ADD_COMMAND_HANDLER.getTemplateUrls()));
                 break;
@@ -45,14 +45,14 @@ public class CommandStrategy extends AbstractElementStrategy {
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        context.put(VelocityLabel.URL_ACTION, ASTCommand.getCategory().toLowerCase(Locale.ROOT));
+        context.put(VelocityLabel.URL_ACTION, astCommand.getCategory().toLowerCase(Locale.ROOT));
 
-        context.put(VelocityLabel.CMD_CLASS_NAME, ASTCommand.getName());
-        context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, ASTCommand.getDescription());
-        context.put(VelocityLabel.CMD_CLASS_FIELDS, ASTCommand.getPropertyList());
-        context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, ASTCommand.getASTDomainEvent().getName());
-        context.put(VelocityLabel.CMD_CATEGORY, ASTCommand.getCategory());
-        context.put(VelocityLabel.CMD_DTO_CLASS, ASTCommand.getCategory().concat(VelocityLabel.CLASS_DTO_SUFFIX));
+        context.put(VelocityLabel.CMD_CLASS_NAME, astCommand.getName());
+        context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, astCommand.getDescription());
+        context.put(VelocityLabel.CMD_CLASS_FIELDS, astCommand.getPropertyList());
+        context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, astCommand.getAstDomainEvent().getName());
+        context.put(VelocityLabel.CMD_CATEGORY, astCommand.getCategory());
+        context.put(VelocityLabel.CMD_DTO_CLASS, astCommand.getCategory().concat(VelocityLabel.CLASS_DTO_SUFFIX));
     }
 
     @Override

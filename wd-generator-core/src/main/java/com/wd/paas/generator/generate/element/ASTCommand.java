@@ -17,7 +17,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTCommand extends CompositeElement{
+public class ASTCommand extends CompositeElement {
 
     private String name;
 
@@ -31,13 +31,15 @@ public class ASTCommand extends CompositeElement{
 
     private List<PropertyInfo> propertyList;
 
-    private ASTDomainEvent ASTDomainEvent;
+    private ASTDomainEvent astDomainEvent;
 
     private Boolean eventEnable;
 
     private List<RuleInfo> ruleList;
 
     private ReturnInfo returnInfo;
+
+    private String packagePath;
 
     @Override
     public void accept(Visitor visitor) {

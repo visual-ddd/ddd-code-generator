@@ -1,11 +1,10 @@
-#parse("templates/Aggregation.vm")
-package ${PROJECT_PACKAGE}.client.${DOMAIN_CLASS_NAME};
+#parse("templates/Domain.vm")
+package ${DOMAIN_RPC_SERVICE_PACKAGE_PATH};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-#dependencyCmdDTO()
-#dependencyQuery()
-#dependencyQueryResult()
+#dependencyAllDTO()
+#dependencyAllQuery()
 
 import java.util.List;
 
