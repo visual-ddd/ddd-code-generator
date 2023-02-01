@@ -1,18 +1,25 @@
 package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.MetaInfo;
+import com.wd.paas.common.TargetInfo;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
+
 /**
- * @author shimmer
+ * author Wangchensheng@wakedata.com
+ * date 2023年01月31日 15:31:49
+ * describe TODO
  */
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ASTBusinessScenario extends CompositeElement {
+public class ASTDataObjectReference extends LeafElement {
+
+    private String identity;
 
     private String title;
 
@@ -22,7 +29,9 @@ public class ASTBusinessScenario extends CompositeElement {
 
     private MetaInfo meta;
 
-    private String version;
+    private String source;
+
+    private List<TargetInfo> targets;
 
     @Override
     public void accept(Visitor visitor) {

@@ -1,19 +1,21 @@
-package com.wd.paas.dsl;
+package com.wd.paas.common;
 
 import com.google.gson.annotations.SerializedName;
 import com.wd.paas.common.enums.IndexMethodEnum;
 import com.wd.paas.common.enums.IndexTypeEnum;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
 /**
  * author Wangchensheng@wakedata.com
  * date 2023年01月30日 11:09:56
- * describe 数据索引
+ * describe 数据索引信息
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class DataIndexDsl {
+public class DataIndexInfo extends Info {
 
     /**
      * 默认Normal

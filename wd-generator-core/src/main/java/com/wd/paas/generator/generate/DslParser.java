@@ -2,7 +2,6 @@ package com.wd.paas.generator.generate;
 
 import com.wd.paas.generator.generate.element.CompositeElement;
 import com.wd.paas.generator.generate.element.Element;
-import com.wd.paas.generator.generate.Visitor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;

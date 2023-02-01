@@ -6,7 +6,6 @@ import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
 import com.wd.paas.dsl.ValueObjectDsl;
 import com.wd.paas.generator.builder.ApplicationBuilder;
-import com.wd.paas.generator.builder.DomainEventBuilder;
 import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.JavaTemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;

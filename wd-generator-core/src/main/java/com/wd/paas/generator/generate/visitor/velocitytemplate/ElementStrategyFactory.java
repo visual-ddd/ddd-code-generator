@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class ElementStrategyFactory {
-    
+
     public static ElementStrategy getInstance(Element element) {
         ElementTypeEnum type = ElementTypeEnum.of(element.getClass().getSimpleName());
         switch (type) {
-            case APPLICATION :
+            case APPLICATION:
                 return new ApplicationStrategy((ASTApplication) element);
             case BUSINESS_DOMAIN:
                 return new BusinessDomainStrategy((ASTBusinessDomain) element);
@@ -34,6 +34,10 @@ public class ElementStrategyFactory {
                 return new QueryStrategy((ASTQuery) element);
             case DTO:
                 return new DTOStrategy((ASTDto) element);
+            case DATA_OBJECT_MODEL:
+                return new DataObjectStrategy((ASTDataObject) element);
+            case DATA_OBJECT_REFERENCE:
+                return new DataObjectReferenceStrategy((ASTDataObjectReference) element);
             case DEFAULT:
                 log.debug("没有找到对应的处理类型：{}", element.getClass());
                 return new DefaultStrategy();

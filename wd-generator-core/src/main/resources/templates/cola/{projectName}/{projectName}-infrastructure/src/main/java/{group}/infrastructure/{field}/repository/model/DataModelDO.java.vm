@@ -1,0 +1,25 @@
+#parse("templates/DataModel.vm")
+package $DOPackagePath;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import javax.persistence.*;
+import java.util.List;
+import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
+
+#comment("${DATA_OBJECT_CLASS_DESCRIPTION}实体类")
+@Entity
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "${DATA_OBJECT_TABLE_NAME}")
+@TableName("${DATA_OBJECT_TABLE_NAME}")
+public class ${DATA_OBJECT_CLASS_NAME}DO extends BaseJpaAggregate {
+#foreach ($field in $DATA_OBJECT_CLASS_FIELDS)
+
+    #if($field.description)
+    /** ${field.description} */
+    #end
+    private ${field.dataType} ${field.propertyName};
+#end
+}

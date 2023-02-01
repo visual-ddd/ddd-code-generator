@@ -1,7 +1,6 @@
 package com.wd.paas.common;
 
 import com.google.gson.annotations.SerializedName;
-import com.wd.paas.common.enums.DataTypeEnum;
 import lombok.Data;
 
 /**
@@ -16,7 +15,7 @@ public class DataPropertyInfo {
     private String propertyName;
 
     @SerializedName("dataType")
-    private DataTypeEnum dataType;
+    private String dataType;
 
     @SerializedName("defaultValue")
     private String defaultValue;

@@ -1,0 +1,38 @@
+#parse("templates/DataModel.vm")
+package $MapperPackagePath;
+
+import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
+import ${DOPackagePath}.${DATA_OBJECT_CLASS_NAME}DO;
+#dependencyQuery()
+
+#comment("${DATA_OBJECT_CLASS_DESCRIPTION}Mapper接口")
+@Mapper
+public interface ${DATA_OBJECT_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJECT_CLASS_NAME}DO> {
+
+#if(!${query.pagination})
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+#if(${query.description})
+    /**
+    * ${query.description}
+    */
+#end
+    ${DATA_OBJECT_CLASS_NAME}DO ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
+#end
+#end
+
+#if(${query.pagination})
+#foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
+
+    #if(${pageQuery.description})
+    /**
+     * ${pageQuery.description}
+     */
+    #end
+    List<${DATA_OBJECT_CLASS_NAME}DO> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}(${pageQuery.name} pageQuery);
+#end
+#end
+}

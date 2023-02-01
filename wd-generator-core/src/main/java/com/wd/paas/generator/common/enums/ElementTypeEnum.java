@@ -23,6 +23,8 @@ public enum ElementTypeEnum {
     QUERY("ASTQuery"),
     DTO("ASTDto"),
     OBJECT_MAPPER_MODEL("ASTObjectMapperModel"),
+    DATA_OBJECT_MODEL("ASTDataObject"),
+    DATA_OBJECT_REFERENCE("ASTDataObjectReference"),
     ;
 
     private final String value;

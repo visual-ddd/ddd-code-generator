@@ -1,32 +1,32 @@
-#parse("templates/Aggregation.vm")
-package $MapperPackagePath;
-
-import java.util.List;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.springframework.stereotype.Repository;
-import org.apache.ibatis.annotations.Mapper;
-import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
-#dependencyQuery()
-
-#comment("${AGGREGATION_CLASS_DESCRIPTION}Mapper接口")
-@Mapper
-public interface ${AGGREGATION_CLASS_NAME}Mapper extends BaseMapper<${AGGREGATION_CLASS_NAME}DO> {
-#foreach ($query in ${AGGREGATION_QUERY_LIST})
-
-#if(${query.umlClass.classDesc})
-    /**
-    * ${query.umlClass.classDesc}
-    */
-#end
-    ${AGGREGATION_CLASS_NAME}DO ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${query.umlClass.className} query);
-#end
-#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
-
-    #if(${pageQuery.umlClass.classDesc})
-    /**
-     * ${pageQuery.umlClass.classDesc}
-     */
-    #end
-    List<${AGGREGATION_CLASS_NAME}DO> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery);
-#end
-}
+###parse("templates/Aggregation.vm")
+##package $MapperPackagePath;
+##
+##import java.util.List;
+##import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+##import org.springframework.stereotype.Repository;
+##import org.apache.ibatis.annotations.Mapper;
+##import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
+###dependencyQuery()
+##
+###comment("${AGGREGATION_CLASS_DESCRIPTION}Mapper接口")
+##@Mapper
+##public interface ${AGGREGATION_CLASS_NAME}Mapper extends BaseMapper<${AGGREGATION_CLASS_NAME}DO> {
+###foreach ($query in ${AGGREGATION_QUERY_LIST})
+##
+###if(${query.umlClass.classDesc})
+##    /**
+##    * ${query.umlClass.classDesc}
+##    */
+###end
+##    ${AGGREGATION_CLASS_NAME}DO ${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}(${query.umlClass.className} query);
+###end
+###foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+##
+##    #if(${pageQuery.umlClass.classDesc})
+##    /**
+##     * ${pageQuery.umlClass.classDesc}
+##     */
+##    #end
+##    List<${AGGREGATION_CLASS_NAME}DO> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}(${pageQuery.umlClass.className} pageQuery);
+###end
+##}

@@ -28,6 +28,7 @@ public class VelocityLabel {
     public static final String DOMAIN_DATE_TIME = "DOMAIN_DATE_TIME";
     public static final String DOMAIN_QUERY_LIST = "DOMAIN_QUERY_LIST";
     public static final String DOMAIN_CMD_LIST = "DOMAIN_CMD_LIST";
+    public static final String DOMAIN_DATA_LIST = "DOMAIN_DATA_LIST";
 
     // 聚合
     public static final String AGGREGATION_CLASS_NAME = "AGGREGATION_CLASS_NAME";
@@ -105,6 +106,12 @@ public class VelocityLabel {
     public static final String CMD_EVENT_CLASS_FIELDS = "CMD_EVENT_CLASS_FIELDS";
     public static final String CMD_EVENT_CLASS_METHODS = "CMD_EVENT_CLASS_METHODS";
 
+    // 数据模型对象
+    public static final String DATA_OBJECT_CLASS_NAME = "DATA_OBJECT_CLASS_NAME";
+    public static final String DATA_OBJECT_CLASS_DESCRIPTION = "DATA_OBJECT_CLASS_DESCRIPTION";
+    public static final String DATA_OBJECT_CLASS_FIELDS = "DATA_OBJECT_CLASS_FIELDS";
+    public static final String DATA_TABLE_NAME = "DATA_OBJECT_TABLE_NAME";
+    public static final String DATA_GENERATOR_UTIL = "DATA_GENERATOR_UTIL";
 
     public static final String PROJECT_SLASH_GROUP = "ProjectSlashGroup";
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";

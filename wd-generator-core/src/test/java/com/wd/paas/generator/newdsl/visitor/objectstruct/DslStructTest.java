@@ -1,7 +1,7 @@
 package com.wd.paas.generator.newdsl.visitor.objectstruct;
 
-import com.wd.paas.generator.generate.element.ASTApplication;
 import com.wd.paas.generator.generate.DslParser;
+import com.wd.paas.generator.generate.element.ASTApplication;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.JavaTemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.junit.Assert;

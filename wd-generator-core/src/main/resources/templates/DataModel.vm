@@ -1,0 +1,7 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## ==================== 数据模型相关变量 =======================
+## 数据对象DO类包路径
+#set($DOPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.model")
+## 数据对象Mapper类包路径
+#set($MapperPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")

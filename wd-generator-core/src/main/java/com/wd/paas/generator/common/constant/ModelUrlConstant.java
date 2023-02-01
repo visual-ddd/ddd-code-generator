@@ -39,5 +39,9 @@ public class ModelUrlConstant {
 
     public static final String QUERY_RESULT_CLASS = "QueryResult";
     public static final String QUERY_CLASS = "Query";
-    public static final String PAGE_QUERY_CLASS = "PageQuery";
+    public static final String DATA_DO_CLASS = "DataModelDO";
+    public static final String DATA_CLASS = "DataModel";
+
+
+
 }

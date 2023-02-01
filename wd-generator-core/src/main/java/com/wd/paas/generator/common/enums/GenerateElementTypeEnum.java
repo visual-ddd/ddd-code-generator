@@ -79,11 +79,11 @@ public enum GenerateElementTypeEnum {
 //            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/DomainAppController.java.vm",
 //            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/DomainWebController.java.vm",
             // repository
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/AggregationMapper.java.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/AggregationDO.java.vm",
+//            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/AggregationMapper.java.vm",
+//            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/AggregationDO.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/AggregationRepositoryImpl.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/AggregationDoConvert.java.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
+//            "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
             // app
 //            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/DomainRpcServiceImpl.java.vm",
             // client
@@ -185,6 +185,12 @@ public enum GenerateElementTypeEnum {
     QUERY_RESULT("QueryResult", new String[]{
             "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/QueryResult.java.vm",
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/QueryResult2DOConvert.java.vm"
+    }),
+
+    DATA_MODEL("DataModel", new String[]{
+            "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/DataModelMapper.xml.vm",
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/DataModelMapper.java.vm",
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/DataModelDO.java.vm"
     }),
 
     /**

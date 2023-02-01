@@ -1,42 +1,42 @@
-#parse("templates/Aggregation.vm")
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="${MapperPackagePath}.${AGGREGATION_CLASS_NAME}Mapper">
-#foreach ($query in ${AGGREGATION_QUERY_LIST})
-
-    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}" parameterType="${QUERY_PACKAGE_PATH}.${query.umlClass.className}"
-            resultType="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
-        SELECT *
-        FROM ${AGGREGATION_TABLE_NAME} t1
-        WHERE 1=1
-        #foreach($queryFiled in $query.umlClass.fieldList)
-        <if test="${queryFiled.name}!=null">
-            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
-        </if>
-        #end
-    </select>
-#end
-#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
-
-    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}" parameterType="${QUERY_PACKAGE_PATH}.${pageQuery.umlClass.className}"
-            resultType="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
-        SELECT *
-        FROM ${AGGREGATION_TABLE_NAME} t1
-        WHERE 1=1
-        #foreach($pageQueryFiled in $pageQuery.umlClass.fieldList)
-        <if test="${pageQueryFiled.name}!=null">
-            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
-        </if>
-        #end
-    </select>
-#end
-##    <resultMap id="BaseResultMap" type="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+###parse("templates/Aggregation.vm")
+##<?xml version="1.0" encoding="UTF-8"?>
+##<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+##  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 ##
-##        <id property="id" column="id" jdbcType="BIGINT"/>
-##        #foreach($field in ${AGGREGATION_CLASS_FIELDS})
-##            <result property="tenantId" column="tenant_id" jdbcType="BIGINT"/>
+##<mapper namespace="${MapperPackagePath}.${AGGREGATION_CLASS_NAME}Mapper">
+###foreach ($query in ${AGGREGATION_QUERY_LIST})
+##
+##    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.umlClass.className})}" parameterType="${QUERY_PACKAGE_PATH}.${query.umlClass.className}"
+##            resultType="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+##        SELECT *
+##        FROM ${AGGREGATION_TABLE_NAME} t1
+##        WHERE 1=1
+##        #foreach($queryFiled in $query.umlClass.fieldList)
+##        <if test="${queryFiled.name}!=null">
+##            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
+##        </if>
 ##        #end
-##    </resultMap>
-</mapper>
+##    </select>
+###end
+###foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
+##
+##    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.umlClass.className})}" parameterType="${QUERY_PACKAGE_PATH}.${pageQuery.umlClass.className}"
+##            resultType="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+##        SELECT *
+##        FROM ${AGGREGATION_TABLE_NAME} t1
+##        WHERE 1=1
+##        #foreach($pageQueryFiled in $pageQuery.umlClass.fieldList)
+##        <if test="${pageQueryFiled.name}!=null">
+##            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
+##        </if>
+##        #end
+##    </select>
+###end
+####    <resultMap id="BaseResultMap" type="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+####
+####        <id property="id" column="id" jdbcType="BIGINT"/>
+####        #foreach($field in ${AGGREGATION_CLASS_FIELDS})
+####            <result property="tenantId" column="tenant_id" jdbcType="BIGINT"/>
+####        #end
+####    </resultMap>
+##</mapper>

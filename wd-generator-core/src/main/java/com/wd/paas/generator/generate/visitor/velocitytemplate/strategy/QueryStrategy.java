@@ -12,7 +12,7 @@ import java.util.List;
 
 public class QueryStrategy extends AbstractElementStrategy {
 
-    private ASTQuery query;
+    private final ASTQuery query;
 
     public QueryStrategy(ASTQuery astQuery) {
         this.query = astQuery;

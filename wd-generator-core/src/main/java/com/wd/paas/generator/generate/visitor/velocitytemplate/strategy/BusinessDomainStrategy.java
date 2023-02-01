@@ -35,6 +35,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.DOMAIN_DESCRIPTION, astBusinessDomain.getDescription());
         context.put(VelocityLabel.DOMAIN_QUERY_LIST, getQueryList());
         context.put(VelocityLabel.DOMAIN_CMD_LIST, getCmdList());
+        context.put(VelocityLabel.DOMAIN_DATA_LIST, getDataList());
     }
 
     private List<Element> getCmdList() {
@@ -50,6 +51,11 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
     private List<Element> getQueryList() {
         ASTQueryModel queryModel = (ASTQueryModel) astBusinessDomain.getTargetElementList(ASTQueryModel.class).get(0);
         return queryModel.getTargetElementList(ASTQuery.class);
+    }
+
+    private List<Element> getDataList() {
+        ASTDataModel astDataModel = (ASTDataModel) astBusinessDomain.getTargetElementList(ASTDataModel.class).get(0);
+        return astDataModel.getTargetElementList(ASTDataObject.class);
     }
 
     @Override

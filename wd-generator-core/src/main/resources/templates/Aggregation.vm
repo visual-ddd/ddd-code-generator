@@ -15,10 +15,10 @@
 #set($RepositoryImplPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository")
 ## 实体聚合转换器的包路径
 #set($InfraConvertPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.assembler")
-## 实体类的包路径
-#set($DOPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.model")
-## Mapper类的包路径
-#set($MapperPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")
+#### 实体类的包路径
+###set($DOPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.model")
+#### Mapper类的包路径
+###set($MapperPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")
 ## view 包路径
 #set($ViewPackagePath = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")
 ## 查询对象包路径
