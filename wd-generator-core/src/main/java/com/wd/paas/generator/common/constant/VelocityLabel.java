@@ -117,8 +117,9 @@ public class VelocityLabel {
     public static final String OBJECT_MAPPER_CLASS_NAME = "OBJECT_MAPPER_CLASS_NAME";
     public static final String OBJECT_MAPPER_SOURCE_OBJECT = "OBJECT_MAPPER_SOURCE_OBJECT";
     public static final String OBJECT_MAPPER_TARGET_OBJECT = "OBJECT_MAPPER_TARGET_OBJECT";
-    public static final String OBJECT_MAPPER_TYPE = "OBJECT_MAPPER_TYPE";
-    public static final String OBJECT_MAPPER_AGGREGATION = "OBJECT_MAPPER_AGGREGATION";
+    public static final String OBJECT_MAPPER_OBJECT_TYPE = "OBJECT_MAPPER_OBJECT_TYPE";
+    public static final String OBJECT_MAPPER_OBJECT_AGGREGATION = "OBJECT_MAPPER_OBJECT_AGGREGATION";
+    public static final String OBJECT_MAPPER_OBJECT_FIELD_LIST = "OBJECT_MAPPER_OBJECT_FIELD_LIST";
 
     public static final String PROJECT_SLASH_GROUP = "ProjectSlashGroup";
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";

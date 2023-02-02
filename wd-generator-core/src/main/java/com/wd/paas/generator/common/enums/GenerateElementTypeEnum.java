@@ -82,7 +82,7 @@ public enum GenerateElementTypeEnum {
 //            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/AggregationMapper.java.vm",
 //            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/AggregationDO.java.vm",
 //            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
-//            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ObjectMapperDoConvert.java.vm",
+//            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ObjectMapper2DoConvert.java.vm",
 //            "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
             // app
 //            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/DomainRpcServiceImpl.java.vm",
@@ -184,7 +184,7 @@ public enum GenerateElementTypeEnum {
      */
     QUERY_RESULT("QueryResult", new String[]{
             "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/QueryResult.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/QueryResult2DOConvert.java.vm"
+//            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/QueryResult2DOConvert.java.vm"
     }),
 
     DATA_MODEL("DataModel", new String[]{
@@ -195,7 +195,14 @@ public enum GenerateElementTypeEnum {
 
     OBJECT_MAPPER_MODEL("ObjectMapperModel", new String[]{
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ObjectMapperDoConvert.java.vm"
+    }),
+
+    OBJECT_MAPPER_MODEL_ENTITY_TO_DO("Entity2Do", new String[]{
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ObjectMapper2DoConvert.java.vm"
+    }),
+
+    OBJECT_MAPPER_MODEL_DTO_TO_DO("DTO2DO", new String[]{
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/QueryResult2DOConvert.java.vm"
     }),
 
     /**

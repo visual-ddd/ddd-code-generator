@@ -3,6 +3,7 @@ package $InfraConvertPackagePath;
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import ${OBJECT_MAPPER_SOURCE_PACKAGE_PATH}.${OBJECT_MAPPER_SOURCE_OBJECT};
 import ${OBJECT_MAPPER_TARGET_PACKAGE_PATH}.${OBJECT_MAPPER_TARGET_OBJECT};
@@ -14,7 +15,12 @@ import ${OBJECT_MAPPER_TARGET_PACKAGE_PATH}.${OBJECT_MAPPER_TARGET_OBJECT};
 ##        ${aggregationEnum.name}Converter.class,
 ##    #end
 ##})
-public interface ${OBJECT_MAPPER_CLASS_NAME}DoConvert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
+public interface ${OBJECT_MAPPER_CLASS_NAME}2DoConvert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 
-    ${OBJECT_MAPPER_CLASS_NAME}DoConvert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_CLASS_NAME}DoConvert.class);
+##    #foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
+##    #if(${mapper.sourceField} && ${mapper.targetField})
+##    @Mapping(source = "${mapper.sourceField}",target = "${mapper.targetField}")
+##    #end
+##    #end
+    ${OBJECT_MAPPER_CLASS_NAME}2DoConvert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_CLASS_NAME}2DoConvert.class);
 }

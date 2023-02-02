@@ -12,7 +12,6 @@ import java.util.List;
 /**
  * author Wangchensheng@wakedata.com
  * date 2023年01月31日 15:31:49
- * describe TODO
  */
 @AllArgsConstructor
 @Data

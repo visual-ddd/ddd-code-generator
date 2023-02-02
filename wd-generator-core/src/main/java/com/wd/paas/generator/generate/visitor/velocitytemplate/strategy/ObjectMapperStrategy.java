@@ -7,8 +7,10 @@ import com.wd.paas.generator.generate.element.ASTObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ObjectMapperStrategy extends AbstractElementStrategy{
 
@@ -20,7 +22,17 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
 
     @Override
     public List<String> getTemplatePathList() {
-        return Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL.getTemplateUrls());
+        List<String> list = new ArrayList<>();
+        switch (astObjectMapper.getSource().getType()) {
+            case "entity":
+                list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL.getTemplateUrls()));
+                list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL_ENTITY_TO_DO.getTemplateUrls()));
+                break;
+            case "dto":
+                list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL_DTO_TO_DO.getTemplateUrls()));
+                break;
+        }
+        return list;
     }
 
     @Override
@@ -28,8 +40,9 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
         context.put(VelocityLabel.OBJECT_MAPPER_CLASS_NAME, astObjectMapper.getName());
         context.put(VelocityLabel.OBJECT_MAPPER_SOURCE_OBJECT, astObjectMapper.getSource().getName());
         context.put(VelocityLabel.OBJECT_MAPPER_TARGET_OBJECT, astObjectMapper.getTarget().getName());
-        context.put(VelocityLabel.OBJECT_MAPPER_TYPE, astObjectMapper.getSource().getType());
-        context.put(VelocityLabel.OBJECT_MAPPER_AGGREGATION, astObjectMapper.getSource().getParent());
+        context.put(VelocityLabel.OBJECT_MAPPER_OBJECT_TYPE, astObjectMapper.getSource().getType());
+        context.put(VelocityLabel.OBJECT_MAPPER_OBJECT_AGGREGATION, astObjectMapper.getSource().getParent());
+        context.put(VelocityLabel.OBJECT_MAPPER_OBJECT_FIELD_LIST, astObjectMapper.getConvertList());
     }
 
     @Override
@@ -38,8 +51,10 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
 
         String[] searchList = {
                 ModelUrlConstant.OBJECT_MAPPER_CONVERT_CLASS,
+                ModelUrlConstant.QUERY_RESULT_CLASS,
         };
         String[] replacementList = {
+                (String) context.get(VelocityLabel.OBJECT_MAPPER_CLASS_NAME),
                 (String) context.get(VelocityLabel.OBJECT_MAPPER_CLASS_NAME),
         };
 

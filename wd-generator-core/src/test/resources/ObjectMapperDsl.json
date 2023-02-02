@@ -23,6 +23,28 @@
       "name": "User",
       "description": "",
       "meta": {}
+    },
+    {
+      "source": {
+        "name": "UserDTO",
+        "type": "dto"
+      },
+      "mapper": [
+        {
+          "sourceField": "",
+          "targetField": ""
+        }
+      ],
+      "target": {
+        "name": "UserDO",
+        "parent": "",
+        "type": ""
+      },
+      "identity": "",
+      "title": "",
+      "name": "UserDTO",
+      "description": "",
+      "meta": {}
     }
   ]
 }

@@ -9,11 +9,11 @@ import ${CMD_PACKAGE_PATH}.${CMD_CLASS_NAME};
 #dependencyEnumConverter()
 
 #comment("${CMD_CLASS_NAME}和DTO转换器")
-@Mapper(uses = {
-    #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
-        ${aggregationEnum.name}Converter.class,
-    #end
-})
+##@Mapper(uses = {
+##    #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
+##        ${aggregationEnum.name}Converter.class,
+##    #end
+##})
 public interface ${CMD_DTO_CLASS}Convert extends
         BaseConvert<${CMD_DTO_CLASS}, ${CMD_CLASS_NAME}> {
 
