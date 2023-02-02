@@ -57,6 +57,7 @@ public class DataObjectBuilder {
                 result = "String";
                 break;
             case "object":
+            case "json":
                 result = "Object";
                 break;
             case "array":

@@ -1,0 +1,28 @@
+
+{
+  "mappers": [
+    {
+      "source": {
+        "name": "User",
+        "parent": "user",
+        "type": "entity"
+      },
+      "mapper": [
+        {
+          "sourceField": "",
+          "targetField": ""
+        }
+      ],
+      "target": {
+        "name": "UserDO",
+        "parent": "",
+        "type": ""
+      },
+      "identity": "",
+      "title": "",
+      "name": "User",
+      "description": "",
+      "meta": {}
+    }
+  ]
+}

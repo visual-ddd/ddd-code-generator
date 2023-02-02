@@ -22,8 +22,8 @@ public enum ElementTypeEnum {
     DEFAULT("Default"),
     QUERY("ASTQuery"),
     DTO("ASTDto"),
-    OBJECT_MAPPER_MODEL("ASTObjectMapperModel"),
-    DATA_OBJECT_MODEL("ASTDataObject"),
+    OBJECT_MAPPER("ASTObjectMapper"),
+    DATA_OBJECT("ASTDataObject"),
     DATA_OBJECT_REFERENCE("ASTDataObjectReference"),
     ;
 

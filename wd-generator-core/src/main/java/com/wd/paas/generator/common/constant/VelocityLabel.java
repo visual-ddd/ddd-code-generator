@@ -113,11 +113,17 @@ public class VelocityLabel {
     public static final String DATA_TABLE_NAME = "DATA_OBJECT_TABLE_NAME";
     public static final String DATA_GENERATOR_UTIL = "DATA_GENERATOR_UTIL";
 
+    // 对象映射对象模型
+    public static final String OBJECT_MAPPER_CLASS_NAME = "OBJECT_MAPPER_CLASS_NAME";
+    public static final String OBJECT_MAPPER_SOURCE_OBJECT = "OBJECT_MAPPER_SOURCE_OBJECT";
+    public static final String OBJECT_MAPPER_TARGET_OBJECT = "OBJECT_MAPPER_TARGET_OBJECT";
+    public static final String OBJECT_MAPPER_TYPE = "OBJECT_MAPPER_TYPE";
+    public static final String OBJECT_MAPPER_AGGREGATION = "OBJECT_MAPPER_AGGREGATION";
+
     public static final String PROJECT_SLASH_GROUP = "ProjectSlashGroup";
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";
     public static final String CASE_FORMAT_LOWER_UNDERSCORE = "CASE_FORMAT_LOWER_UNDERSCORE";
-    public static final String AGGREGATION_GENERATOR_UTIL = "AGGREGATION_GENERATOR_UTIL";
 
     public static final String URL_ACTION = "URL_ACTION";
     public static final String URL_AGGREGATION = "URL_AGGREGATION";

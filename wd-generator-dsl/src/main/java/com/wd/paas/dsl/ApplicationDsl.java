@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+
 /**
  * 描述一个应用[微服务-限界上下文]的特定语言
  *

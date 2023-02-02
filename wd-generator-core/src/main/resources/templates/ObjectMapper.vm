@@ -1,0 +1,17 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## ==================== 查询结果集相关变量 =======================
+## 查询映射对象包路径
+#if(${OBJECT_MAPPER_TYPE} == "entity")
+#set($OBJECT_MAPPER_SOURCE_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${OBJECT_MAPPER_AGGREGATION}")
+#end
+#if(${OBJECT_MAPPER_TYPE} == "dto")
+#set($OBJECT_MAPPER_SOURCE_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto")
+#end
+#set($OBJECT_MAPPER_TARGET_PACKAGE_PATH = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.model")
+
+#set($OBJECT_MAPPER_DOMAIN_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${OBJECT_MAPPER_AGGREGATION}")
+#set($OBJECT_MAPPER_DATA_PACKAGE_PATH = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.model")
+#set($OBJECT_MAPPER_MAPPER_PACKAGE_PATH = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")
+#set($OBJECT_MAPPER_CONVERT_PACKAGE_PATH = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.assembler")
+#set($OBJECT_MAPPER_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${OBJECT_MAPPER_CLASS_NAME})}")

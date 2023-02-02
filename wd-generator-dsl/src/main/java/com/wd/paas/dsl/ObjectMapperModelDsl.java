@@ -11,13 +11,7 @@ import java.util.List;
 @Data
 public class ObjectMapperModelDsl {
 
-    @SerializedName("source")
-    private String source;
-
     @SerializedName("mappers")
-    private List<ObjectFieldMapperDsl> convertList;
-
-    @SerializedName("target")
-    private String target;
+    private List<ObjectMapperDsl> objectMapperDsl;
 
 }

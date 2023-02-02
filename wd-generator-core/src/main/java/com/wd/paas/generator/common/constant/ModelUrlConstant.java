@@ -41,6 +41,7 @@ public class ModelUrlConstant {
     public static final String QUERY_CLASS = "Query";
     public static final String DATA_DO_CLASS = "DataModelDO";
     public static final String DATA_CLASS = "DataModel";
+    public static final String OBJECT_MAPPER_CONVERT_CLASS = "ObjectMapper";
 
 
 

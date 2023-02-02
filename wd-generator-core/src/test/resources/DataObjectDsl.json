@@ -1,11 +1,11 @@
 {
   "dataObjects":[
     {
-      "tableName":"wd_wcs",
+      "tableName":"wd_account",
       "properties":[
         {
           "propertyName":"id",
-          "dataType":"String",
+          "dataType":"Long",
           "defaultValue":"",
           "length":40,
           "notNull":false,
@@ -41,7 +41,7 @@
       "description":"测试JSON",
       "identity":"",
       "title":"",
-      "name":"Wcs",
+      "name":"User",
       "meta":{
 
       }

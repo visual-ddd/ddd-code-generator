@@ -28,13 +28,13 @@ public class ElementStrategyFactory {
                 return new EnumStrategy((ASTEnum) element);
             case ENTITY:
                 return new EntityStrategy((ASTEntity) element);
-            case OBJECT_MAPPER_MODEL:
-                return new ObjectMapperModelStrategy((ASTObjectMapperModel) element);
+            case OBJECT_MAPPER:
+                return new ObjectMapperStrategy((ASTObjectMapper) element);
             case QUERY:
                 return new QueryStrategy((ASTQuery) element);
             case DTO:
                 return new DTOStrategy((ASTDto) element);
-            case DATA_OBJECT_MODEL:
+            case DATA_OBJECT:
                 return new DataObjectStrategy((ASTDataObject) element);
             case DATA_OBJECT_REFERENCE:
                 return new DataObjectReferenceStrategy((ASTDataObjectReference) element);

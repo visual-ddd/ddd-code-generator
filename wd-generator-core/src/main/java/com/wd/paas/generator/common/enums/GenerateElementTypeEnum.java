@@ -81,8 +81,8 @@ public enum GenerateElementTypeEnum {
             // repository
 //            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/AggregationMapper.java.vm",
 //            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/AggregationDO.java.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/AggregationRepositoryImpl.java.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/AggregationDoConvert.java.vm",
+//            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
+//            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ObjectMapperDoConvert.java.vm",
 //            "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/AggregationMapper.xml.vm",
             // app
 //            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/DomainRpcServiceImpl.java.vm",
@@ -191,6 +191,11 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/DataModelMapper.xml.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/DataModelMapper.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/DataModelDO.java.vm"
+    }),
+
+    OBJECT_MAPPER_MODEL("ObjectMapperModel", new String[]{
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ObjectMapperDoConvert.java.vm"
     }),
 
     /**
