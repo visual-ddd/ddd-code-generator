@@ -1,5 +1,5 @@
 #parse("templates/Entity.vm")
-package ${ENTITY_PACKAGE_PATH};
+package ${IMPORT_PACKAGE_MAP.get("${ENTITY_CLASS_NAME}")};
 
 import lombok.Data;
 

@@ -1,11 +1,11 @@
 #parse("templates/ValueObject.vm")
-package $VALUE_OBJECT_PACKAGE_PATH;
+package ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_CLASS_NAME}")};
 
 import lombok.Data;
 
 #comment("${VALUE_OBJECT_CLASS_DESCRIPTION}-值对象")
 @Data
-public class $VALUE_OBJECT_CLASS_NAME {
+public class ${VALUE_OBJECT_CLASS_NAME} {
     #filed($VALUE_OBJECT_CLASS_FIELDS)
     #method($VALUE_OBJECT_CLASS_METHODS)
 

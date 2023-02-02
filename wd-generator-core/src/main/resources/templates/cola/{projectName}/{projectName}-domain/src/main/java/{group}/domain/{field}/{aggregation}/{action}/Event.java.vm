@@ -1,12 +1,12 @@
 #parse("templates/Event.vm")
 #set($encode = "{event.${PROJECT_NAME}.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${URL_ACTION}}")
-package ${EVENT_PACKAGE_PATH};
+package ${IMPORT_PACKAGE_MAP.get("${CMD_EVENT_CLASS_NAME}")};
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.util.List;
-import ${AGGREGATION_PACKAGE_PATH}.*;
+import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}")}.*;
 
 #comment("$CMD_EVENT_CLASS_DESCRIPTION-指令事件")
 @Data

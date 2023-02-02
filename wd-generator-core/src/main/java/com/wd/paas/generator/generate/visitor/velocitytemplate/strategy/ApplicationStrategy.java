@@ -1,6 +1,7 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.google.common.base.CaseFormat;
+import com.wd.paas.generator.builder.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
@@ -37,6 +38,8 @@ public class ApplicationStrategy extends AbstractElementStrategy {
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
                 CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
+
+        context.put(VelocityLabel.IMPORT_PACKAGE_MAP, ThreadLocalUtil.getThreadLocal());
     }
 
     @Override

@@ -129,4 +129,6 @@ public class VelocityLabel {
     public static final String URL_AGGREGATION = "URL_AGGREGATION";
 
     public static final String CLASS_DTO_SUFFIX = "DTO";
+    public static final String IMPORT_PACKAGE_MAP = "IMPORT_PACKAGE_MAP";
+
 }

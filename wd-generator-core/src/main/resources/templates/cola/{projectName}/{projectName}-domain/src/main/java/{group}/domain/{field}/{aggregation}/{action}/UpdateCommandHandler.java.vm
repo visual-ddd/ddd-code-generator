@@ -1,11 +1,11 @@
 #parse("templates/Cmd.vm")
 #set($aggregation = ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})})
-package ${CMD_PACKAGE_PATH};
+package ${IMPORT_PACKAGE_MAP.get("${CMD_CLASS_NAME}Handler")};
 
 import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
-import ${AGGREGATION_PACKAGE_PATH}.*;
+import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}")}.*;
 
 #comment("${CMD_CLASS_DESCRIPTION}-指令处理器")
 @Component

@@ -1,5 +1,5 @@
 #parse("templates/Cmd.vm")
-package ${CMD_PACKAGE_PATH};
+package ${IMPORT_PACKAGE_MAP.get("${CMD_CLASS_NAME}")};
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import lombok.NoArgsConstructor;
-import ${AGGREGATION_PACKAGE_PATH}.*;
+import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}")}.*;
 
 #comment("${CMD_CLASS_DESCRIPTION}-指令")
 @Data

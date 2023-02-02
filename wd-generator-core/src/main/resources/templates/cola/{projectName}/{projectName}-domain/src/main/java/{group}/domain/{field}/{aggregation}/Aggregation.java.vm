@@ -1,5 +1,5 @@
 #parse("templates/Aggregation.vm")
-package $AGGREGATION_PACKAGE_PATH;
+package ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}")};
 
 import java.util.List;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})

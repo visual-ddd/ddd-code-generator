@@ -1,5 +1,5 @@
 #parse("templates/Aggregation.vm")
-package $AGGREGATION_PACKAGE_PATH;
+package ${IMPORT_PACKAGE_MAP.get("Abstract${AGGREGATION_CLASS_NAME}")};
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,5 +1,5 @@
 #parse("templates/Enum.vm")
-package ${ENUM_PACKAGE_PATH};
+package ${IMPORT_PACKAGE_MAP.get("${ENUM_CLASS_NAME}")};
 
 import com.wakedata.common.core.base.BaseEnum;
 import lombok.AllArgsConstructor;

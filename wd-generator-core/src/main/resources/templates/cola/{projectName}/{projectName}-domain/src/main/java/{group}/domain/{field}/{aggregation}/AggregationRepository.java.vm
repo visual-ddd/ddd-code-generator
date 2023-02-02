@@ -1,5 +1,5 @@
 #parse("templates/Aggregation.vm")
-package $AGGREGATION_PACKAGE_PATH;
+package ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}Repository")};
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-仓储接口")
 public interface ${AGGREGATION_CLASS_NAME}Repository {

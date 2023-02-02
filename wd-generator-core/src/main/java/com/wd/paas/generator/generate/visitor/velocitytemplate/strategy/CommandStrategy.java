@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.generator.builder.context.ImportPathContextHelper;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
@@ -93,6 +94,8 @@ public class CommandStrategy extends AbstractElementStrategy {
 
         };
 
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+        String result = StringUtils.replaceEach(outputPath, searchList, replacementList);
+        ImportPathContextHelper.store(result);
+        return result;
     }
 }
