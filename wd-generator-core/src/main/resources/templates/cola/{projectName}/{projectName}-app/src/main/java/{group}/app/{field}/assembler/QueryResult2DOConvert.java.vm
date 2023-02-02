@@ -1,18 +1,18 @@
-#parse("templates/QueryResult.vm")
+#parse("templates/ObjectMapper.vm")
 package ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ${QUERY_RESULT_PACKAGE_PATH}.${QUERY_RESULT_CLASS_NAME};
-import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
+import ${OBJECT_MAPPER_SOURCE_PACKAGE_PATH}.${OBJECT_MAPPER_SOURCE_OBJECT};
+import ${OBJECT_MAPPER_TARGET_PACKAGE_PATH}.${OBJECT_MAPPER_TARGET_OBJECT};
 
-#comment("${QUERY_RESULT_CLASS_NAME}和DO转换器")
+#comment("${OBJECT_MAPPER_CLASS_NAME}和DO转换器")
 @Mapper(uses = {
         JsonConverter.class,
 })
-public interface ${QUERY_RESULT_CLASS_NAME}2DOConvert extends
-        BaseConvert<${QUERY_RESULT_CLASS_NAME}, ${AGGREGATION_CLASS_NAME}DO> {
+public interface ${OBJECT_MAPPER_CLASS_NAME}2DOConvert extends
+        BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 
-    ${QUERY_RESULT_CLASS_NAME}2DOConvert INSTANCE = Mappers.getMapper(${QUERY_RESULT_CLASS_NAME}2DOConvert.class);
+    ${OBJECT_MAPPER_CLASS_NAME}2DOConvert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_CLASS_NAME}2DOConvert.class);
 }
