@@ -5,7 +5,7 @@ import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.common.ReturnInfo;
 import com.wd.paas.common.RuleInfo;
 import com.wd.paas.common.SourceInfo;
-import com.wd.paas.generator.common.enums.CmdTypeEnum;
+import com.wd.paas.common.enums.RepositoryTypeEnum;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,7 +25,7 @@ public class ASTCommand extends CompositeElement {
 
     private List<SourceInfo> sourceList;
 
-    private CmdTypeEnum repository;
+    private RepositoryTypeEnum repository;
 
     private String category;
 

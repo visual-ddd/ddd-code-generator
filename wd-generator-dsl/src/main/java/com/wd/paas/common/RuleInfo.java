@@ -1,17 +1,15 @@
 package com.wd.paas.common;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /***
+ * 业务规则描述
+ *
  * @author wangchensheng
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
-public class RuleInfo {
-
-    private String name;
-
-    private String description;
+public class RuleInfo extends Info {
 
 }

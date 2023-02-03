@@ -6,6 +6,11 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+/**
+ * 类信息
+ *
+ * @author shimmer
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class ClassInfo extends Info {

@@ -9,9 +9,10 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * author Wangchensheng@wakedata.com
- * date 2023年01月30日 11:09:56
- * describe 数据索引信息
+ * 数据索引信息
+ *
+ * @author Wangchensheng@wakedata.com
+ * @date 2023年01月30日 11:09:56
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

@@ -10,20 +10,30 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * author Wangchensheng@wakedata.com
- * date 2023年01月30日 10:34:12
- * describe 数据对象模型
+ * 数据对象模型
+ *
+ * @author Wangchensheng@wakedata.com
+ * @date 2023年01月30日 10:34:12
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DataObjectDsl extends Info {
 
+    /**
+     * 表名
+     */
     @SerializedName("tableName")
     private String tableName;
 
+    /**
+     * 表字段列表
+     */
     @SerializedName("properties")
     private List<DataPropertyInfo> dataPropertyList;
 
+    /**
+     * 表名
+     */
     @SerializedName("indexes")
     private DataIndexInfo dataIndexInfo;
 

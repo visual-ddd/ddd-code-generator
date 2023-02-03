@@ -1,7 +1,7 @@
 package com.wd.paas.generator.builder.convert;
 
 import com.wd.paas.dsl.CommandDsl;
-import com.wd.paas.generator.common.enums.CmdTypeEnumConvert;
+import com.wd.paas.generator.common.enums.RepositoryTypeEnumConvert;
 import com.wd.paas.generator.generate.element.ASTCommand;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -10,7 +10,7 @@ import org.mapstruct.factory.Mappers;
  * @author wangchensheng
  */
 @Mapper(
-        uses = {CmdTypeEnumConvert.class}
+        uses = {RepositoryTypeEnumConvert.class}
 )
 public interface CommandDslConvert extends BaseConvert<CommandDsl, ASTCommand> {
 

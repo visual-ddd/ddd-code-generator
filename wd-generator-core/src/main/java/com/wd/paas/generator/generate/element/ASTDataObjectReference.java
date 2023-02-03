@@ -1,7 +1,7 @@
 package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.MetaInfo;
-import com.wd.paas.common.TargetInfo;
+import com.wd.paas.common.ObjectTableReference;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +30,7 @@ public class ASTDataObjectReference extends LeafElement {
 
     private String source;
 
-    private List<TargetInfo> targets;
+    private List<ObjectTableReference> targets;
 
     @Override
     public void accept(Visitor visitor) {
