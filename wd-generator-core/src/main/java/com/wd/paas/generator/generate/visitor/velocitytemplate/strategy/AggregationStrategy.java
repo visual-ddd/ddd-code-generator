@@ -62,10 +62,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
                 (String) context.get(VelocityLabel.URL_AGGREGATION),
                 (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME)
         };
-
-        String result = StringUtils.replaceEach(outputPath, searchList, replacementList);
-        ImportPathContextHelper.store(result);
-        return result;
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 
 }

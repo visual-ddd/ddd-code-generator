@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.generator.builder.context.ImportPathContextHelper;
 import com.wd.paas.generator.common.util.FileGenerator;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.VelocityTemplateGenerate;
@@ -18,6 +19,11 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
 
     @Override
     public void preHandle(TemplateContext templateContext) {
+        this.putVelocityContext(templateContext.getContext());
+        if (Boolean.TRUE.equals(this.process(templateContext))) {
+            // 获取模版文件列表
+            storeOutPutPath(templateContext);
+        }
     }
 
     @Override
@@ -38,13 +44,22 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
      *
      * @param templateContext 上下文信息
      */
-    protected void generateFile(TemplateContext templateContext) {
+    private void generateFile(TemplateContext templateContext) {
         // 获取模版文件列表
         List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getContext(),
                     templateContext.getPreFixOutPath());
             FileGenerator.run(templateContext.getContext(), templateContext.getZipOutputStream(), templateUrl, outputPath);
+        }
+    }
+
+    private void storeOutPutPath(TemplateContext templateContext) {
+        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
+        for (String templateUrl : templatePathList) {
+            String outputPath = this.parseOutputPath(templateUrl, templateContext.getContext(),
+                    templateContext.getPreFixOutPath());
+            ImportPathContextHelper.store(outputPath);
         }
     }
 }

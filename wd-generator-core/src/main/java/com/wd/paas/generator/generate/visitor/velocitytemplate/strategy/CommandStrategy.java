@@ -95,7 +95,6 @@ public class CommandStrategy extends AbstractElementStrategy {
         };
 
         String result = StringUtils.replaceEach(outputPath, searchList, replacementList);
-        ImportPathContextHelper.store(result);
         return result;
     }
 }

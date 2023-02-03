@@ -27,16 +27,16 @@ import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.dto.${cmd.category}DTO;
 import ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME}.assembler.${cmd.category}DTOConvert;
 #end
 #end
-###macro(dependencyCmd)
-###foreach ($cmd in ${DOMAIN_CMD_LIST})
-##import ${PROJECT_PACKAGE}.domain.${DOMAIN_URL_NAME}.${DOMAIN_CLASS_NAME_ALL_LOWER}.${cmd.category.toLowerCase()}.${cmd.name};
-###end
-###end
-###macro(dependencyCmdHandler)
-###foreach ($cmd in ${DOMAIN_CMD_LIST})
-##import ${PROJECT_PACKAGE}.domain.${DOMAIN_URL_NAME}.${DOMAIN_CLASS_NAME_ALL_LOWER}.${cmd.category.toLowerCase()}.${cmd.name}Handler;
-###end
-###end
+#macro(dependencyCmd)
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${cmd.name})}.${cmd.name};
+#end
+#end
+#macro(dependencyCmdHandler)
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler;
+#end
+#end
 #macro(dependencyQuery)
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.${query.name};
