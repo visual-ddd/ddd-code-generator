@@ -1,4 +1,4 @@
-package com.wd.paas.generator.common.enums;
+package com.wd.paas.common.enums;
 
 import lombok.Getter;
 
@@ -6,20 +6,24 @@ import java.util.Arrays;
 import java.util.Optional;
 
 /**
- * author Wangchensheng@wakedata.com
- * date 2023年02月03日 09:31:47
+ * 代码生成方式
+ *
+ * @author ZhuXueLiang
+ * @version 1.0
+ * @date 2022/10/15 09:12
  */
 @Getter
-public enum ConvertTypeEnum {
+public enum RepositoryTypeEnum {
 
     /**/
-    ENTITY2DO(1, "entity"),
-    DTO2DO(2 , "dto");
+    SAVE(1, "save"),
+    MODIFY(2, "modify"),
+    REMOVE(3, "remove");
 
     private final Integer code;
     private final String value;
 
-    ConvertTypeEnum(Integer code, String value) {
+    RepositoryTypeEnum(Integer code, String value) {
         this.code = code;
         this.value = value;
     }
@@ -30,8 +34,8 @@ public enum ConvertTypeEnum {
      * @param enumName 枚举类名称
      * @return CmdTypeEnum
      */
-    public static ConvertTypeEnum of(String enumName) {
-        Optional<ConvertTypeEnum> optional = Arrays.stream(ConvertTypeEnum.values()).filter(x -> x.value.equals(enumName)).findFirst();
+    public static RepositoryTypeEnum of(String enumName) {
+        Optional<RepositoryTypeEnum> optional = Arrays.stream(RepositoryTypeEnum.values()).filter(x -> x.value.equals(enumName)).findFirst();
         return optional.orElseThrow(() -> new IllegalArgumentException("ElementTypeEnum find error，not found:" + enumName));
     }
 }

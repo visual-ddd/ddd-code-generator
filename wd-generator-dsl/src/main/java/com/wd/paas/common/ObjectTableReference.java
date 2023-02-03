@@ -7,20 +7,30 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * author Wangchensheng@wakedata.com
- * date 2023年01月30日 11:37:59
- * describe 映射目标信息
+ * 映射目标表信息
+ *
+ * @author Wangchensheng@wakedata.com
+ * @date 2023年01月30日 11:37:59
  */
 @Data
-public class TargetInfo {
+public class ObjectTableReference {
 
+    /**
+     * 目标表
+     */
     @SerializedName("target")
     private String target;
 
+    /**
+     * 关联关系
+     */
     @SerializedName("cardinality")
     private CardinalityEnum cardinalityEnum;
 
+    /**
+     * 字段映射
+     */
     @SerializedName("mapper")
-    private List<MapperInfo> mapperList;
+    private List<ObjectFieldMapper> mapperList;
 
 }

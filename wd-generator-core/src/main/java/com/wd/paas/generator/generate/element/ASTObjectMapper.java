@@ -1,8 +1,8 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.common.MapperInfo;
+import com.wd.paas.common.ObjectFieldMapper;
 import com.wd.paas.common.MetaInfo;
-import com.wd.paas.common.ObjectReferenceInfo;
+import com.wd.paas.common.ObjectReference;
 import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,11 +17,11 @@ import java.util.List;
 @Data
 public class ASTObjectMapper extends LeafElement {
 
-    private ObjectReferenceInfo source;
+    private ObjectReference source;
 
-    private List<MapperInfo> convertList;
+    private List<ObjectFieldMapper> convertList;
 
-    private ObjectReferenceInfo target;
+    private ObjectReference target;
 
     private String identity;
 

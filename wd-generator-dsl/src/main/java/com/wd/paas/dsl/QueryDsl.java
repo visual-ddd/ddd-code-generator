@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * 查询请求
+ * 查询对象DSL
  *
  * @author shimmer
  */

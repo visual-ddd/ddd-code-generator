@@ -1,27 +1,16 @@
 package com.wd.paas.dsl;
 
-import com.google.gson.annotations.SerializedName;
-import com.wd.paas.common.MethodInfo;
-import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.common.ClassInfo;
 import lombok.Data;
-
-import java.util.List;
+import lombok.EqualsAndHashCode;
 
 /***
+ * 值对象DSL
+ *
  * @author wangchensheng
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class ValueObjectDsl {
+public class ValueObjectDsl extends ClassInfo {
 
-    @SerializedName("name")
-    private String name;
-
-    @SerializedName("description")
-    private String description;
-
-    @SerializedName("properties")
-    private List<PropertyInfo> propertyList;
-
-    @SerializedName("methods")
-    private List<MethodInfo> methodList;
 }

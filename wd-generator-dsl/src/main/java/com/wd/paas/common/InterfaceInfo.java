@@ -6,6 +6,11 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+/**
+ * 接口信息
+ *
+ * @author shimmer
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class InterfaceInfo extends Info {

@@ -4,19 +4,19 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/***
- * 参数信息
+/**
+ * 版本信息
  *
- * @author wangchensheng
+ * @author shimmer
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ParameterInfo extends Info {
+public class VersionInfo extends Info {
 
     /**
-     * 类型
+     * 版本号
      */
-    @SerializedName("type")
-    private String type;
+    @SerializedName("version")
+    private String version;
 
 }

@@ -4,9 +4,10 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 /**
- * author Wangchensheng@wakedata.com
- * date 2023年01月30日 10:36:49
- * describe 字段信息(数据模型)
+ * 字段信息(数据模型)
+ *
+ * @author Wangchensheng@wakedata.com
+ * @date 2023年01月30日 10:36:49
  */
 @Data
 public class DataPropertyInfo {

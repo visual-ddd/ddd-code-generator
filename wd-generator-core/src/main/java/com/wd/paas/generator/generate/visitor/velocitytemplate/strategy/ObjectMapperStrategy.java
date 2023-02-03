@@ -2,8 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.CmdTypeEnum;
-import com.wd.paas.generator.common.enums.ConvertTypeEnum;
+import com.wd.paas.common.enums.ConvertTypeEnum;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.ASTObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +11,6 @@ import org.apache.velocity.VelocityContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class ObjectMapperStrategy extends AbstractElementStrategy{
 

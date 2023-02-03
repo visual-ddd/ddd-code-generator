@@ -1,34 +1,25 @@
 package com.wd.paas.dsl;
 
 import com.google.gson.annotations.SerializedName;
-import com.wd.paas.common.MethodInfo;
+import com.wd.paas.common.ClassInfo;
 import com.wd.paas.common.PropertyInfo;
 import lombok.Data;
-
-import java.util.List;
+import lombok.EqualsAndHashCode;
 
 
 /***
+ * 实体DSL
+ * 描述实体信息
+ *
  * @author wangchensheng
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class EntityDsl {
+public class EntityDsl extends ClassInfo {
 
-    @SerializedName("name")
-    private String name;
-
-    @SerializedName("description")
-    private String description;
-
-    @SerializedName("isAbstract")
-    private Boolean isAbstract;
-
+    /**
+     * 主键, 实体的唯一标识
+     */
     @SerializedName("id")
     private PropertyInfo id;
-
-    @SerializedName("properties")
-    private List<PropertyInfo> propertyList;
-
-    @SerializedName("methods")
-    private List<MethodInfo> methodInfoList;
 }
