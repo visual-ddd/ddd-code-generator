@@ -2,6 +2,8 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
+import com.wd.paas.generator.common.enums.CmdTypeEnum;
+import com.wd.paas.generator.common.enums.ConvertTypeEnum;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.ASTObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -23,12 +25,13 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     @Override
     public List<String> getTemplatePathList() {
         List<String> list = new ArrayList<>();
-        switch (astObjectMapper.getSource().getType()) {
-            case "entity":
+        String type = astObjectMapper.getSource().getType();
+        switch (ConvertTypeEnum.of(type)) {
+            case ENTITY2DO:
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL.getTemplateUrls()));
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL_ENTITY_TO_DO.getTemplateUrls()));
                 break;
-            case "dto":
+            case DTO2DO:
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL_DTO_TO_DO.getTemplateUrls()));
                 break;
         }

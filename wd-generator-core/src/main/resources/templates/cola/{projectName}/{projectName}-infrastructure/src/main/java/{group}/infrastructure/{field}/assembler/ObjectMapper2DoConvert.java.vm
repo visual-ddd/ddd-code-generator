@@ -1,5 +1,5 @@
 #parse("templates/ObjectMapper.vm")
-package $InfraConvertPackagePath;
+package $OBJECT_MAPPER_CONVERT_PACKAGE_PATH;
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
