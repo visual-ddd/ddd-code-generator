@@ -28,7 +28,7 @@ public abstract class CompositeElement extends Element {
         return elementList;
     }
 
-    public List<Element> getTargetElementList(Class<? extends Element> targetClass) {
+    public List<Element> getChildElementList(Class<? extends Element> targetClass) {
         return elementList.stream()
                 .filter(element -> Objects.equals(element.getClass(), targetClass))
                 .collect(Collectors.toList());

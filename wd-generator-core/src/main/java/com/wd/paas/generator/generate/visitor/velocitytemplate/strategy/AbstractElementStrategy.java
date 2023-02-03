@@ -17,6 +17,10 @@ import java.util.Optional;
 public abstract class AbstractElementStrategy implements VelocityTemplateGenerate {
 
     @Override
+    public void preHandle(TemplateContext templateContext) {
+    }
+
+    @Override
     public void execute(TemplateContext templateContext) {
         this.putVelocityContext(templateContext.getContext());
         if (Boolean.TRUE.equals(this.process(templateContext))) {

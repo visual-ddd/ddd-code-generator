@@ -26,6 +26,6 @@ public class ASTBusinessDomain extends CompositeElement {
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visit(this);
+        visitor.generate(this);
     }
 }

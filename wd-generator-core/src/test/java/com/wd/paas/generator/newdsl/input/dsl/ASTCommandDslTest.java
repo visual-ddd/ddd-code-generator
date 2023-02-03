@@ -37,7 +37,8 @@ public class ASTCommandDslTest {
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
-        dslStruct.accept(javaTemplateVisitor);
+        dslStruct.accept(javaTemplateVisitor::preHandle);
+        dslStruct.accept(javaTemplateVisitor::generate);
 
         Assert.assertTrue(true);
     }

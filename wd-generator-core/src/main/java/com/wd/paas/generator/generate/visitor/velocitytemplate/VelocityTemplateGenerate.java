@@ -22,7 +22,7 @@ public interface VelocityTemplateGenerate extends ElementStrategy {
     Boolean process(TemplateContext templateContext);
 
     /**
-     * 获取需要生成的模版路径列表
+     * 获取生成需要的模版路径列表
      *
      * @return 模版路径列表
      */

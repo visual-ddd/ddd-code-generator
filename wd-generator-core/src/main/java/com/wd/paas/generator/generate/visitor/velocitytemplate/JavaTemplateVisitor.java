@@ -16,7 +16,13 @@ public class JavaTemplateVisitor implements Visitor {
     }
 
     @Override
-    public void visit(Element element) {
+    public void preHandle(Element element) {
+        ElementStrategy elementStrategy = ElementStrategyFactory.getInstance(element);
+        elementStrategy.preHandle(templateContext);
+    }
+
+    @Override
+    public void generate(Element element) {
         ElementStrategy elementStrategy = ElementStrategyFactory.getInstance(element);
         elementStrategy.execute(templateContext);
     }

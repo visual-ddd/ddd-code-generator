@@ -37,7 +37,8 @@ public class ASTEntityDslTest {
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./",null));
-        dslStruct.accept(javaTemplateVisitor);
+        dslStruct.accept(javaTemplateVisitor::preHandle);
+        dslStruct.accept(javaTemplateVisitor::generate);
 
         Assert.assertTrue(true);
     }

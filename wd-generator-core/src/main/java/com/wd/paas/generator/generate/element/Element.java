@@ -9,8 +9,12 @@ import com.wd.paas.generator.generate.Visitor;
  */
 public abstract class Element {
 
+    public void preHandle(Visitor visitor) {
+        visitor.preHandle(this);
+    }
+
     public void accept(Visitor visitor) {
-        visitor.visit(this);
+        visitor.generate(this);
     }
 
 }

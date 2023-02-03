@@ -5,6 +5,7 @@ import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.*;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
@@ -33,12 +34,10 @@ public class AggregationStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, astAggregateRoot.getPropertyList());
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, astAggregateRoot.getMethodList());
 
-        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, astAggregate.getTargetElementList(ASTEnum.class));
-        context.put(VelocityLabel.AGGREGATION_CMD_LIST, astAggregate.getTargetElementList(ASTCommand.class));
-        context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, astAggregate.getTargetElementList(ASTEntity.class));
+        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, astAggregate.getChildElementList(ASTEnum.class));
+        context.put(VelocityLabel.AGGREGATION_CMD_LIST, astAggregate.getChildElementList(ASTCommand.class));
+        context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, astAggregate.getChildElementList(ASTEntity.class));
 
-        context.put(VelocityLabel.AGGREGATION_CLASS_NAME_ALL_LOWER,
-                astAggregateRoot.getName().toLowerCase(Locale.ROOT));
         context.put(VelocityLabel.URL_AGGREGATION, astAggregateRoot.getName().toLowerCase());
     }
 

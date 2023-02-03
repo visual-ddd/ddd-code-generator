@@ -17,6 +17,6 @@ public class ASTDomainModel extends CompositeElement {
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visit(this);
+        visitor.generate(this);
     }
 }

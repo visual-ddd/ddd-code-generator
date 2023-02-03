@@ -24,7 +24,8 @@ public class ASTApplicationDslTest {
         dslStruct.add(app);
 
         JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
-        dslStruct.accept(javaTemplateVisitor);
+        dslStruct.accept(javaTemplateVisitor::preHandle);
+        dslStruct.accept(javaTemplateVisitor::generate);
 
         Assert.assertTrue(true);
     }

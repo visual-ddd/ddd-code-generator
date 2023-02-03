@@ -37,6 +37,6 @@ public class ASTDataObject extends LeafElement{
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visit(this);
+        visitor.generate(this);
     }
 }

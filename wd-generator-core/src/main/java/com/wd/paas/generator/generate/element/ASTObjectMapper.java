@@ -36,7 +36,7 @@ public class ASTObjectMapper extends LeafElement {
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visit(this);
+        visitor.generate(this);
     }
 
 }

@@ -12,15 +12,15 @@ import java.util.Optional;
 public class BusinessDomainBuilder {
 
     public static ASTBusinessDomain build(BusinessDomainDsl businessDomainDsl) {
-        ASTBusinessDomain ASTBusinessDomain = BusinessDomainDslConvert.INSTANCE.dto2Do(businessDomainDsl);
+        ASTBusinessDomain astBusinessDomain = BusinessDomainDslConvert.INSTANCE.dto2Do(businessDomainDsl);
 
         List<Element> elements = new ArrayList<>();
         Optional.ofNullable(businessDomainDsl.getDomainModel()).map(DomainModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getDataModel()).map(DataModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getQueryModel()).map(QueryModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getObjectMapperModel()).map(ObjectMapperModelBuilder::build).ifPresent(elements::add);
-        ASTBusinessDomain.addAll(elements);
-        return ASTBusinessDomain;
+        astBusinessDomain.addAll(elements);
+        return astBusinessDomain;
     }
 
 }

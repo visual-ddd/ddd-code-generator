@@ -26,6 +26,6 @@ public class ASTValueObject extends LeafElement {
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visit(this);
+        visitor.generate(this);
     }
 }

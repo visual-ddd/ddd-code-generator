@@ -8,5 +8,10 @@ import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 public class DefaultStrategy implements ElementStrategy {
 
     @Override
+    public void preHandle(TemplateContext templateContext) {
+
+    }
+
+    @Override
     public void execute(TemplateContext templateContext) {}
 }
