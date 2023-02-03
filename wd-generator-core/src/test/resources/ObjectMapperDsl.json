@@ -9,8 +9,8 @@
       },
       "mapper": [
         {
-          "sourceField": "",
-          "targetField": ""
+          "sourceField": "www",
+          "targetField": "ccc"
         }
       ],
       "target": {
