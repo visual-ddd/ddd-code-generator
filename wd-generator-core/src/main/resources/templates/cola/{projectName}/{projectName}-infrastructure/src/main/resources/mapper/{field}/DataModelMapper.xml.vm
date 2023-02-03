@@ -3,7 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="${MapperPackagePath}.${DATA_OBJECT_CLASS_NAME}Mapper">
+<mapper namespace="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}Mapper")}.${DATA_OBJECT_CLASS_NAME}Mapper">
 
 #if(!${query.pagination})
 #foreach ($query in ${DOMAIN_QUERY_LIST})

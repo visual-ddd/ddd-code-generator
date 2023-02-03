@@ -1,13 +1,13 @@
 #parse("templates/ObjectMapper.vm")
-package $OBJECT_MAPPER_CONVERT_PACKAGE_PATH;
+package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}2DoConvert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
-import ${OBJECT_MAPPER_SOURCE_PACKAGE_PATH}.${OBJECT_MAPPER_SOURCE_OBJECT};
-import ${OBJECT_MAPPER_TARGET_PACKAGE_PATH}.${OBJECT_MAPPER_TARGET_OBJECT};
+import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_SOURCE_OBJECT})}.${OBJECT_MAPPER_SOURCE_OBJECT};
+import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER_TARGET_OBJECT};
 #dependencyEnumConverter()
 
 #comment("${OBJECT_MAPPER_CLASS_NAME}和DO转换器")

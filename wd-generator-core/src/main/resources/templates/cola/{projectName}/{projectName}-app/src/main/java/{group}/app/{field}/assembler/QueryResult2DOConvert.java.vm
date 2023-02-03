@@ -1,11 +1,11 @@
 #parse("templates/ObjectMapper.vm")
-package ${OBJECT_MAPPER_QUERY_RESULT_PACKAGE_PATH};
+package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}2DOConvert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ${OBJECT_MAPPER_SOURCE_PACKAGE_PATH}.${OBJECT_MAPPER_SOURCE_OBJECT};
-import ${OBJECT_MAPPER_TARGET_PACKAGE_PATH}.${OBJECT_MAPPER_TARGET_OBJECT};
+import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_SOURCE_OBJECT})}.${OBJECT_MAPPER_SOURCE_OBJECT};
+import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER_TARGET_OBJECT};
 
 #comment("${OBJECT_MAPPER_CLASS_NAME}和DO转换器")
 @Mapper(uses = {

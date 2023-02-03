@@ -1,5 +1,5 @@
 #parse("templates/DataModel.vm")
-package $DOPackagePath;
+package ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")};
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

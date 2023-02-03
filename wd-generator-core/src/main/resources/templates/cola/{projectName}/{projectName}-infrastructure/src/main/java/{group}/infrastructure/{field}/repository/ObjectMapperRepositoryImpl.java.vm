@@ -1,17 +1,18 @@
-#parse("templates/ObjectMapper.vm")
-package $OBJECT_MAPPER_REPOSITORYIMPL_PACKAGE_PATH;
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}RepositoryImpl")};
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.util.Assert;
-import ${OBJECT_MAPPER_DOMAIN_PACKAGE_PATH}.${OBJECT_MAPPER_CLASS_NAME};
-import ${OBJECT_MAPPER_DOMAIN_PACKAGE_PATH}.${OBJECT_MAPPER_CLASS_NAME}Repository;
-import ${OBJECT_MAPPER_DATA_PACKAGE_PATH}.${OBJECT_MAPPER_CLASS_NAME}DO;
-import ${OBJECT_MAPPER_MAPPER_PACKAGE_PATH}.${OBJECT_MAPPER_CLASS_NAME}Mapper;
-import ${OBJECT_MAPPER_CONVERT_PACKAGE_PATH}.${OBJECT_MAPPER_CLASS_NAME}2DoConvert;
+import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_CLASS_NAME})}.${OBJECT_MAPPER_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}Repository")}.${OBJECT_MAPPER_CLASS_NAME}Repository;
+import ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}DO")}.${OBJECT_MAPPER_CLASS_NAME}DO;
+import ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}Mapper")}.${OBJECT_MAPPER_CLASS_NAME}Mapper;
+import ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}2DoConvert")}.${OBJECT_MAPPER_CLASS_NAME}2DoConvert;
 
+#set($OBJECT_MAPPER_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${OBJECT_MAPPER_CLASS_NAME})}")
 #comment("${OBJECT_MAPPER_CLASS_DESCRIPTION}存储接口实现类")
 @Slf4j
 @Component
