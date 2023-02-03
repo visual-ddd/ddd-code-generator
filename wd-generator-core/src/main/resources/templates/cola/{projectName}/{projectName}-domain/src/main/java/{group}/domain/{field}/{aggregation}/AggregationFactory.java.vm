@@ -4,7 +4,7 @@ package ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}Factory")};
 import org.springframework.stereotype.Component;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "SAVE")
-import ${AGGREGATION_PACKAGE_PATH}.${cmd.category.toLowerCase()}.${cmd.name};
+import ${IMPORT_PACKAGE_MAP.get(${cmd.name})}.${cmd.name};
 #end
 #end
 

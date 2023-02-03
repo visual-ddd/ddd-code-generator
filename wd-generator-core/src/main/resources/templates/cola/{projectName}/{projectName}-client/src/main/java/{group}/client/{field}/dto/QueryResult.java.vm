@@ -1,5 +1,5 @@
-#parse("templates/QueryResult.vm")
-package ${QUERY_RESULT_PACKAGE_PATH};
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${QUERY_RESULT_CLASS_NAME})};
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;

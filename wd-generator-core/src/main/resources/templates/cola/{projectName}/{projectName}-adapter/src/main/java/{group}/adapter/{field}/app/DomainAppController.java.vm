@@ -1,5 +1,5 @@
 #parse("templates/Controller.vm")
-package ${PROJECT_PACKAGE}.adapter.${DOMAIN_NAME}.app;
+package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}AppController")};
 
 #controllerImport()
 

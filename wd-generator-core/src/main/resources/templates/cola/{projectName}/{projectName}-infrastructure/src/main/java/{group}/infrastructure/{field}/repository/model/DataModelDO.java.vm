@@ -1,4 +1,4 @@
-#parse("templates/DataModel.vm")
+#parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")};
 
 import com.baomidou.mybatisplus.annotation.TableName;

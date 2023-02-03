@@ -1,5 +1,0 @@
-## 引入公共类方法
-#parse("templates/ClassFunction.vm")
-## ==================== 事件相关变量 =======================
-## 事件类包路径
-#set($EVENT_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${URL_ACTION}")

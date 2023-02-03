@@ -1,4 +1,4 @@
-#parse("templates/Cmd.vm")
+#parse("templates/ClassFunction.vm")
 #set($aggregation = ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})})
 package ${IMPORT_PACKAGE_MAP.get("${CMD_CLASS_NAME}Handler")};
 

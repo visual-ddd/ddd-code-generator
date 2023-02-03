@@ -1,5 +1,5 @@
-#parse("templates/Query.vm")
-package ${QUERY_EXE_PACKAGE_PATH};
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get("${QUERY_CLASS_NAME}Exe")};
 
 import java.util.List;
 import javax.annotation.Resource;
@@ -7,8 +7,9 @@ import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.stereotype.Component;
 import ${QUERY_PACKAGE_PATH}.${QUERY_CLASS_NAME};
-import ${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO;
-import ${MapperPackagePath}.${AGGREGATION_CLASS_NAME}Mapper;
+import ${IMPORT_PACKAGE_MAP.get(${QUERY_CLASS_NAME})}.${QUERY_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}DO")}.${AGGREGATION_CLASS_NAME}DO;
+import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}Mapper")}.${AGGREGATION_CLASS_NAME}Mapper;
 import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${QUERY_RETURN_INFO.type};
 ##import ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH}.${QUERY_RESULT_TYPE}2DOConvert;
 

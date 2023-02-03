@@ -1,11 +1,11 @@
-#parse("templates/Cmd.vm")
-package ${CMD_APP_CONVERT_PACKAGE_PATH};
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get("${CMD_DTO_CLASS}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ${CMD_DTO_PACKAGE_PATH}.${CMD_DTO_CLASS};
-import ${CMD_PACKAGE_PATH}.${CMD_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get(${CMD_DTO_CLASS})}.${CMD_DTO_CLASS};
+import ${IMPORT_PACKAGE_MAP.get(${CMD_CLASS_NAME})}.${CMD_CLASS_NAME};
 #dependencyEnumConverter()
 
 #comment("${CMD_CLASS_NAME}和DTO转换器")

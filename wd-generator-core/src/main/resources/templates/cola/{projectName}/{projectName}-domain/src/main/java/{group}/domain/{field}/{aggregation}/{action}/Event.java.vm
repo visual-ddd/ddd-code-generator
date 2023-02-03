@@ -1,5 +1,5 @@
-#parse("templates/Event.vm")
-#set($encode = "{event.${PROJECT_NAME}.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${URL_ACTION}}")
+#parse("templates/ClassFunction.vm")
+#set($encode = "{event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}")
 package ${IMPORT_PACKAGE_MAP.get("${CMD_EVENT_CLASS_NAME}")};
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;

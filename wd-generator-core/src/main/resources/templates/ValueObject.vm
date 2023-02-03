@@ -1,5 +1,0 @@
-## 引入公共类方法
-#parse("templates/ClassFunction.vm")
-## ==================== 值对象相关变量 =======================
-## 值对象类包路径
-#set($VALUE_OBJECT_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")

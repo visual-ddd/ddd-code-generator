@@ -3,7 +3,7 @@ package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcServiceImpl")};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import ${DOMAIN_RPC_SERVICE_PACKAGE_PATH}.${DOMAIN_CLASS_NAME}RpcService;
+import ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
 #dependencyAllDTO()
 #dependencyAllQuery()
 #dependencyAllView()

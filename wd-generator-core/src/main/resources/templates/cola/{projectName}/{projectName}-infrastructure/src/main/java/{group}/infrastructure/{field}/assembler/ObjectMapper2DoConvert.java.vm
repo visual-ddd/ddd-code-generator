@@ -1,4 +1,4 @@
-#parse("templates/ObjectMapper.vm")
+#parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}2DoConvert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;

@@ -1,11 +1,11 @@
-#parse("templates/DataModel.vm")
+#parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}Mapper")};
 
 import java.util.List;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 import org.apache.ibatis.annotations.Mapper;
-import ${DOPackagePath}.${DATA_OBJECT_CLASS_NAME}DO;
+import ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO;
 #dependencyQuery()
 
 #comment("${DATA_OBJECT_CLASS_DESCRIPTION}Mapper接口")

@@ -1,6 +1,0 @@
-## 引入公共类方法
-#parse("templates/ClassFunction.vm")
-## ==================== 查询结果集相关变量 =======================
-## 查询结果集包路径
-#set($QUERY_RESULT_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto")
-#set($QUERY_RESULT_APP_CONVERT_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.assembler")
