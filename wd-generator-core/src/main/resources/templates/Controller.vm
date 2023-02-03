@@ -1,4 +1,4 @@
-#parse("templates/Domain.vm")
+#parse("templates/ClassFunction.vm")
 #macro(controllerImport)
 import java.util.List;
 import javax.annotation.Resource;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
-#dependencyAllDTO()
-#dependencyAllQuery()
+import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.dto.*;
+import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.*;
 #end
 #macro(controller)
 

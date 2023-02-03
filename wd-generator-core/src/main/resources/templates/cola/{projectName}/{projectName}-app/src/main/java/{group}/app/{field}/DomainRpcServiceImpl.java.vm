@@ -1,15 +1,20 @@
-#parse("templates/Domain.vm")
+#parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcServiceImpl")};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
-#dependencyAllDTO()
-#dependencyAllQuery()
-#dependencyAllView()
-#dependencyAllAssembler()
-#dependencyCmdHandler()
-#dependencyCmd()
+import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.dto.*;
+import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.*;
+import ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME}.view.*;
+import ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME}.assembler.*;
+#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.name}")}.${cmd.name};
+#end
+#foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;
+#end
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

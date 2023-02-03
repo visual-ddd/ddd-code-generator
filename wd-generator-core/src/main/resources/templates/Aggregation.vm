@@ -9,69 +9,30 @@
 #set($AGGREGATION_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}")
 ## 聚合数据库表名
 #set($AGGREGATION_TABLE_NAME = "${CASE_FORMAT_LOWER_UNDERSCORE.convert(${DOMAIN_NAME})}_${AGGREGATION_CLASS_NAME_LOWER_UNDERSCORE}")
-## 聚合的包路径
-#set($AGGREGATION_PACKAGE_PATH = "${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}")
-## 仓储实现类的包路径
-#set($RepositoryImplPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository")
-## 实体聚合转换器的包路径
-#set($InfraConvertPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.assembler")
-#### 实体类的包路径
-###set($DOPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.model")
-#### Mapper类的包路径
-###set($MapperPackagePath = "${PROJECT_PACKAGE}.infrastructure.${DOMAIN_NAME}.repository.mapper")
-## view 包路径
-#set($ViewPackagePath = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view")
-## 查询对象包路径
-#set($QUERY_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query")
-## RPCService接口 包路径
-#set($AGGREGATION_RPC_SERVICE_PACKAGE_PATH = "${PROJECT_PACKAGE}.client.${DOMAIN_NAME}")
-## RPCServiceImpl 包路径
-#set($AGGREGATION_RPC_SERVICE_IMPL_PACKAGE_PATH = "${PROJECT_PACKAGE}.app.${DOMAIN_NAME}")
 ##
 ## 依赖
 #macro(dependencyCmdDTO)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${cmd.category}DTO;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTO")}.${cmd.category}DTO;
 #end
 #end
 #macro(dependencyCmdDTOConvert)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.assembler.${cmd.category}DTOConvert;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTOConvert")}.${cmd.category}DTOConvert;
 #end
 #end
 #macro(dependencyCmd)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.category.toLowerCase()}.${cmd.name};
+import ${IMPORT_PACKAGE_MAP.get(${cmd.name})}.${cmd.name};
 #end
 #end
 #macro(dependencyCmdHandler)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${cmd.category.toLowerCase()}.${cmd.name}Handler;
-#end
-#end
-#macro(dependencyQuery)
-#foreach ($query in ${AGGREGATION_QUERY_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query.${query.umlClass.className};
-#end
-#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.query.${pageQuery.umlClass.className};
-#end
-#end
-#macro(dependencyQueryExe)
-#foreach ($query in ${AGGREGATION_QUERY_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view.${query.umlClass.className}Exe;
-#end
-#foreach ($pageQuery in ${AGGREGATION_PAGE_QUERY_LIST})
-import ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.view.${pageQuery.umlClass.className}Exe;
-#end
-#end
-#macro(dependencyQueryResult)
-#foreach ($queryResult in ${AGGREGATION_QUERY_RESULT_LIST})
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${queryResult.umlClass.className};
+import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler
 #end
 #end
 #macro(dependencyEnumConverter)
 #foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
-import ${PROJECT_PACKAGE}.domain.${DOMAIN_NAME}.${AGGREGATION_CLASS_NAME_ALL_LOWER}.${aggregatioEnum.name}Converter;
+import import ${IMPORT_PACKAGE_MAP.get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;
 #end
 #end

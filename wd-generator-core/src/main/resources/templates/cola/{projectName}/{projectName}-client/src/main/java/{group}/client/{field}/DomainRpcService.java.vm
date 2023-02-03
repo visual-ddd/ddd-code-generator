@@ -1,11 +1,10 @@
-#parse("templates/Domain.vm")
+#parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-#dependencyAllDTO()
-#dependencyAllQuery()
-
+import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.dto.*;
+import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.*;
 import java.util.List;
 
 #comment("${DOMAIN_DESCRIPTION}-RPC能力接口")
