@@ -10,11 +10,8 @@ import java.util.List;
 
 public class DataObjectBuilder {
     static ASTDataObject build(DataObjectDsl dataObjectDsl) {
-
         List<DataPropertyInfo> dataPropertyList = dataObjectDsl.getDataPropertyList();
         dataPropertyList.forEach(dataPropertyInfo -> dataPropertyInfo.setDataType(convertFileType(dataPropertyInfo.getDataType())));
-
-
         return DataObjectDslConvert.INSTANCE.dto2Do(dataObjectDsl);
     }
 

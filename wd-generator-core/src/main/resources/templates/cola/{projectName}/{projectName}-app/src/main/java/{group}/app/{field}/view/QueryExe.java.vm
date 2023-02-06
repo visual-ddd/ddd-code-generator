@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.stereotype.Component;
-import ${QUERY_PACKAGE_PATH}.${QUERY_CLASS_NAME};
 import ${IMPORT_PACKAGE_MAP.get(${QUERY_CLASS_NAME})}.${QUERY_CLASS_NAME};
 import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}DO")}.${AGGREGATION_CLASS_NAME}DO;
 import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}Mapper")}.${AGGREGATION_CLASS_NAME}Mapper;

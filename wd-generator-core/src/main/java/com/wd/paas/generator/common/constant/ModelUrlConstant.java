@@ -32,7 +32,6 @@ public class ModelUrlConstant {
     public static final String UPDATE_COMMAND_HANDLER_CLASS = "UpdateCommand";
     public static final String DELETE_COMMAND_HANDLER_CLASS = "DeleteCommand";
     public static final String EVENT_CLASS = "Event";
-    public static final String DOMAIN_CHART = "DomainChart";
 
     public static final String COMMAND_CLASS_SUFFIX = "Cmd";
     public static final String EVENT_CLASS_SUFFIX = "CmdEvent";

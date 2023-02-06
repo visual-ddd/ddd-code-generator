@@ -6,7 +6,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 import org.apache.ibatis.annotations.Mapper;
 import ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO;
-#dependencyQuery()
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name};
+#end
 
 #comment("${DATA_OBJECT_CLASS_DESCRIPTION}Mapper接口")
 @Mapper

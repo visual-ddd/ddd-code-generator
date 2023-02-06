@@ -33,6 +33,6 @@ import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler
 #end
 #macro(dependencyEnumConverter)
 #foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
-import import ${IMPORT_PACKAGE_MAP.get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;
+import ${IMPORT_PACKAGE_MAP.get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;
 #end
 #end
