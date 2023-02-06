@@ -13,9 +13,9 @@ import ${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name};
 #comment("${DATA_OBJECT_CLASS_DESCRIPTION}Mapper接口")
 @Mapper
 public interface ${DATA_OBJECT_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJECT_CLASS_NAME}DO> {
-#if(!${query.pagination})
-#foreach ($query in ${DOMAIN_QUERY_LIST})
 
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+#if(!${query.pagination})
 #if(${query.description})
     /**
     * ${query.description}
@@ -25,8 +25,8 @@ public interface ${DATA_OBJECT_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJEC
 #end
 #end
 
-#if(${query.pagination})
 #foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
+#if(${pageQuery.pagination})
 
     #if(${pageQuery.description})
     /**

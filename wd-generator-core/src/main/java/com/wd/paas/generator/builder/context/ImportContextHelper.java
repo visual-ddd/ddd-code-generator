@@ -3,14 +3,16 @@ package com.wd.paas.generator.builder.context;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ImportPathContextHelper {
+public class ImportContextHelper {
+
+    private static final String PRE_OBJECT_MAPPER = "mapper:";
 
     /**
      * 将类名和包路径存储到线程上下文中
      *
      * @param path 解析后的包路径
      */
-    public static void store(String path) {
+    public static void storePath(String path) {
         String pattern = "src/main/java/(.*)";
 
         Pattern r = Pattern.compile(pattern);
@@ -23,6 +25,17 @@ public class ImportPathContextHelper {
                     .replace("/", ".");
             ThreadLocalUtil.set(className, packagePath);
         }
+    }
+
+    /**
+     * 对象映射关系存储到线程上下文
+     *
+     * @param sourceClass 源头
+     * @param targetClass 目标
+     */
+    public static void storeObjectMapper(String sourceClass, String targetClass){
+
+        ThreadLocalUtil.set(PRE_OBJECT_MAPPER.concat(sourceClass), targetClass);
     }
 
 }

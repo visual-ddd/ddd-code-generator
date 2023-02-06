@@ -5,39 +5,39 @@
 
 <mapper namespace="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}Mapper")}.${DATA_OBJECT_CLASS_NAME}Mapper">
 
-###if(!${query.pagination})
-###foreach ($query in ${DOMAIN_QUERY_LIST})
-##
-##    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
-##            resultType="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO">
-##        SELECT *
-##        FROM ${DATA_OBJECT_TABLE_NAME} t1
-##        WHERE 1=1
-##        #foreach($queryFiled in $query.propertyList)
-##        <if test="${queryFiled.name}!=null">
-##            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
-##        </if>
-##        #end
-##    </select>
-###end
-###end
-##
-###if(${query.pagination})
-###foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
-##
-##    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${pageQuery.name})}.${pageQuery.name}"
-##            resultType="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO">
-##        SELECT *
-##        FROM ${DATA_OBJECT_TABLE_NAME} t1
-##        WHERE 1=1
-##        #foreach($pageQueryFiled in $pageQuery.umlClass.fieldList)
-##        <if test="${pageQueryFiled.name}!=null">
-##            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
-##        </if>
-##        #end
-##    </select>
-###end
-###end
+#if(!${query.pagination})
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
+            resultType="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO">
+        SELECT *
+        FROM ${DATA_OBJECT_TABLE_NAME} t1
+        WHERE 1=1
+        #foreach($queryFiled in $query.propertyList)
+        <if test="${queryFiled.name}!=null">
+            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
+        </if>
+        #end
+    </select>
+#end
+#end
+
+#if(${query.pagination})
+#foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
+
+    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${pageQuery.name})}.${pageQuery.name}"
+            resultType="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO">
+        SELECT *
+        FROM ${DATA_OBJECT_TABLE_NAME} t1
+        WHERE 1=1
+        #foreach($pageQueryFiled in $pageQuery.umlClass.fieldList)
+        <if test="${pageQueryFiled.name}!=null">
+            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
+        </if>
+        #end
+    </select>
+#end
+#end
 ##    <resultMap id="BaseResultMap" type="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
 ##
 ##        <id property="id" column="id" jdbcType="BIGINT"/>
