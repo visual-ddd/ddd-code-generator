@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * @author shimmer
  */
-public abstract class CompositeElement extends Element {
+public abstract class CompositeElement implements Element {
 
     private final List<Element> elementList = new ArrayList<>();
 

@@ -1,7 +1,6 @@
 package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.ObjectFieldMapper;
-import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,7 +8,7 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTConvert extends LeafElement{
+public class ASTConvert extends LeafElement {
 
     private String name;
 
@@ -21,8 +20,4 @@ public class ASTConvert extends LeafElement{
 
     private List<ObjectFieldMapper> mapperList;
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.generate(this);
-    }
 }

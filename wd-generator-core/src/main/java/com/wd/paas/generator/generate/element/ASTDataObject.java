@@ -3,7 +3,6 @@ package com.wd.paas.generator.generate.element;
 import com.wd.paas.common.DataIndexInfo;
 import com.wd.paas.common.DataPropertyInfo;
 import com.wd.paas.common.MetaInfo;
-import com.wd.paas.generator.generate.Visitor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,8 +34,4 @@ public class ASTDataObject extends LeafElement{
 
     private DataIndexInfo dataIndexInfo;
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.generate(this);
-    }
 }

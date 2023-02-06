@@ -32,10 +32,11 @@ public class ASTAggregationDslTest {
         DslParser dslStruct = new DslParser();
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
-        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
-        dslStruct.accept(javaTemplateVisitor::preHandle);
-        dslStruct.accept(javaTemplateVisitor::generate);
+        TemplateContext context = new TemplateContext("./target", null);
+        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(context);
+        dslStruct.run(javaTemplateVisitor);
 
         Assert.assertTrue(true);
     }
+
 }

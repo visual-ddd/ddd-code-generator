@@ -7,10 +7,10 @@ import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.stereotype.Component;
 import ${IMPORT_PACKAGE_MAP.get(${QUERY_CLASS_NAME})}.${QUERY_CLASS_NAME};
-import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}DO")}.${AGGREGATION_CLASS_NAME}DO;
-import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}Mapper")}.${AGGREGATION_CLASS_NAME}Mapper;
-import ${PROJECT_PACKAGE}.client.${DOMAIN_NAME}.dto.${QUERY_RETURN_INFO.type};
-##import ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH}.${QUERY_RESULT_TYPE}2DOConvert;
+##import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}DO")}.${AGGREGATION_CLASS_NAME}DO;
+##import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}Mapper")}.${AGGREGATION_CLASS_NAME}Mapper;
+import ${IMPORT_PACKAGE_MAP.get(${QUERY_RETURN_INFO.type})}.${QUERY_RETURN_INFO.type};
+##import ${QUERY_RESULT_APP_CONVERT_PACKAGE_PATH}.${QUERY_RESULT_TYPE}2DOConve、rt;
 
 #comment("${QUERY_CLASS_DESCRIPTION}-查询器")
 @Component

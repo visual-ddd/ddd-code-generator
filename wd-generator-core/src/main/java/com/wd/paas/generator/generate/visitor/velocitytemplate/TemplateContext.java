@@ -9,6 +9,8 @@ import java.util.Properties;
 import java.util.zip.ZipOutputStream;
 
 /**
+ * 配置模版生成上下文信息
+ *
  * @author shimmer
  */
 @Data

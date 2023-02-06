@@ -6,7 +6,6 @@ import com.wd.paas.common.ReturnInfo;
 import com.wd.paas.common.RuleInfo;
 import com.wd.paas.common.SourceInfo;
 import com.wd.paas.common.enums.RepositoryTypeEnum;
-import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -41,8 +40,4 @@ public class ASTCommand extends CompositeElement {
 
     private String packagePath;
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.generate(this);
-    }
 }

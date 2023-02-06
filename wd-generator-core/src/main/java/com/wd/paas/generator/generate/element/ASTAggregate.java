@@ -1,6 +1,5 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,8 +12,4 @@ public class ASTAggregate extends CompositeElement {
 
     private ASTAggregateRoot root;
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.generate(this);
-    }
 }

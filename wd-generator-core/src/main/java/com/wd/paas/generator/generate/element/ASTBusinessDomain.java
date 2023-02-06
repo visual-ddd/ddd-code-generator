@@ -1,7 +1,6 @@
 package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.MetaInfo;
-import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -24,8 +23,4 @@ public class ASTBusinessDomain extends CompositeElement {
 
     private String document;
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.generate(this);
-    }
 }

@@ -88,6 +88,7 @@ public class VelocityLabel {
 
     // 对象映射对象模型
     public static final String OBJECT_MAPPER_CLASS_NAME = "OBJECT_MAPPER_CLASS_NAME";
+    public static final String OBJECT_MAPPER_CLASS_DESCRIPTION = "OBJECT_MAPPER_CLASS_DESCRIPTION";
     public static final String OBJECT_MAPPER_SOURCE_OBJECT = "OBJECT_MAPPER_SOURCE_OBJECT";
     public static final String OBJECT_MAPPER_TARGET_OBJECT = "OBJECT_MAPPER_TARGET_OBJECT";
     public static final String OBJECT_MAPPER_OBJECT_TYPE = "OBJECT_MAPPER_OBJECT_TYPE";
@@ -103,5 +104,4 @@ public class VelocityLabel {
 
     public static final String CLASS_DTO_SUFFIX = "DTO";
     public static final String IMPORT_PACKAGE_MAP = "IMPORT_PACKAGE_MAP";
-
 }

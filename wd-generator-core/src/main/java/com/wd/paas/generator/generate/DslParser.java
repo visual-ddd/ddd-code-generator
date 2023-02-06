@@ -20,14 +20,25 @@ public class DslParser {
 
     private final List<Element> elementList = new ArrayList<>();
 
+    /**
+     * 启动方法，控制执行顺序
+     *
+     * @param visitor 访问者实例
+     */
+    public void run(Visitor visitor) {
+        // 预处理
+        this.accept(visitor::preHandle);
+        this.accept(visitor::generate);
+    }
+
     public void accept(Consumer<Element> consumer) {
-        for (Element element : elementList) preorder(element, consumer);
+        elementList.forEach(element -> preorder(element, consumer));
     }
 
     /**
-     * 访问element数据结构，并执行元素具体的访问方法。
+     * 访问element数据结构，并调用元素具体的访问方法。
      *
-     * @param root    需要遍历的element节点
+     * @param root 需要遍历的element节点
      */
     private static void preorder(Element root, Consumer<Element> consumer) {
         if (root == null) {

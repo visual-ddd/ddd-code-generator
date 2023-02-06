@@ -54,6 +54,11 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
         }
     }
 
+    /**
+     * 缓存输出路径到导包上下文
+     *
+     * @param templateContext 上下文信息
+     */
     private void storeOutPutPath(TemplateContext templateContext) {
         List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {

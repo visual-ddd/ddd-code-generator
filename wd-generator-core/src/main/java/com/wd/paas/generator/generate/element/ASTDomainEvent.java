@@ -1,7 +1,6 @@
 package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.PropertyInfo;
-import com.wd.paas.generator.generate.Visitor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,8 +19,4 @@ public class ASTDomainEvent extends LeafElement {
 
     private List<PropertyInfo> propertyList;
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.generate(this);
-    }
 }

@@ -6,7 +6,7 @@ import com.wd.paas.generator.generate.element.ASTEntity;
 
 public class EntityBuilder {
     public static ASTEntity build(EntityDsl entityDsl) {
-        entityDsl.getPropertyList().forEach(propertyInfo -> propertyInfo.setAccess("private" ));
+        entityDsl.getPropertyList().forEach(propertyInfo -> propertyInfo.setAccess("private"));
         return EntityDslConvert.INSTANCE.dto2Do(entityDsl);
     }
 }
