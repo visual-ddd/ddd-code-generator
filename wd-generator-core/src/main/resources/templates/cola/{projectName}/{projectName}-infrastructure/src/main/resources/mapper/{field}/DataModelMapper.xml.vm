@@ -1,15 +1,17 @@
 #parse("templates/ClassFunction.vm")
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper:${DATA_OBJECT_CLASS_NAME}DO")})
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}Mapper")}.${DATA_OBJECT_CLASS_NAME}Mapper">
+<mapper namespace="${IMPORT_PACKAGE_MAP.get("${aggregationClass}Mapper")}.${aggregationClass}Mapper">
 
-#if(!${query.pagination})
 #foreach ($query in ${DOMAIN_QUERY_LIST})
+#if(!${query.pagination})
 
     <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
-            resultType="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO">
+            resultType="${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO">
         SELECT *
         FROM ${DATA_OBJECT_TABLE_NAME} t1
         WHERE 1=1
@@ -20,19 +22,17 @@
         #end
     </select>
 #end
-#end
 
 #if(${query.pagination})
-#foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
 
-    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${pageQuery.name})}.${pageQuery.name}"
-            resultType="${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO">
+    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
+            resultType="${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO">
         SELECT *
         FROM ${DATA_OBJECT_TABLE_NAME} t1
         WHERE 1=1
-        #foreach($pageQueryFiled in $pageQuery.umlClass.fieldList)
-        <if test="${pageQueryFiled.name}!=null">
-            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${pageQueryFiled.name})} = #{${pageQueryFiled.name}}
+        #foreach($queryFiled in $query.propertyList)
+        <if test="${queryFiled.name}!=null">
+            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
         </if>
         #end
     </select>
