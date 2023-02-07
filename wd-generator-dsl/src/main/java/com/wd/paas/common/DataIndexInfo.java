@@ -22,7 +22,7 @@ public class DataIndexInfo extends Info {
      * 默认Normal
      */
     @SerializedName("type")
-    private IndexTypeEnum indexTypeEnum;
+    private String indexTypeEnum;
 
     /**
      * 索引栏位 通常以数据对象的属性名称存放

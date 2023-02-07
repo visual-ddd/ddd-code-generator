@@ -32,6 +32,6 @@ public class ASTDataObject extends LeafElement{
 
     private List<DataPropertyInfo> dataPropertyList;
 
-    private DataIndexInfo dataIndexInfo;
+    private List<DataIndexInfo> dataIndexInfos;
 
 }

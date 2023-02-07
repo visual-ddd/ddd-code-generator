@@ -20,7 +20,7 @@ public class CommandDsl extends Info {
     /**
      * 命令的触发来源，默认为 http, rpc 两种类型
      */
-    @SerializedName("sources")
+    @SerializedName("source")
     private List<SourceInfo> sourceList;
 
     /**
@@ -50,13 +50,13 @@ public class CommandDsl extends Info {
     /**
      * 事件, 即命令执行完成之后的触发的领域事件
      */
-    @SerializedName("domainEvent")
+    @SerializedName("event")
     private DomainEventDsl domainEvent;
 
     /**
      * 事件是否是需要发送  false 不发送，true 发送
      */
-    @SerializedName("eventEnable")
+    @SerializedName("eventSendable")
     private Boolean eventEnable;
 
     /**
@@ -69,6 +69,6 @@ public class CommandDsl extends Info {
      * 命令返回值，默认为 void
      * 备注：可能不符合 CQRS 严格定义
      */
-    @SerializedName("returnInfo")
+    @SerializedName("return")
     private ReturnInfo returnInfo;
 }

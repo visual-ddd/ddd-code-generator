@@ -1,4 +1,4 @@
-package com.wd.paas.generator.common.enums;
+package com.wd.paas.common.enums;
 
 import com.wd.paas.common.enums.RepositoryTypeEnum;
 

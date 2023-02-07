@@ -35,6 +35,6 @@ public class DataObjectDsl extends Info {
      * 表名
      */
     @SerializedName("indexes")
-    private DataIndexInfo dataIndexInfo;
+    private List<DataIndexInfo> dataIndexInfos;
 
 }

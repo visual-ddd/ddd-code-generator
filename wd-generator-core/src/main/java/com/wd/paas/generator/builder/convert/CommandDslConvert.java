@@ -1,7 +1,7 @@
 package com.wd.paas.generator.builder.convert;
 
 import com.wd.paas.dsl.CommandDsl;
-import com.wd.paas.generator.common.enums.RepositoryTypeEnumConvert;
+import com.wd.paas.common.enums.RepositoryTypeEnumConvert;
 import com.wd.paas.generator.generate.element.ASTCommand;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

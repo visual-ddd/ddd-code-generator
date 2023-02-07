@@ -28,7 +28,7 @@ public class MethodInfo extends Info {
     /**
      * 是否是抽象方法，默认是 false
      */
-    @SerializedName("isAbstract")
+    @SerializedName("abstract")
     private Boolean isAbstract;
 
 }

@@ -1,5 +1,6 @@
 package com.wd.paas.common.enums;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 /**
@@ -32,15 +33,14 @@ public enum IndexTypeEnum {
     }
 
     /**
-     * 根据code码获取枚举
+     * 根据枚举类字符串找到对应枚举类型
+     *
+     * @param enumName 枚举类名称
+     * @return CmdTypeEnum
      */
-    public static Optional<IndexTypeEnum> of(Integer code) {
-        for (IndexTypeEnum t : IndexTypeEnum.class.getEnumConstants()) {
-            if (t.getCode().intValue() == code.intValue()) {
-                return Optional.of(t);
-            }
-        }
-        return Optional.empty();
+    public static IndexTypeEnum of(String enumName) {
+        Optional<IndexTypeEnum> optional = Arrays.stream(IndexTypeEnum.values()).filter(x -> x.name.equals(enumName)).findFirst();
+        return optional.orElseThrow(() -> new IllegalArgumentException("ElementTypeEnum find error，not found:" + enumName));
     }
 
 }
