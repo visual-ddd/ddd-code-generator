@@ -21,13 +21,24 @@ import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.*;
 
     @Resource
     private ${DOMAIN_CLASS_NAME}RpcService ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService;
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+#set($RootIdType = ${aggregation.getRoot().getId().getType()})
+#set($RootIdName = ${aggregation.getRoot().getId().getName()})
+#foreach($cmd in ${aggregation.getCommandList()})
 
     @ApiOperation("${cmd.description}")
     @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.category})}")
+    #if(${cmd.getRepository().getValue()} == "save")
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.category}DTO dto) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
+    }
+    #end
+    #if(${cmd.getRepository().getValue()} != "save")
     public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.category}DTO dto) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
     }
+    #end
+#end
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 

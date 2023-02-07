@@ -15,10 +15,11 @@ public class ${CMD_CLASS_NAME}Handler {
     @Resource
     private ${AGGREGATION_CLASS_NAME}Factory factory;
 
-    public void handle(${CMD_CLASS_NAME} createCmd) {
-        ${AGGREGATION_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})} = factory.getInstance(createCmd);
-        repository.save(${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})});
+    public ${AGGREGATION_CLASS_ID.getType()} handle(${CMD_CLASS_NAME} createCmd) {
+        ${AGGREGATION_CLASS_NAME} entity = factory.getInstance(createCmd);
+        ${AGGREGATION_CLASS_NAME} newEntity = repository.save(entity);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(createCmd));
+        return newEntity.get${CASE_FORMAT_UPPER_CAMEL.convert(${AGGREGATION_CLASS_ID.getName()})}();
     }
 }

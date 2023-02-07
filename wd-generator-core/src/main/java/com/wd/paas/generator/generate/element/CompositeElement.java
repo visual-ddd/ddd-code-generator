@@ -28,9 +28,10 @@ public abstract class CompositeElement implements Element {
         return elementList;
     }
 
-    public List<Element> getChildElementList(Class<? extends Element> targetClass) {
+    public <T> List<T> getChildElementList(Class<T> targetClass) {
         return elementList.stream()
                 .filter(element -> Objects.equals(element.getClass(), targetClass))
+                .map(element -> (T) element)
                 .collect(Collectors.toList());
     }
 }

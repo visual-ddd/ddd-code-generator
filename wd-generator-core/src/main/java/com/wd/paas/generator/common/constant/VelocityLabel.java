@@ -25,6 +25,7 @@ public class VelocityLabel {
     public static final String DOMAIN_AUTHOR = "DOMAIN_AUTHOR";
     public static final String DOMAIN_QUERY_LIST = "DOMAIN_QUERY_LIST";
     public static final String DOMAIN_CMD_LIST = "DOMAIN_CMD_LIST";
+    public static final String DOMAIN_AGGREGATION_LIST = "DOMAIN_AGGREGATION_LIST";
     public static final String DOMAIN_DATA_LIST = "DOMAIN_DATA_LIST";
 
     // 聚合
@@ -97,6 +98,7 @@ public class VelocityLabel {
 
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";
+    public static final String CASE_FORMAT_UPPER_CAMEL = "CASE_FORMAT_UPPER_CAMEL";
     public static final String CASE_FORMAT_LOWER_UNDERSCORE = "CASE_FORMAT_LOWER_UNDERSCORE";
 
     public static final String URL_ACTION = "URL_ACTION";

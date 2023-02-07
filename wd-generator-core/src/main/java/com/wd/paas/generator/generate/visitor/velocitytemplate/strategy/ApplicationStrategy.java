@@ -38,6 +38,8 @@ public class ApplicationStrategy extends AbstractElementStrategy {
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_UNDERSCORE));
         context.put(VelocityLabel.CASE_FORMAT_LOWER_CAMEL,
                 CaseFormat.UPPER_CAMEL.converterTo(CaseFormat.LOWER_CAMEL));
+        context.put(VelocityLabel.CASE_FORMAT_UPPER_CAMEL,
+                CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL));
 
         context.put(VelocityLabel.IMPORT_PACKAGE_MAP, ThreadLocalUtil.getThreadLocal());
     }

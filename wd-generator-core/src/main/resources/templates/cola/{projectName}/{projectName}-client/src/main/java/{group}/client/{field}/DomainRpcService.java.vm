@@ -9,12 +9,20 @@ import java.util.List;
 
 #comment("${DOMAIN_DESCRIPTION}-RPC能力接口")
 public interface ${DOMAIN_CLASS_NAME}RpcService {
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+#set($RootIdType = ${aggregation.getRoot().getId().getType()})
+    #foreach($cmd in ${aggregation.getCommandList()})
 
     /**
-    * ${cmd.description}
-    */
-    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto);
+     * ${cmd.description}
+     */
+        #if(${cmd.getRepository().getValue()} == "save")
+    ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto);
+        #end
+        #if(${cmd.getRepository().getValue()} != "save")
+    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto);
+        #end
+    #end
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 

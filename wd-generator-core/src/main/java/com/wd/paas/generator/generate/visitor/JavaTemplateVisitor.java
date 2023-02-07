@@ -1,7 +1,9 @@
-package com.wd.paas.generator.generate.visitor.velocitytemplate;
+package com.wd.paas.generator.generate.visitor;
 
 import com.wd.paas.generator.generate.Visitor;
 import com.wd.paas.generator.generate.element.Element;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.ElementStrategyFactory;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.strategy.ElementStrategy;
 
 /**

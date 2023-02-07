@@ -32,14 +32,25 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
     @Resource
     private ${query.name}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe;
 #end
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+#set($RootIdType = ${aggregation.getRoot().getId().getType()})
+#set($RootIdName = ${aggregation.getRoot().getId().getName()})
+#foreach($cmd in ${aggregation.getCommandList()})
 
     @Override
-    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto) {
-        ${cmd.name} ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})} = ${cmd.category}DTOConvert.INSTANCE.dto2Do(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}Dto);
-        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})});
+    #if(${cmd.getRepository().getValue()} == "save")
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto) {
+        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.category}DTOConvert.INSTANCE.dto2Do(dto));
+        return ResultDTO.success(${RootIdName});
+    }
+    #end
+    #if(${cmd.getRepository().getValue()} != "save")
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto) {
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.category}DTOConvert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);
     }
+    #end
+#end
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 

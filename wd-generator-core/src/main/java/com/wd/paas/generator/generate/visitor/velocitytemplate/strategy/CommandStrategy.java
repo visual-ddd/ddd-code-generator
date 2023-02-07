@@ -93,7 +93,6 @@ public class CommandStrategy extends AbstractElementStrategy {
 
         };
 
-        String result = StringUtils.replaceEach(outputPath, searchList, replacementList);
-        return result;
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 }

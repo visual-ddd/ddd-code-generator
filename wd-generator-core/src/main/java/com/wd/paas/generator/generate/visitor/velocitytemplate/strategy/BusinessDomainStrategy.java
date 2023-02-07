@@ -38,6 +38,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.DOMAIN_QUERY_LIST, getQueryList());
         context.put(VelocityLabel.DOMAIN_CMD_LIST, getCmdList());
         context.put(VelocityLabel.DOMAIN_DATA_LIST, getDataList());
+        context.put(VelocityLabel.DOMAIN_AGGREGATION_LIST, getAggregationList());
     }
 
     @Override
@@ -78,23 +79,27 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         return domainName.toLowerCase();
     }
 
+    private List<ASTAggregate> getAggregationList() {
+        ASTDomainModel domainModel = astBusinessDomain.getChildElementList(ASTDomainModel.class).get(0);
+        return domainModel.getChildElementList(ASTAggregate.class);
+    }
+
     private List<Element> getCmdList() {
-        ASTDomainModel domainModel = (ASTDomainModel) astBusinessDomain.getChildElementList(ASTDomainModel.class).get(0);
-        List<Element> aggregationList = domainModel.getChildElementList(ASTAggregate.class);
+        ASTDomainModel domainModel = astBusinessDomain.getChildElementList(ASTDomainModel.class).get(0);
+        List<ASTAggregate> aggregationList = domainModel.getChildElementList(ASTAggregate.class);
         return aggregationList.stream()
-                .map(ASTAggregate.class::cast)
                 .map(aggregate -> aggregate.getChildElementList(ASTCommand.class))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private List<Element> getQueryList() {
-        ASTQueryModel queryModel = (ASTQueryModel) astBusinessDomain.getChildElementList(ASTQueryModel.class).get(0);
+    private List<ASTQuery> getQueryList() {
+        ASTQueryModel queryModel = astBusinessDomain.getChildElementList(ASTQueryModel.class).get(0);
         return queryModel.getChildElementList(ASTQuery.class);
     }
 
-    private List<Element> getDataList() {
-        ASTDataModel astDataModel = (ASTDataModel) astBusinessDomain.getChildElementList(ASTDataModel.class).get(0);
+    private List<ASTDataObject> getDataList() {
+        ASTDataModel astDataModel = astBusinessDomain.getChildElementList(ASTDataModel.class).get(0);
         return astDataModel.getChildElementList(ASTDataObject.class);
     }
 }
