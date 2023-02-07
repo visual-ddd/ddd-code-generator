@@ -15,10 +15,10 @@ public class BusinessDomainBuilder {
         ASTBusinessDomain astBusinessDomain = BusinessDomainDslConvert.INSTANCE.dto2Do(businessDomainDsl);
 
         List<Element> elements = new ArrayList<>();
+        Optional.ofNullable(businessDomainDsl.getObjectMapperModel()).map(ObjectMapperModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getDomainModel()).map(DomainModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getDataModel()).map(DataModelBuilder::build).ifPresent(elements::add);
         Optional.ofNullable(businessDomainDsl.getQueryModel()).map(QueryModelBuilder::build).ifPresent(elements::add);
-        Optional.ofNullable(businessDomainDsl.getObjectMapperModel()).map(ObjectMapperModelBuilder::build).ifPresent(elements::add);
         astBusinessDomain.addAll(elements);
         return astBusinessDomain;
     }

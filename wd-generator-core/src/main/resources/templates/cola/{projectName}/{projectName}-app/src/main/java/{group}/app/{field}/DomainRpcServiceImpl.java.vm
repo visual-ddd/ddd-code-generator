@@ -56,7 +56,7 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 
     @Override
     #if(${query.pagination})
-        public PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+        public PageResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
     }
     #end

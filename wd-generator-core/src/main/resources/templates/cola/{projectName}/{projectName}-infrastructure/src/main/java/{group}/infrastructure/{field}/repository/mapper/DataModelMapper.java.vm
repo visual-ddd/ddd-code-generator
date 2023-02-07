@@ -1,18 +1,19 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}Mapper")};
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper:${DATA_OBJECT_CLASS_NAME}")})
+package ${IMPORT_PACKAGE_MAP.get("${aggregationClass}Mapper")};
 
 import java.util.List;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 import org.apache.ibatis.annotations.Mapper;
-import ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}DO")}.${DATA_OBJECT_CLASS_NAME}DO;
+import ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}")}.${DATA_OBJECT_CLASS_NAME};
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 import ${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name};
 #end
 
 #comment("${DATA_OBJECT_CLASS_DESCRIPTION}Mapper接口")
 @Mapper
-public interface ${DATA_OBJECT_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJECT_CLASS_NAME}DO> {
+public interface ${aggregationClass}Mapper extends BaseMapper<${DATA_OBJECT_CLASS_NAME}> {
 
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 #if(!${query.pagination})
@@ -21,7 +22,7 @@ public interface ${DATA_OBJECT_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJEC
     * ${query.description}
     */
 #end
-    ${DATA_OBJECT_CLASS_NAME}DO ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
+    ${DATA_OBJECT_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
 #end
 #end
 
@@ -33,7 +34,7 @@ public interface ${DATA_OBJECT_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJEC
      * ${pageQuery.description}
      */
     #end
-    List<${DATA_OBJECT_CLASS_NAME}DO> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}(${pageQuery.name} pageQuery);
+    List<${DATA_OBJECT_CLASS_NAME}> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}(${pageQuery.name} pageQuery);
 #end
 #end
 }

@@ -30,7 +30,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
      * ${query.description}
      */
     #if(${query.pagination})
-    PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
+    PageResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
     #end
     #if(!${query.pagination})
     ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);

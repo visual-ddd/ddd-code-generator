@@ -26,7 +26,7 @@ public class ${QUERY_CLASS_NAME}Exe {
     private ${aggregationClassName}Mapper ${aggregationClassName.toLowerCase()}Mapper;
 
     #if(${QUERY_PAGINATION})
-    public PageResultDTO<List<${dtoClassName}>> execute(${QUERY_CLASS_NAME} pageQuery) {
+    public PageResultDTO<${dtoClassName}> execute(${QUERY_CLASS_NAME} pageQuery) {
 
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 ##

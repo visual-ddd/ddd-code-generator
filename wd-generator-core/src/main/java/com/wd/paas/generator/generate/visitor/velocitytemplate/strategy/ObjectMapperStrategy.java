@@ -1,6 +1,7 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.common.enums.ConvertTypeEnum;
+import com.wd.paas.generator.builder.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
@@ -54,10 +55,12 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
 
         String[] searchList = {
                 ModelUrlConstant.OBJECT_MAPPER_CONVERT_CLASS,
-                ModelUrlConstant.QUERY_RESULT_CLASS,
+                ModelUrlConstant.OBJECT_MAPPER_REPOSITORY_CLASS,
+                ModelUrlConstant.QUERY_RESULT_CONVERT_CLASS,
         };
         String[] replacementList = {
                 (String) context.get(VelocityLabel.OBJECT_MAPPER_CLASS_NAME),
+                (String) ThreadLocalUtil.getThreadLocal().get("mapper:".concat(astObjectMapper.getTarget().getName())),
                 (String) context.get(VelocityLabel.OBJECT_MAPPER_CLASS_NAME),
         };
 

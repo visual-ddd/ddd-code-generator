@@ -1,5 +1,5 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}2DOConvert")};
+package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
@@ -11,8 +11,8 @@ import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER
 @Mapper(uses = {
         JsonConverter.class,
 })
-public interface ${OBJECT_MAPPER_CLASS_NAME}2DOConvert extends
+public interface ${OBJECT_MAPPER_CLASS_NAME} extends
         BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 
-    ${OBJECT_MAPPER_CLASS_NAME}2DOConvert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_CLASS_NAME}2DOConvert.class);
+    ${OBJECT_MAPPER_CLASS_NAME} INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_CLASS_NAME}.class);
 }

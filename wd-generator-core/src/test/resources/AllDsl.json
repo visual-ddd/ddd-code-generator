@@ -1,4 +1,71 @@
 {
+  "objectMapper":{
+    "mappers":[
+      {
+        "uuid":"72264679-73db-4956-aa8d-a859e2f1c2b5",
+        "title":"用户与DO映射",
+        "name":"User2DOConvert",
+        "description":"用户与DO映射",
+        "meta":{
+
+        },
+        "source":{
+          "name":"User",
+          "parent":"User",
+          "type":"entity"
+        },
+        "target":{
+          "name":"UserDO",
+          "type":"dataObject"
+        },
+        "mapper":[
+          {
+            "sourceField":"id",
+            "targetField":"id"
+          },
+          {
+            "sourceField":"name",
+            "targetField":"name"
+          },
+          {
+            "sourceField":"passWord",
+            "targetField":"password"
+          }
+        ]
+      },
+      {
+        "uuid":"e9a3a98f-2b35-4038-a130-7fae1960896c",
+        "title":"用户DTO与DO映射",
+        "name":"UserDTO2DOConvert",
+        "description":"Dto2Do",
+        "meta":{
+
+        },
+        "source":{
+          "name":"UserDTO",
+          "type":"dto"
+        },
+        "target":{
+          "name":"UserDO",
+          "type":"dataObject"
+        },
+        "mapper":[
+          {
+            "sourceField":"id",
+            "targetField":"id"
+          },
+          {
+            "sourceField":"name",
+            "targetField":"name"
+          },
+          {
+            "sourceField":"password",
+            "targetField":"password"
+          }
+        ]
+      }
+    ]
+  },
   "domainModel":{
     "aggregates":[
       {
@@ -324,7 +391,7 @@
           }
         ],
         "return":{
-          "type":"List&lt;UserDTO&gt;"
+          "type":"List<UserDTO>"
         }
       }
     ],
@@ -378,6 +445,7 @@
   "dataModel":{
     "dataObjects":[
       {
+        "tableName":"wd_account",
         "uuid":"15a33a2c-9343-4fa0-8962-68a5f22925a4",
         "title":"用户",
         "name":"UserDO",
@@ -437,73 +505,6 @@
     ],
     "references":[
 
-    ]
-  },
-  "objectMapper":{
-    "mappers":[
-      {
-        "uuid":"72264679-73db-4956-aa8d-a859e2f1c2b5",
-        "title":"用户与DO映射",
-        "name":"User2DOConvert",
-        "description":"用户与DO映射",
-        "meta":{
-
-        },
-        "source":{
-          "name":"User",
-          "parent":"User",
-          "type":"entity"
-        },
-        "target":{
-          "name":"UserDO",
-          "type":"dataObject"
-        },
-        "mapper":[
-          {
-            "sourceField":"id",
-            "targetField":"id"
-          },
-          {
-            "sourceField":"name",
-            "targetField":"name"
-          },
-          {
-            "sourceField":"passWord",
-            "targetField":"password"
-          }
-        ]
-      },
-      {
-        "uuid":"e9a3a98f-2b35-4038-a130-7fae1960896c",
-        "title":"用户DTO与DO映射",
-        "name":"UserDTO2DOConvert",
-        "description":"Dto2Do",
-        "meta":{
-
-        },
-        "source":{
-          "name":"UserDTO",
-          "type":"dto"
-        },
-        "target":{
-          "name":"UserDO",
-          "type":"dataObject"
-        },
-        "mapper":[
-          {
-            "sourceField":"id",
-            "targetField":"id"
-          },
-          {
-            "sourceField":"name",
-            "targetField":"name"
-          },
-          {
-            "sourceField":"password",
-            "targetField":"password"
-          }
-        ]
-      }
     ]
   },
   "meta": {},
