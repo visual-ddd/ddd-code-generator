@@ -1,5 +1,5 @@
 #parse("templates/ClassFunction.vm")
-#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper:${OBJECT_MAPPER_TARGET_OBJECT}")})
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::${OBJECT_MAPPER_TARGET_OBJECT}")})
 #set($AGGREGATION_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${aggregationClass})}")
 package ${IMPORT_PACKAGE_MAP.get("${aggregationClass}RepositoryImpl")};
 

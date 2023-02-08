@@ -2,7 +2,6 @@ package com.wd.paas.common;
 
 import com.google.gson.annotations.SerializedName;
 import com.wd.paas.common.enums.IndexMethodEnum;
-import com.wd.paas.common.enums.IndexTypeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

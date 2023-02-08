@@ -152,7 +152,7 @@
           {
             "uuid":"c29b3be7-beef-4866-8484-c74bc9ebddab",
             "title":"角色",
-            "name":"Role",
+            "name":"RoleEnum",
             "description":"角色",
             "meta":{
 
@@ -231,7 +231,7 @@
           {
             "uuid":"940b2b16-970a-48a1-9d23-81ff2fcfb2f2",
             "title":"更新用户",
-            "name":"Untitled",
+            "name":"UserUpdate",
             "description":"更新用户",
             "meta":{
 
@@ -275,7 +275,7 @@
             ],
             "event":{
               "uuid":"940b2b16-970a-48a1-9d23-81ff2fcfb2f2",
-              "name":"UntitledEvent",
+              "name":"UserUpdateEvent",
               "properties":[
 
               ]
@@ -295,7 +295,7 @@
             "rules":[
 
             ],
-            "repository":"modify",
+            "repository":"save",
             "eventSendable":false,
             "source":[
               {
@@ -337,7 +337,7 @@
 
                 },
                 "access":"public",
-                "type":"Role"
+                "type":"RoleEnum"
               }
             ],
             "event":{

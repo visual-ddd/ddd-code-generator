@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate;
 
+import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.generate.element.CompositeElement;
 import com.wd.paas.generator.generate.element.Element;
 import lombok.extern.slf4j.Slf4j;
@@ -29,10 +30,15 @@ public class DslParser {
         // 预处理
         this.accept(visitor::preHandle);
         this.accept(visitor::generate);
+        clear();
     }
 
     public void accept(Consumer<Element> consumer) {
         elementList.forEach(element -> preorder(element, consumer));
+    }
+
+    public static void clear() {
+        ThreadLocalUtil.remove();
     }
 
     /**

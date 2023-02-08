@@ -1,13 +1,16 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.builder.context.ImportContextHelper;
 import com.wd.paas.generator.common.constant.VelocityLabel;
+import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.util.FileGenerator;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.VelocityTemplateGenerate;
 import org.apache.velocity.VelocityContext;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * 元素生成策略抽象类（Velocity 模版生成）
@@ -66,7 +69,7 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getContext(),
                     templateContext.getPreFixOutPath());
-            ImportContextHelper.storePath(outputPath);
+            ThreadContextHelper.storePath(outputPath);
         }
     }
 
@@ -83,10 +86,10 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
 
             String sourceName = context.get(VelocityLabel.OBJECT_MAPPER_SOURCE_OBJECT).toString();
             String targetName = context.get(VelocityLabel.OBJECT_MAPPER_TARGET_OBJECT).toString();
-            ImportContextHelper.storeObjectMapper(sourceName, targetName);
+            ThreadContextHelper.storeObjectMapper(sourceName, targetName);
 
             if (Objects.nonNull(context.get(VelocityLabel.OBJECT_MAPPER_OBJECT_AGGREGATION))) {
-                ImportContextHelper.storeObjectMapper(targetName, sourceName);
+                ThreadContextHelper.storeObjectMapper(targetName, sourceName);
             }
         }
     }

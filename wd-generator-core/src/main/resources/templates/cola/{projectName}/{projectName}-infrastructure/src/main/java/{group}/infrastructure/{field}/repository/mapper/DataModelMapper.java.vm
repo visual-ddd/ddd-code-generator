@@ -1,5 +1,5 @@
 #parse("templates/ClassFunction.vm")
-#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper:${DATA_OBJECT_CLASS_NAME}")})
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::${DATA_OBJECT_CLASS_NAME}")})
 package ${IMPORT_PACKAGE_MAP.get("${aggregationClass}Mapper")};
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.builder.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
+import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.ASTDataObject;
 import org.apache.commons.lang3.StringUtils;
@@ -47,7 +47,7 @@ public class DataObjectStrategy extends AbstractElementStrategy {
         };
         String[] replacementList = {
                 (String) context.get(VelocityLabel.DATA_OBJECT_CLASS_NAME),
-                (String) ThreadLocalUtil.getThreadLocal().get("mapper:UserDO"),
+                ThreadContextHelper.obtainObjectMapper(dataObject.getName()),
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

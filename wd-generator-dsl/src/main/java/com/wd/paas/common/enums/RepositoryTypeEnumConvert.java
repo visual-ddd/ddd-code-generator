@@ -1,7 +1,5 @@
 package com.wd.paas.common.enums;
 
-import com.wd.paas.common.enums.RepositoryTypeEnum;
-
 /**
  * 仓储能力类型 枚举转换器
  */

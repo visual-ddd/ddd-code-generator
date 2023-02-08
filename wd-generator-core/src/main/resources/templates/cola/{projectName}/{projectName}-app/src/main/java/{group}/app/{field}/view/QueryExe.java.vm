@@ -1,8 +1,8 @@
 #parse("templates/ClassFunction.vm")
 #set($dtoClassName = ${QUERY_RETURN_INFO.type})
-#set($doClassName = ${IMPORT_PACKAGE_MAP.get("mapper:${dtoClassName}")})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get("mapper::${dtoClassName}")})
 #set($doPackagePath = ${IMPORT_PACKAGE_MAP.get("${doClassName}")})
-#set($aggregationClassName = ${IMPORT_PACKAGE_MAP.get("mapper:${doClassName}")})
+#set($aggregationClassName = ${IMPORT_PACKAGE_MAP.get("mapper::${doClassName}")})
 #set($aggregationPackagePath = ${IMPORT_PACKAGE_MAP.get("${aggregationClassName}Mapper")})
 package ${IMPORT_PACKAGE_MAP.get("${QUERY_CLASS_NAME}Exe")};
 
