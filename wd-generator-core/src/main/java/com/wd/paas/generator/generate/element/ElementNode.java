@@ -1,11 +1,10 @@
 package com.wd.paas.generator.generate.element;
 
-
 /**
- * 需要生成的元素
+ * 需要遍历的元素节点（多叉树）
  *
  * @author shimmer
  */
-public interface Element {
+public interface ElementNode {
 
 }

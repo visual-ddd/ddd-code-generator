@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate;
 
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.generate.element.CompositeElement;
-import com.wd.paas.generator.generate.element.Element;
+import com.wd.paas.generator.generate.element.ElementNode;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 @Slf4j
 public class DslParser {
 
-    private final List<Element> elementList = new ArrayList<>();
+    private final List<ElementNode> elementList = new ArrayList<>();
 
     /**
      * 启动方法，控制执行顺序
@@ -33,7 +33,7 @@ public class DslParser {
         clear();
     }
 
-    public void accept(Consumer<Element> consumer) {
+    public void accept(Consumer<ElementNode> consumer) {
         elementList.forEach(element -> preorder(element, consumer));
     }
 
@@ -46,24 +46,24 @@ public class DslParser {
      *
      * @param root 需要遍历的element节点
      */
-    private static void preorder(Element root, Consumer<Element> consumer) {
+    private static void preorder(ElementNode root, Consumer<ElementNode> consumer) {
         if (root == null) {
             return;
         }
         consumer.accept(root);
         if (root instanceof CompositeElement) {
             CompositeElement compositeElement = (CompositeElement) root;
-            for (Element children : compositeElement.getElementList()) {
+            for (ElementNode children : compositeElement.getChildElementNodeList()) {
                 preorder(children, consumer);
             }
         }
     }
 
-    public void add(Element element) {
+    public void add(ElementNode element) {
         this.elementList.add(element);
     }
 
-    public void remove(Element element) {
+    public void remove(ElementNode element) {
         this.elementList.remove(element);
     }
 }

@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ElementStrategyFactory {
 
-    public static ElementStrategy getInstance(Element element) {
+    public static ElementStrategy getInstance(ElementNode element) {
         ElementTypeEnum type = ElementTypeEnum.of(element.getClass().getSimpleName());
         switch (type) {
             case APPLICATION:
@@ -36,8 +36,6 @@ public class ElementStrategyFactory {
                 return new DTOStrategy((ASTDto) element);
             case DATA_OBJECT:
                 return new DataObjectStrategy((ASTDataObject) element);
-            case DATA_OBJECT_REFERENCE:
-                return new DataObjectReferenceStrategy((ASTDataObjectReference) element);
             case DEFAULT:
                 log.debug("没有找到对应的处理类型：{}", element.getClass());
                 return new DefaultStrategy();

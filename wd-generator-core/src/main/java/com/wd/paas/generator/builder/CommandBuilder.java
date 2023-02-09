@@ -6,7 +6,7 @@ import com.wd.paas.generator.builder.convert.CommandDslConvert;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.generate.element.ASTCommand;
 import com.wd.paas.generator.generate.element.ASTDomainEvent;
-import com.wd.paas.generator.generate.element.Element;
+import com.wd.paas.generator.generate.element.ElementNode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Optional;
@@ -25,7 +25,7 @@ public class CommandBuilder {
         commandDsl.setCategory(StringUtils.isBlank(category) ? name : category);
         commandDsl.setName(name.concat(ModelUrlConstant.COMMAND_CLASS_SUFFIX));
 
-        Optional<Element> element = Optional.of(domainEvent).map(DomainEventBuilder::build);
+        Optional<ElementNode> element = Optional.of(domainEvent).map(DomainEventBuilder::build);
 
         ASTCommand command = CommandDslConvert.INSTANCE.dto2Do(commandDsl);
         command.setAstDomainEvent((ASTDomainEvent) element.orElse(new ASTDomainEvent()));

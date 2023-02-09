@@ -84,7 +84,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         return domainModel.getChildElementList(ASTAggregate.class);
     }
 
-    private List<Element> getCmdList() {
+    private List<ElementNode> getCmdList() {
         ASTDomainModel domainModel = astBusinessDomain.getChildElementList(ASTDomainModel.class).get(0);
         List<ASTAggregate> aggregationList = domainModel.getChildElementList(ASTAggregate.class);
         return aggregationList.stream()

@@ -24,7 +24,6 @@ public enum ElementTypeEnum {
     DTO("ASTDto"),
     OBJECT_MAPPER("ASTObjectMapper"),
     DATA_OBJECT("ASTDataObject"),
-    DATA_OBJECT_REFERENCE("ASTDataObjectReference"),
     ;
 
     private final String value;

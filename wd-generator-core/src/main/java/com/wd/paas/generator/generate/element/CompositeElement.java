@@ -6,30 +6,32 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
+ * 容器节点（父节点），包含子节点列表
+ *
  * @author shimmer
  */
-public abstract class CompositeElement implements Element {
+public abstract class CompositeElement implements ElementNode {
 
-    private final List<Element> elementList = new ArrayList<>();
+    private final List<ElementNode> childElementNodeList = new ArrayList<>();
 
-    public void add(Element element) {
-        this.elementList.add(element);
+    public void add(ElementNode node) {
+        this.childElementNodeList.add(node);
     }
 
-    public void addAll(List<Element> elementList) {
-        this.elementList.addAll(elementList);
+    public void addAll(List<ElementNode> nodeList) {
+        this.childElementNodeList.addAll(nodeList);
     }
 
-    public void remove(Element element) {
-        this.elementList.remove(element);
+    public void remove(ElementNode node) {
+        this.childElementNodeList.remove(node);
     }
 
-    public List<Element> getElementList() {
-        return elementList;
+    public List<ElementNode> getChildElementNodeList() {
+        return childElementNodeList;
     }
 
     public <T> List<T> getChildElementList(Class<T> targetClass) {
-        return elementList.stream()
+        return childElementNodeList.stream()
                 .filter(element -> Objects.equals(element.getClass(), targetClass))
                 .map(element -> (T) element)
                 .collect(Collectors.toList());
