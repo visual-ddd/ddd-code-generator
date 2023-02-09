@@ -106,4 +106,5 @@ public class VelocityLabel {
 
     public static final String CLASS_DTO_SUFFIX = "DTO";
     public static final String IMPORT_PACKAGE_MAP = "IMPORT_PACKAGE_MAP";
+    public static final String PARSE_STRING_UTIL = "PARSE_STRING_UTIL";
 }

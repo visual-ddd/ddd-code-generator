@@ -30,7 +30,7 @@ public class CommandStrategy extends AbstractElementStrategy {
         list.addAll(Arrays.asList(GenerateElementTypeEnum.EVENT.getTemplateUrls()));
 
         switch (astCommand.getRepository()) {
-            case SAVE:
+            case CREATE:
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.ADD_COMMAND_HANDLER.getTemplateUrls()));
                 break;
             case MODIFY:

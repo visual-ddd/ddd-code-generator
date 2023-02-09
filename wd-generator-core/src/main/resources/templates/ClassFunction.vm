@@ -57,9 +57,9 @@ import ${importPackage};
      /** ${method.description} */
     #end
     @Override
-    ${method.modifier} ${method.returnType} ${method.name}(${method.attributeLabel}){
+    ${method.access} ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})}) {
         // Do Something
-        #if($method.returnType != "void")
+        #if($method.signature.returnInfo.type != "void")
         return null;
      #end
     }
@@ -82,6 +82,6 @@ import ${importPackage};
     #if($method.description)
     /** ${method.description} */
     #end
-    public abstract ${method.returnType} ${method.name}(${method.attributeLabel});
+    public abstract ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})});
     #end
 #end

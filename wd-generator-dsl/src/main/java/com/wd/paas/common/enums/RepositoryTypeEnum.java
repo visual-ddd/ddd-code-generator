@@ -16,7 +16,7 @@ import java.util.Optional;
 public enum RepositoryTypeEnum {
 
     /**/
-    SAVE(1, "save"),
+    CREATE(1, "create"),
     MODIFY(2, "modify"),
     REMOVE(3, "remove");
 

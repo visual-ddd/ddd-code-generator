@@ -39,6 +39,7 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-start/src/main/resources/logback-spring.xml.vm",
             "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/Knife4jConfiguration.java.vm",
             "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/ProjectExceptionHandler.java.vm",
+            "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/StartInfoPrintListener.java.vm",
             "cola/{projectName}/{projectName}-start/src/main/docker/Dockerfile",
     }),
 

@@ -10,6 +10,17 @@ import java.util.List;
 @Data
 @ApiModel(value = "${CMD_CLASS_DESCRIPTION}")
 public class ${CMD_CATEGORY}DTO {
-    #filedExt(${CMD_CLASS_FIELDS}, "swagger")
+    #foreach ($field in ${CMD_CLASS_FIELDS})
+
+    #if($arg == "swagger")
+        @ApiModelProperty(value = "${field.description}")
+    #end
+    #if(${PARSE_STRING_UTIL.isEnum(${field.type})})
+    ${field.access} String ${field.name};
+    #end
+    #if(!${PARSE_STRING_UTIL.isEnum(${field.type})})
+    ${field.access} ${field.type} ${field.name};
+    #end
+    #end
 
 }

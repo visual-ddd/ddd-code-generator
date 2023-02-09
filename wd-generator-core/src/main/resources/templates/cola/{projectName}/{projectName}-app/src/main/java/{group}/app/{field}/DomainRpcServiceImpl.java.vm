@@ -10,7 +10,6 @@ import ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME}.view.*;
 import ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME}.assembler.*;
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
 import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler;
-import ${IMPORT_PACKAGE_MAP.get("${cmd.name}")}.${cmd.name};
 #end
 #foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
 import ${IMPORT_PACKAGE_MAP.get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;

@@ -5,6 +5,7 @@ import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.util.ParseStringUtil;
 import com.wd.paas.generator.generate.element.ASTApplication;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.commons.lang3.StringUtils;
@@ -42,6 +43,7 @@ public class ApplicationStrategy extends AbstractElementStrategy {
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL));
 
         context.put(VelocityLabel.IMPORT_PACKAGE_MAP, ThreadLocalUtil.getThreadLocal());
+        context.put(VelocityLabel.PARSE_STRING_UTIL, ParseStringUtil.class);
     }
 
     @Override
