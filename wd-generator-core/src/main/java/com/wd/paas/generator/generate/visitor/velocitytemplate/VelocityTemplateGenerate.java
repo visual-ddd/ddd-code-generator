@@ -38,10 +38,9 @@ public interface VelocityTemplateGenerate extends ElementStrategy {
     /**
      * 解析输出路径
      *
-     * @param templateUrl 需要解析的模版路径
-     * @param context     变量上下文
-     * @param preFixOutPath  目标路径
+     * @param templateUrl   需要解析的模版路径
+     * @param preFixOutPath 目标路径
      * @return 输出路径
      */
-    String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath);
+    String parseOutputPath(String templateUrl, String preFixOutPath);
 }

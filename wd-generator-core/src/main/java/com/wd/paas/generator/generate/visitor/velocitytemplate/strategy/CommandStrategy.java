@@ -1,10 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.ASTCommand;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ public class CommandStrategy extends AbstractElementStrategy {
         list.addAll(Arrays.asList(GenerateElementTypeEnum.EVENT.getTemplateUrls()));
 
         switch (astCommand.getRepository()) {
-            case CREATE:
+            case SAVE:
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.ADD_COMMAND_HANDLER.getTemplateUrls()));
                 break;
             case MODIFY:
@@ -56,43 +54,7 @@ public class CommandStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        String outputPath = AggregationStrategy.getOutputPath(templateUrl, context, preFixOutPath);
-
-        String[] searchList = {
-                // url
-                ModelUrlConstant.ACTION,
-
-                // cmd
-                ModelUrlConstant.COMMAND_DTO_CLASS,
-                ModelUrlConstant.COMMAND_CLASS,
-
-                // event
-                ModelUrlConstant.EVENT_CLASS,
-
-                // Handler
-                ModelUrlConstant.ADD_COMMAND_HANDLER_CLASS,
-                ModelUrlConstant.UPDATE_COMMAND_HANDLER_CLASS,
-                ModelUrlConstant.DELETE_COMMAND_HANDLER_CLASS
-        };
-        String[] replacementList = {
-                // url
-                (String) context.get(VelocityLabel.URL_ACTION),
-
-                // cmd
-                (String) context.get(VelocityLabel.CMD_DTO_CLASS),
-                (String) context.get(VelocityLabel.CMD_CLASS_NAME),
-
-                // event
-                (String) context.get(VelocityLabel.CMD_EVENT_CLASS_NAME),
-
-                // handler
-                (String) context.get(VelocityLabel.CMD_CLASS_NAME),
-                (String) context.get(VelocityLabel.CMD_CLASS_NAME),
-                (String) context.get(VelocityLabel.CMD_CLASS_NAME)
-
-        };
-
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+        return astCommand.getOutputPath(templateUrl, preFixOutPath);
     }
 }

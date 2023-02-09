@@ -1,10 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.*;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -44,22 +42,8 @@ public class AggregationStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        return getOutputPath(templateUrl, context, preFixOutPath);
-    }
-
-    protected static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        String outputPath = BusinessDomainStrategy.getOutputPath(templateUrl, context, preFixOutPath);
-
-        String[] searchList = {
-                ModelUrlConstant.AGGREGATION,
-                ModelUrlConstant.AGGREGATION_CLASS
-        };
-        String[] replacementList = {
-                (String) context.get(VelocityLabel.URL_AGGREGATION),
-                (String) context.get(VelocityLabel.AGGREGATION_CLASS_NAME)
-        };
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+        return astAggregate.getOutputPath(templateUrl, preFixOutPath);
     }
 
 }

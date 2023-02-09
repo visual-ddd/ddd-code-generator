@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  *
  * @author shimmer
  */
-public abstract class CompositeElement implements ElementNode {
+public abstract class CompositeElement extends ElementNode {
 
     private final List<ElementNode> childElementNodeList = new ArrayList<>();
 

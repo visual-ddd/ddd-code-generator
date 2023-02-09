@@ -1,12 +1,9 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.common.enums.ConvertTypeEnum;
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.ASTObjectMapper;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.ArrayList;
@@ -50,20 +47,8 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        String outputPath = BusinessDomainStrategy.getOutputPath(templateUrl, context, preFixOutPath);
-
-        String[] searchList = {
-                ModelUrlConstant.OBJECT_MAPPER_CONVERT_CLASS,
-                ModelUrlConstant.OBJECT_MAPPER_REPOSITORY_CLASS,
-                ModelUrlConstant.QUERY_RESULT_CONVERT_CLASS,
-        };
-        String[] replacementList = {
-                (String) context.get(VelocityLabel.OBJECT_MAPPER_CLASS_NAME),
-                ThreadContextHelper.obtainObjectMapper(astObjectMapper.getTarget().getName()),
-                (String) context.get(VelocityLabel.OBJECT_MAPPER_CLASS_NAME),
-        };
-
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+        return astObjectMapper.getOutputPath(templateUrl, preFixOutPath);
     }
+
 }

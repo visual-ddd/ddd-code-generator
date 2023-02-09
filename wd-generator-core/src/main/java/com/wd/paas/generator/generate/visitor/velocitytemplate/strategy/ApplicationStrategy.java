@@ -1,14 +1,12 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.google.common.base.CaseFormat;
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.common.util.ParseStringUtil;
 import com.wd.paas.generator.generate.element.ASTApplication;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -52,34 +50,12 @@ public class ApplicationStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        return getOutputPath(templateUrl, context, preFixOutPath);
+    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+        return astApplication.getOutputPath(templateUrl, preFixOutPath);
     }
 
     @Override
     public Boolean process(TemplateContext templateContext) {
         return templateContext.getIsGenerateProjectFrame();
-    }
-
-    protected static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        String[] searchList = {
-                ModelUrlConstant.OUTPUT_PATH,
-                ModelUrlConstant.PROJECT_NAME,
-                ModelUrlConstant.GROUP,
-                ModelUrlConstant.VM
-        };
-        String projectPackage = (String) context.get(VelocityLabel.PROJECT_PACKAGE);
-        String projectPath = trans2Slash(projectPackage);
-        String[] replacementList = {
-                preFixOutPath,
-                (String) context.get(VelocityLabel.PROJECT_NAME),
-                projectPath,
-                ModelUrlConstant.EMPTY
-        };
-        return StringUtils.replaceEach(templateUrl, searchList, replacementList);
-    }
-
-    private static String trans2Slash(String target) {
-        return StringUtils.replace(target, ModelUrlConstant.POINT, ModelUrlConstant.SLASH);
     }
 }

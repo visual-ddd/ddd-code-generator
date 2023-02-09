@@ -1,8 +1,10 @@
 package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.*;
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -46,4 +48,18 @@ public class ASTQuery extends LeafElement {
      * 查询返回值
      */
     private ReturnInfo returnInfo;
+
+    public String getOutputPath(String templateUrl, String preFixOutPath) {
+        ASTBusinessDomain businessDomain = (ASTBusinessDomain)this.getParentNode();
+        String outputPath = businessDomain.getOutputPath(templateUrl, preFixOutPath);
+
+        String[] searchList = {
+                ModelUrlConstant.QUERY_CLASS,
+        };
+        String[] replacementList = {
+                name,
+        };
+
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
 }

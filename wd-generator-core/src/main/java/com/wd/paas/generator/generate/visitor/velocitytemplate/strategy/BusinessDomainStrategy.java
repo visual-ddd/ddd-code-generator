@@ -1,11 +1,9 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.google.common.base.CaseFormat;
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.*;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.ArrayList;
@@ -31,7 +29,6 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
 
         context.put(VelocityLabel.DOMAIN_NAME, domainName);
         context.put(VelocityLabel.DOMAIN_CLASS_NAME, convertDomainClassName(domainName));
-        context.put(VelocityLabel.DOMAIN_URL_NAME, convertFieldUrl(domainName));
         context.put(VelocityLabel.DOMAIN_AUTHOR, "WCS \n * @author ZXL");
         context.put(VelocityLabel.DOMAIN_DESCRIPTION, astBusinessDomain.getDescription());
 
@@ -47,22 +44,8 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        return getOutputPath(templateUrl, context, preFixOutPath);
-    }
-
-    protected static String getOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        String outputPath = ApplicationStrategy.getOutputPath(templateUrl, context, preFixOutPath);
-
-        String[] searchList = {
-                ModelUrlConstant.FIELD,
-                ModelUrlConstant.DOMAIN_CLASS,
-        };
-        String[] replacementList = {
-                (String) context.get(VelocityLabel.DOMAIN_URL_NAME),
-                (String) context.get(VelocityLabel.DOMAIN_CLASS_NAME),
-        };
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+        return astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
     }
 
     /**
@@ -70,13 +53,6 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
      */
     private static String convertDomainClassName(String domainName) {
         return CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL).convert(domainName);
-    }
-
-    /**
-     * 实现领域路径转换规则
-     */
-    private static String convertFieldUrl(String domainName) {
-        return domainName.toLowerCase();
     }
 
     private List<ASTAggregate> getAggregationList() {

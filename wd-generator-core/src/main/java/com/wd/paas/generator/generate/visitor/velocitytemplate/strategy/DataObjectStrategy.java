@@ -1,11 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.ASTDataObject;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -38,18 +35,7 @@ public class DataObjectStrategy extends AbstractElementStrategy {
 
     }
     @Override
-    public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        String outputPath = BusinessDomainStrategy.getOutputPath(templateUrl, context, preFixOutPath);
-
-        String[] searchList = {
-                ModelUrlConstant.DATA_DO_CLASS,
-                ModelUrlConstant.DATA_MAPPER_CLASS,
-        };
-        String[] replacementList = {
-                (String) context.get(VelocityLabel.DATA_OBJECT_CLASS_NAME),
-                ThreadContextHelper.obtainObjectMapper(dataObject.getName()),
-        };
-
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+        return dataObject.getOutputPath(templateUrl, preFixOutPath);
     }
 }

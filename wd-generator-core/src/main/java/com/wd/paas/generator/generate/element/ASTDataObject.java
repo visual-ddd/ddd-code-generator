@@ -3,9 +3,12 @@ package com.wd.paas.generator.generate.element;
 import com.wd.paas.common.DataIndexInfo;
 import com.wd.paas.common.DataPropertyInfo;
 import com.wd.paas.common.MetaInfo;
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
+import com.wd.paas.generator.common.context.ThreadContextHelper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -34,4 +37,20 @@ public class ASTDataObject extends LeafElement{
 
     private List<DataIndexInfo> dataIndexInfos;
 
+
+    public String getOutputPath(String templateUrl, String preFixOutPath) {
+        ASTBusinessDomain parentNode = (ASTBusinessDomain) this.getParentNode();
+        String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
+
+        String[] searchList = {
+                ModelUrlConstant.DATA_DO_CLASS,
+                ModelUrlConstant.DATA_MAPPER_CLASS,
+        };
+        String[] replacementList = {
+                name,
+                ThreadContextHelper.obtainObjectMapper(name),
+        };
+
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
 }

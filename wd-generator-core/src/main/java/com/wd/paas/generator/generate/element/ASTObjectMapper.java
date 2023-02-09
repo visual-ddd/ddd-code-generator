@@ -3,8 +3,11 @@ package com.wd.paas.generator.generate.element;
 import com.wd.paas.common.MetaInfo;
 import com.wd.paas.common.ObjectFieldMapper;
 import com.wd.paas.common.ObjectReference;
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
+import com.wd.paas.generator.common.context.ThreadContextHelper;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -32,4 +35,21 @@ public class ASTObjectMapper extends LeafElement {
 
     private MetaInfo meta;
 
+    public String getOutputPath(String templateUrl, String preFixOutPath) {
+        ASTBusinessDomain businessDomain = (ASTBusinessDomain) this.getParentNode();
+        String outputPath = businessDomain.getOutputPath(templateUrl, preFixOutPath);
+
+        String[] searchList = {
+                ModelUrlConstant.OBJECT_MAPPER_CONVERT_CLASS,
+                ModelUrlConstant.OBJECT_MAPPER_REPOSITORY_CLASS,
+                ModelUrlConstant.QUERY_RESULT_CONVERT_CLASS,
+        };
+        String[] replacementList = {
+                name,
+                ThreadContextHelper.obtainObjectMapper(target.getName()),
+                name,
+        };
+
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
 }

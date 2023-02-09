@@ -1,10 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.ASTEnum;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -34,17 +32,8 @@ public class EnumStrategy extends AbstractElementStrategy{
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, VelocityContext context, String preFixOutPath) {
-        String outputPath = AggregationStrategy.getOutputPath(templateUrl, context, preFixOutPath);
-
-        String[] searchList = {
-                ModelUrlConstant.ENUM_CLASS
-        };
-
-        String[] replacementList = {
-                (String) context.get(VelocityLabel.ENUM_CLASS_NAME)
-        };
-
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+        return anEnum.getOutputPath(templateUrl, preFixOutPath);
     }
+
 }

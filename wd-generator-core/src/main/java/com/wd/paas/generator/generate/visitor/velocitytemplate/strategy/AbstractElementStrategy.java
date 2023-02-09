@@ -53,7 +53,7 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
         // 获取模版文件列表
         List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
-            String outputPath = this.parseOutputPath(templateUrl, templateContext.getContext(),
+            String outputPath = this.parseOutputPath(templateUrl,
                     templateContext.getPreFixOutPath());
             FileGenerator.run(templateContext.getContext(), templateContext.getZipOutputStream(), templateUrl, outputPath);
         }
@@ -67,7 +67,7 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
     private void storeOutPutPath(TemplateContext templateContext) {
         List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
-            String outputPath = this.parseOutputPath(templateUrl, templateContext.getContext(),
+            String outputPath = this.parseOutputPath(templateUrl,
                     templateContext.getPreFixOutPath());
             ThreadContextHelper.storePath(outputPath);
         }
