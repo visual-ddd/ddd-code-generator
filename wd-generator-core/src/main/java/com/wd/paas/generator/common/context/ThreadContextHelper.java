@@ -5,7 +5,9 @@ import java.util.regex.Pattern;
 
 public class ThreadContextHelper {
 
-    private static final String PRE_OBJECT_MAPPER = "mapper::";
+    public static final String ENTITY = "entity";
+
+    private static final String OBJECT_MAPPER_KEY = "mapper::%s::%s";
 
     /**
      * 将类名和包路径存储到线程上下文中
@@ -33,8 +35,8 @@ public class ThreadContextHelper {
      * @param sourceClass 源头
      * @param targetClass 目标
      */
-    public static void storeObjectMapper(String sourceClass, String targetClass){
-        ThreadLocalUtil.set(PRE_OBJECT_MAPPER.concat(sourceClass), targetClass);
+    public static void storeObjectMapper(String type, String sourceClass, String targetClass){
+        ThreadLocalUtil.set(buildObjectType(type, sourceClass), targetClass);
     }
 
     /**
@@ -43,8 +45,12 @@ public class ThreadContextHelper {
      * @param className 类名
      * @return 映射的类
      */
-    public static String obtainObjectMapper(String className){
-        return (String) ThreadLocalUtil.getThreadLocal().get(PRE_OBJECT_MAPPER.concat(className));
+    public static String obtainObjectMapper(String type, String className){
+        return (String) ThreadLocalUtil.getThreadLocal().get(buildObjectType(type, className));
+    }
+
+    public static String buildObjectType(String type, String className){
+        return String.format(OBJECT_MAPPER_KEY, type, className);
     }
 
 }

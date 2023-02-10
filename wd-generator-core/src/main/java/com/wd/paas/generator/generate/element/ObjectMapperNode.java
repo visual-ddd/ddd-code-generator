@@ -46,7 +46,7 @@ public class ObjectMapperNode extends LeafElement {
         };
         String[] replacementList = {
                 name,
-                ThreadContextHelper.obtainObjectMapper(target.getName()),
+                ThreadContextHelper.obtainObjectMapper(ThreadContextHelper.ENTITY, name),
                 name,
         };
 

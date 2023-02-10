@@ -66,8 +66,8 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     public void storeObjectMapper() {
         String sourceName = astObjectMapper.getSource().getName();
         String targetName = astObjectMapper.getTarget().getName();
-        ThreadContextHelper.storeObjectMapper(sourceName, targetName);
-        ThreadContextHelper.storeObjectMapper(targetName, sourceName);
+        ThreadContextHelper.storeObjectMapper(astObjectMapper.getSource().getType(), sourceName, targetName);
+        ThreadContextHelper.storeObjectMapper(astObjectMapper.getSource().getType(), targetName, sourceName);
     }
 
 }

@@ -48,7 +48,7 @@ public class DataObjectNode extends LeafElement{
         };
         String[] replacementList = {
                 name,
-                ThreadContextHelper.obtainObjectMapper(name),
+                ThreadContextHelper.obtainObjectMapper(ThreadContextHelper.ENTITY, name),
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
