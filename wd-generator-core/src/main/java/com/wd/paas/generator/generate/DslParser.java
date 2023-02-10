@@ -1,6 +1,5 @@
 package com.wd.paas.generator.generate;
 
-import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.generate.element.CompositeElement;
 import com.wd.paas.generator.generate.element.ElementNode;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +18,7 @@ import java.util.function.Consumer;
 @Slf4j
 public class DslParser {
 
-    private final List<ElementNode> elementList = new ArrayList<>();
+    private final List<ElementNode> childElementNodeList = new ArrayList<>();
 
     /**
      * 启动方法，控制执行顺序
@@ -30,15 +29,11 @@ public class DslParser {
         // 预处理
         this.accept(visitor::preHandle);
         this.accept(visitor::generate);
-        clear();
+        this.accept(visitor::afterHandle);
     }
 
     public void accept(Consumer<ElementNode> consumer) {
-        elementList.forEach(element -> preorder(element, consumer));
-    }
-
-    public static void clear() {
-        ThreadLocalUtil.remove();
+        childElementNodeList.forEach(element -> preorder(element, consumer));
     }
 
     /**
@@ -60,10 +55,10 @@ public class DslParser {
     }
 
     public void add(ElementNode element) {
-        this.elementList.add(element);
+        this.childElementNodeList.add(element);
     }
 
     public void remove(ElementNode element) {
-        this.elementList.remove(element);
+        this.childElementNodeList.remove(element);
     }
 }

@@ -4,7 +4,7 @@ import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.generator.builder.ApplicationBuilder;
 import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.element.ASTApplication;
-import com.wd.paas.generator.generate.visitor.JavaTemplateVisitor;
+import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
 import org.junit.Assert;
@@ -23,8 +23,8 @@ public class ASTApplicationDslTest {
         DslParser dslStruct = new DslParser();
         dslStruct.add(app);
 
-        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
-        dslStruct.run(javaTemplateVisitor);
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));
+        dslStruct.run(templateVisitor);
 
         Assert.assertTrue(true);
     }

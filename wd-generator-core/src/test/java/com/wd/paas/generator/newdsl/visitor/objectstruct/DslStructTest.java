@@ -2,7 +2,7 @@ package com.wd.paas.generator.newdsl.visitor.objectstruct;
 
 import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.element.ASTApplication;
-import com.wd.paas.generator.generate.visitor.JavaTemplateVisitor;
+import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,9 +16,9 @@ public class DslStructTest {
         DslParser dslStruct = new DslParser();
         dslStruct.add(ASTApplication);
 
-        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./",null));
-        dslStruct.accept(javaTemplateVisitor::preHandle);
-        dslStruct.accept(javaTemplateVisitor::generate);
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./",null));
+        dslStruct.accept(templateVisitor::preHandle);
+        dslStruct.accept(templateVisitor::generate);
 
         Assert.assertTrue(true);
     }

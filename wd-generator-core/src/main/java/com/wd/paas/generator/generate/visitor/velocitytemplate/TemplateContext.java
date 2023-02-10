@@ -1,10 +1,11 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
 import lombok.Data;
-import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.zip.ZipOutputStream;
 
@@ -16,7 +17,7 @@ import java.util.zip.ZipOutputStream;
 @Data
 public class TemplateContext {
 
-    private VelocityContext context = new VelocityContext();
+    private Map<String, Object> context = new HashMap<>();
     private String preFixOutPath;
     private ZipOutputStream zipOutputStream;
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
@@ -36,11 +37,10 @@ public class TemplateContext {
         this.isGenerateProjectFrame = isGenerateProjectFrame;
     }
 
-    public TemplateContext(VelocityContext context, String preFixOutPath, ZipOutputStream zipOutputStream,
-                           Boolean isGenerateProjectFrame) {
-        this(preFixOutPath, zipOutputStream, isGenerateProjectFrame);
-        this.context = context;
+    public void clear() {
+        context.clear();
     }
+
 
     /**
      * 配置velocity上下文

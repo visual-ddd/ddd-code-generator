@@ -4,7 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.wd.paas.dsl.*;
 import com.wd.paas.generator.builder.ApplicationBuilder;
 import com.wd.paas.generator.generate.DslParser;
-import com.wd.paas.generator.generate.visitor.JavaTemplateVisitor;
+import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
 import org.junit.Assert;
@@ -53,9 +53,9 @@ public class ASTObjectMapperDslTest {
         DslParser dslStruct = new DslParser();
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
-        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(new TemplateContext("./target",null));
-        dslStruct.accept(javaTemplateVisitor::preHandle);
-        dslStruct.accept(javaTemplateVisitor::generate);
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));
+        dslStruct.accept(templateVisitor::preHandle);
+        dslStruct.accept(templateVisitor::generate);
 
         Assert.assertTrue(true);
     }

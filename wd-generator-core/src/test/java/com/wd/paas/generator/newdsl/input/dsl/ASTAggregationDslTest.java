@@ -6,7 +6,7 @@ import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
 import com.wd.paas.generator.builder.ApplicationBuilder;
 import com.wd.paas.generator.generate.DslParser;
-import com.wd.paas.generator.generate.visitor.JavaTemplateVisitor;
+import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
 import org.junit.Assert;
@@ -33,8 +33,8 @@ public class ASTAggregationDslTest {
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
         TemplateContext context = new TemplateContext("./target", null);
-        JavaTemplateVisitor javaTemplateVisitor = new JavaTemplateVisitor(context);
-        dslStruct.run(javaTemplateVisitor);
+        TemplateVisitor templateVisitor = new TemplateVisitor(context);
+        dslStruct.run(templateVisitor);
 
         Assert.assertTrue(true);
     }
