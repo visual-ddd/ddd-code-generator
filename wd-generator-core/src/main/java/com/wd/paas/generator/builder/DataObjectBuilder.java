@@ -3,18 +3,18 @@ package com.wd.paas.generator.builder;
 import com.wd.paas.common.DataPropertyInfo;
 import com.wd.paas.dsl.DataObjectDsl;
 import com.wd.paas.generator.builder.convert.DataObjectDslConvert;
-import com.wd.paas.generator.generate.element.ASTBusinessDomain;
-import com.wd.paas.generator.generate.element.ASTDataObject;
+import com.wd.paas.generator.generate.element.BusinessDomainNode;
+import com.wd.paas.generator.generate.element.DataObjectNode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
 public class DataObjectBuilder {
-    static ASTDataObject build(DataObjectDsl dataObjectDsl, ASTBusinessDomain astBusinessDomain) {
+    static DataObjectNode build(DataObjectDsl dataObjectDsl, BusinessDomainNode astBusinessDomain) {
         List<DataPropertyInfo> dataPropertyList = dataObjectDsl.getDataPropertyList();
         dataPropertyList.forEach(dataPropertyInfo -> dataPropertyInfo.setDataType(convertFileType(dataPropertyInfo.getDataType())));
 
-        ASTDataObject astDataObject = DataObjectDslConvert.INSTANCE.dto2Do(dataObjectDsl);
+        DataObjectNode astDataObject = DataObjectDslConvert.INSTANCE.dto2Do(dataObjectDsl);
         astDataObject.setParentNode(astBusinessDomain);
         return astDataObject;
     }

@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ASTBusinessDomain extends CompositeElement {
+public class BusinessDomainNode extends CompositeElement {
 
     private String title;
 
@@ -26,7 +26,7 @@ public class ASTBusinessDomain extends CompositeElement {
     private String document;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTApplication parentNode = (ASTApplication) this.getParentNode();
+        ApplicationNode parentNode = (ApplicationNode) this.getParentNode();
 
         String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
         String[] searchList = {

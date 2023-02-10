@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ASTBusinessScenario extends CompositeElement {
+public class BusinessScenarioNode extends CompositeElement {
 
     private String title;
 

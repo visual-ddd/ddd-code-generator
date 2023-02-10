@@ -1,11 +1,13 @@
 package com.wd.paas.generator.generate.element;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@AllArgsConstructor
-@Data
+/**
+ * @author wangchensheng
+ */
 @EqualsAndHashCode(callSuper = true)
-public class ASTDataModel extends CompositeElement {
+@Data
+public class DomainModelNode extends CompositeElement {
+
 }

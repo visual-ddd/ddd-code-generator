@@ -4,7 +4,7 @@ import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
 import com.wd.paas.generator.builder.ApplicationBuilder;
 import com.wd.paas.generator.generate.DslParser;
-import com.wd.paas.generator.generate.element.ASTApplication;
+import com.wd.paas.generator.generate.element.ApplicationNode;
 import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
@@ -27,7 +27,7 @@ public class ASTAllDslTest {
         applicationDsl.setBusinessDomainList(Collections.singletonList(businessDomainDsl));
 
         DslParser dslStruct = new DslParser();
-        ASTApplication app = ApplicationBuilder.build(applicationDsl);
+        ApplicationNode app = ApplicationBuilder.build(applicationDsl);
         dslStruct.add(app);
 
         TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));

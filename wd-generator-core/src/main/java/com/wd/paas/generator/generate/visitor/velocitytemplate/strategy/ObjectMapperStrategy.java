@@ -4,7 +4,7 @@ import com.wd.paas.common.enums.ConvertTypeEnum;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.ASTObjectMapper;
+import com.wd.paas.generator.generate.element.ObjectMapperNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.velocity.VelocityContext;
 
@@ -14,9 +14,9 @@ import java.util.List;
 
 public class ObjectMapperStrategy extends AbstractElementStrategy{
 
-    private final ASTObjectMapper astObjectMapper;
+    private final ObjectMapperNode astObjectMapper;
 
-    public ObjectMapperStrategy(ASTObjectMapper astObjectMapper){
+    public ObjectMapperStrategy(ObjectMapperNode astObjectMapper){
         this.astObjectMapper = astObjectMapper;
     }
 

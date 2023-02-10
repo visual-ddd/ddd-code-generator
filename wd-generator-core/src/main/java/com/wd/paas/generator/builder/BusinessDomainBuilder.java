@@ -2,8 +2,8 @@ package com.wd.paas.generator.builder;
 
 import com.wd.paas.dsl.BusinessDomainDsl;
 import com.wd.paas.generator.builder.convert.BusinessDomainDslConvert;
-import com.wd.paas.generator.generate.element.ASTApplication;
-import com.wd.paas.generator.generate.element.ASTBusinessDomain;
+import com.wd.paas.generator.generate.element.ApplicationNode;
+import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.ElementNode;
 
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import java.util.Optional;
 
 public class BusinessDomainBuilder {
 
-    public static ASTBusinessDomain build(BusinessDomainDsl businessDomainDsl, ASTApplication astApplication) {
-        ASTBusinessDomain astBusinessDomain = BusinessDomainDslConvert.INSTANCE.dto2Do(businessDomainDsl);
+    public static BusinessDomainNode build(BusinessDomainDsl businessDomainDsl, ApplicationNode astApplication) {
+        BusinessDomainNode astBusinessDomain = BusinessDomainDslConvert.INSTANCE.dto2Do(businessDomainDsl);
 
         List<ElementNode> elements = new ArrayList<>();
         Optional.ofNullable(businessDomainDsl.getObjectMapperModel()).map(objectMapperModelDsl -> ObjectMapperModelBuilder.build(objectMapperModelDsl, astBusinessDomain)).ifPresent(elements::add);

@@ -1,8 +1,7 @@
 package com.wd.paas.generator.generate.element;
 
 
-import com.wd.paas.common.MethodInfo;
-import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.common.EnumMemberInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,26 +14,22 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTEntity extends LeafElement{
+public class EnumNode extends LeafElement {
 
     private String name;
 
     private String description;
 
-    private Boolean isAbstract;
+    private String baseType;
 
-    private PropertyInfo id;
-
-    private List<PropertyInfo> propertyList;
-
-    private List<MethodInfo> methodInfoList;
+    private List<EnumMemberInfo> memberList;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTAggregate parentNode = (ASTAggregate) this.getParentNode();
+        AggregateNode parentNode = (AggregateNode) this.getParentNode();
         String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
 
         String[] searchList = {
-                ModelUrlConstant.ENTITY_CLASS
+                ModelUrlConstant.ENUM_CLASS
         };
 
         String[] replacementList = {
@@ -43,5 +38,4 @@ public class ASTEntity extends LeafElement{
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
-
 }

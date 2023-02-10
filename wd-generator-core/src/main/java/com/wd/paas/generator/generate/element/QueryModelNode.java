@@ -5,6 +5,6 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTObjectMapperModel extends CompositeElement {
+public class QueryModelNode extends CompositeElement {
 
 }

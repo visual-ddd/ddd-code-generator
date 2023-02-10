@@ -14,24 +14,24 @@ import java.util.Optional;
  */
 public class AggregationStrategy extends AbstractElementStrategy {
 
-    private final ASTAggregate astAggregate;
+    private final AggregateNode astAggregate;
 
-    public AggregationStrategy(ASTAggregate astAggregate) {
+    public AggregationStrategy(AggregateNode astAggregate) {
         this.astAggregate = astAggregate;
     }
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        ASTAggregateRoot astAggregateRoot = Optional.of(astAggregate.getRoot()).orElse(new ASTAggregateRoot());
+        AggregateRootNode astAggregateRoot = Optional.of(astAggregate.getRoot()).orElse(new AggregateRootNode());
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME, astAggregateRoot.getName());
         context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, astAggregateRoot.getDescription());
         context.put(VelocityLabel.AGGREGATION_CLASS_ID, astAggregateRoot.getId());
         context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, astAggregateRoot.getPropertyList());
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, astAggregateRoot.getMethodList());
 
-        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, astAggregate.getChildElementList(ASTEnum.class));
-        context.put(VelocityLabel.AGGREGATION_CMD_LIST, astAggregate.getChildElementList(ASTCommand.class));
-        context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, astAggregate.getChildElementList(ASTEntity.class));
+        context.put(VelocityLabel.AGGREGATION_ENUM_LIST, astAggregate.getChildElementList(EnumNode.class));
+        context.put(VelocityLabel.AGGREGATION_CMD_LIST, astAggregate.getChildElementList(CommandNode.class));
+        context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, astAggregate.getChildElementList(EntityNode.class));
 
         context.put(VelocityLabel.URL_AGGREGATION, astAggregateRoot.getName().toLowerCase());
     }

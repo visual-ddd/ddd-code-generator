@@ -20,7 +20,7 @@ import java.util.Locale;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTCommand extends CompositeElement {
+public class CommandNode extends CompositeElement {
 
     private String name;
 
@@ -34,7 +34,7 @@ public class ASTCommand extends CompositeElement {
 
     private List<PropertyInfo> propertyList;
 
-    private ASTDomainEvent astDomainEvent;
+    private DomainEventNode astDomainEvent;
 
     private Boolean eventEnable;
 
@@ -45,10 +45,8 @@ public class ASTCommand extends CompositeElement {
     private String packagePath;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTAggregate astAggregate = (ASTAggregate) this.getParentNode();
+        AggregateNode astAggregate = (AggregateNode) this.getParentNode();
         String outputPath = astAggregate.getOutputPath(templateUrl, preFixOutPath);
-
-
         String[] searchList = {
                 // url
                 ModelUrlConstant.ACTION,
@@ -82,7 +80,6 @@ public class ASTCommand extends CompositeElement {
                 name
 
         };
-
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 

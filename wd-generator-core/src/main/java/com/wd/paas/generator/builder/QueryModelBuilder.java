@@ -2,8 +2,8 @@ package com.wd.paas.generator.builder;
 
 import com.wd.paas.dsl.QueryModelDsl;
 import com.wd.paas.generator.builder.convert.QueryModelDslConvert;
-import com.wd.paas.generator.generate.element.ASTBusinessDomain;
-import com.wd.paas.generator.generate.element.ASTQueryModel;
+import com.wd.paas.generator.generate.element.BusinessDomainNode;
+import com.wd.paas.generator.generate.element.QueryModelNode;
 import com.wd.paas.generator.generate.element.ElementNode;
 
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import java.util.Optional;
 
 public class QueryModelBuilder {
 
-    static ASTQueryModel build(QueryModelDsl queryModelDsl, ASTBusinessDomain astBusinessDomain) {
-        ASTQueryModel queryModel = QueryModelDslConvert.INSTANCE.dto2Do(queryModelDsl);
+    static QueryModelNode build(QueryModelDsl queryModelDsl, BusinessDomainNode astBusinessDomain) {
+        QueryModelNode queryModel = QueryModelDslConvert.INSTANCE.dto2Do(queryModelDsl);
 
         List<ElementNode> elements = new ArrayList<>();
         Optional.ofNullable(queryModelDsl.getQueryDslList()).ifPresent(e -> e.stream().map(queryDsl -> QueryBuilder.build(queryDsl, queryModel)).forEach(elements::add));

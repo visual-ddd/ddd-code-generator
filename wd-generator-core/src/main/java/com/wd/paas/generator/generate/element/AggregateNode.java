@@ -13,19 +13,19 @@ import java.util.Optional;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTAggregate extends CompositeElement {
+public class AggregateNode extends CompositeElement {
 
-    private ASTAggregateRoot root;
+    private AggregateRootNode root;
 
-    public List<ASTCommand> getCommandList() {
-        return getChildElementList(ASTCommand.class);
+    public List<CommandNode> getCommandList() {
+        return getChildElementList(CommandNode.class);
     }
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTDomainModel domainModel = (ASTDomainModel) this.getParentNode();
-        ASTBusinessDomain astBusinessDomain = (ASTBusinessDomain) domainModel.getParentNode();
+        DomainModelNode domainModel = (DomainModelNode) this.getParentNode();
+        BusinessDomainNode astBusinessDomain = (BusinessDomainNode) domainModel.getParentNode();
 
-        ASTAggregateRoot astAggregateRoot = Optional.of(root).orElse(new ASTAggregateRoot());
+        AggregateRootNode astAggregateRoot = Optional.of(root).orElse(new AggregateRootNode());
         String outputPath = astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
         String[] searchList = {
                 ModelUrlConstant.AGGREGATION,

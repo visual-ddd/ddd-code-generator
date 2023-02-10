@@ -10,7 +10,7 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTDto extends LeafElement {
+public class QueryNode extends LeafElement {
 
     private String identity;
 
@@ -22,52 +22,43 @@ public class ASTDto extends LeafElement {
 
     private MetaInfo meta;
 
-    /**
-     * 继承
-     */
-    private ClassInfo extendsClass;
+    private List<SourceInfo> querySourceList;
 
     /**
-     * 扩展的接口列表
-     */
-    private List<InterfaceInfo> interfaceList;
-
-    /**
-     * 抽象类，默认为false
-     */
-    private Boolean isAbstract;
-
-    /**
-     * 类实例属性
+     * 查询的参数实体
      */
     private List<PropertyInfo> propertyList;
 
     /**
-     * 类实例方法, 支持方法重载
+     * 分页返回
      */
-    private List<MethodInfo> methodList;
+    private Boolean pagination;
 
     /**
-     * 类静态属性
+     * 执行器, 默认为 ·查询名称 + Exe· 连接起来的类， 有固定的实现逻辑
      */
-    private List<PropertyInfo> classPropertyList;
+    private ClassInfo handler;
 
     /**
-     * 类实例方法, 支持方法重载
+     * 规则
      */
-    private List<MethodInfo> classMethodList;
+    private List<RuleInfo> ruleList;
+
+    /**
+     * 查询返回值
+     */
+    private ReturnInfo returnInfo;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTQueryModel queryModel = (ASTQueryModel) this.getParentNode();
-        ASTBusinessDomain astBusinessDomain = (ASTBusinessDomain) queryModel.getParentNode();
+        QueryModelNode queryModel = (QueryModelNode)this.getParentNode();
+        BusinessDomainNode astBusinessDomain = (BusinessDomainNode) queryModel.getParentNode();
 
         String outputPath = astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
         String[] searchList = {
-                ModelUrlConstant.QUERY_RESULT_CLASS
+                ModelUrlConstant.QUERY_CLASS,
         };
-
         String[] replacementList = {
-                name
+                name,
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

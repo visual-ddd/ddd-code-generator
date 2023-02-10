@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.ASTDataObject;
+import com.wd.paas.generator.generate.element.DataObjectNode;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -15,9 +15,9 @@ import java.util.List;
  */
 public class DataObjectStrategy extends AbstractElementStrategy {
 
-    private final ASTDataObject dataObject;
+    private final DataObjectNode dataObject;
 
-    public DataObjectStrategy(ASTDataObject astDataObject) {
+    public DataObjectStrategy(DataObjectNode astDataObject) {
         this.dataObject = astDataObject;
     }
 

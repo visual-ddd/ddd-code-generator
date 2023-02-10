@@ -11,32 +11,37 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 /***
- * @author  wangchensheng
+ * @author wangchensheng
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTValueObject extends LeafElement {
+public class EntityNode extends LeafElement{
 
     private String name;
 
     private String description;
 
+    private Boolean isAbstract;
+
+    private PropertyInfo id;
+
     private List<PropertyInfo> propertyList;
 
-    private List<MethodInfo> methodList;
-
+    private List<MethodInfo> methodInfoList;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTAggregate astAggregate = (ASTAggregate)this.getParentNode();
-        String outputPath = astAggregate.getOutputPath(templateUrl, preFixOutPath);
+        AggregateNode parentNode = (AggregateNode) this.getParentNode();
+        String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
 
         String[] searchList = {
-                ModelUrlConstant.VALUE_OBJECT_CLASS
+                ModelUrlConstant.ENTITY_CLASS
         };
+
         String[] replacementList = {
                 name
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
+
 }

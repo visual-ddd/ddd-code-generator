@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.ASTEnum;
+import com.wd.paas.generator.generate.element.EnumNode;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -13,9 +13,9 @@ import java.util.List;
  */
 public class EnumStrategy extends AbstractElementStrategy{
 
-    private final ASTEnum anEnum;
+    private final EnumNode anEnum;
 
-    public EnumStrategy(ASTEnum anEnum) {
+    public EnumStrategy(EnumNode anEnum) {
         this.anEnum = anEnum;
     }
 

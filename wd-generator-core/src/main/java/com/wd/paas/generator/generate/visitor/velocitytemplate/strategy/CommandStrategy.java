@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.ASTCommand;
+import com.wd.paas.generator.generate.element.CommandNode;
 import org.apache.velocity.VelocityContext;
 
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import java.util.Locale;
  */
 public class CommandStrategy extends AbstractElementStrategy {
 
-    private final ASTCommand astCommand;
+    private final CommandNode astCommand;
 
-    public CommandStrategy(ASTCommand astCommand) {
+    public CommandStrategy(CommandNode astCommand) {
         this.astCommand = astCommand;
     }
 

@@ -4,16 +4,16 @@ import com.wd.paas.dsl.CommandDsl;
 import com.wd.paas.dsl.DomainEventDsl;
 import com.wd.paas.generator.builder.convert.CommandDslConvert;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
-import com.wd.paas.generator.generate.element.ASTAggregate;
-import com.wd.paas.generator.generate.element.ASTCommand;
-import com.wd.paas.generator.generate.element.ASTDomainEvent;
+import com.wd.paas.generator.generate.element.AggregateNode;
+import com.wd.paas.generator.generate.element.CommandNode;
+import com.wd.paas.generator.generate.element.DomainEventNode;
 import com.wd.paas.generator.generate.element.ElementNode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Optional;
 
 public class CommandBuilder {
-    public static ASTCommand build(CommandDsl commandDsl, ASTAggregate astAggregate) {
+    public static CommandNode build(CommandDsl commandDsl, AggregateNode astAggregate) {
         String category = commandDsl.getCategory();
         String name = commandDsl.getName();
         DomainEventDsl domainEvent = commandDsl.getDomainEvent();
@@ -25,10 +25,10 @@ public class CommandBuilder {
         commandDsl.setCategory(StringUtils.isBlank(category) ? name : category);
         commandDsl.setName(name.concat(ModelUrlConstant.COMMAND_CLASS_SUFFIX));
 
-        ASTCommand command = CommandDslConvert.INSTANCE.dto2Do(commandDsl);
+        CommandNode command = CommandDslConvert.INSTANCE.dto2Do(commandDsl);
         command.setParentNode(astAggregate);
         Optional<ElementNode> element = Optional.of(domainEvent).map(domainEventDsl -> DomainEventBuilder.build(domainEventDsl, command));
-        command.setAstDomainEvent((ASTDomainEvent) element.orElse(new ASTDomainEvent()));
+        command.setAstDomainEvent((DomainEventNode) element.orElse(new DomainEventNode()));
         return command;
     }
 }

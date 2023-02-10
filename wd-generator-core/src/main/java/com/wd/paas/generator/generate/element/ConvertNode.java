@@ -1,22 +1,23 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.common.ObjectFieldMapper;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-/***
- * @author wangchensheng
- */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTDomainEvent extends LeafElement {
+public class ConvertNode extends LeafElement {
 
     private String name;
 
     private String description;
 
-    private List<PropertyInfo> propertyList;
+    private String source;
+
+    private String target;
+
+    private List<ObjectFieldMapper> mapperList;
 
 }

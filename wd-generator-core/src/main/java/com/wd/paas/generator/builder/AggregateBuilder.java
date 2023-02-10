@@ -2,8 +2,8 @@ package com.wd.paas.generator.builder;
 
 import com.wd.paas.dsl.AggregateDsl;
 import com.wd.paas.generator.builder.convert.AggregateDslConvert;
-import com.wd.paas.generator.generate.element.ASTAggregate;
-import com.wd.paas.generator.generate.element.ASTDomainModel;
+import com.wd.paas.generator.generate.element.AggregateNode;
+import com.wd.paas.generator.generate.element.DomainModelNode;
 import com.wd.paas.generator.generate.element.ElementNode;
 
 import java.util.ArrayList;
@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class AggregateBuilder {
-    public static ASTAggregate build(AggregateDsl aggregateDsl, ASTDomainModel domainModel) {
-        ASTAggregate astAggregate = AggregateDslConvert.INSTANCE.dto2Do(aggregateDsl);
+    public static AggregateNode build(AggregateDsl aggregateDsl, DomainModelNode domainModel) {
+        AggregateNode astAggregate = AggregateDslConvert.INSTANCE.dto2Do(aggregateDsl);
 
         List<ElementNode> elements = new ArrayList<>();
         Optional.ofNullable(aggregateDsl.getEntityList()).ifPresent(e -> e.stream().map(entityDsl -> EntityBuilder.build(entityDsl, astAggregate)).forEach(elements::add));

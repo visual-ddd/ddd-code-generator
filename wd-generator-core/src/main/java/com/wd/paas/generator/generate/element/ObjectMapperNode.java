@@ -17,7 +17,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ASTObjectMapper extends LeafElement {
+public class ObjectMapperNode extends LeafElement {
 
     private ObjectReference source;
 
@@ -36,7 +36,7 @@ public class ASTObjectMapper extends LeafElement {
     private MetaInfo meta;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTBusinessDomain businessDomain = (ASTBusinessDomain) this.getParentNode();
+        BusinessDomainNode businessDomain = (BusinessDomainNode) this.getParentNode();
         String outputPath = businessDomain.getOutputPath(templateUrl, preFixOutPath);
 
         String[] searchList = {

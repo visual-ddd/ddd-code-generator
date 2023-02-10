@@ -5,7 +5,7 @@ import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.common.util.ParseStringUtil;
-import com.wd.paas.generator.generate.element.ASTApplication;
+import com.wd.paas.generator.generate.element.ApplicationNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.velocity.VelocityContext;
 
@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class ApplicationStrategy extends AbstractElementStrategy {
 
-    private final ASTApplication astApplication;
+    private final ApplicationNode astApplication;
 
-    public ApplicationStrategy(ASTApplication astApplication) {
+    public ApplicationStrategy(ApplicationNode astApplication) {
         this.astApplication = astApplication;
     }
 

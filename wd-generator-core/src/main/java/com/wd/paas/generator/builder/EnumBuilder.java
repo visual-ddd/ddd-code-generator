@@ -2,12 +2,12 @@ package com.wd.paas.generator.builder;
 
 import com.wd.paas.dsl.EnumDsl;
 import com.wd.paas.generator.builder.convert.EnumDslConvert;
-import com.wd.paas.generator.generate.element.ASTAggregate;
-import com.wd.paas.generator.generate.element.ASTEnum;
+import com.wd.paas.generator.generate.element.AggregateNode;
+import com.wd.paas.generator.generate.element.EnumNode;
 
 public class EnumBuilder {
-    public static ASTEnum build(EnumDsl enumDsl, ASTAggregate astAggregate) {
-        ASTEnum astEnum = EnumDslConvert.INSTANCE.dto2Do(enumDsl);
+    public static EnumNode build(EnumDsl enumDsl, AggregateNode astAggregate) {
+        EnumNode astEnum = EnumDslConvert.INSTANCE.dto2Do(enumDsl);
         astEnum.setParentNode(astAggregate);
         return astEnum;
     }

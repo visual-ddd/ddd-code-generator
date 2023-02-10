@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.ASTDto;
+import com.wd.paas.generator.generate.element.DtoNode;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -10,9 +10,9 @@ import java.util.List;
 
 public class DTOStrategy extends AbstractElementStrategy {
 
-    private final ASTDto astDto;
+    private final DtoNode astDto;
 
-    public DTOStrategy(ASTDto astDto) {
+    public DTOStrategy(DtoNode astDto) {
         this.astDto = astDto;
     }
 

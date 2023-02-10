@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ASTDataObject extends LeafElement{
+public class DataObjectNode extends LeafElement{
 
     private String identity;
 
@@ -39,7 +39,7 @@ public class ASTDataObject extends LeafElement{
 
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTBusinessDomain parentNode = (ASTBusinessDomain) this.getParentNode();
+        BusinessDomainNode parentNode = (BusinessDomainNode) this.getParentNode();
         String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
 
         String[] searchList = {

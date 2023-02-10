@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ASTApplication extends CompositeElement {
+public class ApplicationNode extends CompositeElement {
 
     private String title;
 

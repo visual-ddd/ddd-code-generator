@@ -1,7 +1,7 @@
 package com.wd.paas.generator.builder.convert;
 
 import com.wd.paas.dsl.QueryDsl;
-import com.wd.paas.generator.generate.element.ASTQuery;
+import com.wd.paas.generator.generate.element.QueryNode;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
  * @author shimmer
  */
 @Mapper
-public interface QueryDslConvert extends BaseConvert<QueryDsl, ASTQuery> {
+public interface QueryDslConvert extends BaseConvert<QueryDsl, QueryNode> {
 
     QueryDslConvert INSTANCE = Mappers.getMapper(QueryDslConvert.class);
 }

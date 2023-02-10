@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
-import com.wd.paas.generator.generate.element.ASTQuery;
+import com.wd.paas.generator.generate.element.QueryNode;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -10,9 +10,9 @@ import java.util.List;
 
 public class QueryStrategy extends AbstractElementStrategy {
 
-    private final ASTQuery query;
+    private final QueryNode query;
 
-    public QueryStrategy(ASTQuery astQuery) {
+    public QueryStrategy(QueryNode astQuery) {
         this.query = astQuery;
     }
 
