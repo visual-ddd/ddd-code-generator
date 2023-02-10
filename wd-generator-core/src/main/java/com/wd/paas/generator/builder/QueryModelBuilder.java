@@ -2,6 +2,7 @@ package com.wd.paas.generator.builder;
 
 import com.wd.paas.dsl.QueryModelDsl;
 import com.wd.paas.generator.builder.convert.QueryModelDslConvert;
+import com.wd.paas.generator.generate.element.ASTBusinessDomain;
 import com.wd.paas.generator.generate.element.ASTQueryModel;
 import com.wd.paas.generator.generate.element.ElementNode;
 
@@ -11,12 +12,14 @@ import java.util.Optional;
 
 public class QueryModelBuilder {
 
-    static ASTQueryModel build(QueryModelDsl queryModelDsl) {
-        List<ElementNode> elements = new ArrayList<>();
-        Optional.ofNullable(queryModelDsl.getQueryDslList()).ifPresent(e -> e.stream().map(QueryBuilder::build).forEach(elements::add));
-        Optional.ofNullable(queryModelDsl.getDtoDslList()).ifPresent(e -> e.stream().map(DTOBuilder::build).forEach(elements::add));
+    static ASTQueryModel build(QueryModelDsl queryModelDsl, ASTBusinessDomain astBusinessDomain) {
         ASTQueryModel queryModel = QueryModelDslConvert.INSTANCE.dto2Do(queryModelDsl);
+
+        List<ElementNode> elements = new ArrayList<>();
+        Optional.ofNullable(queryModelDsl.getQueryDslList()).ifPresent(e -> e.stream().map(queryDsl -> QueryBuilder.build(queryDsl, queryModel)).forEach(elements::add));
+        Optional.ofNullable(queryModelDsl.getDtoDslList()).ifPresent(e -> e.stream().map(dtoDsl -> DTOBuilder.build(dtoDsl, queryModel)).forEach(elements::add));
         queryModel.addAll(elements);
+        queryModel.setParentNode(astBusinessDomain);
         return queryModel;
     }
 }

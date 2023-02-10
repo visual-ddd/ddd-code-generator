@@ -26,11 +26,9 @@ public class ASTBusinessDomain extends CompositeElement {
     private String document;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-
         ASTApplication parentNode = (ASTApplication) this.getParentNode();
 
         String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
-
         String[] searchList = {
                 ModelUrlConstant.FIELD,
                 ModelUrlConstant.DOMAIN_CLASS,

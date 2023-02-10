@@ -58,8 +58,10 @@ public class ASTDto extends LeafElement {
     private List<MethodInfo> classMethodList;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTBusinessDomain businessDomain = (ASTBusinessDomain)this.getParentNode();
-        String outputPath = businessDomain.getOutputPath(templateUrl, preFixOutPath);
+        ASTQueryModel queryModel = (ASTQueryModel) this.getParentNode();
+        ASTBusinessDomain astBusinessDomain = (ASTBusinessDomain) queryModel.getParentNode();
+
+        String outputPath = astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
         String[] searchList = {
                 ModelUrlConstant.QUERY_RESULT_CLASS
         };

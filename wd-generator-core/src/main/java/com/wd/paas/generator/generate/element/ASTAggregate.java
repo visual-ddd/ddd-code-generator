@@ -22,11 +22,11 @@ public class ASTAggregate extends CompositeElement {
     }
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
-        ASTBusinessDomain businessDomain = (ASTBusinessDomain) this.getParentNode();
+        ASTDomainModel domainModel = (ASTDomainModel) this.getParentNode();
+        ASTBusinessDomain astBusinessDomain = (ASTBusinessDomain) domainModel.getParentNode();
 
         ASTAggregateRoot astAggregateRoot = Optional.of(root).orElse(new ASTAggregateRoot());
-        String outputPath = businessDomain.getOutputPath(templateUrl, preFixOutPath);
-
+        String outputPath = astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
         String[] searchList = {
                 ModelUrlConstant.AGGREGATION,
                 ModelUrlConstant.AGGREGATION_CLASS
