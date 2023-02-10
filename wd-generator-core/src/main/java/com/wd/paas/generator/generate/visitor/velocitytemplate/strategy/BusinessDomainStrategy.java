@@ -1,6 +1,5 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.*;
@@ -28,14 +27,16 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         String domainName = astBusinessDomain.getName();
 
         context.put(VelocityLabel.DOMAIN_NAME, domainName);
-        context.put(VelocityLabel.DOMAIN_CLASS_NAME, convertDomainClassName(domainName));
+        context.put(VelocityLabel.DOMAIN_CLASS_NAME, astBusinessDomain.convertDomainClassName());
         context.put(VelocityLabel.DOMAIN_AUTHOR, "WCS \n * @author ZXL");
         context.put(VelocityLabel.DOMAIN_DESCRIPTION, astBusinessDomain.getDescription());
 
         context.put(VelocityLabel.DOMAIN_QUERY_LIST, getQueryList());
+        context.put(VelocityLabel.DOMAIN_DTO_LIST, getDTOList());
         context.put(VelocityLabel.DOMAIN_CMD_LIST, getCmdList());
         context.put(VelocityLabel.DOMAIN_DATA_LIST, getDataList());
         context.put(VelocityLabel.DOMAIN_AGGREGATION_LIST, getAggregationList());
+        context.put(VelocityLabel.DOMAIN_OBJECT_MAPPER_LIST, getObjectMapperList());
     }
 
     @Override
@@ -46,13 +47,6 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
     @Override
     public String parseOutputPath(String templateUrl, String preFixOutPath) {
         return astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
-    }
-
-    /**
-     * 实现领域类名转换规则
-     */
-    private static String convertDomainClassName(String domainName) {
-        return CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL).convert(domainName);
     }
 
     private List<AggregateNode> getAggregationList() {
@@ -74,8 +68,18 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         return queryModel.getChildElementList(QueryNode.class);
     }
 
+    private List<DtoNode> getDTOList() {
+        QueryModelNode queryModel = astBusinessDomain.getChildElementList(QueryModelNode.class).get(0);
+        return queryModel.getChildElementList(DtoNode.class);
+    }
+
     private List<DataObjectNode> getDataList() {
         DataModelNode astDataModel = astBusinessDomain.getChildElementList(DataModelNode.class).get(0);
         return astDataModel.getChildElementList(DataObjectNode.class);
+    }
+
+    private List<ObjectMapperNode> getObjectMapperList() {
+        ObjectMapperModelNode objectMapperModel = astBusinessDomain.getChildElementList(ObjectMapperModelNode.class).get(0);
+        return objectMapperModel.getChildElementList(ObjectMapperNode.class);
     }
 }

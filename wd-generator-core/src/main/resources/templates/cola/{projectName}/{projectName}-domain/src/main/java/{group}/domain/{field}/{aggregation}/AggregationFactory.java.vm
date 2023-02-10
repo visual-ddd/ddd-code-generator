@@ -3,7 +3,7 @@ package ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}Factory")};
 
 import org.springframework.stereotype.Component;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
-#if(${cmd.repository} == "CREATE")
+#if(${cmd.repository} == "SAVE")
 import ${IMPORT_PACKAGE_MAP.get(${cmd.name})}.${cmd.name};
 #end
 #end
@@ -12,7 +12,7 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.name})}.${cmd.name};
 @Component
 public class ${AGGREGATION_CLASS_NAME}Factory {
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
-#if(${cmd.repository} == "CREATE")
+#if(${cmd.repository} == "SAVE")
 
     public ${AGGREGATION_CLASS_NAME} getInstance(${cmd.name} createCmd) {
         ${AGGREGATION_CLASS_NAME} instance = new ${AGGREGATION_CLASS_NAME}();

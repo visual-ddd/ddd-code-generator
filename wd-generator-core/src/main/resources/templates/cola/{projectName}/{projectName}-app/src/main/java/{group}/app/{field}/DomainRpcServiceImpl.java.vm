@@ -4,15 +4,26 @@ package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcServiceImpl")};
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
-import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.dto.*;
-import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.*;
-import ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME}.view.*;
-import ${PROJECT_PACKAGE}.app.${DOMAIN_URL_NAME}.assembler.*;
-#foreach ($cmd in ${AGGREGATION_CMD_LIST})
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
+#end
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${query.name}Exe")}.${query.name}Exe;
+#end
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTO")}.${cmd.category}DTO;
+#end
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTOConvert")}.${cmd.category}DTOConvert;
+#end
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
 import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler;
 #end
-#foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;
+#foreach ($dto in ${DOMAIN_DTO_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
+#end
+#foreach ($objectMapper in ${DOMAIN_OBJECT_MAPPER_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${objectMapper.name}")}.${objectMapper.name};
 #end
 import org.springframework.stereotype.Service;
 

@@ -20,12 +20,13 @@ public class VelocityLabel {
     // 业务域
     public static final String DOMAIN_NAME = "DOMAIN_NAME";
     public static final String DOMAIN_CLASS_NAME = "DOMAIN_CLASS_NAME";
-    public static final String DOMAIN_URL_NAME = "DOMAIN_URL_NAME";
     public static final String DOMAIN_DESCRIPTION = "DOMAIN_DESCRIPTION";
     public static final String DOMAIN_AUTHOR = "DOMAIN_AUTHOR";
     public static final String DOMAIN_QUERY_LIST = "DOMAIN_QUERY_LIST";
+    public static final String DOMAIN_DTO_LIST = "DOMAIN_DTO_LIST";
     public static final String DOMAIN_CMD_LIST = "DOMAIN_CMD_LIST";
     public static final String DOMAIN_AGGREGATION_LIST = "DOMAIN_AGGREGATION_LIST";
+    public static final String DOMAIN_OBJECT_MAPPER_LIST = "DOMAIN_OBJECT_MAPPER_LIST";
     public static final String DOMAIN_DATA_LIST = "DOMAIN_DATA_LIST";
 
     // 聚合

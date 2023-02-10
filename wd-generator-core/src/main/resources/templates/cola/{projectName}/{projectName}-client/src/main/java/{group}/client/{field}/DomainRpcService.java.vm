@@ -3,8 +3,15 @@ package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.dto.*;
-import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.*;
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
+#end
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTO")}.${cmd.category}DTO;
+#end
+#foreach ($dto in ${DOMAIN_DTO_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
+#end
 import java.util.List;
 
 #comment("${DOMAIN_DESCRIPTION}-RPC能力接口")

@@ -14,8 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
-import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.dto.*;
-import ${PROJECT_PACKAGE}.client.${DOMAIN_URL_NAME}.query.*;
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
+#end
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTO")}.${cmd.category}DTO;
+#end
+#foreach ($dto in ${DOMAIN_DTO_LIST})
+import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
+#end
 #end
 #macro(controller)
 

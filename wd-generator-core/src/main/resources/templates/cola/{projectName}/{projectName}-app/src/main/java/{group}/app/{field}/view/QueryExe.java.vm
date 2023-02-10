@@ -26,16 +26,16 @@ import ${IMPORT_PACKAGE_MAP.get("${dtoClassName}2DOConvert")}.${dtoClassName}2DO
 #comment("${QUERY_CLASS_DESCRIPTION}-查询器")
 @Component
 public class ${QUERY_CLASS_NAME}Exe {
+
     @Resource
-    private ${aggregationClassName}Mapper ${aggregationClassName.toLowerCase()}Mapper;
+    private ${aggregationClassName}Mapper mapper;
 
     #if(${QUERY_PAGINATION})
     public PageResultDTO<${QUERY_RETURN_INFO.type}> execute(${QUERY_CLASS_NAME} pageQuery) {
 
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
-        List<$doClassName> ${aggregationClassName.toLowerCase()}DoList = ${aggregationClassName.toLowerCase()}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(pageQuery);
-        PageInfo<$doClassName> pageInfo = new PageInfo<>(${aggregationClassName.toLowerCase()}DoList);
+        PageInfo<$doClassName> pageInfo = new PageInfo<>(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(pageQuery));
         ${QUERY_RETURN_INFO.type} ${CASE_FORMAT_LOWER_CAMEL.convert(${dtoClassName})}List = ${dtoClassName}2DOConvert.INSTANCE.doList2DtoList(pageInfo.getList());
 
         PageResultDTO<${QUERY_RETURN_INFO.type}> pageResultDTO = new PageResultDTO<>();
@@ -48,8 +48,7 @@ public class ${QUERY_CLASS_NAME}Exe {
     #end
     #if(!${QUERY_PAGINATION})
     public ResultDTO<${QUERY_RETURN_INFO.type}> execute(${QUERY_CLASS_NAME} query) {
-        $doClassName ${aggregationClassName.toLowerCase()}DO = ${aggregationClassName.toLowerCase()}Mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query);
-        ${QUERY_RETURN_INFO.type} ${CASE_FORMAT_LOWER_CAMEL.convert(${dtoClassName})} = ${dtoClassName}2DOConvert.INSTANCE.do2Dto(${aggregationClassName.toLowerCase()}DO);
+        ${QUERY_RETURN_INFO.type} ${CASE_FORMAT_LOWER_CAMEL.convert(${dtoClassName})} = ${dtoClassName}2DOConvert.INSTANCE.do2Dto(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query));
         return ResultDTO.success(${CASE_FORMAT_LOWER_CAMEL.convert(${dtoClassName})});
     }
     #end

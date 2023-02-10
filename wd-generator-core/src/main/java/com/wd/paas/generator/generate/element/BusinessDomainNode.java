@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.element;
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.common.MetaInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
@@ -35,7 +36,7 @@ public class BusinessDomainNode extends CompositeElement {
         };
         String[] replacementList = {
                 convertFieldUrl(name),
-                name,
+                convertDomainClassName(),
         };
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
@@ -47,5 +48,10 @@ public class BusinessDomainNode extends CompositeElement {
         return domainName.toLowerCase();
     }
 
-
+    /**
+     * 实现领域类名转换规则
+     */
+    public String convertDomainClassName() {
+        return CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL).convert(name);
+    }
 }
