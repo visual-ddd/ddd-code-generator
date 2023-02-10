@@ -42,7 +42,7 @@ public class ${QUERY_CLASS_NAME}Exe {
         pageResultDTO.setData(${CASE_FORMAT_LOWER_CAMEL.convert(${dtoClassName})}List);
         pageResultDTO.setPageNo(pageInfo.getPageNum());
         pageResultDTO.setPageSize(pageInfo.getSize());
-        pageResultDTO.setTotalCount(pageInfo.getTotal());
+        pageResultDTO.setTotalCount(((Page<?>)accountDoList).getTotal());
         return pageResultDTO;
     }
     #end
