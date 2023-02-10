@@ -12,18 +12,18 @@ import java.util.Optional;
 public enum ElementTypeEnum {
 
     /**/
-    APPLICATION("ASTApplication"),
-    BUSINESS_DOMAIN("ASTBusinessDomain"),
-    AGGREGATE("ASTAggregate"),
-    VALUE_OBJECT("ASTValueObject"),
-    COMMAND("ASTCommand"),
-    ENUM("ASTEnum"),
-    ENTITY("ASTEntity"),
-    DEFAULT("Default"),
-    QUERY("ASTQuery"),
-    DTO("ASTDto"),
-    OBJECT_MAPPER("ASTObjectMapper"),
-    DATA_OBJECT("ASTDataObject"),
+    APPLICATION("ApplicationNode"),
+    BUSINESS_DOMAIN("BusinessDomainNode"),
+    AGGREGATE("AggregateNode"),
+    VALUE_OBJECT("ValueObjectNode"),
+    COMMAND("CommandNode"),
+    ENUM("EnumNode"),
+    ENTITY("EntityNode"),
+    DEFAULT("DefaultNode"),
+    QUERY("QueryNode"),
+    DTO("DtoNode"),
+    OBJECT_MAPPER("ObjectMapperNode"),
+    DATA_OBJECT("DataObjectNode"),
     ;
 
     private final String value;
