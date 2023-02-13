@@ -1,8 +1,8 @@
 package com.wd.paas.generator.newdsl.input.dsl;
 
 import com.wd.paas.dsl.ApplicationDsl;
+import com.wd.paas.generator.CodeGenerateService;
 import com.wd.paas.generator.builder.ApplicationBuilder;
-import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.element.ApplicationNode;
 import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
@@ -20,11 +20,9 @@ public class ASTApplicationDslTest {
         ApplicationDsl applicationDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/applicationDsl.json", ApplicationDsl.class);
         ApplicationNode app = ApplicationBuilder.build(applicationDsl);
 
-        DslParser dslStruct = new DslParser();
-        dslStruct.add(app);
-
         TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));
-        dslStruct.run(templateVisitor);
+        CodeGenerateService codeGenerateService = new CodeGenerateService(app);
+        codeGenerateService.run(templateVisitor);
 
         Assert.assertTrue(true);
     }

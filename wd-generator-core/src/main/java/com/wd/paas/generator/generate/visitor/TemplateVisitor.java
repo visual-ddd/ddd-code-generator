@@ -8,10 +8,15 @@ import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.strategy.ElementStrategy;
 
 /**
+ * Velocity模版访问者实现类
+ *
  * @author shimmer
  */
 public class TemplateVisitor implements Visitor {
 
+    /**
+     * 模版上下文信息
+     */
     private final TemplateContext templateContext;
 
     public TemplateVisitor(TemplateContext templateContext) {

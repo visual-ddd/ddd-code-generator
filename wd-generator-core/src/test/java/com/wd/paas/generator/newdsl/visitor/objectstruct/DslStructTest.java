@@ -1,6 +1,6 @@
 package com.wd.paas.generator.newdsl.visitor.objectstruct;
 
-import com.wd.paas.generator.generate.DslParser;
+import com.wd.paas.generator.generate.ElementParser;
 import com.wd.paas.generator.generate.element.ApplicationNode;
 import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
@@ -13,7 +13,7 @@ public class DslStructTest {
     public void accept() {
         ApplicationNode ASTApplication = getApplication("app1");
 
-        DslParser dslStruct = new DslParser();
+        ElementParser dslStruct = new ElementParser();
         dslStruct.add(ASTApplication);
 
         TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./",null));

@@ -16,20 +16,16 @@ import java.util.function.Consumer;
  * @author shimmer
  */
 @Slf4j
-public class DslParser {
+public class ElementParser {
 
-    private final List<ElementNode> elementNodes = new ArrayList<>();
+    private final List<ElementNode> elementNodes;
 
-    /**
-     * 启动方法，控制执行顺序
-     *
-     * @param visitor 访问者实例
-     */
-    public void run(Visitor visitor) {
-        // 预处理
-        this.accept(visitor::preHandle);
-        this.accept(visitor::generate);
-        visitor.globalAfterHandle();
+    public ElementParser() {
+        this.elementNodes = new ArrayList<>();
+    }
+
+    public ElementParser(List<ElementNode> elementNodes) {
+        this.elementNodes = elementNodes;
     }
 
     public void accept(Consumer<ElementNode> consumer) {

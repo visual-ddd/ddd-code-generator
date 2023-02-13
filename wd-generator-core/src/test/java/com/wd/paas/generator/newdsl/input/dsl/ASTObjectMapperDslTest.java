@@ -3,7 +3,7 @@ package com.wd.paas.generator.newdsl.input.dsl;
 import com.google.common.reflect.TypeToken;
 import com.wd.paas.dsl.*;
 import com.wd.paas.generator.builder.ApplicationBuilder;
-import com.wd.paas.generator.generate.DslParser;
+import com.wd.paas.generator.generate.ElementParser;
 import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
@@ -50,7 +50,7 @@ public class ASTObjectMapperDslTest {
 
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
-        DslParser dslStruct = new DslParser();
+        ElementParser dslStruct = new ElementParser();
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
         TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));

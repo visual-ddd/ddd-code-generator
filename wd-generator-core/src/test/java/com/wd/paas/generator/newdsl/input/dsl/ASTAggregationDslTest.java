@@ -4,8 +4,8 @@ import com.google.common.reflect.TypeToken;
 import com.wd.paas.dsl.AggregateDsl;
 import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
+import com.wd.paas.generator.CodeGenerateService;
 import com.wd.paas.generator.builder.ApplicationBuilder;
-import com.wd.paas.generator.generate.DslParser;
 import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
@@ -29,12 +29,9 @@ public class ASTAggregationDslTest {
         businessDomainDslList.get(0).getDomainModel().setAggregateList(aggregateDslList);
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
-        DslParser dslStruct = new DslParser();
-        dslStruct.add(ApplicationBuilder.build(applicationDsl));
-
-        TemplateContext context = new TemplateContext("./target", null);
-        TemplateVisitor templateVisitor = new TemplateVisitor(context);
-        dslStruct.run(templateVisitor);
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target", null));
+        CodeGenerateService codeGenerateService = new CodeGenerateService(ApplicationBuilder.build(applicationDsl));
+        codeGenerateService.run(templateVisitor);
 
         Assert.assertTrue(true);
     }

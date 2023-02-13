@@ -5,7 +5,7 @@ import com.wd.paas.dsl.ApplicationDsl;
 import com.wd.paas.dsl.BusinessDomainDsl;
 import com.wd.paas.dsl.QueryModelDsl;
 import com.wd.paas.generator.builder.ApplicationBuilder;
-import com.wd.paas.generator.generate.DslParser;
+import com.wd.paas.generator.generate.ElementParser;
 import com.wd.paas.generator.generate.visitor.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.newdsl.input.util.Dsl2JsonUtil;
@@ -27,7 +27,7 @@ public class ASTQueryModelDslTest {
         businessDomainDslList.get(0).setQueryModel(queryModelDsl);
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
-        DslParser dslStruct = new DslParser();
+        ElementParser dslStruct = new ElementParser();
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
         TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));
