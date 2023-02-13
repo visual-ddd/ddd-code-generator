@@ -31,8 +31,10 @@ public class TemplateVisitor implements Visitor {
     }
 
     @Override
-    public void afterHandle(ElementNode elementNode) {
-        templateContext.clear();
+    public void globalAfterHandle() {
+        // 清理velocity模版上下文
+        templateContext.getContext().clear();
+        // 清理线程上下文
         ThreadLocalUtil.remove();
     }
 }

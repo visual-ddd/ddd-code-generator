@@ -24,9 +24,7 @@ public interface Visitor {
     void generate(ElementNode elementNode);
 
     /**
-     * 后置处理
-     *
-     * @param elementNode 元素节点
+     * 统一后置处理方法
      */
-    void afterHandle(ElementNode elementNode);
+    void globalAfterHandle();
 }

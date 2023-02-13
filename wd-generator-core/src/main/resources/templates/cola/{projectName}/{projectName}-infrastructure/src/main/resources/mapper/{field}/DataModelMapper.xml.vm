@@ -11,12 +11,13 @@
             resultType="${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO">
         SELECT *
         FROM ${DATA_OBJECT_TABLE_NAME} t1
-        WHERE 1=1
+        <where>
         #foreach($queryFiled in $query.propertyList)
-        <if test="${queryFiled.name}!=null">
-            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
-        </if>
+            <if test="${queryFiled.name}!=null">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
+            </if>
         #end
+        </where>
     </select>
 #end
 #if(${query.pagination})
@@ -25,12 +26,13 @@
             resultType="${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO">
         SELECT *
         FROM ${DATA_OBJECT_TABLE_NAME} t1
-        WHERE 1=1
+        <where>
         #foreach($queryFiled in $query.propertyList)
-        <if test="${queryFiled.name}!=null">
-            AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
-        </if>
+            <if test="${queryFiled.name}!=null">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
+            </if>
         #end
+        </where>
     </select>
 #end
 #end

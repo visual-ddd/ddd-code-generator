@@ -37,11 +37,6 @@ public class TemplateContext {
         this.isGenerateProjectFrame = isGenerateProjectFrame;
     }
 
-    public void clear() {
-        context.clear();
-    }
-
-
     /**
      * 配置velocity上下文
      */
