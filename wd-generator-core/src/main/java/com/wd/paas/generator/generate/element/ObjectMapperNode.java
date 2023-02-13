@@ -35,6 +35,11 @@ public class ObjectMapperNode extends LeafElement {
 
     private MetaInfo meta;
 
+
+    public void initProperties() {
+        target.setName(target.getName().concat(ModelUrlConstant.DATA_CLASS_SUFFIX));
+    }
+
     public String getOutputPath(String templateUrl, String preFixOutPath) {
         BusinessDomainNode businessDomain = (BusinessDomainNode) this.getParentNode();
         String outputPath = businessDomain.getOutputPath(templateUrl, preFixOutPath);

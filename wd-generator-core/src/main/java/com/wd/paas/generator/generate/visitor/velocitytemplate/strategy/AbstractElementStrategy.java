@@ -20,10 +20,8 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
 
     @Override
     public void preHandle(TemplateContext templateContext) {
-        if (Boolean.TRUE.equals(this.process(templateContext))) {
-            // 获取模版文件列表
-            storeOutPutPath(templateContext);
-        }
+        // 获取模版文件列表
+        storeOutPutPath(templateContext);
     }
 
     @Override

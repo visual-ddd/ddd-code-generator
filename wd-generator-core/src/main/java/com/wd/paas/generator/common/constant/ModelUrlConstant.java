@@ -43,6 +43,7 @@ public class ModelUrlConstant {
     // 数据模型
     public static final String DATA_DO_CLASS = "DataModelDO";
     public static final String DATA_MAPPER_CLASS = "DataModel";
+    public static final String DATA_CLASS_SUFFIX = "DO";
 
     // 对象映射模型
     public static final String QUERY_RESULT_CONVERT_CLASS = "QueryResult2DOConvert";

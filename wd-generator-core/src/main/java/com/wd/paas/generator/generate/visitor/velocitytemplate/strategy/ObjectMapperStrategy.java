@@ -21,6 +21,14 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     }
 
     @Override
+    public void preHandle(TemplateContext templateContext) {
+        astObjectMapper.initProperties();
+        // 缓存对象映射关系
+        storeObjectMapper();
+        super.preHandle(templateContext);
+    }
+
+    @Override
     public List<String> getTemplatePathList() {
         List<String> list = new ArrayList<>();
         String type = astObjectMapper.getSource().getType();
@@ -34,13 +42,6 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
                 break;
         }
         return list;
-    }
-
-    @Override
-    public Boolean process(TemplateContext templateContext) {
-        // 缓存对象映射关系
-        storeObjectMapper();
-        return Boolean.TRUE;
     }
 
     @Override
@@ -66,8 +67,9 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     public void storeObjectMapper() {
         String sourceName = astObjectMapper.getSource().getName();
         String targetName = astObjectMapper.getTarget().getName();
-        ThreadContextHelper.storeObjectMapper(astObjectMapper.getSource().getType(), sourceName, targetName);
-        ThreadContextHelper.storeObjectMapper(astObjectMapper.getSource().getType(), targetName, sourceName);
+        String type = astObjectMapper.getSource().getType();
+        ThreadContextHelper.storeObjectMapper(type, sourceName, targetName);
+        ThreadContextHelper.storeObjectMapper(type, targetName, sourceName);
     }
 
 }

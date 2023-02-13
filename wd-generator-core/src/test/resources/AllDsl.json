@@ -410,7 +410,7 @@
       {
         "uuid": "15a33a2c-9343-4fa0-8962-68a5f22925a4",
         "title": "用户",
-        "name": "UserDO",
+        "name": "User",
         "description": "用户",
         "meta": {},
         "properties": [
@@ -473,7 +473,7 @@
           "type": "entity"
         },
         "target": {
-          "name": "UserDO",
+          "name": "User",
           "type": "dataObject"
         },
         "mapper": [
@@ -502,7 +502,7 @@
           "type": "dto"
         },
         "target": {
-          "name": "UserDO",
+          "name": "User",
           "type": "dataObject"
         },
         "mapper": [

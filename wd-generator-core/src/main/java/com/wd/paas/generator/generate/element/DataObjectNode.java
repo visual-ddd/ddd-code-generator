@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.element;
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.common.DataIndexInfo;
 import com.wd.paas.common.DataPropertyInfo;
 import com.wd.paas.common.MetaInfo;
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * author Wangchensheng@wakedata.com
@@ -19,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class DataObjectNode extends LeafElement{
+public class DataObjectNode extends LeafElement {
 
     private String identity;
 
@@ -37,6 +39,12 @@ public class DataObjectNode extends LeafElement{
 
     private List<DataIndexInfo> dataIndexInfos;
 
+
+    public void initProperties() {
+        String originalName = name;
+        name = originalName.concat(ModelUrlConstant.DATA_CLASS_SUFFIX);
+        tableName = Optional.ofNullable(tableName).orElse(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, originalName));
+    }
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
         BusinessDomainNode parentNode = (BusinessDomainNode) this.getParentNode();
