@@ -53,7 +53,7 @@ public class ASTObjectMapperDslTest {
         ElementParser dslStruct = new ElementParser();
         dslStruct.add(ApplicationBuilder.build(applicationDsl));
 
-        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target"));
         dslStruct.accept(templateVisitor::preHandle);
         dslStruct.accept(templateVisitor::generate);
 

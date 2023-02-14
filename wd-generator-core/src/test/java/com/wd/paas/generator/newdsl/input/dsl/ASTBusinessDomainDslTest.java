@@ -42,7 +42,7 @@ public class ASTBusinessDomainDslTest {
         ApplicationNode app = ApplicationBuilder.build(applicationDsl);
         dslStruct.add(app);
 
-        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target"));
         dslStruct.accept(templateVisitor::preHandle);
         dslStruct.accept(templateVisitor::generate);
 

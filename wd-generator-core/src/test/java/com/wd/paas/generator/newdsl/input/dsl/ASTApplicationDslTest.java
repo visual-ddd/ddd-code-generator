@@ -20,7 +20,7 @@ public class ASTApplicationDslTest {
         ApplicationDsl applicationDsl = Dsl2JsonUtil.getDslElement("./src/test/resources/applicationDsl.json", ApplicationDsl.class);
         ApplicationNode app = ApplicationBuilder.build(applicationDsl);
 
-        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target",null));
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target"));
         CodeGenerateService codeGenerateService = new CodeGenerateService(app);
         codeGenerateService.run(templateVisitor);
 

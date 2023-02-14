@@ -1,11 +1,13 @@
 package com.wd.paas.generator;
 
+import com.wd.paas.dsl.ApplicationDsl;
+import com.wd.paas.generator.builder.ApplicationBuilder;
+import com.wd.paas.generator.common.util.GsonUtil;
 import com.wd.paas.generator.generate.ElementParser;
 import com.wd.paas.generator.generate.Visitor;
-import com.wd.paas.generator.generate.element.ElementNode;
+import com.wd.paas.generator.generate.element.ApplicationNode;
 
 import java.util.Collections;
-import java.util.List;
 
 /**
  * 代码生成服务入口
@@ -19,16 +21,18 @@ public class CodeGenerateService {
      */
     private final ElementParser elementParser;
 
-    public CodeGenerateService() {
-        this.elementParser = new ElementParser();
+    public CodeGenerateService(String dsl) {
+        ApplicationNode applicationNode = build(dsl);
+        this.elementParser = new ElementParser(Collections.singletonList(applicationNode));
     }
 
-    public CodeGenerateService(ElementNode elementNode) {
-        this.elementParser = new ElementParser(Collections.singletonList(elementNode));
+    public CodeGenerateService(ApplicationDsl applicationDsl) {
+        ApplicationNode applicationNode = ApplicationBuilder.build(applicationDsl);
+        this.elementParser = new ElementParser(Collections.singletonList(applicationNode));
     }
 
-    public CodeGenerateService(List<ElementNode> elementNodeList) {
-        this.elementParser = new ElementParser(elementNodeList);
+    public CodeGenerateService(ApplicationNode applicationNode) {
+        this.elementParser = new ElementParser(Collections.singletonList(applicationNode));
     }
 
     /**
@@ -42,11 +46,8 @@ public class CodeGenerateService {
         visitor.globalAfterHandle();
     }
 
-    public void addElement(ElementNode element) {
-        elementParser.add(element);
-    }
-
-    public void removeElement(ElementNode element) {
-        elementParser.remove(element);
+    private ApplicationNode build(String dsl) {
+        ApplicationDsl applicationDsl = GsonUtil.fromJson(dsl, ApplicationDsl.class);
+        return ApplicationBuilder.build(applicationDsl);
     }
 }

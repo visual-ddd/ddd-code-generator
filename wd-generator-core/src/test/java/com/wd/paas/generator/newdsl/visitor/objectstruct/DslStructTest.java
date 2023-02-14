@@ -16,7 +16,7 @@ public class DslStructTest {
         ElementParser dslStruct = new ElementParser();
         dslStruct.add(ASTApplication);
 
-        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./",null));
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target"));
         dslStruct.accept(templateVisitor::preHandle);
         dslStruct.accept(templateVisitor::generate);
 

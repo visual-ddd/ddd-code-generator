@@ -29,7 +29,7 @@ public class ASTAggregationDslTest {
         businessDomainDslList.get(0).getDomainModel().setAggregateList(aggregateDslList);
         applicationDsl.setBusinessDomainList(businessDomainDslList);
 
-        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target", null));
+        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext("./target"));
         CodeGenerateService codeGenerateService = new CodeGenerateService(ApplicationBuilder.build(applicationDsl));
         codeGenerateService.run(templateVisitor);
 

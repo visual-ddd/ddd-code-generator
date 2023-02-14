@@ -26,15 +26,14 @@ public class TemplateContext {
         initTemplateContext();
     }
 
-    public TemplateContext(String preFixOutPath, ZipOutputStream zipOutputStream) {
+    public TemplateContext(String preFixOutPath) {
         this();
         this.preFixOutPath = preFixOutPath;
-        this.zipOutputStream = zipOutputStream;
     }
 
-    public TemplateContext(String preFixOutPath, ZipOutputStream zipOutputStream, Boolean isGenerateProjectFrame) {
-        this(preFixOutPath, zipOutputStream);
-        this.isGenerateProjectFrame = isGenerateProjectFrame;
+    public TemplateContext(ZipOutputStream zipOutputStream) {
+        this();
+        this.zipOutputStream = zipOutputStream;
     }
 
     /**
