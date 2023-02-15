@@ -1,11 +1,9 @@
 #parse("templates/ClassFunction.vm")
 #set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${DATA_OBJECT_CLASS_NAME}")})
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="${IMPORT_PACKAGE_MAP.get("${aggregationClass}Mapper")}.${aggregationClass}Mapper">
 #foreach ($query in ${DOMAIN_QUERY_LIST})
-#if(!${query.pagination})
 
     <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
             resultType="${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO">
@@ -13,28 +11,19 @@
         FROM ${DATA_OBJECT_TABLE_NAME} t1
         <where>
         #foreach($queryFiled in $query.propertyList)
+            #if(${queryFiled.type} == 'String')
+            <if test="${queryFiled.name}!=null and ${queryFiled.name}!=''">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} LIKE CONCAT('%',#{${queryFiled.name}},'%')
+            </if>
+            #end
+            #if(${queryFiled.type} != 'String')
             <if test="${queryFiled.name}!=null">
                 AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
             </if>
+            #end
         #end
         </where>
     </select>
-#end
-#if(${query.pagination})
-
-    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
-            resultType="${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO">
-        SELECT *
-        FROM ${DATA_OBJECT_TABLE_NAME} t1
-        <where>
-        #foreach($queryFiled in $query.propertyList)
-            <if test="${queryFiled.name}!=null">
-                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
-            </if>
-        #end
-        </where>
-    </select>
-#end
 #end
 ##    <resultMap id="BaseResultMap" type="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
 ##
