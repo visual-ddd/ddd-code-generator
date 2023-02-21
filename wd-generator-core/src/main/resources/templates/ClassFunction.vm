@@ -18,10 +18,8 @@ import ${importPackage};
 #macro(filed $filedList)
     #foreach ($field in $filedList)
 
-    #if($field.description)
-    /** ${field.description} */
-    #end
-    ${field.access} ${field.type} ${field.name};
+    #printFieldDesc($field)
+    private ${field.type} ${field.name};
     #end
 #end
 ## ============= 类拓展字段列表 =============
@@ -29,18 +27,21 @@ import ${importPackage};
     #foreach ($field in $filedList)
 
     #if($arg == "swagger")
+    #if($field.description)
     @ApiModelProperty(value = "${field.description}")
     #end
-    ${field.access} ${field.type} ${field.name};
+    #if(!$field.description && $field.description == "")
+    @ApiModelProperty(value = "${field.title}")
+    #end
+    #end
+    private ${field.type} ${field.name};
     #end
 #end
 ## ============= 类方法列表 =============
 #macro(method $methodList)
     #foreach ($method in $methodList)
 
-    #if($method.description)
-     /** ${method.description} */
-    #end
+    #printMethodDesc($method)
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(#foreach($parameter in ${method.signatureInfo.parameterList})${parameter.type} ${parameter.name}#end){
         // Do Something
         #if($method.signature.returnInfo.type != "void")
@@ -53,9 +54,7 @@ import ${importPackage};
 #macro(overrideMethod $methodList)
     #foreach ($method in $methodList)
 
-    #if($method.description)
-     /** ${method.description} */
-    #end
+    #printMethodDesc($method)
     @Override
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})}) {
         // Do Something
@@ -69,9 +68,7 @@ import ${importPackage};
 #macro(interfaceMethod $methodList)
     #foreach ($method in $methodList)
 
-    #if($method.description)
-    /** ${method.description} */
-    #end
+    #printMethodDesc($method)
     ${method.returnType} ${method.name}(${method.attributeLabel});
     #end
 #end
@@ -79,9 +76,23 @@ import ${importPackage};
 #macro(abstractMethod $methodList)
     #foreach ($method in $methodList)
 
+    #printMethodDesc($method)
+    public abstract ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})});
+    #end
+#end
+#macro(printMethodDesc $method)
     #if($method.description)
     /** ${method.description} */
     #end
-    public abstract ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})});
+    #if(!$method.description && $method.description == "")
+    /** ${method.title} */
+    #end
+#end
+#macro(printFieldDesc $field)
+    #if($field.description)
+    /** ${field.description} */
+    #end
+    #if(!$field.description && $field.description == "")
+    /** ${field.title} */
     #end
 #end

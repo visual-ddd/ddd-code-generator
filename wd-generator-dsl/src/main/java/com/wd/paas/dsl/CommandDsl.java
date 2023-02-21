@@ -15,7 +15,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class CommandDsl extends Info {
+public class CommandDsl extends Named {
 
     /**
      * 命令的触发来源，默认为 http, rpc 两种类型

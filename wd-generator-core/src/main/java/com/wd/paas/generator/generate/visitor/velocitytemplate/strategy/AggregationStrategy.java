@@ -17,6 +17,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
     private final AggregateNode astAggregate;
 
     public AggregationStrategy(AggregateNode astAggregate) {
+        super(astAggregate);
         this.astAggregate = astAggregate;
     }
 

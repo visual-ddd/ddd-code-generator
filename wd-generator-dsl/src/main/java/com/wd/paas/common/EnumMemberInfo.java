@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class EnumMemberInfo extends Info {
+public class EnumMemberInfo extends Named {
 
     /**
      * 成员值 number | string

@@ -17,15 +17,15 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     private final ObjectMapperNode astObjectMapper;
 
     public ObjectMapperStrategy(ObjectMapperNode astObjectMapper){
+        super(astObjectMapper);
         this.astObjectMapper = astObjectMapper;
     }
 
     @Override
     public void preHandle(TemplateContext templateContext) {
-        astObjectMapper.initProperties();
+        super.preHandle(templateContext);
         // 缓存对象映射关系
         storeObjectMapper();
-        super.preHandle(templateContext);
     }
 
     @Override
@@ -48,12 +48,15 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.OBJECT_MAPPER_CLASS_NAME, astObjectMapper.getName());
         context.put(VelocityLabel.OBJECT_MAPPER_CLASS_DESCRIPTION, astObjectMapper.getDescription());
+
         context.put(VelocityLabel.OBJECT_MAPPER_SOURCE_OBJECT, astObjectMapper.getSource().getName());
         context.put(VelocityLabel.OBJECT_MAPPER_TARGET_OBJECT, astObjectMapper.getTarget().getName());
+
         context.put(VelocityLabel.OBJECT_MAPPER_OBJECT_TYPE, astObjectMapper.getSource().getType());
         context.put(VelocityLabel.OBJECT_MAPPER_OBJECT_AGGREGATION, astObjectMapper.getSource().getParent());
         context.put(VelocityLabel.OBJECT_MAPPER_OBJECT_FIELD_LIST, astObjectMapper.getConvertList());
 
+        context.put(VelocityLabel.OBJECT_MAPPER_DATA_MAPPER, astObjectMapper.excludeDOSuffix());
     }
 
     @Override

@@ -15,8 +15,9 @@ public class EnumStrategy extends AbstractElementStrategy{
 
     private final EnumNode anEnum;
 
-    public EnumStrategy(EnumNode anEnum) {
-        this.anEnum = anEnum;
+    public EnumStrategy(EnumNode enumNode) {
+        super(enumNode);
+        this.anEnum = enumNode;
     }
 
     @Override

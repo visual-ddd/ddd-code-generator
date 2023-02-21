@@ -1,5 +1,5 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}")};
+package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
@@ -11,15 +11,14 @@ import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER
 #dependencyEnumConverter()
 
 #comment("${OBJECT_MAPPER_CLASS_NAME}和DO转换器")
-##@Mapper(uses = {
+@Mapper(uses = {
 ##    #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
 ##        ${aggregationEnum.name}Converter.class,
 ##    #end
-##})
-public interface ${OBJECT_MAPPER_CLASS_NAME} extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
+})
+public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 
-
-    ${OBJECT_MAPPER_CLASS_NAME} INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_CLASS_NAME}.class);
+    ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert.class);
 
     @Mappings({
     #foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
@@ -40,6 +39,4 @@ public interface ${OBJECT_MAPPER_CLASS_NAME} extends BaseConvert<${OBJECT_MAPPER
     })
     @Override
     ${OBJECT_MAPPER_SOURCE_OBJECT} do2Dto(${OBJECT_MAPPER_TARGET_OBJECT} d);
-
-
 }

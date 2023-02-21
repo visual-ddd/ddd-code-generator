@@ -19,16 +19,15 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
     private final BusinessDomainNode astBusinessDomain;
 
     public BusinessDomainStrategy(BusinessDomainNode aSTBusinessDomain) {
+        super(aSTBusinessDomain);
         this.astBusinessDomain = aSTBusinessDomain;
     }
 
     @Override
     public void putVelocityContext(VelocityContext context) {
-        String domainName = astBusinessDomain.getName();
-
-        context.put(VelocityLabel.DOMAIN_NAME, domainName);
+        context.put(VelocityLabel.DOMAIN_NAME, astBusinessDomain.getName());
         context.put(VelocityLabel.DOMAIN_CLASS_NAME, astBusinessDomain.convertDomainClassName());
-        context.put(VelocityLabel.DOMAIN_AUTHOR, "WCS \n * @author ZXL");
+        context.put(VelocityLabel.DOMAIN_AUTHOR, "visual-ddd");
         context.put(VelocityLabel.DOMAIN_DESCRIPTION, astBusinessDomain.getDescription());
 
         context.put(VelocityLabel.DOMAIN_QUERY_LIST, getQueryList());

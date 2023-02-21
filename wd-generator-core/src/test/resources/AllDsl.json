@@ -1,179 +1,235 @@
 {
-  "title": "DDD可视化开发平台",
-  "name": "wd-visual-ddd",
-  "description": "DDD可视化开发平台，实现项目可视化开发",
-  "meta": {},
-  "version": "1.0-SNAPSHOT",
-  "package": "com.wd.paas",
+  "package": "com.wk.paas",
+  "description": "会员信息",
+  "title": "会员",
+  "version": "1.1.2",
+  "name": "User",
   "businessDomains": [
     {
       "domainModel": {
         "aggregates": [
           {
-            "uuid": "03d114bf-158a-4eca-8cb9-6e732c4bc9a1",
-            "title": "用户域",
+            "uuid": "6695fa09-af5f-43bc-a2e5-7f28859873e8",
+            "title": "用户聚合",
             "name": "User",
-            "description": "用户域",
+            "description": "用户信息",
             "meta": {},
             "root": {
-              "uuid": "182c455f-55cd-419c-b126-f089d76227e1",
-              "title": "用户",
+              "uuid": "83b68007-de00-4c83-9e62-66677f1e2df7",
+              "title": "用户信息",
               "name": "User",
-              "description": "用户",
+              "description": "用户信息",
               "meta": {},
               "id": {
-                "uuid": "84d17563-6137-490b-8835-ea4356b2f602",
+                "uuid": "4a1cd77a-c553-4656-9eb5-7d69c256cd53",
                 "title": "主键",
                 "name": "id",
-                "description": "主键",
+                "description": "",
                 "meta": {},
-                "access": "public",
+                "access": "private",
                 "type": "Long"
               },
               "properties": [
                 {
-                  "uuid": "601bc63f-1cc2-41e1-8926-dbfd0bda78c1",
-                  "title": "名称",
-                  "name": "name",
-                  "description": "名称",
+                  "uuid": "77c28fd8-ed2e-44b5-bf04-57a40fc0401c",
+                  "title": "用户名",
+                  "name": "userName",
+                  "description": "",
                   "meta": {},
                   "access": "public",
                   "type": "String"
                 },
                 {
-                  "uuid": "e28c7b14-bd9f-41e5-94de-40b5791573ea",
-                  "title": "密码",
-                  "name": "password",
-                  "description": "密码",
+                  "uuid": "1e924c20-1fa9-481c-b6c5-105421741129",
+                  "title": "年龄",
+                  "name": "age",
+                  "description": "",
                   "meta": {},
                   "access": "public",
-                  "type": "String"
-                },
-                {
-                  "uuid": "a7ff5179-24fc-4749-992f-bd4b932a2d89",
-                  "title": "角色类型",
-                  "name": "role",
-                  "description": "角色类型",
-                  "meta": {},
-                  "access": "public",
-                  "type": "RoleEnum"
+                  "type": "Integer"
                 }
               ],
               "methods": [
                 {
-                  "uuid": "d93a2777-2fba-471f-8c83-b7dec1ec5b68",
-                  "title": "校验",
-                  "name": "check",
-                  "description": "校验",
+                  "uuid": "0116caf7-e400-4450-bc3c-c856af8067f5",
+                  "title": "年龄校验",
+                  "name": "checkAge",
+                  "description": "",
                   "meta": {},
                   "access": "public",
                   "abstract": false,
                   "signature": {
-                    "description": "校验",
-                    "parameters": [],
+                    "description": "",
+                    "parameters": [
+                      {
+                        "uuid": "982b22fa-cae3-4de8-8895-1afd51d4b9d5",
+                        "title": "年龄校验",
+                        "name": "age",
+                        "description": "",
+                        "meta": {},
+                        "type": "Integer"
+                      }
+                    ],
                     "return": {
-                      "type": "void"
+                      "type": "Boolean"
                     }
                   }
                 }
               ]
             },
-            "entities": [
-              {
-                "uuid": "340616c4-cac7-45b7-8084-7ba08f22dcf2",
-                "title": "用户权限",
-                "name": "UserPermission",
-                "description": "用户权限",
-                "meta": {},
-                "id": {
-                  "uuid": "30fdb869-8dd2-4c66-8f23-3aabb3c15c4f",
-                  "title": "id",
-                  "name": "id",
-                  "description": "id",
-                  "meta": {},
-                  "access": "public",
-                  "type": "Long"
-                },
-                "properties": [
-                  {
-                    "uuid": "7a77fccc-5dc5-486d-8391-c2514d4625c8",
-                    "title": "是否系统管理员",
-                    "name": "isAdmin",
-                    "description": "是否系统管理员",
-                    "meta": {},
-                    "access": "public",
-                    "type": "String"
-                  }
-                ],
-                "methods": []
-              }
-            ],
-            "valueObjects": [
-              {
-                "uuid": "c10eb500-4345-492f-aa02-fa74131ce3ae",
-                "title": "用户信息",
-                "name": "AccountInfo",
-                "description": "用户信息",
-                "meta": {},
-                "properties": [
-                  {
-                    "uuid": "5eca9887-5226-42bb-9d6d-d01a9afb8bf8",
-                    "title": "用户会话信息",
-                    "name": "sessionId",
-                    "description": "用户会话信息",
-                    "meta": {},
-                    "access": "public",
-                    "type": "String"
-                  },
-                  {
-                    "uuid": "6621f0bd-b97b-4319-9189-a11968dd30a3",
-                    "title": "会话过期时间",
-                    "name": "exprieTime",
-                    "description": "会话过期时间",
-                    "meta": {},
-                    "access": "public",
-                    "type": "String"
-                  }
-                ],
-                "methods": []
-              }
-            ],
-            "enums": [
-              {
-                "uuid": "c29b3be7-beef-4866-8484-c74bc9ebddab",
-                "title": "角色",
-                "name": "RoleEnum",
-                "description": "角色",
-                "meta": {},
-                "baseType": "number",
-                "members": [
-                  {
-                    "uuid": "2cf1bd89-5396-40a8-8678-a94b06b0dc08",
-                    "title": "系统管理员",
-                    "name": "ADMIN",
-                    "description": "系统管理员",
-                    "meta": {},
-                    "code": 1
-                  },
-                  {
-                    "uuid": "5da23c17-1538-4be4-9e03-65bfd2aedc78",
-                    "title": "开发者",
-                    "name": "DEVELOPER",
-                    "description": "开发者",
-                    "meta": {},
-                    "code": 2
-                  }
-                ]
-              }
-            ],
+            "entities": [],
+            "valueObjects": [],
+            "enums": [],
             "commands": [
               {
-                "uuid": "3f39ee66-5bd2-4b60-baa0-7d735b00f352",
-                "title": "删除用户",
-                "name": "UserDelete",
-                "description": "删除用户指令",
+                "uuid": "999f3538-8161-4b7c-8132-f242c76463b6",
+                "title": "用户创建",
+                "name": "UserCreate",
+                "description": "",
+                "meta": {},
+                "rules": [
+                  {
+                    "uuid": "d4a7b3bc-9fa8-4459-9cf9-ce936d9f16ad",
+                    "title": "手机号码唯一",
+                    "name": "UniquePhone",
+                    "description": "手机号码唯一",
+                    "meta": {}
+                  }
+                ],
+                "category": "create",
+                "repository": "create",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  },
+                  {
+                    "type": "schedule",
+                    "value": "* 2 * * * *"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "637dd320-0bc7-44a0-a8a1-f58cb7236b57",
+                    "title": "用户名称",
+                    "name": "userName",
+                    "description": "",
+                    "meta": {},
+                    "access": "private",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "d931807a-3af8-47af-8902-094f805f9d6e",
+                    "title": "年龄",
+                    "name": "age",
+                    "description": "",
+                    "meta": {},
+                    "access": "private",
+                    "type": "Integer"
+                  }
+                ],
+                "event": {
+                  "uuid": "999f3538-8161-4b7c-8132-f242c76463b6",
+                  "name": "UserCreateEvent",
+                  "properties": [
+                    {
+                      "uuid": "ca208956-a3ef-4ca6-8f46-49389e2bb3f6",
+                      "title": "主键",
+                      "name": "id",
+                      "description": "",
+                      "meta": {},
+                      "access": "private",
+                      "type": "Long"
+                    }
+                  ]
+                },
+                "return": {
+                  "type": "Long"
+                }
+              },
+              {
+                "uuid": "copy-62871286-9352-4985-81a0-67ecd6e2dcc3",
+                "title": "用户更新",
+                "name": "UserModify",
+                "description": "",
+                "meta": {},
+                "rules": [
+                  {
+                    "uuid": "copy-70575aef-d8ec-4b49-a488-4b793f03f07e",
+                    "title": "手机号码唯一",
+                    "name": "UniquePhone",
+                    "description": "手机号码唯一",
+                    "meta": {}
+                  }
+                ],
+                "category": "update",
+                "repository": "modify",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  },
+                  {
+                    "type": "event",
+                    "value": "UserCreateEvent"
+                  },
+                  {
+                    "type": "schedule",
+                    "value": "* 2 * * * *"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "637dd320-0bc7-44a0-a8a1-f58cb7236b57",
+                    "title": "用户名称",
+                    "name": "userName",
+                    "description": "",
+                    "meta": {},
+                    "access": "private",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "d931807a-3af8-47af-8902-094f805f9d6e",
+                    "title": "年龄",
+                    "name": "age",
+                    "description": "",
+                    "meta": {},
+                    "access": "private",
+                    "type": "Integer"
+                  },
+                  {
+                    "uuid": "31abfc9b-4229-4ca9-8b2b-15aae7dada3a",
+                    "title": "主键id",
+                    "name": "id",
+                    "description": "",
+                    "meta": {},
+                    "access": "private",
+                    "type": "Long"
+                  }
+                ],
+                "event": {
+                  "uuid": "copy-62871286-9352-4985-81a0-67ecd6e2dcc3",
+                  "name": "UserModifyEvent",
+                  "properties": []
+                },
+                "return": {
+                  "type": "Long"
+                }
+              },
+              {
+                "uuid": "copy-2976ed96-56ad-4a6d-8d7c-62e80885e5e1",
+                "title": "用户删除",
+                "name": "UserRemove",
+                "description": "",
                 "meta": {},
                 "rules": [],
+                "category": "delete",
                 "repository": "remove",
                 "eventSendable": false,
                 "source": [
@@ -186,123 +242,22 @@
                 ],
                 "properties": [
                   {
-                    "uuid": "d02183c8-ef0f-4874-8696-152cd40a80cf",
-                    "title": "用户主键id",
-                    "name": "id",
-                    "description": "用户主键id",
-                    "meta": {},
-                    "access": "private",
-                    "type": "Long"
-                  }
-                ],
-                "event": {
-                  "uuid": "3f39ee66-5bd2-4b60-baa0-7d735b00f352",
-                  "name": "UserDeleteEvent",
-                  "properties": []
-                },
-                "return": {
-                  "type": "Boolean"
-                }
-              },
-              {
-                "uuid": "940b2b16-970a-48a1-9d23-81ff2fcfb2f2",
-                "title": "更新用户",
-                "name": "UserUpdate",
-                "description": "更新用户",
-                "meta": {},
-                "rules": [],
-                "repository": "modify",
-                "eventSendable": false,
-                "source": [
-                  {
-                    "type": "http"
-                  },
-                  {
-                    "type": "rpc"
-                  }
-                ],
-                "properties": [
-                  {
-                    "uuid": "1426a480-1350-442a-8b5f-c582a140156d",
+                    "uuid": "31abfc9b-4229-4ca9-8b2b-15aae7dada3a",
                     "title": "主键id",
                     "name": "id",
-                    "description": "主键id",
+                    "description": "",
                     "meta": {},
                     "access": "private",
                     "type": "Long"
-                  },
-                  {
-                    "uuid": "943de03d-2eba-456e-ae15-04c40fe980e9",
-                    "title": "用户名",
-                    "name": "name",
-                    "description": "用户名",
-                    "meta": {},
-                    "access": "private",
-                    "type": "String"
                   }
                 ],
                 "event": {
-                  "uuid": "940b2b16-970a-48a1-9d23-81ff2fcfb2f2",
-                  "name": "UserUpdateEvent",
+                  "uuid": "copy-2976ed96-56ad-4a6d-8d7c-62e80885e5e1",
+                  "name": "UserRemoveEvent",
                   "properties": []
                 },
                 "return": {
-                  "type": "Boolean"
-                }
-              },
-              {
-                "uuid": "15db7b01-6f15-4945-a305-a4e5f6bfe008",
-                "title": "创建用户",
-                "name": "UserCreate",
-                "description": "创建用户",
-                "meta": {},
-                "rules": [],
-                "repository": "create",
-                "eventSendable": false,
-                "source": [
-                  {
-                    "type": "http"
-                  },
-                  {
-                    "type": "rpc"
-                  }
-                ],
-                "properties": [
-                  {
-                    "uuid": "d33cb154-d559-4d73-8b46-c5f8775f1b13",
-                    "title": "用户名",
-                    "name": "name",
-                    "description": "用户名",
-                    "meta": {},
-                    "access": "private",
-                    "type": "String"
-                  },
-                  {
-                    "uuid": "9793fd29-e660-4503-9155-c35da2c711fd",
-                    "title": "密码",
-                    "name": "password",
-                    "description": "密码",
-                    "meta": {},
-                    "access": "private",
-                    "type": "String"
-                  },
-                  {
-                    "uuid": "f5e3f0c9-cef6-412e-b2a1-275558d40264",
-                    "title": "角色类型",
-                    "name": "role",
-                    "description": "角色类型",
-                    "meta": {},
-                    "access": "public",
-                    "type": "RoleEnum"
-                  }
-                ],
-                "event": {
-                  "uuid": "15db7b01-6f15-4945-a305-a4e5f6bfe008",
-                  "name": "UserCreateEvent",
-                  "properties": []
-                },
-                "return": {
-                  "type": "void"
+                  "type": "Long"
                 }
               }
             ]
@@ -312,41 +267,10 @@
       "queryModel": {
         "queries": [
           {
-            "uuid": "09b40586-e539-4706-81c2-2ad11de06afb",
-            "title": "用户列表分页查询",
-            "name": "UserPageQuery",
-            "description": "用户列表分页查询",
-            "meta": {},
-            "source": [
-              {
-                "type": "http"
-              },
-              {
-                "type": "rpc"
-              }
-            ],
-            "rules": [],
-            "pagination": true,
-            "properties": [
-              {
-                "uuid": "d646fad2-e1e2-4460-887f-82d92b32d173",
-                "title": "用户名称",
-                "name": "name",
-                "description": "用户名称",
-                "meta": {},
-                "access": "private",
-                "type": "String"
-              }
-            ],
-            "return": {
-              "type": "List<UserDTO>"
-            }
-          },
-          {
-            "uuid": "ee548686-9b01-4751-84bb-d4490f714fff",
-            "title": "用户详情查询",
+            "uuid": "fb7811ca-e144-4146-845e-d71f90eb9c6b",
+            "title": "用户详情信息查询",
             "name": "UserDetailQuery",
-            "description": "用户详情查询",
+            "description": "",
             "meta": {},
             "source": [
               {
@@ -360,54 +284,85 @@
             "pagination": false,
             "properties": [
               {
-                "uuid": "1222b73f-b667-4544-a25b-f62ae822cdad",
-                "title": "用户主键",
+                "uuid": "6b2668c2-a174-4a10-b8be-f5d64973ffdf",
+                "title": "主键Id",
                 "name": "id",
-                "description": "用户主键",
+                "description": "",
                 "meta": {},
-                "access": "private",
+                "access": "public",
                 "type": "Long"
               }
             ],
             "return": {
-              "type": "UserDTO"
+              "type": "User"
+            }
+          },
+          {
+            "uuid": "copy-60d966de-88dd-44d0-b68c-b9fbc64dd596",
+            "title": "用户详情信息查询",
+            "name": "UserListQuery",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": true,
+            "properties": [
+              {
+                "uuid": "6b2668c2-a174-4a10-b8be-f5d64973ffdf",
+                "title": "主键Id",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "User"
             }
           }
         ],
         "dtos": [
           {
-            "uuid": "a41bdf8e-c159-42f7-9cb9-8279f0fbb64a",
+            "uuid": "0f5e51db-10e1-4b68-b76e-e9e5e07ba664",
             "title": "用户信息",
-            "name": "UserDTO",
+            "name": "User",
             "description": "",
             "meta": {},
             "properties": [
               {
-                "uuid": "da4a1249-2fae-41b8-b271-f452fee2badd",
+                "uuid": "cbe41b8d-2ab9-469c-8b92-7494908a846a",
+                "title": "用户名称",
+                "name": "userName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "fe2f9a7d-7c90-4f2b-ac54-4dc9155ed8f5",
+                "title": "年龄",
+                "name": "age",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "114cc19d-5b65-4836-8d35-8f86f9af21c8",
                 "title": "主键id",
                 "name": "id",
-                "description": "主键id",
+                "description": "",
                 "meta": {},
-                "access": "private",
+                "access": "public",
                 "type": "Long"
-              },
-              {
-                "uuid": "064a1899-8507-4c08-9238-f3294ac3deeb",
-                "title": "用户名称",
-                "name": "name",
-                "description": "用户名称",
-                "meta": {},
-                "access": "private",
-                "type": "String"
-              },
-              {
-                "uuid": "c61e3753-9469-499a-b66a-d2e0428ab38f",
-                "title": "用户密码",
-                "name": "password",
-                "description": "用户密码",
-                "meta": {},
-                "access": "private",
-                "type": "String"
               }
             ]
           }
@@ -416,46 +371,46 @@
       "dataModel": {
         "dataObjects": [
           {
-            "uuid": "15a33a2c-9343-4fa0-8962-68a5f22925a4",
-            "title": "用户",
+            "uuid": "a61347d4-31d4-49ac-a118-1f0329e91ca5",
+            "title": "用户信息表",
             "name": "User",
-            "description": "用户",
+            "description": "",
             "meta": {},
             "properties": [
               {
-                "uuid": "bb87317b-27fe-4d22-9e2c-1dbeed71bf0e",
+                "uuid": "589d4cdb-1db0-4ac5-b350-46043697be82",
                 "name": "id",
-                "title": "主键",
-                "description": "主键",
+                "title": "主键Id",
+                "description": "",
                 "meta": {},
                 "type": "Long",
                 "autoIncrement": true,
                 "notNull": true
               },
               {
-                "uuid": "597e21ef-f159-49a1-abf9-0e9a61e23395",
-                "name": "name",
-                "title": "名称",
-                "description": "名称",
+                "uuid": "ecb189bb-5c48-4911-af9b-a4bc6c921fba",
+                "name": "userName",
+                "title": "用户名称",
+                "description": "",
                 "meta": {},
                 "type": "String",
-                "length": 25,
+                "length": 50,
                 "notNull": false
               },
               {
-                "uuid": "7276d794-0b7e-47ef-ae1b-ff2c1d6e161c",
-                "name": "password",
-                "title": "密码",
-                "description": "密码",
+                "uuid": "4d71c9c7-6739-4764-b6ae-a33a7cf0d323",
+                "name": "age",
+                "title": "年龄",
+                "description": "",
                 "meta": {},
-                "type": "String",
-                "length": 25,
+                "type": "Integer",
+                "autoIncrement": false,
                 "notNull": false
               }
             ],
             "indexes": [
               {
-                "uuid": "15a33a2c-9343-4fa0-8962-68a5f22925a4-primary-key",
+                "uuid": "a61347d4-31d4-49ac-a118-1f0329e91ca5-primary-key",
                 "name": "primaryKeys",
                 "type": "Primary",
                 "properties": [
@@ -470,10 +425,39 @@
       "objectMapper": {
         "mappers": [
           {
-            "uuid": "72264679-73db-4956-aa8d-a859e2f1c2b5",
-            "title": "用户与DO映射",
-            "name": "User2DOConvert",
-            "description": "用户与DO映射",
+            "uuid": "7eae32cd-30fe-4c47-9096-f7d7b6f85774",
+            "title": "",
+            "name": "UserDTO2DO",
+            "description": "",
+            "meta": {},
+            "source": {
+              "name": "User",
+              "type": "dto"
+            },
+            "target": {
+              "name": "User",
+              "type": "dataObject"
+            },
+            "mapper": [
+              {
+                "sourceField": "userName",
+                "targetField": "userName"
+              },
+              {
+                "sourceField": "age",
+                "targetField": "age"
+              },
+              {
+                "sourceField": "id",
+                "targetField": "id"
+              }
+            ]
+          },
+          {
+            "uuid": "de29c523-64b1-4482-9359-df1eb6b4cfd3",
+            "title": "",
+            "name": "User2DO",
+            "description": "",
             "meta": {},
             "source": {
               "name": "User",
@@ -490,54 +474,22 @@
                 "targetField": "id"
               },
               {
-                "sourceField": "name",
-                "targetField": "name"
+                "sourceField": "userName",
+                "targetField": "userName"
               },
               {
-                "sourceField": "password",
-                "targetField": "password"
-              }
-            ]
-          },
-          {
-            "uuid": "e9a3a98f-2b35-4038-a130-7fae1960896c",
-            "title": "用户DTO与DO映射",
-            "name": "UserDTO2DOConvert",
-            "description": "Dto2Do",
-            "meta": {},
-            "source": {
-              "name": "UserDTO",
-              "type": "dto"
-            },
-            "target": {
-              "name": "User",
-              "type": "dataObject"
-            },
-            "mapper": [
-              {
-                "sourceField": "id",
-                "targetField": "id"
-              },
-              {
-                "sourceField": "name",
-                "targetField": "name"
-              },
-              {
-                "sourceField": "password",
-                "targetField": "password"
+                "sourceField": "age",
+                "targetField": "age"
               }
             ]
           }
         ]
       },
-      "meta": {},
-      "name": "user",
-      "version": "1.0",
+      "vision": "实现用户的管理和维护",
+      "description": "用户的领域",
       "title": "用户域",
-      "vision": "产品愿景",
-      "description": "用户域，提供组织管理能力",
-      "document": "https://visual-ddd.yuque.com/tp6sfc/project_doc/afext6f43p74ml1y"
+      "version": "1.1.2",
+      "name": "User"
     }
-  ],
-  "businessScenarios": []
+  ]
 }

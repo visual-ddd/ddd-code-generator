@@ -2,7 +2,7 @@ package com.wd.paas.dsl;
 
 import com.google.gson.annotations.SerializedName;
 import com.wd.paas.common.EnumMemberInfo;
-import com.wd.paas.common.Info;
+import com.wd.paas.common.Named;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,7 +15,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class EnumDsl extends Info {
+public class EnumDsl extends Named {
 
     /**
      * 基础类型：'number' | 'string'

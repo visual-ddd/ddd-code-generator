@@ -20,6 +20,7 @@ public class ApplicationStrategy extends AbstractElementStrategy {
     private final ApplicationNode astApplication;
 
     public ApplicationStrategy(ApplicationNode astApplication) {
+        super(astApplication);
         this.astApplication = astApplication;
     }
 

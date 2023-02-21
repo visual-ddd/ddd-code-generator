@@ -1,6 +1,9 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.common.*;
+import com.wd.paas.common.ClassInfo;
+import com.wd.paas.common.InterfaceInfo;
+import com.wd.paas.common.MethodInfo;
+import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,16 +14,6 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DtoNode extends LeafElement {
-
-    private String identity;
-
-    private String title;
-
-    private String name;
-
-    private String description;
-
-    private MetaInfo meta;
 
     /**
      * 继承
@@ -57,6 +50,15 @@ public class DtoNode extends LeafElement {
      */
     private List<MethodInfo> classMethodList;
 
+
+    @Override
+    public void initProperties() {
+        super.initProperties();
+        if (!this.getName().endsWith(ModelUrlConstant.QUERY_RESULT_SUFFIX)) {
+            this.setName(this.getName().concat(ModelUrlConstant.QUERY_RESULT_SUFFIX));
+        }
+    }
+
     public String getOutputPath(String templateUrl, String preFixOutPath) {
         QueryModelNode queryModel = (QueryModelNode) this.getParentNode();
         BusinessDomainNode astBusinessDomain = (BusinessDomainNode) queryModel.getParentNode();
@@ -67,7 +69,7 @@ public class DtoNode extends LeafElement {
         };
 
         String[] replacementList = {
-                name
+                this.getName()
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

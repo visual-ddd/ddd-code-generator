@@ -1,6 +1,5 @@
 #parse("templates/ClassFunction.vm")
-#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${DATA_OBJECT_CLASS_NAME}")})
-package ${IMPORT_PACKAGE_MAP.get("${aggregationClass}Mapper")};
+package ${IMPORT_PACKAGE_MAP.get("${DATA_MAPPER_CLASS_NAME}Mapper")};
 
 import java.util.List;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -12,27 +11,18 @@ import ${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name};
 
 #comment("${DATA_OBJECT_CLASS_DESCRIPTION}Mapper接口")
 @Mapper
-public interface ${aggregationClass}Mapper extends BaseMapper<${DATA_OBJECT_CLASS_NAME}> {
-
+public interface ${DATA_MAPPER_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJECT_CLASS_NAME}> {
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 #if(!${query.pagination})
-#if(${query.description})
-    /**
-    * ${query.description}
-    */
-#end
+
+    #printMethodDesc($query)
     ${DATA_OBJECT_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
 #end
 #end
-
 #foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
 #if(${pageQuery.pagination})
 
-    #if(${pageQuery.description})
-    /**
-     * ${pageQuery.description}
-     */
-    #end
+    #printMethodDesc($pageQuery)
     List<${DATA_OBJECT_CLASS_NAME}> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}(${pageQuery.name} pageQuery);
 #end
 #end

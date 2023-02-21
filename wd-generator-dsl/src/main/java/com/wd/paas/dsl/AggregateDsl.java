@@ -1,7 +1,7 @@
 package com.wd.paas.dsl;
 
 import com.google.gson.annotations.SerializedName;
-import com.wd.paas.common.Info;
+import com.wd.paas.common.Named;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +14,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class AggregateDsl extends Info {
+public class AggregateDsl extends Named {
 
     /**
      * 聚合根DSL，指定一个实体作为聚合的根实体

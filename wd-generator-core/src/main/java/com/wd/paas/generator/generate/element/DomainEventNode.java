@@ -13,10 +13,6 @@ import java.util.List;
 @Data
 public class DomainEventNode extends LeafElement {
 
-    private String name;
-
-    private String description;
-
     private List<PropertyInfo> propertyList;
 
 }

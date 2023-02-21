@@ -25,7 +25,7 @@ public class ObjectReference {
     private String parent;
 
     /**
-     * 对象类型
+     * 对象类型 - dataObject,dto,entity
      */
     @SerializedName("type")
     private String type;

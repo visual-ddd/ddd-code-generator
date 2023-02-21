@@ -1,11 +1,15 @@
 #parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}")};
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 import java.util.List;
+
 import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 
 #comment("${DATA_OBJECT_CLASS_DESCRIPTION}实体类")
@@ -17,9 +21,16 @@ import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 public class ${DATA_OBJECT_CLASS_NAME} extends BaseJpaAggregate {
 #foreach ($field in $DATA_OBJECT_CLASS_FIELDS)
 
-    #if($field.description)
-    /** ${field.description} */
-    #end
+    #if(${field.name}==${DATA_OBJECT_CLASS_PRIMARY_KEY})
+    #printFieldDesc($field)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableId(type = IdType.AUTO)
     private ${field.dataType} ${field.name};
+    #end
+    #if(${field.name}!=${DATA_OBJECT_CLASS_PRIMARY_KEY})
+    #printFieldDesc($field)
+    private ${field.dataType} ${field.name};
+    #end
 #end
 }

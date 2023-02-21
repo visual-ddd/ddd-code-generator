@@ -18,7 +18,7 @@ spring:
     ddl-auto: update
   datasource:
     name: ${PROJECT_NAME}
-    url: ${${PROJECT_NAME}.mysql.url:jdbc:mysql://172.26.61.32:3306/paas?useUnicode=true&characterEncoding=utf-8}
+    url: ${${PROJECT_NAME}.mysql.url:jdbc:mysql://172.26.57.49:3306/paas?useUnicode=true&characterEncoding=utf-8}
     username: ${${PROJECT_NAME}.mysql.username:root}
     password: ${${PROJECT_NAME}.mysql.password:root}
     driver-class-name: com.mysql.cj.jdbc.Driver

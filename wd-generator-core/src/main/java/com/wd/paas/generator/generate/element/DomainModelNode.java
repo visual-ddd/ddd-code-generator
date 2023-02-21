@@ -9,5 +9,4 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DomainModelNode extends CompositeElement {
-
 }

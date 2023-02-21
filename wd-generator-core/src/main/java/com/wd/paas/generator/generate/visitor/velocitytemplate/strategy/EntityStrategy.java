@@ -15,8 +15,9 @@ public class EntityStrategy extends AbstractElementStrategy{
 
     private final EntityNode astEntity;
 
-    public EntityStrategy(EntityNode ASTEntity) {
-        this.astEntity = ASTEntity;
+    public EntityStrategy(EntityNode entityNode) {
+        super(entityNode);
+        this.astEntity = entityNode;
     }
 
     @Override

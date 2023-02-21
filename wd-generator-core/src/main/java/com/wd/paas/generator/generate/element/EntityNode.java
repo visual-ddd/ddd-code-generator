@@ -17,10 +17,6 @@ import java.util.List;
 @Data
 public class EntityNode extends LeafElement{
 
-    private String name;
-
-    private String description;
-
     private Boolean isAbstract;
 
     private PropertyInfo id;
@@ -38,7 +34,7 @@ public class EntityNode extends LeafElement{
         };
 
         String[] replacementList = {
-                name
+                this.getName()
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

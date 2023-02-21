@@ -13,12 +13,12 @@
 ## 依赖
 #macro(dependencyCmdDTO)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTO")}.${cmd.category}DTO;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert")}.${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert;
 #end
 #end
 #macro(dependencyCmdDTOConvert)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTOConvert")}.${cmd.category}DTOConvert;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert")}.${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert;
 #end
 #end
 #macro(dependencyCmd)

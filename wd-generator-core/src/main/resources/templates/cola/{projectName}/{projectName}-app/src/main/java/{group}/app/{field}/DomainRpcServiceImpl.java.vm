@@ -11,19 +11,16 @@ import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
 import ${IMPORT_PACKAGE_MAP.get("${query.name}Exe")}.${query.name}Exe;
 #end
 #foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTO")}.${cmd.category}DTO;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO")}.${cmd.excludeCmdSuffix()}DTO;
 #end
 #foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTOConvert")}.${cmd.category}DTOConvert;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert")}.${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert;
 #end
 #foreach ($cmd in ${DOMAIN_CMD_LIST})
 import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler;
 #end
 #foreach ($dto in ${DOMAIN_DTO_LIST})
 import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
-#end
-#foreach ($objectMapper in ${DOMAIN_OBJECT_MAPPER_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${objectMapper.name}")}.${objectMapper.name};
 #end
 import org.springframework.stereotype.Service;
 
@@ -42,6 +39,7 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
     @Resource
     private ${query.name}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe;
 #end
+
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
 #set($RootIdType = ${aggregation.getRoot().getId().getType()})
 #set($RootIdName = ${aggregation.getRoot().getId().getName()})
@@ -49,14 +47,14 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 
     @Override
     #if(${cmd.getRepository().getValue()} == "save")
-    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto) {
-        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.category}DTOConvert.INSTANCE.dto2Do(dto));
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto) {
+        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert.INSTANCE.dto2Do(dto)});
         return ResultDTO.success(${RootIdName});
     }
     #end
     #if(${cmd.getRepository().getValue()} != "save")
-    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto) {
-        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.category}DTOConvert.INSTANCE.dto2Do(dto));
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto) {
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);
     }
     #end
@@ -66,7 +64,7 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 
     @Override
     #if(${query.pagination})
-        public PageResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+    public PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
     }
     #end
@@ -76,5 +74,4 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
     }
     #end
 #end
-
 }

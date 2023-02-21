@@ -10,10 +10,6 @@ import java.util.List;
 @Data
 public class ConvertNode extends LeafElement {
 
-    private String name;
-
-    private String description;
-
     private String source;
 
     private String target;

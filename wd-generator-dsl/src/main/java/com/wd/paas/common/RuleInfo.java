@@ -10,6 +10,6 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class RuleInfo extends Info {
+public class RuleInfo extends Named {
 
 }

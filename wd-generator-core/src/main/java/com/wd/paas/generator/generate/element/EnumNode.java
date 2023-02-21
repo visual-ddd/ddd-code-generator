@@ -16,10 +16,6 @@ import java.util.List;
 @Data
 public class EnumNode extends LeafElement {
 
-    private String name;
-
-    private String description;
-
     private String baseType;
 
     private List<EnumMemberInfo> memberList;
@@ -33,7 +29,7 @@ public class EnumNode extends LeafElement {
         };
 
         String[] replacementList = {
-                name
+                this.getName()
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

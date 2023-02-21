@@ -3,7 +3,6 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.DataObjectNode;
-import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -19,13 +18,8 @@ public class DataObjectStrategy extends AbstractElementStrategy {
     private final DataObjectNode dataObject;
 
     public DataObjectStrategy(DataObjectNode astDataObject) {
+        super(astDataObject);
         this.dataObject = astDataObject;
-    }
-
-    @Override
-    public void preHandle(TemplateContext templateContext) {
-        dataObject.initProperties();
-        super.preHandle(templateContext);
     }
 
     @Override
@@ -38,7 +32,9 @@ public class DataObjectStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.DATA_OBJECT_CLASS_NAME, dataObject.getName());
         context.put(VelocityLabel.DATA_OBJECT_CLASS_DESCRIPTION, dataObject.getDescription());
         context.put(VelocityLabel.DATA_OBJECT_CLASS_FIELDS, dataObject.getDataPropertyList());
+        context.put(VelocityLabel.DATA_OBJECT_CLASS_PRIMARY_KEY, dataObject.getPrimaryKey());
         context.put(VelocityLabel.DATA_TABLE_NAME, dataObject.getTableName());
+        context.put(VelocityLabel.DATA_MAPPER_CLASS_NAME, dataObject.excludeDOSuffix());
 
     }
     @Override

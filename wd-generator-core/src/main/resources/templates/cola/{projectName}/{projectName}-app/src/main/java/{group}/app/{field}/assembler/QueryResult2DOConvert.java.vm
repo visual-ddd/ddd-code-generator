@@ -1,5 +1,5 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}")};
+package ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
@@ -7,12 +7,10 @@ import org.mapstruct.factory.Mappers;
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_SOURCE_OBJECT})}.${OBJECT_MAPPER_SOURCE_OBJECT};
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER_TARGET_OBJECT};
 
-#comment("${OBJECT_MAPPER_CLASS_NAME}和DO转换器")
 @Mapper(uses = {
         JsonConverter.class,
 })
-public interface ${OBJECT_MAPPER_CLASS_NAME} extends
-        BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
+public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 
-    ${OBJECT_MAPPER_CLASS_NAME} INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_CLASS_NAME}.class);
+    ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert.class);
 }

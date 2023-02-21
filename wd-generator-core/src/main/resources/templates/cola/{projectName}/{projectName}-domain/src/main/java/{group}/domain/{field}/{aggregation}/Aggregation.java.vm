@@ -8,7 +8,7 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.name})}.${cmd.name};
 #end
 #end
 
-#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-能力")
+#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根能力")
 public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME} {
     #overrideMethod($AGGREGATION_CLASS_METHODS)
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
@@ -23,9 +23,8 @@ public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME}
 #if(${cmd.repository} == "REMOVE")
 
     public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} removeCmd) {
-        this.${AGGREGATION_CLASS_ID.getName()} = removeCmd.getId();
+        this.set${AGGREGATION_CLASS_ID.getName().substring(0, 1).toUpperCase()}${AGGREGATION_CLASS_ID.getName().substring(1)}(removeCmd.getId());
     }
 #end
 #end
-
 }

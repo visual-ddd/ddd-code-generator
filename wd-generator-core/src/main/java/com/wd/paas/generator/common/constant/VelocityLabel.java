@@ -80,13 +80,17 @@ public class VelocityLabel {
 
     // 指令事件
     public static final String CMD_EVENT_CLASS_NAME = "CMD_EVENT_CLASS_NAME";
+    public static final String CMD_EVENT_CLASS_FIELDS = "CMD_EVENT_CLASS_FIELDS";
+    public static final String CMD_EVENT_CLASS_DESCRIPTION = "CMD_EVENT_CLASS_DESCRIPTION";
     public static final String CMD_CATEGORY = "CMD_CATEGORY";
 
     // 数据模型对象
     public static final String DATA_OBJECT_CLASS_NAME = "DATA_OBJECT_CLASS_NAME";
     public static final String DATA_OBJECT_CLASS_DESCRIPTION = "DATA_OBJECT_CLASS_DESCRIPTION";
     public static final String DATA_OBJECT_CLASS_FIELDS = "DATA_OBJECT_CLASS_FIELDS";
+    public static final String DATA_OBJECT_CLASS_PRIMARY_KEY = "DATA_OBJECT_CLASS_PRIMARY_KEY";
     public static final String DATA_TABLE_NAME = "DATA_OBJECT_TABLE_NAME";
+    public static final String DATA_MAPPER_CLASS_NAME = "DATA_MAPPER_CLASS_NAME";
 
     // 对象映射对象模型
     public static final String OBJECT_MAPPER_CLASS_NAME = "OBJECT_MAPPER_CLASS_NAME";
@@ -96,6 +100,7 @@ public class VelocityLabel {
     public static final String OBJECT_MAPPER_OBJECT_TYPE = "OBJECT_MAPPER_OBJECT_TYPE";
     public static final String OBJECT_MAPPER_OBJECT_AGGREGATION = "OBJECT_MAPPER_OBJECT_AGGREGATION";
     public static final String OBJECT_MAPPER_OBJECT_FIELD_LIST = "OBJECT_MAPPER_OBJECT_FIELD_LIST";
+    public static final String OBJECT_MAPPER_DATA_MAPPER = "OBJECT_MAPPER_DATA_MAPPER";
 
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";

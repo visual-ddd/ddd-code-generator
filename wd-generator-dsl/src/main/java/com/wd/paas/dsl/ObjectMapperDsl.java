@@ -1,7 +1,7 @@
 package com.wd.paas.dsl;
 
 import com.google.gson.annotations.SerializedName;
-import com.wd.paas.common.Info;
+import com.wd.paas.common.Named;
 import com.wd.paas.common.ObjectFieldMapper;
 import com.wd.paas.common.ObjectReference;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ObjectMapperDsl extends Info {
+public class ObjectMapperDsl extends Named {
 
     /**
      * 原始对象

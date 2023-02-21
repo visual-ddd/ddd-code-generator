@@ -15,7 +15,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DataIndexInfo extends Info {
+public class DataIndexInfo extends Named {
 
     /**
      * 默认Normal
@@ -34,6 +34,5 @@ public class DataIndexInfo extends Info {
      */
     @SerializedName("method")
     private IndexMethodEnum indexMethodEnum;
-
 
 }

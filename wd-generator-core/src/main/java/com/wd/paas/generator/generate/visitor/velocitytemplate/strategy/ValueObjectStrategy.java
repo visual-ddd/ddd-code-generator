@@ -15,8 +15,9 @@ public class ValueObjectStrategy extends AbstractElementStrategy {
 
     private final ValueObjectNode astValueObject;
 
-    public ValueObjectStrategy(ValueObjectNode ASTValueObject) {
-        this.astValueObject = ASTValueObject;
+    public ValueObjectStrategy(ValueObjectNode valueObjectNode) {
+        super(valueObjectNode);
+        this.astValueObject = valueObjectNode;
     }
 
     @Override

@@ -13,7 +13,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ClassInfo extends Info {
+public class ClassInfo extends Named {
 
     /**
      * 继承, 默认为 null

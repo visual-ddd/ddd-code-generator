@@ -12,16 +12,6 @@ import java.util.List;
 @Data
 public class QueryNode extends LeafElement {
 
-    private String identity;
-
-    private String title;
-
-    private String name;
-
-    private String description;
-
-    private MetaInfo meta;
-
     private List<SourceInfo> querySourceList;
 
     /**
@@ -49,6 +39,14 @@ public class QueryNode extends LeafElement {
      */
     private ReturnInfo returnInfo;
 
+    @Override
+    public void initProperties() {
+        super.initProperties();
+        if (!returnInfo.getType().endsWith(ModelUrlConstant.QUERY_RESULT_SUFFIX)) {
+            returnInfo.setType(returnInfo.getType().concat(ModelUrlConstant.QUERY_RESULT_SUFFIX));
+        }
+    }
+
     public String getOutputPath(String templateUrl, String preFixOutPath) {
         QueryModelNode queryModel = (QueryModelNode)this.getParentNode();
         BusinessDomainNode astBusinessDomain = (BusinessDomainNode) queryModel.getParentNode();
@@ -58,7 +56,7 @@ public class QueryNode extends LeafElement {
                 ModelUrlConstant.QUERY_CLASS,
         };
         String[] replacementList = {
-                name,
+                this.getName(),
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

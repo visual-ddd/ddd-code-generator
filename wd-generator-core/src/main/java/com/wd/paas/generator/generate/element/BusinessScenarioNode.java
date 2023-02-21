@@ -1,6 +1,5 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.common.MetaInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,15 +11,4 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BusinessScenarioNode extends CompositeElement {
-
-    private String title;
-
-    private String name;
-
-    private String description;
-
-    private MetaInfo meta;
-
-    private String version;
-
 }

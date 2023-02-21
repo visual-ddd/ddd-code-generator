@@ -7,7 +7,7 @@ import com.wakedata.common.core.dto.ResultDTO;
 import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
 #end
 #foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.category}DTO")}.${cmd.category}DTO;
+import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO")}.${cmd.excludeCmdSuffix()}DTO;
 #end
 #foreach ($dto in ${DOMAIN_DTO_LIST})
 import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
@@ -20,24 +20,20 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 #set($RootIdType = ${aggregation.getRoot().getId().getType()})
     #foreach($cmd in ${aggregation.getCommandList()})
 
-    /**
-     * ${cmd.description}
-     */
+    /** ${cmd.description} */
         #if(${cmd.getRepository().getValue()} == "save")
-    ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto);
+    ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto);
         #end
         #if(${cmd.getRepository().getValue()} != "save")
-    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.category}DTO dto);
+    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto);
         #end
     #end
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
-    /**
-     * ${query.description}
-     */
+    /** ${query.description} */
     #if(${query.pagination})
-    PageResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
+    PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
     #end
     #if(!${query.pagination})
     ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);

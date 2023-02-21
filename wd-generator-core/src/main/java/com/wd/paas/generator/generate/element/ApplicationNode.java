@@ -1,6 +1,5 @@
 package com.wd.paas.generator.generate.element;
 
-import com.wd.paas.common.MetaInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,14 +14,6 @@ import org.apache.commons.lang3.StringUtils;
 @EqualsAndHashCode(callSuper = true)
 public class ApplicationNode extends CompositeElement {
 
-    private String title;
-
-    private String name;
-
-    private String description;
-
-    private MetaInfo meta;
-
     private String version;
 
     private String packageName;
@@ -36,7 +27,7 @@ public class ApplicationNode extends CompositeElement {
         };
         String[] replacementList = {
                 preFixOutPath,
-                name,
+                this.getName(),
                 trans2Slash(packageName),
                 ModelUrlConstant.EMPTY
         };

@@ -1,4 +1,4 @@
-package ${PROJECT_PACKAGE}.app.${DOMAIN_NAME}.assembler;
+package ${IMPORT_PACKAGE_MAP.get("JsonConverter")};
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;

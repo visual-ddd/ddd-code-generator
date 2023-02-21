@@ -1,7 +1,7 @@
 package com.wd.paas.dsl;
 
 import com.google.gson.annotations.SerializedName;
-import com.wd.paas.common.Info;
+import com.wd.paas.common.Named;
 import com.wd.paas.common.PropertyInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DomainEventDsl extends Info {
+public class DomainEventDsl extends Named {
 
     /**
      * 拓展属性，除指令属性外事件需要添加的属性

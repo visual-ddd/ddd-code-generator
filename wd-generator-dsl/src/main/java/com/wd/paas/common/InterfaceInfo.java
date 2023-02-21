@@ -13,7 +13,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class InterfaceInfo extends Info {
+public class InterfaceInfo extends Named {
 
     /**
      * 扩展的接口列表

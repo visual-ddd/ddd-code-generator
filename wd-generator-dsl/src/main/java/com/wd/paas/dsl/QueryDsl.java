@@ -14,7 +14,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class QueryDsl extends Info {
+public class QueryDsl extends Named {
 
     /**
      * 查询的触发来源，默认为 http, rpc 两种类型

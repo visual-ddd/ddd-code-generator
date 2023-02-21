@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DataPropertyInfo extends Info {
+public class DataPropertyInfo extends Named {
 
     @SerializedName("propertyName")
     private String propertyName;

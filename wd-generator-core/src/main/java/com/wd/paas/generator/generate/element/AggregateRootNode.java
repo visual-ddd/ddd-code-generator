@@ -14,10 +14,6 @@ import java.util.List;
 @Data
 public class AggregateRootNode extends LeafElement {
 
-    private String name;
-
-    private String description;
-
     private Boolean isAbstract;
 
     private PropertyInfo id;

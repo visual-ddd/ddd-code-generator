@@ -2,6 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.util.FileGenerator;
+import com.wd.paas.generator.generate.element.ElementNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.VelocityTemplateGenerate;
 import org.apache.velocity.VelocityContext;
@@ -18,8 +19,15 @@ import java.util.Optional;
  */
 public abstract class AbstractElementStrategy implements VelocityTemplateGenerate {
 
+    private final ElementNode elementNode;
+
+    protected AbstractElementStrategy(ElementNode elementNode) {
+        this.elementNode = elementNode;
+    }
+
     @Override
     public void preHandle(TemplateContext templateContext) {
+        elementNode.initProperties();
         // 获取模版文件列表
         storeOutPutPath(templateContext);
     }

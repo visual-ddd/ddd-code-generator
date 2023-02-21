@@ -9,7 +9,7 @@ import lombok.Data;
  * @author shimmer
  */
 @Data
-public class Info {
+public class Named {
 
     /**
      * 元素唯一标识

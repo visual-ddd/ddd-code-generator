@@ -13,6 +13,7 @@ public class QueryStrategy extends AbstractElementStrategy {
     private final QueryNode query;
 
     public QueryStrategy(QueryNode astQuery) {
+        super(astQuery);
         this.query = astQuery;
     }
 

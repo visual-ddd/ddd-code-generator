@@ -18,6 +18,7 @@ public class CommandStrategy extends AbstractElementStrategy {
     private final CommandNode astCommand;
 
     public CommandStrategy(CommandNode astCommand) {
+        super(astCommand);
         this.astCommand = astCommand;
     }
 
@@ -48,9 +49,13 @@ public class CommandStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.CMD_CLASS_NAME, astCommand.getName());
         context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, astCommand.getDescription());
         context.put(VelocityLabel.CMD_CLASS_FIELDS, astCommand.getPropertyList());
+
         context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, astCommand.getAstDomainEvent().getName());
+        context.put(VelocityLabel.CMD_EVENT_CLASS_FIELDS, astCommand.getAstDomainEvent().getPropertyList());
+        context.put(VelocityLabel.CMD_EVENT_CLASS_DESCRIPTION, astCommand.getAstDomainEvent().getDescription());
+
         context.put(VelocityLabel.CMD_CATEGORY, astCommand.getCategory());
-        context.put(VelocityLabel.CMD_DTO_CLASS, astCommand.getCategory().concat(VelocityLabel.CLASS_DTO_SUFFIX));
+        context.put(VelocityLabel.CMD_DTO_CLASS, astCommand.getCmdDTOName());
     }
 
     @Override

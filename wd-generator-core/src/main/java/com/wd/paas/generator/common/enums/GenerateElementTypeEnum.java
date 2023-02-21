@@ -99,7 +99,7 @@ public enum GenerateElementTypeEnum {
     COMMAND("Command", new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
             "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/CommandDTO.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/CommandDTOConvert.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/CommandDTO2CommandConvert.java.vm",
     }),
 
     /**
@@ -163,7 +163,7 @@ public enum GenerateElementTypeEnum {
     }),
 
     OBJECT_MAPPER_MODEL_ENTITY_TO_DO("Entity2Do", new String[]{
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ObjectMapper2DoConvert.java.vm"
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/Entity2DOConvert.java.vm"
     }),
 
     OBJECT_MAPPER_MODEL_DTO_TO_DO("DTO2DO", new String[]{

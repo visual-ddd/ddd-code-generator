@@ -13,6 +13,7 @@ public class DTOStrategy extends AbstractElementStrategy {
     private final DtoNode astDto;
 
     public DTOStrategy(DtoNode astDto) {
+        super(astDto);
         this.astDto = astDto;
     }
 

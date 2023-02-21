@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ParameterInfo extends Info {
+public class ParameterInfo extends Named {
 
     /**
      * 类型

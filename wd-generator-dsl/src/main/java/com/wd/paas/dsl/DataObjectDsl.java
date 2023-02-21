@@ -3,7 +3,7 @@ package com.wd.paas.dsl;
 import com.google.gson.annotations.SerializedName;
 import com.wd.paas.common.DataIndexInfo;
 import com.wd.paas.common.DataPropertyInfo;
-import com.wd.paas.common.Info;
+import com.wd.paas.common.Named;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +17,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DataObjectDsl extends Info {
+public class DataObjectDsl extends Named {
 
     /**
      * 表名

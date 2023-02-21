@@ -39,6 +39,7 @@ public class ModelUrlConstant {
     // 查询模型
     public static final String QUERY_RESULT_CLASS = "QueryResult";
     public static final String QUERY_CLASS = "Query";
+    public static final String QUERY_RESULT_SUFFIX = "DTO";
 
     // 数据模型
     public static final String DATA_DO_CLASS = "DataModelDO";
@@ -47,7 +48,7 @@ public class ModelUrlConstant {
 
     // 对象映射模型
     public static final String QUERY_RESULT_CONVERT_CLASS = "QueryResult2DOConvert";
-    public static final String OBJECT_MAPPER_CONVERT_CLASS = "ObjectMapper2DoConvert";
+    public static final String OBJECT_MAPPER_CONVERT_CLASS = "Entity2DOConvert";
     public static final String OBJECT_MAPPER_REPOSITORY_CLASS = "ObjectMapper";
 
 

@@ -17,10 +17,6 @@ import java.util.List;
 @Data
 public class ValueObjectNode extends LeafElement {
 
-    private String name;
-
-    private String description;
-
     private List<PropertyInfo> propertyList;
 
     private List<MethodInfo> methodList;
@@ -34,7 +30,7 @@ public class ValueObjectNode extends LeafElement {
                 ModelUrlConstant.VALUE_OBJECT_CLASS
         };
         String[] replacementList = {
-                name
+                this.getName()
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);

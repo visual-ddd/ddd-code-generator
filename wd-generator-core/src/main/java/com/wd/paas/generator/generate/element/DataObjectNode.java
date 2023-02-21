@@ -3,16 +3,14 @@ package com.wd.paas.generator.generate.element;
 import com.google.common.base.CaseFormat;
 import com.wd.paas.common.DataIndexInfo;
 import com.wd.paas.common.DataPropertyInfo;
-import com.wd.paas.common.MetaInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
-import com.wd.paas.generator.common.context.ThreadContextHelper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
 /**
  * author Wangchensheng@wakedata.com
@@ -23,16 +21,6 @@ import java.util.Optional;
 @EqualsAndHashCode(callSuper = true)
 public class DataObjectNode extends LeafElement {
 
-    private String identity;
-
-    private String title;
-
-    private String name;
-
-    private String description;
-
-    private MetaInfo meta;
-
     private String tableName;
 
     private List<DataPropertyInfo> dataPropertyList;
@@ -40,10 +28,27 @@ public class DataObjectNode extends LeafElement {
     private List<DataIndexInfo> dataIndexInfos;
 
 
+    @Override
     public void initProperties() {
-        String originalName = name;
-        name = originalName.concat(ModelUrlConstant.DATA_CLASS_SUFFIX);
-        tableName = Optional.ofNullable(tableName).orElse(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, originalName));
+        super.initProperties();
+        String oldName = this.getName();
+        initClassName(oldName);
+        initTableName(oldName);
+    }
+
+    private void initClassName(String oldName) {
+        if (oldName.endsWith(ModelUrlConstant.DATA_CLASS_SUFFIX)) {
+            return;
+        }
+        this.setName(oldName.concat(ModelUrlConstant.DATA_CLASS_SUFFIX));
+    }
+
+    private void initTableName(String oldName) {
+        if (tableName != null) {
+            return;
+        }
+        String notDOName = oldName.endsWith(ModelUrlConstant.DATA_CLASS_SUFFIX) ? excludeDOSuffix() : oldName;
+        tableName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, notDOName);
     }
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
@@ -55,10 +60,25 @@ public class DataObjectNode extends LeafElement {
                 ModelUrlConstant.DATA_MAPPER_CLASS,
         };
         String[] replacementList = {
-                name,
-                ThreadContextHelper.obtainObjectMapper(ThreadContextHelper.ENTITY, name),
+                this.getName(),
+                this.excludeDOSuffix()
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
+
+    public String excludeDOSuffix() {
+        String name = this.getName();
+        return name.substring(0, name.lastIndexOf(ModelUrlConstant.DATA_CLASS_SUFFIX));
+    }
+
+    public String getPrimaryKey() {
+        String primaryKey = null;
+        for (DataIndexInfo dataIndexInfo : dataIndexInfos) {
+            if (Objects.equals(dataIndexInfo.getIndexTypeEnum(), "Primary")) {
+                primaryKey = dataIndexInfo.getProperties().get(0);
+            }
+        }
+        return primaryKey;
     }
 }

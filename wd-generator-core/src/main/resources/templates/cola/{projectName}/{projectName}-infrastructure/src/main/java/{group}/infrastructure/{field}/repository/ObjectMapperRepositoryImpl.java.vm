@@ -1,6 +1,9 @@
 #parse("templates/ClassFunction.vm")
-#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${OBJECT_MAPPER_TARGET_OBJECT}")})
+#set($doClassName = ${OBJECT_MAPPER_TARGET_OBJECT})
+#set($doMapperClassName = "${OBJECT_MAPPER_DATA_MAPPER}Mapper")
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doClassName}")})
 #set($AGGREGATION_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${aggregationClass})}")
+#set($convertClassName = "${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")
 package ${IMPORT_PACKAGE_MAP.get("${aggregationClass}RepositoryImpl")};
 
 import lombok.extern.slf4j.Slf4j;
@@ -9,13 +12,12 @@ import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.util.Assert;
 import ${IMPORT_PACKAGE_MAP.get("${aggregationClass}Repository")}.${aggregationClass}Repository;
-import ${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO;
+import ${IMPORT_PACKAGE_MAP.get("${doClassName}")}.${doClassName};
 import ${IMPORT_PACKAGE_MAP.get("${aggregationClass}")}.${aggregationClass};
-import ${IMPORT_PACKAGE_MAP.get("${aggregationClass}Mapper")}.${aggregationClass}Mapper;
-import ${IMPORT_PACKAGE_MAP.get("${aggregationClass}RepositoryImpl")}.${aggregationClass}RepositoryImpl;
-import ${IMPORT_PACKAGE_MAP.get("${OBJECT_MAPPER_CLASS_NAME}")}.${OBJECT_MAPPER_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get("${doMapperClassName}")}.${doMapperClassName};
+import ${IMPORT_PACKAGE_MAP.get("${convertClassName}")}.${convertClassName};
 
-#comment("${OBJECT_MAPPER_CLASS_DESCRIPTION}存储接口实现类")
+#comment("${OBJECT_MAPPER_OBJECT_AGGREGATION}-聚合仓储实现类")
 @Slf4j
 @Component
 public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Repository {
@@ -25,29 +27,29 @@ public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Rep
 
     @Override
     public ${aggregationClass} save(${aggregationClass} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
-        ${aggregationClass}DO ${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO = ${OBJECT_MAPPER_CLASS_NAME}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
-        int insert = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.insert(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO);
+        ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        int insert = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.insert(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
         Assert.isTrue(insert == 1, "插入数据库异常，请联系管理员");
-        return ${OBJECT_MAPPER_CLASS_NAME}.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO);
+        return ${convertClassName}.INSTANCE.do2Dto(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
     }
 
     @Override
     public ${aggregationClass} update(${aggregationClass} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
-        ${aggregationClass}DO ${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO = ${OBJECT_MAPPER_CLASS_NAME}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
-        int update = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.updateById(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO);
+        ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        int update = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.updateById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
         Assert.isTrue(update == 1, "更新数据库异常，请联系管理员");
-        return ${OBJECT_MAPPER_CLASS_NAME}.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO);
+        return ${convertClassName}.INSTANCE.do2Dto(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
     }
 
     @Override
     public void remove(${aggregationClass} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
-        ${aggregationClass}DO ${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO = ${OBJECT_MAPPER_CLASS_NAME}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
-        ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.deleteById(${AGGREGATION_CLASS_NAME_FIRST_LOWER}DO.getId());
+        ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.deleteById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})}.getId());
     }
 
     @Override
     public ${aggregationClass} find(Long id) {
-        ${aggregationClass}DO ${AGGREGATION_CLASS_NAME_FIRST_LOWER} = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.selectById(id);
-        return ${OBJECT_MAPPER_CLASS_NAME}.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        ${doClassName} ${AGGREGATION_CLASS_NAME_FIRST_LOWER} = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.selectById(id);
+        return ${convertClassName}.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
     }
 }
