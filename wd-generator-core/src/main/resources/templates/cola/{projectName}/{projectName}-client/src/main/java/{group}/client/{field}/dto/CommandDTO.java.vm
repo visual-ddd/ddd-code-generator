@@ -18,12 +18,20 @@ public class ${CMD_DTO_CLASS} {
     #if(!$field.description && $field.description == "")
     @ApiModelProperty(value = "${field.title}")
     #end
-    #if(${PARSE_STRING_UTIL.isEnum(${field.type})})
-    ${field.access} String ${field.name};
+    #printEnumField(${field})
     #end
-    #if(!${PARSE_STRING_UTIL.isEnum(${field.type})})
-    ${field.access} ${field.type} ${field.name};
-    #end
-    #end
-
 }
+#macro(printEnumField $field)
+#set($isEnumType = -1)
+#foreach($enumNode in ${AGGREGATION_ENUM_LIST})
+    #if(${enumNode.name} == ${field.type})
+        #set(${isEnumType} = 1)
+    #end
+#end
+#if(${isEnumType} == -1)
+    ${field.access} ${field.type} ${field.name};
+#end
+#if(${isEnumType} == 1)
+    ${field.access} Integer ${field.name};
+#end
+#end

@@ -25,6 +25,7 @@ public class VelocityLabel {
     public static final String DOMAIN_QUERY_LIST = "DOMAIN_QUERY_LIST";
     public static final String DOMAIN_DTO_LIST = "DOMAIN_DTO_LIST";
     public static final String DOMAIN_CMD_LIST = "DOMAIN_CMD_LIST";
+    public static final String DOMAIN_ENUM_LIST = "DOMAIN_ENUM_LIST";
     public static final String DOMAIN_AGGREGATION_LIST = "DOMAIN_AGGREGATION_LIST";
     public static final String DOMAIN_OBJECT_MAPPER_LIST = "DOMAIN_OBJECT_MAPPER_LIST";
     public static final String DOMAIN_DATA_LIST = "DOMAIN_DATA_LIST";
@@ -93,7 +94,6 @@ public class VelocityLabel {
     public static final String DATA_MAPPER_CLASS_NAME = "DATA_MAPPER_CLASS_NAME";
 
     // 对象映射对象模型
-    public static final String OBJECT_MAPPER_CLASS_NAME = "OBJECT_MAPPER_CLASS_NAME";
     public static final String OBJECT_MAPPER_CLASS_DESCRIPTION = "OBJECT_MAPPER_CLASS_DESCRIPTION";
     public static final String OBJECT_MAPPER_SOURCE_OBJECT = "OBJECT_MAPPER_SOURCE_OBJECT";
     public static final String OBJECT_MAPPER_TARGET_OBJECT = "OBJECT_MAPPER_TARGET_OBJECT";

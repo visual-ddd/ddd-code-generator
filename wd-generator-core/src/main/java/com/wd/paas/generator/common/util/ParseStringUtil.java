@@ -12,10 +12,6 @@ import java.util.List;
  */
 public class ParseStringUtil {
 
-    public static Boolean isEnum(String type) {
-        return StringUtils.contains(type, "Enum");
-    }
-
     /**
      * 提取方法返回参数中的对象类型
      *

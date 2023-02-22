@@ -47,6 +47,15 @@
                   "meta": {},
                   "access": "public",
                   "type": "Integer"
+                },
+                {
+                  "uuid": "8ab0348d-73cb-4152-8038-c4e52316e81d",
+                  "title": "类型",
+                  "name": "type",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "UserType"
                 }
               ],
               "methods": [
@@ -79,7 +88,42 @@
             },
             "entities": [],
             "valueObjects": [],
-            "enums": [],
+            "enums": [
+              {
+                "uuid": "3c1283db-7c92-499e-8c34-592009ea3fa8",
+                "title": "用户类型",
+                "name": "UserType",
+                "description": "",
+                "meta": {},
+                "baseType": "number",
+                "members": [
+                  {
+                    "uuid": "d106653e-11bb-4d1e-b68e-64285c0408f0",
+                    "title": "管理员",
+                    "name": "ADMINISTRATOR",
+                    "description": "",
+                    "meta": {},
+                    "code": 1
+                  },
+                  {
+                    "uuid": "2bf499fe-c2a5-4154-8828-fb0dda6494ec",
+                    "title": "团队管理员",
+                    "name": "TEAM_MANAGER",
+                    "description": "",
+                    "meta": {},
+                    "code": 2
+                  },
+                  {
+                    "uuid": "6c10a52d-c4b6-4296-a1cf-66d0d6804928",
+                    "title": "组织管理员",
+                    "name": "ORGANIZATION_MANAGER",
+                    "description": "",
+                    "meta": {},
+                    "code": 3
+                  }
+                ]
+              }
+            ],
             "commands": [
               {
                 "uuid": "999f3538-8161-4b7c-8132-f242c76463b6",
@@ -129,6 +173,15 @@
                     "meta": {},
                     "access": "private",
                     "type": "Integer"
+                  },
+                  {
+                    "uuid": "4f5a2d97-6092-49e0-86f8-1d1ad37a89c0",
+                    "title": "用户类型",
+                    "name": "type",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "UserType"
                   }
                 ],
                 "event": {
@@ -211,6 +264,15 @@
                     "meta": {},
                     "access": "private",
                     "type": "Long"
+                  },
+                  {
+                    "uuid": "1408f105-bf50-4c2a-a4e7-5fae39950e5c",
+                    "title": "用户类型",
+                    "name": "type",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "UserType"
                   }
                 ],
                 "event": {
@@ -299,7 +361,7 @@
           },
           {
             "uuid": "copy-60d966de-88dd-44d0-b68c-b9fbc64dd596",
-            "title": "用户详情信息查询",
+            "title": "用户分页查询",
             "name": "UserListQuery",
             "description": "",
             "meta": {},
@@ -316,12 +378,12 @@
             "properties": [
               {
                 "uuid": "6b2668c2-a174-4a10-b8be-f5d64973ffdf",
-                "title": "主键Id",
-                "name": "id",
+                "title": "用户类型",
+                "name": "type",
                 "description": "",
                 "meta": {},
                 "access": "public",
-                "type": "Long"
+                "type": "Integer"
               }
             ],
             "return": {
@@ -363,6 +425,15 @@
                 "meta": {},
                 "access": "public",
                 "type": "Long"
+              },
+              {
+                "uuid": "0c6065b2-53fb-4458-bea2-5a0d257f4532",
+                "title": "用户类型",
+                "name": "type",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
               }
             ]
           }
@@ -401,6 +472,16 @@
                 "uuid": "4d71c9c7-6739-4764-b6ae-a33a7cf0d323",
                 "name": "age",
                 "title": "年龄",
+                "description": "",
+                "meta": {},
+                "type": "Integer",
+                "autoIncrement": false,
+                "notNull": false
+              },
+              {
+                "uuid": "92ab9e1d-e95e-45fb-b3b0-fb00c8d018f2",
+                "name": "type",
+                "title": "用户类型",
                 "description": "",
                 "meta": {},
                 "type": "Integer",

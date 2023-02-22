@@ -33,6 +33,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.DOMAIN_QUERY_LIST, getQueryList());
         context.put(VelocityLabel.DOMAIN_DTO_LIST, getDTOList());
         context.put(VelocityLabel.DOMAIN_CMD_LIST, getCmdList());
+        context.put(VelocityLabel.DOMAIN_ENUM_LIST, getEnumList());
         context.put(VelocityLabel.DOMAIN_DATA_LIST, getDataList());
         context.put(VelocityLabel.DOMAIN_AGGREGATION_LIST, getAggregationList());
         context.put(VelocityLabel.DOMAIN_OBJECT_MAPPER_LIST, getObjectMapperList());
@@ -53,9 +54,16 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         return domainModel.getChildElementList(AggregateNode.class);
     }
 
+    private List<ElementNode> getEnumList() {
+        List<AggregateNode> aggregationList = getAggregationList();
+        return aggregationList.stream()
+                .map(aggregate -> aggregate.getChildElementList(EnumNode.class))
+                .flatMap(Collection::stream)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
     private List<ElementNode> getCmdList() {
-        DomainModelNode domainModel = astBusinessDomain.getChildElementList(DomainModelNode.class).get(0);
-        List<AggregateNode> aggregationList = domainModel.getChildElementList(AggregateNode.class);
+        List<AggregateNode> aggregationList = getAggregationList();
         return aggregationList.stream()
                 .map(aggregate -> aggregate.getChildElementList(CommandNode.class))
                 .flatMap(Collection::stream)

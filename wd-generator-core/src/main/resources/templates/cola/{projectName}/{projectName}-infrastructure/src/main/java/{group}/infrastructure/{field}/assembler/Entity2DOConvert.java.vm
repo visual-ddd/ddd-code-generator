@@ -8,13 +8,18 @@ import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_SOURCE_OBJECT})}.${OBJECT_MAPPER_SOURCE_OBJECT};
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER_TARGET_OBJECT};
-#dependencyEnumConverter()
+#foreach($enum in ${DOMAIN_ENUM_LIST})
+#if(${enum.getParentNode().root.name} == ${OBJECT_MAPPER_SOURCE_OBJECT})
+import ${IMPORT_PACKAGE_MAP.get("${enum.name}Converter")}.${enum.name}Converter;
+#end
+#end
 
-#comment("${OBJECT_MAPPER_CLASS_NAME}和DO转换器")
 @Mapper(uses = {
-##    #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
-##        ${aggregationEnum.name}Converter.class,
-##    #end
+    #foreach($enum in ${DOMAIN_ENUM_LIST})
+    #if(${enum.getParentNode().root.name} == ${OBJECT_MAPPER_SOURCE_OBJECT})
+        ${enum.name}Converter.class,
+    #end
+    #end
 })
 public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 

@@ -4,7 +4,6 @@ package ${IMPORT_PACKAGE_MAP.get("${ENUM_CLASS_NAME}Converter")};
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
 import com.wakedata.common.core.util.BaseEnumUtil;
-import lombok.AllArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,7 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 #comment("${ENUM_CLASS_DESCRIPTION}-枚举转换器")
-@AllArgsConstructor
 public class ${ENUM_CLASS_NAME}Converter {
 
     public Integer convertToDatabaseColumn(${ENUM_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${ENUM_CLASS_NAME})}) {

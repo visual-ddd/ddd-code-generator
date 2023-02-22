@@ -26,14 +26,7 @@ import ${importPackage};
 #macro(filedExt $filedList, $arg)
     #foreach ($field in $filedList)
 
-    #if($arg == "swagger")
-    #if($field.description)
-    @ApiModelProperty(value = "${field.description}")
-    #end
-    #if(!$field.description && $field.description == "")
-    @ApiModelProperty(value = "${field.title}")
-    #end
-    #end
+    #printApiDesc(${field})
     private ${field.type} ${field.name};
     #end
 #end
@@ -84,7 +77,7 @@ import ${importPackage};
     #if($method.description)
     /** ${method.description} */
     #end
-    #if(!$method.description && $method.description == "")
+    #if(!${method.description} && ${method.description} == "")
     /** ${method.title} */
     #end
 #end
@@ -92,7 +85,15 @@ import ${importPackage};
     #if($field.description)
     /** ${field.description} */
     #end
-    #if(!$field.description && $field.description == "")
+    #if(!${field.description} && ${field.description} == "")
     /** ${field.title} */
+    #end
+#end
+#macro(printApiDesc $field)
+    #if(${field.description})
+    @ApiModelProperty(value = "${field.description}")
+    #end
+    #if(!${field.description} && ${field.description} == "")
+    @ApiModelProperty(value = "${field.title}")
     #end
 #end
