@@ -60,24 +60,24 @@
         </executions>
       </plugin>
 
-      <plugin>
-        <groupId>pl.project13.maven</groupId>
-        <artifactId>git-commit-id-plugin</artifactId>
-        <version>2.2.1</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>revision</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <dateFormat>yyyyMMddHHmmss</dateFormat>
-          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-          <generateGitPropertiesFile>false</generateGitPropertiesFile>
-        </configuration>
-      </plugin>
+##      <plugin>
+##        <groupId>pl.project13.maven</groupId>
+##        <artifactId>git-commit-id-plugin</artifactId>
+##        <version>2.2.1</version>
+##        <executions>
+##          <execution>
+##            <phase>validate</phase>
+##            <goals>
+##              <goal>revision</goal>
+##            </goals>
+##          </execution>
+##        </executions>
+##        <configuration>
+##          <dateFormat>yyyyMMddHHmmss</dateFormat>
+##          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+##          <generateGitPropertiesFile>false</generateGitPropertiesFile>
+##        </configuration>
+##      </plugin>
 
       <plugin>
         <groupId>io.fabric8</groupId>
