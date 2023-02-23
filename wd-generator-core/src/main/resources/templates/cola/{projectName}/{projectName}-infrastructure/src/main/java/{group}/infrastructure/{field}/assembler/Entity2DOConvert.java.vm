@@ -18,6 +18,11 @@ import ${IMPORT_PACKAGE_MAP.get("${enum.name}Converter")}.${enum.name}Converter;
 import ${IMPORT_PACKAGE_MAP.get("${valueObject.name}Converter")}.${valueObject.name}Converter;
 #end
 #end
+#foreach($entity in ${DOMAIN_ENTITY_LIST})
+#if(${entity.getParentNode().root.name} == ${OBJECT_MAPPER_SOURCE_OBJECT})
+import ${IMPORT_PACKAGE_MAP.get("${entity.name}Converter")}.${entity.name}Converter;
+#end
+#end
 
 @Mapper(uses = {
     #foreach($enum in ${DOMAIN_ENUM_LIST})
@@ -28,6 +33,11 @@ import ${IMPORT_PACKAGE_MAP.get("${valueObject.name}Converter")}.${valueObject.n
     #foreach($valueObject in ${DOMAIN_VALUE_OBJECT_LIST})
     #if(${valueObject.getParentNode().root.name} == ${OBJECT_MAPPER_SOURCE_OBJECT})
         ${valueObject.name}Converter.class,
+    #end
+    #end
+    #foreach($entity in ${DOMAIN_ENTITY_LIST})
+    #if(${entity.getParentNode().root.name} == ${OBJECT_MAPPER_SOURCE_OBJECT})
+        ${entity.name}Converter.class,
     #end
     #end
 })

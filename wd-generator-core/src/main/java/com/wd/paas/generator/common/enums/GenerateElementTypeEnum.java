@@ -76,6 +76,7 @@ public enum GenerateElementTypeEnum {
      */
     ENTITY("Entity", new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Entity.java.vm",
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/EntityConverter.java.vm",
             "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/EntityDTO.java.vm",
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/EntityDTO2EntityConvert.java.vm"
     }),

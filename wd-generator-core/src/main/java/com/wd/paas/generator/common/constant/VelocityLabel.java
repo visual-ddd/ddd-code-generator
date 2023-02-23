@@ -27,6 +27,7 @@ public class VelocityLabel {
     public static final String DOMAIN_CMD_LIST = "DOMAIN_CMD_LIST";
     public static final String DOMAIN_ENUM_LIST = "DOMAIN_ENUM_LIST";
     public static final String DOMAIN_VALUE_OBJECT_LIST = "DOMAIN_VALUE_OBJECT_LIST";
+    public static final String DOMAIN_ENTITY_LIST = "DOMAIN_ENTITY_LIST";
     public static final String DOMAIN_AGGREGATION_LIST = "DOMAIN_AGGREGATION_LIST";
     public static final String DOMAIN_OBJECT_MAPPER_LIST = "DOMAIN_OBJECT_MAPPER_LIST";
     public static final String DOMAIN_DATA_LIST = "DOMAIN_DATA_LIST";
