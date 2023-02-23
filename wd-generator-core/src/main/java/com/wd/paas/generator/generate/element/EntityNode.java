@@ -15,7 +15,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class EntityNode extends LeafElement{
+public class EntityNode extends LeafElement {
 
     private Boolean isAbstract;
 
@@ -23,21 +23,27 @@ public class EntityNode extends LeafElement{
 
     private List<PropertyInfo> propertyList;
 
-    private List<MethodInfo> methodInfoList;
+    private List<MethodInfo> methodList;
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
         AggregateNode parentNode = (AggregateNode) this.getParentNode();
         String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
 
         String[] searchList = {
+                ModelUrlConstant.ENTITY_DTO_CLASS,
                 ModelUrlConstant.ENTITY_CLASS
         };
 
         String[] replacementList = {
+                getEntityDTOName(),
                 this.getName()
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
+
+    public String getEntityDTOName() {
+        return this.getName().concat(ModelUrlConstant.REQUEST_SUFFIX);
     }
 
 }

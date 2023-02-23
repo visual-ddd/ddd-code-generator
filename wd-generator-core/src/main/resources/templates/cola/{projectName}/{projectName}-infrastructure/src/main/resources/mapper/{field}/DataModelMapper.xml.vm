@@ -1,8 +1,12 @@
 #parse("templates/ClassFunction.vm")
-#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${DATA_OBJECT_CLASS_NAME}")})
+#set($doClassName = ${DATA_OBJECT_CLASS_NAME})
+#set($doMapperClassName = "${DATA_MAPPER_CLASS_NAME}Mapper")
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doClassName}")})
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${IMPORT_PACKAGE_MAP.get("${aggregationClass}Mapper")}.${aggregationClass}Mapper">
+<mapper namespace="${IMPORT_PACKAGE_MAP.get("${doMapperClassName}")}.${doMapperClassName}">
+## 只生成<聚合根>对应的查询模型接口
+#if(${DATA_MAPPER_CLASS_NAME} == ${aggregationClass})
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
     <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
@@ -32,4 +36,6 @@
 ##            <result property="tenantId" column="tenant_id" jdbcType="BIGINT"/>
 ##        #end
 ##    </resultMap>
+#end
+
 </mapper>

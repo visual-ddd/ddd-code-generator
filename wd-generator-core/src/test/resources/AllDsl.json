@@ -65,6 +65,15 @@
                   "meta": {},
                   "access": "public",
                   "type": "Address"
+                },
+                {
+                  "uuid": "7c60ee40-7d7e-424f-a2cb-c1178618a201",
+                  "title": "账号",
+                  "name": "account",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "Account"
                 }
               ],
               "methods": [
@@ -95,7 +104,78 @@
                 }
               ]
             },
-            "entities": [],
+            "entities": [
+              {
+                "uuid": "de28f966-646a-4de1-a702-e9b75b5d0111",
+                "title": "账号",
+                "name": "Account",
+                "description": "",
+                "meta": {},
+                "id": {
+                  "uuid": "fbcb1a75-1bb3-4820-9209-38b641ebf0f1",
+                  "title": "主键",
+                  "name": "id",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "Long"
+                },
+                "properties": [
+                  {
+                    "uuid": "dd402d74-2cc4-47b0-b558-ad66d40b54f6",
+                    "title": "账号名称",
+                    "name": "accountName",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "df1ae28a-c18b-43f4-92a0-b34b38d0c461",
+                    "title": "密码",
+                    "name": "password",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  }
+                ],
+                "methods": [
+                  {
+                    "uuid": "da1219c5-2163-4bed-a894-9bb0cf5ba06a",
+                    "title": "创建账号",
+                    "name": "createAccount",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "abstract": true,
+                    "signature": {
+                      "description": "",
+                      "parameters": [],
+                      "return": {
+                        "type": "Long"
+                      }
+                    }
+                  },
+                  {
+                    "uuid": "2830039d-9c1a-4dcd-b502-e8154aa8e5b8",
+                    "title": "删除账号",
+                    "name": "removeAccount",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "abstract": false,
+                    "signature": {
+                      "description": "",
+                      "parameters": [],
+                      "return": {
+                        "type": "void"
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
             "valueObjects": [
               {
                 "uuid": "a221185e-b41e-4a07-85b4-960d1798d3f6",
@@ -386,6 +466,159 @@
                 "return": {
                   "type": "Long"
                 }
+              },
+              {
+                "uuid": "copy-8aac73b4-3e12-468b-bee4-d1f476ce301f",
+                "title": "创建账号",
+                "name": "AccountCreate",
+                "description": "",
+                "meta": {},
+                "rules": [],
+                "category": "createAccount",
+                "repository": "modify",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  },
+                  {
+                    "type": "schedule",
+                    "value": "* 2 * * * *"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "cff652ff-eac3-4165-bf3f-e24a9dfacb76",
+                    "title": "用户id",
+                    "name": "id",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Long"
+                  },
+                  {
+                    "uuid": "3555fc3f-08bb-4591-a30f-7adb72cbbc10",
+                    "title": "账号信息",
+                    "name": "account",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Account"
+                  }
+                ],
+                "event": {
+                  "uuid": "copy-8aac73b4-3e12-468b-bee4-d1f476ce301f",
+                  "name": "AccountCreateEvent",
+                  "properties": []
+                },
+                "return": {
+                  "type": "Long"
+                }
+              },
+              {
+                "uuid": "copy-b40b14a4-4b37-4ed1-a680-567fc6483545",
+                "title": "更新账号",
+                "name": "AccountUpdate",
+                "description": "",
+                "meta": {},
+                "rules": [],
+                "category": "updateAccount",
+                "repository": "modify",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  },
+                  {
+                    "type": "schedule",
+                    "value": "* 2 * * * *"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "c3c93c53-aea2-4e5f-9381-66121622525e",
+                    "title": "用户id",
+                    "name": "id",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Long"
+                  },
+                  {
+                    "uuid": "cff652ff-eac3-4165-bf3f-e24a9dfacb76",
+                    "title": "账号信息",
+                    "name": "account",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Account"
+                  }
+                ],
+                "event": {
+                  "uuid": "copy-b40b14a4-4b37-4ed1-a680-567fc6483545",
+                  "name": "AccountUpdateEvent",
+                  "properties": []
+                },
+                "return": {
+                  "type": "Void"
+                }
+              },
+              {
+                "uuid": "copy-e5a45445-49ff-406c-988e-29ca9a0d9ec4",
+                "title": "删除账号",
+                "name": "AccountRemove",
+                "description": "",
+                "meta": {},
+                "rules": [],
+                "category": "removeAccount",
+                "repository": "modify",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  },
+                  {
+                    "type": "schedule",
+                    "value": "* 2 * * * *"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "cff652ff-eac3-4165-bf3f-e24a9dfacb76",
+                    "title": "用户id",
+                    "name": "id",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Long"
+                  },
+                  {
+                    "uuid": "db7905a9-739a-4917-87d9-6683d9688362",
+                    "title": "账号信息",
+                    "name": "account",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Account"
+                  }
+                ],
+                "event": {
+                  "uuid": "copy-e5a45445-49ff-406c-988e-29ca9a0d9ec4",
+                  "name": "AccountRemoveEvent",
+                  "properties": []
+                },
+                "return": {
+                  "type": "Void"
+                }
               }
             ]
           }
@@ -458,6 +691,42 @@
         ],
         "dtos": [
           {
+            "uuid": "copy-7e2d4359-d522-4f86-919e-3444c8dcf3a5",
+            "title": "地址信息",
+            "name": "Address",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "7befecbb-5378-4528-91e1-8ba3cddbc255",
+                "title": "省",
+                "name": "province",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "069fc5e9-ab4c-47ba-9679-3635ecafd59c",
+                "title": "市",
+                "name": "city",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ff6b961d-4b02-45f9-9e5c-ead4e16647a4",
+                "title": "区",
+                "name": "region",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          },
+          {
             "uuid": "0f5e51db-10e1-4b68-b76e-e9e5e07ba664",
             "title": "用户信息",
             "name": "User",
@@ -503,7 +772,61 @@
               {
                 "uuid": "7363d7ee-69b5-40c3-b2b3-245d7e9e1f1f",
                 "title": "地址",
-                "name": "address",
+                "name": "addressJson",
+                "description": "json形式返回",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ae789e4c-8100-46f0-80d2-3e0b9a49064d",
+                "title": "地址信息",
+                "name": "addressDTO",
+                "description": "dto对象形式返回",
+                "meta": {},
+                "access": "public",
+                "type": "Address"
+              },
+              {
+                "uuid": "060ccfbe-0d37-4f20-ab1a-cc225e098e45",
+                "title": "账号JSON",
+                "name": "accountJSON",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "a317788c-8458-4a7a-84e0-5fedc6613536",
+                "title": "账号DTO对象",
+                "name": "accountDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "AccountDTO"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-174442d1-81f2-4ca0-8320-7059e38718ec",
+            "title": "账号信息",
+            "name": "AccountDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "7befecbb-5378-4528-91e1-8ba3cddbc255",
+                "title": "账号名称",
+                "name": "accountName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "069fc5e9-ab4c-47ba-9679-3635ecafd59c",
+                "title": "密码",
+                "name": "password",
                 "description": "",
                 "meta": {},
                 "access": "public",
@@ -565,7 +888,16 @@
               {
                 "uuid": "7aec7b17-7cae-4d22-afa6-116ebb1631d7",
                 "name": "address",
-                "title": "地址",
+                "title": "地址JSON",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "1fde9b50-6fa2-4660-8c8d-258af2d60bd7",
+                "name": "account",
+                "title": "账号JSON",
                 "description": "",
                 "meta": {},
                 "type": "String",
@@ -582,9 +914,161 @@
                 ]
               }
             ]
+          },
+          {
+            "uuid": "copy-aec890ac-1dbb-485c-93e9-878789c4a854",
+            "title": "用户地址表",
+            "name": "UserAddress",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "589d4cdb-1db0-4ac5-b350-46043697be82",
+                "name": "id",
+                "title": "主键Id",
+                "description": "",
+                "meta": {},
+                "type": "Long",
+                "autoIncrement": true,
+                "notNull": true
+              },
+              {
+                "uuid": "a1347f47-f66c-4d37-a251-15e2a960055c",
+                "name": "province",
+                "title": "省",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "8e4d34b9-b42c-49a1-b99f-be4a604d3b78",
+                "name": "city",
+                "title": "市",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "217d8d91-67f2-4a9c-a68e-d35cdbbbe1ca",
+                "name": "region",
+                "title": "区",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "a38fd5bb-4dca-4187-a0de-e88e8de59f90",
+                "name": "userId",
+                "title": "所属用户",
+                "description": "",
+                "meta": {},
+                "type": "Long",
+                "notNull": false
+              }
+            ],
+            "indexes": [
+              {
+                "uuid": "copy-aec890ac-1dbb-485c-93e9-878789c4a854-primary-key",
+                "name": "primaryKeys",
+                "type": "Primary",
+                "properties": [
+                  "id"
+                ]
+              }
+            ]
+          },
+          {
+            "uuid": "copy-87c50790-4efd-4c65-b950-10012f5ff185",
+            "title": "用户账号表",
+            "name": "UserAccount",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "589d4cdb-1db0-4ac5-b350-46043697be82",
+                "name": "id",
+                "title": "主键Id",
+                "description": "",
+                "meta": {},
+                "type": "Long",
+                "autoIncrement": true,
+                "notNull": true
+              },
+              {
+                "uuid": "ecb189bb-5c48-4911-af9b-a4bc6c921fba",
+                "name": "accountName",
+                "title": "账号名称",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "length": 50,
+                "notNull": false
+              },
+              {
+                "uuid": "4d71c9c7-6739-4764-b6ae-a33a7cf0d323",
+                "name": "password",
+                "title": "密码",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "length": 50,
+                "notNull": false
+              },
+              {
+                "uuid": "3e05b9b2-ab71-4501-a33e-39f2ed359af6",
+                "name": "userId",
+                "title": "所属用户",
+                "description": "",
+                "meta": {},
+                "type": "Long",
+                "notNull": false
+              }
+            ],
+            "indexes": [
+              {
+                "uuid": "copy-87c50790-4efd-4c65-b950-10012f5ff185-primary-key",
+                "name": "primaryKeys",
+                "type": "Primary",
+                "properties": [
+                  "id"
+                ]
+              }
+            ]
           }
         ],
-        "references": []
+        "references": [
+          {
+            "source": "UserAddress",
+            "targets": [
+              {
+                "target": "User",
+                "mapper": [
+                  {
+                    "sourceField": "userId",
+                    "targetField": "id"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "source": "UserAccount",
+            "targets": [
+              {
+                "target": "User",
+                "mapper": [
+                  {
+                    "sourceField": "userId",
+                    "targetField": "id"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       "objectMapper": {
         "mappers": [
@@ -653,7 +1137,8 @@
           }
         ]
       },
-      "vision": "实现用户的管理和维护",
+      "vision": "实现用户的管理和维护"
+    ,
       "description": "用户的领域",
       "title": "用户域",
       "version": "1.1.2",

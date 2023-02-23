@@ -1,0 +1,18 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_DTO_NAME}")};
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
+
+#comment("${VALUE_OBJECT_CLASS_DESCRIPTION}")
+@Data
+@ApiModel(value = "${VALUE_OBJECT_CLASS_DESCRIPTION}")
+public class ${VALUE_OBJECT_DTO_NAME} {
+#foreach ($field in ${VALUE_OBJECT_CLASS_FIELDS})
+
+    #printApiDesc(${field})
+    #printSignTypeField(${field})
+#end
+}

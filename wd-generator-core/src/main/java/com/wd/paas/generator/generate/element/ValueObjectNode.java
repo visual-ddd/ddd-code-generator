@@ -27,12 +27,18 @@ public class ValueObjectNode extends LeafElement {
         String outputPath = astAggregate.getOutputPath(templateUrl, preFixOutPath);
 
         String[] searchList = {
+                ModelUrlConstant.VALUE_OBJECT_DTO_CLASS,
                 ModelUrlConstant.VALUE_OBJECT_CLASS
         };
         String[] replacementList = {
+                getValueObjectDTOName(),
                 this.getName()
         };
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
+
+    public String getValueObjectDTOName() {
+        return this.getName().concat(ModelUrlConstant.REQUEST_SUFFIX);
     }
 }

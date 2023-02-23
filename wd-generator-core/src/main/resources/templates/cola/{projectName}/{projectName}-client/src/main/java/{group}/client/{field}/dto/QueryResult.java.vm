@@ -13,5 +13,26 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "${QUERY_RESULT_CLASS_DESCRIPTION}")
 public class ${QUERY_RESULT_CLASS_NAME} extends BaseDTO {
-    #filedExt(${QUERY_RESULT_CLASS_FIELDS})
+#foreach ($field in ${QUERY_RESULT_CLASS_FIELDS})
+
+    #printApiDesc(${field})
+    #set(${signType} = -1)
+    #foreach($queryResultNode in ${DOMAIN_DTO_LIST})
+        #if(${queryResultNode.name} == ${field.type})
+            #set(${signType} = 1)
+        #end
+        #if(${queryResultNode.excludeDTOSuffix()} == ${field.type})
+            #set(${signType} = 2)
+        #end
+    #end
+    #if(${signType} == -1)
+    ${field.access} ${field.type} ${field.name};
+    #end
+    #if(${signType} == 1)
+    ${field.access} ${field.type} ${field.name};
+    #end
+    #if(${signType} == 2)
+        ${field.access} ${field.type}DTO ${field.name};
+    #end
+#end
 }

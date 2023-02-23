@@ -36,7 +36,7 @@ import ${importPackage};
 
     #printMethodDesc($method)
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(#foreach($parameter in ${method.signatureInfo.parameterList})${parameter.type} ${parameter.name}#end){
-        // Do Something
+        // TODO: ${method.title}(${method.description})
         #if($method.signature.returnInfo.type != "void")
         return null;
      #end
@@ -50,7 +50,7 @@ import ${importPackage};
     #printMethodDesc($method)
     @Override
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})}) {
-        // Do Something
+        // TODO: ${method.title}(${method.description})
         #if($method.signature.returnInfo.type != "void")
         return null;
      #end
@@ -96,4 +96,32 @@ import ${importPackage};
     #if(!${field.description} && ${field.description} == "")
     @ApiModelProperty(value = "${field.title}")
     #end
+#end
+## 打印包含自定义属性类型
+#macro(printSignTypeField $field)
+#set(${signType} = -1)
+#foreach($enumNode in ${AGGREGATION_ENUM_LIST})
+    #if(${enumNode.name} == ${field.type})
+        #set(${signType} = 1)
+    #end
+#end
+#foreach($valueObjectNode in ${AGGREGATION_VALUE_OBJECT_LIST})
+    #if(${valueObjectNode.name} == ${field.type})
+        #set(${signType} = 2)
+    #end
+#end
+#foreach($entityNode in ${AGGREGATION_ENTITY_LIST})
+    #if(${entityNode.name} == ${field.type})
+        #set(${signType} = 3)
+    #end
+#end
+#if(${signType} == -1)
+    ${field.access} ${field.type} ${field.name};
+#end
+#if(${signType} == 1)
+    ${field.access} Integer ${field.name};
+#end
+#if(${signType} == 2 || ${signType} == 3)
+    ${field.access} ${field.type}Request ${field.name};
+#end
 #end

@@ -45,8 +45,10 @@ public class VelocityLabel {
 
     // 实体
     public static final String ENTITY_CLASS_NAME = "ENTITY_CLASS_NAME";
+    public static final String ENTITY_DTO_CLASS_NAME = "ENTITY_DTO_CLASS_NAME";
     public static final String ENTITY_CLASS_FIELDS = "ENTITY_CLASS_FIELDS";
     public static final String ENTITY_CLASS_DESCRIPTION = "ENTITY_CLASS_DESCRIPTION";
+    public static final String ENTITY_CLASS_ID = "ENTITY_CLASS_ID";
     public static final String ENTITY_CLASS_METHODS = "ENTITY_CLASS_METHODS";
 
     // 枚举

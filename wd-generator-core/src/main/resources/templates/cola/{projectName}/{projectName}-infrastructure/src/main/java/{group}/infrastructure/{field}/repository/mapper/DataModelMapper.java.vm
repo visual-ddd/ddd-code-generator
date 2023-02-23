@@ -1,29 +1,37 @@
 #parse("templates/ClassFunction.vm")
+#set($doClassName = ${DATA_OBJECT_CLASS_NAME})
+#set($doMapperClassName = "${DATA_MAPPER_CLASS_NAME}Mapper")
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doClassName}")})
 package ${IMPORT_PACKAGE_MAP.get("${DATA_MAPPER_CLASS_NAME}Mapper")};
 
 import java.util.List;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}")}.${DATA_OBJECT_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get("${doClassName}")}.${doClassName};
+#if(${DATA_MAPPER_CLASS_NAME} == ${aggregationClass})
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 import ${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name};
 #end
+#end
 
-#comment("${DATA_OBJECT_CLASS_DESCRIPTION}Mapper接口")
+#comment("${doMapperClassName}接口")
 @Mapper
-public interface ${DATA_MAPPER_CLASS_NAME}Mapper extends BaseMapper<${DATA_OBJECT_CLASS_NAME}> {
+public interface ${doMapperClassName} extends BaseMapper<${doClassName}> {
+## 只生成<聚合根>对应的查询模型接口
+#if(${DATA_MAPPER_CLASS_NAME} == ${aggregationClass})
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 #if(!${query.pagination})
 
     #printMethodDesc($query)
-    ${DATA_OBJECT_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
+    ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
 #end
 #end
 #foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
 #if(${pageQuery.pagination})
 
     #printMethodDesc($pageQuery)
-    List<${DATA_OBJECT_CLASS_NAME}> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}(${pageQuery.name} pageQuery);
+    List<${doClassName}> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}(${pageQuery.name} pageQuery);
+#end
 #end
 #end
 }

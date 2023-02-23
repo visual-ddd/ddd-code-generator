@@ -54,9 +54,15 @@ public class DtoNode extends LeafElement {
     @Override
     public void initProperties() {
         super.initProperties();
-        if (!this.getName().endsWith(ModelUrlConstant.DTO_SUFFIX)) {
-            this.setName(this.getName().concat(ModelUrlConstant.DTO_SUFFIX));
+        String name = this.getName();
+        initName(name);
+    }
+
+    private void initName(String name) {
+        if (name.endsWith(ModelUrlConstant.DTO_SUFFIX)) {
+            return;
         }
+        this.setName(name.concat(ModelUrlConstant.DTO_SUFFIX));
     }
 
     public String getOutputPath(String templateUrl, String preFixOutPath) {
@@ -74,4 +80,10 @@ public class DtoNode extends LeafElement {
 
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
+
+    public String excludeDTOSuffix() {
+        String name = this.getName();
+        return name.substring(0, name.lastIndexOf(ModelUrlConstant.DTO_SUFFIX));
+    }
+
 }

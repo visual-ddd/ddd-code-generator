@@ -13,11 +13,13 @@ import ${IMPORT_PACKAGE_MAP.get(${CMD_CLASS_NAME})}.${CMD_CLASS_NAME};
         ${aggregationEnum.name}Converter.class,
     #end
     #foreach($valueObjectNode in ${AGGREGATION_VALUE_OBJECT_LIST})
-        ${valueObjectNode.name}DTO2${valueObjectNode.name}Convert.class,
+        ${valueObjectNode.getValueObjectDTOName()}2${valueObjectNode.name}Convert.class,
+    #end
+    #foreach($entityNode in ${AGGREGATION_ENTITY_LIST})
+        ${entityNode.getEntityDTOName()}2${entityNode.name}Convert.class,
     #end
 })
-public interface ${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert extends
-        BaseConvert<${CMD_DTO_CLASS}, ${CMD_CLASS_NAME}> {
+public interface ${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert extends BaseConvert<${CMD_DTO_CLASS}, ${CMD_CLASS_NAME}> {
 
     ${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert INSTANCE = Mappers.getMapper(${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert.class);
 }

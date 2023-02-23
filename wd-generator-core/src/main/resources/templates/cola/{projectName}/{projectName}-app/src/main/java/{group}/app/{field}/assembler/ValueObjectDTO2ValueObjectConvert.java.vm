@@ -1,10 +1,10 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_CLASS_NAME}DTO2${VALUE_OBJECT_CLASS_NAME}Convert")};
+package ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_CLASS_NAME}DTO")}.${VALUE_OBJECT_CLASS_NAME}DTO;
+import ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_DTO_NAME}")}.${VALUE_OBJECT_DTO_NAME};
 import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_CLASS_NAME})}.${VALUE_OBJECT_CLASS_NAME};
 #dependencyEnumConverter()
 
@@ -13,8 +13,7 @@ import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_CLASS_NAME})}.${VALUE_OBJECT_CLAS
         ${aggregationEnum.name}Converter.class,
     #end
 })
-public interface ${VALUE_OBJECT_CLASS_NAME}DTO2${VALUE_OBJECT_CLASS_NAME}Convert extends
-        BaseConvert<${VALUE_OBJECT_CLASS_NAME}DTO, ${VALUE_OBJECT_CLASS_NAME}> {
+public interface ${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert extends BaseConvert<${VALUE_OBJECT_DTO_NAME}, ${VALUE_OBJECT_CLASS_NAME}> {
 
-    ${VALUE_OBJECT_CLASS_NAME}DTO2${VALUE_OBJECT_CLASS_NAME}Convert INSTANCE = Mappers.getMapper(${VALUE_OBJECT_CLASS_NAME}DTO2${VALUE_OBJECT_CLASS_NAME}Convert.class);
+    ${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert INSTANCE = Mappers.getMapper(${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert.class);
 }

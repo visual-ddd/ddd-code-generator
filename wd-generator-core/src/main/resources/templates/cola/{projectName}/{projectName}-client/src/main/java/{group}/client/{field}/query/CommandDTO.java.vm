@@ -1,0 +1,18 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get("${CMD_DTO_CLASS}")};
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
+
+#comment("${CMD_CLASS_DESCRIPTION}")
+@Data
+@ApiModel(value = "${CMD_CLASS_DESCRIPTION}")
+public class ${CMD_DTO_CLASS} {
+#foreach ($field in ${CMD_CLASS_FIELDS})
+
+    #printApiDesc(${field})
+    #printSignTypeField(${field})
+#end
+}

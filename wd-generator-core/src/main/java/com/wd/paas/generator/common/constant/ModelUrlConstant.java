@@ -23,12 +23,16 @@ public class ModelUrlConstant {
 
     public static final String DOMAIN_CLASS = "Domain";
     public static final String AGGREGATION_CLASS = "Aggregation";
-    public static final String ENTITY_CLASS = "Entity";
     public static final String ENUM_CLASS = "Enum";
+
+    public static final String ENTITY_CLASS = "Entity";
+    public static final String ENTITY_DTO_CLASS = "EntityDTO";
+
     public static final String VALUE_OBJECT_CLASS = "ValueObject";
     public static final String VALUE_OBJECT_DTO_CLASS = "ValueObjectDTO";
-    public static final String COMMAND_DTO_CLASS = "CommandDTO";
+
     public static final String COMMAND_CLASS = "Command";
+    public static final String COMMAND_DTO_CLASS = "CommandDTO";
     public static final String ADD_COMMAND_HANDLER_CLASS = "AddCommand";
     public static final String UPDATE_COMMAND_HANDLER_CLASS = "UpdateCommand";
     public static final String DELETE_COMMAND_HANDLER_CLASS = "DeleteCommand";
@@ -41,6 +45,7 @@ public class ModelUrlConstant {
     public static final String QUERY_RESULT_CLASS = "QueryResult";
     public static final String QUERY_CLASS = "Query";
     public static final String DTO_SUFFIX = "DTO";
+    public static final String REQUEST_SUFFIX = "Request";
 
     // 数据模型
     public static final String DATA_DO_CLASS = "DataModelDO";

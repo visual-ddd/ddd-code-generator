@@ -28,9 +28,11 @@ public class EntityStrategy extends AbstractElementStrategy{
     @Override
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.ENTITY_CLASS_NAME, astEntity.getName());
+        context.put(VelocityLabel.ENTITY_DTO_CLASS_NAME, astEntity.getEntityDTOName());
         context.put(VelocityLabel.ENTITY_CLASS_DESCRIPTION, astEntity.getDescription());
+        context.put(VelocityLabel.ENTITY_CLASS_ID, astEntity.getId());
         context.put(VelocityLabel.ENTITY_CLASS_FIELDS, astEntity.getPropertyList());
-        context.put(VelocityLabel.ENTITY_CLASS_METHODS, astEntity.getMethodInfoList());
+        context.put(VelocityLabel.ENTITY_CLASS_METHODS, astEntity.getMethodList());
     }
 
     @Override

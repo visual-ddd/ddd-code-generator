@@ -76,6 +76,8 @@ public enum GenerateElementTypeEnum {
      */
     ENTITY("Entity", new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Entity.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/EntityDTO.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/EntityDTO2EntityConvert.java.vm"
     }),
 
     /**
@@ -83,7 +85,7 @@ public enum GenerateElementTypeEnum {
      */
     VALUE_OBJECT("ValueObject", new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObject.java.vm",
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/ValueObjectDTO.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/ValueObjectDTO.java.vm",
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/ValueObjectDTO2ValueObjectConvert.java.vm",
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObjectConverter.java.vm"
     }),
@@ -101,7 +103,7 @@ public enum GenerateElementTypeEnum {
      */
     COMMAND("Command", new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/CommandDTO.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/CommandDTO.java.vm",
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/CommandDTO2CommandConvert.java.vm",
     }),
 
