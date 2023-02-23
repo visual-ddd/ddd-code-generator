@@ -31,6 +31,7 @@ public class AggregationStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, astAggregateRoot.getMethodList());
 
         context.put(VelocityLabel.AGGREGATION_ENUM_LIST, astAggregate.getChildElementList(EnumNode.class));
+        context.put(VelocityLabel.AGGREGATION_VALUE_OBJECT_LIST, astAggregate.getChildElementList(ValueObjectNode.class));
         context.put(VelocityLabel.AGGREGATION_CMD_LIST, astAggregate.getChildElementList(CommandNode.class));
         context.put(VelocityLabel.AGGREGATION_ENTITY_LIST, astAggregate.getChildElementList(EntityNode.class));
 

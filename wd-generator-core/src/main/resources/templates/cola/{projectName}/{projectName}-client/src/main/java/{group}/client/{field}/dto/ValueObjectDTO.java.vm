@@ -1,16 +1,16 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${CMD_DTO_CLASS}")};
+package ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_CLASS_NAME}DTO")};
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
-#comment("${CMD_CLASS_DESCRIPTION}")
+#comment("${VALUE_OBJECT_CLASS_DESCRIPTION}")
 @Data
-@ApiModel(value = "${CMD_CLASS_DESCRIPTION}")
-public class ${CMD_DTO_CLASS} {
-    #foreach ($field in ${CMD_CLASS_FIELDS})
+@ApiModel(value = "${VALUE_OBJECT_CLASS_DESCRIPTION}")
+public class ${VALUE_OBJECT_CLASS_NAME}DTO {
+#foreach ($field in ${VALUE_OBJECT_CLASS_FIELDS})
 
     #if($field.description)
     @ApiModelProperty(value = "${field.description}")
@@ -19,7 +19,7 @@ public class ${CMD_DTO_CLASS} {
     @ApiModelProperty(value = "${field.title}")
     #end
     #printEnumField(${field})
-    #end
+#end
 }
 #macro(printEnumField $field)
 #set(${signType} = -1)

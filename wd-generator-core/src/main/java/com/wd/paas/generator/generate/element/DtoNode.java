@@ -54,8 +54,8 @@ public class DtoNode extends LeafElement {
     @Override
     public void initProperties() {
         super.initProperties();
-        if (!this.getName().endsWith(ModelUrlConstant.QUERY_RESULT_SUFFIX)) {
-            this.setName(this.getName().concat(ModelUrlConstant.QUERY_RESULT_SUFFIX));
+        if (!this.getName().endsWith(ModelUrlConstant.DTO_SUFFIX)) {
+            this.setName(this.getName().concat(ModelUrlConstant.DTO_SUFFIX));
         }
     }
 

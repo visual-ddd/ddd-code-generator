@@ -26,6 +26,7 @@ public class VelocityLabel {
     public static final String DOMAIN_DTO_LIST = "DOMAIN_DTO_LIST";
     public static final String DOMAIN_CMD_LIST = "DOMAIN_CMD_LIST";
     public static final String DOMAIN_ENUM_LIST = "DOMAIN_ENUM_LIST";
+    public static final String DOMAIN_VALUE_OBJECT_LIST = "DOMAIN_VALUE_OBJECT_LIST";
     public static final String DOMAIN_AGGREGATION_LIST = "DOMAIN_AGGREGATION_LIST";
     public static final String DOMAIN_OBJECT_MAPPER_LIST = "DOMAIN_OBJECT_MAPPER_LIST";
     public static final String DOMAIN_DATA_LIST = "DOMAIN_DATA_LIST";
@@ -38,6 +39,7 @@ public class VelocityLabel {
     public static final String AGGREGATION_CLASS_METHODS = "AGGREGATION_CLASS_METHODS";
 
     public static final String AGGREGATION_ENUM_LIST = "AGGREGATION_ENUM_LIST";
+    public static final String AGGREGATION_VALUE_OBJECT_LIST = "AGGREGATION_VALUE_OBJECT_LIST";
     public static final String AGGREGATION_ENTITY_LIST = "AGGREGATION_ENTITY_LIST";
     public static final String AGGREGATION_CMD_LIST = "AGGREGATION_CMD_LIST";
 
@@ -58,6 +60,7 @@ public class VelocityLabel {
     public static final String VALUE_OBJECT_CLASS_DESCRIPTION = "VALUE_OBJECT_CLASS_DESCRIPTION";
     public static final String VALUE_OBJECT_CLASS_FIELDS = "VALUE_OBJECT_CLASS_FIELDS";
     public static final String VALUE_OBJECT_CLASS_METHODS = "VALUE_OBJECT_CLASS_METHODS";
+    public static final String VALUE_OBJECT_DTO_NAME = "VALUE_OBJECT_DTO_NAME";
 
     // 查询
     public static final String QUERY_CLASS_NAME = "QUERY_CLASS_NAME";

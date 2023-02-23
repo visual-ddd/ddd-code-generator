@@ -1,0 +1,16 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get("${VALUE_OBJECT_CLASS_NAME}Converter")};
+
+import cn.hutool.json.JSONUtil;
+
+#comment("${VALUE_OBJECT_CLASS_DESCRIPTION}-值对象转换器")
+public class ${VALUE_OBJECT_CLASS_NAME}Converter {
+
+    public String convertToDatabaseColumn(${VALUE_OBJECT_CLASS_NAME} valueObject) {
+        return JSONUtil.toJsonStr(valueObject);
+    }
+
+    public ${VALUE_OBJECT_CLASS_NAME} convertToEntityAttribute(String value) {
+        return JSONUtil.toBean(value, ${VALUE_OBJECT_CLASS_NAME}.class);
+    }
+}

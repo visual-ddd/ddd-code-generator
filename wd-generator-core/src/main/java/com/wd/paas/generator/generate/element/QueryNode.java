@@ -42,8 +42,8 @@ public class QueryNode extends LeafElement {
     @Override
     public void initProperties() {
         super.initProperties();
-        if (!returnInfo.getType().endsWith(ModelUrlConstant.QUERY_RESULT_SUFFIX)) {
-            returnInfo.setType(returnInfo.getType().concat(ModelUrlConstant.QUERY_RESULT_SUFFIX));
+        if (!returnInfo.getType().endsWith(ModelUrlConstant.DTO_SUFFIX)) {
+            returnInfo.setType(returnInfo.getType().concat(ModelUrlConstant.DTO_SUFFIX));
         }
     }
 

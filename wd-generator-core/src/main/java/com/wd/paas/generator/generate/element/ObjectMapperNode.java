@@ -33,8 +33,8 @@ public class ObjectMapperNode extends LeafElement {
             target.setName(target.getName().concat(ModelUrlConstant.DATA_CLASS_SUFFIX));
         }
         if (Objects.equals(source.getType(), "dto") &&
-                !source.getName().endsWith(ModelUrlConstant.QUERY_RESULT_SUFFIX)) {
-            source.setName(source.getName().concat(ModelUrlConstant.QUERY_RESULT_SUFFIX));
+                !source.getName().endsWith(ModelUrlConstant.DTO_SUFFIX)) {
+            source.setName(source.getName().concat(ModelUrlConstant.DTO_SUFFIX));
         }
     }
 

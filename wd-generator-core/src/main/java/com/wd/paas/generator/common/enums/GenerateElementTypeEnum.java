@@ -82,7 +82,10 @@ public enum GenerateElementTypeEnum {
      * 值对象
      */
     VALUE_OBJECT("ValueObject", new String[]{
-            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObject.java.vm"
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObject.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/ValueObjectDTO.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/ValueObjectDTO2ValueObjectConvert.java.vm",
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObjectConverter.java.vm"
     }),
 
     /**

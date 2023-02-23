@@ -14,5 +14,4 @@ import lombok.EqualsAndHashCode;
 @ApiModel(value = "${QUERY_RESULT_CLASS_DESCRIPTION}")
 public class ${QUERY_RESULT_CLASS_NAME} extends BaseDTO {
     #filedExt(${QUERY_RESULT_CLASS_FIELDS})
-
 }
