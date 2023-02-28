@@ -1,27 +1,15 @@
-#parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcServiceImpl")};
+#parse("templates/Domain.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcServiceImpl")};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
-#foreach ($query in ${DOMAIN_QUERY_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
-#end
-#foreach ($query in ${DOMAIN_QUERY_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${query.name}Exe")}.${query.name}Exe;
-#end
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO")}.${cmd.excludeCmdSuffix()}DTO;
-#end
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert")}.${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert;
-#end
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler;
-#end
-#foreach ($dto in ${DOMAIN_DTO_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
-#end
+#importDomainRpcService()
+#importDomainQuery()
+#importDomainCmdDTO()
+#importDomainDTO()
+#importDomainQueryExe()
+#importDomainCmdDTO2CmdConvert()
+#importDomainCmdHandler()
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -47,14 +35,14 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 
     @Override
     #if(${cmd.getRepository().getValue()} == "save")
-    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto) {
-        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert.INSTANCE.dto2Do(dto)});
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto)});
         return ResultDTO.success(${RootIdName});
     }
     #end
     #if(${cmd.getRepository().getValue()} != "save")
-    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto) {
-        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert.INSTANCE.dto2Do(dto));
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);
     }
     #end
@@ -64,12 +52,12 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 
     @Override
     #if(${query.pagination})
-    public PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
     }
     #end
     #if(!${query.pagination})
-    public ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
     }
     #end

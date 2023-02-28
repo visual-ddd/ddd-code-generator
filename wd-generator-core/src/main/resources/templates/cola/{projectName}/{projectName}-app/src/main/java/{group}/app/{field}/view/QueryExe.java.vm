@@ -1,11 +1,19 @@
 #parse("templates/ClassFunction.vm")
-#set($dtoClassName = ${PARSE_STRING_UTIL.extractObjectType(${QUERY_RETURN_INFO.type})})
-#set($doClassName = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${dtoClassName}")})
-#set($convertClassName = "${dtoClassName}2${doClassName}Convert")
-#set($doPackagePath = ${IMPORT_PACKAGE_MAP.get("${doClassName}")})
-#set($aggregationClassName = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doClassName}")})
-#set($aggregationPackagePath = ${IMPORT_PACKAGE_MAP.get("${aggregationClassName}Mapper")})
-package ${IMPORT_PACKAGE_MAP.get("${QUERY_CLASS_NAME}Exe")};
+#set($returnTypeSign = ${PARSE_TYPE_UTIL.parse(${QUERY_RETURN_TYPE})})
+#set($returnTypeId = ${PARSE_TYPE_UTIL.getFirstId(${QUERY_RETURN_TYPE})})
+#set($returnTypeClassName = ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).elementNode.name})
+#set($doId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${returnTypeId}")})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($doMapperClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.dataObjectMapperName})
+#set($aggregationId = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doId}")})
+#set($aggregationClassName = ${IMPORT_PACKAGE_MAP.get(${aggregationId}).elementNode.name})
+#set($convertClassName = "${returnTypeClassName}2${doClassName}Convert")
+#foreach($objectMapper in ${DOMAIN_OBJECT_MAPPER_LIST})
+#if(${objectMapper.source.id} == ${returnTypeId} && ${objectMapper.target.id} == ${doId})
+#set($objectMapperId = ${objectMapper.identity})
+#end
+#end
+package ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get("${QUERY_CLASS_NAME}Exe")};
 
 #if(${QUERY_PAGINATION})
 import java.util.List;
@@ -18,25 +26,25 @@ import com.wakedata.common.core.dto.ResultDTO;
 #end
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
-import ${IMPORT_PACKAGE_MAP.get(${QUERY_CLASS_NAME})}.${QUERY_CLASS_NAME};
-import ${doPackagePath}.${doClassName};
-import ${aggregationPackagePath}.${aggregationClassName}Mapper;
-import ${IMPORT_PACKAGE_MAP.get(${dtoClassName})}.${dtoClassName};
-import ${IMPORT_PACKAGE_MAP.get(${convertClassName})}.${convertClassName};
+import ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get(${QUERY_CLASS_NAME})}.${QUERY_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doClassName}")}.${doClassName};
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapperClassName};
+import ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).get(${returnTypeClassName})}.${returnTypeClassName};
+import ${IMPORT_PACKAGE_MAP.get(${objectMapperId}).get(${convertClassName})}.${convertClassName};
 
 #comment("${QUERY_CLASS_DESCRIPTION}-查询器")
 @Component
 public class ${QUERY_CLASS_NAME}Exe {
 
     @Resource
-    private ${aggregationClassName}Mapper mapper;
+    private ${doMapperClassName} mapper;
 
     #if(${QUERY_PAGINATION})
-    public PageResultDTO<List<${QUERY_RETURN_INFO.type}>> execute(${QUERY_CLASS_NAME} pageQuery) {
+    public PageResultDTO<List<${returnTypeSign}>> execute(${QUERY_CLASS_NAME} pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
         PageInfo<$doClassName> pageInfo = new PageInfo<>(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(pageQuery));
-        PageResultDTO<List<${QUERY_RETURN_INFO.type}>> pageResultDTO = new PageResultDTO<>();
+        PageResultDTO<List<${returnTypeClassName}>> pageResultDTO = new PageResultDTO<>();
         pageResultDTO.setData(${convertClassName}.INSTANCE.doList2DtoList(pageInfo.getList()));
         pageResultDTO.setPageNo(pageInfo.getPageNum());
         pageResultDTO.setPageSize(pageInfo.getSize());
@@ -45,7 +53,7 @@ public class ${QUERY_CLASS_NAME}Exe {
     }
     #end
     #if(!${QUERY_PAGINATION})
-    public ResultDTO<${QUERY_RETURN_INFO.type}> execute(${QUERY_CLASS_NAME} query) {
+    public ResultDTO<${returnTypeSign}> execute(${QUERY_CLASS_NAME} query) {
         return ResultDTO.success(
             ${convertClassName}.INSTANCE.do2Dto(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query)));
     }

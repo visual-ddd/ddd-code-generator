@@ -1,16 +1,18 @@
 #parse("templates/ClassFunction.vm")
-#set($doClassName = ${DATA_OBJECT_CLASS_NAME})
-#set($doMapperClassName = "${DATA_MAPPER_CLASS_NAME}Mapper")
-#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doClassName}")})
+#set($doId = ${DATA_OBJECT_ID})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($doMapperClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.dataObjectMapperName})
+#set($aggregationId = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doId}")})
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get(${aggregationId}).elementNode.name})
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${IMPORT_PACKAGE_MAP.get("${doMapperClassName}")}.${doMapperClassName}">
+<mapper namespace="${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapperClassName}">
 ## 只生成<聚合根>对应的查询模型接口
-#if(${DATA_MAPPER_CLASS_NAME} == ${aggregationClass})
+#if(${aggregationId})
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
-    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.name})}.${query.name}"
-            resultType="${IMPORT_PACKAGE_MAP.get("${aggregationClass}DO")}.${aggregationClass}DO">
+    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.identity}).get(${query.name})}.${query.name}"
+            resultType="${IMPORT_PACKAGE_MAP.get(${doId}).get("${doClassName}")}.${doClassName}">
         SELECT *
         FROM ${DATA_OBJECT_TABLE_NAME} t1
         <where>

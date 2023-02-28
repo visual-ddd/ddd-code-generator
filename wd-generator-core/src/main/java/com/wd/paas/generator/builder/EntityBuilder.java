@@ -7,8 +7,6 @@ import com.wd.paas.generator.generate.element.EntityNode;
 
 public class EntityBuilder {
     public static EntityNode build(EntityDsl entityDsl, AggregateNode astAggregate) {
-        entityDsl.getPropertyList().forEach(propertyInfo -> propertyInfo.setAccess("private"));
-
         EntityNode astEntity = EntityDslConvert.INSTANCE.dto2Do(entityDsl);
         astEntity.setParentNode(astAggregate);
         return astEntity;

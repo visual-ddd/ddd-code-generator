@@ -15,6 +15,7 @@ public enum ElementTypeEnum {
     APPLICATION("ApplicationNode"),
     BUSINESS_DOMAIN("BusinessDomainNode"),
     AGGREGATE("AggregateNode"),
+    APPLICATION_ROOT("AggregateRootNode"),
     VALUE_OBJECT("ValueObjectNode"),
     COMMAND("CommandNode"),
     ENUM("EnumNode"),

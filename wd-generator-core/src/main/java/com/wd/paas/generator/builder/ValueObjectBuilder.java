@@ -6,6 +6,7 @@ import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.ValueObjectNode;
 
 public class ValueObjectBuilder {
+
     public static ValueObjectNode build(ValueObjectDsl valueObjectDsl, AggregateNode astAggregate) {
         ValueObjectNode astValueObject = ValueObjectDslConvert.INSTANCE.dto2Do(valueObjectDsl);
         astValueObject.setParentNode(astAggregate);

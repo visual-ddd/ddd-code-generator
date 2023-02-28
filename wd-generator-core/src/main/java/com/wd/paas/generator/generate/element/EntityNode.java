@@ -3,10 +3,8 @@ package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.MethodInfo;
 import com.wd.paas.common.PropertyInfo;
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -25,25 +23,5 @@ public class EntityNode extends LeafElement {
 
     private List<MethodInfo> methodList;
 
-    public String getOutputPath(String templateUrl, String preFixOutPath) {
-        AggregateNode parentNode = (AggregateNode) this.getParentNode();
-        String outputPath = parentNode.getOutputPath(templateUrl, preFixOutPath);
-
-        String[] searchList = {
-                ModelUrlConstant.ENTITY_DTO_CLASS,
-                ModelUrlConstant.ENTITY_CLASS
-        };
-
-        String[] replacementList = {
-                getEntityDTOName(),
-                this.getName()
-        };
-
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
-    }
-
-    public String getEntityDTOName() {
-        return this.getName().concat(ModelUrlConstant.REQUEST_SUFFIX);
-    }
-
+    private String entityDTOName;
 }

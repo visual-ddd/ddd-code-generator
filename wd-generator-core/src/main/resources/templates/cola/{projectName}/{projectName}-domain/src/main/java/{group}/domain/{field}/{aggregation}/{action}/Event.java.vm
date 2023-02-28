@@ -1,12 +1,12 @@
 #parse("templates/ClassFunction.vm")
 #set($encode = "{event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}")
-package ${IMPORT_PACKAGE_MAP.get("${CMD_EVENT_CLASS_NAME}")};
+package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_EVENT_CLASS_NAME}")};
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.util.List;
-import ${IMPORT_PACKAGE_MAP.get("${AGGREGATION_CLASS_NAME}")}.*;
+import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}")}.*;
 
 #comment("$CMD_EVENT_CLASS_DESCRIPTION-指令事件")
 @Data

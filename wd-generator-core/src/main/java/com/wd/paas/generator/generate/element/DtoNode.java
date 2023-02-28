@@ -4,10 +4,8 @@ import com.wd.paas.common.ClassInfo;
 import com.wd.paas.common.InterfaceInfo;
 import com.wd.paas.common.MethodInfo;
 import com.wd.paas.common.PropertyInfo;
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -50,40 +48,5 @@ public class DtoNode extends LeafElement {
      */
     private List<MethodInfo> classMethodList;
 
-
-    @Override
-    public void initProperties() {
-        super.initProperties();
-        String name = this.getName();
-        initName(name);
-    }
-
-    private void initName(String name) {
-        if (name.endsWith(ModelUrlConstant.DTO_SUFFIX)) {
-            return;
-        }
-        this.setName(name.concat(ModelUrlConstant.DTO_SUFFIX));
-    }
-
-    public String getOutputPath(String templateUrl, String preFixOutPath) {
-        QueryModelNode queryModel = (QueryModelNode) this.getParentNode();
-        BusinessDomainNode astBusinessDomain = (BusinessDomainNode) queryModel.getParentNode();
-
-        String outputPath = astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
-        String[] searchList = {
-                ModelUrlConstant.QUERY_RESULT_CLASS
-        };
-
-        String[] replacementList = {
-                this.getName()
-        };
-
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
-    }
-
-    public String excludeDTOSuffix() {
-        String name = this.getName();
-        return name.substring(0, name.lastIndexOf(ModelUrlConstant.DTO_SUFFIX));
-    }
-
+    private String dtoNoSuffixName;
 }

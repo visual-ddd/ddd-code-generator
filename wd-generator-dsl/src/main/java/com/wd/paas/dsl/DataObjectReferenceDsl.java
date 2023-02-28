@@ -22,9 +22,15 @@ public class DataObjectReferenceDsl {
     private String source;
 
     /**
+     * idOf<DataObject>, DataObject id
+     */
+    @SerializedName("sourceId")
+    private String sourceId;
+
+    /**
      * 目标表映射关系列表
      */
-    @SerializedName("dataObjects")
+    @SerializedName("targets")
     private List<ObjectTableReference> targets;
 
 }

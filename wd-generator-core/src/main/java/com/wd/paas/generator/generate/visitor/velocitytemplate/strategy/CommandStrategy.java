@@ -1,14 +1,16 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.CommandNode;
+import com.wd.paas.generator.generate.element.DomainEventNode;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /***
  * @author wangchensheng
@@ -20,6 +22,22 @@ public class CommandStrategy extends AbstractElementStrategy {
     public CommandStrategy(CommandNode astCommand) {
         super(astCommand);
         this.astCommand = astCommand;
+    }
+
+    @Override
+    public void initProperties() {
+        super.initProperties();
+        initCmdName();
+        astCommand.setCmdDTOName(astCommand.getCmdNoSuffixName().concat(ModelUrlConstant.DTO_SUFFIX));
+        String category = astCommand.getCategory();
+        astCommand.setCategory(StringUtils.isBlank(category) ? astCommand.getCmdNoSuffixName() : category);
+
+        // 事件
+        String eventName = astCommand.getName().concat(ModelUrlConstant.EVENT_CLASS);
+        DomainEventNode astDomainEvent = astCommand.getAstDomainEvent();
+        astDomainEvent.setName(Optional.ofNullable(astDomainEvent.getName()).orElse(eventName));
+        astDomainEvent.setPropertyList(getEventProperties());
+        astDomainEvent.setDescription(astCommand.getDescription());
     }
 
     @Override
@@ -46,6 +64,7 @@ public class CommandStrategy extends AbstractElementStrategy {
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.URL_ACTION, astCommand.getCategory().toLowerCase(Locale.ROOT));
 
+        context.put(VelocityLabel.CMD_ID, astCommand.getIdentity());
         context.put(VelocityLabel.CMD_CLASS_NAME, astCommand.getName());
         context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, astCommand.getDescription());
         context.put(VelocityLabel.CMD_CLASS_FIELDS, astCommand.getPropertyList());
@@ -60,6 +79,64 @@ public class CommandStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, String preFixOutPath) {
-        return astCommand.getOutputPath(templateUrl, preFixOutPath);
+        AggregateNode astAggregate = (AggregateNode) astCommand.getParentNode();
+        AggregationStrategy aggregationStrategy = new AggregationStrategy(astAggregate);
+        String outputPath = aggregationStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String[] searchList = {
+                // url
+                ModelUrlConstant.ACTION,
+
+                // cmd
+                ModelUrlConstant.COMMAND_DTO_CLASS,
+                ModelUrlConstant.COMMAND_CLASS,
+
+                // event
+                ModelUrlConstant.EVENT_CLASS,
+
+                // Handler
+                ModelUrlConstant.ADD_COMMAND_HANDLER_CLASS,
+                ModelUrlConstant.UPDATE_COMMAND_HANDLER_CLASS,
+                ModelUrlConstant.DELETE_COMMAND_HANDLER_CLASS
+        };
+        String name = astCommand.getName();
+        String[] replacementList = {
+                // url
+                astCommand.getCategory().toLowerCase(Locale.ROOT),
+
+                // cmd
+                astCommand.getCmdDTOName(),
+                name,
+
+                // event
+                astCommand.getAstDomainEvent().getName(),
+
+                // handler
+                name,
+                name,
+                name
+        };
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
+
+    private void initCmdName() {
+        String name = astCommand.getName();
+        if (name.endsWith(ModelUrlConstant.COMMAND_CLASS_SUFFIX)) {
+            astCommand.setName(name);
+            astCommand.setCmdNoSuffixName(name.substring(0, name.lastIndexOf(ModelUrlConstant.COMMAND_CLASS_SUFFIX)));
+        } else {
+            astCommand.setCmdNoSuffixName(name);
+            astCommand.setName(name.concat(ModelUrlConstant.COMMAND_CLASS_SUFFIX));
+        }
+    }
+
+    private List<PropertyInfo> getEventProperties() {
+        DomainEventNode astDomainEvent = astCommand.getAstDomainEvent();
+        List<PropertyInfo> eventPropertyList = astDomainEvent.getPropertyList();
+        if (eventPropertyList == null || eventPropertyList.isEmpty()) {
+            return astCommand.getPropertyList();
+        } else {
+            eventPropertyList.addAll(astCommand.getPropertyList());
+            return eventPropertyList;
+        }
     }
 }

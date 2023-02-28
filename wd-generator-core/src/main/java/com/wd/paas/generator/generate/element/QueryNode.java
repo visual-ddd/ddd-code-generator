@@ -1,10 +1,8 @@
 package com.wd.paas.generator.generate.element;
 
 import com.wd.paas.common.*;
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -38,27 +36,4 @@ public class QueryNode extends LeafElement {
      * 查询返回值
      */
     private ReturnInfo returnInfo;
-
-    @Override
-    public void initProperties() {
-        super.initProperties();
-        if (!returnInfo.getType().endsWith(ModelUrlConstant.DTO_SUFFIX)) {
-            returnInfo.setType(returnInfo.getType().concat(ModelUrlConstant.DTO_SUFFIX));
-        }
-    }
-
-    public String getOutputPath(String templateUrl, String preFixOutPath) {
-        QueryModelNode queryModel = (QueryModelNode)this.getParentNode();
-        BusinessDomainNode astBusinessDomain = (BusinessDomainNode) queryModel.getParentNode();
-
-        String outputPath = astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
-        String[] searchList = {
-                ModelUrlConstant.QUERY_CLASS,
-        };
-        String[] replacementList = {
-                this.getName(),
-        };
-
-        return StringUtils.replaceEach(outputPath, searchList, replacementList);
-    }
 }

@@ -19,15 +19,23 @@ import ${importPackage};
     #foreach ($field in $filedList)
 
     #printFieldDesc($field)
-    private ${field.type} ${field.name};
+    private ${PARSE_TYPE_UTIL.parse(${field.type})} ${field.name};
     #end
 #end
 ## ============= 类拓展字段列表 =============
-#macro(filedExt $filedList, $arg)
+#macro(filedExt $filedList)
     #foreach ($field in $filedList)
 
     #printApiDesc(${field})
-    private ${field.type} ${field.name};
+    private ${PARSE_TYPE_UTIL.parse(${field.type})} ${field.name};
+    #end
+#end
+## ============= DTO类字段列表 =============
+#macro(dtoFiled $filedList)
+    #foreach ($field in $filedList)
+
+    #printApiDesc($field)
+    ${field.access} ${PARSE_TYPE_UTIL.parseDTOField(${field.type})} ${field.name};
     #end
 #end
 ## ============= 类方法列表 =============
@@ -96,32 +104,4 @@ import ${importPackage};
     #if(!${field.description} && ${field.description} == "")
     @ApiModelProperty(value = "${field.title}")
     #end
-#end
-## 打印包含自定义属性类型
-#macro(printSignTypeField $field)
-#set(${signType} = -1)
-#foreach($enumNode in ${AGGREGATION_ENUM_LIST})
-    #if(${enumNode.name} == ${field.type})
-        #set(${signType} = 1)
-    #end
-#end
-#foreach($valueObjectNode in ${AGGREGATION_VALUE_OBJECT_LIST})
-    #if(${valueObjectNode.name} == ${field.type})
-        #set(${signType} = 2)
-    #end
-#end
-#foreach($entityNode in ${AGGREGATION_ENTITY_LIST})
-    #if(${entityNode.name} == ${field.type})
-        #set(${signType} = 3)
-    #end
-#end
-#if(${signType} == -1)
-    ${field.access} ${field.type} ${field.name};
-#end
-#if(${signType} == 1)
-    ${field.access} Integer ${field.name};
-#end
-#if(${signType} == 2 || ${signType} == 3)
-    ${field.access} ${field.type}Request ${field.name};
-#end
 #end

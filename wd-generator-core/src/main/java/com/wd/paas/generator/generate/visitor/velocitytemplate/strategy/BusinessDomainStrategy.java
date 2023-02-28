@@ -1,8 +1,11 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.google.common.base.CaseFormat;
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.generate.element.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.ArrayList;
@@ -24,9 +27,18 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
     }
 
     @Override
+    public void initProperties() {
+        super.initProperties();
+        String name = astBusinessDomain.getName();
+        astBusinessDomain.setName(CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL).convert(name));
+        astBusinessDomain.setDomainAllLowerName(name.toLowerCase());
+    }
+
+    @Override
     public void putVelocityContext(VelocityContext context) {
+        context.put(VelocityLabel.DOMAIN_ID, astBusinessDomain.getIdentity());
         context.put(VelocityLabel.DOMAIN_NAME, astBusinessDomain.getName());
-        context.put(VelocityLabel.DOMAIN_CLASS_NAME, astBusinessDomain.convertDomainClassName());
+        context.put(VelocityLabel.DOMAIN_CLASS_NAME, astBusinessDomain.getName());
         context.put(VelocityLabel.DOMAIN_AUTHOR, "visual-ddd");
         context.put(VelocityLabel.DOMAIN_DESCRIPTION, astBusinessDomain.getDescription());
 
@@ -48,7 +60,17 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, String preFixOutPath) {
-        return astBusinessDomain.getOutputPath(templateUrl, preFixOutPath);
+        ApplicationStrategy applicationStrategy = new ApplicationStrategy((ApplicationNode) astBusinessDomain.getParentNode());
+        String outputPath = applicationStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String[] searchList = {
+                ModelUrlConstant.FIELD,
+                ModelUrlConstant.DOMAIN_CLASS,
+        };
+        String[] replacementList = {
+                astBusinessDomain.getDomainAllLowerName(),
+                astBusinessDomain.getName(),
+        };
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 
     private List<AggregateNode> getAggregationList() {

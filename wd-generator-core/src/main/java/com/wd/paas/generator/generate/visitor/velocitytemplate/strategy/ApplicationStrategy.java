@@ -1,12 +1,15 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.google.common.base.CaseFormat;
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.common.util.ParseStringUtil;
+import com.wd.paas.generator.common.util.ParseTypeSignUtil;
 import com.wd.paas.generator.generate.element.ApplicationNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -43,6 +46,7 @@ public class ApplicationStrategy extends AbstractElementStrategy {
 
         context.put(VelocityLabel.IMPORT_PACKAGE_MAP, ThreadLocalUtil.getThreadLocal());
         context.put(VelocityLabel.PARSE_STRING_UTIL, ParseStringUtil.class);
+        context.put(VelocityLabel.PARSE_TYPE_UTIL, ParseTypeSignUtil.class);
     }
 
     @Override
@@ -52,7 +56,19 @@ public class ApplicationStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, String preFixOutPath) {
-        return astApplication.getOutputPath(templateUrl, preFixOutPath);
+        String[] searchList = {
+                ModelUrlConstant.OUTPUT_PATH,
+                ModelUrlConstant.PROJECT_NAME,
+                ModelUrlConstant.GROUP,
+                ModelUrlConstant.VM
+        };
+        String[] replacementList = {
+                preFixOutPath,
+                astApplication.getName(),
+                StringUtils.replace(astApplication.getPackageName(), ModelUrlConstant.POINT, ModelUrlConstant.SLASH),
+                ModelUrlConstant.EMPTY
+        };
+        return StringUtils.replaceEach(templateUrl, searchList, replacementList);
     }
 
     @Override

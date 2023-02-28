@@ -20,6 +20,8 @@ public class ElementStrategyFactory {
                 return new BusinessDomainStrategy((BusinessDomainNode) element);
             case AGGREGATE:
                 return new AggregationStrategy((AggregateNode) element);
+            case APPLICATION_ROOT:
+                return new AggregationRootStrategy((AggregateRootNode) element);
             case VALUE_OBJECT:
                 return new ValueObjectStrategy((ValueObjectNode) element);
             case COMMAND:

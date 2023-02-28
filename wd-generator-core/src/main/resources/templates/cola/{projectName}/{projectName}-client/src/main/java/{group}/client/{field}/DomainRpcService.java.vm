@@ -1,17 +1,11 @@
-#parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")};
+#parse("templates/Domain.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcService")};
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-#foreach ($query in ${DOMAIN_QUERY_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
-#end
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO")}.${cmd.excludeCmdSuffix()}DTO;
-#end
-#foreach ($dto in ${DOMAIN_DTO_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
-#end
+#importDomainQuery()
+#importDomainCmdDTO()
+#importDomainDTO()
 import java.util.List;
 
 #comment("${DOMAIN_DESCRIPTION}-RPC能力接口")
@@ -22,10 +16,10 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 
     /** ${cmd.description} */
         #if(${cmd.getRepository().getValue()} == "save")
-    ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto);
+    ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
         #end
         #if(${cmd.getRepository().getValue()} != "save")
-    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.excludeCmdSuffix()}DTO dto);
+    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
         #end
     #end
 #end
@@ -33,10 +27,10 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 
     /** ${query.description} */
     #if(${query.pagination})
-    PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
+    PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
     #end
     #if(!${query.pagination})
-    ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
+    ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
     #end
 #end
 

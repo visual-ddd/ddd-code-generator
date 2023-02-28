@@ -1,5 +1,5 @@
 #parse("templates/Aggregation.vm")
-package ${IMPORT_PACKAGE_MAP.get("Abstract${AGGREGATION_CLASS_NAME}")};
+package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("Abstract${AGGREGATION_CLASS_NAME}")};
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,8 +15,8 @@ public abstract class Abstract${AGGREGATION_CLASS_NAME} {
     #if(!$AGGREGATION_CLASS_ID.description && $AGGREGATION_CLASS_ID.description == "")
     /** ${AGGREGATION_CLASS_ID.title} */
     #end
-    ${AGGREGATION_CLASS_ID.getAccess()} ${AGGREGATION_CLASS_ID.getType()} ${AGGREGATION_CLASS_ID.name};
-    #filed($AGGREGATION_CLASS_FIELDS)
+    ${AGGREGATION_CLASS_ID.getAccess()} ${PARSE_TYPE_UTIL.parse(${AGGREGATION_CLASS_ID.getType()})} ${AGGREGATION_CLASS_ID.name};
+    #filed(${AGGREGATION_CLASS_FIELDS})
     #abstractMethod(${AGGREGATION_CLASS_METHODS})
 
 }

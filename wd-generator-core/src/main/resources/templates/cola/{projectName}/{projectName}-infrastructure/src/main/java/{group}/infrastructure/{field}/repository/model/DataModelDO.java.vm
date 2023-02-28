@@ -1,5 +1,5 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${DATA_OBJECT_CLASS_NAME}")};
+package ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${DATA_OBJECT_CLASS_NAME}")};
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

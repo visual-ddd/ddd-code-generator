@@ -22,6 +22,12 @@ public class ObjectTableReference {
     private String target;
 
     /**
+     * 目标表ID
+     */
+    @SerializedName("targetId")
+    private String targetId;
+
+    /**
      * 关联关系
      */
     @SerializedName("cardinality")

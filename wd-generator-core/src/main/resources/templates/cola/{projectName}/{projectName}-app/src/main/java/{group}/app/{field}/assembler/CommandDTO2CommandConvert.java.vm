@@ -1,12 +1,12 @@
 #parse("templates/ClassFunction.vm")
-package ${IMPORT_PACKAGE_MAP.get("${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert")};
+package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ${IMPORT_PACKAGE_MAP.get(${CMD_DTO_CLASS})}.${CMD_DTO_CLASS};
-import ${IMPORT_PACKAGE_MAP.get(${CMD_CLASS_NAME})}.${CMD_CLASS_NAME};
-#dependencyEnumConverter()
+import ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get(${CMD_DTO_CLASS})}.${CMD_DTO_CLASS};
+import ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get(${CMD_CLASS_NAME})}.${CMD_CLASS_NAME};
+#importEnumConverter()
 
 @Mapper(uses = {
     #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
@@ -18,6 +18,7 @@ import ${IMPORT_PACKAGE_MAP.get(${CMD_CLASS_NAME})}.${CMD_CLASS_NAME};
     #foreach($entityNode in ${AGGREGATION_ENTITY_LIST})
         ${entityNode.getEntityDTOName()}2${entityNode.name}Convert.class,
     #end
+        JsonConverter.class,
 })
 public interface ${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert extends BaseConvert<${CMD_DTO_CLASS}, ${CMD_CLASS_NAME}> {
 

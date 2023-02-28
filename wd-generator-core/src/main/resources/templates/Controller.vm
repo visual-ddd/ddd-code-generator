@@ -1,4 +1,4 @@
-#parse("templates/ClassFunction.vm")
+#parse("templates/Domain.vm")
 #macro(controllerImport)
 import java.util.List;
 import javax.annotation.Resource;
@@ -13,16 +13,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
-import ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
-#foreach ($query in ${DOMAIN_QUERY_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${query.name}")}.${query.name};
-#end
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO")}.${cmd.excludeCmdSuffix()}DTO;
-#end
-#foreach ($dto in ${DOMAIN_DTO_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
-#end
+#importDomainRpcService()
+#importDomainQuery()
+#importDomainCmdDTO()
+#importDomainDTO()
 #end
 #macro(controller)
 
@@ -36,12 +30,12 @@ import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
     @ApiOperation("${cmd.description}")
     @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.category})}")
     #if(${cmd.getRepository().getValue()} == "save")
-    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.excludeCmdSuffix()}DTO dto) {
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.cmdDTOName} dto) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
     }
     #end
     #if(${cmd.getRepository().getValue()} != "save")
-    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.excludeCmdSuffix()}DTO dto) {
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.cmdDTOName} dto) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
     }
     #end
@@ -52,12 +46,12 @@ import ${IMPORT_PACKAGE_MAP.get("${dto.name}")}.${dto.name};
     @ApiOperation("${query.description}")
     @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.name})}")
     #if(${query.pagination})
-    public PageResultDTO<List<${query.returnInfo.type}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(pageQuery);
     }
     #end
     #if(!${query.pagination})
-    public ResultDTO<${query.returnInfo.type}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(query);
     }
     #end

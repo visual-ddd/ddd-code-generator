@@ -1,8 +1,12 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.DtoNode;
+import com.wd.paas.generator.generate.element.QueryModelNode;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
@@ -18,12 +22,19 @@ public class DTOStrategy extends AbstractElementStrategy {
     }
 
     @Override
+    public void initProperties() {
+        super.initProperties();
+        initName(astDto);
+    }
+
+    @Override
     public List<String> getTemplatePathList() {
         return Arrays.asList(GenerateElementTypeEnum.QUERY_RESULT.getTemplateUrls());
     }
 
     @Override
     public void putVelocityContext(VelocityContext context) {
+        context.put(VelocityLabel.QUERY_RESULT_ID, astDto.getIdentity());
         context.put(VelocityLabel.QUERY_RESULT_CLASS_NAME, astDto.getName());
         context.put(VelocityLabel.QUERY_RESULT_CLASS_DESCRIPTION, astDto.getDescription());
         context.put(VelocityLabel.QUERY_RESULT_CLASS_FIELDS, astDto.getPropertyList());
@@ -32,7 +43,28 @@ public class DTOStrategy extends AbstractElementStrategy {
 
     @Override
     public String parseOutputPath(String templateUrl, String preFixOutPath) {
-        return astDto.getOutputPath(templateUrl, preFixOutPath);
+        QueryModelNode queryModel = (QueryModelNode) astDto.getParentNode();
+        BusinessDomainNode astBusinessDomain = (BusinessDomainNode) queryModel.getParentNode();
+        BusinessDomainStrategy businessDomainStrategy = new BusinessDomainStrategy(astBusinessDomain);
+        String outputPath = businessDomainStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String[] searchList = {
+                ModelUrlConstant.QUERY_RESULT_CLASS
+        };
+        
+        String[] replacementList = {
+                astDto.getName()
+        };
+        return StringUtils.replaceEach(outputPath, searchList, replacementList);
     }
 
+    private void initName(DtoNode dtoNode) {
+        String name = dtoNode.getName();
+        if (name.endsWith(ModelUrlConstant.DTO_SUFFIX)) {
+            dtoNode.setName(name);
+            dtoNode.setDtoNoSuffixName(name.substring(0, name.lastIndexOf(ModelUrlConstant.DTO_SUFFIX)));
+        } else {
+            dtoNode.setDtoNoSuffixName(name);
+            dtoNode.setName(name.concat(ModelUrlConstant.DTO_SUFFIX));
+        }
+    }
 }

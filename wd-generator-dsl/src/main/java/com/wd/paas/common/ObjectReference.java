@@ -13,6 +13,12 @@ import lombok.Data;
 public class ObjectReference {
 
     /**
+     * 类唯一 id
+     */
+    @SerializedName("id")
+    private String id;
+
+    /**
      * 对象名称
      */
     @SerializedName("name")

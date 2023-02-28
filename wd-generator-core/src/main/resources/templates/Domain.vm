@@ -1,0 +1,37 @@
+## 引入公共类方法
+#parse("templates/ClassFunction.vm")
+## 依赖
+#macro(importDomainQuery)
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${query.identity}).get("${query.name}")}.${query.name};
+#end
+#end
+#macro(importDomainCmdDTO)
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}")}.${cmd.cmdDTOName};
+#end
+#end
+#macro(importDomainDTO)
+#foreach ($dto in ${DOMAIN_DTO_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name};
+#end
+#end
+#macro(importDomainRpcService)
+import ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
+#end
+#macro(importDomainQueryExe)
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${query.identity}).get("${query.name}Exe")}.${query.name}Exe;
+#end
+#end
+#macro(importDomainCmdDTO2CmdConvert)
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}2${cmd.name}Convert")}.${cmd.cmdDTOName}2${cmd.name}Convert;
+#end
+#end
+#macro(importDomainCmdHandler)
+#foreach ($cmd in ${DOMAIN_CMD_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.name}Handler")}.${cmd.name}Handler;
+#end
+#end
+

@@ -6,18 +6,17 @@ import java.util.regex.Pattern;
 public class ThreadContextHelper {
 
     public static final String ENTITY = "entity";
+    public static final String PATTERN = "src/main/java/(.*)";
 
     private static final String OBJECT_MAPPER_KEY = "mapper::%s::%s";
 
     /**
      * 将类名和包路径存储到线程上下文中
      *
-     * @param path 解析后的包路径
+     * @param elementContent
      */
-    public static void storePath(String path) {
-        String pattern = "src/main/java/(.*)";
-
-        Pattern r = Pattern.compile(pattern);
+    public static void storePath(ElementContent elementContent, String path) {
+        Pattern r = Pattern.compile(PATTERN);
         Matcher m = r.matcher(path);
         while (m.find()) {
             String classPackagePath = m.group(1);
@@ -25,7 +24,7 @@ public class ThreadContextHelper {
                     classPackagePath.lastIndexOf("."));
             String packagePath = classPackagePath.substring(0, classPackagePath.lastIndexOf("/"))
                     .replace("/", ".");
-            ThreadLocalUtil.set(className, packagePath);
+            elementContent.put(className, packagePath);
         }
     }
 

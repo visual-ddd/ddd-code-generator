@@ -15,6 +15,7 @@ public class AggregateBuilder {
         AggregateNode astAggregate = AggregateDslConvert.INSTANCE.dto2Do(aggregateDsl);
 
         List<ElementNode> elements = new ArrayList<>();
+        Optional.ofNullable(aggregateDsl.getRoot()).ifPresent(rootDsl -> elements.add(AggregateRootBuilder.build(rootDsl, astAggregate)));
         Optional.ofNullable(aggregateDsl.getEntityList()).ifPresent(e -> e.stream().map(entityDsl -> EntityBuilder.build(entityDsl, astAggregate)).forEach(elements::add));
         Optional.ofNullable(aggregateDsl.getValueObjectList()).ifPresent(e -> e.stream().map(valueObjectDsl -> ValueObjectBuilder.build(valueObjectDsl, astAggregate)).forEach(elements::add));
         Optional.ofNullable(aggregateDsl.getCommandList()).ifPresent(e -> e.stream().map(commandDsl -> CommandBuilder.build(commandDsl, astAggregate)).forEach(elements::add));

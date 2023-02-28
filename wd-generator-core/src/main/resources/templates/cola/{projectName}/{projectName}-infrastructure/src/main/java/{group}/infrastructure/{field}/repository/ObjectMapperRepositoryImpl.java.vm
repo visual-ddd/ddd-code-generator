@@ -1,21 +1,23 @@
 #parse("templates/ClassFunction.vm")
-#set($doClassName = ${OBJECT_MAPPER_TARGET_OBJECT})
-#set($doMapperClassName = "${OBJECT_MAPPER_DATA_MAPPER}Mapper")
-#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doClassName}")})
+#set($doId = ${OBJECT_MAPPER_TARGET_OBJECT_ID})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($doMapperClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.dataObjectMapperName})
+#set($aggregationId = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doId}")})
+#set($aggregationClass = ${IMPORT_PACKAGE_MAP.get(${aggregationId}).elementNode.name})
 #set($AGGREGATION_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${aggregationClass})}")
 #set($convertClassName = "${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")
-package ${IMPORT_PACKAGE_MAP.get("${aggregationClass}RepositoryImpl")};
+package ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${aggregationClass}RepositoryImpl")};
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.util.Assert;
-import ${IMPORT_PACKAGE_MAP.get("${aggregationClass}Repository")}.${aggregationClass}Repository;
-import ${IMPORT_PACKAGE_MAP.get("${doClassName}")}.${doClassName};
-import ${IMPORT_PACKAGE_MAP.get("${aggregationClass}")}.${aggregationClass};
-import ${IMPORT_PACKAGE_MAP.get("${doMapperClassName}")}.${doMapperClassName};
-import ${IMPORT_PACKAGE_MAP.get("${convertClassName}")}.${convertClassName};
+import ${IMPORT_PACKAGE_MAP.get(${aggregationId}).get("${aggregationClass}")}.${aggregationClass};
+import ${IMPORT_PACKAGE_MAP.get(${aggregationId}).get("${aggregationClass}Repository")}.${aggregationClass}Repository;
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doClassName}")}.${doClassName};
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapperClassName};
+import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${convertClassName}")}.${convertClassName};
 
 #comment("${OBJECT_MAPPER_OBJECT_AGGREGATION}-聚合仓储实现类")
 @Slf4j

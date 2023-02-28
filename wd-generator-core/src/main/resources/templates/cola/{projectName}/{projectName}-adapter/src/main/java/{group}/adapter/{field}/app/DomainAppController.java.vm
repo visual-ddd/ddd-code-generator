@@ -1,5 +1,5 @@
 #parse("templates/Controller.vm")
-package ${IMPORT_PACKAGE_MAP.get("${DOMAIN_CLASS_NAME}AppController")};
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}AppController")};
 
 #controllerImport()
 

@@ -55,7 +55,7 @@
                   "description": "",
                   "meta": {},
                   "access": "public",
-                  "type": "UserType"
+                  "type": "[UserType:3c1283db-7c92-499e-8c34-592009ea3fa8]"
                 },
                 {
                   "uuid": "8396efd2-19eb-4f6b-88a0-ffd61514546d",
@@ -64,7 +64,7 @@
                   "description": "",
                   "meta": {},
                   "access": "public",
-                  "type": "Address"
+                  "type": "[Address:a221185e-b41e-4a07-85b4-960d1798d3f6]"
                 },
                 {
                   "uuid": "7c60ee40-7d7e-424f-a2cb-c1178618a201",
@@ -73,7 +73,7 @@
                   "description": "",
                   "meta": {},
                   "access": "public",
-                  "type": "Account"
+                  "type": "[Account:de28f966-646a-4de1-a702-e9b75b5d0111]"
                 }
               ],
               "methods": [
@@ -308,7 +308,7 @@
                     "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "UserType"
+                    "type": "[UserType:3c1283db-7c92-499e-8c34-592009ea3fa8]"
                   },
                   {
                     "uuid": "0d159bc9-4590-4394-b862-8b28c422371c",
@@ -317,7 +317,7 @@
                     "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "Address"
+                    "type": "[Address:a221185e-b41e-4a07-85b4-960d1798d3f6]"
                   }
                 ],
                 "event": {
@@ -408,7 +408,7 @@
                     "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "UserType"
+                    "type": "[UserType:3c1283db-7c92-499e-8c34-592009ea3fa8]"
                   },
                   {
                     "uuid": "043f0f7d-dae6-44a8-8cca-31c9deccd54b",
@@ -417,7 +417,7 @@
                     "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "Address"
+                    "type": "[Address:a221185e-b41e-4a07-85b4-960d1798d3f6]"
                   }
                 ],
                 "event": {
@@ -506,7 +506,7 @@
                     "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "Account"
+                    "type": "[Account:de28f966-646a-4de1-a702-e9b75b5d0111]"
                   }
                 ],
                 "event": {
@@ -557,7 +557,7 @@
                     "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "Account"
+                    "type": "[Account:de28f966-646a-4de1-a702-e9b75b5d0111]"
                   }
                 ],
                 "event": {
@@ -608,7 +608,7 @@
                     "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "Account"
+                    "type": "[Account:de28f966-646a-4de1-a702-e9b75b5d0111]"
                   }
                 ],
                 "event": {
@@ -654,7 +654,7 @@
               }
             ],
             "return": {
-              "type": "User"
+              "type": "[User:0f5e51db-10e1-4b68-b76e-e9e5e07ba664]"
             }
           },
           {
@@ -685,7 +685,7 @@
               }
             ],
             "return": {
-              "type": "User"
+              "type": "[User:0f5e51db-10e1-4b68-b76e-e9e5e07ba664]"
             }
           }
         ],
@@ -785,7 +785,7 @@
                 "description": "dto对象形式返回",
                 "meta": {},
                 "access": "public",
-                "type": "Address"
+                "type": "[Address:copy-7e2d4359-d522-4f86-919e-3444c8dcf3a5]"
               },
               {
                 "uuid": "060ccfbe-0d37-4f20-ab1a-cc225e098e45",
@@ -803,7 +803,7 @@
                 "description": "",
                 "meta": {},
                 "access": "public",
-                "type": "AccountDTO"
+                "type": "[AccountDTO:copy-174442d1-81f2-4ca0-8320-7059e38718ec]"
               }
             ]
           },
@@ -1042,9 +1042,11 @@
         "references": [
           {
             "source": "UserAddress",
+            "sourceId": "copy-aec890ac-1dbb-485c-93e9-878789c4a854",
             "targets": [
               {
                 "target": "User",
+                "targetId": "a61347d4-31d4-49ac-a118-1f0329e91ca5",
                 "mapper": [
                   {
                     "sourceField": "userId",
@@ -1056,9 +1058,11 @@
           },
           {
             "source": "UserAccount",
+            "sourceId": "copy-87c50790-4efd-4c65-b950-10012f5ff185",
             "targets": [
               {
                 "target": "User",
+                "targetId": "a61347d4-31d4-49ac-a118-1f0329e91ca5",
                 "mapper": [
                   {
                     "sourceField": "userId",
@@ -1080,28 +1084,50 @@
             "meta": {},
             "source": {
               "name": "User",
+              "id": "0f5e51db-10e1-4b68-b76e-e9e5e07ba664",
               "type": "dto"
             },
             "target": {
               "name": "User",
+              "id": "a61347d4-31d4-49ac-a118-1f0329e91ca5",
               "type": "dataObject"
             },
             "mapper": [
               {
                 "sourceField": "userName",
-                "targetField": "userName"
+                "sourceFieldId": "cbe41b8d-2ab9-469c-8b92-7494908a846a",
+                "targetField": "userName",
+                "targetFieldId": "ecb189bb-5c48-4911-af9b-a4bc6c921fba"
               },
               {
                 "sourceField": "age",
-                "targetField": "age"
+                "sourceFieldId": "fe2f9a7d-7c90-4f2b-ac54-4dc9155ed8f5",
+                "targetField": "age",
+                "targetFieldId": "4d71c9c7-6739-4764-b6ae-a33a7cf0d323"
               },
               {
                 "sourceField": "id",
-                "targetField": "id"
+                "sourceFieldId": "114cc19d-5b65-4836-8d35-8f86f9af21c8",
+                "targetField": "id",
+                "targetFieldId": "589d4cdb-1db0-4ac5-b350-46043697be82"
               },
               {
                 "sourceField": "type",
-                "targetField": "type"
+                "sourceFieldId": "0c6065b2-53fb-4458-bea2-5a0d257f4532",
+                "targetField": "type",
+                "targetFieldId": "92ab9e1d-e95e-45fb-b3b0-fb00c8d018f2"
+              },
+              {
+                "sourceField": "addressJson",
+                "sourceFieldId": "7363d7ee-69b5-40c3-b2b3-245d7e9e1f1f",
+                "targetField": "address",
+                "targetFieldId": "7aec7b17-7cae-4d22-afa6-116ebb1631d7"
+              },
+              {
+                "sourceField": "accountJSON",
+                "sourceFieldId": "060ccfbe-0d37-4f20-ab1a-cc225e098e45",
+                "targetField": "account",
+                "targetFieldId": "1fde9b50-6fa2-4660-8c8d-258af2d60bd7"
               }
             ]
           },
@@ -1113,25 +1139,33 @@
             "meta": {},
             "source": {
               "name": "User",
+              "id": "83b68007-de00-4c83-9e62-66677f1e2df7",
               "parent": "User",
               "type": "entity"
             },
             "target": {
               "name": "User",
+              "id": "a61347d4-31d4-49ac-a118-1f0329e91ca5",
               "type": "dataObject"
             },
             "mapper": [
               {
                 "sourceField": "id",
-                "targetField": "id"
+                "sourceFieldId": "4a1cd77a-c553-4656-9eb5-7d69c256cd53",
+                "targetField": "id",
+                "targetFieldId": "589d4cdb-1db0-4ac5-b350-46043697be82"
               },
               {
                 "sourceField": "userName",
-                "targetField": "userName"
+                "sourceFieldId": "77c28fd8-ed2e-44b5-bf04-57a40fc0401c",
+                "targetField": "userName",
+                "targetFieldId": "ecb189bb-5c48-4911-af9b-a4bc6c921fba"
               },
               {
                 "sourceField": "age",
-                "targetField": "age"
+                "sourceFieldId": "1e924c20-1fa9-481c-b6c5-105421741129",
+                "targetField": "age",
+                "targetFieldId": "4d71c9c7-6739-4764-b6ae-a33a7cf0d323"
               }
             ]
           }

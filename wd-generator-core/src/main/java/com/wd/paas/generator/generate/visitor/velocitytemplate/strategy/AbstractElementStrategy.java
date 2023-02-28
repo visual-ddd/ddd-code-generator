@@ -1,10 +1,13 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.generator.common.context.ElementContent;
 import com.wd.paas.generator.common.context.ThreadContextHelper;
+import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.util.FileGenerator;
 import com.wd.paas.generator.generate.element.ElementNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.VelocityTemplateGenerate;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Collections;
@@ -25,10 +28,15 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
         this.elementNode = elementNode;
     }
 
+    public void initProperties() {
+        if (StringUtils.isBlank(elementNode.getDescription())) {
+            elementNode.setDescription(elementNode.getTitle());
+        }
+    }
+
     @Override
     public void preHandle(TemplateContext templateContext) {
-        elementNode.initProperties();
-        // 获取模版文件列表
+        this.initProperties();
         storeOutPutPath(templateContext);
     }
 
@@ -53,11 +61,16 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
      * @param templateContext 上下文信息
      */
     private void storeOutPutPath(TemplateContext templateContext) {
+        // 获取模版文件列表
+        ElementContent elementContent = new ElementContent(elementNode);
         List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getPreFixOutPath());
-            ThreadContextHelper.storePath(outputPath);
+            ThreadContextHelper.storePath(elementContent, outputPath);
         }
+
+        String elementId = elementNode.getIdentity();
+        ThreadLocalUtil.set(elementId, elementContent);
     }
 
     /**

@@ -9,28 +9,28 @@
 #set($AGGREGATION_CLASS_NAME_FIRST_LOWER = "${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})}")
 ##
 ## 依赖
-#macro(dependencyCmdDTO)
+#macro(importCmdDTO)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert")}.${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert;
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}2${cmd.name}Convert")}.${cmd.cmdDTOName}2${cmd.name}Convert;
 #end
 #end
-#macro(dependencyCmdDTOConvert)
+#macro(importCmdDTOConvert)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert")}.${cmd.excludeCmdSuffix()}DTO2${cmd.name}Convert;
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}2${cmd.name}Convert")}.${cmd.cmdDTOName}2${cmd.name}Convert;
 #end
 #end
-#macro(dependencyCmd)
+#macro(importCmd)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get(${cmd.name})}.${cmd.name};
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};
 #end
 #end
-#macro(dependencyCmdHandler)
+#macro(importCmdHandler)
 #foreach ($cmd in ${AGGREGATION_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${cmd.name}Handler")}.${cmd.name}Handler
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.name}Handler")}.${cmd.name}Handler
 #end
 #end
-#macro(dependencyEnumConverter)
+#macro(importEnumConverter)
 #foreach ($aggregatioEnum in ${AGGREGATION_ENUM_LIST})
-import ${IMPORT_PACKAGE_MAP.get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;
+import ${IMPORT_PACKAGE_MAP.get(${aggregatioEnum.identity}).get("${aggregatioEnum.name}Converter")}.${aggregatioEnum.name}Converter;
 #end
 #end

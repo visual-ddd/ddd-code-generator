@@ -16,8 +16,20 @@ public class ObjectFieldMapper {
     private String sourceField;
 
     /**
+     * 原始字段ID
+     */
+    @SerializedName("sourceFieldId")
+    private String sourceFieldId;
+
+    /**
      * 目标字段
      */
     @SerializedName("targetField")
     private String targetField;
+
+    /**
+     * 目标字段ID
+     */
+    @SerializedName("targetFieldId")
+    private String targetFieldId;
 }
