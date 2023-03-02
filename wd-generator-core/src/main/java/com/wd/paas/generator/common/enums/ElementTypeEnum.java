@@ -25,6 +25,9 @@ public enum ElementTypeEnum {
     DTO("DtoNode"),
     OBJECT_MAPPER("ObjectMapperNode"),
     DATA_OBJECT("DataObjectNode"),
+    BUSINESS_SCENARIO("BusinessScenarioNode"),
+    BUSINESS_QUERY("BusinessQueryNode"),
+    BUSINESS_DTO("BusinessDTONode"),
     ;
 
     private final String value;

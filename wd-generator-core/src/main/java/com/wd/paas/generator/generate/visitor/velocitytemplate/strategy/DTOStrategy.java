@@ -36,9 +36,8 @@ public class DTOStrategy extends AbstractElementStrategy {
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.QUERY_RESULT_ID, astDto.getIdentity());
         context.put(VelocityLabel.QUERY_RESULT_CLASS_NAME, astDto.getName());
-        context.put(VelocityLabel.QUERY_RESULT_CLASS_DESCRIPTION, astDto.getDescription());
         context.put(VelocityLabel.QUERY_RESULT_CLASS_FIELDS, astDto.getPropertyList());
-        context.put(VelocityLabel.QUERY_RESULT_CLASS_METHODS, astDto.getMethodList());
+        context.put(VelocityLabel.QUERY_RESULT_CLASS_DESCRIPTION, astDto.getDescription());
     }
 
     @Override

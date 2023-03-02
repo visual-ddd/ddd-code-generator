@@ -14,6 +14,7 @@ public class ModelUrlConstant {
     public static final String PROJECT_NAME = "{projectName}";
     public static final String GROUP = "{group}";
     public static final String FIELD = "{field}";
+    public static final String BUSINESS = "{business}";
     public static final String ACTION = "{action}";
     public static final String AGGREGATION = "{aggregation}";
     public static final String VM = ".vm";
@@ -58,5 +59,9 @@ public class ModelUrlConstant {
     public static final String OBJECT_MAPPER_CONVERT_CLASS = "Entity2DOConvert";
     public static final String OBJECT_MAPPER_REPOSITORY_CLASS = "ObjectMapper";
 
+    // 业务模型
+    public static final String BUSINESS_SERVICE_CLASS = "{Business}";
+    public static final String BUSINESS_DTO_CLASS = "{BusinessDTO}";
+    public static final String BUSINESS_QUERY_CLASS = "{BusinessQuery}";
 
 }

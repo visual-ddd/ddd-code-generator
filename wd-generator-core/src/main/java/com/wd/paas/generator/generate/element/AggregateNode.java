@@ -12,6 +12,10 @@ import java.util.List;
 @Data
 public class AggregateNode extends CompositeElement {
 
+    public AggregateRootNode getRoot() {
+        return getChildElementList(AggregateRootNode.class).get(0);
+    }
+
     public List<CommandNode> getCommandList() {
         return getChildElementList(CommandNode.class);
     }

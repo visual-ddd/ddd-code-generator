@@ -1,0 +1,17 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_DTO_ID}).get(${BUSINESS_DTO_CLASS_NAME})};
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
+import com.wakedata.common.core.base.BaseDTO;
+import lombok.EqualsAndHashCode;
+
+#comment("$BUSINESS_DTO_CLASS_DESCRIPTION")
+@Data
+@EqualsAndHashCode(callSuper = true)
+@ApiModel(value = "${BUSINESS_DTO_CLASS_DESCRIPTION}")
+public class ${BUSINESS_DTO_CLASS_NAME} extends BaseDTO {
+#filedExt(${BUSINESS_DTO_CLASS_FIELDS})
+}

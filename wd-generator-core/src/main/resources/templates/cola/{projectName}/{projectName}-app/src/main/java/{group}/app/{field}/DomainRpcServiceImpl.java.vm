@@ -29,18 +29,18 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 #end
 
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
-#set($RootIdType = ${aggregation.getRoot().getId().getType()})
+#set($RootIdType = ${aggregation.getRoot().id.type})
 #set($RootIdName = ${aggregation.getRoot().getId().getName()})
 #foreach($cmd in ${aggregation.getCommandList()})
 
     @Override
-    #if(${cmd.getRepository().getValue()} == "save")
+    #if(${cmd.getRepository().getValue()} == "create")
     public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
-        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto)});
+        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(${RootIdName});
     }
     #end
-    #if(${cmd.getRepository().getValue()} != "save")
+    #if(${cmd.getRepository().getValue()} != "create")
     public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
         ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);

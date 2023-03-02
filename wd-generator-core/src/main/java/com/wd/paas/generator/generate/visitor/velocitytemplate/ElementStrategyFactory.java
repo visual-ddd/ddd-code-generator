@@ -38,6 +38,12 @@ public class ElementStrategyFactory {
                 return new DTOStrategy((DtoNode) element);
             case DATA_OBJECT:
                 return new DataObjectStrategy((DataObjectNode) element);
+            case BUSINESS_SCENARIO:
+                return new BusinessScenarioStrategy((BusinessScenarioNode) element);
+            case BUSINESS_QUERY:
+                return new BusinessQueryStrategy((BusinessQueryNode) element);
+            case BUSINESS_DTO:
+                return new BusinessDTOStrategy((BusinessDTONode) element);
             case DEFAULT:
                 log.debug("没有找到对应的处理类型：{}", element.getClass());
                 return new DefaultStrategy();

@@ -83,7 +83,6 @@ public class VelocityLabel {
     public static final String QUERY_RESULT_CLASS_NAME = "QUERY_RESULT_CLASS_NAME";
     public static final String QUERY_RESULT_CLASS_DESCRIPTION = "QUERY_RESULT_CLASS_DESCRIPTION";
     public static final String QUERY_RESULT_CLASS_FIELDS = "QUERY_RESULT_CLASS_FIELDS";
-    public static final String QUERY_RESULT_CLASS_METHODS = "QUERY_RESULT_CLASS_METHODS";
 
     // 指令
     public static final String CMD_ID = "CMD_ID";
@@ -118,6 +117,30 @@ public class VelocityLabel {
     public static final String OBJECT_MAPPER_OBJECT_AGGREGATION = "OBJECT_MAPPER_OBJECT_AGGREGATION";
     public static final String OBJECT_MAPPER_OBJECT_FIELD_LIST = "OBJECT_MAPPER_OBJECT_FIELD_LIST";
     public static final String OBJECT_MAPPER_DATA_MAPPER = "OBJECT_MAPPER_DATA_MAPPER";
+
+    // 业务场景
+    public static final String BUSINESS_ID = "BUSINESS_ID";
+    public static final String BUSINESS_NAME = "BUSINESS_NAME";
+    public static final String BUSINESS_CLASS_NAME = "BUSINESS_CLASS_NAME";
+    public static final String BUSINESS_DESCRIPTION = "BUSINESS_DESCRIPTION";
+    public static final String BUSINESS_AUTHOR = "BUSINESS_AUTHOR";
+    public static final String BUSINESS_QUERY_LIST = "BUSINESS_QUERY_LIST";
+    public static final String BUSINESS_DTO_LIST = "BUSINESS_DTO_LIST";
+
+    // 业务请求
+    public static final String BUSINESS_QUERY_ID = "BUSINESS_QUERY_ID";
+    public static final String BUSINESS_QUERY_CLASS_NAME = "BUSINESS_QUERY_CLASS_NAME";
+    public static final String BUSINESS_QUERY_PAGINATION = "BUSINESS_QUERY_PAGINATION";
+    public static final String BUSINESS_QUERY_RETURN_INFO = "BUSINESS_QUERY_RETURN_INFO";
+    public static final String BUSINESS_QUERY_RETURN_TYPE = "BUSINESS_QUERY_RETURN_TYPE";
+    public static final String BUSINESS_QUERY_CLASS_DESCRIPTION = "BUSINESS_QUERY_CLASS_DESCRIPTION";
+    public static final String BUSINESS_QUERY_CLASS_FIELDS = "BUSINESS_QUERY_CLASS_FIELDS";
+
+    // 业务结构对象
+    public static final String BUSINESS_DTO_ID = "BUSINESS_DTO_ID";
+    public static final String BUSINESS_DTO_CLASS_NAME = "BUSINESS_DTO_CLASS_NAME";
+    public static final String BUSINESS_DTO_CLASS_DESCRIPTION = "BUSINESS_DTO_CLASS_DESCRIPTION";
+    public static final String BUSINESS_DTO_CLASS_FIELDS = "BUSINESS_DTO_CLASS_FIELDS";
 
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";

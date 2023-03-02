@@ -163,6 +163,9 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/QueryResult.java.vm",
     }),
 
+    /**
+     * 数据对象
+     */
     DATA_MODEL("DataModel", new String[]{
             "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/DataModelMapper.xml.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/DataModelMapper.java.vm",
@@ -179,6 +182,30 @@ public enum GenerateElementTypeEnum {
 
     OBJECT_MAPPER_MODEL_DTO_TO_DO("DTO2DO", new String[]{
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/QueryResult2DOConvert.java.vm"
+    }),
+
+    /**
+     * 业务场景
+     */
+    BUSINESS_SCENARIO("BusinessScenario", new String[]{
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/businessservice/{business}/{Business}RpcServiceImpl.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/businessservice/{business}/{Business}RpcService.java.vm",
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/businessservice/{business}/app/{Business}AppController.java.vm",
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/businessservice/{business}/web/{Business}WebController.java.vm",
+    }),
+
+    /**
+     * 业务请求对象
+     */
+    BUSINESS_QUERY("BusinessQuery", new String[]{
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/businessservice/{business}/query/{BusinessQuery}.java.vm",
+    }),
+
+    /**
+     * 业务结构对象
+     */
+    BUSINESS_DTO("BusinessDto", new String[]{
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/businessservice/{business}/dto/{BusinessDTO}.java.vm",
     }),
 
     /**

@@ -5,15 +5,20 @@ import com.wd.paas.generator.builder.convert.BusinessDomainDslConvert;
 import com.wd.paas.generator.generate.element.ApplicationNode;
 import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.ElementNode;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class BusinessDomainBuilder {
 
     public static BusinessDomainNode build(BusinessDomainDsl businessDomainDsl, ApplicationNode astApplication) {
         BusinessDomainNode astBusinessDomain = BusinessDomainDslConvert.INSTANCE.dto2Do(businessDomainDsl);
+        if (StringUtils.isBlank(astBusinessDomain.getIdentity())) {
+            astBusinessDomain.setIdentity(UUID.randomUUID().toString());
+        }
 
         List<ElementNode> elements = new ArrayList<>();
         Optional.ofNullable(businessDomainDsl.getObjectMapperModel()).map(objectMapperModelDsl -> ObjectMapperModelBuilder.build(objectMapperModelDsl, astBusinessDomain)).ifPresent(elements::add);

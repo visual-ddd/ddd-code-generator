@@ -1178,5 +1178,107 @@
       "version": "1.1.2",
       "name": "User"
     }
+  ],
+  "businessScenarios": [
+    {
+      "description": "用户登录场景",
+      "title": "用户登录场景",
+      "version": "0.0.1",
+      "name": "UserLogin",
+      "domainDependencies": [
+        {
+          "domainId": 17,
+          "versionId": 40,
+          "serviceId": "copy-8aac73b4-3e12-468b-bee4-d1f476ce301f"
+        }
+      ],
+      "serviceModel": {
+        "queries": [
+          {
+            "uuid": "0b68810b-2544-4706-bf8d-f2037d65465c",
+            "title": "登录账号",
+            "name": "AccountLogin",
+            "description": "",
+            "meta": {},
+            "source": [],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "f5908fcb-ccb8-4a39-ad3f-4423f4038801",
+                "title": "用户名",
+                "name": "userName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9e5ed12d-c771-498f-a90e-8e50d8ed6b65",
+                "title": "密码",
+                "name": "password",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ],
+            "return": {
+              "type": "Boolean"
+            }
+          },
+          {
+            "uuid": "677c2906-1e63-44b4-8adc-cd5fa0a34797",
+            "title": "获取当前账号信息",
+            "name": "AccountInfoQuery",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [],
+            "return": {
+              "type": "[AccountInfo:094afcaf-32f2-4e4b-acb6-e1b93a7ab97c]"
+            }
+          }
+        ],
+        "dtos": [
+          {
+            "uuid": "094afcaf-32f2-4e4b-acb6-e1b93a7ab97c",
+            "title": "账号信息",
+            "name": "AccountInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "2eb203da-aae3-41c0-a41f-68557ba8eb24",
+                "title": "用户名称",
+                "name": "userName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "0895712f-5942-4dba-8ae9-f650e3694c87",
+                "title": "密码",
+                "name": "password",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      }
+    }
   ]
 }

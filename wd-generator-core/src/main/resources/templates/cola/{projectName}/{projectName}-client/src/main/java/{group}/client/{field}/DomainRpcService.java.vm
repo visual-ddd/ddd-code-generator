@@ -1,6 +1,5 @@
 #parse("templates/Domain.vm")
 package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcService")};
-
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 #importDomainQuery()
@@ -15,10 +14,10 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
     #foreach($cmd in ${aggregation.getCommandList()})
 
     /** ${cmd.description} */
-        #if(${cmd.getRepository().getValue()} == "save")
+        #if(${cmd.getRepository().getValue()} == "create")
     ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
         #end
-        #if(${cmd.getRepository().getValue()} != "save")
+        #if(${cmd.getRepository().getValue()} != "create")
     ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
         #end
     #end
