@@ -1,3 +1,4 @@
+#set($commonMysqlConfig = "{common.mysql")
 server:
   port: 8080
   servlet:
@@ -17,10 +18,9 @@ spring:
     # 更新策略
     ddl-auto: update
   datasource:
-    name: ${PROJECT_NAME}
-    url: ${${PROJECT_NAME}.mysql.url:jdbc:mysql://172.26.57.49:3306/paas?useUnicode=true&characterEncoding=utf-8}
-    username: ${${PROJECT_NAME}.mysql.username:root}
-    password: ${${PROJECT_NAME}.mysql.password:root}
+    url: $${commonMysqlConfig}.url:jdbc:mysql://172.26.57.49:3306/${PROJECT_NAME}?useUnicode=true&characterEncoding=utf-8}
+    username: $${commonMysqlConfig}.username:root}
+    password: $${commonMysqlConfig}.password:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:

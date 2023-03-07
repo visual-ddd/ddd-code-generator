@@ -1,6 +1,6 @@
 #set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.188:25889}")
-#set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
-#set($configNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
+#set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
+#set($configNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
 spring:
   application:
     name: ${PROJECT_NAME}
@@ -16,8 +16,8 @@ spring:
         group: DEFAULT_GROUP
         file-extension: yml
         shared-configs:
-          - data-id: ${PROJECT_NAME}.yml
           - data-id: common.yml
+          - data-id: common-mysql.yml
           - data-id: common-mq.yml
           - data-id: common-mq-topic.yml
           - data-id: common-event-code.yml

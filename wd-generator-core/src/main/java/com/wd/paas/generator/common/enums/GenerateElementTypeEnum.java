@@ -31,6 +31,8 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-client/pom.xml.vm",
             // infrastructure
             "cola/{projectName}/{projectName}-infrastructure/pom.xml.vm",
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
+            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
             // start
             "cola/{projectName}/{projectName}-start/pom.xml.vm",
             "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/StartApplication.java.vm",
@@ -50,9 +52,6 @@ public enum GenerateElementTypeEnum {
             // controller
             "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/DomainAppController.java.vm",
             "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/DomainWebController.java.vm",
-            // repository
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
-            "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
             // app
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/JsonConverter.java.vm",
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/DomainRpcServiceImpl.java.vm",
