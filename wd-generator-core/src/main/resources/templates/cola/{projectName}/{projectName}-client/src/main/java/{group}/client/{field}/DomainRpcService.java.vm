@@ -11,26 +11,26 @@ import java.util.List;
 public interface ${DOMAIN_CLASS_NAME}RpcService {
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
 #set($RootIdType = ${aggregation.getRoot().getId().getType()})
-    #foreach($cmd in ${aggregation.getCommandList()})
+#foreach($cmd in ${aggregation.getCommandList()})
 
     /** ${cmd.description} */
-        #if(${cmd.getRepository().getValue()} == "create")
+#if(${cmd.getRepository().getValue()} == "create")
     ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
-        #end
-        #if(${cmd.getRepository().getValue()} != "create")
+#end
+#if(${cmd.getRepository().getValue()} != "create")
     ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
-        #end
-    #end
+#end
+#end
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
     /** ${query.description} */
-    #if(${query.pagination})
+#if(${query.pagination})
     PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
-    #end
-    #if(!${query.pagination})
+#end
+#if(!${query.pagination})
     ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
-    #end
+#end
 #end
 
 }

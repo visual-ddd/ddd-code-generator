@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class ${ENTITY_CLASS_NAME} {
 
-    #printFieldDesc(${ENTITY_CLASS_ID})
+#printFieldDesc(${ENTITY_CLASS_ID})
     ${ENTITY_CLASS_ID.getAccess()} ${ENTITY_CLASS_ID.getType()} ${ENTITY_CLASS_ID.name};
-    #filed(${ENTITY_CLASS_FIELDS})
-    #method(${ENTITY_CLASS_METHODS})
+#filed(${ENTITY_CLASS_FIELDS})
+#method(${ENTITY_CLASS_METHODS})
 }

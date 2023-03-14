@@ -19,5 +19,5 @@ public class ${QUERY_CLASS_NAME} extends BaseQuery {
 #if(${QUERY_PAGINATION})
 public class ${QUERY_CLASS_NAME} extends PageQuery {
 #end
-    #filedExt(${QUERY_CLASS_FIELDS})
+#filedExt(${QUERY_CLASS_FIELDS})
 }

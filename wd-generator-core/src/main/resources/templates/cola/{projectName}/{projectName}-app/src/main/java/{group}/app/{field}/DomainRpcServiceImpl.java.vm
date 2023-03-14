@@ -34,32 +34,32 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 #foreach($cmd in ${aggregation.getCommandList()})
 
     @Override
-    #if(${cmd.getRepository().getValue()} == "create")
+#if(${cmd.getRepository().getValue()} == "create")
     public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
         ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(${RootIdName});
     }
-    #end
-    #if(${cmd.getRepository().getValue()} != "create")
+#end
+#if(${cmd.getRepository().getValue()} != "create")
     public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
         ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);
     }
-    #end
+#end
 #end
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
     @Override
-    #if(${query.pagination})
+#if(${query.pagination})
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
     }
-    #end
-    #if(!${query.pagination})
+#end
+#if(!${query.pagination})
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
     }
-    #end
+#end
 #end
 }

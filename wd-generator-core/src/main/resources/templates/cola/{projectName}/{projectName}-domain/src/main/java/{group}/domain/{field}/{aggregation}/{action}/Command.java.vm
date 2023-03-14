@@ -12,6 +12,6 @@ import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME
 @AllArgsConstructor
 @NoArgsConstructor
 public class ${CMD_CLASS_NAME} {
-    #filed($CMD_CLASS_FIELDS)
+#filed($CMD_CLASS_FIELDS)
 
 }

@@ -16,18 +16,18 @@
         SELECT *
         FROM ${DATA_OBJECT_TABLE_NAME} t1
         <where>
-        #foreach($queryFiled in $query.propertyList)
-            #if(${queryFiled.type} == 'String')
+#foreach($queryFiled in $query.propertyList)
+#if(${queryFiled.type} == 'String')
             <if test="${queryFiled.name}!=null and ${queryFiled.name}!=''">
                 AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} LIKE CONCAT('%',#{${queryFiled.name}},'%')
             </if>
-            #end
-            #if(${queryFiled.type} != 'String')
+#end
+#if(${queryFiled.type} != 'String')
             <if test="${queryFiled.name}!=null">
                 AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
             </if>
-            #end
-        #end
+#end
+#end
         </where>
     </select>
 #end

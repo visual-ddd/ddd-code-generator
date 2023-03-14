@@ -9,9 +9,9 @@ import ${IMPORT_PACKAGE_MAP.get(${ENTITY_ID}).get(${ENTITY_CLASS_NAME})}.${ENTIT
 #importEnumConverter()
 
 @Mapper(uses = {
-    #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
+#foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
         ${aggregationEnum.name}Converter.class,
-    #end
+#end
 })
 public interface ${ENTITY_DTO_CLASS_NAME}2${ENTITY_CLASS_NAME}Convert extends BaseConvert<${ENTITY_DTO_CLASS_NAME}, ${ENTITY_CLASS_NAME}> {
 

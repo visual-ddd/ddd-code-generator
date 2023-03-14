@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
+import com.wd.paas.generator.common.util.PluginResourceLoader;
 import lombok.Data;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
@@ -22,6 +23,8 @@ public class TemplateContext {
     private ZipOutputStream zipOutputStream;
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
 
+    private PluginResourceLoader pluginResourceLoader = new PluginResourceLoader(TemplateContext.class.getClassLoader());
+
     public TemplateContext() {
         initTemplateContext();
     }
@@ -39,14 +42,24 @@ public class TemplateContext {
     /**
      * 配置velocity上下文
      */
-    protected static void initTemplateContext() {
+    protected void initTemplateContext() {
         // 设置velocity资源加载器
         Properties properties = new Properties();
-        // 加载classpath目录下的vm文件
-        properties.setProperty("resource.loader.file.class",
-                "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+
+        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
+        properties.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
+
+
+//        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
+//        properties.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
+
+//        设置velocity资源加载方式为file
+//        properties.setProperty("resource.loader", "file");
+//        properties.setProperty("file.resource.loader.class", FileResourceLoader.class.getName());
+//        properties.setProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, "src/main/resources/");
         // 定义字符集
-        properties.setProperty(RuntimeConstants.ENCODING_DEFAULT, "UTF-8");
+        properties.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
+        Velocity.setProperty("plugin.resource.loader.instance", pluginResourceLoader);
         Velocity.init(properties);
     }
 }

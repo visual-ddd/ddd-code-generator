@@ -23,14 +23,14 @@ public interface ${doMapperClassName} extends BaseMapper<${doClassName}> {
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 #if(!${query.pagination})
 
-    #printMethodDesc($query)
+#printMethodDesc($query)
     ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
 #end
 #end
 #foreach ($pageQuery in ${DOMAIN_QUERY_LIST})
 #if(${pageQuery.pagination})
 
-    #printMethodDesc($pageQuery)
+#printMethodDesc($pageQuery)
     List<${doClassName}> ${CASE_FORMAT_LOWER_CAMEL.convert(${pageQuery.name})}(${pageQuery.name} pageQuery);
 #end
 #end

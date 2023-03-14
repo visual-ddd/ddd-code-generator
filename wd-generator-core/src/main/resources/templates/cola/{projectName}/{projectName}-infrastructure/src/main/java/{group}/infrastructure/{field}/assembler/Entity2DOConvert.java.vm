@@ -29,39 +29,39 @@ import ${IMPORT_PACKAGE_MAP.get(${entity.identity}).get("${entity.name}Converter
 #end
 
 @Mapper(uses = {
-    #foreach($enum in ${DOMAIN_ENUM_LIST})
-    #if(${enum.getParentNode().identity} == ${aggregationId})
+#foreach($enum in ${DOMAIN_ENUM_LIST})
+#if(${enum.getParentNode().identity} == ${aggregationId})
         ${enum.name}Converter.class,
-    #end
-    #end
-    #foreach($valueObject in ${DOMAIN_VALUE_OBJECT_LIST})
-    #if(${valueObject.getParentNode().identity} == ${aggregationId})
+#end
+#end
+#foreach($valueObject in ${DOMAIN_VALUE_OBJECT_LIST})
+#if(${valueObject.getParentNode().identity} == ${aggregationId})
         ${valueObject.name}Converter.class,
-    #end
-    #end
-    #foreach($entity in ${DOMAIN_ENTITY_LIST})
-    #if(${entity.getParentNode().identity} == ${aggregationId})
+#end
+#end
+#foreach($entity in ${DOMAIN_ENTITY_LIST})
+#if(${entity.getParentNode().identity} == ${aggregationId})
         ${entity.name}Converter.class,
-    #end
-    #end
+#end
+#end
 })
 public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 
     ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert.class);
 
-    #foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
-    #if(${mapper.sourceField} && ${mapper.targetField})
+#foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
+#if(${mapper.sourceField} && ${mapper.targetField})
     @Mapping(source = "${mapper.sourceField}", target = "${mapper.targetField}")
-    #end
-    #end
+#end
+#end
     @Override
     ${OBJECT_MAPPER_TARGET_OBJECT} dto2Do(${OBJECT_MAPPER_SOURCE_OBJECT} dto);
 
-    #foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
-    #if(${mapper.sourceField} && ${mapper.targetField})
+#foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
+#if(${mapper.sourceField} && ${mapper.targetField})
     @Mapping(source = "${mapper.targetField}", target = "${mapper.sourceField}")
-    #end
-    #end
+#end
+#end
     @Override
     ${OBJECT_MAPPER_SOURCE_OBJECT} do2Dto(${OBJECT_MAPPER_TARGET_OBJECT} d);
 }

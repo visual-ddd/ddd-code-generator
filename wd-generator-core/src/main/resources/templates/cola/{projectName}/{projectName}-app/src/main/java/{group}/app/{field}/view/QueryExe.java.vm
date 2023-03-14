@@ -39,7 +39,7 @@ public class ${QUERY_CLASS_NAME}Exe {
     @Resource
     private ${doMapperClassName} mapper;
 
-    #if(${QUERY_PAGINATION})
+#if(${QUERY_PAGINATION})
     public PageResultDTO<List<${returnTypeSign}>> execute(${QUERY_CLASS_NAME} pageQuery) {
         PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
 
@@ -51,11 +51,11 @@ public class ${QUERY_CLASS_NAME}Exe {
         pageResultDTO.setTotalCount(pageInfo.getTotal());
         return pageResultDTO;
     }
-    #end
-    #if(!${QUERY_PAGINATION})
+#end
+#if(!${QUERY_PAGINATION})
     public ResultDTO<${returnTypeSign}> execute(${QUERY_CLASS_NAME} query) {
         return ResultDTO.success(
-            ${convertClassName}.INSTANCE.do2Dto(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query)));
+                ${convertClassName}.INSTANCE.do2Dto(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query)));
     }
-    #end
+#end
 }

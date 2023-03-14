@@ -19,20 +19,19 @@ public class ${BUSINESS_CLASS_NAME}RpcServiceImpl implements ${BUSINESS_CLASS_NA
 #foreach ($query in ${BUSINESS_QUERY_LIST})
 
     /** ${query.description} */
-    #if(${query.pagination})
+#if(${query.pagination})
     @Override
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         // TODO ${query.description}
         return new PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>>();
     }
-    #end
-    #if(!${query.pagination})
+#end
+#if(!${query.pagination})
     @Override
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} request) {
         // TODO ${query.description}
         return new ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>();
     }
-    #end
 #end
-
+#end
 }

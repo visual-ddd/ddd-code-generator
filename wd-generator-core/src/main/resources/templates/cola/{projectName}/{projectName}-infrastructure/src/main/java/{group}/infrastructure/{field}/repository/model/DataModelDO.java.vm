@@ -21,16 +21,16 @@ import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 public class ${DATA_OBJECT_CLASS_NAME} extends BaseJpaAggregate {
 #foreach ($field in $DATA_OBJECT_CLASS_FIELDS)
 
-    #if(${field.name}==${DATA_OBJECT_CLASS_PRIMARY_KEY})
-    #printFieldDesc($field)
+#if(${field.name}==${DATA_OBJECT_CLASS_PRIMARY_KEY})
+#printFieldDesc($field)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableId(type = IdType.AUTO)
     private ${field.dataType} ${field.name};
-    #end
-    #if(${field.name}!=${DATA_OBJECT_CLASS_PRIMARY_KEY})
-    #printFieldDesc($field)
+#end
+#if(${field.name}!=${DATA_OBJECT_CLASS_PRIMARY_KEY})
+#printFieldDesc($field)
     private ${field.dataType} ${field.name};
-    #end
+#end
 #end
 }

@@ -8,100 +8,100 @@ import ${importPackage};
 #macro(comment $description)
 /**
  * $description
- *
- * @author ${DOMAIN_AUTHOR}
+## *
+## * @author ${DOMAIN_AUTHOR}
 ## * @date ${DOMAIN_DATE_TIME}
 ## * @since 1.0
  */
 #end
 ## ============= 类字段列表 =============
 #macro(filed $filedList)
-    #foreach ($field in $filedList)
+#foreach ($field in $filedList)
 
-    #printFieldDesc($field)
+#printFieldDesc($field)
     private ${PARSE_TYPE_UTIL.parse(${field.type})} ${field.name};
-    #end
+#end
 #end
 ## ============= 类拓展字段列表 =============
 #macro(filedExt $filedList)
-    #foreach ($field in $filedList)
+#foreach ($field in $filedList)
 
-    #printApiDesc(${field})
+#printApiDesc(${field})
     private ${PARSE_TYPE_UTIL.parse(${field.type})} ${field.name};
-    #end
+#end
 #end
 ## ============= DTO类字段列表 =============
 #macro(dtoFiled $filedList)
-    #foreach ($field in $filedList)
+#foreach ($field in $filedList)
 
-    #printApiDesc($field)
+#printApiDesc($field)
     ${field.access} ${PARSE_TYPE_UTIL.parseDTOField(${field.type})} ${field.name};
-    #end
+#end
 #end
 ## ============= 类方法列表 =============
 #macro(method $methodList)
-    #foreach ($method in $methodList)
+#foreach ($method in $methodList)
 
-    #printMethodDesc($method)
+#printMethodDesc($method)
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(#foreach($parameter in ${method.signatureInfo.parameterList})${parameter.type} ${parameter.name}#end){
         // TODO: ${method.title}(${method.description})
-        #if($method.signature.returnInfo.type != "void")
+#if($method.signature.returnInfo.type != "void")
         return null;
-     #end
+#end
     }
-    #end
+#end
 #end
 ## ============= 继承方法列表 =============
 #macro(overrideMethod $methodList)
-    #foreach ($method in $methodList)
+#foreach ($method in $methodList)
 
-    #printMethodDesc($method)
+#printMethodDesc($method)
     @Override
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})}) {
         // TODO: ${method.title}(${method.description})
-        #if($method.signature.returnInfo.type != "void")
+#if($method.signature.returnInfo.type != "void")
         return null;
-     #end
+ #end
     }
-    #end
+#end
 #end
 ## ============= 接口方法列表 =============
 #macro(interfaceMethod $methodList)
-    #foreach ($method in $methodList)
+#foreach ($method in $methodList)
 
-    #printMethodDesc($method)
+#printMethodDesc($method)
     ${method.returnType} ${method.name}(${method.attributeLabel});
-    #end
+#end
 #end
 ## ============= 抽象方法列表 =============
 #macro(abstractMethod $methodList)
-    #foreach ($method in $methodList)
+#foreach ($method in $methodList)
 
-    #printMethodDesc($method)
+#printMethodDesc($method)
     public abstract ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})});
-    #end
+#end
 #end
 #macro(printMethodDesc $method)
-    #if($method.description)
+#if($method.description != "")
     /** ${method.description} */
-    #end
-    #if(!${method.description} && ${method.description} == "")
+#end
+#if(${method.description} == "")
     /** ${method.title} */
-    #end
+#end
 #end
 #macro(printFieldDesc $field)
-    #if($field.description)
+#if(${field.description} != "")
     /** ${field.description} */
-    #end
-    #if(!${field.description} && ${field.description} == "")
+#end
+#if(${field.description} == "")
     /** ${field.title} */
-    #end
+#end
 #end
 #macro(printApiDesc $field)
-    #if(${field.description})
+#if(${field.description} != "")
     @ApiModelProperty(value = "${field.description}")
-    #end
-    #if(!${field.description} && ${field.description} == "")
+#end
+#if(${field.description} == "")
     @ApiModelProperty(value = "${field.title}")
-    #end
+#end
 #end

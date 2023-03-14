@@ -1,4 +1,4 @@
-#set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.188:25889}")
+#set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.113:25889}")
 #set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
 #set($configNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
 spring:
@@ -7,8 +7,8 @@ spring:
   cloud:
     nacos:
       server-addr: $$serverAddr
-      username: wdcloud-test
-      password: wdcloud-test
+      username: nacos
+      password: TkqwzJaAVP5nOvF2
       discovery:
         namespace: $$discoveryNamespace
       config:

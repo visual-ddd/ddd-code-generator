@@ -10,14 +10,14 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根能力")
 public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME} {
-    #overrideMethod($AGGREGATION_CLASS_METHODS)
+#overrideMethod($AGGREGATION_CLASS_METHODS)
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
-    #if(${cmd.repository} == "MODIFY")
+#if(${cmd.repository} == "MODIFY")
 
     public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} updateCmd) {
-    #foreach($cmdField in ${cmd.propertyList})
+#foreach($cmdField in ${cmd.propertyList})
         this.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
-    #end
+#end
     }
 #end
 #if(${cmd.repository} == "REMOVE")
