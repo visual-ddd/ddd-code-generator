@@ -22,7 +22,7 @@ public class ModelUrlConstant {
     public static final String SLASH = "/";
     public static final String EMPTY = "";
 
-    public static final String DOMAIN_CLASS = "Domain";
+    public static final String DOMAIN_CLASS = "{Domain}";
     public static final String AGGREGATION_CLASS = "Aggregation";
     public static final String ENUM_CLASS = "Enum";
 

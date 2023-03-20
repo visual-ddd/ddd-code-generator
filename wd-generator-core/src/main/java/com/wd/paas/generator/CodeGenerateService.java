@@ -21,8 +21,9 @@ public class CodeGenerateService {
      */
     private final ElementParser elementParser;
 
-    public CodeGenerateService(String dsl) {
-        ApplicationNode applicationNode = build(dsl);
+    public CodeGenerateService(String applicationDSLJson) {
+        ApplicationDsl applicationDsl = GsonUtil.fromJson(applicationDSLJson, ApplicationDsl.class);
+        ApplicationNode applicationNode = ApplicationBuilder.build(applicationDsl);
         this.elementParser = new ElementParser(Collections.singletonList(applicationNode));
     }
 
@@ -44,10 +45,5 @@ public class CodeGenerateService {
         elementParser.accept(visitor::preHandle);
         elementParser.accept(visitor::generate);
         visitor.globalAfterHandle();
-    }
-
-    private ApplicationNode build(String dsl) {
-        ApplicationDsl applicationDsl = GsonUtil.fromJson(dsl, ApplicationDsl.class);
-        return ApplicationBuilder.build(applicationDsl);
     }
 }

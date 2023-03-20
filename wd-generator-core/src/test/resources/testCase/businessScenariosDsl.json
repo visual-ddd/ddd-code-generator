@@ -1,0 +1,237 @@
+{
+  "name": "VisualDDD",
+  "title": "DDD可视化开发平台",
+  "description": "DDD可视化开发平台\n\nIDEA代码生成插件接入文档：\nhttp://www.wakedata.net/pages/viewpage.action?pageId=34999420",
+  "package": "com.wakedt.visual",
+  "version": "0.0.1-SNAPSHOT",
+  "businessDomains": [],
+  "businessScenarios": [
+    {
+      "domainDependencies": [
+        {
+          "domainId": 24,
+          "versionId": 51,
+          "serviceId": "2221e012-63d9-4b14-987b-26d960829172"
+        },
+        {
+          "domainId": 24,
+          "versionId": 51,
+          "serviceId": "82bfac24-4223-4d1e-8c5f-49d677eb5100"
+        }
+      ],
+      "serviceModel": {
+        "queries": [
+          {
+            "uuid": "946de11f-006a-4978-91f8-11d7d3583b47",
+            "title": "账号登录",
+            "name": "AccountLogin",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "818ac558-7ec4-4304-be49-909e485cb00a",
+                "title": "账号唯一标识（邮箱）",
+                "name": "accountNo",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ee86533d-dcf4-44f4-a94d-addb15a97a5b",
+                "title": "密码",
+                "name": "password",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ],
+            "return": {
+              "type": "[AccountDTO:602d21b8-17a4-48f0-90c0-ed656ccd4aab]"
+            }
+          },
+          {
+            "uuid": "b3924350-9b70-439d-bb2a-d90b48020e86",
+            "title": "退出登录",
+            "name": "Logout",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [],
+            "return": {
+              "type": "void"
+            }
+          },
+          {
+            "uuid": "aac32d7b-e7b3-455f-b282-4bc6ad81d0e8",
+            "title": "注册账号",
+            "name": "AccountRegister",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [
+              {
+                "uuid": "da537728-8001-4436-ab2c-9e44574d7954",
+                "title": "验证码校验",
+                "name": "CheckCodeDue",
+                "description": "验证码校验",
+                "meta": {}
+              }
+            ],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "c0ec547f-3553-41be-9bcc-d72c1f5f59d0",
+                "title": "验证码",
+                "name": "code",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ],
+            "return": {
+              "type": "Boolean"
+            }
+          },
+          {
+            "uuid": "47f0310f-f3ac-4608-abbf-c2d8e10b6e77",
+            "title": "发送注册账号验证码",
+            "name": "AccountVerificationCreate",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "1159b6af-0e84-4461-9ab6-a7b4fc57b597",
+                "title": "账号唯一标识（邮箱）",
+                "name": "accountNo",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "b41c8264-1ecd-4eef-be9e-e95e379d45fd",
+                "title": "验证码",
+                "name": "code",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ],
+            "return": {
+              "type": "Boolean"
+            }
+          }
+        ],
+        "dtos": [
+          {
+            "uuid": "602d21b8-17a4-48f0-90c0-ed656ccd4aab",
+            "title": "账号信息",
+            "name": "AccountDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "3e83ad4d-1c2e-4cc7-8441-b9e22618d65f",
+                "title": "主键",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "eeeca59e-32ad-473b-973c-d8bd1ca6f90f",
+                "title": "账号(唯一标识)",
+                "name": "accountDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "999ee148-2536-4b2f-a6b2-36af33f268b2",
+                "title": "用户名",
+                "name": "userName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "fe2b3779-9a9c-430b-bfc6-ec5e09044fa4",
+                "title": "角色",
+                "name": "accountRole",
+                "description": "角色：1 系统管理员 2 组织管理员 3 团队管理员",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "1466b005-22f1-43a4-987d-cc81e0812c5a",
+                "title": "描述",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ab9ff4a2-ab22-4e51-8086-1f4e6465209b",
+                "title": "用户头像",
+                "name": "icon",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      "name": "UserLogin",
+      "description": "描述用户登录的流程",
+      "title": "用户登录场景",
+      "version": "0.0.1"
+    }
+  ]
+}

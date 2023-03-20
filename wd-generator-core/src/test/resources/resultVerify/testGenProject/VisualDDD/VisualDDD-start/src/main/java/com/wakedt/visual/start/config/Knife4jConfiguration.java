@@ -1,4 +1,4 @@
-package ${PROJECT_PACKAGE}.start.config;
+package com.wakedt.visual.start.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +28,7 @@ public class Knife4jConfiguration {
                 .groupName("代码生成平台服务")
                 .select()
                 //这里指定Controller扫描包路径
-                .apis(RequestHandlerSelectors.basePackage("${PROJECT_PACKAGE}"))
+                .apis(RequestHandlerSelectors.basePackage("com.wakedt.visual"))
                 .paths(PathSelectors.any())
                 .build();
     }

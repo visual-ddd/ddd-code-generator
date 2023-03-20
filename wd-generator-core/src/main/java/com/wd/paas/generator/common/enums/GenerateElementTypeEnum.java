@@ -50,13 +50,13 @@ public enum GenerateElementTypeEnum {
      */
     DOMAIN_CHART("DomainChart", new String[]{
             // controller
-            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/DomainAppController.java.vm",
-            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/DomainWebController.java.vm",
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/{Domain}AppController.java.vm",
+            "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/{Domain}WebController.java.vm",
             // app
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/JsonConverter.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/DomainRpcServiceImpl.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{Domain}RpcServiceImpl.java.vm",
             // client
-            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/DomainRpcService.java.vm",
+            "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{Domain}RpcService.java.vm",
     }),
 
     /**
