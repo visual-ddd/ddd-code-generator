@@ -32,9 +32,8 @@ public class DataObjectStrategy extends AbstractElementStrategy {
     public void initProperties() {
         super.initProperties();
         dataObject.setPrimaryKey(getPrimaryKey());
-        String oldName = dataObject.getName();
-        initClassName(oldName);
-        initTableName(oldName);
+        initClassName(dataObject.getName());
+        initTableName();
         dataObject.setDataObjectMapperName(dataObject.getDataObjectNoSuffixName().concat(ModelUrlConstant.DATA_MAPPER_CLASS_SUFFIX));
         dataObject.getDataPropertyList().forEach(dataPropertyInfo ->
                 dataPropertyInfo.setDataType(convertFileType(dataPropertyInfo.getDataType())));
@@ -84,21 +83,21 @@ public class DataObjectStrategy extends AbstractElementStrategy {
         return primaryKey;
     }
 
-    private void initClassName(String name) {
-        if (name.endsWith(ModelUrlConstant.DATA_CLASS_SUFFIX)) {
-            dataObject.setName(name.substring(0, name.lastIndexOf(ModelUrlConstant.DATA_CLASS_SUFFIX)));
-            dataObject.setDataObjectNoSuffixName(name);
+    private void initClassName(String oldName) {
+        if (oldName.endsWith(ModelUrlConstant.DATA_CLASS_SUFFIX)) {
+            dataObject.setName(oldName);
+            dataObject.setDataObjectNoSuffixName(oldName.substring(0, oldName.lastIndexOf(ModelUrlConstant.DATA_CLASS_SUFFIX)));
         } else {
-            dataObject.setDataObjectNoSuffixName(name);
-            dataObject.setName(name.concat(ModelUrlConstant.DATA_CLASS_SUFFIX));
+            dataObject.setName(oldName.concat(ModelUrlConstant.DATA_CLASS_SUFFIX));
+            dataObject.setDataObjectNoSuffixName(oldName);
         }
     }
 
-    private void initTableName(String oldName) {
+    private void initTableName() {
         if (dataObject.getTableName() != null) {
             return;
         }
-        String notDOName = oldName.endsWith(ModelUrlConstant.DATA_CLASS_SUFFIX) ? dataObject.getDataObjectNoSuffixName() : oldName;
+        String notDOName = dataObject.getDataObjectNoSuffixName();
         dataObject.setTableName(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, notDOName));
     }
 
