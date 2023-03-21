@@ -1,18 +1,15 @@
-#set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.113:25889}")
-#set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
-#set($configNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
 spring:
   application:
-    name: ${PROJECT_NAME.replace("-", "_")}
+    name: wd_visual_ddd2
   cloud:
     nacos:
-      server-addr: $$serverAddr
+      server-addr: ${NACOS_CONFIG_SERVER:172.26.63.113:25889}
       username: nacos
       password: TkqwzJaAVP5nOvF2
       discovery:
-        namespace: $$discoveryNamespace
+        namespace: ${NACOS_CONFIG_NAMESPACE:bizpf-dev}
       config:
-        namespace: $$configNamespace
+        namespace: ${NACOS_CONFIG_NAMESPACE:bizpf-dev}
         group: DEFAULT_GROUP
         file-extension: yml
         shared-configs:
