@@ -18,8 +18,11 @@ public class ParseTypeSignUtil {
 
     public static String parse(String typeSign) {
         if (StringUtils.isBlank(typeSign)) {
-        return "NoType";
-    }
+            return "NoType";
+        }
+        if ("void".equals(typeSign)) {
+            return "Void";
+        }
 
         Pattern r = Pattern.compile(PATTERN);
         Matcher m = r.matcher(typeSign);

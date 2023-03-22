@@ -24,7 +24,7 @@ public class UserLoginRpcServiceImpl implements UserLoginRpcService {
     }
 
     @Override
-    public ResultDTO<void> logout(Logout request) {
+    public ResultDTO<Void> logout(Logout request) {
         // TODO 退出登录
         return ResultDTO.success();
     }

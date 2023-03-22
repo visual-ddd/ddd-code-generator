@@ -18,7 +18,7 @@ public interface UserLoginRpcService {
     ResultDTO<AccountDTO> accountLogin(AccountLogin request);
 
     /** 退出登录 */
-    ResultDTO<void> logout(Logout request);
+    ResultDTO<Void> logout(Logout request);
 
     /** 注册账号 */
     ResultDTO<Boolean> accountRegister(AccountRegister request);

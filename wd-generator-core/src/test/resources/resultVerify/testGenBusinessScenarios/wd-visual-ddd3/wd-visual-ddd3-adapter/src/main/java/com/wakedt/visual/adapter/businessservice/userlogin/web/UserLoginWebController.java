@@ -39,7 +39,7 @@ public class UserLoginWebController {
 
     @ApiOperation("退出登录")
     @PostMapping("/logout")
-    public ResultDTO<void> logout(@RequestBody @Valid Logout request) {
+    public ResultDTO<Void> logout(@RequestBody @Valid Logout request) {
         return userLoginRpcService.logout(request);
     }
 
