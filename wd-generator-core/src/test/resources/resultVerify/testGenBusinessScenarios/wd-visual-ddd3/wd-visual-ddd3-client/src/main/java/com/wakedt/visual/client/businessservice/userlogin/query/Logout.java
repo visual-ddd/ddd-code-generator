@@ -11,4 +11,5 @@ import java.util.List;
 @Data
 @ApiModel(value = "退出登录")
 public class Logout {
-    }
+
+}

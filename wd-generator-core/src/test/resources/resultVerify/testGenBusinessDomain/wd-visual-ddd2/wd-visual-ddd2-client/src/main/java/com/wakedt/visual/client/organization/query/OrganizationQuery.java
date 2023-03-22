@@ -18,4 +18,5 @@ public class OrganizationQuery extends BaseQuery {
 
     @ApiModelProperty(value = "组织 ID")
     private Long id;
+
 }

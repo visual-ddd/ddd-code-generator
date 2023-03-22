@@ -1,5 +1,6 @@
 package com.wakedt.visual.infrastructure.organization.repository;
 
+import com.wakedata.common.core.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -45,7 +46,8 @@ public class TeamMemberRepositoryImpl implements TeamMemberRepository {
 
     @Override
     public TeamMember find(Long id) {
-        TeamMemberDO teamMember = teamMemberMapper.selectById(id);
-        return TeamMember2TeamMemberDOConvert.INSTANCE.do2Dto(teamMember);
+        TeamMemberDO result = teamMemberMapper.selectById(id);
+        if (result == null) throw new BizException("id不存在!");
+        return TeamMember2TeamMemberDOConvert.INSTANCE.do2Dto(result);
     }
 }

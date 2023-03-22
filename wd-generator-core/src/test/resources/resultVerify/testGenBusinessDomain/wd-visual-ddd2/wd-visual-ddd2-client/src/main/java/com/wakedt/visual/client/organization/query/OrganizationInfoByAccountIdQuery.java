@@ -18,4 +18,5 @@ public class OrganizationInfoByAccountIdQuery extends BaseQuery {
 
     @ApiModelProperty(value = "团队成员的账号唯一标识")
     private Long accountId;
+
 }

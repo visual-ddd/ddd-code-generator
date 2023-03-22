@@ -1,5 +1,6 @@
 package com.wakedt.visual.infrastructure.organization.repository;
 
+import com.wakedata.common.core.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -45,7 +46,8 @@ public class OrganizationRepositoryImpl implements OrganizationRepository {
 
     @Override
     public Organization find(Long id) {
-        OrganizationDO organization = organizationMapper.selectById(id);
-        return Organization2OrganizationDOConvert.INSTANCE.do2Dto(organization);
+        OrganizationDO result = organizationMapper.selectById(id);
+        if (result == null) throw new BizException("id不存在!");
+        return Organization2OrganizationDOConvert.INSTANCE.do2Dto(result);
     }
 }

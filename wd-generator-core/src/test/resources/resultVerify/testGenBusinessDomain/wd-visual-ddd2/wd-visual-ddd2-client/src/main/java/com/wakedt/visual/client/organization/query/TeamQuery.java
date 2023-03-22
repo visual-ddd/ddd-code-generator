@@ -18,4 +18,5 @@ public class TeamQuery extends BaseQuery {
 
     @ApiModelProperty(value = "团队ID")
     private Long id;
+
 }

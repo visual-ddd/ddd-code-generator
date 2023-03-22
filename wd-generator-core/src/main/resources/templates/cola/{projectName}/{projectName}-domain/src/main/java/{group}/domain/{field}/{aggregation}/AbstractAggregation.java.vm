@@ -9,13 +9,13 @@ import java.util.List;
 @Data
 public abstract class Abstract${AGGREGATION_CLASS_NAME} {
 
-#if($AGGREGATION_CLASS_ID.description)
+#if($AGGREGATION_CLASS_ID.description != "")
     /** ${AGGREGATION_CLASS_ID.description} */
 #end
-#if(!$AGGREGATION_CLASS_ID.description && $AGGREGATION_CLASS_ID.description == "")
+#if($AGGREGATION_CLASS_ID.description == "")
     /** ${AGGREGATION_CLASS_ID.title} */
 #end
-    ${AGGREGATION_CLASS_ID.getAccess()} ${PARSE_TYPE_UTIL.parse(${AGGREGATION_CLASS_ID.getType()})} ${AGGREGATION_CLASS_ID.name};
+    private ${PARSE_TYPE_UTIL.parse(${AGGREGATION_CLASS_ID.getType()})} ${AGGREGATION_CLASS_ID.name};
 #filed(${AGGREGATION_CLASS_FIELDS})
 #abstractMethod(${AGGREGATION_CLASS_METHODS})
 

@@ -6,7 +6,7 @@ package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}WebC
 #comment("${BUSINESS_DESCRIPTION}-web-controller")
 @RestController
 @RequestMapping("/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}")
-@Api(value = "/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}", tags = "B端-${BUSINESS_DESCRIPTION}")
+@Api(value = "/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}", tags = "B端-${BUSINESS_TITLE}")
 public class ${BUSINESS_CLASS_NAME}WebController {
 #businessController()
 }

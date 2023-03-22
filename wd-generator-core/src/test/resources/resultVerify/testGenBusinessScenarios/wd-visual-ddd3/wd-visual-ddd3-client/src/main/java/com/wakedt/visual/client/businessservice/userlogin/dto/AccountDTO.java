@@ -32,4 +32,5 @@ public class AccountDTO extends BaseDTO {
 
     @ApiModelProperty(value = "用户头像")
     private String icon;
+
 }

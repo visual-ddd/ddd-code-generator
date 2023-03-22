@@ -40,6 +40,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.DOMAIN_NAME, astBusinessDomain.getName());
         context.put(VelocityLabel.DOMAIN_CLASS_NAME, astBusinessDomain.getName());
         context.put(VelocityLabel.DOMAIN_AUTHOR, "visual-ddd");
+        context.put(VelocityLabel.DOMAIN_TITLE, astBusinessDomain.getTitle());
         context.put(VelocityLabel.DOMAIN_DESCRIPTION, astBusinessDomain.getDescription());
 
         context.put(VelocityLabel.DOMAIN_QUERY_LIST, getQueryList());

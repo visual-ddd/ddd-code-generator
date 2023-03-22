@@ -18,4 +18,5 @@ public class TeamMemberByTeamIdPageQuery extends PageQuery {
 
     @ApiModelProperty(value = "团队唯一标识")
     private Long teamId;
+
 }

@@ -29,4 +29,5 @@ public class OrganizationDTO extends BaseDTO {
 
     @ApiModelProperty(value = "组织管理员名称(账号名称)")
     private String organizationManagerName;
+
 }

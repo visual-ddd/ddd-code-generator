@@ -21,6 +21,7 @@ public class VelocityLabel {
     public static final String DOMAIN_ID = "DOMAIN_ID";
     public static final String DOMAIN_NAME = "DOMAIN_NAME";
     public static final String DOMAIN_CLASS_NAME = "DOMAIN_CLASS_NAME";
+    public static final String DOMAIN_TITLE = "DOMAIN_TITLE";
     public static final String DOMAIN_DESCRIPTION = "DOMAIN_DESCRIPTION";
     public static final String DOMAIN_AUTHOR = "DOMAIN_AUTHOR";
     public static final String DOMAIN_QUERY_LIST = "DOMAIN_QUERY_LIST";
@@ -122,6 +123,7 @@ public class VelocityLabel {
     public static final String BUSINESS_ID = "BUSINESS_ID";
     public static final String BUSINESS_NAME = "BUSINESS_NAME";
     public static final String BUSINESS_CLASS_NAME = "BUSINESS_CLASS_NAME";
+    public static final String BUSINESS_TITLE = "BUSINESS_TITLE";
     public static final String BUSINESS_DESCRIPTION = "BUSINESS_DESCRIPTION";
     public static final String BUSINESS_AUTHOR = "BUSINESS_AUTHOR";
     public static final String BUSINESS_QUERY_LIST = "BUSINESS_QUERY_LIST";

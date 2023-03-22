@@ -36,6 +36,7 @@ public class BusinessScenarioStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.BUSINESS_NAME, node.getName());
         context.put(VelocityLabel.BUSINESS_CLASS_NAME, node.getName());
         context.put(VelocityLabel.BUSINESS_DESCRIPTION, node.getDescription());
+        context.put(VelocityLabel.BUSINESS_TITLE, node.getTitle());
         context.put(VelocityLabel.BUSINESS_AUTHOR, "visual-ddd");
         context.put(VelocityLabel.BUSINESS_QUERY_LIST, getQueryList());
         context.put(VelocityLabel.BUSINESS_DTO_LIST, getDTOList());

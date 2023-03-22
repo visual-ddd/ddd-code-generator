@@ -14,4 +14,5 @@ public class OrganizationManagerUnbindDTO {
 
     @ApiModelProperty(value = "组织 ID")
     public Long id;
+
 }

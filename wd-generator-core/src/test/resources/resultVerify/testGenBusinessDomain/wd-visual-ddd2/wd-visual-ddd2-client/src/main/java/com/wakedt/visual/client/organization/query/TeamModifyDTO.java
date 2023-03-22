@@ -26,4 +26,5 @@ public class TeamModifyDTO {
 
     @ApiModelProperty(value = "团队的管理者，被组织管理员授权，管理自己所在团队")
     public Long teamManagerId;
+
 }

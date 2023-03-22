@@ -11,4 +11,5 @@ import java.util.List;
 @ApiModel(value = "${ENTITY_CLASS_DESCRIPTION}")
 public class ${ENTITY_DTO_CLASS_NAME} {
 #dtoFiled(${ENTITY_CLASS_FIELDS})
+
 }

@@ -21,4 +21,5 @@ public class TeamPageQuery extends PageQuery {
 
     @ApiModelProperty(value = "团队名称")
     private String name;
+
 }

@@ -8,6 +8,7 @@
 #set($convertClassName = "${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")
 package ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${aggregationClass}RepositoryImpl")};
 
+import com.wakedata.common.core.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -51,7 +52,8 @@ public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Rep
 
     @Override
     public ${aggregationClass} find(Long id) {
-        ${doClassName} ${AGGREGATION_CLASS_NAME_FIRST_LOWER} = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.selectById(id);
-        return ${convertClassName}.INSTANCE.do2Dto(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        ${doClassName} result = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.selectById(id);
+        if (result == null) throw new BizException("id不存在!");
+        return ${convertClassName}.INSTANCE.do2Dto(result);
     }
 }

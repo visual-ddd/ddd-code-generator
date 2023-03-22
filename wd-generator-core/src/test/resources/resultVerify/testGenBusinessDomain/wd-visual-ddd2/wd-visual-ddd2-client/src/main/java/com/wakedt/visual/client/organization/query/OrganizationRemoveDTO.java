@@ -14,4 +14,5 @@ public class OrganizationRemoveDTO {
 
     @ApiModelProperty(value = "组织 ID")
     public Long id;
+
 }

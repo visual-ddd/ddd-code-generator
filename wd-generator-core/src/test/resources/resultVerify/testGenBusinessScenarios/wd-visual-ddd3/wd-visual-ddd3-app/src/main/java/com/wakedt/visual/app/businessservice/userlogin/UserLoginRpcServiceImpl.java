@@ -12,36 +12,32 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
- * 描述用户登录的流程-RPC能力接口
+ * 描述用户登录的流程-RPC能力接口实现
  */
 @Service
 public class UserLoginRpcServiceImpl implements UserLoginRpcService {
 
-    /** 账号登录 */
     @Override
     public ResultDTO<AccountDTO> accountLogin(AccountLogin request) {
         // TODO 账号登录
-        return new ResultDTO<AccountDTO>();
+        return ResultDTO.success();
     }
 
-    /** 退出登录 */
     @Override
     public ResultDTO<void> logout(Logout request) {
         // TODO 退出登录
-        return new ResultDTO<void>();
+        return ResultDTO.success();
     }
 
-    /** 注册账号 */
     @Override
     public ResultDTO<Boolean> accountRegister(AccountRegister request) {
         // TODO 注册账号
-        return new ResultDTO<Boolean>();
+        return ResultDTO.success();
     }
 
-    /** 发送注册账号验证码 */
     @Override
     public ResultDTO<Boolean> accountVerificationCreate(AccountVerificationCreate request) {
         // TODO 发送注册账号验证码
-        return new ResultDTO<Boolean>();
+        return ResultDTO.success();
     }
 }

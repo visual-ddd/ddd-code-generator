@@ -14,4 +14,5 @@ public class TeamRemoveDTO {
 
     @ApiModelProperty(value = "团队 ID")
     public Long id;
+
 }

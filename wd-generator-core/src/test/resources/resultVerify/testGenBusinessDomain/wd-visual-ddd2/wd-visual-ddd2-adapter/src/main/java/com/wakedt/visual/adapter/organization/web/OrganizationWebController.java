@@ -45,7 +45,7 @@ import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
  */
 @RestController
 @RequestMapping("/web/organization")
-@Api(value = "/web/organization", tags = "B端-组织结构管理的领域")
+@Api(value = "/web/organization", tags = "B端-组织域")
 public class OrganizationWebController {
 
     @Resource

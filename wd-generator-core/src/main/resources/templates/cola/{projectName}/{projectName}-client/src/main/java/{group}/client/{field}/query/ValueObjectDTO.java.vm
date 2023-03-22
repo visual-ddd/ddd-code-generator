@@ -11,4 +11,5 @@ import java.util.List;
 @ApiModel(value = "${VALUE_OBJECT_CLASS_DESCRIPTION}")
 public class ${VALUE_OBJECT_DTO_NAME} {
 #dtoFiled(${VALUE_OBJECT_CLASS_FIELDS})
+
 }

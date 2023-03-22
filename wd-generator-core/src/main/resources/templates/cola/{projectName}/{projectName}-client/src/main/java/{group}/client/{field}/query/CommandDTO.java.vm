@@ -11,4 +11,5 @@ import java.util.List;
 @ApiModel(value = "${CMD_CLASS_DESCRIPTION}")
 public class ${CMD_DTO_CLASS} {
 #dtoFiled(${CMD_CLASS_FIELDS})
+
 }

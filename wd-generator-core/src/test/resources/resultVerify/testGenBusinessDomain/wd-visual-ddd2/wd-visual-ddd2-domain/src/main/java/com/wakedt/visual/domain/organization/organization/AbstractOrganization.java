@@ -10,8 +10,8 @@ import java.util.List;
 @Data
 public abstract class AbstractOrganization {
 
-    /**  */
-    public Long id;
+    /** 组织 ID */
+    private Long id;
 
     /** 名称 */
     private String name;

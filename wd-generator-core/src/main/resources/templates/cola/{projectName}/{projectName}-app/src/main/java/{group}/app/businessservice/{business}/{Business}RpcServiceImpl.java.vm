@@ -13,24 +13,23 @@ import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}RpcSe
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-#comment("${BUSINESS_DESCRIPTION}-RPC能力接口")
+#comment("${BUSINESS_DESCRIPTION}-RPC能力接口实现")
 @Service
 public class ${BUSINESS_CLASS_NAME}RpcServiceImpl implements ${BUSINESS_CLASS_NAME}RpcService {
 #foreach ($query in ${BUSINESS_QUERY_LIST})
 
-    /** ${query.description} */
 #if(${query.pagination})
     @Override
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         // TODO ${query.description}
-        return new PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>>();
+        return ResultDTO.success();
     }
 #end
 #if(!${query.pagination})
     @Override
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} request) {
         // TODO ${query.description}
-        return new ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>();
+        return ResultDTO.success();
     }
 #end
 #end

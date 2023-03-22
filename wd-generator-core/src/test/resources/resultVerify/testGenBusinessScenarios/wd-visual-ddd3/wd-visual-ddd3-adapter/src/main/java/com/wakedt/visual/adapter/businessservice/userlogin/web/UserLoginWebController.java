@@ -25,7 +25,7 @@ import com.wakedt.visual.client.businessservice.userlogin.UserLoginRpcService;
  */
 @RestController
 @RequestMapping("/web/user-login")
-@Api(value = "/web/user-login", tags = "B端-描述用户登录的流程")
+@Api(value = "/web/user-login", tags = "B端-用户登录场景")
 public class UserLoginWebController {
 
     @Resource

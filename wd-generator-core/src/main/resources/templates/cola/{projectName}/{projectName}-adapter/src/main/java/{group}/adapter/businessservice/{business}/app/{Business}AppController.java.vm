@@ -6,7 +6,7 @@ package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}AppC
 #comment("${BUSINESS_DESCRIPTION}-app-controller")
 @RestController
 @RequestMapping("/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}")
-@Api(value = "/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}", tags = "C端-${BUSINESS_DESCRIPTION}")
+@Api(value = "/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}", tags = "C端-${BUSINESS_TITLE}")
 public class ${BUSINESS_CLASS_NAME}AppController {
 #businessController()
 }

@@ -18,4 +18,5 @@ public class OrganizationPageQuery extends PageQuery {
 
     @ApiModelProperty(value = "组织名称")
     private String name;
+
 }

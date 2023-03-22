@@ -20,4 +20,5 @@ public class TeamMemberAddDTO {
 
     @ApiModelProperty(value = "成员类型标签")
     public List<Integer> memberTypeList;
+
 }

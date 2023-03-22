@@ -14,4 +14,5 @@ public class TeamManagerUnBindDTO {
 
     @ApiModelProperty(value = "主键")
     public Long id;
+
 }

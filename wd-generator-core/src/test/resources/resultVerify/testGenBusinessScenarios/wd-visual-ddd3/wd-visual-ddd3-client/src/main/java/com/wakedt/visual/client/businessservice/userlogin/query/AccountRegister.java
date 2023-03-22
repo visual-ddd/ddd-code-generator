@@ -11,7 +11,8 @@ import java.util.List;
 @Data
 @ApiModel(value = "注册账号")
 public class AccountRegister {
-    
+
     @ApiModelProperty(value = "验证码")
     private String code;
+
 }

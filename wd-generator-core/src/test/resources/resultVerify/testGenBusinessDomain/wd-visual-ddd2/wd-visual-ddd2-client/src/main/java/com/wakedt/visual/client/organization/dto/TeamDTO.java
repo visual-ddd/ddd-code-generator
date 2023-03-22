@@ -35,4 +35,5 @@ public class TeamDTO extends BaseDTO {
 
     @ApiModelProperty(value = "团队管理员名称")
     private String teamManagerName;
+
 }
