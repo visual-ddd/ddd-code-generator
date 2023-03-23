@@ -1,7 +1,7 @@
 {
-  "name": "wd-visual-ddd3",
+  "name": "wd-visual-ddd",
   "title": "DDD可视化开发平台",
-  "description": "DDD可视化开发平台",
+  "description": "DDD可视化开发平台\n\nIDEA代码生成插件接入文档：\nhttp://www.wakedata.net/pages/viewpage.action?pageId=34999420",
   "package": "com.wakedt.visual",
   "version": "0.0.1-SNAPSHOT",
   "businessDomains": [],

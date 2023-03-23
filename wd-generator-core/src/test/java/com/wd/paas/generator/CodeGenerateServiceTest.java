@@ -32,45 +32,47 @@ public class CodeGenerateServiceTest {
     @Test
     @DisplayName("测试生成项目，验证项目生成结果")
     void testGenProject() {
-        executeGenService(APPLICATION_DSL_JSON, RESULT_VERIFY_PATH + "testGenProject", "生成【项目模块】执行成功...");
+        executeGenService(APPLICATION_DSL_JSON, "生成【项目模块】执行成功...", Boolean.TRUE);
     }
 
     @Test
     @DisplayName("测试生成业务域，验证业务域生成结果")
     void testGenBusinessDomain() {
-        executeGenService(BUSINESS_DOMAIN_DSL_JSON, RESULT_VERIFY_PATH + "testGenBusinessDomain", "生成【业务域模块】执行成功...");
+        executeGenService(BUSINESS_DOMAIN_DSL_JSON, "生成【业务域模块】执行成功...", Boolean.FALSE);
     }
 
     @Test
     @DisplayName("测试生成业务域，验证业务场景生成结果")
     void testGenBusinessScenarios() {
-        executeGenService(BUSINESS_SCENARIOS_DSL_JSON, RESULT_VERIFY_PATH + "testGenBusinessScenarios", "生成【业务场景模块】执行成功...");
+        executeGenService(BUSINESS_SCENARIOS_DSL_JSON, "生成【业务场景模块】执行成功...", Boolean.FALSE);
     }
 
 
     @SneakyThrows
-    private static void executeGenService(String testJson, String outPath, String message) {
+    private static void executeGenService(String testJson, String message, Boolean isGenerateProjectFrame) {
         // step 1: 读取需要生成的DSL文件
         String applicationDSLJson = FileUtils.readFileToString(new File(testJson), StandardCharsets.UTF_8);
 
         // step 2: 调用代码生成服务，生成代码
         CodeGenerateService codeGenerateService = new CodeGenerateService(applicationDSLJson);
-        TemplateVisitor templateVisitor = new TemplateVisitor(new TemplateContext(outPath));
+        TemplateContext templateContext = new TemplateContext(CodeGenerateServiceTest.RESULT_VERIFY_PATH);
+        templateContext.setIsGenerateProjectFrame(isGenerateProjectFrame);
+        TemplateVisitor templateVisitor = new TemplateVisitor(templateContext);
         codeGenerateService.run(templateVisitor);
         System.out.println(message);
 
         // step 3: 验证代码生成结果
-        compareGenResult(outPath);
+        compareGenResult();
     }
 
-    private static void compareGenResult(String outPath) throws IOException, InterruptedException {
+    private static void compareGenResult() throws IOException, InterruptedException {
         System.out.println("对比生成结果差异...");
 
         Runtime runtime = Runtime.getRuntime();
         Process processAdd = runtime.exec("git add .");
         processAdd.waitFor();
 
-        Process process = runtime.exec("git diff HEAD --stat -- " + outPath);
+        Process process = runtime.exec("git diff HEAD --stat -- " + CodeGenerateServiceTest.RESULT_VERIFY_PATH);
         process.waitFor();
 
         String result = IOUtils.toString(process.getInputStream(), StandardCharsets.UTF_8);
