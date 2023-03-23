@@ -1,17 +1,24 @@
 #parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get(${QUERY_CLASS_NAME})};
 
-import io.swagger.annotations.ApiModel;
-import lombok.Data;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+#if(!${QUERY_PAGINATION})
 import com.wakedata.common.core.base.BaseQuery;
+#end
+#if(${QUERY_PAGINATION})
 import com.wakedata.common.core.dto.PageQuery;
+#end
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 #comment("${QUERY_CLASS_DESCRIPTION}")
 @Data
 @EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(value = "${QUERY_CLASS_DESCRIPTION}")
 #if(!${QUERY_PAGINATION})
 public class ${QUERY_CLASS_NAME} extends BaseQuery {

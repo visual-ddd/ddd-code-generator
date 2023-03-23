@@ -14,11 +14,11 @@ import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 /**
  * 组织结构管理的领域实体类
  */
-@Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "wd_organization")
 @TableName("wd_organization")
+@Entity
+@Table(name = "wd_organization")
 public class OrganizationDO extends BaseJpaAggregate {
 
     /** 组织 ID */

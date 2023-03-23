@@ -1,18 +1,20 @@
 package com.wakedt.visual.client.organization.query;
 
-import io.swagger.annotations.ApiModel;
-import lombok.Data;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
-import com.wakedata.common.core.base.BaseQuery;
 import com.wakedata.common.core.dto.PageQuery;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 分页查询团队
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(value = "分页查询团队")
 public class TeamPageQuery extends PageQuery {
 

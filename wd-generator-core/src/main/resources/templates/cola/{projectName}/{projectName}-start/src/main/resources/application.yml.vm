@@ -14,7 +14,7 @@ spring:
     basename: classpath:i18n/*/messages;classpath:i18n/*/validate;classpath:i18n/common;
   jpa:
     # 启用 DDL 自动执行
-    generate-ddl: true
+    generate-ddl: false
     # 更新策略
     ddl-auto: update
   datasource:

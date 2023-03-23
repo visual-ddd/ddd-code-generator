@@ -14,11 +14,11 @@ import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 /**
  * 关联到当前团队的用户，团队管理员可以为成员绑定不同的团队职位实体类
  */
-@Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "wd_organization_team_member")
 @TableName("wd_organization_team_member")
+@Entity
+@Table(name = "wd_organization_team_member")
 public class TeamMemberDO extends BaseJpaAggregate {
 
     /** 团队成员ID */

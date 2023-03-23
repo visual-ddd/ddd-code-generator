@@ -6,13 +6,9 @@ import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @DisplayName("代码生成服务-静态测试")
@@ -27,6 +23,12 @@ public class CodeGenerateServiceTest {
     public static void beforeAll() throws Exception {
         System.out.println("清理旧数据...");
         FileUtils.deleteDirectory(new File(RESULT_VERIFY_PATH));
+    }
+
+    @AfterAll
+    static void afterAll() {
+        // step 3: 验证代码生成结果
+        compareGenResult();
     }
 
     @Test
@@ -59,13 +61,13 @@ public class CodeGenerateServiceTest {
         templateContext.setIsGenerateProjectFrame(isGenerateProjectFrame);
         TemplateVisitor templateVisitor = new TemplateVisitor(templateContext);
         codeGenerateService.run(templateVisitor);
-        System.out.println(message);
 
-        // step 3: 验证代码生成结果
-        compareGenResult();
+        Assertions.assertTrue(true);
+        System.out.println(message);
     }
 
-    private static void compareGenResult() throws IOException, InterruptedException {
+    @SneakyThrows
+    private static void compareGenResult() {
         System.out.println("对比生成结果差异...");
 
         Runtime runtime = Runtime.getRuntime();

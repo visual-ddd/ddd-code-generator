@@ -14,11 +14,11 @@ import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 /**
  * 每个团队是单一职责的，通常负责独立子领域的开发工作。实体类
  */
-@Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "wd_organization_team")
 @TableName("wd_organization_team")
+@Entity
+@Table(name = "wd_organization_team")
 public class TeamDO extends BaseJpaAggregate {
 
     /** 团队ID */

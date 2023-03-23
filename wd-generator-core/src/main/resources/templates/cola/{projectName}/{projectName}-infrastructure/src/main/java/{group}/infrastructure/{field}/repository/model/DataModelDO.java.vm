@@ -13,11 +13,11 @@ import java.util.List;
 import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 
 #comment("${DATA_OBJECT_CLASS_DESCRIPTION}实体类")
-@Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "${DATA_OBJECT_TABLE_NAME}")
 @TableName("${DATA_OBJECT_TABLE_NAME}")
+@Entity
+@Table(name = "${DATA_OBJECT_TABLE_NAME}")
 public class ${DATA_OBJECT_CLASS_NAME} extends BaseJpaAggregate {
 #foreach ($field in $DATA_OBJECT_CLASS_FIELDS)
 
