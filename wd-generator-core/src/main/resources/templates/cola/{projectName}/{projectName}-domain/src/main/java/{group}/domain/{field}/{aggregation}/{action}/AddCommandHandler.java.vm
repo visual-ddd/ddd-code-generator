@@ -17,6 +17,11 @@ public class ${CMD_CLASS_NAME}Handler {
 
     public ${AGGREGATION_CLASS_ID.getType()} handle(${CMD_CLASS_NAME} createCmd) {
         ${AGGREGATION_CLASS_NAME} entity = factory.getInstance(createCmd);
+#foreach($ruleInfo in ${CMD_RULE_LIST})
+
+        // TODO: ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
+#end
+
         ${AGGREGATION_CLASS_NAME} newEntity = repository.save(entity);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(createCmd));

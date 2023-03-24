@@ -18,6 +18,7 @@ public class UniversalLanguageCreateCmdHandler {
 
     public Long handle(UniversalLanguageCreateCmd createCmd) {
         UniversalLanguage entity = factory.getInstance(createCmd);
+
         UniversalLanguage newEntity = repository.save(entity);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageCreateEvent(createCmd));
