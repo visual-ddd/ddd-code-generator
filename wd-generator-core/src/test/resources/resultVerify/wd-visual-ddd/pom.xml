@@ -89,19 +89,12 @@ http://www.wakedata.net/pages/viewpage.action?pageId=34999420</description>
         <artifactId>wd-common-redis</artifactId>
         <version>${wd-common-core.version}</version>
       </dependency>
-      <!--      <dependency>-->
-      <!--          <groupId>com.wakedata</groupId>-->
-      <!--          <artifactId>spring-boot-xxl-job-starter</artifactId>-->
-      <!--          <version>2.2.0-WK</version>-->
-      <!--      </dependency>-->
-      <!-- wd-common dependency end-->
-
-      <!-- mockito -->
       <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-core</artifactId>
-        <version>4.2.0</version>
+          <groupId>com.wakedata</groupId>
+          <artifactId>spring-boot-xxl-job-starter</artifactId>
+          <version>2.2.0-WK</version>
       </dependency>
+      <!-- wd-common dependency end-->
     </dependencies>
   </dependencyManagement>
 

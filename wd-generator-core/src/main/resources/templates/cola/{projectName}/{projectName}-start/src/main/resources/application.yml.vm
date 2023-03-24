@@ -18,7 +18,7 @@ spring:
     # 更新策略
     ddl-auto: update
   datasource:
-    url: $${commonMysqlConfig}.url:jdbc:mysql://172.26.57.49:3306/${PROJECT_NAME}?useUnicode=true&characterEncoding=utf-8}
+    url: $${commonMysqlConfig}.url:jdbc:mysql://172.26.57.49:3306/${PROJECT_NAME.replace("-", "_")}?useUnicode=true&characterEncoding=utf-8}
     username: $${commonMysqlConfig}.username:root}
     password: $${commonMysqlConfig}.password:root}
     driver-class-name: com.mysql.cj.jdbc.Driver

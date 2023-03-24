@@ -55,7 +55,6 @@ import ${importPackage};
 #macro(overrideMethod $methodList)
 #foreach ($method in $methodList)
 
-#printMethodDesc($method)
     @Override
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})}) {
         // TODO: ${method.title}(${method.description})

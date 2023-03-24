@@ -1879,6 +1879,847 @@
       "description": "组织结构管理的领域",
       "title": "组织域",
       "version": "0.0.1"
+    },
+    {
+      "domainModel": {
+        "aggregates": [
+          {
+            "uuid": "c897c1de-b06b-4010-b5d3-36d64845c18d",
+            "title": "统一语言",
+            "name": "UniversalLanguage",
+            "description": "维护系统中统一语言的领域",
+            "meta": {},
+            "root": {
+              "uuid": "48c67633-b55e-42d6-95ad-4fd21eead73c",
+              "title": "统一语言",
+              "name": "UniversalLanguage",
+              "description": "维护系统中统一语言的领域",
+              "meta": {},
+              "id": {
+                "uuid": "4eab9a9d-59bc-4153-93e7-0bd01356393a",
+                "title": "统一语言 ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              "properties": [
+                {
+                  "uuid": "4e19982d-9d3c-4189-be82-4cbb1cdb2db9",
+                  "title": "概念",
+                  "name": "conception",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "22323ea2-d9b4-4cb6-a519-4e9a3f474c4c",
+                  "title": "英文名",
+                  "name": "englishName",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "dbb060dc-9d07-45e7-909b-2531e77143bd",
+                  "title": "定义",
+                  "name": "definition",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "6bf970e0-4ac5-44f8-a614-6928b6149656",
+                  "title": "统一语言类型",
+                  "name": "languageType",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "[LanguageType:beae6c3a-3bf3-4155-a848-ba30dfa5e0fc]"
+                },
+                {
+                  "uuid": "4f41dd26-eaa3-4423-99a4-78edf5baa780",
+                  "title": "约束",
+                  "name": "restraint",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "3769184c-3a47-4129-87fc-94200830a3a6",
+                  "title": "举例",
+                  "name": "example",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "0d61bc54-76db-4ed9-83b3-7081269811c8",
+                  "title": "所属唯一标识",
+                  "name": "identity",
+                  "description": "所属唯一标识(组织/团队的主键id)",
+                  "meta": {},
+                  "access": "public",
+                  "type": "Long"
+                }
+              ],
+              "methods": []
+            },
+            "entities": [],
+            "valueObjects": [],
+            "enums": [
+              {
+                "uuid": "beae6c3a-3bf3-4155-a848-ba30dfa5e0fc",
+                "title": "统一语言类型",
+                "name": "LanguageType",
+                "description": "统一语言的类型",
+                "meta": {},
+                "baseType": "number",
+                "members": [
+                  {
+                    "uuid": "3403a393-1f4a-47e4-be4e-4686768c34e0",
+                    "title": "组织统一语言",
+                    "name": "ORGANIZATION_LANGUAGE_TYPE",
+                    "description": "组织下共用的统一语言",
+                    "meta": {},
+                    "code": 1
+                  },
+                  {
+                    "uuid": "afade939-5b99-4619-a108-ad932970c26b",
+                    "title": "团队统一语言",
+                    "name": "TEAM_LANGUAGE",
+                    "description": "团队下共用的统一语言",
+                    "meta": {},
+                    "code": 2
+                  }
+                ]
+              }
+            ],
+            "commands": [
+              {
+                "uuid": "2c00f33b-41f3-44f0-b204-de3254068cd8",
+                "title": "新增统一语言",
+                "name": "UniversalLanguageCreate",
+                "description": "",
+                "meta": {},
+                "rules": [],
+                "category": "create",
+                "repository": "create",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "7849447e-2a2a-415a-8ba4-69870b45a0ba",
+                    "title": "概念",
+                    "name": "conception",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "1554574e-5990-4342-aaed-0d56a51ac6f8",
+                    "title": "英文名",
+                    "name": "englishName",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "2ca62daa-8ef6-4619-aa71-e115b47c3210",
+                    "title": "定义",
+                    "name": "definition",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "d3f85605-3555-4ce8-afb7-93f02a8b5c0e",
+                    "title": "统一语言类型",
+                    "name": "languageType",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "[LanguageType:beae6c3a-3bf3-4155-a848-ba30dfa5e0fc]"
+                  },
+                  {
+                    "uuid": "0d47806a-c2f4-44d4-93ea-72c435c3b62a",
+                    "title": "约束",
+                    "name": "restraint",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "61c71d60-74a4-4be0-8690-cdc313f96dda",
+                    "title": "举例",
+                    "name": "example",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "0ec09b74-de40-4e10-9706-c02f9c77965c",
+                    "title": "所属唯一标识",
+                    "name": "identity",
+                    "description": "所属唯一标识(组织/团队的主键id)",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Long"
+                  }
+                ],
+                "event": {
+                  "uuid": "2c00f33b-41f3-44f0-b204-de3254068cd8",
+                  "name": "UniversalLanguageCreateEvent",
+                  "properties": [
+                    {
+                      "uuid": "bbce9b06-6b68-4067-9eb8-17b270ab48db",
+                      "title": "统一语言 ID",
+                      "name": "id",
+                      "description": "",
+                      "meta": {},
+                      "access": "public",
+                      "type": "Long"
+                    }
+                  ]
+                },
+                "return": {
+                  "type": "void"
+                }
+              },
+              {
+                "uuid": "72317236-9695-48cb-b922-19fc80089887",
+                "title": "编辑统一语言",
+                "name": "UniversalLanguageModify",
+                "description": "",
+                "meta": {},
+                "rules": [],
+                "category": "modify",
+                "repository": "modify",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "2c917bcb-019d-4c9d-a2f8-0778f571f630",
+                    "title": "统一语言 ID",
+                    "name": "id",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Long"
+                  },
+                  {
+                    "uuid": "55e56e91-434d-47af-b8ed-6fdcf765a9c2",
+                    "title": "概念",
+                    "name": "conception",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "f71b6646-a0cd-4533-a5fc-db7dd51ad25c",
+                    "title": "英文名",
+                    "name": "englishName",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "2a20695c-0540-4985-8705-f424e626050f",
+                    "title": "定义",
+                    "name": "definition",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "0f12836a-fa9b-463b-96aa-28099910ec10",
+                    "title": "约束",
+                    "name": "restraint",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "fb7df97f-cfca-41dd-a319-ae32434fd5e0",
+                    "title": "举例",
+                    "name": "example",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "String"
+                  },
+                  {
+                    "uuid": "8fc379b5-4a3f-4ee1-80cb-5bacdc69cc17",
+                    "title": "所属唯一标识",
+                    "name": "identity",
+                    "description": "所属唯一标识(组织/团队的主键id)",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Long"
+                  }
+                ],
+                "event": {
+                  "uuid": "72317236-9695-48cb-b922-19fc80089887",
+                  "name": "UniversalLanguageModifyEvent",
+                  "properties": []
+                },
+                "return": {
+                  "type": "void"
+                }
+              },
+              {
+                "uuid": "03981cce-e111-4b41-b4c1-ccf249ae3ac9",
+                "title": "删除统一语言",
+                "name": "UniversalLanguageRemove",
+                "description": "",
+                "meta": {},
+                "rules": [],
+                "category": "remove",
+                "repository": "remove",
+                "eventSendable": false,
+                "source": [
+                  {
+                    "type": "http"
+                  },
+                  {
+                    "type": "rpc"
+                  }
+                ],
+                "properties": [
+                  {
+                    "uuid": "1b14eb98-4ef9-4939-8384-9b0e0b1ac72f",
+                    "title": "统一语言 ID",
+                    "name": "id",
+                    "description": "",
+                    "meta": {},
+                    "access": "public",
+                    "type": "Long"
+                  }
+                ],
+                "event": {
+                  "uuid": "03981cce-e111-4b41-b4c1-ccf249ae3ac9",
+                  "name": "UniversalLanguageRemoveEvent",
+                  "properties": []
+                },
+                "return": {
+                  "type": "void"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "queryModel": {
+        "queries": [
+          {
+            "uuid": "9758151d-ce68-472a-9b6e-54f484ef7f76",
+            "title": "统一语言详情查询对象",
+            "name": "UniversalLanguageQuery",
+            "description": "查询统一语言详情",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "4894f1b5-246c-4ee7-836a-54420982afe9",
+                "title": "统一语言 ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[UniversalLanguageDTO:08777aed-5c01-4c8d-8562-6eb97db964b7]"
+            }
+          },
+          {
+            "uuid": "2e4e729f-42cf-46db-9d59-6351a2a98fcc",
+            "title": "统一语言分页查询对象",
+            "name": "UniversalLanguagePageQuery",
+            "description": "分页查询统一语言",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": true,
+            "properties": [
+              {
+                "uuid": "a993ccb4-6a81-417a-bf38-06573c6de669",
+                "title": "概念",
+                "name": "conception",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "dc563b2f-ca7e-4b80-9dec-fc263cddce81",
+                "title": "统一语言类型",
+                "name": "languageType",
+                "description": "统一语言的类型",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "cb70e571-2334-4bf8-9cb6-e18c77ddf3bf",
+                "title": "所属唯一标识",
+                "name": "identity",
+                "description": "所属唯一标识(组织/团队的主键id)",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[UniversalLanguageDTO:08777aed-5c01-4c8d-8562-6eb97db964b7]"
+            }
+          }
+        ],
+        "dtos": [
+          {
+            "uuid": "08777aed-5c01-4c8d-8562-6eb97db964b7",
+            "title": "统一语言数据传输对象",
+            "name": "UniversalLanguageDTO",
+            "description": "用于统一语言的数据传输对象",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "f4456057-f037-4a9f-bd53-8a3ab17b4fcb",
+                "title": "统一语言 ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "69871a4f-62ea-4122-a580-b30c4a6c0276",
+                "title": "概念",
+                "name": "conception",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "5a434cc5-34b6-4fb2-ac43-92c6c29f2f60",
+                "title": "英文名",
+                "name": "englishName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "745f214a-b4dc-4bee-9717-9a81397823ab",
+                "title": "定义",
+                "name": "definition",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "0073948f-ba42-4ba0-bf15-77dc53340226",
+                "title": "统一语言类型",
+                "name": "languageType",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "81eb0e1c-bc8f-41ba-be93-5170f45bb44f",
+                "title": "约束",
+                "name": "restraint",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "c2577356-83f5-41cd-95e3-0fa5c0756589",
+                "title": "举例",
+                "name": "example",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "681e6f20-39cf-4f6b-8ded-af3d3be3df61",
+                "title": "所属唯一标识",
+                "name": "identity",
+                "description": "所属唯一标识(组织/团队的主键id)",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ]
+          }
+        ]
+      },
+      "dataModel": {
+        "dataObjects": [
+          {
+            "uuid": "f83e8352-93ab-452e-9937-2205356e0287",
+            "title": "统一语言",
+            "name": "UniversalLanguageDO",
+            "description": "维护系统中统一语言的领域",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "8bf9150f-3252-49a9-b44b-6559c69e51a5",
+                "name": "id",
+                "title": "统一语言 ID",
+                "description": "",
+                "meta": {},
+                "type": "Long",
+                "notNull": true
+              },
+              {
+                "uuid": "6de9ce89-73ec-49ca-ab66-038e2bc760a4",
+                "name": "conception",
+                "title": "概念",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "318119d8-9e8f-4bba-8dbe-2cd1054fa957",
+                "name": "englishName",
+                "title": "英文名",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "28dad664-218b-46eb-b968-46c2ee4dde93",
+                "name": "definition",
+                "title": "定义",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "c05dad4f-e8f8-4448-9425-b50fbd7d5c8b",
+                "name": "languageType",
+                "title": "统一语言类型",
+                "description": "",
+                "meta": {},
+                "type": "Integer",
+                "notNull": false
+              },
+              {
+                "uuid": "ea136723-db60-41fb-8293-9e6308c7aec0",
+                "name": "restraint",
+                "title": "约束",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              },
+              {
+                "uuid": "52b277d4-d6b7-463e-bf9a-ba97b97934ff",
+                "name": "identity",
+                "title": "所属唯一标识",
+                "description": "所属唯一标识(组织/团队的主键id)",
+                "meta": {},
+                "type": "Long",
+                "autoIncrement": false,
+                "notNull": false
+              },
+              {
+                "uuid": "16aedff5-a740-4975-934d-84f6303069c4",
+                "name": "example",
+                "title": "举例",
+                "description": "",
+                "meta": {},
+                "type": "String",
+                "notNull": false
+              }
+            ],
+            "indexes": [
+              {
+                "uuid": "f83e8352-93ab-452e-9937-2205356e0287-primary-key",
+                "name": "primaryKeys",
+                "type": "Primary",
+                "properties": [
+                  "id"
+                ]
+              }
+            ]
+          }
+        ],
+        "references": []
+      },
+      "objectMapper": {
+        "mappers": [
+          {
+            "uuid": "ab3c23a1-bb18-4856-bab9-3594bf05391b",
+            "title": "统一语言数据对象映射",
+            "name": "UniversalLanguageToUniversalLanguageDO",
+            "description": "用于将聚合根(统一语言)映射为统一语言(数据对象)",
+            "meta": {},
+            "source": {
+              "name": "UniversalLanguage",
+              "id": "48c67633-b55e-42d6-95ad-4fd21eead73c",
+              "parent": "UniversalLanguage",
+              "type": "entity"
+            },
+            "target": {
+              "name": "UniversalLanguageDO",
+              "id": "f83e8352-93ab-452e-9937-2205356e0287",
+              "type": "dataObject"
+            },
+            "mapper": [
+              {
+                "sourceField": "id",
+                "sourceFieldId": "4eab9a9d-59bc-4153-93e7-0bd01356393a",
+                "targetField": "id",
+                "targetFieldId": "8bf9150f-3252-49a9-b44b-6559c69e51a5"
+              },
+              {
+                "sourceField": "conception",
+                "sourceFieldId": "4e19982d-9d3c-4189-be82-4cbb1cdb2db9",
+                "targetField": "conception",
+                "targetFieldId": "6de9ce89-73ec-49ca-ab66-038e2bc760a4"
+              },
+              {
+                "sourceField": "englishName",
+                "sourceFieldId": "22323ea2-d9b4-4cb6-a519-4e9a3f474c4c",
+                "targetField": "englishName",
+                "targetFieldId": "318119d8-9e8f-4bba-8dbe-2cd1054fa957"
+              },
+              {
+                "sourceField": "definition",
+                "sourceFieldId": "dbb060dc-9d07-45e7-909b-2531e77143bd",
+                "targetField": "definition",
+                "targetFieldId": "28dad664-218b-46eb-b968-46c2ee4dde93"
+              },
+              {
+                "sourceField": "languageType",
+                "sourceFieldId": "6bf970e0-4ac5-44f8-a614-6928b6149656",
+                "targetField": "languageType",
+                "targetFieldId": "c05dad4f-e8f8-4448-9425-b50fbd7d5c8b"
+              },
+              {
+                "sourceField": "restraint",
+                "sourceFieldId": "4f41dd26-eaa3-4423-99a4-78edf5baa780",
+                "targetField": "restraint",
+                "targetFieldId": "ea136723-db60-41fb-8293-9e6308c7aec0"
+              },
+              {
+                "sourceField": "example",
+                "sourceFieldId": "3769184c-3a47-4129-87fc-94200830a3a6",
+                "targetField": "example",
+                "targetFieldId": "16aedff5-a740-4975-934d-84f6303069c4"
+              },
+              {
+                "sourceField": "identity",
+                "sourceFieldId": "0d61bc54-76db-4ed9-83b3-7081269811c8",
+                "targetField": "identity",
+                "targetFieldId": "52b277d4-d6b7-463e-bf9a-ba97b97934ff"
+              }
+            ]
+          },
+          {
+            "uuid": "12ae885c-76be-4a60-9ef8-245f9b47f53c",
+            "title": "统一语言传输对象与数据对象映射",
+            "name": "UniversalLanguageDTOToDO",
+            "description": "",
+            "meta": {},
+            "source": {
+              "name": "UniversalLanguageDTO",
+              "id": "08777aed-5c01-4c8d-8562-6eb97db964b7",
+              "type": "dto"
+            },
+            "target": {
+              "name": "UniversalLanguageDO",
+              "id": "f83e8352-93ab-452e-9937-2205356e0287",
+              "type": "dataObject"
+            },
+            "mapper": [
+              {
+                "sourceField": "id",
+                "sourceFieldId": "f4456057-f037-4a9f-bd53-8a3ab17b4fcb",
+                "targetField": "id",
+                "targetFieldId": "8bf9150f-3252-49a9-b44b-6559c69e51a5"
+              },
+              {
+                "sourceField": "conception",
+                "sourceFieldId": "69871a4f-62ea-4122-a580-b30c4a6c0276",
+                "targetField": "conception",
+                "targetFieldId": "6de9ce89-73ec-49ca-ab66-038e2bc760a4"
+              },
+              {
+                "sourceField": "englishName",
+                "sourceFieldId": "5a434cc5-34b6-4fb2-ac43-92c6c29f2f60",
+                "targetField": "englishName",
+                "targetFieldId": "318119d8-9e8f-4bba-8dbe-2cd1054fa957"
+              },
+              {
+                "sourceField": "definition",
+                "sourceFieldId": "745f214a-b4dc-4bee-9717-9a81397823ab",
+                "targetField": "definition",
+                "targetFieldId": "28dad664-218b-46eb-b968-46c2ee4dde93"
+              },
+              {
+                "sourceField": "languageType",
+                "sourceFieldId": "0073948f-ba42-4ba0-bf15-77dc53340226",
+                "targetField": "languageType",
+                "targetFieldId": "c05dad4f-e8f8-4448-9425-b50fbd7d5c8b"
+              },
+              {
+                "sourceField": "restraint",
+                "sourceFieldId": "81eb0e1c-bc8f-41ba-be93-5170f45bb44f",
+                "targetField": "restraint",
+                "targetFieldId": "ea136723-db60-41fb-8293-9e6308c7aec0"
+              },
+              {
+                "sourceField": "example",
+                "sourceFieldId": "c2577356-83f5-41cd-95e3-0fa5c0756589",
+                "targetField": "example",
+                "targetFieldId": "16aedff5-a740-4975-934d-84f6303069c4"
+              },
+              {
+                "sourceField": "identity",
+                "sourceFieldId": "681e6f20-39cf-4f6b-8ded-af3d3be3df61",
+                "targetField": "identity",
+                "targetFieldId": "52b277d4-d6b7-463e-bf9a-ba97b97934ff"
+              }
+            ]
+          }
+        ]
+      },
+      "vision": "负责平台的统一语言的维护",
+      "ubiquitousLanguage": [
+        {
+          "uuid": "9036a168-d9c3-4a18-a8f4-3673f3ecdbc7",
+          "conception": "组织统一语言",
+          "englishName": "ORGANZIATION_LANGUAGE",
+          "definition": "组织下共用的统一语言",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "4f07b246-8181-422c-bc0b-712d5fc6db35",
+          "conception": "团队统一语言",
+          "englishName": "TEAM_LANGUAGE",
+          "definition": "团队下共用的统一语言",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "cd700869-4475-490d-a1f9-4db83f977aa9",
+          "conception": "概念",
+          "englishName": "Conception",
+          "definition": "",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "aa3736e8-c64d-4e75-85e8-fad242d7c521",
+          "conception": "英文名",
+          "englishName": "EnglishName",
+          "definition": "",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "de7abeae-229c-467c-beff-79416880fabb",
+          "conception": "定义",
+          "englishName": "Definition",
+          "definition": "",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "2087edd3-5103-41b0-b2bd-2ef8c6f52196",
+          "conception": "统一语言类型",
+          "englishName": "LanguageType",
+          "definition": "统一语言的类型",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "b72e7729-0b29-4c25-9759-b0f158ee8f5f",
+          "conception": "约束",
+          "englishName": "Restraint",
+          "definition": "",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "181cd23c-d4f0-45f5-a1fa-4f884662af6d",
+          "conception": "所属唯一标识",
+          "englishName": "Identity",
+          "definition": "所属唯一标识(组织/团队的主键id)",
+          "restraint": "",
+          "example": ""
+        },
+        {
+          "uuid": "75ec04c3-9625-4340-8b57-92eeae4fad65",
+          "conception": "举例",
+          "englishName": "Example",
+          "definition": "",
+          "restraint": "",
+          "example": ""
+        }
+      ],
+      "name": "UniversalLanguage",
+      "description": "维护系统中统一语言的领域",
+      "title": "统一语言域",
+      "version": "0.0.1"
     }
   ],
   "businessScenarios": []
