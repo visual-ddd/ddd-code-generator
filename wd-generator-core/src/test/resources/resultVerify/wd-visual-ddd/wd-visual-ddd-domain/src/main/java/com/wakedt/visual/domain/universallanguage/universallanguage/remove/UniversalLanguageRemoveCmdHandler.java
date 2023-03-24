@@ -17,6 +17,7 @@ public class UniversalLanguageRemoveCmdHandler {
     public void handle(UniversalLanguageRemoveCmd removeCmd) {
         UniversalLanguage universalLanguage = repository.find(removeCmd.getId());
         universalLanguage.remove(removeCmd);
+
         repository.remove(universalLanguage);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageRemoveEvent(removeCmd));

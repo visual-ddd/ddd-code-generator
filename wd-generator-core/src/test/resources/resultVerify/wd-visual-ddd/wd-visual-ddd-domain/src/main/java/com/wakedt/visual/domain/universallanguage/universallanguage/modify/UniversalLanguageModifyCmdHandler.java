@@ -17,6 +17,7 @@ public class UniversalLanguageModifyCmdHandler {
     public void handle(UniversalLanguageModifyCmd updateCmd) {
         UniversalLanguage universalLanguage = repository.find(updateCmd.getId());
         universalLanguage.modify(updateCmd);
+
         repository.update(universalLanguage);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageModifyEvent(updateCmd));

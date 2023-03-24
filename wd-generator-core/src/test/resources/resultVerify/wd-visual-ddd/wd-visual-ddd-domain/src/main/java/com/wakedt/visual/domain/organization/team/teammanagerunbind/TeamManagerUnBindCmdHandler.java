@@ -17,6 +17,7 @@ public class TeamManagerUnBindCmdHandler {
     public void handle(TeamManagerUnBindCmd updateCmd) {
         Team team = repository.find(updateCmd.getId());
         team.teamManagerUnbind(updateCmd);
+
         repository.update(team);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerUnBindEvent(updateCmd));

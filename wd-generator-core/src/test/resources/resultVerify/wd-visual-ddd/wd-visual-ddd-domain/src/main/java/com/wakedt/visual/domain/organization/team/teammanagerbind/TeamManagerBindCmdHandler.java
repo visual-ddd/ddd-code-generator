@@ -17,6 +17,7 @@ public class TeamManagerBindCmdHandler {
     public void handle(TeamManagerBindCmd updateCmd) {
         Team team = repository.find(updateCmd.getId());
         team.teamManagerBind(updateCmd);
+
         repository.update(team);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerBindEvent(updateCmd));

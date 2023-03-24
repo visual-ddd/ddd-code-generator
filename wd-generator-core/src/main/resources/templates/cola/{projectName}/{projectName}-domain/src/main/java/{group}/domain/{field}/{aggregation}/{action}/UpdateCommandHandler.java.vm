@@ -17,6 +17,11 @@ public class ${CMD_CLASS_NAME}Handler {
     public void handle(${CMD_CLASS_NAME} updateCmd) {
         ${AGGREGATION_CLASS_NAME} ${aggregation} = repository.find(updateCmd.getId());
         ${aggregation}.${CASE_FORMAT_LOWER_CAMEL.convert(${CMD_CATEGORY})}(updateCmd);
+#foreach($ruleInfo in ${CMD_RULE_LIST})
+
+        // TODO: ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
+#end
+
         repository.update(${aggregation});
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(updateCmd));

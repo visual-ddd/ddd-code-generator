@@ -17,6 +17,9 @@ public class OrganizationModifyCmdHandler {
     public void handle(OrganizationModifyCmd updateCmd) {
         Organization organization = repository.find(updateCmd.getId());
         organization.organizationModify(updateCmd);
+
+        // TODO: CheckRepeatedName(校验名称是否重复) 校验名称是否重复
+
         repository.update(organization);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new OrganizationModifyEvent(updateCmd));

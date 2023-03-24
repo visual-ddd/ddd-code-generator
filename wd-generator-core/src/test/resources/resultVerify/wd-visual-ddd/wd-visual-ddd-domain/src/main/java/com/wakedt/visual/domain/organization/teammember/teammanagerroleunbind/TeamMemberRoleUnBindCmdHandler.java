@@ -17,6 +17,7 @@ public class TeamMemberRoleUnBindCmdHandler {
     public void handle(TeamMemberRoleUnBindCmd updateCmd) {
         TeamMember teamMember = repository.find(updateCmd.getId());
         teamMember.teamManagerRoleUnbind(updateCmd);
+
         repository.update(teamMember);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRoleUnBindEvent(updateCmd));

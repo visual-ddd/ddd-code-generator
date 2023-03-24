@@ -17,6 +17,7 @@ public class TeamMemberRemoveCmdHandler {
     public void handle(TeamMemberRemoveCmd removeCmd) {
         TeamMember teamMember = repository.find(removeCmd.getId());
         teamMember.teamMemberRemove(removeCmd);
+
         repository.remove(teamMember);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRemoveEvent(removeCmd));

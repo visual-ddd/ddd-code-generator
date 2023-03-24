@@ -17,6 +17,9 @@ public class TeamModifyCmdHandler {
     public void handle(TeamModifyCmd updateCmd) {
         Team team = repository.find(updateCmd.getId());
         team.teamModify(updateCmd);
+
+        // TODO: CheckRepeatedName(校验名称是否重复) 校验名称是否重复
+
         repository.update(team);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new TeamModifyEvent(updateCmd));

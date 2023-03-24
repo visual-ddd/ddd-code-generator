@@ -14,6 +14,10 @@ public class ${CMD_CLASS_NAME}Handler {
     private ${AGGREGATION_CLASS_NAME}Repository repository;
 
     public void handle(${CMD_CLASS_NAME} cmd) {
+#foreach($ruleInfo in ${CMD_RULE_LIST})
+
+        // TODO: ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
+#end
 
         // DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(cmd));
     }

@@ -17,6 +17,7 @@ public class OrganizationManagerUnbindCmdHandler {
     public void handle(OrganizationManagerUnbindCmd updateCmd) {
         Organization organization = repository.find(updateCmd.getId());
         organization.organizationManagerUnbind(updateCmd);
+
         repository.update(organization);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new OrganizationManagerUnbindEvent(updateCmd));

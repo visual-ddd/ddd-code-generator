@@ -17,6 +17,7 @@ public class TeamMemberRoleBindCmdHandler {
     public void handle(TeamMemberRoleBindCmd updateCmd) {
         TeamMember teamMember = repository.find(updateCmd.getId());
         teamMember.teamMemberRoleBind(updateCmd);
+
         repository.update(teamMember);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRoleBindEvent(updateCmd));

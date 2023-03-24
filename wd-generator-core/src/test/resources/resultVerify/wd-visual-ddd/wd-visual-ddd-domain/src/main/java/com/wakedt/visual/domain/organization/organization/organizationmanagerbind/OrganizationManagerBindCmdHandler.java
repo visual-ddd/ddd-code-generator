@@ -17,6 +17,7 @@ public class OrganizationManagerBindCmdHandler {
     public void handle(OrganizationManagerBindCmd updateCmd) {
         Organization organization = repository.find(updateCmd.getId());
         organization.organizationManagerBind(updateCmd);
+
         repository.update(organization);
 
 //        DomainEventPublisher.getInstance().postAfterCommit(new OrganizationManagerBindEvent(updateCmd));
