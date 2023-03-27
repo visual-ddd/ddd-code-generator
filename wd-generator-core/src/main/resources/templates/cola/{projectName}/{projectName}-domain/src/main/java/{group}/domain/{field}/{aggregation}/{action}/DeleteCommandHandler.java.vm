@@ -19,7 +19,7 @@ public class ${CMD_CLASS_NAME}Handler {
         ${aggregation}.${CASE_FORMAT_LOWER_CAMEL.convert(${CMD_CATEGORY})}(removeCmd);
 #foreach($ruleInfo in ${CMD_RULE_LIST})
 
-        // TODO: ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
+        // TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
 #end
 
         repository.remove(${aggregation});

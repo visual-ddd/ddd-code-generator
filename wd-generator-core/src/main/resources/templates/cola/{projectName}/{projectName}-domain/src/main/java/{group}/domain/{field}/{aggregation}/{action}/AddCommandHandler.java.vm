@@ -19,7 +19,7 @@ public class ${CMD_CLASS_NAME}Handler {
         ${AGGREGATION_CLASS_NAME} entity = factory.getInstance(createCmd);
 #foreach($ruleInfo in ${CMD_RULE_LIST})
 
-        // TODO: ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
+        // TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
 #end
 
         ${AGGREGATION_CLASS_NAME} newEntity = repository.save(entity);

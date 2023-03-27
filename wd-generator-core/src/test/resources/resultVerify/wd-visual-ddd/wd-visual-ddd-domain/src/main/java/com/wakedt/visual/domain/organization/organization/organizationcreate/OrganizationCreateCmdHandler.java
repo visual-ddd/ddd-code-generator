@@ -19,7 +19,7 @@ public class OrganizationCreateCmdHandler {
     public Long handle(OrganizationCreateCmd createCmd) {
         Organization entity = factory.getInstance(createCmd);
 
-        // TODO: CheckRepeatedName(校验名称是否重复) 校验名称是否重复
+        // TODO CheckRepeatedName(校验名称是否重复) 校验名称是否重复
 
         Organization newEntity = repository.save(entity);
 

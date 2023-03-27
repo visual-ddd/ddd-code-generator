@@ -232,6 +232,626 @@
       "description": "描述用户登录的流程",
       "title": "用户登录场景",
       "version": "0.0.1"
+    },
+    {
+      "domainDependencies": [],
+      "externalDependencies": [],
+      "serviceModel": {
+        "queries": [
+          {
+            "uuid": "copy-91b057c8-225f-491b-a901-3af57e565694",
+            "title": "免鉴权获取业务域版本信息",
+            "name": "GetDomainDesignVersionNoAuth",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "5badc284-eb94-40df-bc61-b885ac46eea0",
+                "title": "业务域版本的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[DomainDesignVersionInfoDTO:copy-f7c3d154-9f40-4c08-a01a-17f76690f418]"
+            }
+          },
+          {
+            "uuid": "85990a7e-1a26-4bdf-9c6f-91d8a26b65be",
+            "title": "获取应用关联的模块信息",
+            "name": "GetApplicationBindModelInfo",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "b240242d-56f9-4480-83d2-3ca213cde500",
+                "title": "应用的唯一标识",
+                "name": "applicationId",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[ApplicationBindModelInfo:315f5bf4-4bb6-4ec4-8903-07d0df1d8ec1]"
+            }
+          },
+          {
+            "uuid": "copy-4bc2bbb5-abae-4b40-a589-395f6aa252b3",
+            "title": "免鉴权获取业务场景版本信息",
+            "name": "GetBusinessSceneVersionNoAuth",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "5badc284-eb94-40df-bc61-b885ac46eea0",
+                "title": "业务域版本的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[BusinessSceneVersionInfoDTO:copy-924a9164-c32d-418a-b161-652813ac870c]"
+            }
+          }
+        ],
+        "dtos": [
+          {
+            "uuid": "copy-f7c3d154-9f40-4c08-a01a-17f76690f418",
+            "title": "业务域版本信息",
+            "name": "DomainDesignVersionInfoDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "d10406b5-2aa2-42b6-a292-4c8336a260e2",
+                "title": "业务域版本的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "5bc96ff4-f8bf-4cdc-bbb2-fa1caa6ec785",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "296a24d1-f082-457e-8002-fff0bfd91dc1",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "73d0bde1-217e-47e8-959d-c00995c2c8b5",
+                "title": "业务域DSL",
+                "name": "domainDesignDsl",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "0e03a17c-f919-448d-90d5-25848b232c4c",
+                "title": "图形DSL",
+                "name": "graphDsl",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "fc110ead-6a6d-4601-bd38-9a9123008b4b",
+                "title": "版本描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "2f70d58e-095e-48e7-98d8-f240fb6274a5",
+                "title": "版本状态",
+                "name": "state",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "ef1399af-8407-4f7a-9ed3-5aca05e1cc7e",
+                "title": "业务域信息",
+                "name": "domainDesignDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[DomainDesignDTO:copy-5b036e55-99c8-493e-90a2-30cc07c1f2fb]"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-5b036e55-99c8-493e-90a2-30cc07c1f2fb",
+            "title": "业务域信息",
+            "name": "DomainDesignDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "1a15ec7b-a7f8-4a3d-986a-3f3d1f5cd086",
+                "title": "业务域的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "4930f086-c5d6-43ea-ac5b-67991fd9acd4",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "06d3aed1-1521-4a1b-af8f-656532ea441a",
+                "title": "标识符",
+                "name": "identity",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9412f5b3-4791-4287-9850-8f637b5a4011",
+                "title": "描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-d7ec8cbf-290d-43e5-8fe2-2c8545f9fb72",
+            "title": "业务域版本基本信息",
+            "name": "DomainDesignVersionBaseInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "a6fd8345-ac26-496a-a6c8-b49c47d3b894",
+                "title": "业务域版本的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "faa9efa4-1adc-439b-bde5-701a22ba6062",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9c1c5a3f-8ca5-40e5-9edb-fbaf3eaa6afc",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "6198a98f-db66-4076-8ee6-38fa9dad10f5",
+                "title": "版本描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "51ff7751-a587-41f0-8dad-8dffc3236b08",
+                "title": "版本状态",
+                "name": "state",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "4c7093c6-681b-42fa-aba8-6fde766d9e54",
+                "title": "业务域信息",
+                "name": "domainDesignDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[DomainDesignDTO:copy-5b036e55-99c8-493e-90a2-30cc07c1f2fb]"
+              }
+            ]
+          },
+          {
+            "uuid": "315f5bf4-4bb6-4ec4-8903-07d0df1d8ec1",
+            "title": "应用关联模块信息",
+            "name": "ApplicationBindModelInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "90162b87-6c02-4e7b-a744-52538c27f325",
+                "title": "应用版本的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "78f52e94-6557-4e5f-95ed-0f73cba5dd4e",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "e8d2305d-3b1f-463a-a10d-11a2e791cfc3",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "3625092d-6ac6-41fe-b640-71576b808d14",
+                "title": "版本描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "60ec6b61-8f6f-4121-aa5c-0baf13455cc7",
+                "title": "版本状态",
+                "name": "state",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "dd18cb29-1504-4140-baec-ddf5793d8889",
+                "title": "应用信息",
+                "name": "applicationDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[ApplicationDTO:3a3db11b-9fb5-4cb6-9162-fec842255fe5]"
+              },
+              {
+                "uuid": "64304c30-946d-4a99-a68c-64625e5bba40",
+                "title": "关联业务域版本信息列表",
+                "name": "domainDesignVersionInfos",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "List<[DomainDesignVersionBaseInfo:copy-d7ec8cbf-290d-43e5-8fe2-2c8545f9fb72]>"
+              },
+              {
+                "uuid": "a510efec-ecba-465e-9a25-fdf79b34f23a",
+                "title": "关联业务场景基本信息",
+                "name": "businessScenarioVersionInfos",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "List<[BusinessScenarioVersionBaseInfo:copy-6ff09f60-cd6d-4971-aa6a-5d699ee008eb]>"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-6ff09f60-cd6d-4971-aa6a-5d699ee008eb",
+            "title": "业务场景版本基本信息",
+            "name": "BusinessScenarioVersionBaseInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "a6fd8345-ac26-496a-a6c8-b49c47d3b894",
+                "title": "业务场景版本的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "faa9efa4-1adc-439b-bde5-701a22ba6062",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9c1c5a3f-8ca5-40e5-9edb-fbaf3eaa6afc",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "6198a98f-db66-4076-8ee6-38fa9dad10f5",
+                "title": "版本描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "51ff7751-a587-41f0-8dad-8dffc3236b08",
+                "title": "版本状态",
+                "name": "state",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "4c7093c6-681b-42fa-aba8-6fde766d9e54",
+                "title": "业务场景信息",
+                "name": "businessScenarioDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[BusinessScenarioDTO:copy-859fd594-4f00-4bd6-b252-9c17eee1d92e]"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-859fd594-4f00-4bd6-b252-9c17eee1d92e",
+            "title": "业务场景信息",
+            "name": "BusinessScenarioDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "1a15ec7b-a7f8-4a3d-986a-3f3d1f5cd086",
+                "title": "业务场景的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "4930f086-c5d6-43ea-ac5b-67991fd9acd4",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "06d3aed1-1521-4a1b-af8f-656532ea441a",
+                "title": "标识符",
+                "name": "identity",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9412f5b3-4791-4287-9850-8f637b5a4011",
+                "title": "描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "uuid": "3a3db11b-9fb5-4cb6-9162-fec842255fe5",
+            "title": "应用信息",
+            "name": "ApplicationDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "f157b45e-cb31-4bfe-ac3e-5c813d0163ef",
+                "title": "应用的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "b8795a28-f2a2-4b83-b944-eb8569d1588d",
+                "title": "包名",
+                "name": "packageName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ea0b682c-f248-4056-96ad-379b74480e03",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "d04bbea0-95b8-4984-b915-076817aba483",
+                "title": "标识符",
+                "name": "identity",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "435e9b34-f0f7-484d-8a3b-89d8b38f18d4",
+                "title": "描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-924a9164-c32d-418a-b161-652813ac870c",
+            "title": "业务场景版本信息",
+            "name": "BusinessSceneVersionInfoDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "d10406b5-2aa2-42b6-a292-4c8336a260e2",
+                "title": "业务场景版本的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "5bc96ff4-f8bf-4cdc-bbb2-fa1caa6ec785",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "296a24d1-f082-457e-8002-fff0bfd91dc1",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "73d0bde1-217e-47e8-959d-c00995c2c8b5",
+                "title": "业务场景DSL",
+                "name": "businessSceneDsl",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "0e03a17c-f919-448d-90d5-25848b232c4c",
+                "title": "图形DSL",
+                "name": "graphDsl",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "fc110ead-6a6d-4601-bd38-9a9123008b4b",
+                "title": "版本描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "2f70d58e-095e-48e7-98d8-f240fb6274a5",
+                "title": "版本状态",
+                "name": "state",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "ef1399af-8407-4f7a-9ed3-5aca05e1cc7e",
+                "title": "业务场景信息",
+                "name": "businessSceneDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[BusinessScenarioDTO:copy-859fd594-4f00-4bd6-b252-9c17eee1d92e]"
+              }
+            ]
+          }
+        ]
+      },
+      "name": "SecondaryDevelopment",
+      "description": "描述快速进行二开场景",
+      "title": "二次开发场景",
+      "version": "0.0.1"
     }
   ]
 }

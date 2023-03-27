@@ -18,7 +18,7 @@ public class OrganizationRemoveCmdHandler {
         Organization organization = repository.find(removeCmd.getId());
         organization.organizationRemove(removeCmd);
 
-        // TODO: CheckExistTeam(存在团队不能删除组织) 检查组织下是否存在团队
+        // TODO CheckExistTeam(存在团队不能删除组织) 检查组织下是否存在团队
 
         repository.remove(organization);
 
