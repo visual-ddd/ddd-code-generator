@@ -16,9 +16,9 @@ import com.wakedt.visual.infrastructure.BaseJpaAggregate;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("universal_language")
+@TableName("wd_universal_language")
 @Entity
-@Table(name = "universal_language")
+@Table(name = "wd_universal_language")
 public class UniversalLanguageDO extends BaseJpaAggregate {
 
     /** 统一语言 ID */

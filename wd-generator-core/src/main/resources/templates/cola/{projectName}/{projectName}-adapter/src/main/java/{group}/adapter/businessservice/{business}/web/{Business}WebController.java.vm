@@ -3,10 +3,10 @@ package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}WebC
 
 #businessControllerImport()
 
-#comment("${BUSINESS_DESCRIPTION}-web-controller")
+#comment("${BUSINESS_TITLE}-B端")
 @RestController
 @RequestMapping("/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}")
-@Api(value = "/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}", tags = "B端-${BUSINESS_TITLE}")
+@Api(value = "/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}", tags = "${BUSINESS_TITLE}-B端")
 public class ${BUSINESS_CLASS_NAME}WebController {
 #businessController()
 }

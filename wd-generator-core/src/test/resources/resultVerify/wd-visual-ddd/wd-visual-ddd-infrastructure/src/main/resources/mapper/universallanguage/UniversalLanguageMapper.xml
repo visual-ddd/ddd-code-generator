@@ -5,7 +5,7 @@
     <select id="universalLanguageQuery" parameterType="com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery"
             resultType="com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO">
         SELECT *
-        FROM universal_language t1
+        FROM wd_universal_language t1
         <where>
             <if test="id != null">
                 AND t1.id = #{id}
@@ -16,7 +16,7 @@
     <select id="universalLanguagePageQuery" parameterType="com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery"
             resultType="com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO">
         SELECT *
-        FROM universal_language t1
+        FROM wd_universal_language t1
         <where>
             <if test="conception != null and conception != ''">
                 AND t1.conception LIKE CONCAT('%',#{conception},'%')

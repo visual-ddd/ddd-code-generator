@@ -1,0 +1,15 @@
+package com.wakedt.visual.app.account.assembler;
+
+import com.wakedt.visual.infrastructure.BaseConvert;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+import com.wakedt.visual.client.account.query.AccountPasswordResetDTO;
+import com.wakedt.visual.domain.account.account.accountpasswordreset.AccountPasswordResetCmd;
+
+@Mapper(uses = {
+        JsonConverter.class,
+})
+public interface AccountPasswordResetDTO2AccountPasswordResetCmdConvert extends BaseConvert<AccountPasswordResetDTO, AccountPasswordResetCmd> {
+
+    AccountPasswordResetDTO2AccountPasswordResetCmdConvert INSTANCE = Mappers.getMapper(AccountPasswordResetDTO2AccountPasswordResetCmdConvert.class);
+}

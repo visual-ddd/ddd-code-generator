@@ -1,0 +1,24 @@
+package com.wakedt.visual.client.businessscene.query;
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
+
+/**
+ * 更新业务场景DSL
+ */
+@Data
+@ApiModel(value = "更新业务场景DSL")
+public class BusinessSceneVersionDSLUpdateDTO {
+
+    @ApiModelProperty(value = "业务场景版本ID")
+    public Long id;
+
+    @ApiModelProperty(value = "图形的抽象文本描述语言")
+    public String graphDsl;
+
+    @ApiModelProperty(value = "业务场景抽象文本描述语言")
+    public String businessSceneDsl;
+
+}

@@ -23,11 +23,11 @@ import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveD
 import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
 
 /**
- * 维护系统中统一语言的领域-web-controller
+ * 统一语言域-B端
  */
 @RestController
 @RequestMapping("/web/universal-language")
-@Api(value = "/web/universal-language", tags = "B端-统一语言域")
+@Api(value = "/web/universal-language", tags = "统一语言域-B端")
 public class UniversalLanguageWebController {
 
     @Resource

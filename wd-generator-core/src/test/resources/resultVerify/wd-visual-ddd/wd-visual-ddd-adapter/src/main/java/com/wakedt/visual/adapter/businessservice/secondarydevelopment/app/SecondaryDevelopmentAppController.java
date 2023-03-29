@@ -27,11 +27,11 @@ import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.Busines
 import com.wakedt.visual.client.businessservice.secondarydevelopment.SecondaryDevelopmentRpcService;
 
 /**
- * 描述快速进行二开场景-app-controller
+ * 二次开发场景-C端
  */
 @RestController
 @RequestMapping("/app/secondary-development")
-@Api(value = "/app/secondary-development", tags = "C端-二次开发场景")
+@Api(value = "/app/secondary-development", tags = "二次开发场景-C端")
 public class SecondaryDevelopmentAppController {
 
     @Resource

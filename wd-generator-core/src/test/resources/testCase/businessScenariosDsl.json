@@ -19,13 +19,14 @@
           "serviceId": "82bfac24-4223-4d1e-8c5f-49d677eb5100"
         }
       ],
+      "externalDependencies": [],
       "serviceModel": {
         "queries": [
           {
             "uuid": "946de11f-006a-4978-91f8-11d7d3583b47",
             "title": "账号登录",
-            "name": "AccountLogin",
-            "description": "",
+            "name": "Login",
+            "description": "验证账号密码，并返回用户信息，供存储到session",
             "meta": {},
             "source": [
               {
@@ -58,7 +59,7 @@
               }
             ],
             "return": {
-              "type": "[AccountDTO:602d21b8-17a4-48f0-90c0-ed656ccd4aab]"
+              "type": "[AccountInfo:602d21b8-17a4-48f0-90c0-ed656ccd4aab]"
             }
           },
           {
@@ -79,14 +80,14 @@
             "pagination": false,
             "properties": [],
             "return": {
-              "type": "void"
+              "type": "Boolean"
             }
           },
           {
             "uuid": "aac32d7b-e7b3-455f-b282-4bc6ad81d0e8",
             "title": "注册账号",
             "name": "AccountRegister",
-            "description": "",
+            "description": "校验注册验证码，创建账号",
             "meta": {},
             "source": [
               {
@@ -111,6 +112,42 @@
                 "uuid": "c0ec547f-3553-41be-9bcc-d72c1f5f59d0",
                 "title": "验证码",
                 "name": "code",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "90e2f1ca-6d93-485e-82bf-13ccb4fc91e2",
+                "title": "账号(唯一标识)",
+                "name": "accountNo",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "fc96425f-4398-4db5-b7fe-de846c826cfb",
+                "title": "用户名",
+                "name": "userName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "44c9825b-30d1-4629-9212-94330e8775be",
+                "title": "密码",
+                "name": "password",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9090086e-ea7b-4882-b236-c15d852382c8",
+                "title": "用户头像",
+                "name": "icon",
                 "description": "",
                 "meta": {},
                 "access": "public",
@@ -160,19 +197,61 @@
             "return": {
               "type": "Boolean"
             }
+          },
+          {
+            "uuid": "ed514e57-284e-4a33-a859-52546084c216",
+            "title": "获取当前登录账号信息",
+            "name": "GetAccountInfo",
+            "description": "获取登录账号的基本信息",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [],
+            "return": {
+              "type": "[AccountInfo:602d21b8-17a4-48f0-90c0-ed656ccd4aab]"
+            }
+          },
+          {
+            "uuid": "f50a3db1-c270-4395-be2f-f4c7375c5c10",
+            "title": "获取用户权限信息",
+            "name": "GetAccountRole",
+            "description": "获取当前登录账号的权限信息，包含所属组织、团队等信息",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [],
+            "return": {
+              "type": "[AccountRoleDTO:9ab3be94-25ec-4f0c-ae7d-83dfeb9bb6c1]"
+            }
           }
         ],
         "dtos": [
           {
             "uuid": "602d21b8-17a4-48f0-90c0-ed656ccd4aab",
-            "title": "账号信息",
-            "name": "AccountDTO",
+            "title": "当前登录的账号信息",
+            "name": "AccountInfo",
             "description": "",
             "meta": {},
             "properties": [
               {
                 "uuid": "3e83ad4d-1c2e-4cc7-8441-b9e22618d65f",
-                "title": "主键",
+                "title": "账号ID",
                 "name": "id",
                 "description": "",
                 "meta": {},
@@ -182,7 +261,7 @@
               {
                 "uuid": "eeeca59e-32ad-473b-973c-d8bd1ca6f90f",
                 "title": "账号(唯一标识)",
-                "name": "accountDTO",
+                "name": "accountNo",
                 "description": "",
                 "meta": {},
                 "access": "public",
@@ -198,15 +277,6 @@
                 "type": "String"
               },
               {
-                "uuid": "fe2b3779-9a9c-430b-bfc6-ec5e09044fa4",
-                "title": "角色",
-                "name": "accountRole",
-                "description": "角色：1 系统管理员 2 组织管理员 3 团队管理员",
-                "meta": {},
-                "access": "public",
-                "type": "Integer"
-              },
-              {
                 "uuid": "1466b005-22f1-43a4-987d-cc81e0812c5a",
                 "title": "描述",
                 "name": "description",
@@ -216,9 +286,216 @@
                 "type": "String"
               },
               {
-                "uuid": "ab9ff4a2-ab22-4e51-8086-1f4e6465209b",
-                "title": "用户头像",
-                "name": "icon",
+                "uuid": "4f2bc11b-9310-4e2b-84ae-35601b8b8543",
+                "title": "是否为系统管理员",
+                "name": "isAdmin",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Boolean"
+              },
+              {
+                "uuid": "7664df4d-f928-4f88-88c2-799283f53c1a",
+                "title": "sessionId",
+                "name": "sessionId",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "uuid": "9ab3be94-25ec-4f0c-ae7d-83dfeb9bb6c1",
+            "title": "当前登录账号权限",
+            "name": "AccountRoleDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "e5b958c7-f843-416e-9e44-746241e00d7f",
+                "title": "账号ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "ede21bfd-8f5c-4186-ab2c-3130db8704ae",
+                "title": "账号(唯一标识)",
+                "name": "accountNo",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "7e171a50-2e73-4d76-b20f-77a18244bf62",
+                "title": "所属团队信息列表",
+                "name": "teamDTOList",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "List<[AccountTeamInfo:dd441390-7661-4f88-a750-7bd7aae68c68]>"
+              },
+              {
+                "uuid": "c6c5a2d7-40f1-4eb9-bdab-95151d6437bf",
+                "title": "所属组织信息列表",
+                "name": "accountOrganizationInfoList",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "List<[AccountOrganizationInfo:1086ec3c-92d8-4879-8413-a1e9ccebf2fd]>"
+              }
+            ]
+          },
+          {
+            "uuid": "dd441390-7661-4f88-a750-7bd7aae68c68",
+            "title": "账号所属团队信息",
+            "name": "AccountTeamInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "cf9c9b7f-b282-43fb-8e2b-3806dc1628a7",
+                "title": "是否为团队管理员",
+                "name": "isTeamAdmin",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Boolean"
+              },
+              {
+                "uuid": "3037cbea-cc79-4554-a075-4847f426c54a",
+                "title": "所属团队信息",
+                "name": "teamDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[TeamDTO:copy-6f5f8756-62e2-4276-b881-70d851869f8b]"
+              }
+            ]
+          },
+          {
+            "uuid": "1086ec3c-92d8-4879-8413-a1e9ccebf2fd",
+            "title": "账号所属组织信息",
+            "name": "AccountOrganizationInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "baf01bf4-7a6f-47cc-9b5c-c114c0ad7b15",
+                "title": "是否为组织管理员",
+                "name": "isOrganizationAdmin",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Boolean"
+              },
+              {
+                "uuid": "d5620f50-44d7-4784-8444-9ce2ea2bf5c5",
+                "title": "所属组织信息",
+                "name": "organizationDTO",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[OrganizationDTO:939901fb-8b00-4798-a89c-c29b2099b112]"
+              }
+            ]
+          },
+          {
+            "uuid": "939901fb-8b00-4798-a89c-c29b2099b112",
+            "title": "组织信息",
+            "name": "OrganizationDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "5790b8f9-dfe0-49f4-9a47-6a0bcfda6b2d",
+                "title": "组织ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "e48d3573-f087-47d1-8171-6d58bf91d935",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "6a230d16-ea68-491b-9233-2613110a2a2a",
+                "title": "描述",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "d96a8f6f-e271-443a-b9d8-ec5c331e48c0",
+                "title": "组织管理员",
+                "name": "organizationManagerId",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-6f5f8756-62e2-4276-b881-70d851869f8b",
+            "title": "团队信息",
+            "name": "TeamDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "5790b8f9-dfe0-49f4-9a47-6a0bcfda6b2d",
+                "title": "团队ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "e48d3573-f087-47d1-8171-6d58bf91d935",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "6a230d16-ea68-491b-9233-2613110a2a2a",
+                "title": "描述",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "d96a8f6f-e271-443a-b9d8-ec5c331e48c0",
+                "title": "团队管理员",
+                "name": "teamManagerId",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "da30b835-d8c7-47b1-a0de-69ddaa2c5fc8",
+                "title": "组织唯一标识",
+                "name": "organizationId",
                 "description": "",
                 "meta": {},
                 "access": "public",
@@ -228,9 +505,1077 @@
           }
         ]
       },
-      "name": "UserLogin",
+      "name": "AccountLogin",
       "description": "描述用户登录的流程",
       "title": "用户登录场景",
+      "version": "0.0.1"
+    },
+    {
+      "domainDependencies": [
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "f07914d8-7023-4b50-bbad-93c6e4e97dbc"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "76210e50-42c2-44a0-b6bf-6e236c5d06b7"
+        },
+        {
+          "domainId": 24,
+          "versionId": 51,
+          "serviceId": "8ac97df7-8787-4bf7-ad24-9add13f83d60"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "a8f2d25d-00cd-421d-869e-a85f8d882d39"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "967c4491-6176-4633-856f-a74c29219e84"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "c19b7203-3de6-4b7b-a7eb-fc647e2e8937"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "7faf7f22-3e8a-4b11-977b-6b76a6b5cb99"
+        },
+        {
+          "domainId": 24,
+          "versionId": 51,
+          "serviceId": "0895f138-6bc4-4fcc-900b-4db30c7f796a"
+        },
+        {
+          "domainId": 24,
+          "versionId": 51,
+          "serviceId": "90ce402a-d39b-49e2-a229-36fa7b3cf6fc"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "31a56395-a105-45fe-b48b-d07d5be71ea4"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "974b9b21-88a3-4b64-bb13-d7017ba4bb8d"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "copy-6ff57305-9236-47a4-aa35-d701c724ce7a"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "a559db3f-3012-43f9-97bf-16bde3732b11"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "copy-f7fccdac-d38f-4ba0-9afc-749d85297b8c"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "copy-73391b49-6571-4fc1-823a-04d1bd7ef26a"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "copy-f658dc1a-46e7-4e60-b488-ecf78c7242ed"
+        },
+        {
+          "domainId": 25,
+          "versionId": 50,
+          "serviceId": "copy-711a540d-2af8-4a8f-9bf4-61bd76859909"
+        }
+      ],
+      "externalDependencies": [],
+      "serviceModel": {
+        "queries": [],
+        "dtos": []
+      },
+      "name": "OrganizationManagement",
+      "description": "管理系统的组织和用户结构",
+      "title": "组织管理场景",
+      "version": "0.0.1"
+    },
+    {
+      "domainDependencies": [
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "10348618-1d41-4755-bf65-963aa1874587"
+        },
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "622c104e-237e-4156-a86b-4f8d4597005a"
+        },
+        {
+          "domainId": 28,
+          "versionId": 54,
+          "serviceId": "2c00f33b-41f3-44f0-b204-de3254068cd8"
+        },
+        {
+          "domainId": 28,
+          "versionId": 54,
+          "serviceId": "72317236-9695-48cb-b922-19fc80089887"
+        },
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "7bb5b1e9-6457-45d4-86d9-74d4cca071e1"
+        },
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "bd941557-4702-4a9f-963b-a82cc79d410b"
+        },
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "f834ea01-d66a-4d3c-ab6c-c4acb1c50e90"
+        },
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "bbb5a7dc-f24e-4c91-94d2-310fa910d14a"
+        },
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "5ac78f2f-c17d-4d4b-9c6a-5a2c4bdcdb45"
+        },
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "02b39eed-16ff-4994-b9c5-8c78b4d449d1"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "adb53fdc-58e9-400b-a76f-0f9e3bc15c08"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "92e8040c-942a-404e-a20e-702941b4eef7"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "57f3ec71-00de-4ab5-8626-f39fd6f89787"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "156dcb82-7b1e-4b25-8abf-a6d98a2a6825"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "f4b83d06-81f2-4c4e-a0bf-1039a34464d6"
+        }
+      ],
+      "externalDependencies": [],
+      "serviceModel": {
+        "queries": [
+          {
+            "uuid": "be742770-7c4c-4d7d-8f4c-095bfca39037",
+            "title": "批量删除统一语言",
+            "name": "UniversalLanguageBatchRemove",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "01258d49-2fe7-4562-9014-e2dc6f640745",
+                "title": "统一语言的唯一标识列表",
+                "name": "idList",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "List<Long>"
+              }
+            ],
+            "return": {
+              "type": "Boolean"
+            }
+          },
+          {
+            "uuid": "23558d2b-4ed5-47b9-8496-2fb2ccf9310c",
+            "title": "统一语言导出Excel文件",
+            "name": "ExportUniversalLanguage2Excel",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "6d86cb35-f53a-4a81-a80b-ab06c7a38c77",
+                "title": "http标准响应体",
+                "name": "response",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9e4a4033-2d45-4e2b-886e-f8cf788f09e9",
+                "title": "概念",
+                "name": "conception",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ebb9fe55-d9ed-47b3-a43d-58dfefc4d119",
+                "title": "统一语言类型",
+                "name": "languageType",
+                "description": "统一语言类型：1-组织统一语言，2-团队统一语言，3-业务域统一语言",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "7f76b99e-4e9b-41cc-ab2a-6987d52f6616",
+                "title": "所属唯一标识",
+                "name": "identity",
+                "description": "所属唯一标识(组织/团队的主键id)",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "Boolean"
+            }
+          },
+          {
+            "uuid": "copy-719f6a14-fd84-498d-bb77-86fa78b1705e",
+            "title": "Excel导入统一语言",
+            "name": "ImportUniversalLanguageFromExcel",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "ba8f7c7c-e251-4a5b-94d7-33f578cb8af3",
+                "title": "Excel文件",
+                "name": "file",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ebb9fe55-d9ed-47b3-a43d-58dfefc4d119",
+                "title": "统一语言类型",
+                "name": "languageType",
+                "description": "统一语言类型：1-组织统一语言，2-团队统一语言，3-业务域统一语言",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "7f76b99e-4e9b-41cc-ab2a-6987d52f6616",
+                "title": "所属唯一标识",
+                "name": "identity",
+                "description": "所属唯一标识(组织/团队的主键id)",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "Boolean"
+            }
+          },
+          {
+            "uuid": "b890184c-6e97-4a74-9fa5-d52ada2b8a32",
+            "title": "Excel导入统一语言(业务域)",
+            "name": "BusinessImportUniversallanguageFromExcel",
+            "description": "不进行数据处理(由前端进行插入数据库)",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "7a3f72c5-495b-46cb-8ee3-b818bc6d8eb6",
+                "title": "Excel文件",
+                "name": "file",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ],
+            "return": {
+              "type": "List<[UniversalLanguageExcelDTO:86b4cd85-29af-4271-82c3-5870481353ff]>"
+            }
+          },
+          {
+            "uuid": "copy-d7c4541d-1122-45b4-acbd-44822d0f022e",
+            "title": "统一语言导出Excel文件(业务域)",
+            "name": "BusinessExportUniversalLanguage2Excel",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "6d86cb35-f53a-4a81-a80b-ab06c7a38c77",
+                "title": "http标准响应体",
+                "name": "response",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9e4a4033-2d45-4e2b-886e-f8cf788f09e9",
+                "title": "统一语言数据列表",
+                "name": "universalLanguageList",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "List<[UniversalLanguageExcelDTO:86b4cd85-29af-4271-82c3-5870481353ff]>"
+              }
+            ],
+            "return": {
+              "type": "Boolean"
+            }
+          },
+          {
+            "uuid": "144b2694-8085-4128-b217-3d882a275172",
+            "title": "获取最新应用版本信息",
+            "name": "GetLatestApplicationVersionInfo",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "6a612118-1605-40b9-b521-8dbfd8e90607",
+                "title": "应用的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[ApplicationLatestVersionInfo:copy-945397b7-8455-4660-858f-7e5ef671ca07]"
+            }
+          },
+          {
+            "uuid": "a5002c24-c373-40cb-920d-6be41ce81fbd",
+            "title": "获取最新业务域版本信息",
+            "name": "GetLatestDomainDesignVersionInfo",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "b0a1c7da-cca0-49a5-bfe9-920f35d20c6b",
+                "title": "业务域的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[DomainDesignLatestVersionInfo:copy-1e69af09-bf4b-4881-8114-361365257288]"
+            }
+          },
+          {
+            "uuid": "copy-c4914b2d-5027-40ba-b5de-ffddb74f18d8",
+            "title": "获取最新业务场景版本信息",
+            "name": "GetLatestBusinessSceneVersionInfo",
+            "description": "",
+            "meta": {},
+            "source": [
+              {
+                "type": "http"
+              },
+              {
+                "type": "rpc"
+              }
+            ],
+            "rules": [],
+            "pagination": false,
+            "properties": [
+              {
+                "uuid": "b0a1c7da-cca0-49a5-bfe9-920f35d20c6b",
+                "title": "业务场景的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              }
+            ],
+            "return": {
+              "type": "[BusinessSceneLatestVersionInfo:copy-df4fec67-dd4c-4952-a87d-f28fac3d8733]"
+            }
+          }
+        ],
+        "dtos": [
+          {
+            "uuid": "86b4cd85-29af-4271-82c3-5870481353ff",
+            "title": "统一语言Excel数据",
+            "name": "UniversalLanguageExcelDTO",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "8d7eb765-16c8-4bde-854a-aebac101414c",
+                "title": "概念",
+                "name": "conception",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "70d4d335-b812-4da8-9293-66bcaeb07389",
+                "title": "定义",
+                "name": "definition",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "f395a2e7-24b4-463e-ab70-a651feba28c2",
+                "title": "英文名",
+                "name": "englishName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "8320d79e-5dbf-4d8b-abc4-fe48cb70a812",
+                "title": "约束",
+                "name": "restraint",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "827fd80a-2443-410c-98e5-7699870cc34b",
+                "title": "举例",
+                "name": "example",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-945397b7-8455-4660-858f-7e5ef671ca07",
+            "title": "应用最新版本信息",
+            "name": "ApplicationLatestVersionInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "6dec7f0a-9e01-4fff-bd44-251baf3a53bf",
+                "title": "应用的唯一标识",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "5be71ec0-d4bf-4a81-8530-c5b32043db5c",
+                "title": "团队的唯一标识",
+                "name": "teamId",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "fd6853cc-ae22-46c0-9301-65bee56b3457",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "91958862-951b-47aa-a4b9-a4744429da09",
+                "title": "标识符",
+                "name": "identity",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "10532f75-99d2-48a4-a616-8d1445e43633",
+                "title": "描述信息",
+                "name": "description",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "37942dc5-694d-4907-bcfc-6e910038d387",
+                "title": "包名",
+                "name": "packageName",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "617c289e-8106-40d4-b431-976c901d609c",
+                "title": "应用最新版本信息",
+                "name": "applicationLatestVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[ApplicationVersionInfo:copy-ceb3f32b-0ee2-4147-8c18-d3e08462b6a9]"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-ceb3f32b-0ee2-4147-8c18-d3e08462b6a9",
+            "title": "应用版本信息",
+            "name": "ApplicationVersionInfo",
+            "description": "用于应用版本的数据传输对象",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "1671f602-ff12-42e6-95e5-8358f0aba62c",
+                "title": "应用版本ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "919a2c1d-9db9-49be-8f57-34a5bc654a0f",
+                "title": "应用ID",
+                "name": "applicationId",
+                "description": "应用的唯一标识",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "cc3b07ce-f6ea-460a-b43a-7197105789f9",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "第一次创建时，需要指定起始版本号",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "5433e509-9bbd-4427-8665-423f5d5010bf",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "当前版本的唯一标识",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "7bbbd2f0-f201-403e-8303-0186145b4a7e",
+                "title": "描述",
+                "name": "description",
+                "description": "描述信息",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "9879bca7-4eee-4fd0-9543-1b21523b37e9",
+                "title": "版本状态",
+                "name": "versionState",
+                "description": "版本状态",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              },
+              {
+                "uuid": "7c8a3038-29ec-44ea-9cd0-69cf5fc932d9",
+                "title": "关联业务域列表",
+                "name": "domainDesignVersionIds",
+                "description": "当前应用关联的业务域版本ID列表",
+                "meta": {},
+                "access": "public",
+                "type": "Set<Long>"
+              },
+              {
+                "uuid": "f1ca5702-119c-45a3-8319-6ef8bf0cf6bd",
+                "title": "关联业务场景列表",
+                "name": "businessSceneVersionIds",
+                "description": "当前应用关联的业务场景版本ID列表",
+                "meta": {},
+                "access": "public",
+                "type": "Set<Long>"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-cb272536-7efc-422b-b42b-44502666f106",
+            "title": "业务域版本信息",
+            "name": "DomainDesignVersionInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "76e49a74-ad6d-4993-aa2e-33423e79045c",
+                "title": "业务域版本ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "283dd15e-4f97-43e9-b880-2b30d675d90b",
+                "title": "业务域ID",
+                "name": "domainDesignId",
+                "description": "业务域的唯一标识",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "4063d666-9034-433d-b91d-520db004d1a5",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "第一次创建时，需要指定起始版本号",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "46256c97-104e-44b2-88d0-65074a8ec943",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "当前版本的唯一标识",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "cc7111d0-4853-4ec3-9a56-12b04cf896a6",
+                "title": "描述",
+                "name": "description",
+                "description": "描述信息",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "e829d7e7-4312-44ba-988b-82c8d5c75c0e",
+                "title": "业务域DSL",
+                "name": "domainDesignDsl",
+                "description": "业务域抽象文本描述语言",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "b1d18053-2b32-4962-a0ca-708cabe1ac93",
+                "title": "图形DSL",
+                "name": "graphDsl",
+                "description": "图形的抽象文本描述语言",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "845388da-f992-4528-b84b-149608eed266",
+                "title": "版本状态",
+                "name": "versionState",
+                "description": "版本状态",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-1e69af09-bf4b-4881-8114-361365257288",
+            "title": "业务域最新版本信息",
+            "name": "DomainDesignLatestVersionInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "7436964c-3d19-4e19-9899-f2709035007b",
+                "title": "业务域ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "0c313ca8-1a0c-40ed-8273-d2d427051867",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "37d74c3c-dc29-4fdc-9bea-bab083a432c8",
+                "title": "团队ID",
+                "name": "teamId",
+                "description": "团队的唯一标识",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "413cdc71-2767-4ab5-a40c-4ea5287476e2",
+                "title": "标识符",
+                "name": "identity",
+                "description": "唯一标识，此处使用大驼峰命名",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ef618e03-424c-44c0-a29f-7a8562ad68c1",
+                "title": "描述",
+                "name": "description",
+                "description": "描述信息",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "7bca1c5e-2afa-465b-9372-360eb766b847",
+                "title": "业务域最新版本信息",
+                "name": "domainDesignLatestVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[DomainDesignVersionInfo:copy-cb272536-7efc-422b-b42b-44502666f106]"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-f7b0435e-4814-4f82-b329-a833b5bc956b",
+            "title": "业务场景版本信息",
+            "name": "BusinessSceneVersionInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "76e49a74-ad6d-4993-aa2e-33423e79045c",
+                "title": "业务场景版本ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "283dd15e-4f97-43e9-b880-2b30d675d90b",
+                "title": "业务场景ID",
+                "name": "businessSceneId",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "4063d666-9034-433d-b91d-520db004d1a5",
+                "title": "起始版本号",
+                "name": "startVersion",
+                "description": "第一次创建时，需要指定起始版本号",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "46256c97-104e-44b2-88d0-65074a8ec943",
+                "title": "当前版本号",
+                "name": "currentVersion",
+                "description": "当前版本的唯一标识",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "cc7111d0-4853-4ec3-9a56-12b04cf896a6",
+                "title": "描述",
+                "name": "description",
+                "description": "描述信息",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "e829d7e7-4312-44ba-988b-82c8d5c75c0e",
+                "title": "业务场景DSL",
+                "name": "businessSceneDsl",
+                "description": "业务场景抽象文本描述语言",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "b1d18053-2b32-4962-a0ca-708cabe1ac93",
+                "title": "图形DSL",
+                "name": "graphDsl",
+                "description": "图形的抽象文本描述语言",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "845388da-f992-4528-b84b-149608eed266",
+                "title": "版本状态",
+                "name": "versionState",
+                "description": "版本状态",
+                "meta": {},
+                "access": "public",
+                "type": "Integer"
+              }
+            ]
+          },
+          {
+            "uuid": "copy-df4fec67-dd4c-4952-a87d-f28fac3d8733",
+            "title": "业务场景最新版本信息",
+            "name": "BusinessSceneLatestVersionInfo",
+            "description": "",
+            "meta": {},
+            "properties": [
+              {
+                "uuid": "7436964c-3d19-4e19-9899-f2709035007b",
+                "title": "业务场景ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "0c313ca8-1a0c-40ed-8273-d2d427051867",
+                "title": "名称",
+                "name": "name",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "37d74c3c-dc29-4fdc-9bea-bab083a432c8",
+                "title": "团队ID",
+                "name": "teamId",
+                "description": "团队的唯一标识",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              {
+                "uuid": "413cdc71-2767-4ab5-a40c-4ea5287476e2",
+                "title": "标识符",
+                "name": "identity",
+                "description": "唯一标识，此处使用大驼峰命名",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "ef618e03-424c-44c0-a29f-7a8562ad68c1",
+                "title": "描述",
+                "name": "description",
+                "description": "描述信息",
+                "meta": {},
+                "access": "public",
+                "type": "String"
+              },
+              {
+                "uuid": "7bca1c5e-2afa-465b-9372-360eb766b847",
+                "title": "业务场景最新版本信息",
+                "name": "businessSceneLatestVersion",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "[BusinessSceneVersionInfo:copy-f7b0435e-4814-4f82-b329-a833b5bc956b]"
+              }
+            ]
+          }
+        ]
+      },
+      "name": "ProjectDevelop",
+      "description": "DDD项目开发流程",
+      "title": "项目开发场景",
+      "version": "0.0.1"
+    },
+    {
+      "domainDependencies": [
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "7bb5b1e9-6457-45d4-86d9-74d4cca071e1"
+        },
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "copy-e7655fce-2468-4311-8b8d-d860a6a7e6ff"
+        },
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "bbb5a7dc-f24e-4c91-94d2-310fa910d14a"
+        },
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "copy-f4344b59-ba17-40bd-95a9-410268bee23b"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "adb53fdc-58e9-400b-a76f-0f9e3bc15c08"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "156dcb82-7b1e-4b25-8abf-a6d98a2a6825"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "f4b83d06-81f2-4c4e-a0bf-1039a34464d6"
+        },
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "4dc331c1-3acc-4fd9-bee2-ef50e706627e"
+        },
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "2bf5ee03-a7d6-4576-8788-436ca4e0a68a"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "2b0bcf86-5ba8-4b7e-be83-d8dff524b48c"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "copy-fd8d60d0-b851-4664-bdc0-87d7e817e2c8"
+        },
+        {
+          "domainId": 30,
+          "versionId": 56,
+          "serviceId": "copy-c260c729-1956-4cbc-86cb-0dc463109282"
+        },
+        {
+          "domainId": 29,
+          "versionId": 55,
+          "serviceId": "55c52b56-069f-4c18-a722-0fad14b48ef4"
+        },
+        {
+          "domainId": 31,
+          "versionId": 57,
+          "serviceId": "copy-3b104f3b-765f-4ea9-9da8-3172ae49f369"
+        }
+      ],
+      "externalDependencies": [],
+      "serviceModel": {
+        "queries": [],
+        "dtos": []
+      },
+      "name": "VersionPublish",
+      "description": "版本发布场景",
+      "title": "版本发布场景",
       "version": "0.0.1"
     },
     {

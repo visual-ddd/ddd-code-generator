@@ -39,11 +39,11 @@ import com.wakedt.visual.client.organization.dto.TeamDTO;
 import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
 
 /**
- * 组织结构管理的领域-app-controller
+ * 组织域-C端
  */
 @RestController
 @RequestMapping("/app/organization")
-@Api(value = "/app/organization", tags = "C端-组织域")
+@Api(value = "/app/organization", tags = "组织域-C端")
 public class OrganizationAppController {
 
     @Resource
