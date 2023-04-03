@@ -26,10 +26,6 @@
     </dependency>
     <dependency>
       <groupId>com.wakedata.common</groupId>
-      <artifactId>wd-common-redis</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.wakedata.common</groupId>
       <artifactId>wd-common-domainevent</artifactId>
     </dependency>
     <!-- wd-common dependency end -->
