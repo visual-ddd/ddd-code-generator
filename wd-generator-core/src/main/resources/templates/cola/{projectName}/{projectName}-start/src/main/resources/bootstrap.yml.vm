@@ -3,7 +3,7 @@
 #set($configNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
 spring:
   application:
-    name: ${PROJECT_NAME.replace("-", "_")}
+    name: ${CASE_FORMAT_LOWER_UNDERSCORE.convert(${PROJECT_NAME}).replace("-", "_")}
   cloud:
     nacos:
       server-addr: $$serverAddr
