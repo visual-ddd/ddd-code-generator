@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * 发布应用版本-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

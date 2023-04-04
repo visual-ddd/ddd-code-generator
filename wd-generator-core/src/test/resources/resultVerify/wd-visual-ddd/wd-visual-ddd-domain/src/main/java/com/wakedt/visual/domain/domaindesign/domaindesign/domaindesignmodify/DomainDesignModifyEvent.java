@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.domaindesign.domaindesign.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * 编辑业务域-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * 删除团队成员-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

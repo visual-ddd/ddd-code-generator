@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * Fork业务场景版本-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

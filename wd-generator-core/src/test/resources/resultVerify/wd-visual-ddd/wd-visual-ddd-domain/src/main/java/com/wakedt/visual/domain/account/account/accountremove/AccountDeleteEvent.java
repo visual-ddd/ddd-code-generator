@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.account.account.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * 删除账号-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

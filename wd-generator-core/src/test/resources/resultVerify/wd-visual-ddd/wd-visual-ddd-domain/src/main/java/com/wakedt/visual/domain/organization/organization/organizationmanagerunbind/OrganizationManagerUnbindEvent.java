@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.organization.organization.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * 解绑组织管理员-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

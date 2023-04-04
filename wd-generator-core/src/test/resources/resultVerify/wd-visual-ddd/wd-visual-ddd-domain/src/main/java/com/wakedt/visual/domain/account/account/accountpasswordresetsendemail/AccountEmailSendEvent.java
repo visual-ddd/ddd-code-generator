@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.account.account.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * 发送重置密码邮件-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

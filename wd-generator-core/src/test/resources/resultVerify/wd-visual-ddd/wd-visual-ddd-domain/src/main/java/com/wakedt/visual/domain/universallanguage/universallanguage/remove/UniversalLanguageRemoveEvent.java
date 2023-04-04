@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
- * $CMD_EVENT_CLASS_DESCRIPTION-指令事件
+ * 删除统一语言-指令事件
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
