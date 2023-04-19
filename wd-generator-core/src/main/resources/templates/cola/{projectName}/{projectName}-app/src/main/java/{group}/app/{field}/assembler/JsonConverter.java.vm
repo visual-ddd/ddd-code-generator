@@ -3,7 +3,8 @@ package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("JsonConverter")};
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 public class JsonConverter {
 

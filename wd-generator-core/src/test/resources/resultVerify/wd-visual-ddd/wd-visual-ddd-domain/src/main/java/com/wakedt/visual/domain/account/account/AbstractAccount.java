@@ -2,7 +2,8 @@ package com.wakedt.visual.domain.account.account;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 用户的唯一标识，用于平台登录-聚合根

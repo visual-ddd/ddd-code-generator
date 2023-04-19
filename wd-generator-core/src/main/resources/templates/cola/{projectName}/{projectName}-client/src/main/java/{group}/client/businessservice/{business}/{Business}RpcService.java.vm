@@ -9,7 +9,8 @@ import ${IMPORT_PACKAGE_MAP.get(${query.identity}).get("${query.name}")}.${query
 #foreach ($dto in ${BUSINESS_DTO_LIST})
 import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name};
 #end
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 #comment("${BUSINESS_DESCRIPTION}-RPC能力接口")
 public interface ${BUSINESS_CLASS_NAME}RpcService {

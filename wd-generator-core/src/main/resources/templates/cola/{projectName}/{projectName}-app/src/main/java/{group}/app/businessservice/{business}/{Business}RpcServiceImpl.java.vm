@@ -10,7 +10,8 @@ import ${IMPORT_PACKAGE_MAP.get(${query.identity}).get("${query.name}")}.${query
 import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name};
 #end
 import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}RpcService")}.${BUSINESS_CLASS_NAME}RpcService;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import org.springframework.stereotype.Service;
 
 #comment("${BUSINESS_DESCRIPTION}-RPC能力接口实现")

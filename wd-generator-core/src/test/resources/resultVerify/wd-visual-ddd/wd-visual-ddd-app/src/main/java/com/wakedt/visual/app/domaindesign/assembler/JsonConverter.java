@@ -3,7 +3,8 @@ package com.wakedt.visual.app.domaindesign.assembler;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 public class JsonConverter {
 

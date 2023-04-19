@@ -3,7 +3,8 @@ package com.wakedt.visual.client.businessservice.projectdevelop.dto;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
 

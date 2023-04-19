@@ -4,7 +4,8 @@ package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_QUERY_ID}).get(${BUSINESS_QUERY_CLAS
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 #comment("${BUSINESS_QUERY_CLASS_DESCRIPTION}")
 @Data

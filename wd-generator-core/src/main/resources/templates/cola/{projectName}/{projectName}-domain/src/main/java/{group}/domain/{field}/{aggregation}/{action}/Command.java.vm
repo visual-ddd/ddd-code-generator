@@ -3,7 +3,8 @@ package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_CLASS_NAME}")};
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import lombok.NoArgsConstructor;
 import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}")}.*;
 

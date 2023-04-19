@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.universallanguage.repository.mapper;
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO;

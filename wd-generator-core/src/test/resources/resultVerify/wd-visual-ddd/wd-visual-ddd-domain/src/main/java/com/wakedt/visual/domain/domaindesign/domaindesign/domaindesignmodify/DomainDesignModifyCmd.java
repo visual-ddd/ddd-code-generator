@@ -2,7 +2,8 @@ package com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignmodify;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import lombok.NoArgsConstructor;
 import com.wakedt.visual.domain.domaindesign.domaindesign.*;
 

@@ -2,7 +2,8 @@ package com.wakedt.visual.domain.account.accountverification;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 账号进行邮箱验证操作时，需要使用验证码进行验证-聚合根

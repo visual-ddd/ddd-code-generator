@@ -4,7 +4,8 @@ package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_DTO_CLASS}")};
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 #comment("${CMD_CLASS_DESCRIPTION}")
 @Data

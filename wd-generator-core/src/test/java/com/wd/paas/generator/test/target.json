@@ -1,0 +1,136 @@
+{
+  "businessDomains": [
+    {
+      "domainModel": {
+        "aggregates": [
+          {
+            "root": {
+              "uuid": "32dc3ed3-05e5-4e0a-a976-aab05aa9e603",
+              "title": "账号",
+              "name": "Account",
+              "description": "用户的唯一标识，用于平台登录",
+              "meta": {},
+              "id": {
+                "uuid": "79e264c8-c108-4595-936b-2f45a38352e0",
+                "title": "用户 ID",
+                "name": "id",
+                "description": "",
+                "meta": {},
+                "access": "public",
+                "type": "Long"
+              },
+              "properties": [
+                {
+                  "uuid": "49e2bcce-d2ab-4880-835e-e8b188904fe7",
+                  "title": "账号",
+                  "name": "accountNo",
+                  "description": "用户登录的唯一标识，目前以用户邮箱作为账号",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "5926303c-db8d-46d3-8037-cd86fcaa78c7",
+                  "title": "用户名",
+                  "name": "userName",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "375be4f9-4118-44e2-b17f-5d82b8efc132",
+                  "title": "密码",
+                  "name": "password",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "1ffeec78-9055-49af-ba94-221c5d0d3f19",
+                  "title": "用户头像",
+                  "name": "icon",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "b9b551fb-e182-4c7d-a59b-5da2baec40a8",
+                  "title": "描述",
+                  "name": "description",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                },
+                {
+                  "uuid": "3a053b69-92c7-4c0b-84b2-07c521f882fc",
+                  "title": "重置密码唯一标识",
+                  "name": "uuid",
+                  "description": "用户重置密码时携带的唯一标识",
+                  "meta": {},
+                  "access": "public",
+                  "type": "String"
+                }
+              ],
+              "methods": [
+                {
+                  "uuid": "1be32e15-1133-4ede-9655-a04fdce42c24",
+                  "title": "验证密码是否正确",
+                  "name": "checkLoginPass",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "abstract": true,
+                  "signature": {
+                    "description": "",
+                    "parameters": [
+                      {
+                        "uuid": "5d8705c6-5024-4353-b6ce-f9c4850bb958",
+                        "title": "密码",
+                        "name": "password",
+                        "description": "",
+                        "meta": {},
+                        "type": "String"
+                      }
+                    ],
+                    "return": {
+                      "type": "void"
+                    }
+                  }
+                },
+                {
+                  "uuid": "11e12ff2-ed73-4342-a3a4-ce4b741701db",
+                  "title": "验证重置密码唯一标识是否正确",
+                  "name": "checkUuidPass",
+                  "description": "",
+                  "meta": {},
+                  "access": "public",
+                  "abstract": true,
+                  "signature": {
+                    "description": "",
+                    "parameters": [
+                      {
+                        "uuid": "c29cda36-de86-468b-85f7-245c2f0f780f",
+                        "title": "重置密码唯一标识",
+                        "name": "uuid",
+                        "description": "",
+                        "meta": {},
+                        "type": "String"
+                      }
+                    ],
+                    "return": {
+                      "type": "void"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

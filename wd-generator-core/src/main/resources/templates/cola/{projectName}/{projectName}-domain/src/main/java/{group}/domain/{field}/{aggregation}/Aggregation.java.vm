@@ -1,7 +1,8 @@
 #parse("templates/Aggregation.vm")
 package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get(${AGGREGATION_CLASS_NAME})};
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "MODIFY" || ${cmd.repository} == "REMOVE")
 import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};

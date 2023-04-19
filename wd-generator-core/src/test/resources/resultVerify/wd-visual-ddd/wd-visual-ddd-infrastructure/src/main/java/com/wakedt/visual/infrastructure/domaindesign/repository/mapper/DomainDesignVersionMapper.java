@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.domaindesign.repository.mapper;
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignVersionDO;

@@ -4,7 +4,8 @@ package ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_DTO_NAM
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 #comment("${VALUE_OBJECT_CLASS_DESCRIPTION}")
 @Data

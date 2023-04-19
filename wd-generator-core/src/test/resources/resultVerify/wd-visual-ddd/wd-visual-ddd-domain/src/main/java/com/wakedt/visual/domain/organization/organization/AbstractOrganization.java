@@ -2,7 +2,8 @@ package com.wakedt.visual.domain.organization.organization;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 组织结构管理的领域-聚合根

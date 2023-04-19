@@ -1,6 +1,7 @@
 package com.wakedt.visual.domain.organization.organization;
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import com.wakedt.visual.domain.organization.organization.organizationmodify.OrganizationModifyCmd;
 import com.wakedt.visual.domain.organization.organization.organizationremove.OrganizationRemoveCmd;
 import com.wakedt.visual.domain.organization.organization.organizationmanagerunbind.OrganizationManagerUnbindCmd;

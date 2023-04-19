@@ -3,7 +3,8 @@ package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("Abstract${AGGREGATION_C
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 #comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根")
 @Data

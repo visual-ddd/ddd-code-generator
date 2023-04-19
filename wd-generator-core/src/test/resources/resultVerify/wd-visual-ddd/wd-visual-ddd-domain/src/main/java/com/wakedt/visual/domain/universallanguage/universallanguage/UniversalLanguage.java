@@ -1,6 +1,7 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage;
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import com.wakedt.visual.domain.universallanguage.universallanguage.modify.UniversalLanguageModifyCmd;
 import com.wakedt.visual.domain.universallanguage.universallanguage.remove.UniversalLanguageRemoveCmd;
 

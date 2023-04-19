@@ -9,16 +9,14 @@ import com.wakedata.common.core.dto.PageQuery;
 #end
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import java.util.*;
+import java.math.*;
 
 #comment("${QUERY_CLASS_DESCRIPTION}")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @ApiModel(value = "${QUERY_CLASS_DESCRIPTION}")
 #if(!${QUERY_PAGINATION})
 public class ${QUERY_CLASS_NAME} extends BaseQuery {

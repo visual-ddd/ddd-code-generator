@@ -13,7 +13,8 @@ import com.wakedata.common.core.dto.ResultDTO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 #comment("${DOMAIN_DESCRIPTION}-RPC能力接口实现")
 @Service

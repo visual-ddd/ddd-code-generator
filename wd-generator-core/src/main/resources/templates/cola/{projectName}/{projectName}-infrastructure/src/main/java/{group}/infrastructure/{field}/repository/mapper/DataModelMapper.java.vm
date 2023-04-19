@@ -4,7 +4,8 @@
 #set($dtoId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${DATA_OBJECT_ID}")})
 package ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${DATA_MAPPER_CLASS_NAME}")};
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${doClassName}")}.${doClassName};

@@ -8,7 +8,8 @@ import com.wakedt.visual.client.universallanguage.query.UniversalLanguageCreateD
 import com.wakedt.visual.client.universallanguage.query.UniversalLanguageModifyDTO;
 import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveDTO;
 import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 维护系统中统一语言的领域-RPC能力接口

@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure;
 
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 持久层基础转换接口

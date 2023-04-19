@@ -5,7 +5,8 @@ import com.wakedata.common.core.dto.ResultDTO;
 #importDomainQuery()
 #importDomainCmdDTO()
 #importDomainDTO()
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 #comment("${DOMAIN_DESCRIPTION}-RPC能力接口")
 public interface ${DOMAIN_CLASS_NAME}RpcService {

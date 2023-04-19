@@ -2,7 +2,8 @@ package com.wakedt.visual.domain.universallanguage.universallanguage;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 维护系统中统一语言的领域-聚合根

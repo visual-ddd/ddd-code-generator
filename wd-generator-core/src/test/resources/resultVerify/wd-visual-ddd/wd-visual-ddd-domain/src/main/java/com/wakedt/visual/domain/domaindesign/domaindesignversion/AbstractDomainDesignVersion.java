@@ -2,7 +2,8 @@ package com.wakedt.visual.domain.domaindesign.domaindesignversion;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 描述业务域版本信息-聚合根

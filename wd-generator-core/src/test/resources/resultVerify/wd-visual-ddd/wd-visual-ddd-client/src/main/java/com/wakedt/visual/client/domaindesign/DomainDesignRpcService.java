@@ -19,7 +19,8 @@ import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionPublishDTO
 import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionForkDTO;
 import com.wakedt.visual.client.domaindesign.dto.DomainDesignDTO;
 import com.wakedt.visual.client.domaindesign.dto.DomainDesignVersionDTO;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 维护业务域及版本的领域-RPC能力接口

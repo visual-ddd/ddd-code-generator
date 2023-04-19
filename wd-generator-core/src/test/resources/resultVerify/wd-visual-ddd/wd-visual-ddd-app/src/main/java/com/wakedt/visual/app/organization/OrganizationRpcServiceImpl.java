@@ -62,7 +62,8 @@ import com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind.Te
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 组织结构管理的领域-RPC能力接口实现

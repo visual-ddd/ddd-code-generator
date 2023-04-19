@@ -24,7 +24,8 @@ import com.wakedt.visual.client.organization.query.TeamMemberRoleUnBindDTO;
 import com.wakedt.visual.client.organization.dto.OrganizationDTO;
 import com.wakedt.visual.client.organization.dto.TeamDTO;
 import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 组织结构管理的领域-RPC能力接口

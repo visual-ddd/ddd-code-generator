@@ -11,7 +11,8 @@ package ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${aggregationClass}Re
 import com.wakedata.common.core.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 import javax.annotation.Resource;
 import org.springframework.util.Assert;
 import ${IMPORT_PACKAGE_MAP.get(${aggregationId}).get("${aggregationClass}")}.${aggregationClass};

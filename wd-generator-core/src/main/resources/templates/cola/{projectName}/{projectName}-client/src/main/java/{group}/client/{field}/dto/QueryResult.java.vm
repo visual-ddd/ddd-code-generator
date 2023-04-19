@@ -4,9 +4,11 @@ package ${IMPORT_PACKAGE_MAP.get(${QUERY_RESULT_ID}).get(${QUERY_RESULT_CLASS_NA
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+
+import java.util.*;
+import java.math.*;
 
 #comment("$QUERY_RESULT_CLASS_DESCRIPTION")
 @Data

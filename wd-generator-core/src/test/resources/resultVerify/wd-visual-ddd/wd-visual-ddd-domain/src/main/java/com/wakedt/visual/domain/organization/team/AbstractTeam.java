@@ -2,7 +2,8 @@ package com.wakedt.visual.domain.organization.team;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.List;
+import java.util.*;
+import java.math.*;
 
 /**
  * 每个团队是单一职责的，通常负责独立子领域的开发工作。-聚合根

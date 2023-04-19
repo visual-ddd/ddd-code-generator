@@ -3,18 +3,16 @@ package com.wakedt.visual.client.account.query;
 import com.wakedata.common.core.base.BaseQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import java.util.*;
+import java.math.*;
 
 /**
  * 查询账号验证码详情
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @ApiModel(value = "查询账号验证码详情")
 public class AccountVerificationDetailQuery extends BaseQuery {
 

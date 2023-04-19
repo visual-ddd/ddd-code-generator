@@ -127,6 +127,8 @@ public class DataObjectStrategy extends AbstractElementStrategy {
             case "decimal":
             case "number":
             case "float":
+                result = "Float";
+                break;
             case "double":
                 result = "Double";
                 break;
