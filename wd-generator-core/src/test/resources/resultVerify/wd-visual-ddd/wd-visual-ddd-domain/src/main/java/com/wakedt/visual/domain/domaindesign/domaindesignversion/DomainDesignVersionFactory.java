@@ -21,7 +21,7 @@ public class DomainDesignVersionFactory {
 
     public DomainDesignVersion getInstance(DomainDesignVersionForkCmd createCmd) {
         DomainDesignVersion instance = new DomainDesignVersion();
-        instance.setStartVersionId(createCmd.getStartVersionId());
+        // TODO 指令字段不匹配 createCmd.getStartVersionId();
         instance.setCurrentVersion(createCmd.getCurrentVersion());
         instance.setDescription(createCmd.getDescription());
         return instance;

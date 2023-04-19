@@ -16,12 +16,12 @@ public class Account extends AbstractAccount {
 
     @Override
     public void checkLoginPass(String password) {
-        // TODO: 验证密码是否正确()
+        // TODO 验证密码是否正确()
     }
 
     @Override
     public void checkUuidPass(String uuid) {
-        // TODO: 验证重置密码唯一标识是否正确()
+        // TODO 验证重置密码唯一标识是否正确()
     }
 
     public void accountModify(AccountModifyCmd updateCmd) {
@@ -29,7 +29,7 @@ public class Account extends AbstractAccount {
         this.setDescription(updateCmd.getDescription());
         this.setUserName(updateCmd.getUserName());
         this.setAccountNo(updateCmd.getAccountNo());
-        this.setNewPassword(updateCmd.getNewPassword());
+        // TODO 指令字段不匹配 updateCmd.getNewPassword();
         this.setIcon(updateCmd.getIcon());
     }
 
@@ -49,12 +49,12 @@ public class Account extends AbstractAccount {
     public void accountPasswordReset(AccountPasswordResetCmd updateCmd) {
         this.setUuid(updateCmd.getUuid());
         this.setAccountNo(updateCmd.getAccountNo());
-        this.setNewPassword(updateCmd.getNewPassword());
+        // TODO 指令字段不匹配 updateCmd.getNewPassword();
     }
 
     public void accountPasswordUpdate(AccountPasswordUpdateCmd updateCmd) {
         this.setId(updateCmd.getId());
-        this.setOldPassword(updateCmd.getOldPassword());
-        this.setNewPassword(updateCmd.getNewPassword());
+        // TODO 指令字段不匹配 updateCmd.getOldPassword();
+        // TODO 指令字段不匹配 updateCmd.getNewPassword();
     }
 }

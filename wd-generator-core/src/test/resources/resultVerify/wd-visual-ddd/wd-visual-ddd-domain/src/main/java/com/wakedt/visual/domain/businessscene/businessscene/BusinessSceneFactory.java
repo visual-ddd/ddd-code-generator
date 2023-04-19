@@ -15,7 +15,7 @@ public class BusinessSceneFactory {
         instance.setName(createCmd.getName());
         instance.setIdentity(createCmd.getIdentity());
         instance.setDescription(createCmd.getDescription());
-        instance.setStartVersion(createCmd.getStartVersion());
+        // TODO 指令字段不匹配 createCmd.getStartVersion();
         return instance;
     }
 

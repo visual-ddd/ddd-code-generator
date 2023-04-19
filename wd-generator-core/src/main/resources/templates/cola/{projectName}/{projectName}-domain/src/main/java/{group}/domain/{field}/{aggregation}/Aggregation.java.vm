@@ -17,7 +17,20 @@ public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME}
 
     public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} updateCmd) {
 #foreach($cmdField in ${cmd.propertyList})
+#set($isCmdMatch = 0)
+#if(${cmdField.name} == ${AGGREGATION_CLASS_ID.name} && ${cmdField.type} == ${AGGREGATION_CLASS_ID.type})
         this.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
+#set($isCmdMatch = 1)
+#end
+#foreach($rootField in ${AGGREGATION_CLASS_FIELDS})
+#if(${cmdField.name} == ${rootField.name} && ${cmdField.type} == ${rootField.type})
+        this.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
+#set($isCmdMatch = 1)
+#end
+#end
+#if($isCmdMatch == 0)
+        // TODO 指令字段不匹配 updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}();
+#end
 #end
     }
 #end

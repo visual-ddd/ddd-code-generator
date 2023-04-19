@@ -14,17 +14,17 @@ public class DomainDesignVersion extends AbstractDomainDesignVersion {
 
     @Override
     public void checkLegalVersion() {
-        // TODO: 版本号合法(校验版本号命名是否符合标准)
+        // TODO 版本号合法(校验版本号命名是否符合标准)
     }
 
     @Override
     public void checkVersionPublishedException() {
-        // TODO: 发布锁定(当前版本发布后不能再进行任何操作)
+        // TODO 发布锁定(当前版本发布后不能再进行任何操作)
     }
 
     @Override
     public void checkVersionUnPublishedException() {
-        // TODO: 未发布异常(当未发布时，抛出异常)
+        // TODO 未发布异常(当未发布时，抛出异常)
     }
 
     public void domainDesignVersionModify(DomainDesignVersionModifyCmd updateCmd) {

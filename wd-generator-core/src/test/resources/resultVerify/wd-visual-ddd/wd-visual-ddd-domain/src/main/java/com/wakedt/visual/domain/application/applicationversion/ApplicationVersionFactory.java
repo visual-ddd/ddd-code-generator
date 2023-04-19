@@ -21,7 +21,7 @@ public class ApplicationVersionFactory {
 
     public ApplicationVersion getInstance(ApplicationVersionForkCmd createCmd) {
         ApplicationVersion instance = new ApplicationVersion();
-        instance.setStartVersionId(createCmd.getStartVersionId());
+        // TODO 指令字段不匹配 createCmd.getStartVersionId();
         instance.setCurrentVersion(createCmd.getCurrentVersion());
         instance.setDescription(createCmd.getDescription());
         return instance;

@@ -17,7 +17,18 @@ public class ${AGGREGATION_CLASS_NAME}Factory {
     public ${AGGREGATION_CLASS_NAME} getInstance(${cmd.name} createCmd) {
         ${AGGREGATION_CLASS_NAME} instance = new ${AGGREGATION_CLASS_NAME}();
 #foreach($cmdField in ${cmd.propertyList})
+#set($isCmdMatch = 0)
+#foreach($rootField in ${AGGREGATION_CLASS_FIELDS})
+#if(${cmdField.name} == ${rootField.name} && ${cmdField.type} == ${rootField.type})
+#set($isCmdMatch = 1)
+#end
+#end
+#if($isCmdMatch == 1)
         instance.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
+#end
+#if($isCmdMatch == 0)
+        // TODO 指令字段不匹配 createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}();
+#end
 #end
         return instance;
     }

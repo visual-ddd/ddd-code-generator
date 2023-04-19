@@ -57,7 +57,7 @@ import ${importPackage};
 
     @Override
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})}) {
-        // TODO: ${method.title}(${method.description})
+        // TODO ${method.title}(${method.description})
 #if($method.signature.returnInfo.type != "void")
         return null;
  #end
