@@ -1,7 +1,7 @@
 package com.wakedt.visual.domain.domaindesign.domaindesign;
 
 /**
- * 维护业务域及版本的领域-聚合根-仓储接口
+ * 业务域-聚合根-仓储接口
  */
 public interface DomainDesignRepository {
 

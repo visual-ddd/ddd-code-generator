@@ -1,6 +1,7 @@
 package com.wakedt.visual.app.businessscene.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionForkDTO;
@@ -8,8 +9,8 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.businessscene
 import com.wakedt.visual.domain.businessscene.businesssceneversion.VersionStateConverter;
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
         VersionStateConverter.class,
-        JsonConverter.class,
 })
 public interface BusinessSceneVersionForkDTO2BusinessSceneVersionForkCmdConvert extends BaseConvert<BusinessSceneVersionForkDTO, BusinessSceneVersionForkCmd> {
 

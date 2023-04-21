@@ -21,7 +21,7 @@ public class BusinessSceneModifyCmd {
     /** 名称 */
     private String name;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
 }

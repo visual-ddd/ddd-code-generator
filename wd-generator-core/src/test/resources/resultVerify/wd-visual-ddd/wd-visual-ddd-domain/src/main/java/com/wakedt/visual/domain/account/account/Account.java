@@ -10,18 +10,18 @@ import com.wakedt.visual.domain.account.account.accountpasswordreset.AccountPass
 import com.wakedt.visual.domain.account.account.accountpasswordupdate.AccountPasswordUpdateCmd;
 
 /**
- * 用户的唯一标识，用于平台登录-聚合根能力
+ * 账号-聚合根能力
  */
 public class Account extends AbstractAccount {
 
     @Override
     public void checkLoginPass(String password) {
-        // TODO 验证密码是否正确()
+        /* TODO 验证密码是否正确() */
     }
 
     @Override
     public void checkUuidPass(String uuid) {
-        // TODO 验证重置密码唯一标识是否正确()
+        /* TODO 验证重置密码唯一标识是否正确() */
     }
 
     public void accountModify(AccountModifyCmd updateCmd) {
@@ -29,7 +29,7 @@ public class Account extends AbstractAccount {
         this.setDescription(updateCmd.getDescription());
         this.setUserName(updateCmd.getUserName());
         this.setAccountNo(updateCmd.getAccountNo());
-        // TODO 指令字段不匹配 updateCmd.getNewPassword();
+        /* TODO 指令字段不匹配 updateCmd.getNewPassword(); */
         this.setIcon(updateCmd.getIcon());
     }
 
@@ -49,12 +49,12 @@ public class Account extends AbstractAccount {
     public void accountPasswordReset(AccountPasswordResetCmd updateCmd) {
         this.setUuid(updateCmd.getUuid());
         this.setAccountNo(updateCmd.getAccountNo());
-        // TODO 指令字段不匹配 updateCmd.getNewPassword();
+        /* TODO 指令字段不匹配 updateCmd.getNewPassword(); */
     }
 
     public void accountPasswordUpdate(AccountPasswordUpdateCmd updateCmd) {
         this.setId(updateCmd.getId());
-        // TODO 指令字段不匹配 updateCmd.getOldPassword();
-        // TODO 指令字段不匹配 updateCmd.getNewPassword();
+        /* TODO 指令字段不匹配 updateCmd.getOldPassword(); */
+        /* TODO 指令字段不匹配 updateCmd.getNewPassword(); */
     }
 }

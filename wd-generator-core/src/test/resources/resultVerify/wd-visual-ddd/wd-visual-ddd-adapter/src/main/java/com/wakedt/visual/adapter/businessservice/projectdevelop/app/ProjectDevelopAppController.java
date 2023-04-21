@@ -60,7 +60,7 @@ public class ProjectDevelopAppController {
         return projectDevelopRpcService.importUniversalLanguageFromExcel(request);
     }
 
-    @ApiOperation("不进行数据处理(由前端进行插入数据库)")
+    @ApiOperation("Excel导入统一语言(业务域)")
     @PostMapping("/business-import-universallanguage-from-excel")
     public ResultDTO<List<UniversalLanguageExcelDTO>> businessImportUniversallanguageFromExcel(@RequestBody @Valid BusinessImportUniversallanguageFromExcel request) {
         return projectDevelopRpcService.businessImportUniversallanguageFromExcel(request);

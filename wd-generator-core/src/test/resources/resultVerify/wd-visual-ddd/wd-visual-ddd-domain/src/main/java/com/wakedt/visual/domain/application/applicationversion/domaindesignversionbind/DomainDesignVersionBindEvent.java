@@ -17,7 +17,7 @@ public class DomainDesignVersionBindEvent extends BaseDomainEvent {
     /** 应用版本ID */
     private Long id;
 
-    /** 当前应用关联的业务域版本ID列表 */
+    /** 关联业务域列表 */
     private Set<Long> domainDesignVersionIds;
     
     public DomainDesignVersionBindEvent() {}
@@ -30,6 +30,6 @@ public class DomainDesignVersionBindEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.application.applicationversion.domaindesignversionbind}";
     }
 }

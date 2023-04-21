@@ -66,7 +66,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 组织结构管理的领域-RPC能力接口实现
+ * 组织域-RPC能力接口实现
  */
 @Service
 public class OrganizationRpcServiceImpl implements OrganizationRpcService {

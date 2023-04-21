@@ -9,20 +9,20 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 分页查询统一语言
+ * 统一语言分页查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "分页查询统一语言")
+@ApiModel(value = "统一语言分页查询对象")
 public class UniversalLanguagePageQuery extends PageQuery {
 
     @ApiModelProperty(value = "概念")
     private String conception;
 
-    @ApiModelProperty(value = "统一语言的类型")
+    @ApiModelProperty(value = "统一语言类型")
     private String languageType;
 
-    @ApiModelProperty(value = "所属唯一标识(组织/团队的主键id)")
+    @ApiModelProperty(value = "所属唯一标识")
     private Long identity;
 
 }

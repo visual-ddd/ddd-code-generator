@@ -10,7 +10,7 @@ import com.wakedt.visual.client.domaindesign.dto.DomainDesignDTO;
 import com.wakedt.visual.app.domaindesign.assembler.DomainDesignDTO2DomainDesignDOConvert;
 
 /**
- * 查询业务域详情-查询器
+ * 业务域详情查询对象-查询器
  */
 @Component
 public class DomainDesignQueryExe {

@@ -18,7 +18,7 @@ public class BusinessSceneVersionBindCmd {
     /** 应用版本ID */
     private Long id;
 
-    /** 当前应用关联的业务场景版本ID列表 */
+    /** 关联业务场景列表 */
     private Set<Long> businessSceneVersionIds;
 
 }

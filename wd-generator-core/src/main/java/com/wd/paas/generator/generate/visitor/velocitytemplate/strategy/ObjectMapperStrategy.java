@@ -89,6 +89,7 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.OBJECT_MAPPER_ID, astObjectMapper.getIdentity());
         context.put(VelocityLabel.OBJECT_MAPPER_CLASS_DESCRIPTION, astObjectMapper.getDescription());
+        context.put(VelocityLabel.OBJECT_MAPPER_CLASS_TITLE, astObjectMapper.getTitle());
 
         context.put(VelocityLabel.OBJECT_MAPPER_SOURCE_OBJECT, astObjectMapper.getSource().getName());
         context.put(VelocityLabel.OBJECT_MAPPER_TARGET_OBJECT, astObjectMapper.getTarget().getName());

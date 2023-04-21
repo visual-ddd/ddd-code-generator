@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.universallanguage.universallanguage.create.UniversalLanguageCreateCmd;
 
 /**
- * 维护系统中统一语言的领域-聚合根-工厂
+ * 统一语言-聚合根-工厂
  */
 @Component
 public class UniversalLanguageFactory {

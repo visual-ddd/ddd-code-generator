@@ -14,10 +14,10 @@ import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQue
 @Mapper
 public interface UniversalLanguageMapper extends BaseMapper<UniversalLanguageDO> {
 
-    /** 查询统一语言详情 */
+    /** 统一语言详情查询对象 */
     UniversalLanguageDO universalLanguageQuery(UniversalLanguageQuery query);
 
-    /** 分页查询统一语言 */
+    /** 统一语言分页查询对象 */
     List<UniversalLanguageDO> universalLanguagePageQuery(UniversalLanguagePageQuery pageQuery);
 
 }

@@ -6,7 +6,7 @@ import com.wakedt.visual.domain.businessscene.businessscene.businessscenemodify.
 import com.wakedt.visual.domain.businessscene.businessscene.businesssceneremove.BusinessSceneRemoveCmd;
 
 /**
- * 维护业务场景及版本的领域-聚合根能力
+ * 业务场景-聚合根能力
  */
 public class BusinessScene extends AbstractBusinessScene {
 

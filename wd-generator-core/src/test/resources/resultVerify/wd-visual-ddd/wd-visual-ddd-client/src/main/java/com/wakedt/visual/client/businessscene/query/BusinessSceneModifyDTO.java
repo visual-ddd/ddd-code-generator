@@ -19,7 +19,7 @@ public class BusinessSceneModifyDTO {
     @ApiModelProperty(value = "名称")
     public String name;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
 }

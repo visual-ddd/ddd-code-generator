@@ -13,7 +13,7 @@ import com.wakedt.visual.client.organization.query.TeamMemberByTeamIdPageQuery;
 @Mapper
 public interface TeamMemberMapper extends BaseMapper<TeamMemberDO> {
 
-    /** 分页查询团队成员 */
+    /** 查询团队下的成员信息 */
     List<TeamMemberDO> teamMemberByTeamIdPageQuery(TeamMemberByTeamIdPageQuery pageQuery);
 
 }

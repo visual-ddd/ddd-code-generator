@@ -1,13 +1,14 @@
 package com.wakedt.visual.app.account.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.account.query.AccountVerificationUpdateDTO;
 import com.wakedt.visual.domain.account.accountverification.verificationupdate.AccountVerificationUpdateCmd;
 
 @Mapper(uses = {
-        JsonConverter.class,
+        BaseJsonConvertor.class,
 })
 public interface AccountVerificationUpdateDTO2AccountVerificationUpdateCmdConvert extends BaseConvert<AccountVerificationUpdateDTO, AccountVerificationUpdateCmd> {
 

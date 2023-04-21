@@ -31,7 +31,7 @@ public class UniversalLanguageCreateDTO {
     @ApiModelProperty(value = "举例")
     public String example;
 
-    @ApiModelProperty(value = "所属唯一标识(组织/团队的主键id)")
+    @ApiModelProperty(value = "所属唯一标识")
     public Long identity;
 
 }

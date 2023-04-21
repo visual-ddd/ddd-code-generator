@@ -16,10 +16,10 @@ public class DomainDesignDslUpdateDTO {
     @ApiModelProperty(value = "业务域场景ID")
     public Long id;
 
-    @ApiModelProperty(value = "业务域抽象文本描述语言")
+    @ApiModelProperty(value = "业务域DSL")
     public String domainDesignDsl;
 
-    @ApiModelProperty(value = "图形的抽象文本描述语言")
+    @ApiModelProperty(value = "图形DSL")
     public String graphDsl;
 
 }

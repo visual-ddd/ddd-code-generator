@@ -17,7 +17,7 @@ public class OrganizationManagerBindEvent extends BaseDomainEvent {
     /** 组织 ID */
     private Long id;
 
-    /** 组织的管理者，被系统管理员授权，管理自己所在组织下的所有团队。 */
+    /** 组织管理员 */
     private Long organizationManagerId;
     
     public OrganizationManagerBindEvent() {}
@@ -30,6 +30,6 @@ public class OrganizationManagerBindEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.organization.organization.organizationmanagerbind}";
     }
 }

@@ -19,7 +19,7 @@ public class TeamMemberAddCmdHandler {
     public Long handle(TeamMemberAddCmd createCmd) {
         TeamMember entity = factory.getInstance(createCmd);
 
-        // TODO CheckRepeatedTeamMember(团队成员不能重复) 校验团队成员是否重复
+        /* TODO CheckRepeatedTeamMember(团队成员不能重复) 校验团队成员是否重复 */
 
         TeamMember newEntity = repository.save(entity);
 

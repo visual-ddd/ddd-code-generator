@@ -26,7 +26,7 @@
             "uuid": "946de11f-006a-4978-91f8-11d7d3583b47",
             "title": "账号登录",
             "name": "Login",
-            "description": "验证账号密码，并返回用户信息，供存储到session",
+            "description": "验证账号密码，\n并返回用户信息，供存储到session",
             "meta": {},
             "source": [
               {

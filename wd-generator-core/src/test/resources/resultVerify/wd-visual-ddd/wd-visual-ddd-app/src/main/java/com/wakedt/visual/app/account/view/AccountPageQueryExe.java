@@ -14,7 +14,7 @@ import com.wakedt.visual.client.account.dto.AccountDTO;
 import com.wakedt.visual.app.account.assembler.AccountDTO2AccountDOConvert;
 
 /**
- * 分页查询账号-查询器
+ * 账号分页查询对象-查询器
  */
 @Component
 public class AccountPageQueryExe {

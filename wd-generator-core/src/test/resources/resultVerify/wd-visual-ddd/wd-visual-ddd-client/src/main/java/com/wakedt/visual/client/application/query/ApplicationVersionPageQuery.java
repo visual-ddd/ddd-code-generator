@@ -9,14 +9,14 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 分页查询应用版本
+ * 应用版本分页查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "分页查询应用版本")
+@ApiModel(value = "应用版本分页查询对象")
 public class ApplicationVersionPageQuery extends PageQuery {
 
-    @ApiModelProperty(value = "应用的唯一标识")
+    @ApiModelProperty(value = "应用ID")
     private String applicationId;
 
 }

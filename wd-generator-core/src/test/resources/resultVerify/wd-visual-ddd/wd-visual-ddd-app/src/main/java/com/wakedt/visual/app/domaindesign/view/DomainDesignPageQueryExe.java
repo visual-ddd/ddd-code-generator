@@ -14,7 +14,7 @@ import com.wakedt.visual.client.domaindesign.dto.DomainDesignDTO;
 import com.wakedt.visual.app.domaindesign.assembler.DomainDesignDTO2DomainDesignDOConvert;
 
 /**
- * 分页查询业务域-查询器
+ * 业务域分页查询对象-查询器
  */
 @Component
 public class DomainDesignPageQueryExe {

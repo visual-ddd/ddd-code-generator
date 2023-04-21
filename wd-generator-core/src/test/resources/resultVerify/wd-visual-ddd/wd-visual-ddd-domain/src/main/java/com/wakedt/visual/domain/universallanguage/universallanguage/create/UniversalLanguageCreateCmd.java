@@ -33,7 +33,7 @@ public class UniversalLanguageCreateCmd {
     /** 举例 */
     private String example;
 
-    /** 所属唯一标识(组织/团队的主键id) */
+    /** 所属唯一标识 */
     private Long identity;
 
 }

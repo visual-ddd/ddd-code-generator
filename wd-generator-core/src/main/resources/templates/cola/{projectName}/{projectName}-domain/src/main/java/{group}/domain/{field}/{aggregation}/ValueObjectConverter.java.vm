@@ -3,7 +3,7 @@ package ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_CLASS_N
 
 import cn.hutool.json.JSONUtil;
 
-#comment("${VALUE_OBJECT_CLASS_DESCRIPTION}-值对象JSON转换器")
+#comment("${VALUE_OBJECT_CLASS_TITLE}-值对象JSON转换器")
 public class ${VALUE_OBJECT_CLASS_NAME}Converter {
 
     public String convertToDatabaseColumn(${VALUE_OBJECT_CLASS_NAME} valueObject) {

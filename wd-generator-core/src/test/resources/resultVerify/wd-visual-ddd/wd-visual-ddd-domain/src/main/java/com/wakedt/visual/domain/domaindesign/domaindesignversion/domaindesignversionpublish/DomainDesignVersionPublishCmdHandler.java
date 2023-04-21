@@ -18,7 +18,7 @@ public class DomainDesignVersionPublishCmdHandler {
         DomainDesignVersion domainDesignVersion = repository.find(updateCmd.getId());
         domainDesignVersion.domainDesignVersionPublish(updateCmd);
 
-        // TODO CheckVersionPublishedException(发布锁定) 当前版本发布后不能再进行任何操作
+        /* TODO CheckVersionPublishedException(发布锁定) 当前版本发布后不能再进行任何操作 */
 
         repository.update(domainDesignVersion);
 

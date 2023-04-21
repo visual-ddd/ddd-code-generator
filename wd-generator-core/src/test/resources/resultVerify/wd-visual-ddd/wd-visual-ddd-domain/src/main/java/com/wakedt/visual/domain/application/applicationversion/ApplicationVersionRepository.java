@@ -1,7 +1,7 @@
 package com.wakedt.visual.domain.application.applicationversion;
 
 /**
- * 描述应用版本信息-聚合根-仓储接口
+ * 应用版本-聚合根-仓储接口
  */
 public interface ApplicationVersionRepository {
 

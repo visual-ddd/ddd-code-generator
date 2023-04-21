@@ -10,7 +10,7 @@ import com.wakedt.visual.client.organization.dto.OrganizationDTO;
 import com.wakedt.visual.app.organization.assembler.OrganizationDTO2OrganizationDOConvert;
 
 /**
- * 查询组织详情-查询器
+ * 组织详情查询对象-查询器
  */
 @Component
 public class OrganizationQueryExe {

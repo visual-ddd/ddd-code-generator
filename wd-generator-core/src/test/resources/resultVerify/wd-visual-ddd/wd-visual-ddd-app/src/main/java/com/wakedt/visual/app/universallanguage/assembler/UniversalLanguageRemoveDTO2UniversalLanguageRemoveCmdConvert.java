@@ -1,6 +1,7 @@
 package com.wakedt.visual.app.universallanguage.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveDTO;
@@ -8,8 +9,8 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.remove.Unive
 import com.wakedt.visual.domain.universallanguage.universallanguage.LanguageTypeConverter;
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
         LanguageTypeConverter.class,
-        JsonConverter.class,
 })
 public interface UniversalLanguageRemoveDTO2UniversalLanguageRemoveCmdConvert extends BaseConvert<UniversalLanguageRemoveDTO, UniversalLanguageRemoveCmd> {
 

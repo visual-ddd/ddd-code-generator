@@ -19,9 +19,9 @@ public class ApplicationVersionForkCmdHandler {
     public Long handle(ApplicationVersionForkCmd createCmd) {
         ApplicationVersion entity = factory.getInstance(createCmd);
 
-        // TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准
+        /* TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准 */
 
-        // TODO ForkVersion(fork新版本) 拷贝一个新版本
+        /* TODO ForkVersion(fork新版本) 拷贝一个新版本 */
 
         ApplicationVersion newEntity = repository.save(entity);
 

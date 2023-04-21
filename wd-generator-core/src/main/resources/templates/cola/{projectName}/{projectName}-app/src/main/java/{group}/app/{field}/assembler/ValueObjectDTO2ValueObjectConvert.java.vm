@@ -2,6 +2,7 @@
 package ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
+import ${PROJECT_PACKAGE}.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_DTO_NAME}")}.${VALUE_OBJECT_DTO_NAME};
@@ -9,6 +10,7 @@ import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get(${VALUE_OBJECT_CLASS_NAM
 #importEnumConverter()
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
 #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})
         ${aggregationEnum.name}Converter.class,
 #end

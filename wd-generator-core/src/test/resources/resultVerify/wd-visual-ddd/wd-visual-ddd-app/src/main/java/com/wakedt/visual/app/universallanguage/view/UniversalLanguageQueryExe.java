@@ -10,7 +10,7 @@ import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
 import com.wakedt.visual.app.universallanguage.assembler.UniversalLanguageDTO2UniversalLanguageDOConvert;
 
 /**
- * 查询统一语言详情-查询器
+ * 统一语言详情查询对象-查询器
  */
 @Component
 public class UniversalLanguageQueryExe {

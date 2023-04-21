@@ -9,14 +9,14 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 分页查询业务场景版本
+ * 业务场景版本分页查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "分页查询业务场景版本")
+@ApiModel(value = "业务场景版本分页查询对象")
 public class BusinessSceneVersionPageQuery extends PageQuery {
 
-    @ApiModelProperty(value = "业务场景的唯一标识")
+    @ApiModelProperty(value = "业务场景ID")
     private String businessSceneId;
 
 }

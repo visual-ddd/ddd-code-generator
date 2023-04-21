@@ -2028,7 +2028,7 @@
                     "uuid": "08fc390a-3f53-4a7c-b6e1-6e2470234722",
                     "title": "账号唯一",
                     "name": "IsAccountExistsOrError",
-                    "description": "邮箱为用户唯一标识，同一个邮箱不可重复注册",
+                    "description": "邮箱为用户唯一标识，\n同一个邮箱不可重复注册",
                     "meta": {}
                   }
                 ],

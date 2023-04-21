@@ -13,22 +13,22 @@ import java.math.*;
 @ApiModel(value = "新增应用")
 public class ApplicationCreateDTO {
 
-    @ApiModelProperty(value = "团队的唯一标识")
+    @ApiModelProperty(value = "团队ID")
     public Long teamId;
 
     @ApiModelProperty(value = "名称")
     public String name;
 
-    @ApiModelProperty(value = "唯一标识，此处使用大驼峰命名")
+    @ApiModelProperty(value = "标识符")
     public String identity;
 
-    @ApiModelProperty(value = "生成项目时的包结构")
+    @ApiModelProperty(value = "包名")
     public String packageName;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
-    @ApiModelProperty(value = "第一次创建时，需要指定起始版本号")
+    @ApiModelProperty(value = "起始版本号")
     public String startVersion;
 
 }

@@ -14,10 +14,10 @@ import com.wakedt.visual.client.organization.query.OrganizationPageQuery;
 @Mapper
 public interface OrganizationMapper extends BaseMapper<OrganizationDO> {
 
-    /** 查询组织详情 */
+    /** 组织详情查询对象 */
     OrganizationDO organizationQuery(OrganizationQuery query);
 
-    /** 分页查询组织 */
+    /** 组织分页查询对象 */
     List<OrganizationDO> organizationPageQuery(OrganizationPageQuery pageQuery);
 
 }

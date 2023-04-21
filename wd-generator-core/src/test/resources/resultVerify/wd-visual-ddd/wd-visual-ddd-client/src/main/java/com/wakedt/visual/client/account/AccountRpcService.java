@@ -20,7 +20,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 账号管理的领域-RPC能力接口
+ * 账号域-RPC能力接口
  */
 public interface AccountRpcService {
 

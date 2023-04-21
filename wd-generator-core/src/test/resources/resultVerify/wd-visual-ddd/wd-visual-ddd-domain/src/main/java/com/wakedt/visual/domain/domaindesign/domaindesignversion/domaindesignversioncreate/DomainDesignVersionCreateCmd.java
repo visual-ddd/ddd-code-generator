@@ -15,16 +15,16 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
 @NoArgsConstructor
 public class DomainDesignVersionCreateCmd {
 
-    /** 业务域的唯一标识 */
+    /** 业务域ID */
     private Long domainDesignId;
 
-    /** 第一次创建时，需要指定起始版本号 */
+    /** 起始版本号 */
     private String startVersion;
 
-    /** 当前版本的唯一标识 */
+    /** 当前版本号 */
     private String currentVersion;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
 }

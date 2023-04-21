@@ -8,7 +8,7 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};
 #end
 #end
 
-#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-工厂")
+#comment("${AGGREGATION_CLASS_TITLE}-聚合根-工厂")
 @Component
 public class ${AGGREGATION_CLASS_NAME}Factory {
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
@@ -27,7 +27,7 @@ public class ${AGGREGATION_CLASS_NAME}Factory {
         instance.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
 #end
 #if($isCmdMatch == 0)
-        // TODO 指令字段不匹配 createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}();
+        /* TODO 指令字段不匹配 createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(); */
 #end
 #end
         return instance;

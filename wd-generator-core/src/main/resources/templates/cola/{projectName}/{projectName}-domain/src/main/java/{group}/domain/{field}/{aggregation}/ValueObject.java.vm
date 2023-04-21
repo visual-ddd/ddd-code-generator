@@ -3,7 +3,7 @@ package ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_CLASS_N
 
 import lombok.Data;
 
-#comment("${VALUE_OBJECT_CLASS_DESCRIPTION}-值对象")
+#comment("${VALUE_OBJECT_CLASS_TITLE}-值对象")
 @Data
 public class ${VALUE_OBJECT_CLASS_NAME} {
 #filed($VALUE_OBJECT_CLASS_FIELDS)

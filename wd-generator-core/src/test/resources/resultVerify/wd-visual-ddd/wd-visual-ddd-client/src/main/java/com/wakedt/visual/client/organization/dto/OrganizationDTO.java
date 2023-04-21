@@ -10,11 +10,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 用于组织的数据传输对象
+ * 组织数据传输对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "用于组织的数据传输对象")
+@ApiModel(value = "组织数据传输对象")
 public class OrganizationDTO extends BaseDTO {
 
     @ApiModelProperty(value = "组织 ID")
@@ -26,7 +26,7 @@ public class OrganizationDTO extends BaseDTO {
     @ApiModelProperty(value = "描述")
     private String description;
 
-    @ApiModelProperty(value = "组织的管理者，被系统管理员授权，管理自己所在组织下的所有团队。")
+    @ApiModelProperty(value = "组织管理员")
     private Long organizationManagerId;
 
 }

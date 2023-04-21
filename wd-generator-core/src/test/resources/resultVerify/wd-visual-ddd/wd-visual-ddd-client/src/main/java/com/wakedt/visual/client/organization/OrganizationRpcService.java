@@ -28,7 +28,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 组织结构管理的领域-RPC能力接口
+ * 组织域-RPC能力接口
  */
 public interface OrganizationRpcService {
 

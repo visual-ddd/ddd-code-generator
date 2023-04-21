@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 每个团队是单一职责的，通常负责独立子领域的开发工作。实体类
+ * 团队实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -34,9 +34,9 @@ public class TeamDO extends BaseJpaAggregate {
     /** 描述 */
     private String description;
 
-    /** 组织唯一标识 */
+    /** 组织ID */
     private Long organizationId;
 
-    /** 团队的管理者，被组织管理员授权，管理自己所在团队 */
+    /** 团队管理员 */
     private Long teamManagerId;
 }

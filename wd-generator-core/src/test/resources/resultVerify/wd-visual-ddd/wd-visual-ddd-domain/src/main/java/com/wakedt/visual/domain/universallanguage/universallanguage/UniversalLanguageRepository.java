@@ -1,7 +1,7 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage;
 
 /**
- * 维护系统中统一语言的领域-聚合根-仓储接口
+ * 统一语言-聚合根-仓储接口
  */
 public interface UniversalLanguageRepository {
 

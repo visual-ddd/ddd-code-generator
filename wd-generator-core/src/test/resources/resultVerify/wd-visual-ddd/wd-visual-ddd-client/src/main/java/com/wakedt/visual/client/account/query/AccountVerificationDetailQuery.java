@@ -9,14 +9,14 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询账号验证码详情
+ * 账号验证码详情查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询账号验证码详情")
+@ApiModel(value = "账号验证码详情查询对象")
 public class AccountVerificationDetailQuery extends BaseQuery {
 
-    @ApiModelProperty(value = "用户登录的唯一标识，目前以用户邮箱作为账号")
+    @ApiModelProperty(value = "账号标识")
     private String accountNo;
 
 }

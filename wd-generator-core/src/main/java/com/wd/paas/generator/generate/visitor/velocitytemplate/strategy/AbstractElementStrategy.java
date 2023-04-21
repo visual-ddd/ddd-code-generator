@@ -29,8 +29,10 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
     }
 
     public void initProperties() {
-        if (StringUtils.isBlank(elementNode.getDescription())) {
-            elementNode.setDescription(elementNode.getTitle());
+        String description = StringUtils.defaultIfBlank(elementNode.getDescription(), elementNode.getTitle());
+
+        if (StringUtils.isNotBlank(description)) {
+            elementNode.setDescription(description.replace("\n", "\\n"));
         }
     }
 

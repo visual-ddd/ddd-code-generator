@@ -11,7 +11,7 @@ import java.math.*;
 import java.util.Optional;
 
 /**
- * 统一语言的类型-枚举JSON转换器
+ * 统一语言类型-枚举JSON转换器
  */
 public class LanguageTypeConverter {
 

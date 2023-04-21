@@ -134,31 +134,31 @@ public class OrganizationAppController {
         return organizationRpcService.teamManagerRoleUnbind(dto);
     }
 
-    @ApiOperation("查询组织详情")
+    @ApiOperation("组织详情查询对象")
     @GetMapping("/organization-query")
     public ResultDTO<OrganizationDTO> organizationQuery(OrganizationQuery query) {
         return organizationRpcService.organizationQuery(query);
     }
 
-    @ApiOperation("分页查询组织")
+    @ApiOperation("组织分页查询对象")
     @GetMapping("/organization-page-query")
     public PageResultDTO<List<OrganizationDTO>> organizationPageQuery(OrganizationPageQuery pageQuery) {
         return organizationRpcService.organizationPageQuery(pageQuery);
     }
 
-    @ApiOperation("查询团队详情")
+    @ApiOperation("团队详情查询对象")
     @GetMapping("/team-query")
     public ResultDTO<TeamDTO> teamQuery(TeamQuery query) {
         return organizationRpcService.teamQuery(query);
     }
 
-    @ApiOperation("分页查询团队")
+    @ApiOperation("团队分页查询对象")
     @GetMapping("/team-page-query")
     public PageResultDTO<List<TeamDTO>> teamPageQuery(TeamPageQuery pageQuery) {
         return organizationRpcService.teamPageQuery(pageQuery);
     }
 
-    @ApiOperation("分页查询团队成员")
+    @ApiOperation("查询团队下的成员信息")
     @GetMapping("/team-member-by-team-id-page-query")
     public PageResultDTO<List<TeamMemberDTO>> teamMemberByTeamIdPageQuery(TeamMemberByTeamIdPageQuery pageQuery) {
         return organizationRpcService.teamMemberByTeamIdPageQuery(pageQuery);

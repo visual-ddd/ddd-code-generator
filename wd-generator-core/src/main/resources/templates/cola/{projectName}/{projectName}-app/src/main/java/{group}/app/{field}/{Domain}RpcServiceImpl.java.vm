@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.math.*;
 
-#comment("${DOMAIN_DESCRIPTION}-RPC能力接口实现")
+#comment("${DOMAIN_TITLE}-RPC能力接口实现")
 @Service
 public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}RpcService {
 

@@ -13,16 +13,16 @@ import java.math.*;
 @ApiModel(value = "新增应用版本")
 public class ApplicationVersionCreateDTO {
 
-    @ApiModelProperty(value = "应用的唯一标识")
+    @ApiModelProperty(value = "应用ID")
     public Long applicationId;
 
-    @ApiModelProperty(value = "第一次创建时，需要指定起始版本号")
+    @ApiModelProperty(value = "起始版本号")
     public String startVersion;
 
-    @ApiModelProperty(value = "当前版本的唯一标识")
+    @ApiModelProperty(value = "当前版本号")
     public String currentVersion;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
 }

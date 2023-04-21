@@ -23,7 +23,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 维护业务场景及版本的领域-RPC能力接口
+ * 业务场景域-RPC能力接口
  */
 public interface BusinessSceneRpcService {
 

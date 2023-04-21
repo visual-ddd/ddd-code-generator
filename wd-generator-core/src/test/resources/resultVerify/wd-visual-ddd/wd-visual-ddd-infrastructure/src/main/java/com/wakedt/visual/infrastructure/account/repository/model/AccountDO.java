@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 用户的唯一标识，用于平台登录实体类
+ * 账号实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,7 +28,7 @@ public class AccountDO extends BaseJpaAggregate {
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** 用户登录的唯一标识，目前以用户邮箱作为账号 */
+    /** 账号 */
     private String accountNo;
 
     /** 用户名 */
@@ -43,6 +43,6 @@ public class AccountDO extends BaseJpaAggregate {
     /** 描述 */
     private String description;
 
-    /** 用户重置密码时携带的唯一标识 */
+    /** 重置密码唯一标识 */
     private String uuid;
 }

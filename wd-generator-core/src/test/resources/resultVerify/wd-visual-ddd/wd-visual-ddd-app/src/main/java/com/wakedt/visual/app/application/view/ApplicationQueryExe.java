@@ -10,7 +10,7 @@ import com.wakedt.visual.client.application.dto.ApplicationDTO;
 import com.wakedt.visual.app.application.assembler.ApplicationDTO2ApplicationDOConvert;
 
 /**
- * 查询应用详情-查询器
+ * 应用详情查询对象-查询器
  */
 @Component
 public class ApplicationQueryExe {

@@ -10,7 +10,7 @@ import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
 import com.wakedt.visual.app.businessscene.assembler.BusinessSceneVersionDTO2BusinessSceneVersionDOConvert;
 
 /**
- * 查询应用下的最新版本-查询器
+ * 应用最新版本查询对象-查询器
  */
 @Component
 public class BusinessSceneLatestVersionQueryExe {

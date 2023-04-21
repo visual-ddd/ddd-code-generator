@@ -1,7 +1,7 @@
 package com.wakedt.visual.domain.organization.organization;
 
 /**
- * 组织结构管理的领域-聚合根-仓储接口
+ * 组织-聚合根-仓储接口
  */
 public interface OrganizationRepository {
 

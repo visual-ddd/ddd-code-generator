@@ -15,10 +15,10 @@ import com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery;
 @Mapper
 public interface BusinessSceneMapper extends BaseMapper<BusinessSceneDO> {
 
-    /** 查询业务场景详情 */
+    /** 业务场景详情查询对象 */
     BusinessSceneDO businessSceneQuery(BusinessSceneQuery query);
 
-    /** 分页查询业务场景 */
+    /** 业务场景分页查询对象 */
     List<BusinessSceneDO> businessScenePageQuery(BusinessScenePageQuery pageQuery);
 
     /** 业务场景列表查询对象 */

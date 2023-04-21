@@ -17,10 +17,10 @@ public class BusinessSceneVersionDSLUpdateEvent extends BaseDomainEvent {
     /** 业务场景版本ID */
     private Long id;
 
-    /** 图形的抽象文本描述语言 */
+    /** 图形DSL */
     private String graphDsl;
 
-    /** 业务场景抽象文本描述语言 */
+    /** 业务场景DSL */
     private String businessSceneDsl;
     
     public BusinessSceneVersionDSLUpdateEvent() {}
@@ -34,6 +34,6 @@ public class BusinessSceneVersionDSLUpdateEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.businessscene.businesssceneversion.dslupdate}";
     }
 }

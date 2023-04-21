@@ -37,7 +37,7 @@ public class CommandStrategy extends AbstractElementStrategy {
         DomainEventNode astDomainEvent = astCommand.getAstDomainEvent();
         astDomainEvent.setName(Optional.ofNullable(astDomainEvent.getName()).orElse(eventName));
         astDomainEvent.setPropertyList(getEventProperties());
-        astDomainEvent.setDescription(astCommand.getDescription());
+        astDomainEvent.setTitle(astCommand.getTitle());
     }
 
     @Override
@@ -67,11 +67,13 @@ public class CommandStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.CMD_ID, astCommand.getIdentity());
         context.put(VelocityLabel.CMD_CLASS_NAME, astCommand.getName());
         context.put(VelocityLabel.CMD_CLASS_DESCRIPTION, astCommand.getDescription());
+        context.put(VelocityLabel.CMD_CLASS_TITLE, astCommand.getTitle());
         context.put(VelocityLabel.CMD_CLASS_FIELDS, astCommand.getPropertyList());
 
         context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, astCommand.getAstDomainEvent().getName());
         context.put(VelocityLabel.CMD_EVENT_CLASS_FIELDS, astCommand.getAstDomainEvent().getPropertyList());
         context.put(VelocityLabel.CMD_EVENT_CLASS_DESCRIPTION, astCommand.getAstDomainEvent().getDescription());
+        context.put(VelocityLabel.CMD_EVENT_CLASS_TITLE, astCommand.getAstDomainEvent().getTitle());
 
         context.put(VelocityLabel.CMD_CATEGORY, astCommand.getCategory());
         context.put(VelocityLabel.CMD_DTO_CLASS, astCommand.getCmdDTOName());

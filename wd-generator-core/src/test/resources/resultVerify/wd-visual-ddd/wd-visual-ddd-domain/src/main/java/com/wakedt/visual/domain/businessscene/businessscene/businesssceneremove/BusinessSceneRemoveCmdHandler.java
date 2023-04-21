@@ -18,7 +18,7 @@ public class BusinessSceneRemoveCmdHandler {
         BusinessScene businessScene = repository.find(removeCmd.getId());
         businessScene.businessSceneRemove(removeCmd);
 
-        // TODO CheckExistBusinessSceneVersion(存在版本不能删除) 校验当前业务场景下是否存在版本
+        /* TODO CheckExistBusinessSceneVersion(存在版本不能删除) 校验当前业务场景下是否存在版本 */
 
         repository.remove(businessScene);
 

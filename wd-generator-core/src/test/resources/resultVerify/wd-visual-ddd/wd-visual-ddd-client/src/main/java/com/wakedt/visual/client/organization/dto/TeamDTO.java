@@ -10,11 +10,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 用于团队的数据传输对象
+ * 团队数据传输对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "用于团队的数据传输对象")
+@ApiModel(value = "团队数据传输对象")
 public class TeamDTO extends BaseDTO {
 
     @ApiModelProperty(value = "团队ID")
@@ -26,10 +26,10 @@ public class TeamDTO extends BaseDTO {
     @ApiModelProperty(value = "描述")
     private String description;
 
-    @ApiModelProperty(value = "组织唯一标识")
+    @ApiModelProperty(value = "组织ID")
     private Long organizationId;
 
-    @ApiModelProperty(value = "团队的管理者，被组织管理员授权，管理自己所在团队")
+    @ApiModelProperty(value = "团队管理员")
     private Long teamManagerId;
 
 }

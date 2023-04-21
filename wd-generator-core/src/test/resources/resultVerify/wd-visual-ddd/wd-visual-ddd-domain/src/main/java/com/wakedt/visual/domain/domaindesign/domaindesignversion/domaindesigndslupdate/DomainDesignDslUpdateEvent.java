@@ -17,10 +17,10 @@ public class DomainDesignDslUpdateEvent extends BaseDomainEvent {
     /** 业务域场景ID */
     private Long id;
 
-    /** 业务域抽象文本描述语言 */
+    /** 业务域DSL */
     private String domainDesignDsl;
 
-    /** 图形的抽象文本描述语言 */
+    /** 图形DSL */
     private String graphDsl;
     
     public DomainDesignDslUpdateEvent() {}
@@ -34,6 +34,6 @@ public class DomainDesignDslUpdateEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesigndslupdate}";
     }
 }

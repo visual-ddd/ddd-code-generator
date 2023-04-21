@@ -19,11 +19,11 @@ public class DomainDesignVersionForkCmdHandler {
     public Long handle(DomainDesignVersionForkCmd createCmd) {
         DomainDesignVersion entity = factory.getInstance(createCmd);
 
-        // TODO CheckDomainVersionIdentityUnique(版本号唯一) 校验当前业务域下版本号是否唯一
+        /* TODO CheckDomainVersionIdentityUnique(版本号唯一) 校验当前业务域下版本号是否唯一 */
 
-        // TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准
+        /* TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准 */
 
-        // TODO ForkVersion(fork新版本) 拷贝一个新版本
+        /* TODO ForkVersion(fork新版本) 拷贝一个新版本 */
 
         DomainDesignVersion newEntity = repository.save(entity);
 

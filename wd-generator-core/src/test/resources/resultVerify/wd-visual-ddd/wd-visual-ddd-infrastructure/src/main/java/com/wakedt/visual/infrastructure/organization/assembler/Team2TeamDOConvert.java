@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.organization.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -8,6 +9,7 @@ import com.wakedt.visual.domain.organization.team.Team;
 import com.wakedt.visual.infrastructure.organization.repository.model.TeamDO;
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
 })
 public interface Team2TeamDOConvert extends BaseConvert<Team, TeamDO> {
 

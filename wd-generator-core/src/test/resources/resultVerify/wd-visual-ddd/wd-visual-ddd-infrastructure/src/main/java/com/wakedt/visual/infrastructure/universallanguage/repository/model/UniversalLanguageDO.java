@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 维护系统中统一语言的领域实体类
+ * 统一语言实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -43,7 +43,7 @@ public class UniversalLanguageDO extends BaseJpaAggregate {
     /** 约束 */
     private String restraint;
 
-    /** 所属唯一标识(组织/团队的主键id) */
+    /** 所属唯一标识 */
     private Long identity;
 
     /** 举例 */

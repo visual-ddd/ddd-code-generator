@@ -7,9 +7,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 
-#comment("${BUSINESS_QUERY_CLASS_DESCRIPTION}")
+#comment(${BUSINESS_QUERY_CLASS_TITLE})
 @Data
-@ApiModel(value = "${BUSINESS_QUERY_CLASS_DESCRIPTION}")
+@ApiModel(value = "${BUSINESS_QUERY_CLASS_TITLE}")
 #if(!${BUSINESS_QUERY_PAGINATION})
 public class ${BUSINESS_QUERY_CLASS_NAME} {
 #end

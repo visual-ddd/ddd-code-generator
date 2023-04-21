@@ -19,10 +19,10 @@ public class ApplicationModifyDTO {
     @ApiModelProperty(value = "名称")
     public String name;
 
-    @ApiModelProperty(value = "生成项目时的包结构")
+    @ApiModelProperty(value = "包名")
     public String packageName;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
 }

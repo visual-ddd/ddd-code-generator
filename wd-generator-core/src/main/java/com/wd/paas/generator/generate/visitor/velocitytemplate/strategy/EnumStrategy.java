@@ -45,6 +45,7 @@ public class EnumStrategy extends AbstractElementStrategy{
         context.put(VelocityLabel.ENUM_CLASS_NAME, anEnum.getName());
         context.put(VelocityLabel.ENUM_CLASS_CONSTANTS, anEnum.getMemberList());
         context.put(VelocityLabel.ENUM_CLASS_DESCRIPTION, anEnum.getDescription());
+        context.put(VelocityLabel.ENUM_CLASS_TITLE, anEnum.getTitle());
     }
 
     @Override

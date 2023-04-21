@@ -21,10 +21,10 @@ public class ApplicationModifyCmd {
     /** 名称 */
     private String name;
 
-    /** 生成项目时的包结构 */
+    /** 包名 */
     private String packageName;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
 }

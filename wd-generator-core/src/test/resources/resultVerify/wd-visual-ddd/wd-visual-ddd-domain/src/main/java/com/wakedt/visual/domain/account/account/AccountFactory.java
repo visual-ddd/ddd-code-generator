@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.account.account.accountcreate.AccountCreateCmd;
 
 /**
- * 用户的唯一标识，用于平台登录-聚合根-工厂
+ * 账号-聚合根-工厂
  */
 @Component
 public class AccountFactory {

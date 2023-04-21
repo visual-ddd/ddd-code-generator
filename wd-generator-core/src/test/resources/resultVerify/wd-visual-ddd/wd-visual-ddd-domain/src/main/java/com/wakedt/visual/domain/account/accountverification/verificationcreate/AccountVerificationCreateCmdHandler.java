@@ -19,7 +19,7 @@ public class AccountVerificationCreateCmdHandler {
     public Long handle(AccountVerificationCreateCmd createCmd) {
         AccountVerification entity = factory.getInstance(createCmd);
 
-        // TODO IsAccountExistsOrError(校验账号唯一标识是否存在) 校验账号唯一标识是否存在
+        /* TODO IsAccountExistsOrError(校验账号唯一标识是否存在) 校验账号唯一标识是否存在 */
 
         AccountVerification newEntity = repository.save(entity);
 

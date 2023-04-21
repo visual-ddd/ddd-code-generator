@@ -8,13 +8,13 @@ import com.wakedata.common.core.dto.ResultDTO;
 import java.util.*;
 import java.math.*;
 
-#comment("${DOMAIN_DESCRIPTION}-RPC能力接口")
+#comment("${DOMAIN_TITLE}-RPC能力接口")
 public interface ${DOMAIN_CLASS_NAME}RpcService {
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
 #set($RootIdType = ${aggregation.getRoot().getId().getType()})
 #foreach($cmd in ${aggregation.getCommandList()})
 
-    /** ${cmd.description} */
+    /** ${cmd.description.replaceAll("\n","\\n")} */
 #if(${cmd.getRepository().getValue()} == "create")
     ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
 #end
@@ -25,7 +25,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
-    /** ${query.description} */
+    /** ${query.description.replaceAll("\n","\\n")} */
 #if(${query.pagination})
     PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
 #end

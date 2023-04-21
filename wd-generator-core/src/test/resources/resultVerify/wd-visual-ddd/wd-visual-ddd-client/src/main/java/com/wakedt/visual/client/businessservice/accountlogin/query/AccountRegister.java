@@ -7,10 +7,10 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 校验注册验证码，创建账号
+ * 注册账号
  */
 @Data
-@ApiModel(value = "校验注册验证码，创建账号")
+@ApiModel(value = "注册账号")
 public class AccountRegister {
 
     @ApiModelProperty(value = "验证码")

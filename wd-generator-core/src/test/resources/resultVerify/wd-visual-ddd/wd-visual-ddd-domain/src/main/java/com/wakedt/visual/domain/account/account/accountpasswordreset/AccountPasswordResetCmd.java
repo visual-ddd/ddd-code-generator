@@ -15,10 +15,10 @@ import com.wakedt.visual.domain.account.account.*;
 @NoArgsConstructor
 public class AccountPasswordResetCmd {
 
-    /** 用户重置密码时携带的唯一标识 */
+    /** 重置密码唯一标识 */
     private String uuid;
 
-    /** 用户登录的唯一标识，目前以用户邮箱作为账号 */
+    /** 账号 */
     private String accountNo;
 
     /** 密码 */

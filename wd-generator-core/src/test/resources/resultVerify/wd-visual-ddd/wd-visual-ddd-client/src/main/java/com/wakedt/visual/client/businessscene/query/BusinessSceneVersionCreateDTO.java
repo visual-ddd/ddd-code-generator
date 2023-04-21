@@ -13,16 +13,16 @@ import java.math.*;
 @ApiModel(value = "新增业务场景版本")
 public class BusinessSceneVersionCreateDTO {
 
-    @ApiModelProperty(value = "业务场景的唯一标识")
+    @ApiModelProperty(value = "业务场景ID")
     public Long businessSceneId;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
-    @ApiModelProperty(value = "第一次创建时，需要指定起始版本号")
+    @ApiModelProperty(value = "起始版本号")
     public String startVersion;
 
-    @ApiModelProperty(value = "当前版本的唯一标识")
+    @ApiModelProperty(value = "当前版本号")
     public String currentVersion;
 
 }

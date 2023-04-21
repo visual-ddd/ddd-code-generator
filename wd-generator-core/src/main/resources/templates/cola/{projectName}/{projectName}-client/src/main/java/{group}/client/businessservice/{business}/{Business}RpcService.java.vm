@@ -12,11 +12,11 @@ import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name}
 import java.util.*;
 import java.math.*;
 
-#comment("${BUSINESS_DESCRIPTION}-RPC能力接口")
+#comment("${BUSINESS_TITLE}-RPC能力接口")
 public interface ${BUSINESS_CLASS_NAME}RpcService {
 #foreach ($query in ${BUSINESS_QUERY_LIST})
 
-    /** ${query.description} */
+    /** ${query.description.replaceAll("\n","\\n")} */
 #if(${query.pagination})
     PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
 #end

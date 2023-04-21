@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 分页查询组织
+ * 组织分页查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "分页查询组织")
+@ApiModel(value = "组织分页查询对象")
 public class OrganizationPageQuery extends PageQuery {
 
     @ApiModelProperty(value = "组织名称")

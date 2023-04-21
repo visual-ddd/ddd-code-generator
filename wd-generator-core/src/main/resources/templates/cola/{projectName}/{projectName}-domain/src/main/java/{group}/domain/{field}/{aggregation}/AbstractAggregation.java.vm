@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import java.util.*;
 import java.math.*;
 
-#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根")
+#comment("${AGGREGATION_CLASS_TITLE}-聚合根")
 @Data
 public abstract class Abstract${AGGREGATION_CLASS_NAME} {
 

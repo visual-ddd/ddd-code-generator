@@ -52,13 +52,13 @@ public class UniversalLanguageWebController {
         return universalLanguageRpcService.remove(dto);
     }
 
-    @ApiOperation("查询统一语言详情")
+    @ApiOperation("统一语言详情查询对象")
     @GetMapping("/universal-language-query")
     public ResultDTO<UniversalLanguageDTO> universalLanguageQuery(UniversalLanguageQuery query) {
         return universalLanguageRpcService.universalLanguageQuery(query);
     }
 
-    @ApiOperation("分页查询统一语言")
+    @ApiOperation("统一语言分页查询对象")
     @GetMapping("/universal-language-page-query")
     public PageResultDTO<List<UniversalLanguageDTO>> universalLanguagePageQuery(UniversalLanguagePageQuery pageQuery) {
         return universalLanguageRpcService.universalLanguagePageQuery(pageQuery);

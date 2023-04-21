@@ -33,7 +33,7 @@ import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapper
 import ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).get(${returnTypeClassName})}.${returnTypeClassName};
 import ${IMPORT_PACKAGE_MAP.get(${objectMapperId}).get(${convertClassName})}.${convertClassName};
 
-#comment("${QUERY_CLASS_DESCRIPTION}-查询器")
+#comment("${QUERY_CLASS_TITLE}-查询器")
 @Component
 public class ${QUERY_CLASS_NAME}Exe {
 

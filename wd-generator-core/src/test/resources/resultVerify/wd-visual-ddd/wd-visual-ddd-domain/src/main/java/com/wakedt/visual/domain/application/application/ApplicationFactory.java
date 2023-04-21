@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.application.application.applicationcreate.ApplicationCreateCmd;
 
 /**
- * 维护应用及版本的领域-聚合根-工厂
+ * 应用-聚合根-工厂
  */
 @Component
 public class ApplicationFactory {
@@ -16,7 +16,7 @@ public class ApplicationFactory {
         instance.setIdentity(createCmd.getIdentity());
         instance.setPackageName(createCmd.getPackageName());
         instance.setDescription(createCmd.getDescription());
-        // TODO 指令字段不匹配 createCmd.getStartVersion();
+        /* TODO 指令字段不匹配 createCmd.getStartVersion(); */
         return instance;
     }
 

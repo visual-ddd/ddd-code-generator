@@ -19,9 +19,9 @@ public class DomainDesignVersionCreateCmdHandler {
     public Long handle(DomainDesignVersionCreateCmd createCmd) {
         DomainDesignVersion entity = factory.getInstance(createCmd);
 
-        // TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准
+        /* TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准 */
 
-        // TODO CheckDomainVersionIdentityUnique(版本号唯一) 校验当前业务域下版本号是否唯一
+        /* TODO CheckDomainVersionIdentityUnique(版本号唯一) 校验当前业务域下版本号是否唯一 */
 
         DomainDesignVersion newEntity = repository.save(entity);
 

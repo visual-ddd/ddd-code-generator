@@ -10,7 +10,7 @@ import com.wakedt.visual.client.account.dto.AccountDTO;
 import com.wakedt.visual.app.account.assembler.AccountDTO2AccountDOConvert;
 
 /**
- * 查询账号详情-查询器
+ * 账号详情查询对象-查询器
  */
 @Component
 public class AccountDetailQueryExe {

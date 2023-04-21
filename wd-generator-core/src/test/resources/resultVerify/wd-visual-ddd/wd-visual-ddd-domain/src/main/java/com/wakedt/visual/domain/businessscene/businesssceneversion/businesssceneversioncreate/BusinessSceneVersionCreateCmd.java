@@ -15,16 +15,16 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
 @NoArgsConstructor
 public class BusinessSceneVersionCreateCmd {
 
-    /** 业务场景的唯一标识 */
+    /** 业务场景ID */
     private Long businessSceneId;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
-    /** 第一次创建时，需要指定起始版本号 */
+    /** 起始版本号 */
     private String startVersion;
 
-    /** 当前版本的唯一标识 */
+    /** 当前版本号 */
     private String currentVersion;
 
 }

@@ -106,25 +106,25 @@ public class ApplicationWebController {
         return applicationRpcService.applicationVersionFork(dto);
     }
 
-    @ApiOperation("查询应用详情")
+    @ApiOperation("应用详情查询对象")
     @GetMapping("/application-query")
     public ResultDTO<ApplicationDTO> applicationQuery(ApplicationQuery query) {
         return applicationRpcService.applicationQuery(query);
     }
 
-    @ApiOperation("分页查询应用")
+    @ApiOperation("应用分页查询对象")
     @GetMapping("/application-page-query")
     public PageResultDTO<List<ApplicationDTO>> applicationPageQuery(ApplicationPageQuery pageQuery) {
         return applicationRpcService.applicationPageQuery(pageQuery);
     }
 
-    @ApiOperation("查询应用版本详情")
+    @ApiOperation("应用版本详情查询对象")
     @GetMapping("/application-version-query")
     public ResultDTO<ApplicationVersionDTO> applicationVersionQuery(ApplicationVersionQuery query) {
         return applicationRpcService.applicationVersionQuery(query);
     }
 
-    @ApiOperation("分页查询应用版本")
+    @ApiOperation("应用版本分页查询对象")
     @GetMapping("/application-version-page-query")
     public PageResultDTO<List<ApplicationVersionDTO>> applicationVersionPageQuery(ApplicationVersionPageQuery pageQuery) {
         return applicationRpcService.applicationVersionPageQuery(pageQuery);
@@ -136,7 +136,7 @@ public class ApplicationWebController {
         return applicationRpcService.applicationListQuery(query);
     }
 
-    @ApiOperation("查询应用下的最新版本")
+    @ApiOperation("应用最新版本查询对象")
     @GetMapping("/application-latest-version-query")
     public ResultDTO<ApplicationVersionDTO> applicationLatestVersionQuery(ApplicationLatestVersionQuery query) {
         return applicationRpcService.applicationLatestVersionQuery(query);

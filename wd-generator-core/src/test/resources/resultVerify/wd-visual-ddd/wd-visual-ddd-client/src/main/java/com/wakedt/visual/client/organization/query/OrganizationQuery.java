@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询组织详情
+ * 组织详情查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询组织详情")
+@ApiModel(value = "组织详情查询对象")
 public class OrganizationQuery extends BaseQuery {
 
     @ApiModelProperty(value = "组织 ID")

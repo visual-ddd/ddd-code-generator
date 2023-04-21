@@ -28,7 +28,7 @@ import javax.validation.Valid;
 #set($RootIdName = ${aggregation.getRoot().getId().getName()})
 #foreach($cmd in ${aggregation.getCommandList()})
 
-    @ApiOperation("${cmd.description}")
+    @ApiOperation("${cmd.title}")
     @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.category})}")
 #if(${cmd.getRepository().getValue()} == "create")
     public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.cmdDTOName} dto) {
@@ -44,7 +44,7 @@ import javax.validation.Valid;
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
-    @ApiOperation("${query.description}")
+    @ApiOperation("${query.title}")
     @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.name})}")
 #if(${query.pagination})
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {

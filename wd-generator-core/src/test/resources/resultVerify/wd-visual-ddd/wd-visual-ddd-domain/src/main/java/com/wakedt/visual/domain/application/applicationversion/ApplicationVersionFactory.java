@@ -5,7 +5,7 @@ import com.wakedt.visual.domain.application.applicationversion.applicationversio
 import com.wakedt.visual.domain.application.applicationversion.applicationversionfork.ApplicationVersionForkCmd;
 
 /**
- * 描述应用版本信息-聚合根-工厂
+ * 应用版本-聚合根-工厂
  */
 @Component
 public class ApplicationVersionFactory {
@@ -21,7 +21,7 @@ public class ApplicationVersionFactory {
 
     public ApplicationVersion getInstance(ApplicationVersionForkCmd createCmd) {
         ApplicationVersion instance = new ApplicationVersion();
-        // TODO 指令字段不匹配 createCmd.getStartVersionId();
+        /* TODO 指令字段不匹配 createCmd.getStartVersionId(); */
         instance.setCurrentVersion(createCmd.getCurrentVersion());
         instance.setDescription(createCmd.getDescription());
         return instance;

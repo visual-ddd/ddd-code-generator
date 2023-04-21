@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询账号详情
+ * 账号详情查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询账号详情")
+@ApiModel(value = "账号详情查询对象")
 public class AccountDetailQuery extends BaseQuery {
 
     @ApiModelProperty(value = "用户 ID")

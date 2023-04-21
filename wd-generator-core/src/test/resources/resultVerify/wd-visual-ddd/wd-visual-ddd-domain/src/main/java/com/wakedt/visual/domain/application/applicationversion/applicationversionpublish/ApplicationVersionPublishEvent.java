@@ -26,6 +26,6 @@ public class ApplicationVersionPublishEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.application.applicationversion.applicationversionpublish}";
     }
 }

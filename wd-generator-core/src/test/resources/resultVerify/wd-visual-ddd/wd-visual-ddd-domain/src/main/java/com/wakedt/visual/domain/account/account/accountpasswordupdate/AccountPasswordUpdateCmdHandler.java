@@ -18,7 +18,7 @@ public class AccountPasswordUpdateCmdHandler {
         Account account = repository.find(updateCmd.getId());
         account.accountPasswordUpdate(updateCmd);
 
-        // TODO CheckLoginPass(账号密码正确) 验证账号密码是否正确
+        /* TODO CheckLoginPass(账号密码正确) 验证账号密码是否正确 */
 
         repository.update(account);
 

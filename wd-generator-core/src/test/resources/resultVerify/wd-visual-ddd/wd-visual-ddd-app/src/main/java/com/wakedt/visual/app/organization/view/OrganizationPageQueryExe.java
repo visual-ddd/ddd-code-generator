@@ -14,7 +14,7 @@ import com.wakedt.visual.client.organization.dto.OrganizationDTO;
 import com.wakedt.visual.app.organization.assembler.OrganizationDTO2OrganizationDOConvert;
 
 /**
- * 分页查询组织-查询器
+ * 组织分页查询对象-查询器
  */
 @Component
 public class OrganizationPageQueryExe {

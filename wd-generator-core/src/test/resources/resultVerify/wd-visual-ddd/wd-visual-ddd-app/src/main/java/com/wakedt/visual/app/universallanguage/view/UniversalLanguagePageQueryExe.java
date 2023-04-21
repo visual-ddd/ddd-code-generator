@@ -14,7 +14,7 @@ import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
 import com.wakedt.visual.app.universallanguage.assembler.UniversalLanguageDTO2UniversalLanguageDOConvert;
 
 /**
- * 分页查询统一语言-查询器
+ * 统一语言分页查询对象-查询器
  */
 @Component
 public class UniversalLanguagePageQueryExe {

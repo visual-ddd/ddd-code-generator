@@ -20,7 +20,7 @@ public class BusinessSceneModifyEvent extends BaseDomainEvent {
     /** 名称 */
     private String name;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
     
     public BusinessSceneModifyEvent() {}
@@ -34,6 +34,6 @@ public class BusinessSceneModifyEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.businessscene.businessscene.businessscenemodify}";
     }
 }

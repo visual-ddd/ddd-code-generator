@@ -19,26 +19,26 @@ import java.math.*;
 import org.springframework.stereotype.Service;
 
 /**
- * 描述快速进行二开场景-RPC能力接口实现
+ * 二次开发场景-RPC能力接口实现
  */
 @Service
 public class SecondaryDevelopmentRpcServiceImpl implements SecondaryDevelopmentRpcService {
 
     @Override
     public ResultDTO<DomainDesignVersionInfoDTO> getDomainDesignVersionNoAuth(GetDomainDesignVersionNoAuth request) {
-        // TODO 免鉴权获取业务域版本信息
+        /* TODO 免鉴权获取业务域版本信息 */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<ApplicationBindModelInfoDTO> getApplicationBindModelInfo(GetApplicationBindModelInfo request) {
-        // TODO 获取应用关联的模块信息
+        /* TODO 获取应用关联的模块信息 */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<BusinessSceneVersionInfoDTO> getBusinessSceneVersionNoAuth(GetBusinessSceneVersionNoAuth request) {
-        // TODO 免鉴权获取业务场景版本信息
+        /* TODO 免鉴权获取业务场景版本信息 */
         return ResultDTO.success();
     }
 }

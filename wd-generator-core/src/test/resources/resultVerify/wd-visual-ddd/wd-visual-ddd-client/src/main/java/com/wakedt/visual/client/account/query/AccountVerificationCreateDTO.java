@@ -16,7 +16,7 @@ public class AccountVerificationCreateDTO {
     @ApiModelProperty(value = "验证码")
     public String code;
 
-    @ApiModelProperty(value = "用户登录的唯一标识，目前以用户邮箱作为账号")
+    @ApiModelProperty(value = "账号标识")
     public String accountNo;
 
 }

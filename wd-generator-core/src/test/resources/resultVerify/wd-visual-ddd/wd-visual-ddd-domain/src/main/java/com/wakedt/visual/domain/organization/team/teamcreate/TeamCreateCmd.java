@@ -21,10 +21,10 @@ public class TeamCreateCmd {
     /** 描述 */
     private String description;
 
-    /** 组织唯一标识 */
+    /** 组织ID */
     private Long organizationId;
 
-    /** 团队的管理者，被组织管理员授权，管理自己所在团队 */
+    /** 团队管理员 */
     private Long teamManagerId;
 
 }

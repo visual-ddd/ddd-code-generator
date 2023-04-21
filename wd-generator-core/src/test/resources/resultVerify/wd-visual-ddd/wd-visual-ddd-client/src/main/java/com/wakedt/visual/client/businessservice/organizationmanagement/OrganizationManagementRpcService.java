@@ -6,7 +6,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 管理系统的组织和用户结构-RPC能力接口
+ * 组织管理场景-RPC能力接口
  */
 public interface OrganizationManagementRpcService {
 

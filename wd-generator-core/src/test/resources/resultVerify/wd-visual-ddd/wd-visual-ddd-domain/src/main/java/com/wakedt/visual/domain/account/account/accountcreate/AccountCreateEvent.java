@@ -20,7 +20,7 @@ public class AccountCreateEvent extends BaseDomainEvent {
     /** 用户名 */
     private String userName;
 
-    /** 用户登录的唯一标识，目前以用户邮箱作为账号 */
+    /** 账号 */
     private String accountNo;
 
     /** 密码 */
@@ -43,6 +43,6 @@ public class AccountCreateEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.account.account.accountcreate}";
     }
 }

@@ -7,6 +7,7 @@
 package ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
+import ${PROJECT_PACKAGE}.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -29,6 +30,7 @@ import ${IMPORT_PACKAGE_MAP.get(${entity.identity}).get("${entity.name}Converter
 #end
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
 #foreach($enum in ${DOMAIN_ENUM_LIST})
 #if(${enum.getParentNode().identity} == ${aggregationId})
         ${enum.name}Converter.class,

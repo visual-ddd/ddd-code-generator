@@ -23,7 +23,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 维护业务域及版本的领域-RPC能力接口
+ * 业务域-RPC能力接口
  */
 public interface DomainDesignRpcService {
 

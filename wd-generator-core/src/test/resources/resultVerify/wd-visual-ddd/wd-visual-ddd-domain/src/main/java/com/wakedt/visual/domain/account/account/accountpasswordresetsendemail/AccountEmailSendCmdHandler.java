@@ -18,9 +18,9 @@ public class AccountEmailSendCmdHandler {
         Account account = repository.find(updateCmd.getId());
         account.accountPasswordResetSendEmail(updateCmd);
 
-        // TODO UpdateAccountUuid(更新账号uuid) 更新重置账号uuid
+        /* TODO UpdateAccountUuid(更新账号uuid) 更新重置账号uuid */
 
-        // TODO SendResetEmail(发送重置邮件) 发送重置密码邮件
+        /* TODO SendResetEmail(发送重置邮件) 发送重置密码邮件 */
 
         repository.update(account);
 

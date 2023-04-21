@@ -15,13 +15,13 @@ import com.wakedt.visual.client.domaindesign.query.DomainDesignLatestVersionQuer
 @Mapper
 public interface DomainDesignVersionMapper extends BaseMapper<DomainDesignVersionDO> {
 
-    /** 查询业务域版本详情 */
+    /** 业务域版本详情查询对象 */
     DomainDesignVersionDO domainDesignVersionQuery(DomainDesignVersionQuery query);
 
-    /** 分页查询业务域版本 */
+    /** 业务域版本分页查询对象 */
     List<DomainDesignVersionDO> domainDesignVersionPageQuery(DomainDesignVersionPageQuery pageQuery);
 
-    /** 查询业务域下的最新版本 */
+    /** 业务域最新版本查询对象 */
     DomainDesignVersionDO domainDesignLatestVersionQuery(DomainDesignLatestVersionQuery query);
 
 }

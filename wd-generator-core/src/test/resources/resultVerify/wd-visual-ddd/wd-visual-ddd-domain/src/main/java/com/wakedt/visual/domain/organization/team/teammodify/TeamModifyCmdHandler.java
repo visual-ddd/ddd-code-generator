@@ -18,7 +18,7 @@ public class TeamModifyCmdHandler {
         Team team = repository.find(updateCmd.getId());
         team.teamModify(updateCmd);
 
-        // TODO CheckRepeatedName(校验名称是否重复) 校验名称是否重复
+        /* TODO CheckRepeatedName(校验名称是否重复) 校验名称是否重复 */
 
         repository.update(team);
 

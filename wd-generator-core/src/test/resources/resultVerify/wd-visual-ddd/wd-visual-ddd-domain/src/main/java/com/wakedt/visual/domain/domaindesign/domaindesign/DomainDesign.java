@@ -6,7 +6,7 @@ import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignmodify.Dom
 import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignremove.DomainDesignRemoveCmd;
 
 /**
- * 维护业务域及版本的领域-聚合根能力
+ * 业务域-聚合根能力
  */
 public class DomainDesign extends AbstractDomainDesign {
 

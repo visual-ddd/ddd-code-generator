@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询应用版本详情
+ * 应用版本详情查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询应用版本详情")
+@ApiModel(value = "应用版本详情查询对象")
 public class ApplicationVersionQuery extends BaseQuery {
 
     @ApiModelProperty(value = "应用版本ID")

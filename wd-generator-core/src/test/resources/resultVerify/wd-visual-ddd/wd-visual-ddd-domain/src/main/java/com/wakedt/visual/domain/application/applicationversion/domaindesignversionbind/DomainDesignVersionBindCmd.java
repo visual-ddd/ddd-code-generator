@@ -18,7 +18,7 @@ public class DomainDesignVersionBindCmd {
     /** 应用版本ID */
     private Long id;
 
-    /** 当前应用关联的业务域版本ID列表 */
+    /** 关联业务域列表 */
     private Set<Long> domainDesignVersionIds;
 
 }

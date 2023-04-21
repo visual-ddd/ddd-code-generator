@@ -23,10 +23,10 @@ public class TeamCreateEvent extends BaseDomainEvent {
     /** 描述 */
     private String description;
 
-    /** 组织唯一标识 */
+    /** 组织ID */
     private Long organizationId;
 
-    /** 团队的管理者，被组织管理员授权，管理自己所在团队 */
+    /** 团队管理员 */
     private Long teamManagerId;
     
     public TeamCreateEvent() {}
@@ -43,6 +43,6 @@ public class TeamCreateEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.organization.team.teamcreate}";
     }
 }

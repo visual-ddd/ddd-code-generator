@@ -99,31 +99,31 @@ public class DomainDesignWebController {
         return domainDesignRpcService.domainDesignVersionFork(dto);
     }
 
-    @ApiOperation("查询业务域详情")
+    @ApiOperation("业务域详情查询对象")
     @GetMapping("/domain-design-query")
     public ResultDTO<DomainDesignDTO> domainDesignQuery(DomainDesignQuery query) {
         return domainDesignRpcService.domainDesignQuery(query);
     }
 
-    @ApiOperation("分页查询业务域")
+    @ApiOperation("业务域分页查询对象")
     @GetMapping("/domain-design-page-query")
     public PageResultDTO<List<DomainDesignDTO>> domainDesignPageQuery(DomainDesignPageQuery pageQuery) {
         return domainDesignRpcService.domainDesignPageQuery(pageQuery);
     }
 
-    @ApiOperation("查询业务域版本详情")
+    @ApiOperation("业务域版本详情查询对象")
     @GetMapping("/domain-design-version-query")
     public ResultDTO<DomainDesignVersionDTO> domainDesignVersionQuery(DomainDesignVersionQuery query) {
         return domainDesignRpcService.domainDesignVersionQuery(query);
     }
 
-    @ApiOperation("分页查询业务域版本")
+    @ApiOperation("业务域版本分页查询对象")
     @GetMapping("/domain-design-version-page-query")
     public PageResultDTO<List<DomainDesignVersionDTO>> domainDesignVersionPageQuery(DomainDesignVersionPageQuery pageQuery) {
         return domainDesignRpcService.domainDesignVersionPageQuery(pageQuery);
     }
 
-    @ApiOperation("查询业务域下的最新版本")
+    @ApiOperation("业务域最新版本查询对象")
     @GetMapping("/domain-design-latest-version-query")
     public ResultDTO<DomainDesignVersionDTO> domainDesignLatestVersionQuery(DomainDesignLatestVersionQuery query) {
         return domainDesignRpcService.domainDesignLatestVersionQuery(query);

@@ -10,7 +10,7 @@ import com.wakedt.visual.client.organization.dto.TeamDTO;
 import com.wakedt.visual.app.organization.assembler.TeamDTO2TeamDOConvert;
 
 /**
- * 查询团队详情-查询器
+ * 团队详情查询对象-查询器
  */
 @Component
 public class TeamQueryExe {

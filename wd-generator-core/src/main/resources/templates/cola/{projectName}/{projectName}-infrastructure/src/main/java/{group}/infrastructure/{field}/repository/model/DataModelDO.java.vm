@@ -13,7 +13,7 @@ import java.math.*;
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 
-#comment("${DATA_OBJECT_CLASS_DESCRIPTION}实体类")
+#comment("${DATA_OBJECT_CLASS_TITLE}实体类")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("${DATA_OBJECT_TABLE_NAME}")

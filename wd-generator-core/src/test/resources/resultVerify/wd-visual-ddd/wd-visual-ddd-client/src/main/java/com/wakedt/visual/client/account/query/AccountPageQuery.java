@@ -9,20 +9,20 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 分页查询账号
+ * 账号分页查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "分页查询账号")
+@ApiModel(value = "账号分页查询对象")
 public class AccountPageQuery extends PageQuery {
 
-    @ApiModelProperty(value = "用户设置的名称标识")
+    @ApiModelProperty(value = "用户名")
     private String userName;
 
-    @ApiModelProperty(value = "当前用户所属组织的唯一标识")
+    @ApiModelProperty(value = "所属组织ID")
     private String organizationId;
 
-    @ApiModelProperty(value = "当前用户所属团队的唯一标识")
+    @ApiModelProperty(value = "所属团队ID")
     private String teamId;
 
 }

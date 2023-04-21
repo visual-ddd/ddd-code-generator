@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.account.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -8,6 +9,7 @@ import com.wakedt.visual.domain.account.accountverification.AccountVerification;
 import com.wakedt.visual.infrastructure.account.repository.model.AccountVerificationDO;
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
 })
 public interface AccountVerification2AccountVerificationDOConvert extends BaseConvert<AccountVerification, AccountVerificationDO> {
 

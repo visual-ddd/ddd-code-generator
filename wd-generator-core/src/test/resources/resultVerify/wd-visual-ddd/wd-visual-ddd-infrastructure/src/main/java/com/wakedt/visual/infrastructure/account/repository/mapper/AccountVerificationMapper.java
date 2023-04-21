@@ -13,7 +13,7 @@ import com.wakedt.visual.client.account.query.AccountVerificationDetailQuery;
 @Mapper
 public interface AccountVerificationMapper extends BaseMapper<AccountVerificationDO> {
 
-    /** 查询账号验证码详情 */
+    /** 账号验证码详情查询对象 */
     AccountVerificationDO accountVerificationDetailQuery(AccountVerificationDetailQuery query);
 
 }

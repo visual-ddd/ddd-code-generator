@@ -96,19 +96,19 @@ public class AccountAppController {
         return accountRpcService.verificationUpdate(dto);
     }
 
-    @ApiOperation("查询账号详情")
+    @ApiOperation("账号详情查询对象")
     @GetMapping("/account-detail-query")
     public ResultDTO<AccountDTO> accountDetailQuery(AccountDetailQuery query) {
         return accountRpcService.accountDetailQuery(query);
     }
 
-    @ApiOperation("分页查询账号")
+    @ApiOperation("账号分页查询对象")
     @GetMapping("/account-page-query")
     public PageResultDTO<List<AccountDTO>> accountPageQuery(AccountPageQuery pageQuery) {
         return accountRpcService.accountPageQuery(pageQuery);
     }
 
-    @ApiOperation("查询账号验证码详情")
+    @ApiOperation("账号验证码详情查询对象")
     @GetMapping("/account-verification-detail-query")
     public ResultDTO<AccountVerificationDTO> accountVerificationDetailQuery(AccountVerificationDetailQuery query) {
         return accountRpcService.accountVerificationDetailQuery(query);

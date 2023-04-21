@@ -10,11 +10,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 用于统一语言的数据传输对象
+ * 统一语言数据传输对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "用于统一语言的数据传输对象")
+@ApiModel(value = "统一语言数据传输对象")
 public class UniversalLanguageDTO extends BaseDTO {
 
     @ApiModelProperty(value = "统一语言 ID")
@@ -38,7 +38,7 @@ public class UniversalLanguageDTO extends BaseDTO {
     @ApiModelProperty(value = "举例")
     private String example;
 
-    @ApiModelProperty(value = "所属唯一标识(组织/团队的主键id)")
+    @ApiModelProperty(value = "所属唯一标识")
     private Long identity;
 
 }

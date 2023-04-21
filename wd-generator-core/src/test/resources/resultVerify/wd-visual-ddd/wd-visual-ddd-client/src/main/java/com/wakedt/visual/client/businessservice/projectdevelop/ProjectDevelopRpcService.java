@@ -21,7 +21,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * DDD项目开发流程-RPC能力接口
+ * 项目开发场景-RPC能力接口
  */
 public interface ProjectDevelopRpcService {
 

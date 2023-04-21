@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesigncreate.DomainDesignCreateCmd;
 
 /**
- * 维护业务域及版本的领域-聚合根-工厂
+ * 业务域-聚合根-工厂
  */
 @Component
 public class DomainDesignFactory {
@@ -15,7 +15,7 @@ public class DomainDesignFactory {
         instance.setTeamId(createCmd.getTeamId());
         instance.setIdentity(createCmd.getIdentity());
         instance.setDescription(createCmd.getDescription());
-        // TODO 指令字段不匹配 createCmd.getStartVersion();
+        /* TODO 指令字段不匹配 createCmd.getStartVersion(); */
         return instance;
     }
 

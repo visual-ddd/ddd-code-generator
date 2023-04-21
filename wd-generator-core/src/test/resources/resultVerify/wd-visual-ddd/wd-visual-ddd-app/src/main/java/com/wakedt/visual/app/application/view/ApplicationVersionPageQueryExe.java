@@ -14,7 +14,7 @@ import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
 import com.wakedt.visual.app.application.assembler.ApplicationVersionDTO2ApplicationVersionDOConvert;
 
 /**
- * 分页查询应用版本-查询器
+ * 应用版本分页查询对象-查询器
  */
 @Component
 public class ApplicationVersionPageQueryExe {

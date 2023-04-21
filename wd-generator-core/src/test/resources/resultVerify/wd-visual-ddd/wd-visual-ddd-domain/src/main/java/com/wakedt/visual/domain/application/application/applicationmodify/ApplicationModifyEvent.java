@@ -20,10 +20,10 @@ public class ApplicationModifyEvent extends BaseDomainEvent {
     /** 名称 */
     private String name;
 
-    /** 生成项目时的包结构 */
+    /** 包名 */
     private String packageName;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
     
     public ApplicationModifyEvent() {}
@@ -38,6 +38,6 @@ public class ApplicationModifyEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.application.application.applicationmodify}";
     }
 }

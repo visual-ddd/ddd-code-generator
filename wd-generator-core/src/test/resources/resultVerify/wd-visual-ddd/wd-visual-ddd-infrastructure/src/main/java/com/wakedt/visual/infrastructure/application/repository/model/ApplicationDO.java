@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 维护应用及版本的领域实体类
+ * 应用实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,18 +28,18 @@ public class ApplicationDO extends BaseJpaAggregate {
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** 团队的唯一标识 */
+    /** 团队ID */
     private Long teamId;
 
     /** 名称 */
     private String name;
 
-    /** 唯一标识，此处使用大驼峰命名 */
+    /** 标识符 */
     private String identity;
 
-    /** 生成项目时的包结构 */
+    /** 包名 */
     private String packageName;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 }

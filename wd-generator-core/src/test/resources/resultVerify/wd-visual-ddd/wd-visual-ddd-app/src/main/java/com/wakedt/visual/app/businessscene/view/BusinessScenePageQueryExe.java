@@ -14,7 +14,7 @@ import com.wakedt.visual.client.businessscene.dto.BusinessSceneDTO;
 import com.wakedt.visual.app.businessscene.assembler.BusinessSceneDTO2BusinessSceneDOConvert;
 
 /**
- * 分页查询业务场景-查询器
+ * 业务场景分页查询对象-查询器
  */
 @Component
 public class BusinessScenePageQueryExe {

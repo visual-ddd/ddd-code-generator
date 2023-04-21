@@ -19,9 +19,9 @@ public class BusinessSceneVersionCreateCmdHandler {
     public Long handle(BusinessSceneVersionCreateCmd createCmd) {
         BusinessSceneVersion entity = factory.getInstance(createCmd);
 
-        // TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准
+        /* TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准 */
 
-        // TODO CheckRepeatedBusinessSceneVersion(版本号唯一) 校验当前业务场景下版本号是否唯一
+        /* TODO CheckRepeatedBusinessSceneVersion(版本号唯一) 校验当前业务场景下版本号是否唯一 */
 
         BusinessSceneVersion newEntity = repository.save(entity);
 

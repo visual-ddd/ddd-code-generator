@@ -22,13 +22,13 @@ public class DomainDesignLatestVersionInfoDTO extends BaseDTO {
     @ApiModelProperty(value = "名称")
     private String name;
 
-    @ApiModelProperty(value = "团队的唯一标识")
+    @ApiModelProperty(value = "团队ID")
     private Long teamId;
 
-    @ApiModelProperty(value = "唯一标识，此处使用大驼峰命名")
+    @ApiModelProperty(value = "标识符")
     private String identity;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     private String description;
 
     @ApiModelProperty(value = "业务域最新版本信息")

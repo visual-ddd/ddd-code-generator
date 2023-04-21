@@ -9,14 +9,14 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 分页查询业务场景
+ * 业务场景分页查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "分页查询业务场景")
+@ApiModel(value = "业务场景分页查询对象")
 public class BusinessScenePageQuery extends PageQuery {
 
-    @ApiModelProperty(value = "团队的唯一标识")
+    @ApiModelProperty(value = "团队ID")
     private Long teamId;
 
     @ApiModelProperty(value = "名称")

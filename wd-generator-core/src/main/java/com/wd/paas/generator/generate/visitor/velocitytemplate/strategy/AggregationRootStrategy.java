@@ -28,6 +28,7 @@ public class AggregationRootStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.AGGREGATION_ID, aggregateRootNode.getIdentity());
         context.put(VelocityLabel.AGGREGATION_CLASS_NAME, aggregateRootNode.getName());
         context.put(VelocityLabel.AGGREGATION_CLASS_DESCRIPTION, aggregateRootNode.getDescription());
+        context.put(VelocityLabel.AGGREGATION_CLASS_TITLE, aggregateRootNode.getTitle());
         context.put(VelocityLabel.AGGREGATION_CLASS_ID, aggregateRootNode.getId());
         context.put(VelocityLabel.AGGREGATION_CLASS_FIELDS, aggregateRootNode.getPropertyList());
         context.put(VelocityLabel.AGGREGATION_CLASS_METHODS, aggregateRootNode.getMethodList());

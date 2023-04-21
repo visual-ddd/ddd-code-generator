@@ -19,10 +19,10 @@ public class TeamCreateDTO {
     @ApiModelProperty(value = "描述")
     public String description;
 
-    @ApiModelProperty(value = "组织唯一标识")
+    @ApiModelProperty(value = "组织ID")
     public Long organizationId;
 
-    @ApiModelProperty(value = "团队的管理者，被组织管理员授权，管理自己所在团队")
+    @ApiModelProperty(value = "团队管理员")
     public Long teamManagerId;
 
 }

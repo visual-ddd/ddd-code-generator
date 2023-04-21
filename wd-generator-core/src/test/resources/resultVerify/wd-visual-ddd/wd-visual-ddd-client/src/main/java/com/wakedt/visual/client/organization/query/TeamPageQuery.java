@@ -9,14 +9,14 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 分页查询团队
+ * 团队分页查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "分页查询团队")
+@ApiModel(value = "团队分页查询对象")
 public class TeamPageQuery extends PageQuery {
 
-    @ApiModelProperty(value = "组织唯一标识")
+    @ApiModelProperty(value = "组织ID")
     private Long organizationId;
 
     @ApiModelProperty(value = "团队名称")

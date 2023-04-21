@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询团队详情
+ * 团队详情查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询团队详情")
+@ApiModel(value = "团队详情查询对象")
 public class TeamQuery extends BaseQuery {
 
     @ApiModelProperty(value = "团队ID")

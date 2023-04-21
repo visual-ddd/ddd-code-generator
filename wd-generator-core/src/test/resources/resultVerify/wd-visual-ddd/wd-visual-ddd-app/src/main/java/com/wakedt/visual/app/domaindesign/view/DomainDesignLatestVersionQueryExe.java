@@ -10,7 +10,7 @@ import com.wakedt.visual.client.domaindesign.dto.DomainDesignVersionDTO;
 import com.wakedt.visual.app.domaindesign.assembler.DomainDesignVersionDTO2DomainDesignVersionDOConvert;
 
 /**
- * 查询业务域下的最新版本-查询器
+ * 业务域最新版本查询对象-查询器
  */
 @Component
 public class DomainDesignLatestVersionQueryExe {

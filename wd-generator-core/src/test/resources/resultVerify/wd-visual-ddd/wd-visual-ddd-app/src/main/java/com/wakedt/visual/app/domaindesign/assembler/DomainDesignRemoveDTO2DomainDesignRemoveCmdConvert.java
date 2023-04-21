@@ -1,13 +1,14 @@
 package com.wakedt.visual.app.domaindesign.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.domaindesign.query.DomainDesignRemoveDTO;
 import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignremove.DomainDesignRemoveCmd;
 
 @Mapper(uses = {
-        JsonConverter.class,
+        BaseJsonConvertor.class,
 })
 public interface DomainDesignRemoveDTO2DomainDesignRemoveCmdConvert extends BaseConvert<DomainDesignRemoveDTO, DomainDesignRemoveCmd> {
 

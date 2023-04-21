@@ -1,5 +1,5 @@
 #parse("templates/ClassFunction.vm")
-#set($encode = "{event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}")
+#set($encode = "{event.${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get(${CMD_EVENT_CLASS_NAME})}}")
 package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_EVENT_CLASS_NAME}")};
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
@@ -9,7 +9,7 @@ import java.util.*;
 import java.math.*;
 import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}")}.*;
 
-#comment("${CMD_EVENT_CLASS_DESCRIPTION}-指令事件")
+#comment("${CMD_EVENT_CLASS_TITLE}-指令事件")
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ${CMD_EVENT_CLASS_NAME} extends BaseDomainEvent {

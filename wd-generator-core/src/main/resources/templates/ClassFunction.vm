@@ -44,7 +44,7 @@ import ${importPackage};
 
 #printMethodDesc($method)
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(#foreach($parameter in ${method.signatureInfo.parameterList})${parameter.type} ${parameter.name}#end){
-        // TODO: ${method.title}(${method.description})
+        /* TODO ${method.title}(${method.description}) */
 #if($method.signature.returnInfo.type != "void")
         return null;
 #end
@@ -57,7 +57,7 @@ import ${importPackage};
 
     @Override
     ${method.access} ${method.signature.returnInfo.type} ${method.name}(${PARSE_STRING_UTIL.extractMethodParameterList(${method.signature.parameterList})}) {
-        // TODO ${method.title}(${method.description})
+        /* TODO ${method.title}(${method.description}) */
 #if($method.signature.returnInfo.type != "void")
         return null;
  #end
@@ -81,26 +81,11 @@ import ${importPackage};
 #end
 #end
 #macro(printMethodDesc $method)
-#if($method.description != "")
-    /** ${method.description} */
-#end
-#if(${method.description} == "")
     /** ${method.title} */
 #end
-#end
 #macro(printFieldDesc $field)
-#if(${field.description} != "")
-    /** ${field.description} */
-#end
-#if(${field.description} == "")
     /** ${field.title} */
 #end
-#end
 #macro(printApiDesc $field)
-#if(${field.description} != "")
-    @ApiModelProperty(value = "${field.description}")
-#end
-#if(${field.description} == "")
     @ApiModelProperty(value = "${field.title}")
-#end
 #end

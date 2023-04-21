@@ -19,7 +19,7 @@ public class ApplicationVersionCreateCmdHandler {
     public Long handle(ApplicationVersionCreateCmd createCmd) {
         ApplicationVersion entity = factory.getInstance(createCmd);
 
-        // TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准
+        /* TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准 */
 
         ApplicationVersion newEntity = repository.save(entity);
 

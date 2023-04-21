@@ -18,10 +18,10 @@ public class DomainDesignDslUpdateCmd {
     /** 业务域场景ID */
     private Long id;
 
-    /** 业务域抽象文本描述语言 */
+    /** 业务域DSL */
     private String domainDesignDsl;
 
-    /** 图形的抽象文本描述语言 */
+    /** 图形DSL */
     private String graphDsl;
 
 }

@@ -16,10 +16,10 @@ public class BusinessSceneVersionDSLUpdateDTO {
     @ApiModelProperty(value = "业务场景版本ID")
     public Long id;
 
-    @ApiModelProperty(value = "图形的抽象文本描述语言")
+    @ApiModelProperty(value = "图形DSL")
     public String graphDsl;
 
-    @ApiModelProperty(value = "业务场景抽象文本描述语言")
+    @ApiModelProperty(value = "业务场景DSL")
     public String businessSceneDsl;
 
 }

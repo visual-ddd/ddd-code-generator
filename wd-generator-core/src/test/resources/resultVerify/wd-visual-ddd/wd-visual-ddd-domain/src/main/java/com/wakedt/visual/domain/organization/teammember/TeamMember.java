@@ -7,7 +7,7 @@ import com.wakedt.visual.domain.organization.teammember.teammemberrolebind.TeamM
 import com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind.TeamMemberRoleUnBindCmd;
 
 /**
- * 关联到当前团队的用户，团队管理员可以为成员绑定不同的团队职位-聚合根能力
+ * 团队成员-聚合根能力
  */
 public class TeamMember extends AbstractTeamMember {
 

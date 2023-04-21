@@ -16,7 +16,7 @@ public class ApplicationVersionModifyDTO {
     @ApiModelProperty(value = "应用版本ID")
     public Long id;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
 }

@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.domaindesign.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -8,6 +9,7 @@ import com.wakedt.visual.domain.domaindesign.domaindesign.DomainDesign;
 import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO;
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
 })
 public interface DomainDesign2DomainDesignDOConvert extends BaseConvert<DomainDesign, DomainDesignDO> {
 

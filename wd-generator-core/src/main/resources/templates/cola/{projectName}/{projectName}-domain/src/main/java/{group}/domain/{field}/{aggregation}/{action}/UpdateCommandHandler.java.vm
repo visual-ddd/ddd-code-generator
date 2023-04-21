@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}")}.*;
 
-#comment("${CMD_CLASS_DESCRIPTION}-指令处理器")
+#comment("${CMD_CLASS_TITLE}-指令处理器")
 @Component
 public class ${CMD_CLASS_NAME}Handler {
 
@@ -19,7 +19,7 @@ public class ${CMD_CLASS_NAME}Handler {
         ${aggregation}.${CASE_FORMAT_LOWER_CAMEL.convert(${CMD_CATEGORY})}(updateCmd);
 #foreach($ruleInfo in ${CMD_RULE_LIST})
 
-        // TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description}
+        /* TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description.replaceAll("\n","\\n")} */
 #end
 
         repository.update(${aggregation});

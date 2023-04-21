@@ -12,7 +12,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 维护系统中统一语言的领域-RPC能力接口
+ * 统一语言域-RPC能力接口
  */
 public interface UniversalLanguageRpcService {
 

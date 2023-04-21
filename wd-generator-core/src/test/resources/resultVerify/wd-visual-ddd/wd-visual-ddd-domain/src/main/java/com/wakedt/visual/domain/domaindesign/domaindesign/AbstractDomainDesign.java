@@ -6,7 +6,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 维护业务域及版本的领域-聚合根
+ * 业务域-聚合根
  */
 @Data
 public abstract class AbstractDomainDesign {
@@ -17,13 +17,13 @@ public abstract class AbstractDomainDesign {
     /** 名称 */
     private String name;
 
-    /** 团队的唯一标识 */
+    /** 团队ID */
     private Long teamId;
 
-    /** 唯一标识，此处使用大驼峰命名 */
+    /** 标识符 */
     private String identity;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
 }

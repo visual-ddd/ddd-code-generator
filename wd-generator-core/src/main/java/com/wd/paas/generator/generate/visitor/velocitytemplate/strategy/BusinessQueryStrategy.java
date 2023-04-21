@@ -31,6 +31,7 @@ public class BusinessQueryStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.BUSINESS_QUERY_ID, node.getIdentity());
         context.put(VelocityLabel.BUSINESS_QUERY_CLASS_NAME, node.getName());
         context.put(VelocityLabel.BUSINESS_QUERY_CLASS_DESCRIPTION, node.getDescription());
+        context.put(VelocityLabel.BUSINESS_QUERY_CLASS_TITLE, node.getTitle());
         context.put(VelocityLabel.BUSINESS_QUERY_CLASS_FIELDS, node.getPropertyList());
         context.put(VelocityLabel.BUSINESS_QUERY_PAGINATION, node.getPagination());
         context.put(VelocityLabel.BUSINESS_QUERY_RETURN_INFO, node.getReturnInfo());

@@ -35,7 +35,7 @@ public class UniversalLanguageCreateEvent extends BaseDomainEvent {
     /** 举例 */
     private String example;
 
-    /** 所属唯一标识(组织/团队的主键id) */
+    /** 所属唯一标识 */
     private Long identity;
     
     public UniversalLanguageCreateEvent() {}
@@ -55,6 +55,6 @@ public class UniversalLanguageCreateEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.universallanguage.universallanguage.create}";
     }
 }

@@ -8,7 +8,7 @@ import com.wakedt.visual.domain.organization.organization.organizationmanagerunb
 import com.wakedt.visual.domain.organization.organization.organizationmanagerbind.OrganizationManagerBindCmd;
 
 /**
- * 组织结构管理的领域-聚合根能力
+ * 组织-聚合根能力
  */
 public class Organization extends AbstractOrganization {
 

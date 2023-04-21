@@ -13,10 +13,6 @@
   <groupId>com.wakedt.visual</groupId>
   <artifactId>wd-visual-ddd</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <description>DDD可视化开发平台
-
-IDEA代码生成插件接入文档：
-http://www.wakedata.net/pages/viewpage.action?pageId=34999420</description>
   <packaging>pom</packaging>
 
   <properties>

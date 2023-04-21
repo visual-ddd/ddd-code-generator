@@ -14,10 +14,10 @@ import com.wakedt.visual.client.organization.query.TeamPageQuery;
 @Mapper
 public interface TeamMapper extends BaseMapper<TeamDO> {
 
-    /** 查询团队详情 */
+    /** 团队详情查询对象 */
     TeamDO teamQuery(TeamQuery query);
 
-    /** 分页查询团队 */
+    /** 团队分页查询对象 */
     List<TeamDO> teamPageQuery(TeamPageQuery pageQuery);
 
 }

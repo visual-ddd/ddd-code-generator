@@ -8,7 +8,7 @@ import java.math.*;
 import org.springframework.stereotype.Service;
 
 /**
- * 管理系统的组织和用户结构-RPC能力接口实现
+ * 组织管理场景-RPC能力接口实现
  */
 @Service
 public class OrganizationManagementRpcServiceImpl implements OrganizationManagementRpcService {

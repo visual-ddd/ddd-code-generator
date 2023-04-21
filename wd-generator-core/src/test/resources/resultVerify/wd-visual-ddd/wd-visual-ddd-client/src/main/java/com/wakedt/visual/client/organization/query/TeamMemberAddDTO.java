@@ -13,10 +13,10 @@ import java.math.*;
 @ApiModel(value = "添加团队成员")
 public class TeamMemberAddDTO {
 
-    @ApiModelProperty(value = "团队成员的账号唯一标识")
+    @ApiModelProperty(value = "成员账号ID")
     public Long accountId;
 
-    @ApiModelProperty(value = "团队唯一标识")
+    @ApiModelProperty(value = "团队ID")
     public Long teamId;
 
     @ApiModelProperty(value = "成员类型标签")

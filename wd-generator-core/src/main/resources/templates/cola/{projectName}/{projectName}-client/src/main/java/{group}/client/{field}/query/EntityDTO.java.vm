@@ -7,9 +7,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 
-#comment("${ENTITY_CLASS_DESCRIPTION}")
+#comment("${ENTITY_CLASS_TITLE}")
 @Data
-@ApiModel(value = "${ENTITY_CLASS_DESCRIPTION}")
+@ApiModel(value = "${ENTITY_CLASS_TITLE}")
 public class ${ENTITY_DTO_CLASS_NAME} {
 #dtoFiled(${ENTITY_CLASS_FIELDS})
 

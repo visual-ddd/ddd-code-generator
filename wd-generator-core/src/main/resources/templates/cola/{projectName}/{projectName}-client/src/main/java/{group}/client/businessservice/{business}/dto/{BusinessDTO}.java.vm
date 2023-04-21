@@ -9,10 +9,10 @@ import java.math.*;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
 
-#comment("$BUSINESS_DTO_CLASS_DESCRIPTION")
+#comment("$BUSINESS_DTO_CLASS_TITLE")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "${BUSINESS_DTO_CLASS_DESCRIPTION}")
+@ApiModel(value = "${BUSINESS_DTO_CLASS_TITLE}")
 public class ${BUSINESS_DTO_CLASS_NAME} extends BaseDTO {
 #filedExt(${BUSINESS_DTO_CLASS_FIELDS})
 

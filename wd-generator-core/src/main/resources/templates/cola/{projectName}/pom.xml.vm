@@ -15,7 +15,6 @@
   <groupId>${PROJECT_PACKAGE}</groupId>
   <artifactId>${PROJECT_NAME}</artifactId>
   <version>${PROJECT_VERSION}</version>
-  <description>${PROJECT_DESCRIPTION}</description>
   <packaging>pom</packaging>
 
   <properties>

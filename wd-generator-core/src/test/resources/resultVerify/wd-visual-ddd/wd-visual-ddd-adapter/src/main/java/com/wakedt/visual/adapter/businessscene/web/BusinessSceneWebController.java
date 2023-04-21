@@ -99,25 +99,25 @@ public class BusinessSceneWebController {
         return businessSceneRpcService.businessSceneVersionFork(dto);
     }
 
-    @ApiOperation("查询业务场景详情")
+    @ApiOperation("业务场景详情查询对象")
     @GetMapping("/business-scene-query")
     public ResultDTO<BusinessSceneDTO> businessSceneQuery(BusinessSceneQuery query) {
         return businessSceneRpcService.businessSceneQuery(query);
     }
 
-    @ApiOperation("分页查询业务场景")
+    @ApiOperation("业务场景分页查询对象")
     @GetMapping("/business-scene-page-query")
     public PageResultDTO<List<BusinessSceneDTO>> businessScenePageQuery(BusinessScenePageQuery pageQuery) {
         return businessSceneRpcService.businessScenePageQuery(pageQuery);
     }
 
-    @ApiOperation("查询业务场景版本详情")
+    @ApiOperation("业务场景版本详情查询对象")
     @GetMapping("/business-scene-version-query")
     public ResultDTO<BusinessSceneVersionDTO> businessSceneVersionQuery(BusinessSceneVersionQuery query) {
         return businessSceneRpcService.businessSceneVersionQuery(query);
     }
 
-    @ApiOperation("分页查询业务场景版本")
+    @ApiOperation("业务场景版本分页查询对象")
     @GetMapping("/business-scene-version-page-query")
     public PageResultDTO<List<BusinessSceneVersionDTO>> businessSceneVersionPageQuery(BusinessSceneVersionPageQuery pageQuery) {
         return businessSceneRpcService.businessSceneVersionPageQuery(pageQuery);
@@ -129,7 +129,7 @@ public class BusinessSceneWebController {
         return businessSceneRpcService.businessSceneListQuery(query);
     }
 
-    @ApiOperation("查询应用下的最新版本")
+    @ApiOperation("应用最新版本查询对象")
     @GetMapping("/business-scene-latest-version-query")
     public ResultDTO<BusinessSceneVersionDTO> businessSceneLatestVersionQuery(BusinessSceneLatestVersionQuery query) {
         return businessSceneRpcService.businessSceneLatestVersionQuery(query);

@@ -6,7 +6,7 @@ import com.wakedt.visual.domain.application.application.applicationmodify.Applic
 import com.wakedt.visual.domain.application.application.applicationremove.ApplicationRemoveCmd;
 
 /**
- * 维护应用及版本的领域-聚合根能力
+ * 应用-聚合根能力
  */
 public class Application extends AbstractApplication {
 

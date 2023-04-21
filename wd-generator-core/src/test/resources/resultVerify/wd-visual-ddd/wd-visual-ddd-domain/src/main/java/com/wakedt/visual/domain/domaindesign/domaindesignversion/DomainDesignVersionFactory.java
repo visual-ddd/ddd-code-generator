@@ -5,7 +5,7 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignver
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignversionfork.DomainDesignVersionForkCmd;
 
 /**
- * 描述业务域版本信息-聚合根-工厂
+ * 业务域版本-聚合根-工厂
  */
 @Component
 public class DomainDesignVersionFactory {
@@ -21,7 +21,7 @@ public class DomainDesignVersionFactory {
 
     public DomainDesignVersion getInstance(DomainDesignVersionForkCmd createCmd) {
         DomainDesignVersion instance = new DomainDesignVersion();
-        // TODO 指令字段不匹配 createCmd.getStartVersionId();
+        /* TODO 指令字段不匹配 createCmd.getStartVersionId(); */
         instance.setCurrentVersion(createCmd.getCurrentVersion());
         instance.setDescription(createCmd.getDescription());
         return instance;

@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询应用下的最新版本
+ * 应用最新版本查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询应用下的最新版本")
+@ApiModel(value = "应用最新版本查询对象")
 public class BusinessSceneLatestVersionQuery extends BaseQuery {
 
     @ApiModelProperty(value = "业务场景ID")

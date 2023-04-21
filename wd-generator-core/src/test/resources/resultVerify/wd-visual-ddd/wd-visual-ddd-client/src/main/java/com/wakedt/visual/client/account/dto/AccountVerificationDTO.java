@@ -10,11 +10,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 用于账号验证码的数据传输对象
+ * 账号验证码数据传输对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "用于账号验证码的数据传输对象")
+@ApiModel(value = "账号验证码数据传输对象")
 public class AccountVerificationDTO extends BaseDTO {
 
     @ApiModelProperty(value = "实体唯一标识符")
@@ -23,7 +23,7 @@ public class AccountVerificationDTO extends BaseDTO {
     @ApiModelProperty(value = "验证码")
     private String code;
 
-    @ApiModelProperty(value = "用户登录的唯一标识，目前以用户邮箱作为账号")
+    @ApiModelProperty(value = "账号标识")
     private String accountNo;
 
 }

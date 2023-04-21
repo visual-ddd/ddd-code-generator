@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询统一语言详情
+ * 统一语言详情查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询统一语言详情")
+@ApiModel(value = "统一语言详情查询对象")
 public class UniversalLanguageQuery extends BaseQuery {
 
     @ApiModelProperty(value = "统一语言 ID")

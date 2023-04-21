@@ -18,7 +18,7 @@ public class BusinessSceneVersionModifyCmd {
     /** 业务场景 ID */
     private Long id;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
 }

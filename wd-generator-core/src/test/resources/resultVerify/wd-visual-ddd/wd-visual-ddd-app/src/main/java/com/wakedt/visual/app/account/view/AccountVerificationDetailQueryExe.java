@@ -10,7 +10,7 @@ import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
 import com.wakedt.visual.app.account.assembler.AccountVerificationDTO2AccountVerificationDOConvert;
 
 /**
- * 查询账号验证码详情-查询器
+ * 账号验证码详情查询对象-查询器
  */
 @Component
 public class AccountVerificationDetailQueryExe {

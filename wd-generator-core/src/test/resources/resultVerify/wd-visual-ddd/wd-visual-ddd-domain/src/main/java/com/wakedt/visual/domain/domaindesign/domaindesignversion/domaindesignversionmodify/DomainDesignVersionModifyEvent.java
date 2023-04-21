@@ -17,7 +17,7 @@ public class DomainDesignVersionModifyEvent extends BaseDomainEvent {
     /** 业务域场景ID */
     private Long id;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
     
     public DomainDesignVersionModifyEvent() {}
@@ -30,6 +30,6 @@ public class DomainDesignVersionModifyEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignversionmodify}";
     }
 }

@@ -16,7 +16,7 @@ public class BusinessSceneVersionBindDTO {
     @ApiModelProperty(value = "应用版本ID")
     public Long id;
 
-    @ApiModelProperty(value = "当前应用关联的业务场景版本ID列表")
+    @ApiModelProperty(value = "关联业务场景列表")
     public Set<Long> businessSceneVersionIds;
 
 }

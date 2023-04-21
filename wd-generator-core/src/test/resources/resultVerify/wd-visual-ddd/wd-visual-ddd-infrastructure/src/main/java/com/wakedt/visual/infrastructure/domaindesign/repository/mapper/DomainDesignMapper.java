@@ -15,10 +15,10 @@ import com.wakedt.visual.client.domaindesign.query.DomainDesignListQuery;
 @Mapper
 public interface DomainDesignMapper extends BaseMapper<DomainDesignDO> {
 
-    /** 查询业务域详情 */
+    /** 业务域详情查询对象 */
     DomainDesignDO domainDesignQuery(DomainDesignQuery query);
 
-    /** 分页查询业务域 */
+    /** 业务域分页查询对象 */
     List<DomainDesignDO> domainDesignPageQuery(DomainDesignPageQuery pageQuery);
 
     /** 业务域列表查询对象 */

@@ -14,7 +14,7 @@ import com.wakedt.visual.client.application.dto.ApplicationDTO;
 import com.wakedt.visual.app.application.assembler.ApplicationDTO2ApplicationDOConvert;
 
 /**
- * 分页查询应用-查询器
+ * 应用分页查询对象-查询器
  */
 @Component
 public class ApplicationPageQueryExe {

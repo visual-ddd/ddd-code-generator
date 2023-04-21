@@ -7,10 +7,10 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 验证账号密码，并返回用户信息，供存储到session
+ * 账号登录
  */
 @Data
-@ApiModel(value = "验证账号密码，并返回用户信息，供存储到session")
+@ApiModel(value = "账号登录")
 public class Login {
 
     @ApiModelProperty(value = "账号唯一标识（邮箱）")

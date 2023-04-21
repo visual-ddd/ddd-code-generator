@@ -2,6 +2,7 @@
 package ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;
+import ${PROJECT_PACKAGE}.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.mapstruct.Mapping;
@@ -9,7 +10,7 @@ import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_SOURCE_OBJECT_ID}).get(${OBJECT_
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT_ID}).get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER_TARGET_OBJECT};
 
 @Mapper(uses = {
-        JsonConverter.class,
+        BaseJsonConvertor.class,
 })
 public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 

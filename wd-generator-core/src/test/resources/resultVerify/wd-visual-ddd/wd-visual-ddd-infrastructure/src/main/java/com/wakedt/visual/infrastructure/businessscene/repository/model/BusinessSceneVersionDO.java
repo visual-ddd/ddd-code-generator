@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 描述业务场景版本信息实体类
+ * 业务场景版本实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,22 +28,22 @@ public class BusinessSceneVersionDO extends BaseJpaAggregate {
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** 业务场景的唯一标识 */
+    /** 业务场景ID */
     private Long businessSceneId;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
-    /** 第一次创建时，需要指定起始版本号 */
+    /** 起始版本号 */
     private String startVersion;
 
-    /** 当前版本的唯一标识 */
+    /** 当前版本号 */
     private String currentVersion;
 
-    /** 业务场景抽象文本描述语言 */
+    /** 业务场景DSL */
     private String businessSceneDsl;
 
-    /** 图形的抽象文本描述语言 */
+    /** 图形DSL */
     private String graphDsl;
 
     /** 版本状态 */

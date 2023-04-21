@@ -39,7 +39,7 @@ public class AccountLoginAppController {
     @Resource
     private AccountLoginRpcService accountLoginRpcService;
 
-    @ApiOperation("验证账号密码，并返回用户信息，供存储到session")
+    @ApiOperation("账号登录")
     @PostMapping("/login")
     public ResultDTO<AccountInfoDTO> login(@RequestBody @Valid Login request) {
         return accountLoginRpcService.login(request);
@@ -51,7 +51,7 @@ public class AccountLoginAppController {
         return accountLoginRpcService.logout(request);
     }
 
-    @ApiOperation("校验注册验证码，创建账号")
+    @ApiOperation("注册账号")
     @PostMapping("/account-register")
     public ResultDTO<Boolean> accountRegister(@RequestBody @Valid AccountRegister request) {
         return accountLoginRpcService.accountRegister(request);
@@ -63,13 +63,13 @@ public class AccountLoginAppController {
         return accountLoginRpcService.accountVerificationCreate(request);
     }
 
-    @ApiOperation("获取登录账号的基本信息")
+    @ApiOperation("获取当前登录账号信息")
     @PostMapping("/get-account-info")
     public ResultDTO<AccountInfoDTO> getAccountInfo(@RequestBody @Valid GetAccountInfo request) {
         return accountLoginRpcService.getAccountInfo(request);
     }
 
-    @ApiOperation("获取当前登录账号的权限信息，包含所属组织、团队等信息")
+    @ApiOperation("获取用户权限信息")
     @PostMapping("/get-account-role")
     public ResultDTO<AccountRoleDTO> getAccountRole(@RequestBody @Valid GetAccountRole request) {
         return accountLoginRpcService.getAccountRole(request);

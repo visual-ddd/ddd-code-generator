@@ -18,7 +18,7 @@ public class AccountModifyCmdHandler {
         Account account = repository.find(updateCmd.getId());
         account.accountModify(updateCmd);
 
-        // TODO IsAccountExistsOrError(账号唯一) 邮箱为用户唯一标识，同一个邮箱不可重复注册
+        /* TODO IsAccountExistsOrError(账号唯一) 邮箱为用户唯一标识，同一个邮箱不可重复注册 */
 
         repository.update(account);
 

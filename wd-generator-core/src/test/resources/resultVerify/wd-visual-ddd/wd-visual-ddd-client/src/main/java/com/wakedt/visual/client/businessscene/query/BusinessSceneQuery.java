@@ -9,11 +9,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 查询业务场景详情
+ * 业务场景详情查询对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "查询业务场景详情")
+@ApiModel(value = "业务场景详情查询对象")
 public class BusinessSceneQuery extends BaseQuery {
 
     @ApiModelProperty(value = "业务场景 ID")

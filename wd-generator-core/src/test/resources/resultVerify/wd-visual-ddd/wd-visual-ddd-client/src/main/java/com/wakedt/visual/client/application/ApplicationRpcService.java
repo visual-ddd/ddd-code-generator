@@ -24,7 +24,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 维护应用及版本的领域-RPC能力接口
+ * 应用域-RPC能力接口
  */
 public interface ApplicationRpcService {
 

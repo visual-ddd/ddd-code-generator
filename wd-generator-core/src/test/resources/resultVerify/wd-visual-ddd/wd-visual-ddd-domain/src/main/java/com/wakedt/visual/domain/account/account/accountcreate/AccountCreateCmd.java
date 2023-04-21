@@ -18,7 +18,7 @@ public class AccountCreateCmd {
     /** 用户名 */
     private String userName;
 
-    /** 用户登录的唯一标识，目前以用户邮箱作为账号 */
+    /** 账号 */
     private String accountNo;
 
     /** 密码 */

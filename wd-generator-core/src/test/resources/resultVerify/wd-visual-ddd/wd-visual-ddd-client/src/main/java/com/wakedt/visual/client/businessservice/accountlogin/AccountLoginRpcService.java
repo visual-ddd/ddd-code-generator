@@ -18,11 +18,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 描述用户登录的流程-RPC能力接口
+ * 用户登录场景-RPC能力接口
  */
 public interface AccountLoginRpcService {
 
-    /** 验证账号密码，并返回用户信息，供存储到session */
+    /** 验证账号密码，\n并返回用户信息，供存储到session */
     ResultDTO<AccountInfoDTO> login(Login request);
 
     /** 退出登录 */

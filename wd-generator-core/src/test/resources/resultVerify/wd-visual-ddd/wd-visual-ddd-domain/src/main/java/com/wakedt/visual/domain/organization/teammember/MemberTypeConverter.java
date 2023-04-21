@@ -11,7 +11,7 @@ import java.math.*;
 import java.util.Optional;
 
 /**
- * 团队成员在所属团队中扮演的职位-枚举JSON转换器
+ * 团队成员类型-枚举JSON转换器
  */
 public class MemberTypeConverter {
 

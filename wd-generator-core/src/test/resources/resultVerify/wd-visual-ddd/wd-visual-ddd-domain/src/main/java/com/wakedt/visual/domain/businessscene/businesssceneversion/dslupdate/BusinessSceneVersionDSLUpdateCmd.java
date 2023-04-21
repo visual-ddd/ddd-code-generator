@@ -18,10 +18,10 @@ public class BusinessSceneVersionDSLUpdateCmd {
     /** 业务场景版本ID */
     private Long id;
 
-    /** 图形的抽象文本描述语言 */
+    /** 图形DSL */
     private String graphDsl;
 
-    /** 业务场景抽象文本描述语言 */
+    /** 业务场景DSL */
     private String businessSceneDsl;
 
 }

@@ -18,7 +18,7 @@ public class ApplicationRemoveCmdHandler {
         Application application = repository.find(removeCmd.getId());
         application.applicationRemove(removeCmd);
 
-        // TODO CheckExistApplicationVersion(存在版本不能删除) 校验当前应用下是否存在版本
+        /* TODO CheckExistApplicationVersion(存在版本不能删除) 校验当前应用下是否存在版本 */
 
         repository.remove(application);
 

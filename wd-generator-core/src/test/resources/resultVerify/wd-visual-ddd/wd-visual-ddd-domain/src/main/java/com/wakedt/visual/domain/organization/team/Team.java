@@ -8,7 +8,7 @@ import com.wakedt.visual.domain.organization.team.teammanagerbind.TeamManagerBin
 import com.wakedt.visual.domain.organization.team.teammanagerunbind.TeamManagerUnBindCmd;
 
 /**
- * 每个团队是单一职责的，通常负责独立子领域的开发工作。-聚合根能力
+ * 团队-聚合根能力
  */
 public class Team extends AbstractTeam {
 

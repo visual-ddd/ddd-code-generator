@@ -1,7 +1,7 @@
 package com.wakedt.visual.domain.account.account;
 
 /**
- * 用户的唯一标识，用于平台登录-聚合根-仓储接口
+ * 账号-聚合根-仓储接口
  */
 public interface AccountRepository {
 

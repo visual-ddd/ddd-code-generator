@@ -19,7 +19,7 @@ public class AccountCreateCmdHandler {
     public Long handle(AccountCreateCmd createCmd) {
         Account entity = factory.getInstance(createCmd);
 
-        // TODO IsAccountExistsOrError(账号唯一) 邮箱为用户唯一标识，同一个邮箱不可重复注册
+        /* TODO IsAccountExistsOrError(账号唯一) 邮箱为用户唯一标识，\n同一个邮箱不可重复注册 */
 
         Account newEntity = repository.save(entity);
 

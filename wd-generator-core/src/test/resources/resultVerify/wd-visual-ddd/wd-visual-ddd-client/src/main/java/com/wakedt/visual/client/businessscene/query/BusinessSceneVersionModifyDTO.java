@@ -16,7 +16,7 @@ public class BusinessSceneVersionModifyDTO {
     @ApiModelProperty(value = "业务场景 ID")
     public Long id;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
 }

@@ -19,9 +19,9 @@ public class BusinessSceneCreateCmdHandler {
     public Long handle(BusinessSceneCreateCmd createCmd) {
         BusinessScene entity = factory.getInstance(createCmd);
 
-        // TODO CheckRepeatedIdentity(标识符唯一) 校验当前团队下业务场景标识符是否重复
+        /* TODO CheckRepeatedIdentity(标识符唯一) 校验当前团队下业务场景标识符是否重复 */
 
-        // TODO InitVersion(初始化起始版本) 第一次创建的同时初始化起始版本
+        /* TODO InitVersion(初始化起始版本) 第一次创建的同时初始化起始版本 */
 
         BusinessScene newEntity = repository.save(entity);
 

@@ -17,7 +17,7 @@ public class TeamManagerBindEvent extends BaseDomainEvent {
     /** 团队 ID */
     private Long id;
 
-    /** 团队的管理者，被组织管理员授权，管理自己所在团队 */
+    /** 团队管理员 */
     private Long teamManagerId;
     
     public TeamManagerBindEvent() {}
@@ -30,6 +30,6 @@ public class TeamManagerBindEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.organization.team.teammanagerbind}";
     }
 }

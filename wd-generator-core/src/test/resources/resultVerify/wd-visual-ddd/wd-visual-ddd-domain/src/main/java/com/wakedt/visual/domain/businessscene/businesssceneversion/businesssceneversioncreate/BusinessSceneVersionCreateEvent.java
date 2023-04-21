@@ -17,16 +17,16 @@ public class BusinessSceneVersionCreateEvent extends BaseDomainEvent {
     /** 业务场景 ID */
     private Long id;
 
-    /** 业务场景的唯一标识 */
+    /** 业务场景ID */
     private Long businessSceneId;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
-    /** 第一次创建时，需要指定起始版本号 */
+    /** 起始版本号 */
     private String startVersion;
 
-    /** 当前版本的唯一标识 */
+    /** 当前版本号 */
     private String currentVersion;
     
     public BusinessSceneVersionCreateEvent() {}
@@ -43,6 +43,6 @@ public class BusinessSceneVersionCreateEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversioncreate}";
     }
 }

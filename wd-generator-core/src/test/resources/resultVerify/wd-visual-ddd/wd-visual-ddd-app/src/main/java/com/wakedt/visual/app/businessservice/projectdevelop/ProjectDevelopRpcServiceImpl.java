@@ -23,56 +23,56 @@ import java.math.*;
 import org.springframework.stereotype.Service;
 
 /**
- * DDD项目开发流程-RPC能力接口实现
+ * 项目开发场景-RPC能力接口实现
  */
 @Service
 public class ProjectDevelopRpcServiceImpl implements ProjectDevelopRpcService {
 
     @Override
     public ResultDTO<Boolean> universalLanguageBatchRemove(UniversalLanguageBatchRemove request) {
-        // TODO 批量删除统一语言
+        /* TODO 批量删除统一语言 */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<Boolean> exportUniversalLanguage2Excel(ExportUniversalLanguage2Excel request) {
-        // TODO 统一语言导出Excel文件
+        /* TODO 统一语言导出Excel文件 */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<Boolean> importUniversalLanguageFromExcel(ImportUniversalLanguageFromExcel request) {
-        // TODO Excel导入统一语言
+        /* TODO Excel导入统一语言 */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<List<UniversalLanguageExcelDTO>> businessImportUniversallanguageFromExcel(BusinessImportUniversallanguageFromExcel request) {
-        // TODO 不进行数据处理(由前端进行插入数据库)
+        /* TODO 不进行数据处理(由前端进行插入数据库) */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<Boolean> businessExportUniversalLanguage2Excel(BusinessExportUniversalLanguage2Excel request) {
-        // TODO 统一语言导出Excel文件(业务域)
+        /* TODO 统一语言导出Excel文件(业务域) */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<ApplicationLatestVersionInfoDTO> getLatestApplicationVersionInfo(GetLatestApplicationVersionInfo request) {
-        // TODO 获取最新应用版本信息
+        /* TODO 获取最新应用版本信息 */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<DomainDesignLatestVersionInfoDTO> getLatestDomainDesignVersionInfo(GetLatestDomainDesignVersionInfo request) {
-        // TODO 获取最新业务域版本信息
+        /* TODO 获取最新业务域版本信息 */
         return ResultDTO.success();
     }
 
     @Override
     public ResultDTO<BusinessSceneLatestVersionInfoDTO> getLatestBusinessSceneVersionInfo(GetLatestBusinessSceneVersionInfo request) {
-        // TODO 获取最新业务场景版本信息
+        /* TODO 获取最新业务场景版本信息 */
         return ResultDTO.success();
     }
 }

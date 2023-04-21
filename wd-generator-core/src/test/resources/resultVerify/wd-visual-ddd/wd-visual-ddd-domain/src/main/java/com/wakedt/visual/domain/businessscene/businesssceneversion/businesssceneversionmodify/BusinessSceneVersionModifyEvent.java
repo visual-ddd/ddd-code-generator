@@ -17,7 +17,7 @@ public class BusinessSceneVersionModifyEvent extends BaseDomainEvent {
     /** 业务场景 ID */
     private Long id;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
     
     public BusinessSceneVersionModifyEvent() {}
@@ -30,6 +30,6 @@ public class BusinessSceneVersionModifyEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionmodify}";
     }
 }

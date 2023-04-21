@@ -10,11 +10,11 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 用于业务域的数据传输对象
+ * 业务域数据传输对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "用于业务域的数据传输对象")
+@ApiModel(value = "业务域数据传输对象")
 public class DomainDesignDTO extends BaseDTO {
 
     @ApiModelProperty(value = "业务域 ID")
@@ -23,13 +23,13 @@ public class DomainDesignDTO extends BaseDTO {
     @ApiModelProperty(value = "名称")
     private String name;
 
-    @ApiModelProperty(value = "团队的唯一标识")
+    @ApiModelProperty(value = "团队ID")
     private Long teamId;
 
-    @ApiModelProperty(value = "唯一标识，此处使用大驼峰命名")
+    @ApiModelProperty(value = "标识符")
     private String identity;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     private String description;
 
 }

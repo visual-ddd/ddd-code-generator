@@ -16,7 +16,7 @@ public class DomainDesignVersionBindDTO {
     @ApiModelProperty(value = "应用版本ID")
     public Long id;
 
-    @ApiModelProperty(value = "当前应用关联的业务域版本ID列表")
+    @ApiModelProperty(value = "关联业务域列表")
     public Set<Long> domainDesignVersionIds;
 
 }

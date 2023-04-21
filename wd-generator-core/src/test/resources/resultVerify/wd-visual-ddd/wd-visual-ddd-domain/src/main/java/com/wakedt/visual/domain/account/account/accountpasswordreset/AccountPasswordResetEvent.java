@@ -14,10 +14,10 @@ import com.wakedt.visual.domain.account.account.*;
 @EqualsAndHashCode(callSuper = true)
 public class AccountPasswordResetEvent extends BaseDomainEvent {
     
-    /** 用户重置密码时携带的唯一标识 */
+    /** 重置密码唯一标识 */
     private String uuid;
 
-    /** 用户登录的唯一标识，目前以用户邮箱作为账号 */
+    /** 账号 */
     private String accountNo;
 
     /** 密码 */
@@ -34,6 +34,6 @@ public class AccountPasswordResetEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.account.account.accountpasswordreset}";
     }
 }

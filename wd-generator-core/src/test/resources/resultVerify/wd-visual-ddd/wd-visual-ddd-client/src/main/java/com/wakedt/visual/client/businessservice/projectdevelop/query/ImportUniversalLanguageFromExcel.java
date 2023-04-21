@@ -16,10 +16,10 @@ public class ImportUniversalLanguageFromExcel {
     @ApiModelProperty(value = "Excel文件")
     private String file;
 
-    @ApiModelProperty(value = "统一语言类型：1-组织统一语言，2-团队统一语言，3-业务域统一语言")
+    @ApiModelProperty(value = "统一语言类型")
     private Integer languageType;
 
-    @ApiModelProperty(value = "所属唯一标识(组织/团队的主键id)")
+    @ApiModelProperty(value = "所属唯一标识")
     private Long identity;
 
 }

@@ -15,10 +15,10 @@ import com.wakedt.visual.domain.organization.teammember.*;
 @NoArgsConstructor
 public class TeamMemberAddCmd {
 
-    /** 团队成员的账号唯一标识 */
+    /** 成员账号ID */
     private Long accountId;
 
-    /** 团队唯一标识 */
+    /** 团队ID */
     private Long teamId;
 
     /** 成员类型标签 */

@@ -16,10 +16,10 @@ public class ApplicationVersionForkDTO {
     @ApiModelProperty(value = "基版本的唯一标识")
     public Long startVersionId;
 
-    @ApiModelProperty(value = "当前版本的唯一标识")
+    @ApiModelProperty(value = "当前版本号")
     public String currentVersion;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     public String description;
 
 }

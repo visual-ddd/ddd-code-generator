@@ -25,7 +25,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 维护系统中统一语言的领域-RPC能力接口实现
+ * 统一语言域-RPC能力接口实现
  */
 @Service
 public class UniversalLanguageRpcServiceImpl implements UniversalLanguageRpcService {

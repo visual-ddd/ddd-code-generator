@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 描述应用版本信息实体类
+ * 应用版本实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,16 +28,16 @@ public class ApplicationVersionDO extends BaseJpaAggregate {
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** 应用的唯一标识 */
+    /** 应用ID */
     private Long applicationId;
 
-    /** 第一次创建时，需要指定起始版本号 */
+    /** 起始版本号 */
     private String startVersion;
 
-    /** 当前版本的唯一标识 */
+    /** 当前版本号 */
     private String currentVersion;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
     /** 版本状态 */

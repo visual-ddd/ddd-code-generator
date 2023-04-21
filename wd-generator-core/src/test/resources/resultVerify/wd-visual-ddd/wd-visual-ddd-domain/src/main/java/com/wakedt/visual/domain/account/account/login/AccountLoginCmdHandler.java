@@ -18,7 +18,7 @@ public class AccountLoginCmdHandler {
         Account account = repository.find(updateCmd.getId());
         account.login(updateCmd);
 
-        // TODO CheckLoginPass(账号密码正确) 验证账号密码是否正确
+        /* TODO CheckLoginPass(账号密码正确) 验证账号密码是否正确 */
 
         repository.update(account);
 

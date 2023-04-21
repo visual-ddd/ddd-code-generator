@@ -38,6 +38,7 @@ public class BusinessDTOStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.BUSINESS_DTO_CLASS_NAME, node.getName());
         context.put(VelocityLabel.BUSINESS_DTO_CLASS_FIELDS, node.getPropertyList());
         context.put(VelocityLabel.BUSINESS_DTO_CLASS_DESCRIPTION, node.getDescription());
+        context.put(VelocityLabel.BUSINESS_DTO_CLASS_TITLE, node.getTitle());
     }
 
     @Override

@@ -14,7 +14,7 @@ import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
 import com.wakedt.visual.app.organization.assembler.TeamMemberDTO2TeamMemberDOConvert;
 
 /**
- * 分页查询团队成员-查询器
+ * 查询团队下的成员信息-查询器
  */
 @Component
 public class TeamMemberByTeamIdPageQueryExe {

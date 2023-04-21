@@ -17,7 +17,7 @@ public class BusinessSceneVersionBindEvent extends BaseDomainEvent {
     /** 应用版本ID */
     private Long id;
 
-    /** 当前应用关联的业务场景版本ID列表 */
+    /** 关联业务场景列表 */
     private Set<Long> businessSceneVersionIds;
     
     public BusinessSceneVersionBindEvent() {}
@@ -30,6 +30,6 @@ public class BusinessSceneVersionBindEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.application.applicationversion.businesssceneversionbind}";
     }
 }

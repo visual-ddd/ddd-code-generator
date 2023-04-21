@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 关联到当前团队的用户，团队管理员可以为成员绑定不同的团队职位实体类
+ * 团队成员实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,12 +28,12 @@ public class TeamMemberDO extends BaseJpaAggregate {
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** 团队唯一标识 */
+    /** 团队ID */
     private Long teamId;
 
-    /** 团队成员的账号唯一标识 */
+    /** 成员账号ID */
     private Long accountId;
 
-    /** 团队成员在所属团队中扮演的职位 */
+    /** 团队成员类型 */
     private String memberTypeList;
 }

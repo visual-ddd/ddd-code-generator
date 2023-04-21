@@ -1,7 +1,7 @@
 package com.wakedt.visual.domain.application.application;
 
 /**
- * 维护应用及版本的领域-聚合根-仓储接口
+ * 应用-聚合根-仓储接口
  */
 public interface ApplicationRepository {
 

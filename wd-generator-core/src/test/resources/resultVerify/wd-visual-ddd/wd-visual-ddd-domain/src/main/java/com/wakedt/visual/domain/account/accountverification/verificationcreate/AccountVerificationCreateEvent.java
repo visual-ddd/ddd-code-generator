@@ -17,7 +17,7 @@ public class AccountVerificationCreateEvent extends BaseDomainEvent {
     /** 验证码 */
     private String code;
 
-    /** 用户登录的唯一标识，目前以用户邮箱作为账号 */
+    /** 账号标识 */
     private String accountNo;
     
     public AccountVerificationCreateEvent() {}
@@ -30,6 +30,6 @@ public class AccountVerificationCreateEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.account.accountverification.verificationcreate}";
     }
 }

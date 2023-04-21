@@ -1,7 +1,7 @@
 #parse("templates/Aggregation.vm")
 package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}Repository")};
 
-#comment("${AGGREGATION_CLASS_DESCRIPTION}-聚合根-仓储接口")
+#comment("${AGGREGATION_CLASS_TITLE}-聚合根-仓储接口")
 public interface ${AGGREGATION_CLASS_NAME}Repository {
 
     ${AGGREGATION_CLASS_NAME} save(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER});

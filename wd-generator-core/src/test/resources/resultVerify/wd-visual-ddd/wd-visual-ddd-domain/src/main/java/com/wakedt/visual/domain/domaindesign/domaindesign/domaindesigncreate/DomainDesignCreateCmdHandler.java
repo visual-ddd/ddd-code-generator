@@ -19,9 +19,9 @@ public class DomainDesignCreateCmdHandler {
     public Long handle(DomainDesignCreateCmd createCmd) {
         DomainDesign entity = factory.getInstance(createCmd);
 
-        // TODO CheckRepeatedIdentity(标识符唯一) 校验当前团队下业务域标识符是否重复
+        /* TODO CheckRepeatedIdentity(标识符唯一) 校验当前团队下业务域标识符是否重复 */
 
-        // TODO InitVersion(初始化版本) 第一次创建的同时初始化起始版本
+        /* TODO InitVersion(初始化版本) 第一次创建的同时初始化起始版本 */
 
         DomainDesign newEntity = repository.save(entity);
 

@@ -38,6 +38,7 @@ public class VelocityLabel {
     public static final String AGGREGATION_ID = "AGGREGATION_ID";
     public static final String AGGREGATION_CLASS_NAME = "AGGREGATION_CLASS_NAME";
     public static final String AGGREGATION_CLASS_DESCRIPTION = "AGGREGATION_CLASS_DESCRIPTION";
+    public static final String AGGREGATION_CLASS_TITLE = "AGGREGATION_CLASS_TITLE";
     public static final String AGGREGATION_CLASS_ID = "AGGREGATION_CLASS_ID";
     public static final String AGGREGATION_CLASS_FIELDS = "AGGREGATION_CLASS_FIELDS";
     public static final String AGGREGATION_CLASS_METHODS = "AGGREGATION_CLASS_METHODS";
@@ -53,6 +54,7 @@ public class VelocityLabel {
     public static final String ENTITY_DTO_CLASS_NAME = "ENTITY_DTO_CLASS_NAME";
     public static final String ENTITY_CLASS_FIELDS = "ENTITY_CLASS_FIELDS";
     public static final String ENTITY_CLASS_DESCRIPTION = "ENTITY_CLASS_DESCRIPTION";
+    public static final String ENTITY_CLASS_TITLE = "ENTITY_CLASS_TITLE";
     public static final String ENTITY_CLASS_ID = "ENTITY_CLASS_ID";
     public static final String ENTITY_CLASS_METHODS = "ENTITY_CLASS_METHODS";
 
@@ -61,11 +63,13 @@ public class VelocityLabel {
     public static final String ENUM_CLASS_NAME = "ENUM_CLASS_NAME";
     public static final String ENUM_CLASS_CONSTANTS = "ENUM_CLASS_CONSTANTS";
     public static final String ENUM_CLASS_DESCRIPTION = "ENUM_CLASS_DESCRIPTION";
+    public static final String ENUM_CLASS_TITLE = "ENUM_CLASS_TITLE";
 
     // 值对象
     public static final String VALUE_OBJECT_ID = "VALUE_OBJECT_ID";
     public static final String VALUE_OBJECT_CLASS_NAME = "VALUE_OBJECT_CLASS_NAME";
     public static final String VALUE_OBJECT_CLASS_DESCRIPTION = "VALUE_OBJECT_CLASS_DESCRIPTION";
+    public static final String VALUE_OBJECT_CLASS_TITLE = "VALUE_OBJECT_CLASS_TITLE";
     public static final String VALUE_OBJECT_CLASS_FIELDS = "VALUE_OBJECT_CLASS_FIELDS";
     public static final String VALUE_OBJECT_CLASS_METHODS = "VALUE_OBJECT_CLASS_METHODS";
     public static final String VALUE_OBJECT_DTO_NAME = "VALUE_OBJECT_DTO_NAME";
@@ -77,12 +81,14 @@ public class VelocityLabel {
     public static final String QUERY_RETURN_INFO = "QUERY_RETURN_INFO";
     public static final String QUERY_RETURN_TYPE = "QUERY_RETURN_TYPE";
     public static final String QUERY_CLASS_DESCRIPTION = "QUERY_CLASS_DESCRIPTION";
+    public static final String QUERY_CLASS_TITLE = "QUERY_CLASS_TITLE";
     public static final String QUERY_CLASS_FIELDS = "QUERY_CLASS_FIELDS";
 
     // 结果集
     public static final String QUERY_RESULT_ID = "QUERY_RESULT_ID";
     public static final String QUERY_RESULT_CLASS_NAME = "QUERY_RESULT_CLASS_NAME";
     public static final String QUERY_RESULT_CLASS_DESCRIPTION = "QUERY_RESULT_CLASS_DESCRIPTION";
+    public static final String QUERY_RESULT_CLASS_TITLE = "QUERY_RESULT_CLASS_TITLE";
     public static final String QUERY_RESULT_CLASS_FIELDS = "QUERY_RESULT_CLASS_FIELDS";
 
     // 指令
@@ -91,18 +97,21 @@ public class VelocityLabel {
     public static final String CMD_DTO_CLASS = "CMD_DTO_CLASS";
     public static final String CMD_RULE_LIST = "CMD_RULE_LIST";
     public static final String CMD_CLASS_DESCRIPTION = "CMD_CLASS_DESCRIPTION";
+    public static final String CMD_CLASS_TITLE = "CMD_CLASS_TITLE";
     public static final String CMD_CLASS_FIELDS = "CMD_CLASS_FIELDS";
 
     // 指令事件
     public static final String CMD_EVENT_CLASS_NAME = "CMD_EVENT_CLASS_NAME";
     public static final String CMD_EVENT_CLASS_FIELDS = "CMD_EVENT_CLASS_FIELDS";
     public static final String CMD_EVENT_CLASS_DESCRIPTION = "CMD_EVENT_CLASS_DESCRIPTION";
+    public static final String CMD_EVENT_CLASS_TITLE = "CMD_EVENT_CLASS_TITLE";
     public static final String CMD_CATEGORY = "CMD_CATEGORY";
 
     // 数据模型对象
     public static final String DATA_OBJECT_ID = "DATA_OBJECT_ID";
     public static final String DATA_OBJECT_CLASS_NAME = "DATA_OBJECT_CLASS_NAME";
     public static final String DATA_OBJECT_CLASS_DESCRIPTION = "DATA_OBJECT_CLASS_DESCRIPTION";
+    public static final String DATA_OBJECT_CLASS_TITLE = "DATA_OBJECT_CLASS_TITLE";
     public static final String DATA_OBJECT_CLASS_FIELDS = "DATA_OBJECT_CLASS_FIELDS";
     public static final String DATA_OBJECT_CLASS_PRIMARY_KEY = "DATA_OBJECT_CLASS_PRIMARY_KEY";
     public static final String DATA_TABLE_NAME = "DATA_OBJECT_TABLE_NAME";
@@ -111,6 +120,7 @@ public class VelocityLabel {
     // 对象映射对象模型
     public static final String OBJECT_MAPPER_ID = "OBJECT_MAPPER_ID";
     public static final String OBJECT_MAPPER_CLASS_DESCRIPTION = "OBJECT_MAPPER_CLASS_DESCRIPTION";
+    public static final String OBJECT_MAPPER_CLASS_TITLE = "OBJECT_MAPPER_CLASS_TITLE";
     public static final String OBJECT_MAPPER_SOURCE_OBJECT = "OBJECT_MAPPER_SOURCE_OBJECT";
     public static final String OBJECT_MAPPER_TARGET_OBJECT = "OBJECT_MAPPER_TARGET_OBJECT";
     public static final String OBJECT_MAPPER_SOURCE_OBJECT_ID = "OBJECT_MAPPER_SOURCE_OBJECT_ID";
@@ -137,12 +147,14 @@ public class VelocityLabel {
     public static final String BUSINESS_QUERY_RETURN_INFO = "BUSINESS_QUERY_RETURN_INFO";
     public static final String BUSINESS_QUERY_RETURN_TYPE = "BUSINESS_QUERY_RETURN_TYPE";
     public static final String BUSINESS_QUERY_CLASS_DESCRIPTION = "BUSINESS_QUERY_CLASS_DESCRIPTION";
+    public static final String BUSINESS_QUERY_CLASS_TITLE = "BUSINESS_QUERY_CLASS_TITLE";
     public static final String BUSINESS_QUERY_CLASS_FIELDS = "BUSINESS_QUERY_CLASS_FIELDS";
 
     // 业务结构对象
     public static final String BUSINESS_DTO_ID = "BUSINESS_DTO_ID";
     public static final String BUSINESS_DTO_CLASS_NAME = "BUSINESS_DTO_CLASS_NAME";
     public static final String BUSINESS_DTO_CLASS_DESCRIPTION = "BUSINESS_DTO_CLASS_DESCRIPTION";
+    public static final String BUSINESS_DTO_CLASS_TITLE = "BUSINESS_DTO_CLASS_TITLE";
     public static final String BUSINESS_DTO_CLASS_FIELDS = "BUSINESS_DTO_CLASS_FIELDS";
 
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";

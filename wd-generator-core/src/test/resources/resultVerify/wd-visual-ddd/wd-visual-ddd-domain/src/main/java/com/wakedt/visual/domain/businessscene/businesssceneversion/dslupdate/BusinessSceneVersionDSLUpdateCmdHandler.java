@@ -18,7 +18,7 @@ public class BusinessSceneVersionDSLUpdateCmdHandler {
         BusinessSceneVersion businessSceneVersion = repository.find(updateCmd.getId());
         businessSceneVersion.dslUpdate(updateCmd);
 
-        // TODO CheckVersionPublishedException(发布锁定) 当前版本发布后不能再进行任何操作
+        /* TODO CheckVersionPublishedException(发布锁定) 当前版本发布后不能再进行任何操作 */
 
         repository.update(businessSceneVersion);
 

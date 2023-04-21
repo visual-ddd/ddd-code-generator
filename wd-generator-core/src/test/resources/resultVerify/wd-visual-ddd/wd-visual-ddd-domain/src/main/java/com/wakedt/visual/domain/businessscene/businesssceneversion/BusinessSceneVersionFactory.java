@@ -5,7 +5,7 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.businessscene
 import com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionfork.BusinessSceneVersionForkCmd;
 
 /**
- * 描述业务场景版本信息-聚合根-工厂
+ * 业务场景版本-聚合根-工厂
  */
 @Component
 public class BusinessSceneVersionFactory {
@@ -21,7 +21,7 @@ public class BusinessSceneVersionFactory {
 
     public BusinessSceneVersion getInstance(BusinessSceneVersionForkCmd createCmd) {
         BusinessSceneVersion instance = new BusinessSceneVersion();
-        // TODO 指令字段不匹配 createCmd.getStartVersionId();
+        /* TODO 指令字段不匹配 createCmd.getStartVersionId(); */
         instance.setCurrentVersion(createCmd.getCurrentVersion());
         instance.setDescription(createCmd.getDescription());
         return instance;

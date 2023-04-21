@@ -3,7 +3,7 @@ package com.wakedt.visual.domain.organization.teammember;
 import com.wakedata.common.core.base.BaseEnum;
 
 /**
- * 团队成员在所属团队中扮演的职位-枚举
+ * 团队成员类型-枚举
  */
 public enum MemberType implements BaseEnum {
 

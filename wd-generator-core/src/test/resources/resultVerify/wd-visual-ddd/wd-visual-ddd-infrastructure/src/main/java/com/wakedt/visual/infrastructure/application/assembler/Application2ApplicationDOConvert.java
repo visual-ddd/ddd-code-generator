@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.application.assembler;
 
 import com.wakedt.visual.infrastructure.BaseConvert;
+import com.wakedt.visual.infrastructure.BaseJsonConvertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -8,6 +9,7 @@ import com.wakedt.visual.domain.application.application.Application;
 import com.wakedt.visual.infrastructure.application.repository.model.ApplicationDO;
 
 @Mapper(uses = {
+        BaseJsonConvertor.class,
 })
 public interface Application2ApplicationDOConvert extends BaseConvert<Application, ApplicationDO> {
 

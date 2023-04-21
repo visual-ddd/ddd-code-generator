@@ -6,7 +6,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 维护系统中统一语言的领域-聚合根
+ * 统一语言-聚合根
  */
 @Data
 public abstract class AbstractUniversalLanguage {
@@ -32,7 +32,7 @@ public abstract class AbstractUniversalLanguage {
     /** 举例 */
     private String example;
 
-    /** 所属唯一标识(组织/团队的主键id) */
+    /** 所属唯一标识 */
     private Long identity;
 
 }

@@ -17,7 +17,7 @@ public class ApplicationVersionModifyEvent extends BaseDomainEvent {
     /** 应用版本ID */
     private Long id;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
     
     public ApplicationVersionModifyEvent() {}
@@ -30,6 +30,6 @@ public class ApplicationVersionModifyEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.application.applicationversion.applicationversionmodify}";
     }
 }

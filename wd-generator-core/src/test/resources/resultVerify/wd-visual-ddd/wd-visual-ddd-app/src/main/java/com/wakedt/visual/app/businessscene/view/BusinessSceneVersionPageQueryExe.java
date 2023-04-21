@@ -14,7 +14,7 @@ import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
 import com.wakedt.visual.app.businessscene.assembler.BusinessSceneVersionDTO2BusinessSceneVersionDOConvert;
 
 /**
- * 分页查询业务场景版本-查询器
+ * 业务场景版本分页查询对象-查询器
  */
 @Component
 public class BusinessSceneVersionPageQueryExe {

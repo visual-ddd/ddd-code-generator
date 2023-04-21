@@ -15,13 +15,13 @@ import com.wakedt.visual.client.businessscene.query.BusinessSceneLatestVersionQu
 @Mapper
 public interface BusinessSceneVersionMapper extends BaseMapper<BusinessSceneVersionDO> {
 
-    /** 查询业务场景版本详情 */
+    /** 业务场景版本详情查询对象 */
     BusinessSceneVersionDO businessSceneVersionQuery(BusinessSceneVersionQuery query);
 
-    /** 分页查询业务场景版本 */
+    /** 业务场景版本分页查询对象 */
     List<BusinessSceneVersionDO> businessSceneVersionPageQuery(BusinessSceneVersionPageQuery pageQuery);
 
-    /** 查询应用下的最新版本 */
+    /** 应用最新版本查询对象 */
     BusinessSceneVersionDO businessSceneLatestVersionQuery(BusinessSceneLatestVersionQuery query);
 
 }

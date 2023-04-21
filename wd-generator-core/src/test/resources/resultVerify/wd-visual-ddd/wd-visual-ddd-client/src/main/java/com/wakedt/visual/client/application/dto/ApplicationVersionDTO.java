@@ -10,32 +10,32 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 用于应用版本的数据传输对象
+ * 应用版本数据传输对象
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "用于应用版本的数据传输对象")
+@ApiModel(value = "应用版本数据传输对象")
 public class ApplicationVersionDTO extends BaseDTO {
 
     @ApiModelProperty(value = "应用版本ID")
     private Long id;
 
-    @ApiModelProperty(value = "应用的唯一标识")
+    @ApiModelProperty(value = "应用ID")
     private Long applicationId;
 
-    @ApiModelProperty(value = "第一次创建时，需要指定起始版本号")
+    @ApiModelProperty(value = "起始版本号")
     private String startVersion;
 
-    @ApiModelProperty(value = "当前版本的唯一标识")
+    @ApiModelProperty(value = "当前版本号")
     private String currentVersion;
 
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "描述")
     private String description;
 
-    @ApiModelProperty(value = "当前应用关联的业务域版本ID列表")
+    @ApiModelProperty(value = "关联业务域列表")
     private Set<Long> domainDesignVersionIds;
 
-    @ApiModelProperty(value = "当前应用关联的业务场景版本ID列表")
+    @ApiModelProperty(value = "关联业务场景列表")
     private Set<Long> businessSceneVersionIds;
 
     @ApiModelProperty(value = "版本状态")

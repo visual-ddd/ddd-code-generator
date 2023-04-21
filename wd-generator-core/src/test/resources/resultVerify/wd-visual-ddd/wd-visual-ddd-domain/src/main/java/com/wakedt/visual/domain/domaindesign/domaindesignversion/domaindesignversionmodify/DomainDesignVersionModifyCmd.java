@@ -18,7 +18,7 @@ public class DomainDesignVersionModifyCmd {
     /** 业务域场景ID */
     private Long id;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
 }

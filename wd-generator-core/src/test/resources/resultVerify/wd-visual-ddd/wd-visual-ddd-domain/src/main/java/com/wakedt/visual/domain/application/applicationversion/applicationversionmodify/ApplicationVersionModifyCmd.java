@@ -18,7 +18,7 @@ public class ApplicationVersionModifyCmd {
     /** 应用版本ID */
     private Long id;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
 }

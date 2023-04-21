@@ -49,6 +49,7 @@ public class DataObjectStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.DATA_OBJECT_ID, dataObject.getIdentity());
         context.put(VelocityLabel.DATA_OBJECT_CLASS_NAME, dataObject.getName());
         context.put(VelocityLabel.DATA_OBJECT_CLASS_DESCRIPTION, dataObject.getDescription());
+        context.put(VelocityLabel.DATA_OBJECT_CLASS_TITLE, dataObject.getTitle());
         context.put(VelocityLabel.DATA_OBJECT_CLASS_FIELDS, dataObject.getDataPropertyList());
         context.put(VelocityLabel.DATA_OBJECT_CLASS_PRIMARY_KEY, dataObject.getPrimaryKey());
         context.put(VelocityLabel.DATA_TABLE_NAME, dataObject.getTableName());

@@ -13,7 +13,7 @@ import java.math.*;
 import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
- * 描述业务域版本信息实体类
+ * 业务域版本实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,22 +28,22 @@ public class DomainDesignVersionDO extends BaseJpaAggregate {
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** 业务域的唯一标识 */
+    /** 业务域ID */
     private Long domainDesignId;
 
-    /** 第一次创建时，需要指定起始版本号 */
+    /** 起始版本号 */
     private String startVersion;
 
-    /** 当前版本的唯一标识 */
+    /** 当前版本号 */
     private String currentVersion;
 
-    /** 描述信息 */
+    /** 描述 */
     private String description;
 
-    /** 业务域抽象文本描述语言 */
+    /** 业务域DSL */
     private String domainDesignDsl;
 
-    /** 图形的抽象文本描述语言 */
+    /** 图形DSL */
     private String graphDsl;
 
     /** 版本状态 */

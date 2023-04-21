@@ -7,10 +7,10 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 获取当前登录账号的权限信息，包含所属组织、团队等信息
+ * 获取用户权限信息
  */
 @Data
-@ApiModel(value = "获取当前登录账号的权限信息，包含所属组织、团队等信息")
+@ApiModel(value = "获取用户权限信息")
 public class GetAccountRole {
 
 }

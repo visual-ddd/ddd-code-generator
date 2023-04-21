@@ -10,7 +10,7 @@ import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
 import com.wakedt.visual.app.application.assembler.ApplicationVersionDTO2ApplicationVersionDOConvert;
 
 /**
- * 查询应用下的最新版本-查询器
+ * 应用最新版本查询对象-查询器
  */
 @Component
 public class ApplicationLatestVersionQueryExe {

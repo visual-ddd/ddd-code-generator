@@ -14,10 +14,10 @@ import com.wakedt.visual.domain.organization.teammember.*;
 @EqualsAndHashCode(callSuper = true)
 public class TeamMemberAddEvent extends BaseDomainEvent {
     
-    /** 团队成员的账号唯一标识 */
+    /** 成员账号ID */
     private Long accountId;
 
-    /** 团队唯一标识 */
+    /** 团队ID */
     private Long teamId;
 
     /** 成员类型标签 */
@@ -34,6 +34,6 @@ public class TeamMemberAddEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.${IMPORT_PACKAGE_MAP.get(${CMD_EVENT_CLASS_NAME})}";
+        return "${event.com.wakedt.visual.domain.organization.teammember.teammemberadd}";
     }
 }

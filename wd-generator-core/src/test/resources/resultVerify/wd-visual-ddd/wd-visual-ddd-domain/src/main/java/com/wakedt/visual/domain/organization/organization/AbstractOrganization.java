@@ -6,7 +6,7 @@ import java.util.*;
 import java.math.*;
 
 /**
- * 组织结构管理的领域-聚合根
+ * 组织-聚合根
  */
 @Data
 public abstract class AbstractOrganization {
@@ -20,7 +20,7 @@ public abstract class AbstractOrganization {
     /** 描述 */
     private String description;
 
-    /** 组织的管理者，被系统管理员授权，管理自己所在组织下的所有团队。 */
+    /** 组织管理员 */
     private Long organizationManagerId;
 
 }

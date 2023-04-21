@@ -18,9 +18,9 @@ public class DomainDesignVersionRemoveCmdHandler {
         DomainDesignVersion domainDesignVersion = repository.find(removeCmd.getId());
         domainDesignVersion.domainDesignVersionRemove(removeCmd);
 
-        // TODO CheckDdVersionBindApplication(关联状态禁止删除) 业务域被应用绑定时，不允许删除
+        /* TODO CheckDdVersionBindApplication(关联状态禁止删除) 业务域被应用绑定时，不允许删除 */
 
-        // TODO CheckVersionPublishedException(发布锁定) 当前版本发布后不能再进行任何操作
+        /* TODO CheckVersionPublishedException(发布锁定) 当前版本发布后不能再进行任何操作 */
 
         repository.remove(domainDesignVersion);
 

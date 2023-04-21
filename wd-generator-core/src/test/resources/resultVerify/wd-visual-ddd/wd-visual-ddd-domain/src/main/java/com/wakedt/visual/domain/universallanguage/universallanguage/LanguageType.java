@@ -3,7 +3,7 @@ package com.wakedt.visual.domain.universallanguage.universallanguage;
 import com.wakedata.common.core.base.BaseEnum;
 
 /**
- * 统一语言的类型-枚举
+ * 统一语言类型-枚举
  */
 public enum LanguageType implements BaseEnum {
 

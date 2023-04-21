@@ -7,9 +7,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 
-#comment("${VALUE_OBJECT_CLASS_DESCRIPTION}")
+#comment("${VALUE_OBJECT_CLASS_TITLE}")
 @Data
-@ApiModel(value = "${VALUE_OBJECT_CLASS_DESCRIPTION}")
+@ApiModel(value = "${VALUE_OBJECT_CLASS_TITLE}")
 public class ${VALUE_OBJECT_DTO_NAME} {
 #dtoFiled(${VALUE_OBJECT_CLASS_FIELDS})
 
