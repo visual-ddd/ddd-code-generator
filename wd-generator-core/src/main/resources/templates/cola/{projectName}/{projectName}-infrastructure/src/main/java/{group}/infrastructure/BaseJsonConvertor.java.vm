@@ -164,4 +164,34 @@ public class BaseJsonConvertor {
     public String booleanSet2Json(Set<Boolean> set) {
         return JSON.toJSONString(new ArrayList<>(set));
     }
+
+    /**
+     * json 转 List<String>
+     */
+    public List<String> json2StringList(String json) {
+        Type type = new TypeReference<List<String>>() {}.getType();
+        return JSON.parseObject(json, type);
+    }
+
+    /**
+     * List<String> 转 json
+     */
+    public String stringList2Json(List<String> list) {
+        return JSON.toJSONString(list);
+    }
+
+    /**
+     * json 转 Set<String>
+     */
+    public Set<String> json2StringSet(String json) {
+        Type type = new TypeReference<Set<String>>() {}.getType();
+        return JSON.parseObject(json, type);
+    }
+
+    /**
+     * Set<String> 转 json
+     */
+    public String stringSet2Json(Set<String> set) {
+        return JSON.toJSONString(new ArrayList<>(set));
+    }
 }
