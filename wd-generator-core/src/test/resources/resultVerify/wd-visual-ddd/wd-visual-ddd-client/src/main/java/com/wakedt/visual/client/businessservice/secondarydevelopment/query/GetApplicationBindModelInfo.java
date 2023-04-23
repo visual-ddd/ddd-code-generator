@@ -5,6 +5,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.*;
 
 /**
  * 获取应用关联的模块信息

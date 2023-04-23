@@ -5,6 +5,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
 
 /**
  * 发送注册账号验证码

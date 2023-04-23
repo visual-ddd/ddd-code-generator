@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.util.*;
 import java.math.*;
+import com.wakedt.visual.client.application.dto.*;
 
 /**
  * 应用详情查询对象

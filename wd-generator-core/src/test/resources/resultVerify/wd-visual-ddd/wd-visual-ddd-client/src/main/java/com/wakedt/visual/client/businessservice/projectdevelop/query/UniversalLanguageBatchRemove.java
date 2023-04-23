@@ -5,6 +5,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
+import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
 
 /**
  * 批量删除统一语言
