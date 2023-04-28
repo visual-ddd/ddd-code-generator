@@ -20,6 +20,13 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core</artifactId>
+            <version>3.20.0</version>
+        </dependency>
+
+
         <!--  DSL协议  -->
         <dependency>
             <groupId>com.wd.paas</groupId>

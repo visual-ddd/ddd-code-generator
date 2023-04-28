@@ -11,13 +11,15 @@ public interface Visitor {
 
     /**
      * 预解析元素方法
+     * 包含对数据的预处理、缓存临时信息到上下文
      *
      * @param elementNode 元素节点
      */
     void preHandle(ElementNode elementNode);
 
     /**
-     * 访问元素方法
+     * 代码生成逻辑
+     * 根据映射规则生成对应的代码文件
      *
      * @param elementNode 元素节点
      */

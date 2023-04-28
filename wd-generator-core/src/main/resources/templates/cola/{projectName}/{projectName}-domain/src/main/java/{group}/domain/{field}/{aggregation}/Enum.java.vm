@@ -14,16 +14,16 @@ public enum ${ENUM_CLASS_NAME} implements BaseEnum {
 #end
     ;
 
-    private final Integer value;
+    private final ${ENUM_CODE_TYPE} value;
     private final String desc;
 
-    ${ENUM_CLASS_NAME}(Integer value, String desc) {
+    ${ENUM_CLASS_NAME}(${ENUM_CODE_TYPE} value, String desc) {
         this.value = value;
         this.desc = desc;
     }
 
     @Override
-    public Integer getValue() {
+    public ${ENUM_CODE_TYPE} getValue() {
         return this.value;
     }
 

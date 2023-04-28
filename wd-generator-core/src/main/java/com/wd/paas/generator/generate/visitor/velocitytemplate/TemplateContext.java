@@ -49,14 +49,6 @@ public class TemplateContext {
         properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
         properties.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
 
-
-//        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
-//        properties.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
-
-//        设置velocity资源加载方式为file
-//        properties.setProperty("resource.loader", "file");
-//        properties.setProperty("file.resource.loader.class", FileResourceLoader.class.getName());
-//        properties.setProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, "src/main/resources/");
         // 定义字符集
         properties.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
         Velocity.setProperty("plugin.resource.loader.instance", pluginResourceLoader);

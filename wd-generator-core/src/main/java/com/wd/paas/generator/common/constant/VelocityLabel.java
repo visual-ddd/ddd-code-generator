@@ -61,6 +61,7 @@ public class VelocityLabel {
     // 枚举
     public static final String ENUM_ID = "ENUM_ID";
     public static final String ENUM_CLASS_NAME = "ENUM_CLASS_NAME";
+    public static final String ENUM_CODE_TYPE = "ENUM_CODE_TYPE";
     public static final String ENUM_CLASS_CONSTANTS = "ENUM_CLASS_CONSTANTS";
     public static final String ENUM_CLASS_DESCRIPTION = "ENUM_CLASS_DESCRIPTION";
     public static final String ENUM_CLASS_TITLE = "ENUM_CLASS_TITLE";

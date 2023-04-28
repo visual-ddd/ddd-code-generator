@@ -1,6 +1,8 @@
 #parse("templates/Aggregation.vm")
 package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}Factory")};
 
+import java.util.*;
+import java.math.*;
 import org.springframework.stereotype.Component;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "SAVE")

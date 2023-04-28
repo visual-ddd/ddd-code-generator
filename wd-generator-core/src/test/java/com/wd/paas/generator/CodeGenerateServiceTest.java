@@ -1,6 +1,6 @@
 package com.wd.paas.generator;
 
-import com.wd.paas.generator.generate.visitor.TemplateVisitor;
+import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;

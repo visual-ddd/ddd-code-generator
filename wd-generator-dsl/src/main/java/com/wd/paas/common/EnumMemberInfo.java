@@ -17,6 +17,6 @@ public class EnumMemberInfo extends Named {
      * 成员值 number | string
      */
     @SerializedName("code")
-    private Integer code;
+    private String code;
 
 }

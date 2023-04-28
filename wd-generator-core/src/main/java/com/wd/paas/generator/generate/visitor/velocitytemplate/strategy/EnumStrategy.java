@@ -15,7 +15,7 @@ import java.util.List;
 /***
  * @author wangchensheng
  */
-public class EnumStrategy extends AbstractElementStrategy{
+public class EnumStrategy extends AbstractElementStrategy {
 
     private final EnumNode anEnum;
 
@@ -31,6 +31,7 @@ public class EnumStrategy extends AbstractElementStrategy{
             if (StringUtils.isBlank(enumMemberInfo.getDescription())) {
                 enumMemberInfo.setDescription(enumMemberInfo.getTitle());
             }
+            parseByBaseType(anEnum.getBaseType(), enumMemberInfo);
         }
     }
 
@@ -43,6 +44,7 @@ public class EnumStrategy extends AbstractElementStrategy{
     public void putVelocityContext(VelocityContext context) {
         context.put(VelocityLabel.ENUM_ID, anEnum.getIdentity());
         context.put(VelocityLabel.ENUM_CLASS_NAME, anEnum.getName());
+        context.put(VelocityLabel.ENUM_CODE_TYPE, baseType2CodeType(anEnum.getBaseType()));
         context.put(VelocityLabel.ENUM_CLASS_CONSTANTS, anEnum.getMemberList());
         context.put(VelocityLabel.ENUM_CLASS_DESCRIPTION, anEnum.getDescription());
         context.put(VelocityLabel.ENUM_CLASS_TITLE, anEnum.getTitle());
@@ -62,5 +64,32 @@ public class EnumStrategy extends AbstractElementStrategy{
                 anEnum.getName()
         };
         return StringUtils.replaceEach(outputPath, searchList, replacementList);
+    }
+
+    private static String baseType2CodeType(String baseType) {
+        switch (baseType) {
+            case "number":
+                return "Integer";
+            case "string":
+                return "String";
+        }
+        return null;
+    }
+
+    private void parseByBaseType(String baseType, EnumMemberInfo enumMemberInfo) {
+        String code = enumMemberInfo.getCode();
+        switch (baseType) {
+            case "number":
+                try {
+                    Integer.parseInt(code);
+                } catch (NumberFormatException e) {
+                    enumMemberInfo.setCode("\"" + code + "\"" );
+                }
+                break;
+            case "string":
+            default:
+                enumMemberInfo.setCode("\"" + code + "\"" );
+                break;
+        }
     }
 }

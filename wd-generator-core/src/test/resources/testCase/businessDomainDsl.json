@@ -8022,7 +8022,7 @@
                 "name": "VersionState",
                 "description": "版本状态",
                 "meta": {},
-                "baseType": "number",
+                "baseType": "string",
                 "members": [
                   {
                     "uuid": "ba106632-55c1-4c56-9707-159df1d02775",
@@ -8030,7 +8030,7 @@
                     "name": "PUBLISHED",
                     "description": "版本已发布",
                     "meta": {},
-                    "code": 1
+                    "code": "1"
                   },
                   {
                     "uuid": "7e99ea38-718c-4a98-81ac-fe903b6620ef",

@@ -1,4 +1,4 @@
-package com.wd.paas.generator.generate.visitor;
+package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.generate.Visitor;

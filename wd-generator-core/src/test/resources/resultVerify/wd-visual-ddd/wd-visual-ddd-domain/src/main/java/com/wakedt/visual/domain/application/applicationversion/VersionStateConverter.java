@@ -15,18 +15,18 @@ import java.util.Optional;
  */
 public class VersionStateConverter {
 
-    public Integer convertToDatabaseColumn(VersionState versionState) {
+    public String convertToDatabaseColumn(VersionState versionState) {
         return versionState.getValue();
     }
 
-    public VersionState convertToEntityAttribute(Integer value) {
+    public VersionState convertToEntityAttribute(String value) {
         return BaseEnumUtil.getEnumByValue(value, VersionState.class);
     }
 
     public String convertToDatabaseColumn(List<VersionState> enumList) {
         JSONArray jsonArray = new JSONArray();
         for (VersionState enumType : Optional.ofNullable(enumList).orElse(Collections.emptyList())) {
-            Integer value = convertToDatabaseColumn(enumType);
+            String value = convertToDatabaseColumn(enumType);
             jsonArray.add(value);
         }
         return jsonArray.toString();
@@ -34,8 +34,8 @@ public class VersionStateConverter {
 
     public List<VersionState> convertToDatabaseColumn(String jsonArray) {
         List<VersionState> enumList = new ArrayList<>();
-        List<Integer> values = JSONUtil.toList(jsonArray, Integer.class);
-        for (Integer value : values) {
+        List<String> values = JSONUtil.toList(jsonArray, String.class);
+        for (String value : values) {
             enumList.add(convertToEntityAttribute(value));
         }
         return enumList;
