@@ -22,6 +22,5 @@ public class ApplicationRemoveCmdHandler {
 
         repository.remove(application);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ApplicationRemoveEvent(removeCmd));
-    }
+        // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationRemoveCmdEvent(createCmd));
 }

@@ -1,5 +1,7 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage;
 
+import java.util.*;
+import java.math.*;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.universallanguage.universallanguage.create.UniversalLanguageCreateCmd;
 

@@ -20,6 +20,6 @@ public class TeamManagerUnBindCmdHandler {
 
         repository.update(team);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerUnBindEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerUnBindCmdEvent(createCmd));
     }
 }

@@ -20,6 +20,6 @@ public class DomainDesignModifyCmdHandler {
 
         repository.update(domainDesign);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignModifyEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignModifyCmdEvent(createCmd));
     }
 }

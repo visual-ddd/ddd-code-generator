@@ -20,6 +20,6 @@ public class TeamManagerBindCmdHandler {
 
         repository.update(team);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerBindEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerBindCmdEvent(createCmd));
     }
 }

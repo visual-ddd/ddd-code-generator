@@ -22,6 +22,6 @@ public class BusinessSceneVersionPublishCmdHandler {
 
         repository.update(businessSceneVersion);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionPublishEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionPublishCmdEvent(createCmd));
     }
 }

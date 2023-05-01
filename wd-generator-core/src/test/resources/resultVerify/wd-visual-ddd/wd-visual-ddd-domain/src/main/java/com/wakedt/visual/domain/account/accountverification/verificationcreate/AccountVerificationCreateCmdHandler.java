@@ -23,7 +23,7 @@ public class AccountVerificationCreateCmdHandler {
 
         AccountVerification newEntity = repository.save(entity);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new AccountVerificationCreateEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new AccountVerificationCreateCmdEvent(createCmd));
         return newEntity.getId();
     }
 }

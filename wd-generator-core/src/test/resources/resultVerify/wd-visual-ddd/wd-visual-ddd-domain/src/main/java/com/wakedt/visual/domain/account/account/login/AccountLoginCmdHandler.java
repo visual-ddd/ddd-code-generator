@@ -22,6 +22,6 @@ public class AccountLoginCmdHandler {
 
         repository.update(account);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new AccountLoginEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new AccountLoginCmdEvent(createCmd));
     }
 }

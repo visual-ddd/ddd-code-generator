@@ -24,7 +24,7 @@ public class ${CMD_CLASS_NAME}Handler {
 
         ${AGGREGATION_CLASS_NAME} newEntity = repository.save(entity);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(createCmd));
+       #if(!${CMD_EVENT_ENABLE})//#end DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(createCmd));
         return newEntity.get${CASE_FORMAT_UPPER_CAMEL.convert(${AGGREGATION_CLASS_ID.getName()})}();
     }
 }

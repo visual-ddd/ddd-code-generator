@@ -24,6 +24,6 @@ public class AccountEmailSendCmdHandler {
 
         repository.update(account);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new AccountEmailSendEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new AccountEmailSendCmdEvent(createCmd));
     }
 }

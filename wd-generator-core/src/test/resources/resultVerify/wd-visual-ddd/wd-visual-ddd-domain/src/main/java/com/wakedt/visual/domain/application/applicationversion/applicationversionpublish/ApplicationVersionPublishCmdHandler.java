@@ -24,6 +24,6 @@ public class ApplicationVersionPublishCmdHandler {
 
         repository.update(applicationVersion);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionPublishEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionPublishCmdEvent(createCmd));
     }
 }

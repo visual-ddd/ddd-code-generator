@@ -23,7 +23,7 @@ public class TeamMemberAddCmdHandler {
 
         TeamMember newEntity = repository.save(entity);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberAddEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberAddCmdEvent(createCmd));
         return newEntity.getId();
     }
 }

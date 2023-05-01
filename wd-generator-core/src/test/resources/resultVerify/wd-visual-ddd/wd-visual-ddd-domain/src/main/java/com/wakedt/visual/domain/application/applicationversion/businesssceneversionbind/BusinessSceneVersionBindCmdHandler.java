@@ -28,6 +28,6 @@ public class BusinessSceneVersionBindCmdHandler {
 
         repository.update(applicationVersion);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionBindEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionBindCmdEvent(createCmd));
     }
 }

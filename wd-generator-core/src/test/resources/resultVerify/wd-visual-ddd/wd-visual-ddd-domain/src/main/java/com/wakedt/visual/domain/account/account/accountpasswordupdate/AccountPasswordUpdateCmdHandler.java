@@ -22,6 +22,6 @@ public class AccountPasswordUpdateCmdHandler {
 
         repository.update(account);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new AccountPasswordUpdateEvent(updateCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new AccountPasswordUpdateCmdEvent(createCmd));
     }
 }

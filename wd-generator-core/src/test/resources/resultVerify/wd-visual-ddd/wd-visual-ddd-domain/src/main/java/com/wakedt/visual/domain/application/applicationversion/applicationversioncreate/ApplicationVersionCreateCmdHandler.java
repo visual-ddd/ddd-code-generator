@@ -23,7 +23,7 @@ public class ApplicationVersionCreateCmdHandler {
 
         ApplicationVersion newEntity = repository.save(entity);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionCreateEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionCreateCmdEvent(createCmd));
         return newEntity.getId();
     }
 }

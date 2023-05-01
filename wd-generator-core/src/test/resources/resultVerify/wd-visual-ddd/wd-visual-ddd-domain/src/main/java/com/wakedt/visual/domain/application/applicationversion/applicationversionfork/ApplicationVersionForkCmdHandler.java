@@ -25,7 +25,7 @@ public class ApplicationVersionForkCmdHandler {
 
         ApplicationVersion newEntity = repository.save(entity);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionForkEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionForkCmdEvent(createCmd));
         return newEntity.getId();
     }
 }

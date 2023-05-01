@@ -21,7 +21,7 @@ public class UniversalLanguageCreateCmdHandler {
 
         UniversalLanguage newEntity = repository.save(entity);
 
-//        DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageCreateEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageCreateCmdEvent(createCmd));
         return newEntity.getId();
     }
 }
