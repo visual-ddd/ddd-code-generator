@@ -1,6 +1,10 @@
 package com.wakedt.visual.app.domaindesign.view;
 
-import com.wakedata.common.core.dto.ResultDTO;
+import java.util.*;
+import java.math.*;
+import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageHelper;
+import com.wakedata.common.core.dto.PageResultDTO;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.domaindesign.query.DomainDesignListQuery;
@@ -18,8 +22,15 @@ public class DomainDesignListQueryExe {
     @Resource
     private DomainDesignMapper mapper;
 
-    public ResultDTO<List<DomainDesignDTO>> execute(DomainDesignListQuery query) {
-        return ResultDTO.success(
-                DomainDesignDTO2DomainDesignDOConvert.INSTANCE.do2Dto(mapper.domainDesignListQuery(query)));
+    public PageResultDTO<List<DomainDesignDTO>> execute(DomainDesignListQuery pageQuery) {
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+
+        PageInfo<DomainDesignDO> pageInfo = new PageInfo<>(mapper.domainDesignListQuery(pageQuery));
+        PageResultDTO<List<DomainDesignDTO>> pageResultDTO = new PageResultDTO<>();
+        pageResultDTO.setData(DomainDesignDTO2DomainDesignDOConvert.INSTANCE.doList2DtoList(pageInfo.getList()));
+        pageResultDTO.setPageNo(pageInfo.getPageNum());
+        pageResultDTO.setPageSize(pageInfo.getSize());
+        pageResultDTO.setTotalCount(pageInfo.getTotal());
+        return pageResultDTO;
     }
 }

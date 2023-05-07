@@ -164,8 +164,8 @@ public class BusinessSceneRpcServiceImpl implements BusinessSceneRpcService {
     }
 
     @Override
-    public ResultDTO<List<BusinessSceneDTO>> businessSceneListQuery(BusinessSceneListQuery query) {
-        return businessSceneListQueryExe.execute(query);
+    public PageResultDTO<List<BusinessSceneDTO>> businessSceneListQuery(BusinessSceneListQuery pageQuery) {
+        return businessSceneListQueryExe.execute(pageQuery);
     }
 
     @Override

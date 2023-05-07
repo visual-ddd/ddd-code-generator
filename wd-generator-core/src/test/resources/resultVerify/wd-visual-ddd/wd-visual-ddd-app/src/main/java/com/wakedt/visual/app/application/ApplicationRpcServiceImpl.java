@@ -69,8 +69,6 @@ public class ApplicationRpcServiceImpl implements ApplicationRpcService {
     @Resource
     private ApplicationVersionCreateCmdHandler applicationVersionCreateCmdHandler;
     @Resource
-    private ApplicationVersionModifyCmdHandler applicationVersionModifyCmdHandler;
-    @Resource
     private ApplicationVersionRemoveCmdHandler applicationVersionRemoveCmdHandler;
     @Resource
     private BusinessSceneVersionBindCmdHandler businessSceneVersionBindCmdHandler;
@@ -116,12 +114,6 @@ public class ApplicationRpcServiceImpl implements ApplicationRpcService {
     public ResultDTO<Long> applicationVersionCreate(ApplicationVersionCreateDTO dto) {
         Long id = applicationVersionCreateCmdHandler.handle(ApplicationVersionCreateDTO2ApplicationVersionCreateCmdConvert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(id);
-    }
-
-    @Override
-    public ResultDTO<Boolean> applicationVersionModify(ApplicationVersionModifyDTO dto) {
-        applicationVersionModifyCmdHandler.handle(ApplicationVersionModifyDTO2ApplicationVersionModifyCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(Boolean.TRUE);
     }
 
     @Override
@@ -175,8 +167,8 @@ public class ApplicationRpcServiceImpl implements ApplicationRpcService {
     }
 
     @Override
-    public ResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery query) {
-        return applicationListQueryExe.execute(query);
+    public PageResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery pageQuery) {
+        return applicationListQueryExe.execute(pageQuery);
     }
 
     @Override

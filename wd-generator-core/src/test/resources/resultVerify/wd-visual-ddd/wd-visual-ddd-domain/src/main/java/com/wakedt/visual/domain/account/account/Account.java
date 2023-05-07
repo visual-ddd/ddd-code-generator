@@ -5,7 +5,6 @@ import java.math.*;
 import com.wakedt.visual.domain.account.account.accountmodify.AccountModifyCmd;
 import com.wakedt.visual.domain.account.account.accountremove.AccountDeleteCmd;
 import com.wakedt.visual.domain.account.account.accountpasswordresetsendemail.AccountEmailSendCmd;
-import com.wakedt.visual.domain.account.account.login.AccountLoginCmd;
 import com.wakedt.visual.domain.account.account.accountpasswordreset.AccountPasswordResetCmd;
 import com.wakedt.visual.domain.account.account.accountpasswordupdate.AccountPasswordUpdateCmd;
 
@@ -38,17 +37,12 @@ public class Account extends AbstractAccount {
     }
 
     public void accountPasswordResetSendEmail(AccountEmailSendCmd updateCmd) {
-        this.setAccountNo(updateCmd.getAccountNo());
-    }
-
-    public void login(AccountLoginCmd updateCmd) {
-        this.setAccountNo(updateCmd.getAccountNo());
-        this.setPassword(updateCmd.getPassword());
+        this.setId(updateCmd.getId());
     }
 
     public void accountPasswordReset(AccountPasswordResetCmd updateCmd) {
         this.setUuid(updateCmd.getUuid());
-        this.setAccountNo(updateCmd.getAccountNo());
+        this.setId(updateCmd.getId());
         /* TODO 指令字段不匹配 updateCmd.getNewPassword(); */
     }
 

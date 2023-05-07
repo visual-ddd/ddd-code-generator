@@ -22,6 +22,6 @@ public interface DomainDesignMapper extends BaseMapper<DomainDesignDO> {
     List<DomainDesignDO> domainDesignPageQuery(DomainDesignPageQuery pageQuery);
 
     /** 业务域列表查询对象 */
-    DomainDesignDO domainDesignListQuery(DomainDesignListQuery query);
+    List<DomainDesignDO> domainDesignListQuery(DomainDesignListQuery pageQuery);
 
 }

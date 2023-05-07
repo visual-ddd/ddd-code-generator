@@ -169,7 +169,7 @@ public class DomainDesignRpcServiceImpl implements DomainDesignRpcService {
     }
 
     @Override
-    public ResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery query) {
-        return domainDesignListQueryExe.execute(query);
+    public PageResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery pageQuery) {
+        return domainDesignListQueryExe.execute(pageQuery);
     }
 }

@@ -14,14 +14,14 @@ import com.wakedt.visual.domain.account.account.*;
 @EqualsAndHashCode(callSuper = true)
 public class AccountEmailSendCmdEvent extends BaseDomainEvent {
     
-    /** 账号 */
-    private String accountNo;
+    /** 账号ID */
+    private Long id;
     
     public AccountEmailSendCmdEvent() {}
 
     public AccountEmailSendCmdEvent(AccountEmailSendCmd cmd
     ) {
-        this.accountNo = cmd.getAccountNo();
+        this.id = cmd.getId();
     }
 
     @Override

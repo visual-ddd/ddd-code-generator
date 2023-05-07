@@ -1,6 +1,10 @@
 package com.wakedt.visual.app.application.view;
 
-import com.wakedata.common.core.dto.ResultDTO;
+import java.util.*;
+import java.math.*;
+import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageHelper;
+import com.wakedata.common.core.dto.PageResultDTO;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.application.query.ApplicationListQuery;
@@ -18,8 +22,15 @@ public class ApplicationListQueryExe {
     @Resource
     private ApplicationMapper mapper;
 
-    public ResultDTO<List<ApplicationDTO>> execute(ApplicationListQuery query) {
-        return ResultDTO.success(
-                ApplicationDTO2ApplicationDOConvert.INSTANCE.do2Dto(mapper.applicationListQuery(query)));
+    public PageResultDTO<List<ApplicationDTO>> execute(ApplicationListQuery pageQuery) {
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+
+        PageInfo<ApplicationDO> pageInfo = new PageInfo<>(mapper.applicationListQuery(pageQuery));
+        PageResultDTO<List<ApplicationDTO>> pageResultDTO = new PageResultDTO<>();
+        pageResultDTO.setData(ApplicationDTO2ApplicationDOConvert.INSTANCE.doList2DtoList(pageInfo.getList()));
+        pageResultDTO.setPageNo(pageInfo.getPageNum());
+        pageResultDTO.setPageSize(pageInfo.getSize());
+        pageResultDTO.setTotalCount(pageInfo.getTotal());
+        return pageResultDTO;
     }
 }

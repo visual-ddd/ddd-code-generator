@@ -21,6 +21,6 @@ public class SourceInfo {
      * 值
      */
     @SerializedName("value")
-    private String value;
+    private Object value;
 
 }

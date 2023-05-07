@@ -25,4 +25,5 @@ public class BusinessSceneVersionRemoveCmdHandler {
         repository.remove(businessSceneVersion);
 
         // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionRemoveCmdEvent(createCmd));
+    }
 }

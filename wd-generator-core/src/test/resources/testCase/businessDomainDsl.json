@@ -2265,72 +2265,17 @@
                 "properties": [
                   {
                     "uuid": "90af3419-ebda-4104-b527-ca34b6df0dac",
-                    "title": "账号",
-                    "name": "accountNo",
-                    "description": "用户登录的唯一标识，目前以用户邮箱作为账号",
+                    "title": "账号ID",
+                    "name": "id",
+                    "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "String"
+                    "type": "Long"
                   }
                 ],
                 "event": {
                   "uuid": "2221e012-63d9-4b14-987b-26d960829172",
                   "name": "AccountEmailSendEvent",
-                  "properties": []
-                },
-                "return": {
-                  "type": "void"
-                }
-              },
-              {
-                "uuid": "0cfa988c-f068-4b21-b8fc-49a1e2976c10",
-                "title": "账号登录",
-                "name": "AccountLogin",
-                "description": "",
-                "meta": {},
-                "rules": [
-                  {
-                    "uuid": "22409dbd-654a-4677-a101-52a37e056cba",
-                    "title": "账号密码正确",
-                    "name": "CheckLoginPass",
-                    "description": "验证账号密码是否正确",
-                    "meta": {}
-                  }
-                ],
-                "category": "login",
-                "repository": "modify",
-                "eventSendable": false,
-                "source": [
-                  {
-                    "type": "http"
-                  },
-                  {
-                    "type": "rpc"
-                  }
-                ],
-                "properties": [
-                  {
-                    "uuid": "f5d99d5e-7cc6-4cc3-b499-d28ed3c00907",
-                    "title": "账号",
-                    "name": "accountNo",
-                    "description": "用户登录的唯一标识，目前以用户邮箱作为账号",
-                    "meta": {},
-                    "access": "public",
-                    "type": "String"
-                  },
-                  {
-                    "uuid": "52275032-eec3-4a9f-ba4b-a6b91222219a",
-                    "title": "密码",
-                    "name": "password",
-                    "description": "",
-                    "meta": {},
-                    "access": "public",
-                    "type": "String"
-                  }
-                ],
-                "event": {
-                  "uuid": "0cfa988c-f068-4b21-b8fc-49a1e2976c10",
-                  "name": "AccountLoginEvent",
                   "properties": []
                 },
                 "return": {
@@ -2367,12 +2312,12 @@
                   },
                   {
                     "uuid": "ad00d894-50bc-467d-bd1b-d1a7cde635ea",
-                    "title": "账号",
-                    "name": "accountNo",
-                    "description": "用户登录的唯一标识，目前以用户邮箱作为账号",
+                    "title": "账号ID",
+                    "name": "id",
+                    "description": "",
                     "meta": {},
                     "access": "public",
-                    "type": "String"
+                    "type": "Long"
                   },
                   {
                     "uuid": "9a18e055-f601-4d78-8cb5-cfc00b50b2fd",
@@ -5120,7 +5065,7 @@
               }
             ],
             "rules": [],
-            "pagination": false,
+            "pagination": true,
             "properties": [
               {
                 "uuid": "53cf8ad3-0051-46eb-83bc-114a87a36902",
@@ -5133,7 +5078,7 @@
               }
             ],
             "return": {
-              "type": "List<[DomainDesignDTO:6eeff3ef-73e6-47d6-b799-f936f7117205]>"
+              "type": "[DomainDesignDTO:6eeff3ef-73e6-47d6-b799-f936f7117205]"
             }
           }
         ],
@@ -6816,7 +6761,7 @@
               }
             ],
             "rules": [],
-            "pagination": false,
+            "pagination": true,
             "properties": [
               {
                 "uuid": "02f478f5-afc6-40ae-8c9a-3ffe3d1ae6d2",
@@ -6829,7 +6774,7 @@
               }
             ],
             "return": {
-              "type": "List<[BusinessSceneDTO:05d3dc43-3ec5-4b26-a412-d45e83c5eb78]>"
+              "type": "[BusinessSceneDTO:05d3dc43-3ec5-4b26-a412-d45e83c5eb78]"
             }
           },
           {
@@ -8146,12 +8091,6 @@
                 "repository": "modify",
                 "eventSendable": false,
                 "source": [
-                  {
-                    "type": "http"
-                  },
-                  {
-                    "type": "rpc"
-                  }
                 ],
                 "properties": [
                   {
@@ -8658,7 +8597,7 @@
               }
             ],
             "rules": [],
-            "pagination": false,
+            "pagination": true,
             "properties": [
               {
                 "uuid": "02f478f5-afc6-40ae-8c9a-3ffe3d1ae6d2",
@@ -8671,7 +8610,7 @@
               }
             ],
             "return": {
-              "type": "List<[ApplicationDTO:257e255c-bcb9-432b-81b6-b62707b1cacf]>"
+              "type": "[ApplicationDTO:257e255c-bcb9-432b-81b6-b62707b1cacf]"
             }
           },
           {

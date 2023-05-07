@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.List;
+import java.util.Optional;
 
 /***
  * @author wangchensheng
@@ -38,4 +39,14 @@ public class CommandNode extends CompositeElement {
     private String cmdNoSuffixName;
 
     private String cmdDTOName;
+
+    public Object getSourceValue(String type) {
+        for (SourceInfo sourceInfo : this.sourceList) {
+            String sourceInfoType = sourceInfo.getType();
+            if (type.equals(sourceInfoType)) {
+                return Optional.ofNullable(sourceInfo.getValue()).orElse(true);
+            }
+        }
+        return false;
+    }
 }

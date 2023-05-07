@@ -131,7 +131,7 @@ public class DomainDesignWebController {
 
     @ApiOperation("业务域列表查询对象")
     @GetMapping("/domain-design-list-query")
-    public ResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery query) {
-        return domainDesignRpcService.domainDesignListQuery(query);
+    public PageResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery pageQuery) {
+        return domainDesignRpcService.domainDesignListQuery(pageQuery);
     }
 }

@@ -1,6 +1,6 @@
 package com.wakedt.visual.client.application.query;
 
-import com.wakedata.common.core.base.BaseQuery;
+import com.wakedata.common.core.dto.PageQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,7 +15,7 @@ import com.wakedt.visual.client.application.dto.*;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "应用列表查询对象")
-public class ApplicationListQuery extends BaseQuery {
+public class ApplicationListQuery extends PageQuery {
 
     @ApiModelProperty(value = "应用的唯一标识列表")
     private List<Long> idList;

@@ -17,8 +17,8 @@ public class AccountPasswordResetCmdEvent extends BaseDomainEvent {
     /** 重置密码唯一标识 */
     private String uuid;
 
-    /** 账号 */
-    private String accountNo;
+    /** 账号ID */
+    private Long id;
 
     /** 密码 */
     private String newPassword;
@@ -28,7 +28,7 @@ public class AccountPasswordResetCmdEvent extends BaseDomainEvent {
     public AccountPasswordResetCmdEvent(AccountPasswordResetCmd cmd
     ) {
         this.uuid = cmd.getUuid();
-        this.accountNo = cmd.getAccountNo();
+        this.id = cmd.getId();
         this.newPassword = cmd.getNewPassword();
     }
 

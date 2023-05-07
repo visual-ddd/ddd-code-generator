@@ -27,6 +27,7 @@ import javax.validation.Valid;
 #set($RootIdType = ${aggregation.getRoot().getId().getType()})
 #set($RootIdName = ${aggregation.getRoot().getId().getName()})
 #foreach($cmd in ${aggregation.getCommandList()})
+#if(${cmd.getSourceValue("http")})
 
     @ApiOperation("${cmd.title}")
     @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.category})}")
@@ -39,6 +40,7 @@ import javax.validation.Valid;
     public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.cmdDTOName} dto) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
     }
+#end
 #end
 #end
 #end

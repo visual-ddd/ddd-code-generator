@@ -70,6 +70,6 @@ public interface DomainDesignRpcService {
     ResultDTO<DomainDesignVersionDTO> domainDesignLatestVersionQuery(DomainDesignLatestVersionQuery query);
 
     /** 业务域列表查询对象 */
-    ResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery query);
+    PageResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery pageQuery);
 
 }

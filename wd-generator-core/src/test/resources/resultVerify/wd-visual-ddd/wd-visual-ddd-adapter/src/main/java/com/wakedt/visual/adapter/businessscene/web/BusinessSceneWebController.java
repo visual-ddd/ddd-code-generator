@@ -125,8 +125,8 @@ public class BusinessSceneWebController {
 
     @ApiOperation("业务场景列表查询对象")
     @GetMapping("/business-scene-list-query")
-    public ResultDTO<List<BusinessSceneDTO>> businessSceneListQuery(BusinessSceneListQuery query) {
-        return businessSceneRpcService.businessSceneListQuery(query);
+    public PageResultDTO<List<BusinessSceneDTO>> businessSceneListQuery(BusinessSceneListQuery pageQuery) {
+        return businessSceneRpcService.businessSceneListQuery(pageQuery);
     }
 
     @ApiOperation("应用最新版本查询对象")

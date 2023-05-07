@@ -22,6 +22,6 @@ public interface BusinessSceneMapper extends BaseMapper<BusinessSceneDO> {
     List<BusinessSceneDO> businessScenePageQuery(BusinessScenePageQuery pageQuery);
 
     /** 业务场景列表查询对象 */
-    BusinessSceneDO businessSceneListQuery(BusinessSceneListQuery query);
+    List<BusinessSceneDO> businessSceneListQuery(BusinessSceneListQuery pageQuery);
 
 }

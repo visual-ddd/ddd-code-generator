@@ -40,9 +40,6 @@ public interface ApplicationRpcService {
     /** 新增应用版本 */
     ResultDTO<Long> applicationVersionCreate(ApplicationVersionCreateDTO dto);
 
-    /** 编辑应用版本 */
-    ResultDTO<Boolean> applicationVersionModify(ApplicationVersionModifyDTO dto);
-
     /** 删除应用版本 */
     ResultDTO<Boolean> applicationVersionRemove(ApplicationVersionRemoveDTO dto);
 
@@ -71,7 +68,7 @@ public interface ApplicationRpcService {
     PageResultDTO<List<ApplicationVersionDTO>> applicationVersionPageQuery(ApplicationVersionPageQuery pageQuery);
 
     /** 应用列表查询对象 */
-    ResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery query);
+    PageResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery pageQuery);
 
     /** 查询应用下的最新版本 */
     ResultDTO<ApplicationVersionDTO> applicationLatestVersionQuery(ApplicationLatestVersionQuery query);

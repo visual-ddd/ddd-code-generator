@@ -23,4 +23,5 @@ public class OrganizationRemoveCmdHandler {
         repository.remove(organization);
 
         // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationRemoveCmdEvent(createCmd));
+    }
 }

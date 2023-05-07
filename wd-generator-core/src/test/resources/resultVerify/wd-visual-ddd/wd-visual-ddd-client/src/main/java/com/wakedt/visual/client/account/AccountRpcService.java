@@ -9,7 +9,6 @@ import com.wakedt.visual.client.account.query.AccountCreateDTO;
 import com.wakedt.visual.client.account.query.AccountModifyDTO;
 import com.wakedt.visual.client.account.query.AccountDeleteDTO;
 import com.wakedt.visual.client.account.query.AccountEmailSendDTO;
-import com.wakedt.visual.client.account.query.AccountLoginDTO;
 import com.wakedt.visual.client.account.query.AccountPasswordResetDTO;
 import com.wakedt.visual.client.account.query.AccountPasswordUpdateDTO;
 import com.wakedt.visual.client.account.query.AccountVerificationCreateDTO;
@@ -35,9 +34,6 @@ public interface AccountRpcService {
 
     /** 发送重置密码邮件 */
     ResultDTO<Boolean> accountPasswordResetSendEmail(AccountEmailSendDTO dto);
-
-    /** 账号登录 */
-    ResultDTO<Boolean> login(AccountLoginDTO dto);
 
     /** 重置用户密码 */
     ResultDTO<Boolean> accountPasswordReset(AccountPasswordResetDTO dto);

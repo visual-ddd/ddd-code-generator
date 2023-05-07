@@ -1,6 +1,10 @@
 package com.wakedt.visual.app.businessscene.view;
 
-import com.wakedata.common.core.dto.ResultDTO;
+import java.util.*;
+import java.math.*;
+import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageHelper;
+import com.wakedata.common.core.dto.PageResultDTO;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery;
@@ -18,8 +22,15 @@ public class BusinessSceneListQueryExe {
     @Resource
     private BusinessSceneMapper mapper;
 
-    public ResultDTO<List<BusinessSceneDTO>> execute(BusinessSceneListQuery query) {
-        return ResultDTO.success(
-                BusinessSceneDTO2BusinessSceneDOConvert.INSTANCE.do2Dto(mapper.businessSceneListQuery(query)));
+    public PageResultDTO<List<BusinessSceneDTO>> execute(BusinessSceneListQuery pageQuery) {
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+
+        PageInfo<BusinessSceneDO> pageInfo = new PageInfo<>(mapper.businessSceneListQuery(pageQuery));
+        PageResultDTO<List<BusinessSceneDTO>> pageResultDTO = new PageResultDTO<>();
+        pageResultDTO.setData(BusinessSceneDTO2BusinessSceneDOConvert.INSTANCE.doList2DtoList(pageInfo.getList()));
+        pageResultDTO.setPageNo(pageInfo.getPageNum());
+        pageResultDTO.setPageSize(pageInfo.getSize());
+        pageResultDTO.setTotalCount(pageInfo.getTotal());
+        return pageResultDTO;
     }
 }

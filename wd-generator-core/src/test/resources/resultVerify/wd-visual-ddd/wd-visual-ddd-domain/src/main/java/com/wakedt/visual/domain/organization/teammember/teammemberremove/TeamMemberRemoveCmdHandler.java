@@ -21,4 +21,5 @@ public class TeamMemberRemoveCmdHandler {
         repository.remove(teamMember);
 
         // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRemoveCmdEvent(createCmd));
+    }
 }

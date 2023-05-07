@@ -22,6 +22,6 @@ public interface ApplicationMapper extends BaseMapper<ApplicationDO> {
     List<ApplicationDO> applicationPageQuery(ApplicationPageQuery pageQuery);
 
     /** 应用列表查询对象 */
-    ApplicationDO applicationListQuery(ApplicationListQuery query);
+    List<ApplicationDO> applicationListQuery(ApplicationListQuery pageQuery);
 
 }

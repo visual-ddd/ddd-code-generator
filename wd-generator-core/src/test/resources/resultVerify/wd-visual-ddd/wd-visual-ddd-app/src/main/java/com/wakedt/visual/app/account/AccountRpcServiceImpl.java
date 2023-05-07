@@ -11,7 +11,6 @@ import com.wakedt.visual.client.account.query.AccountCreateDTO;
 import com.wakedt.visual.client.account.query.AccountModifyDTO;
 import com.wakedt.visual.client.account.query.AccountDeleteDTO;
 import com.wakedt.visual.client.account.query.AccountEmailSendDTO;
-import com.wakedt.visual.client.account.query.AccountLoginDTO;
 import com.wakedt.visual.client.account.query.AccountPasswordResetDTO;
 import com.wakedt.visual.client.account.query.AccountPasswordUpdateDTO;
 import com.wakedt.visual.client.account.query.AccountVerificationCreateDTO;
@@ -25,7 +24,6 @@ import com.wakedt.visual.app.account.assembler.AccountCreateDTO2AccountCreateCmd
 import com.wakedt.visual.app.account.assembler.AccountModifyDTO2AccountModifyCmdConvert;
 import com.wakedt.visual.app.account.assembler.AccountDeleteDTO2AccountDeleteCmdConvert;
 import com.wakedt.visual.app.account.assembler.AccountEmailSendDTO2AccountEmailSendCmdConvert;
-import com.wakedt.visual.app.account.assembler.AccountLoginDTO2AccountLoginCmdConvert;
 import com.wakedt.visual.app.account.assembler.AccountPasswordResetDTO2AccountPasswordResetCmdConvert;
 import com.wakedt.visual.app.account.assembler.AccountPasswordUpdateDTO2AccountPasswordUpdateCmdConvert;
 import com.wakedt.visual.app.account.assembler.AccountVerificationCreateDTO2AccountVerificationCreateCmdConvert;
@@ -34,7 +32,6 @@ import com.wakedt.visual.domain.account.account.accountcreate.AccountCreateCmdHa
 import com.wakedt.visual.domain.account.account.accountmodify.AccountModifyCmdHandler;
 import com.wakedt.visual.domain.account.account.accountremove.AccountDeleteCmdHandler;
 import com.wakedt.visual.domain.account.account.accountpasswordresetsendemail.AccountEmailSendCmdHandler;
-import com.wakedt.visual.domain.account.account.login.AccountLoginCmdHandler;
 import com.wakedt.visual.domain.account.account.accountpasswordreset.AccountPasswordResetCmdHandler;
 import com.wakedt.visual.domain.account.account.accountpasswordupdate.AccountPasswordUpdateCmdHandler;
 import com.wakedt.visual.domain.account.accountverification.verificationcreate.AccountVerificationCreateCmdHandler;
@@ -59,8 +56,6 @@ public class AccountRpcServiceImpl implements AccountRpcService {
     private AccountDeleteCmdHandler accountDeleteCmdHandler;
     @Resource
     private AccountEmailSendCmdHandler accountEmailSendCmdHandler;
-    @Resource
-    private AccountLoginCmdHandler accountLoginCmdHandler;
     @Resource
     private AccountPasswordResetCmdHandler accountPasswordResetCmdHandler;
     @Resource
@@ -98,12 +93,6 @@ public class AccountRpcServiceImpl implements AccountRpcService {
     @Override
     public ResultDTO<Boolean> accountPasswordResetSendEmail(AccountEmailSendDTO dto) {
         accountEmailSendCmdHandler.handle(AccountEmailSendDTO2AccountEmailSendCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(Boolean.TRUE);
-    }
-
-    @Override
-    public ResultDTO<Boolean> login(AccountLoginDTO dto) {
-        accountLoginCmdHandler.handle(AccountLoginDTO2AccountLoginCmdConvert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);
     }
 

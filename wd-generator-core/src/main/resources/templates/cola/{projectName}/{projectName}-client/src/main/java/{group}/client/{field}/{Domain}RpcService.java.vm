@@ -13,6 +13,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
 #set($RootIdType = ${aggregation.getRoot().getId().getType()})
 #foreach($cmd in ${aggregation.getCommandList()})
+#if(${cmd.getSourceValue("rpc")})
 
     /** ${cmd.description.replaceAll("\n","\\n")} */
 #if(${cmd.getRepository().getValue()} == "create")
@@ -20,6 +21,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 #end
 #if(${cmd.getRepository().getValue()} != "create")
     ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
+#end
 #end
 #end
 #end

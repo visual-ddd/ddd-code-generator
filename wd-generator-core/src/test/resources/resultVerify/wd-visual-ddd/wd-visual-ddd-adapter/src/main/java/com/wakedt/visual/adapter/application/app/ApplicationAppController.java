@@ -70,12 +70,6 @@ public class ApplicationAppController {
         return applicationRpcService.applicationVersionCreate(dto);
     }
 
-    @ApiOperation("编辑应用版本")
-    @PostMapping("/application-version-modify")
-    public ResultDTO<Boolean> applicationVersionModify(@RequestBody @Valid ApplicationVersionModifyDTO dto) {
-        return applicationRpcService.applicationVersionModify(dto);
-    }
-
     @ApiOperation("删除应用版本")
     @PostMapping("/application-version-remove")
     public ResultDTO<Boolean> applicationVersionRemove(@RequestBody @Valid ApplicationVersionRemoveDTO dto) {
@@ -132,8 +126,8 @@ public class ApplicationAppController {
 
     @ApiOperation("应用列表查询对象")
     @GetMapping("/application-list-query")
-    public ResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery query) {
-        return applicationRpcService.applicationListQuery(query);
+    public PageResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery pageQuery) {
+        return applicationRpcService.applicationListQuery(pageQuery);
     }
 
     @ApiOperation("应用最新版本查询对象")

@@ -15,7 +15,7 @@ import com.wakedt.visual.domain.account.account.*;
 @NoArgsConstructor
 public class AccountEmailSendCmd {
 
-    /** 账号 */
-    private String accountNo;
+    /** 账号ID */
+    private Long id;
 
 }

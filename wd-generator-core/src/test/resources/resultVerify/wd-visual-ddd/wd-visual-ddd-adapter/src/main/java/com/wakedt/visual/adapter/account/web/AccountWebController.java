@@ -23,7 +23,6 @@ import com.wakedt.visual.client.account.query.AccountCreateDTO;
 import com.wakedt.visual.client.account.query.AccountModifyDTO;
 import com.wakedt.visual.client.account.query.AccountDeleteDTO;
 import com.wakedt.visual.client.account.query.AccountEmailSendDTO;
-import com.wakedt.visual.client.account.query.AccountLoginDTO;
 import com.wakedt.visual.client.account.query.AccountPasswordResetDTO;
 import com.wakedt.visual.client.account.query.AccountPasswordUpdateDTO;
 import com.wakedt.visual.client.account.query.AccountVerificationCreateDTO;
@@ -64,12 +63,6 @@ public class AccountWebController {
     @PostMapping("/account-password-reset-send-email")
     public ResultDTO<Boolean> accountPasswordResetSendEmail(@RequestBody @Valid AccountEmailSendDTO dto) {
         return accountRpcService.accountPasswordResetSendEmail(dto);
-    }
-
-    @ApiOperation("账号登录")
-    @PostMapping("/login")
-    public ResultDTO<Boolean> login(@RequestBody @Valid AccountLoginDTO dto) {
-        return accountRpcService.login(dto);
     }
 
     @ApiOperation("重置用户密码")

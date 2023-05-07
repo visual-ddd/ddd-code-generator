@@ -30,4 +30,5 @@ public class ${CMD_CLASS_NAME}Handler {
 #if(!${CMD_EVENT_ENABLE})
         // DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(createCmd));
 #end
+    }
 }

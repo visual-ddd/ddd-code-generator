@@ -18,8 +18,8 @@ public class AccountPasswordResetCmd {
     /** 重置密码唯一标识 */
     private String uuid;
 
-    /** 账号 */
-    private String accountNo;
+    /** 账号ID */
+    private Long id;
 
     /** 密码 */
     private String newPassword;
