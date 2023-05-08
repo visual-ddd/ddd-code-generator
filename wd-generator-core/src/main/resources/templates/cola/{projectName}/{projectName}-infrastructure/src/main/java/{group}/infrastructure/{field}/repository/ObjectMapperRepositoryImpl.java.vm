@@ -27,12 +27,12 @@ import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${convertClassName}")}
 public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Repository {
 
     @Resource
-    private ${aggregationClass}Mapper ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper;
+    private ${doMapperClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})};
 
     @Override
     public ${aggregationClass} save(${aggregationClass} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
         ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
-        int insert = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.insert(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
+        int insert = ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.insert(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
         Assert.isTrue(insert == 1, "插入数据库异常，请联系管理员");
         return ${convertClassName}.INSTANCE.do2Dto(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
     }
@@ -40,7 +40,7 @@ public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Rep
     @Override
     public ${aggregationClass} update(${aggregationClass} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
         ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
-        int update = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.updateById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
+        int update = ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.updateById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
         Assert.isTrue(update == 1, "更新数据库异常，请联系管理员");
         return ${convertClassName}.INSTANCE.do2Dto(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
     }
@@ -48,12 +48,12 @@ public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Rep
     @Override
     public void remove(${aggregationClass} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
         ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
-        ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.deleteById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})}.getId());
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.deleteById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})}.getId());
     }
 
     @Override
     public ${aggregationClass} find(Long id) {
-        ${doClassName} result = ${AGGREGATION_CLASS_NAME_FIRST_LOWER}Mapper.selectById(id);
+        ${doClassName} result = ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.selectById(id);
         if (result == null) throw new BizException("id不存在!");
         return ${convertClassName}.INSTANCE.do2Dto(result);
     }

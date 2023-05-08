@@ -20,6 +20,6 @@ public class BusinessSceneModifyCmdHandler {
 
         repository.update(businessScene);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneModifyCmdEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneModifyEvent(createCmd));
     }
 }

@@ -23,7 +23,7 @@ public class OrganizationCreateCmdHandler {
 
         Organization newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationCreateCmdEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

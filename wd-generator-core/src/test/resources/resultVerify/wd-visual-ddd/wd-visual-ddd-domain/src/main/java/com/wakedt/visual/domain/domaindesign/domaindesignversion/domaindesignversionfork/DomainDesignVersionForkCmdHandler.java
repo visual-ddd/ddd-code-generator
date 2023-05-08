@@ -27,7 +27,7 @@ public class DomainDesignVersionForkCmdHandler {
 
         DomainDesignVersion newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionForkCmdEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionForkEvent(createCmd));
         return newEntity.getId();
     }
 }

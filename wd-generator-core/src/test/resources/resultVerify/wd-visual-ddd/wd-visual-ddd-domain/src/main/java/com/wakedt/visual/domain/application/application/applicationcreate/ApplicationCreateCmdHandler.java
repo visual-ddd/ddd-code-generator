@@ -25,7 +25,7 @@ public class ApplicationCreateCmdHandler {
 
         Application newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationCreateCmdEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

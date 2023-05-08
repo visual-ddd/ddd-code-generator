@@ -25,7 +25,7 @@ public class DomainDesignCreateCmdHandler {
 
         DomainDesign newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignCreateCmdEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

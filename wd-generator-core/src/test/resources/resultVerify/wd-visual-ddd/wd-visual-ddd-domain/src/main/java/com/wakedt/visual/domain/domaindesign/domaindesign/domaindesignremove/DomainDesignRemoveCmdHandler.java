@@ -20,6 +20,6 @@ public class DomainDesignRemoveCmdHandler {
 
         repository.remove(domainDesign);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignRemoveCmdEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignRemoveEvent(createCmd));
     }
 }

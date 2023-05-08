@@ -23,7 +23,7 @@ public class AccountCreateCmdHandler {
 
         Account newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new AccountCreateCmdEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new AccountCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

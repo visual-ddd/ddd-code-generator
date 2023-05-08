@@ -22,6 +22,6 @@ public class TeamModifyCmdHandler {
 
         repository.update(team);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new TeamModifyCmdEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new TeamModifyEvent(createCmd));
     }
 }

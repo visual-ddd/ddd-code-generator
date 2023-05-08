@@ -21,7 +21,7 @@ public class BusinessSceneVersionForkCmdHandler {
 
         BusinessSceneVersion newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionForkCmdEvent(createCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionForkEvent(createCmd));
         return newEntity.getId();
     }
 }

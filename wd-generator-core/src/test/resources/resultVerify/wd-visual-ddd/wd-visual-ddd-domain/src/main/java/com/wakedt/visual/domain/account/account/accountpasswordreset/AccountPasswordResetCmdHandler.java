@@ -20,6 +20,6 @@ public class AccountPasswordResetCmdHandler {
 
         repository.update(account);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new AccountPasswordResetCmdEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new AccountPasswordResetEvent(createCmd));
     }
 }

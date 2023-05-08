@@ -20,6 +20,6 @@ public class AccountVerificationUpdateCmdHandler {
 
         repository.update(accountVerification);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new AccountVerificationUpdateCmdEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new AccountVerificationUpdateEvent(createCmd));
     }
 }

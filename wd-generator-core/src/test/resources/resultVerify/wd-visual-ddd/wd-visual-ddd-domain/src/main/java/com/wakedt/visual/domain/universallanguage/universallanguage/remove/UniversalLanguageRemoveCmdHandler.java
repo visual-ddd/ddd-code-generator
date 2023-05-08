@@ -20,6 +20,6 @@ public class UniversalLanguageRemoveCmdHandler {
 
         repository.remove(universalLanguage);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageRemoveCmdEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageRemoveEvent(createCmd));
     }
 }

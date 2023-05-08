@@ -20,6 +20,6 @@ public class ApplicationModifyCmdHandler {
 
         repository.update(application);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationModifyCmdEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationModifyEvent(createCmd));
     }
 }
