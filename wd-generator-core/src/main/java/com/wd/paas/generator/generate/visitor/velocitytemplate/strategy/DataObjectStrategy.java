@@ -140,11 +140,9 @@ public class DataObjectStrategy extends AbstractElementStrategy {
                 break;
             case "string":
             case "varchar":
-                result = "String";
-                break;
             case "object":
             case "json":
-                result = "Object";
+                result = "String";
                 break;
             case "array":
             case "array<object>":
