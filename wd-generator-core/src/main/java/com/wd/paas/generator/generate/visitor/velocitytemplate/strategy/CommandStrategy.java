@@ -35,7 +35,7 @@ public class CommandStrategy extends AbstractElementStrategy {
         // 事件
         DomainEventNode astDomainEvent = astCommand.getAstDomainEvent();
         String inputEventName = astDomainEvent.getName();
-        String eventName = astCommand.getName().concat(ModelUrlConstant.EVENT_CLASS);
+        String eventName = astCommand.getCmdNoSuffixName().concat(ModelUrlConstant.EVENT_CLASS);
         astDomainEvent.setName(Optional.ofNullable(Boolean.TRUE.equals(astCommand.getEventEnable()) ? inputEventName : eventName).orElse(eventName));
         astDomainEvent.setPropertyList(getEventProperties());
         astDomainEvent.setTitle(astCommand.getTitle());
