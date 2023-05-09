@@ -20,6 +20,6 @@ public class AccountDeleteCmdHandler {
 
         repository.remove(account);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new AccountDeleteEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new AccountDeleteEvent(removeCmd));
     }
 }

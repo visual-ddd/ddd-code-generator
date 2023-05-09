@@ -22,6 +22,6 @@ public class DomainDesignVersionPublishCmdHandler {
 
         repository.update(domainDesignVersion);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionPublishEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionPublishEvent(updateCmd));
     }
 }

@@ -20,6 +20,6 @@ public class OrganizationManagerBindCmdHandler {
 
         repository.update(organization);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationManagerBindEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationManagerBindEvent(updateCmd));
     }
 }

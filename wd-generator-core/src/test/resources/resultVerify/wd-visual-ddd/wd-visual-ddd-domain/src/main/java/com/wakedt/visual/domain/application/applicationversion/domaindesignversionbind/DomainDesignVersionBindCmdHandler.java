@@ -28,6 +28,6 @@ public class DomainDesignVersionBindCmdHandler {
 
         repository.update(applicationVersion);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionBindEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionBindEvent(updateCmd));
     }
 }

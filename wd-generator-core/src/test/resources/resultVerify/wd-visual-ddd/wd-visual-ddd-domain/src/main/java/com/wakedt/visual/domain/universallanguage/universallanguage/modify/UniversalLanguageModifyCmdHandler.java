@@ -20,6 +20,6 @@ public class UniversalLanguageModifyCmdHandler {
 
         repository.update(universalLanguage);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageModifyEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageModifyEvent(updateCmd));
     }
 }

@@ -24,6 +24,6 @@ public class DomainDesignVersionRemoveCmdHandler {
 
         repository.remove(domainDesignVersion);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionRemoveEvent(createCmd));
+        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionRemoveEvent(removeCmd));
     }
 }
