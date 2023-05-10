@@ -1,4 +1,3 @@
-
 package com.wakedt.visual.app.organization;
 
 import com.wakedata.common.core.dto.PageResultDTO;

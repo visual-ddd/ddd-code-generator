@@ -1,5 +1,5 @@
-
 package com.wakedt.visual.client.application;
+
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedt.visual.client.application.query.ApplicationQuery;

@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.account.repository.mapper.AccountMapper;
 import com.wakedt.visual.infrastructure.account.assembler.Account2AccountDOConvert;
 
 /**
- * account-聚合仓储实现类
+ * Account-聚合仓储实现类
  */
 @Slf4j
 @Component

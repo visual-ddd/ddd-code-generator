@@ -1,4 +1,3 @@
-
 package com.wakedt.visual.adapter.organization.app;
 
 import java.util.*;

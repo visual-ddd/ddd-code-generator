@@ -21,7 +21,7 @@ import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doClassName}")}.${doClassName};
 import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapperClassName};
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${convertClassName}")}.${convertClassName};
 
-#comment("${OBJECT_MAPPER_OBJECT_AGGREGATION}-聚合仓储实现类")
+#comment("${aggregationClass}-聚合仓储实现类")
 @Slf4j
 @Component
 public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Repository {

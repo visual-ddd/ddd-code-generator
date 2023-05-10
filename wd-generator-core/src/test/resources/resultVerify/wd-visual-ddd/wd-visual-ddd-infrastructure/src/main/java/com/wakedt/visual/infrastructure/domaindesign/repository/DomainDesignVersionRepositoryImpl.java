@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.domaindesign.repository.mapper.DomainDes
 import com.wakedt.visual.infrastructure.domaindesign.assembler.DomainDesignVersion2DomainDesignVersionDOConvert;
 
 /**
- * domaindesignversion-聚合仓储实现类
+ * DomainDesignVersion-聚合仓储实现类
  */
 @Slf4j
 @Component

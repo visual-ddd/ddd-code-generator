@@ -1,4 +1,3 @@
-
 package com.wakedt.visual.adapter.domaindesign.app;
 
 import java.util.*;

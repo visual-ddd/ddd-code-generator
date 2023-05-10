@@ -1,5 +1,6 @@
 #parse("templates/Domain.vm")
 package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcService")};
+
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 #importDomainQuery()

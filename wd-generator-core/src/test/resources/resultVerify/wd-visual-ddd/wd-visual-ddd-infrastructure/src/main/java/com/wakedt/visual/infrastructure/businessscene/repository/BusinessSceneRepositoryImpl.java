@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.businessscene.repository.mapper.Business
 import com.wakedt.visual.infrastructure.businessscene.assembler.BusinessScene2BusinessSceneDOConvert;
 
 /**
- * businessscene-聚合仓储实现类
+ * BusinessScene-聚合仓储实现类
  */
 @Slf4j
 @Component

@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.application.repository.mapper.Applicatio
 import com.wakedt.visual.infrastructure.application.assembler.Application2ApplicationDOConvert;
 
 /**
- * application-聚合仓储实现类
+ * Application-聚合仓储实现类
  */
 @Slf4j
 @Component

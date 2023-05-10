@@ -1,5 +1,5 @@
-
 package com.wakedt.visual.client.domaindesign;
+
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedt.visual.client.domaindesign.query.DomainDesignQuery;

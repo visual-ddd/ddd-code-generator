@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.organization.repository.mapper.Organizat
 import com.wakedt.visual.infrastructure.organization.assembler.Organization2OrganizationDOConvert;
 
 /**
- * organization-聚合仓储实现类
+ * Organization-聚合仓储实现类
  */
 @Slf4j
 @Component

@@ -1,4 +1,3 @@
-
 package com.wakedt.visual.app.domaindesign;
 
 import com.wakedata.common.core.dto.PageResultDTO;

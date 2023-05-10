@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.account.repository.mapper.AccountVerific
 import com.wakedt.visual.infrastructure.account.assembler.AccountVerification2AccountVerificationDOConvert;
 
 /**
- * accountverification-聚合仓储实现类
+ * AccountVerification-聚合仓储实现类
  */
 @Slf4j
 @Component

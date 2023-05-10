@@ -34,4 +34,3 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}2${cmd.na
 import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.name}Handler")}.${cmd.name}Handler;
 #end
 #end
-

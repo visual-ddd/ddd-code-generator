@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.universallanguage.repository.mapper.Univ
 import com.wakedt.visual.infrastructure.universallanguage.assembler.UniversalLanguage2UniversalLanguageDOConvert;
 
 /**
- * universallanguage-聚合仓储实现类
+ * UniversalLanguage-聚合仓储实现类
  */
 @Slf4j
 @Component

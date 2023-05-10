@@ -1,4 +1,3 @@
-
 package com.wakedt.visual.adapter.universallanguage.app;
 
 import java.util.*;

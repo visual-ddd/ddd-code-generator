@@ -14,7 +14,7 @@ import com.wakedt.visual.infrastructure.organization.repository.mapper.TeamMappe
 import com.wakedt.visual.infrastructure.organization.assembler.Team2TeamDOConvert;
 
 /**
- * team-聚合仓储实现类
+ * Team-聚合仓储实现类
  */
 @Slf4j
 @Component
