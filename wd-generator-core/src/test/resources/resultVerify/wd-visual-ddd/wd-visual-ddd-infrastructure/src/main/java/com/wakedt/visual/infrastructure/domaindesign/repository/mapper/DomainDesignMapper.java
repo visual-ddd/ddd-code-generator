@@ -1,13 +1,13 @@
 package com.wakedt.visual.infrastructure.domaindesign.repository.mapper;
 
-import java.util.*;
-import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignPageQuery;
 import com.wakedt.visual.client.domaindesign.query.DomainDesignListQuery;
+import com.wakedt.visual.client.domaindesign.query.DomainDesignPageQuery;
+import com.wakedt.visual.client.domaindesign.query.DomainDesignQuery;
+import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * DomainDesignMapper接口

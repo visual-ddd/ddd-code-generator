@@ -2,25 +2,11 @@ package com.wakedt.visual.client.businessscene;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessScenePageQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionPageQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneLatestVersionQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneCreateDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneModifyDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneRemoveDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionCreateDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionModifyDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionRemoveDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionDSLUpdateDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionPublishDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionForkDTO;
 import com.wakedt.visual.client.businessscene.dto.BusinessSceneDTO;
 import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
-import java.util.*;
-import java.math.*;
+import com.wakedt.visual.client.businessscene.query.*;
+
+import java.util.List;
 
 /**
  * 业务场景域-RPC能力接口

@@ -21,9 +21,9 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
 
     private final BusinessDomainNode astBusinessDomain;
 
-    public BusinessDomainStrategy(BusinessDomainNode aSTBusinessDomain) {
-        super(aSTBusinessDomain);
-        this.astBusinessDomain = aSTBusinessDomain;
+    public BusinessDomainStrategy(BusinessDomainNode astBusinessDomain) {
+        super(astBusinessDomain);
+        this.astBusinessDomain = astBusinessDomain;
     }
 
     @Override

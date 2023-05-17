@@ -1,11 +1,11 @@
 package com.wakedt.visual.infrastructure.organization.repository.mapper;
 
-import java.util.*;
-import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import com.wakedt.visual.infrastructure.organization.repository.model.TeamMemberDO;
 import com.wakedt.visual.client.organization.query.TeamMemberByTeamIdPageQuery;
+import com.wakedt.visual.infrastructure.organization.repository.model.TeamMemberDO;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * TeamMemberMapper接口

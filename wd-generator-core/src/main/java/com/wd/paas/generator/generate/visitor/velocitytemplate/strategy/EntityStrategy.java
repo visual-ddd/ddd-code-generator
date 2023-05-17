@@ -3,6 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.EntityNode;
 import org.apache.commons.lang3.StringUtils;
@@ -27,6 +28,8 @@ public class EntityStrategy extends AbstractElementStrategy{
     public void initProperties() {
         super.initProperties();
         astEntity.setEntityDTOName(getEntityDTOName());
+        astEntity.getPropertyList().forEach(propertyInfo ->
+                propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
     }
 
     @Override

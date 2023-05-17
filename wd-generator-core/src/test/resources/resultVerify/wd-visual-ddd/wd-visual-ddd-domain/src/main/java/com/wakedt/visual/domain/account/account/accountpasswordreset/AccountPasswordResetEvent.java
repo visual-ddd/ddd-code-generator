@@ -3,9 +3,6 @@ package com.wakedt.visual.domain.account.account.accountpasswordreset;
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 重置用户密码-指令事件

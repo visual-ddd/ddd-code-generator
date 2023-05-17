@@ -1,17 +1,17 @@
 package com.wakedt.visual.app.organization.view;
 
-import java.util.*;
-import java.math.*;
-import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedata.common.core.dto.PageResultDTO;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Component;
-import com.wakedt.visual.client.organization.query.OrganizationPageQuery;
-import com.wakedt.visual.infrastructure.organization.repository.model.OrganizationDO;
-import com.wakedt.visual.infrastructure.organization.repository.mapper.OrganizationMapper;
-import com.wakedt.visual.client.organization.dto.OrganizationDTO;
 import com.wakedt.visual.app.organization.assembler.OrganizationDTO2OrganizationDOConvert;
+import com.wakedt.visual.client.organization.dto.OrganizationDTO;
+import com.wakedt.visual.client.organization.query.OrganizationPageQuery;
+import com.wakedt.visual.infrastructure.organization.repository.mapper.OrganizationMapper;
+import com.wakedt.visual.infrastructure.organization.repository.model.OrganizationDO;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 组织分页查询对象-查询器

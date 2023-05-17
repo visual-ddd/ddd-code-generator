@@ -7,9 +7,9 @@ import ${IMPORT_PACKAGE_MAP.get(${query.identity}).get("${query.name}")}.${query
 #end
 #end
 #macro(importDomainCmdDTO)
-#foreach ($cmd in ${DOMAIN_CMD_LIST})
-import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}")}.${cmd.cmdDTOName};
-#end
+###foreach ($cmd in ${DOMAIN_CMD_LIST})
+##import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}")}.${cmd.cmdDTOName};
+###end
 #end
 #macro(importDomainDTO)
 #foreach ($dto in ${DOMAIN_DTO_LIST})

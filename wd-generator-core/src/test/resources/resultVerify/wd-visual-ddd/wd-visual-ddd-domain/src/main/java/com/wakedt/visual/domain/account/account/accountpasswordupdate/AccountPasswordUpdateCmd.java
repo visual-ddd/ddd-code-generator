@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.account.account.accountpasswordupdate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 修改用户密码-指令

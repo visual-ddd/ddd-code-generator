@@ -1,17 +1,17 @@
 package com.wakedt.visual.app.account.view;
 
-import java.util.*;
-import java.math.*;
-import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedata.common.core.dto.PageResultDTO;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Component;
-import com.wakedt.visual.client.account.query.AccountPageQuery;
-import com.wakedt.visual.infrastructure.account.repository.model.AccountDO;
-import com.wakedt.visual.infrastructure.account.repository.mapper.AccountMapper;
-import com.wakedt.visual.client.account.dto.AccountDTO;
 import com.wakedt.visual.app.account.assembler.AccountDTO2AccountDOConvert;
+import com.wakedt.visual.client.account.dto.AccountDTO;
+import com.wakedt.visual.client.account.query.AccountPageQuery;
+import com.wakedt.visual.infrastructure.account.repository.mapper.AccountMapper;
+import com.wakedt.visual.infrastructure.account.repository.model.AccountDO;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 账号分页查询对象-查询器

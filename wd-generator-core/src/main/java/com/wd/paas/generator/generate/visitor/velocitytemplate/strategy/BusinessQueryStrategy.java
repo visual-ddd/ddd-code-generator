@@ -3,6 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.BusinessQueryNode;
 import com.wd.paas.generator.generate.element.BusinessScenarioNode;
 import com.wd.paas.generator.generate.element.BusinessServiceModelNode;
@@ -19,6 +20,13 @@ public class BusinessQueryStrategy extends AbstractElementStrategy {
     public BusinessQueryStrategy(BusinessQueryNode businessQueryNode) {
         super(businessQueryNode);
         this.node = businessQueryNode;
+    }
+
+    @Override
+    public void initProperties() {
+        super.initProperties();
+        node.getPropertyList().forEach(propertyInfo ->
+                propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
     }
 
     @Override

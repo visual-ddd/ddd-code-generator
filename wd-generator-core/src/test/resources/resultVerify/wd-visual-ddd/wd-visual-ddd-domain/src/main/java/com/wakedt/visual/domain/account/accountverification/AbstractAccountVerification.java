@@ -1,9 +1,6 @@
 package com.wakedt.visual.domain.account.accountverification;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
 
 /**
  * 账号验证码-聚合根

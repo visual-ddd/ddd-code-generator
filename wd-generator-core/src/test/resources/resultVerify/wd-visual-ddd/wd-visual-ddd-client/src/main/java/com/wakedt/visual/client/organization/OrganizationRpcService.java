@@ -2,30 +2,12 @@ package com.wakedt.visual.client.organization;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.client.organization.query.OrganizationQuery;
-import com.wakedt.visual.client.organization.query.OrganizationPageQuery;
-import com.wakedt.visual.client.organization.query.TeamQuery;
-import com.wakedt.visual.client.organization.query.TeamPageQuery;
-import com.wakedt.visual.client.organization.query.TeamMemberByTeamIdPageQuery;
-import com.wakedt.visual.client.organization.query.OrganizationCreateDTO;
-import com.wakedt.visual.client.organization.query.OrganizationModifyDTO;
-import com.wakedt.visual.client.organization.query.OrganizationRemoveDTO;
-import com.wakedt.visual.client.organization.query.OrganizationManagerUnbindDTO;
-import com.wakedt.visual.client.organization.query.OrganizationManagerBindDTO;
-import com.wakedt.visual.client.organization.query.TeamCreateDTO;
-import com.wakedt.visual.client.organization.query.TeamModifyDTO;
-import com.wakedt.visual.client.organization.query.TeamRemoveDTO;
-import com.wakedt.visual.client.organization.query.TeamManagerBindDTO;
-import com.wakedt.visual.client.organization.query.TeamManagerUnBindDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberAddDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberRemoveDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberRoleBindDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberRoleUnBindDTO;
 import com.wakedt.visual.client.organization.dto.OrganizationDTO;
 import com.wakedt.visual.client.organization.dto.TeamDTO;
 import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
-import java.util.*;
-import java.math.*;
+import com.wakedt.visual.client.organization.query.*;
+
+import java.util.List;
 
 /**
  * 组织域-RPC能力接口

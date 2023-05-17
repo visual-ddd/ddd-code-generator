@@ -6,6 +6,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 
 #comment("${VALUE_OBJECT_CLASS_TITLE}")
 @Data

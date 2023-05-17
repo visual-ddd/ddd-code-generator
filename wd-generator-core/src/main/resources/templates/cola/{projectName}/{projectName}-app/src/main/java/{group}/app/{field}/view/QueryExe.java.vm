@@ -18,6 +18,7 @@ package ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get("${QUERY_CLASS_NAME}Exe")};
 #if(${QUERY_PAGINATION})
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageHelper;
 import com.wakedata.common.core.dto.PageResultDTO;

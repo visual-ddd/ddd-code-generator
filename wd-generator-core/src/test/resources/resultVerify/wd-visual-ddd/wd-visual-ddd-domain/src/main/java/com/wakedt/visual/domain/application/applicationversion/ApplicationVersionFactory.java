@@ -1,10 +1,8 @@
 package com.wakedt.visual.domain.application.applicationversion;
 
-import java.util.*;
-import java.math.*;
-import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.application.applicationversion.applicationversioncreate.ApplicationVersionCreateCmd;
 import com.wakedt.visual.domain.application.applicationversion.applicationversionfork.ApplicationVersionForkCmd;
+import org.springframework.stereotype.Component;
 
 /**
  * 应用版本-聚合根-工厂

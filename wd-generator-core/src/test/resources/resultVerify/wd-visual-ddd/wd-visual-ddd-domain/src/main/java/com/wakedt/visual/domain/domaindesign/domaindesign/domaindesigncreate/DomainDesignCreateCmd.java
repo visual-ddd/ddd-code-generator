@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.domaindesign.domaindesign.domaindesigncreate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.domaindesign.domaindesign.*;
 
 /**
  * 新增业务域-指令

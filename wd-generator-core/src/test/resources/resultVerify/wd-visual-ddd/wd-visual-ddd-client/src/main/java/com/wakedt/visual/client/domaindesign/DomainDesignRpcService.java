@@ -2,25 +2,11 @@ package com.wakedt.visual.client.domaindesign;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignPageQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionPageQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignLatestVersionQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignListQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignCreateDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignModifyDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignRemoveDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionCreateDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionModifyDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionRemoveDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignDslUpdateDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionPublishDTO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionForkDTO;
 import com.wakedt.visual.client.domaindesign.dto.DomainDesignDTO;
 import com.wakedt.visual.client.domaindesign.dto.DomainDesignVersionDTO;
-import java.util.*;
-import java.math.*;
+import com.wakedt.visual.client.domaindesign.query.*;
+
+import java.util.List;
 
 /**
  * 业务域-RPC能力接口

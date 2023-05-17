@@ -1,9 +1,6 @@
 package com.wakedt.visual.domain.businessscene.businesssceneversion;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
 
 /**
  * 业务场景版本-聚合根

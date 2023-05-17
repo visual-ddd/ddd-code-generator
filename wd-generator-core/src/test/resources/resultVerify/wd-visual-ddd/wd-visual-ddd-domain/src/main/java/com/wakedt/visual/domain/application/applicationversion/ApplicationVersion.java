@@ -1,12 +1,10 @@
 package com.wakedt.visual.domain.application.applicationversion;
 
-import java.util.*;
-import java.math.*;
 import com.wakedt.visual.domain.application.applicationversion.applicationversionmodify.ApplicationVersionModifyCmd;
+import com.wakedt.visual.domain.application.applicationversion.applicationversionpublish.ApplicationVersionPublishCmd;
 import com.wakedt.visual.domain.application.applicationversion.applicationversionremove.ApplicationVersionRemoveCmd;
 import com.wakedt.visual.domain.application.applicationversion.businesssceneversionbind.BusinessSceneVersionBindCmd;
 import com.wakedt.visual.domain.application.applicationversion.domaindesignversionbind.DomainDesignVersionBindCmd;
-import com.wakedt.visual.domain.application.applicationversion.applicationversionpublish.ApplicationVersionPublishCmd;
 
 /**
  * 应用版本-聚合根能力

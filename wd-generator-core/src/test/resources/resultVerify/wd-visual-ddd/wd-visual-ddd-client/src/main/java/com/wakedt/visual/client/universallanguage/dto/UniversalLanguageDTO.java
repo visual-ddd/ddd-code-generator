@@ -1,13 +1,10 @@
 package com.wakedt.visual.client.universallanguage.dto;
 
-import io.swagger.annotations.ApiModel;
-import lombok.Data;
-import io.swagger.annotations.ApiModelProperty;
 import com.wakedata.common.core.base.BaseDTO;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.util.*;
-import java.math.*;
 
 /**
  * 统一语言数据传输对象

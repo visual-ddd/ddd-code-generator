@@ -1,9 +1,6 @@
 package com.wakedt.visual.domain.organization.organization;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
 
 /**
  * 组织-聚合根

@@ -6,6 +6,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_QUERY_ID}).get(${BUSINESS_QUERY_CLASS_NAME}).replace(".query", ".dto.*")};
 
 #comment(${BUSINESS_QUERY_CLASS_TITLE})

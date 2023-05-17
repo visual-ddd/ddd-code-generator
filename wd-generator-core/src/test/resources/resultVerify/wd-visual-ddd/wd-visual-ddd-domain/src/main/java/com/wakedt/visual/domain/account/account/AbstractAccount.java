@@ -1,9 +1,6 @@
 package com.wakedt.visual.domain.account.account;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
 
 /**
  * 账号-聚合根

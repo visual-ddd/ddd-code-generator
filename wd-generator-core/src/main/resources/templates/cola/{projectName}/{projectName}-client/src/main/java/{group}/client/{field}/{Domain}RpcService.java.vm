@@ -8,6 +8,7 @@ import com.wakedata.common.core.dto.ResultDTO;
 #importDomainDTO()
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 
 #comment("${DOMAIN_TITLE}-RPC能力接口")
 public interface ${DOMAIN_CLASS_NAME}RpcService {

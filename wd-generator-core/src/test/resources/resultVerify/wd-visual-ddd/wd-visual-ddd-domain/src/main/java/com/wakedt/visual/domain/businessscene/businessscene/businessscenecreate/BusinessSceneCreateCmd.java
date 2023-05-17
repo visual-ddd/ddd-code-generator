@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.businessscene.businessscene.businessscenecreate
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 新增业务场景-指令

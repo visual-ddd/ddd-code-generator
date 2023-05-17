@@ -1,13 +1,13 @@
 package com.wakedt.visual.infrastructure.businessscene.repository.mapper;
 
-import java.util.*;
-import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessScenePageQuery;
 import com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery;
+import com.wakedt.visual.client.businessscene.query.BusinessScenePageQuery;
+import com.wakedt.visual.client.businessscene.query.BusinessSceneQuery;
+import com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * BusinessSceneMapper接口

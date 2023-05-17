@@ -70,8 +70,9 @@ public class FileGenerator {
             tpl.merge(context, sw);
             IOUtils.write(sw.toString(), getOutputStream(outputUrl, zipOutputStream), StandardCharsets.UTF_8);
             IOUtils.closeQuietly();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            log.error("Velocity模版合并失败！" + tpl);
+            throw new IllegalStateException("Velocity模版合并失败！" + e);
         }
     }
 

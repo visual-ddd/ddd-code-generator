@@ -1,13 +1,13 @@
 package com.wakedt.visual.infrastructure.application.repository.mapper;
 
-import java.util.*;
-import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import com.wakedt.visual.infrastructure.application.repository.model.ApplicationDO;
-import com.wakedt.visual.client.application.query.ApplicationQuery;
-import com.wakedt.visual.client.application.query.ApplicationPageQuery;
 import com.wakedt.visual.client.application.query.ApplicationListQuery;
+import com.wakedt.visual.client.application.query.ApplicationPageQuery;
+import com.wakedt.visual.client.application.query.ApplicationQuery;
+import com.wakedt.visual.infrastructure.application.repository.model.ApplicationDO;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * ApplicationMapper接口

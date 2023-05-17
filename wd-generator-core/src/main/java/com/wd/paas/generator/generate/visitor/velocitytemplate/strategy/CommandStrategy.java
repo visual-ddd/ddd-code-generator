@@ -4,6 +4,7 @@ import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.CommandNode;
 import com.wd.paas.generator.generate.element.DomainEventNode;
@@ -31,6 +32,8 @@ public class CommandStrategy extends AbstractElementStrategy {
         astCommand.setCmdDTOName(astCommand.getCmdNoSuffixName().concat(ModelUrlConstant.DTO_SUFFIX));
         String category = astCommand.getCategory();
         astCommand.setCategory(StringUtils.isBlank(category) ? astCommand.getCmdNoSuffixName() : category);
+        astCommand.getPropertyList().forEach(propertyInfo ->
+                propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
 
         // 事件
         DomainEventNode astDomainEvent = astCommand.getAstDomainEvent();

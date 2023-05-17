@@ -1,17 +1,17 @@
 package com.wakedt.visual.app.domaindesign.view;
 
-import java.util.*;
-import java.math.*;
-import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedata.common.core.dto.PageResultDTO;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Component;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionPageQuery;
-import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignVersionDO;
-import com.wakedt.visual.infrastructure.domaindesign.repository.mapper.DomainDesignVersionMapper;
-import com.wakedt.visual.client.domaindesign.dto.DomainDesignVersionDTO;
 import com.wakedt.visual.app.domaindesign.assembler.DomainDesignVersionDTO2DomainDesignVersionDOConvert;
+import com.wakedt.visual.client.domaindesign.dto.DomainDesignVersionDTO;
+import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionPageQuery;
+import com.wakedt.visual.infrastructure.domaindesign.repository.mapper.DomainDesignVersionMapper;
+import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignVersionDO;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 业务域版本分页查询对象-查询器

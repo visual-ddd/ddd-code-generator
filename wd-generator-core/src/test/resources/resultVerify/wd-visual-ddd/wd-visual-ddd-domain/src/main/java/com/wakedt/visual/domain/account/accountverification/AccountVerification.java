@@ -1,7 +1,5 @@
 package com.wakedt.visual.domain.account.accountverification;
 
-import java.util.*;
-import java.math.*;
 import com.wakedt.visual.domain.account.accountverification.verificationupdate.AccountVerificationUpdateCmd;
 
 /**

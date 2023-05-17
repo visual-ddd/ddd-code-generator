@@ -12,6 +12,7 @@ import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name}
 import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}RpcService")}.${BUSINESS_CLASS_NAME}RpcService;
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
 #comment("${BUSINESS_TITLE}-RPC能力接口实现")
@@ -22,14 +23,22 @@ public class ${BUSINESS_CLASS_NAME}RpcServiceImpl implements ${BUSINESS_CLASS_NA
 #if(${query.pagination})
     @Override
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
-        /* TODO ${query.description.replaceAll("\n","\\n")} */
-        return ResultDTO.success();
+#foreach($ruleInfo in ${query.ruleList})
+
+        /* TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description.replaceAll("\n","\\n")} */
+#end
+
+        return null;
     }
 #end
 #if(!${query.pagination})
     @Override
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} request) {
-        /* TODO ${query.description.replaceAll("\n","\\n")} */
+#foreach($ruleInfo in ${query.ruleList})
+
+        /* TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description.replaceAll("\n","\\n")} */
+#end
+
         return ResultDTO.success();
     }
 #end

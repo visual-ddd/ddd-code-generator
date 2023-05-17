@@ -1,9 +1,7 @@
 package com.wakedt.visual.domain.account.account;
 
-import java.util.*;
-import java.math.*;
-import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.account.account.accountcreate.AccountCreateCmd;
+import org.springframework.stereotype.Component;
 
 /**
  * 账号-聚合根-工厂

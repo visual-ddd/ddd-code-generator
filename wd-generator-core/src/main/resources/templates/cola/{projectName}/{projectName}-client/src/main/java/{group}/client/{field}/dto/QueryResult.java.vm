@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 
 #comment("$QUERY_RESULT_CLASS_TITLE")
 @Data

@@ -1,7 +1,5 @@
 package com.wakedt.visual.domain.domaindesign.domaindesign;
 
-import java.util.*;
-import java.math.*;
 import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignmodify.DomainDesignModifyCmd;
 import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignremove.DomainDesignRemoveCmd;
 

@@ -1,11 +1,9 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage.create;
 
+import com.wakedt.visual.domain.universallanguage.universallanguage.LanguageType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
  * 新增统一语言-指令

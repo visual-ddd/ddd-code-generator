@@ -3,14 +3,11 @@ package com.wakedt.visual.infrastructure.domaindesign.repository.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.*;
-import java.math.*;
-
-import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
  * 业务域实体类

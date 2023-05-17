@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.account.account.accountmodify;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 更新账号基本信息-指令

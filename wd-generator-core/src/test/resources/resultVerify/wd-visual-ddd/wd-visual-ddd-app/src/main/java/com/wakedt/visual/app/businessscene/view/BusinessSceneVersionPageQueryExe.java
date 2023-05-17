@@ -1,17 +1,17 @@
 package com.wakedt.visual.app.businessscene.view;
 
-import java.util.*;
-import java.math.*;
-import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedata.common.core.dto.PageResultDTO;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Component;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionPageQuery;
-import com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneVersionDO;
-import com.wakedt.visual.infrastructure.businessscene.repository.mapper.BusinessSceneVersionMapper;
-import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
 import com.wakedt.visual.app.businessscene.assembler.BusinessSceneVersionDTO2BusinessSceneVersionDOConvert;
+import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
+import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionPageQuery;
+import com.wakedt.visual.infrastructure.businessscene.repository.mapper.BusinessSceneVersionMapper;
+import com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneVersionDO;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 业务场景版本分页查询对象-查询器

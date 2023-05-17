@@ -1,11 +1,9 @@
 package com.wakedt.visual.infrastructure.account.repository.mapper;
 
-import java.util.*;
-import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import com.wakedt.visual.infrastructure.account.repository.model.AccountVerificationDO;
 import com.wakedt.visual.client.account.query.AccountVerificationDetailQuery;
+import com.wakedt.visual.infrastructure.account.repository.model.AccountVerificationDO;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * AccountVerificationMapper接口

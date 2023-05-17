@@ -1,17 +1,17 @@
 package com.wakedt.visual.app.application.view;
 
-import java.util.*;
-import java.math.*;
-import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedata.common.core.dto.PageResultDTO;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Component;
-import com.wakedt.visual.client.application.query.ApplicationVersionPageQuery;
-import com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO;
-import com.wakedt.visual.infrastructure.application.repository.mapper.ApplicationVersionMapper;
-import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
 import com.wakedt.visual.app.application.assembler.ApplicationVersionDTO2ApplicationVersionDOConvert;
+import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
+import com.wakedt.visual.client.application.query.ApplicationVersionPageQuery;
+import com.wakedt.visual.infrastructure.application.repository.mapper.ApplicationVersionMapper;
+import com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 应用版本分页查询对象-查询器

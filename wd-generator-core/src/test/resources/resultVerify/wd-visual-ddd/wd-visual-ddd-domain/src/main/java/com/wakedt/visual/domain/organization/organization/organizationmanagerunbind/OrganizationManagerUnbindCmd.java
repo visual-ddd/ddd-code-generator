@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.organization.organization.organizationmanagerun
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 解绑组织管理员-指令

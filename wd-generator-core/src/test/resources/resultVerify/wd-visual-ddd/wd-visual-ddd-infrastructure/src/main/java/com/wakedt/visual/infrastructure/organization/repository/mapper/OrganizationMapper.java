@@ -1,12 +1,12 @@
 package com.wakedt.visual.infrastructure.organization.repository.mapper;
 
-import java.util.*;
-import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import com.wakedt.visual.infrastructure.organization.repository.model.OrganizationDO;
-import com.wakedt.visual.client.organization.query.OrganizationQuery;
 import com.wakedt.visual.client.organization.query.OrganizationPageQuery;
+import com.wakedt.visual.client.organization.query.OrganizationQuery;
+import com.wakedt.visual.infrastructure.organization.repository.model.OrganizationDO;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * OrganizationMapper接口

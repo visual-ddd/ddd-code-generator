@@ -4,6 +4,7 @@ package ${IMPORT_PACKAGE_MAP.get(${ENTITY_ID}).get("${ENTITY_CLASS_NAME}")};
 import lombok.Data;
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 
 #comment("${ENTITY_CLASS_TITLE}-实体")
 @Data

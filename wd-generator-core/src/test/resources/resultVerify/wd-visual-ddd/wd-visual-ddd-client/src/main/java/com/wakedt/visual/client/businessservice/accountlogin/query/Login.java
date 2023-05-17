@@ -1,11 +1,10 @@
 package com.wakedt.visual.client.businessservice.accountlogin.query;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.math.*;
-import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
+import lombok.Data;
+
+import java.time.LocalDateTime;
 
 /**
  * 账号登录
@@ -15,7 +14,7 @@ import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
 public class Login {
 
     @ApiModelProperty(value = "账号唯一标识（邮箱）")
-    private String accountNo;
+    private LocalDateTime accountNo;
 
     @ApiModelProperty(value = "密码")
     private String password;

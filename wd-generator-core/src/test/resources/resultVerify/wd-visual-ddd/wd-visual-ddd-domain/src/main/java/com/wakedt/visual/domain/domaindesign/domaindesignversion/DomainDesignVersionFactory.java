@@ -1,10 +1,8 @@
 package com.wakedt.visual.domain.domaindesign.domaindesignversion;
 
-import java.util.*;
-import java.math.*;
-import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignversioncreate.DomainDesignVersionCreateCmd;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignversionfork.DomainDesignVersionForkCmd;
+import org.springframework.stereotype.Component;
 
 /**
  * 业务域版本-聚合根-工厂

@@ -5,9 +5,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import com.wakedt.visual.client.application.dto.*;
+
+import java.util.List;
 
 /**
  * 应用列表查询对象

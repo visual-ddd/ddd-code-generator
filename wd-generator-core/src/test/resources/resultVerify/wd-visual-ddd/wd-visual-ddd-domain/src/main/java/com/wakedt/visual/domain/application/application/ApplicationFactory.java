@@ -1,9 +1,7 @@
 package com.wakedt.visual.domain.application.application;
 
-import java.util.*;
-import java.math.*;
-import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.application.application.applicationcreate.ApplicationCreateCmd;
+import org.springframework.stereotype.Component;
 
 /**
  * 应用-聚合根-工厂

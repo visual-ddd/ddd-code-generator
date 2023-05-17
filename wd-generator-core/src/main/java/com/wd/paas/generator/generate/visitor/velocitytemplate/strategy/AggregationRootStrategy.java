@@ -3,6 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.AggregateRootNode;
 import org.apache.commons.lang3.StringUtils;
@@ -22,6 +23,14 @@ public class AggregationRootStrategy extends AbstractElementStrategy {
         super(aggregateRootNode);
         this.aggregateRootNode = aggregateRootNode;
     }
+
+    @Override
+    public void initProperties() {
+        super.initProperties();
+        aggregateRootNode.getPropertyList().forEach(propertyInfo ->
+                propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
+    }
+
 
     @Override
     public void putVelocityContext(VelocityContext context) {

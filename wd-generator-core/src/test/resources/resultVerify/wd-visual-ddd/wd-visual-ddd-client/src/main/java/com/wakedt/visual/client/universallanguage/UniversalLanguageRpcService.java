@@ -2,14 +2,10 @@ package com.wakedt.visual.client.universallanguage;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageCreateDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageModifyDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveDTO;
 import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
-import java.util.*;
-import java.math.*;
+import com.wakedt.visual.client.universallanguage.query.*;
+
+import java.util.List;
 
 /**
  * 统一语言域-RPC能力接口

@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.organization.team.teammodify;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 编辑团队-指令

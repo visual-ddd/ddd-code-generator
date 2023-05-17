@@ -3,9 +3,6 @@ package com.wakedt.visual.domain.businessscene.businessscene.businessscenemodify
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 编辑业务场景-指令事件

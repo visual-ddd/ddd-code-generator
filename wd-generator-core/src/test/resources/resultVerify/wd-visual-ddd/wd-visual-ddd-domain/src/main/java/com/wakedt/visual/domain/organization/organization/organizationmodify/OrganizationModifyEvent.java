@@ -3,9 +3,6 @@ package com.wakedt.visual.domain.organization.organization.organizationmodify;
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 编辑组织-指令事件

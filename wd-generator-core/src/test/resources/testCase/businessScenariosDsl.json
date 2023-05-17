@@ -46,7 +46,7 @@
                 "description": "",
                 "meta": {},
                 "access": "public",
-                "type": "String"
+                "type": "Date"
               },
               {
                 "uuid": "ee86533d-dcf4-44f4-a94d-addb15a97a5b",

@@ -1,10 +1,8 @@
 package com.wakedt.visual.client.businessscene.query;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.math.*;
+import lombok.Data;
 
 /**
  * 更新业务场景DSL

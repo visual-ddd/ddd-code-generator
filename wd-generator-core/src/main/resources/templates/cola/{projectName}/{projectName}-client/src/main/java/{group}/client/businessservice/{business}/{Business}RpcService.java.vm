@@ -11,6 +11,7 @@ import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name}
 #end
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 
 #comment("${BUSINESS_TITLE}-RPC能力接口")
 public interface ${BUSINESS_CLASS_NAME}RpcService {

@@ -6,6 +6,7 @@ package ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${DATA_MAPPER_CLASS_NAM
 
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${doClassName}")}.${doClassName};

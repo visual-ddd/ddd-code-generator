@@ -1,33 +1,18 @@
 package com.wakedt.visual.adapter.account.web;
 
-import java.util.*;
-import java.math.*;
-import javax.annotation.Resource;
-
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import javax.validation.Valid;
 import com.wakedt.visual.client.account.AccountRpcService;
-import com.wakedt.visual.client.account.query.AccountDetailQuery;
-import com.wakedt.visual.client.account.query.AccountPageQuery;
-import com.wakedt.visual.client.account.query.AccountVerificationDetailQuery;
-import com.wakedt.visual.client.account.query.AccountCreateDTO;
-import com.wakedt.visual.client.account.query.AccountModifyDTO;
-import com.wakedt.visual.client.account.query.AccountDeleteDTO;
-import com.wakedt.visual.client.account.query.AccountEmailSendDTO;
-import com.wakedt.visual.client.account.query.AccountPasswordResetDTO;
-import com.wakedt.visual.client.account.query.AccountPasswordUpdateDTO;
-import com.wakedt.visual.client.account.query.AccountVerificationCreateDTO;
-import com.wakedt.visual.client.account.query.AccountVerificationUpdateDTO;
 import com.wakedt.visual.client.account.dto.AccountDTO;
 import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
+import com.wakedt.visual.client.account.query.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 账号域-B端

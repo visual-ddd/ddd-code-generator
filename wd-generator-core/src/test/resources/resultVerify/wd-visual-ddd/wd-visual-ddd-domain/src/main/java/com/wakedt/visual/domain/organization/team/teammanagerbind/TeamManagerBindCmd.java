@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.organization.team.teammanagerbind;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 绑定团队管理员-指令

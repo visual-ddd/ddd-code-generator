@@ -3,9 +3,6 @@ package com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignve
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
 
 /**
  * 新增业务域版本-指令事件

@@ -1,9 +1,7 @@
 package com.wakedt.visual.domain.businessscene.businessscene;
 
-import java.util.*;
-import java.math.*;
-import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.businessscene.businessscene.businessscenecreate.BusinessSceneCreateCmd;
+import org.springframework.stereotype.Component;
 
 /**
  * 业务场景-聚合根-工厂

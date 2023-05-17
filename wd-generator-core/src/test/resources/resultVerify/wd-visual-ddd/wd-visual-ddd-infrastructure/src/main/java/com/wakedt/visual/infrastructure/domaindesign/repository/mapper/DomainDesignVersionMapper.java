@@ -1,13 +1,13 @@
 package com.wakedt.visual.infrastructure.domaindesign.repository.mapper;
 
-import java.util.*;
-import java.math.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignVersionDO;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionQuery;
-import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionPageQuery;
 import com.wakedt.visual.client.domaindesign.query.DomainDesignLatestVersionQuery;
+import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionPageQuery;
+import com.wakedt.visual.client.domaindesign.query.DomainDesignVersionQuery;
+import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignVersionDO;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * DomainDesignVersionMapper接口

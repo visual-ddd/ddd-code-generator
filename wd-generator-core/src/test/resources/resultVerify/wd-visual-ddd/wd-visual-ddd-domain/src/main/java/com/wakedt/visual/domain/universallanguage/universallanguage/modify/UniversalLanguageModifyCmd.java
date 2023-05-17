@@ -2,10 +2,7 @@ package com.wakedt.visual.domain.universallanguage.universallanguage.modify;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.*;
-import java.math.*;
 import lombok.NoArgsConstructor;
-import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
  * 编辑统一语言-指令

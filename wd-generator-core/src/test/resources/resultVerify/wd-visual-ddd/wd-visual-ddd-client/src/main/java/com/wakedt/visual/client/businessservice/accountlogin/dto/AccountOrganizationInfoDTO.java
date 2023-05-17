@@ -5,6 +5,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
 

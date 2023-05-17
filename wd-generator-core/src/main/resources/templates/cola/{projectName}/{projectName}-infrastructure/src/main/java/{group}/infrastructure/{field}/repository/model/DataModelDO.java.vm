@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.*;
 import java.util.*;
 import java.math.*;
+import java.time.LocalDateTime;
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseJpaAggregate;
 

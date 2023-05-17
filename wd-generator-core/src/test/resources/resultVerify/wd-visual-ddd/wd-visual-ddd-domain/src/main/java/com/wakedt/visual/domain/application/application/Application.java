@@ -1,7 +1,5 @@
 package com.wakedt.visual.domain.application.application;
 
-import java.util.*;
-import java.math.*;
 import com.wakedt.visual.domain.application.application.applicationmodify.ApplicationModifyCmd;
 import com.wakedt.visual.domain.application.application.applicationremove.ApplicationRemoveCmd;
 

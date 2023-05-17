@@ -3,6 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.DtoNode;
 import com.wd.paas.generator.generate.element.QueryModelNode;
@@ -25,6 +26,8 @@ public class DTOStrategy extends AbstractElementStrategy {
     public void initProperties() {
         super.initProperties();
         initName(astDto);
+        astDto.getPropertyList().forEach(propertyInfo ->
+                propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
     }
 
     @Override
