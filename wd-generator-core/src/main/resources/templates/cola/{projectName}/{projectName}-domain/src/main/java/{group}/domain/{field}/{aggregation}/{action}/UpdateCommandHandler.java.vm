@@ -15,7 +15,7 @@ public class ${CMD_CLASS_NAME}Handler {
     private ${AGGREGATION_CLASS_NAME}Repository repository;
 
     public void handle(${CMD_CLASS_NAME} updateCmd) {
-        ${AGGREGATION_CLASS_NAME} ${aggregation} = repository.find(updateCmd.getId());
+        ${AGGREGATION_CLASS_NAME} ${aggregation} = repository.find(updateCmd.get${CASE_FORMAT_UPPER_CAMEL.convert(${AGGREGATION_CLASS_ID.name})}());
         ${aggregation}.${CASE_FORMAT_LOWER_CAMEL.convert(${CMD_CATEGORY})}(updateCmd);
 #foreach($ruleInfo in ${CMD_RULE_LIST})
 
