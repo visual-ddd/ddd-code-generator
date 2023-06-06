@@ -87,5 +87,5 @@ import ${importPackage};
     /** ${field.title} */
 #end
 #macro(printApiDesc $field)
-    @ApiModelProperty(description = "${field.title}")
+    @ApiModelProperty(value = "${field.title}")
 #end
