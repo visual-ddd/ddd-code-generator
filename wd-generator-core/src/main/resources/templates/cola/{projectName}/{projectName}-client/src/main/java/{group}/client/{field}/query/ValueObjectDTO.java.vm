@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 #comment("${VALUE_OBJECT_CLASS_TITLE}")
 @Data
-@ApiModel(value = "${VALUE_OBJECT_CLASS_TITLE}")
+@ApiModel(description = "${VALUE_OBJECT_CLASS_TITLE}")
 public class ${VALUE_OBJECT_DTO_NAME} {
 #dtoFiled(${VALUE_OBJECT_CLASS_FIELDS})
 

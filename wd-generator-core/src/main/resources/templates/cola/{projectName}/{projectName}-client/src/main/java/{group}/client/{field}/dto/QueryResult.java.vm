@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 #comment("$QUERY_RESULT_CLASS_TITLE")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "${QUERY_RESULT_CLASS_TITLE}")
+@ApiModel(description = "${QUERY_RESULT_CLASS_TITLE}")
 public class ${QUERY_RESULT_CLASS_NAME} extends BaseDTO {
 #filedExt(${QUERY_RESULT_CLASS_FIELDS})
 
