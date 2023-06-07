@@ -1,13 +1,16 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.google.common.base.CaseFormat;
 import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
+import com.wd.paas.generator.common.enums.CommandSourceTypeEnum;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.CommandNode;
 import com.wd.paas.generator.generate.element.DomainEventNode;
+import com.wd.paas.generator.generate.element.ExternalEventNode;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
@@ -38,11 +41,24 @@ public class CommandStrategy extends AbstractElementStrategy {
         astCommand.getPropertyList().forEach(propertyInfo ->
                 propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
 
-        // 事件
+        // 指令事件
         DomainEventNode astDomainEvent = astCommand.getAstDomainEvent();
-        astDomainEvent.setName(astCommand.getCmdNoSuffixName().concat(ModelUrlConstant.EVENT_CLASS));
+        astDomainEvent.setName(astCommand.getCmdNoSuffixName().concat(ModelUrlConstant.EVENT_CLASS_SUFFIX));
         astDomainEvent.setPropertyList(getEventProperties());
         astDomainEvent.setTitle(astCommand.getTitle());
+
+        // 外部事件
+        Object sourceValue = astCommand.getSourceValue(CommandSourceTypeEnum.EVENT.getValue());
+        if (sourceValue instanceof String) {
+            ExternalEventNode externalEventNode = astCommand.getExternalEventNode();
+            externalEventNode.setName(initExternalEventName((String) sourceValue));
+        }
+    }
+
+    private String initExternalEventName(String originalEventName) {
+        String eventName = originalEventName.endsWith(ModelUrlConstant.EVENT_CLASS_SUFFIX) ? originalEventName :
+                originalEventName.concat(ModelUrlConstant.EVENT_CLASS_SUFFIX);
+        return CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL).convert(eventName);
     }
 
     @Override
@@ -62,6 +78,12 @@ public class CommandStrategy extends AbstractElementStrategy {
                 list.addAll(Arrays.asList(GenerateElementTypeEnum.DELETE_COMMAND_HANDLER.getTemplateUrls()));
                 break;
         }
+
+        Object sourceValue = astCommand.getSourceValue(CommandSourceTypeEnum.EVENT.getValue());
+        if (sourceValue instanceof String) {
+            list.addAll(Arrays.asList(GenerateElementTypeEnum.EXTERNAL_EVENT.getTemplateUrls()));
+        }
+
         return list;
     }
 
@@ -80,6 +102,8 @@ public class CommandStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.CMD_EVENT_CLASS_FIELDS, astCommand.getAstDomainEvent().getPropertyList());
         context.put(VelocityLabel.CMD_EVENT_CLASS_DESCRIPTION, astCommand.getAstDomainEvent().getDescription());
         context.put(VelocityLabel.CMD_EVENT_CLASS_TITLE, astCommand.getAstDomainEvent().getTitle());
+
+        context.put(VelocityLabel.EXTERNAL_EVENT_CLASS_NAME, astCommand.getExternalEventNode().getName());
 
         context.put(VelocityLabel.CMD_CATEGORY, astCommand.getCategory());
         context.put(VelocityLabel.CMD_DTO_CLASS, astCommand.getCmdDTOName());
@@ -103,6 +127,9 @@ public class CommandStrategy extends AbstractElementStrategy {
                 // event
                 ModelUrlConstant.EVENT_CLASS,
 
+                // externalEvent
+                ModelUrlConstant.EXTERNAL_EVENT_CLASS,
+
                 // Handler
                 ModelUrlConstant.ADD_COMMAND_HANDLER_CLASS,
                 ModelUrlConstant.UPDATE_COMMAND_HANDLER_CLASS,
@@ -119,6 +146,9 @@ public class CommandStrategy extends AbstractElementStrategy {
 
                 // event
                 astCommand.getAstDomainEvent().getName(),
+
+                // externalEvent
+                astCommand.getExternalEventNode().getName(),
 
                 // handler
                 name,

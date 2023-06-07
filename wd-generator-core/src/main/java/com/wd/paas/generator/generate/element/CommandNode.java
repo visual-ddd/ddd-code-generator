@@ -29,6 +29,8 @@ public class CommandNode extends CompositeElement {
 
     private DomainEventNode astDomainEvent;
 
+    private ExternalEventNode externalEventNode;
+
     private Boolean eventEnable;
 
     private List<RuleInfo> ruleList;

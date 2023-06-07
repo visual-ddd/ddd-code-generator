@@ -5,7 +5,11 @@ import com.wakedata.common.domainevent.annotation.DomainEventSubscribe;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 #importDomainCmdHandler()
-import ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Listener")}.event.*;
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+#if(${cmd.getSourceValue("event")})
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.externalEventNode.name}")}.${cmd.externalEventNode.name};
+#end
+#end
 
 import javax.annotation.Resource;
 
@@ -29,8 +33,8 @@ public class ${DOMAIN_CLASS_NAME}Listener {
     /**
      * 消费事件 ${cmd.title}
      */
-    @DomainEventSubscribe(localConsume = true)
-    public void listen${eventName}(${eventName} event){
+    @DomainEventSubscribe
+    public void listen${cmd.externalEventNode.name}(${cmd.externalEventNode.name} event){
         // TODO 执行${cmd.title}
         ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(null);
     }

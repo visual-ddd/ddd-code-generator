@@ -159,6 +159,9 @@ public class VelocityLabel {
     public static final String BUSINESS_DTO_CLASS_TITLE = "BUSINESS_DTO_CLASS_TITLE";
     public static final String BUSINESS_DTO_CLASS_FIELDS = "BUSINESS_DTO_CLASS_FIELDS";
 
+    // 外部事件
+    public static final String EXTERNAL_EVENT_CLASS_NAME = "EXTERNAL_EVENT_CLASS_NAME";
+
     public static final String CASE_FORMAT_LOWER_HYPHEN = "CASE_FORMAT_LOWER_HYPHEN";
     public static final String CASE_FORMAT_LOWER_CAMEL = "CASE_FORMAT_LOWER_CAMEL";
     public static final String CASE_FORMAT_UPPER_CAMEL = "CASE_FORMAT_UPPER_CAMEL";

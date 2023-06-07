@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.organization.team.teammodify;
 
-import com.wakedt.visual.domain.organization.team.Team;
-import com.wakedt.visual.domain.organization.team.TeamRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 编辑团队-指令处理器

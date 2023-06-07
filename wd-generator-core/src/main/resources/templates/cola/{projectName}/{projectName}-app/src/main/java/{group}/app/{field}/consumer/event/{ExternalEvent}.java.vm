@@ -8,7 +8,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 import lombok.NoArgsConstructor;
 
-#comment("${CMD_CLASS_TITLE}-指令")
+#comment("外部事件")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -147,14 +147,14 @@ public enum GenerateElementTypeEnum {
      * 外部事件
      */
     EXTERNAL_EVENT("ExternalEvent", new String[]{
-            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/DeleteCommandHandler.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/event/{ExternalEvent}.java.vm",
     }),
 
     /**
      * 事件
      */
     EVENT("Event", new String[]{
-            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Event.java.vm"
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/{Event}.java.vm"
     }),
 
     /**

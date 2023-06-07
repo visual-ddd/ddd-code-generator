@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.account.accountverification.verificationupdate;
 
-import com.wakedt.visual.domain.account.accountverification.AccountVerification;
-import com.wakedt.visual.domain.account.accountverification.AccountVerificationRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.account.accountverification.*;
 
 /**
  * 更新验证码-指令处理器
