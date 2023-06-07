@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务场景版本基本信息")
+@ApiModel(description = "业务场景版本基本信息")
 public class BusinessScenarioVersionBaseInfoDTO extends BaseDTO {
 
     @ApiModelProperty(value = "业务场景版本的唯一标识")

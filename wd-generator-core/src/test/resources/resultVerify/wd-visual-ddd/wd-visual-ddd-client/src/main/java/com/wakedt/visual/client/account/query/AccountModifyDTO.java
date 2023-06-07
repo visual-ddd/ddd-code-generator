@@ -8,7 +8,7 @@ import lombok.Data;
  * 更新账号基本信息
  */
 @Data
-@ApiModel(value = "更新账号基本信息")
+@ApiModel(description = "更新账号基本信息")
 public class AccountModifyDTO {
 
     @ApiModelProperty(value = "用户 ID")

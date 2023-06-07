@@ -10,7 +10,7 @@ import java.util.Set;
  * 关联业务场景版本
  */
 @Data
-@ApiModel(value = "关联业务场景版本")
+@ApiModel(description = "关联业务场景版本")
 public class BusinessSceneVersionBindDTO {
 
     @ApiModelProperty(value = "应用版本ID")

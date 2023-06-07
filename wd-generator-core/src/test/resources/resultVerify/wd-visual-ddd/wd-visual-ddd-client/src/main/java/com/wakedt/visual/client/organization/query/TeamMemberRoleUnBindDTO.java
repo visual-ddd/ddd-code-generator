@@ -10,7 +10,7 @@ import java.util.List;
  * 解绑团队成员职位
  */
 @Data
-@ApiModel(value = "解绑团队成员职位")
+@ApiModel(description = "解绑团队成员职位")
 public class TeamMemberRoleUnBindDTO {
 
     @ApiModelProperty(value = "团队成员ID")

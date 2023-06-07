@@ -1,9 +1,12 @@
 package com.wakedt.visual.client.businessservice.accountlogin.dto;
 
-import com.wakedata.common.core.base.BaseDTO;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
 
 /**
@@ -11,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "团队信息")
+@ApiModel(description = "团队信息")
 public class TeamDTO extends BaseDTO {
 
     @ApiModelProperty(value = "团队ID")

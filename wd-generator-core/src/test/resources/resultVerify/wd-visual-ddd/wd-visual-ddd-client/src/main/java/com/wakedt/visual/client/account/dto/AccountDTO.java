@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "账号数据传输对象")
+@ApiModel(description = "账号数据传输对象")
 public class AccountDTO extends BaseDTO {
 
     @ApiModelProperty(value = "用户 ID")

@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "统一语言数据传输对象")
+@ApiModel(description = "统一语言数据传输对象")
 public class UniversalLanguageDTO extends BaseDTO {
 
     @ApiModelProperty(value = "统一语言 ID")

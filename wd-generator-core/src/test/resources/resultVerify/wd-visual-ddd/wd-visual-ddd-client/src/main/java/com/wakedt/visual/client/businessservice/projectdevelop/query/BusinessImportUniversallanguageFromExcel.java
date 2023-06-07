@@ -8,7 +8,7 @@ import lombok.Data;
  * Excel导入统一语言(业务域)
  */
 @Data
-@ApiModel(value = "Excel导入统一语言(业务域)")
+@ApiModel(description = "Excel导入统一语言(业务域)")
 public class BusinessImportUniversallanguageFromExcel {
 
     @ApiModelProperty(value = "Excel文件")

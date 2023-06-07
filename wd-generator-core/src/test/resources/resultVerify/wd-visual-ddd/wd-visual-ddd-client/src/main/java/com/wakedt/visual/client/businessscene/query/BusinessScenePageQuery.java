@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务场景分页查询对象")
+@ApiModel(description = "业务场景分页查询对象")
 public class BusinessScenePageQuery extends PageQuery {
 
     @ApiModelProperty(value = "团队ID")

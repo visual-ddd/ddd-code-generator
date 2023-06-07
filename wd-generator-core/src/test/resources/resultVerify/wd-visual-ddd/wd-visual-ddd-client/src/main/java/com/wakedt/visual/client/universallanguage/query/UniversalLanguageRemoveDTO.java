@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除统一语言
  */
 @Data
-@ApiModel(value = "删除统一语言")
+@ApiModel(description = "删除统一语言")
 public class UniversalLanguageRemoveDTO {
 
     @ApiModelProperty(value = "统一语言 ID")

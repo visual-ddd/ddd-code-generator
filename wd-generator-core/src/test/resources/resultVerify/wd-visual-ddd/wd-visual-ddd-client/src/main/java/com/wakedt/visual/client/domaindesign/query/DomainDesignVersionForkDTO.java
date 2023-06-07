@@ -8,7 +8,7 @@ import lombok.Data;
  * Fork业务域版本
  */
 @Data
-@ApiModel(value = "Fork业务域版本")
+@ApiModel(description = "Fork业务域版本")
 public class DomainDesignVersionForkDTO {
 
     @ApiModelProperty(value = "基版本的唯一标识")

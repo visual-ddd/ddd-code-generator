@@ -8,7 +8,7 @@ import lombok.Data;
  * 修改用户密码
  */
 @Data
-@ApiModel(value = "修改用户密码")
+@ApiModel(description = "修改用户密码")
 public class AccountPasswordUpdateDTO {
 
     @ApiModelProperty(value = "主键")

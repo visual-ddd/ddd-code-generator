@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除应用
  */
 @Data
-@ApiModel(value = "删除应用")
+@ApiModel(description = "删除应用")
 public class ApplicationRemoveDTO {
 
     @ApiModelProperty(value = "应用 ID")

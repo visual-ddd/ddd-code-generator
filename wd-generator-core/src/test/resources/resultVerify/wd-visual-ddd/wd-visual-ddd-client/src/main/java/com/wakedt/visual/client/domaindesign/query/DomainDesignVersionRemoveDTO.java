@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除业务域版本
  */
 @Data
-@ApiModel(value = "删除业务域版本")
+@ApiModel(description = "删除业务域版本")
 public class DomainDesignVersionRemoveDTO {
 
     @ApiModelProperty(value = "业务域场景ID")

@@ -10,7 +10,7 @@ import java.util.List;
  * 绑定团队成员职位
  */
 @Data
-@ApiModel(value = "绑定团队成员职位")
+@ApiModel(description = "绑定团队成员职位")
 public class TeamMemberRoleBindDTO {
 
     @ApiModelProperty(value = "团队成员ID")

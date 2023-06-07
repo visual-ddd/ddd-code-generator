@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "应用版本详情查询对象")
+@ApiModel(description = "应用版本详情查询对象")
 public class ApplicationVersionQuery extends BaseQuery {
 
     @ApiModelProperty(value = "应用版本ID")

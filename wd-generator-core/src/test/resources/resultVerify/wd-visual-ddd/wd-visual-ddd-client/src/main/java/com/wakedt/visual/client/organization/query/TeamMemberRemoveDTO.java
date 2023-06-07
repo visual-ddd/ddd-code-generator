@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除团队成员
  */
 @Data
-@ApiModel(value = "删除团队成员")
+@ApiModel(description = "删除团队成员")
 public class TeamMemberRemoveDTO {
 
     @ApiModelProperty(value = "团队成员ID")

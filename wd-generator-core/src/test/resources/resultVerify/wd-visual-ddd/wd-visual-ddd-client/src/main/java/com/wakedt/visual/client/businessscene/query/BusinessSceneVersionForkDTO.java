@@ -8,7 +8,7 @@ import lombok.Data;
  * Fork业务场景版本
  */
 @Data
-@ApiModel(value = "Fork业务场景版本")
+@ApiModel(description = "Fork业务场景版本")
 public class BusinessSceneVersionForkDTO {
 
     @ApiModelProperty(value = "基版本的唯一标识")

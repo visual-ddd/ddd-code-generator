@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "应用列表查询对象")
+@ApiModel(description = "应用列表查询对象")
 public class ApplicationListQuery extends PageQuery {
 
     @ApiModelProperty(value = "应用的唯一标识列表")

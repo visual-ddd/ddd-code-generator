@@ -7,7 +7,7 @@ import lombok.Data;
  * 退出登录
  */
 @Data
-@ApiModel(value = "退出登录")
+@ApiModel(description = "退出登录")
 public class Logout {
 
 }

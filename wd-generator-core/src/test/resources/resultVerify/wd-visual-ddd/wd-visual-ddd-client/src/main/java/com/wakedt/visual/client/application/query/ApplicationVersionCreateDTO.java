@@ -8,7 +8,7 @@ import lombok.Data;
  * 新增应用版本
  */
 @Data
-@ApiModel(value = "新增应用版本")
+@ApiModel(description = "新增应用版本")
 public class ApplicationVersionCreateDTO {
 
     @ApiModelProperty(value = "应用ID")

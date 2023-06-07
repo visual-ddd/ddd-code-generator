@@ -10,7 +10,7 @@ import java.util.List;
  * 添加团队成员
  */
 @Data
-@ApiModel(value = "添加团队成员")
+@ApiModel(description = "添加团队成员")
 public class TeamMemberAddDTO {
 
     @ApiModelProperty(value = "成员账号ID")

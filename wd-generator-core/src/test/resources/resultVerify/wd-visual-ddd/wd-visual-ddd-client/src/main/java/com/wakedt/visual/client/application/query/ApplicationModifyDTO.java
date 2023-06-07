@@ -8,7 +8,7 @@ import lombok.Data;
  * 编辑应用
  */
 @Data
-@ApiModel(value = "编辑应用")
+@ApiModel(description = "编辑应用")
 public class ApplicationModifyDTO {
 
     @ApiModelProperty(value = "应用 ID")

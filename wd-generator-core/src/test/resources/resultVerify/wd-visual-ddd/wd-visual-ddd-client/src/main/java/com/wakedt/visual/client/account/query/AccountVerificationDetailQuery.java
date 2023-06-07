@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "账号验证码详情查询对象")
+@ApiModel(description = "账号验证码详情查询对象")
 public class AccountVerificationDetailQuery extends BaseQuery {
 
     @ApiModelProperty(value = "账号标识")

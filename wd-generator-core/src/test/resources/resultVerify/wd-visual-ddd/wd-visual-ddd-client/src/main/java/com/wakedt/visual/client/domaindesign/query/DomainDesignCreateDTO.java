@@ -8,7 +8,7 @@ import lombok.Data;
  * 新增业务域
  */
 @Data
-@ApiModel(value = "新增业务域")
+@ApiModel(description = "新增业务域")
 public class DomainDesignCreateDTO {
 
     @ApiModelProperty(value = "名称")

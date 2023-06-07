@@ -8,7 +8,7 @@ import lombok.Data;
  * 新增组织
  */
 @Data
-@ApiModel(value = "新增组织")
+@ApiModel(description = "新增组织")
 public class OrganizationCreateDTO {
 
     @ApiModelProperty(value = "名称")

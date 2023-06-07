@@ -7,7 +7,7 @@ import lombok.Data;
  * 获取用户权限信息
  */
 @Data
-@ApiModel(value = "获取用户权限信息")
+@ApiModel(description = "获取用户权限信息")
 public class GetAccountRole {
 
 }

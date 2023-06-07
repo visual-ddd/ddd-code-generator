@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "应用信息")
+@ApiModel(description = "应用信息")
 public class ApplicationDTO extends BaseDTO {
 
     @ApiModelProperty(value = "应用的唯一标识")

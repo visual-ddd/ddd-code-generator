@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "账号所属团队信息")
+@ApiModel(description = "账号所属团队信息")
 public class AccountTeamInfoDTO extends BaseDTO {
 
     @ApiModelProperty(value = "是否为团队管理员")

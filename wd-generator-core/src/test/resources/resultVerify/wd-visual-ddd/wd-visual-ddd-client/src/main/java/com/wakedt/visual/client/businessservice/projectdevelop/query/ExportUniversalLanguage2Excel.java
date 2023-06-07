@@ -8,7 +8,7 @@ import lombok.Data;
  * 统一语言导出Excel文件
  */
 @Data
-@ApiModel(value = "统一语言导出Excel文件")
+@ApiModel(description = "统一语言导出Excel文件")
 public class ExportUniversalLanguage2Excel {
 
     @ApiModelProperty(value = "http标准响应体")

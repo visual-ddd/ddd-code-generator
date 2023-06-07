@@ -8,7 +8,7 @@ import lombok.Data;
  * 绑定组织管理员
  */
 @Data
-@ApiModel(value = "绑定组织管理员")
+@ApiModel(description = "绑定组织管理员")
 public class OrganizationManagerBindDTO {
 
     @ApiModelProperty(value = "组织 ID")

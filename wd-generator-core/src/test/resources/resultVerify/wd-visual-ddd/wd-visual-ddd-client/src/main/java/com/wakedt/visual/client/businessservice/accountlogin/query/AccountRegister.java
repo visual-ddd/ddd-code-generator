@@ -1,14 +1,18 @@
 package com.wakedt.visual.client.businessservice.accountlogin.query;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
 
 /**
  * 注册账号
  */
 @Data
-@ApiModel(value = "注册账号")
+@ApiModel(description = "注册账号")
 public class AccountRegister {
 
     @ApiModelProperty(value = "验证码")

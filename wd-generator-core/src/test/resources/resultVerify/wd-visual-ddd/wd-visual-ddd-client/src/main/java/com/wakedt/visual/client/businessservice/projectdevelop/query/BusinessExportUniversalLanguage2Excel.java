@@ -11,7 +11,7 @@ import java.util.List;
  * 统一语言导出Excel文件(业务域)
  */
 @Data
-@ApiModel(value = "统一语言导出Excel文件(业务域)")
+@ApiModel(description = "统一语言导出Excel文件(业务域)")
 public class BusinessExportUniversalLanguage2Excel {
 
     @ApiModelProperty(value = "http标准响应体")

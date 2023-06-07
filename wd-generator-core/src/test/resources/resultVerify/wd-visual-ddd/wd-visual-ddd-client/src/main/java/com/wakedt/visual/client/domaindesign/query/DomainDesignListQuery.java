@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务域列表查询对象")
+@ApiModel(description = "业务域列表查询对象")
 public class DomainDesignListQuery extends PageQuery {
 
     @ApiModelProperty(value = "业务域的唯一标识列表")

@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "账号分页查询对象")
+@ApiModel(description = "账号分页查询对象")
 public class AccountPageQuery extends PageQuery {
 
     @ApiModelProperty(value = "用户名")

@@ -8,7 +8,7 @@ import lombok.Data;
  * 重置用户密码
  */
 @Data
-@ApiModel(value = "重置用户密码")
+@ApiModel(description = "重置用户密码")
 public class AccountPasswordResetDTO {
 
     @ApiModelProperty(value = "重置密码唯一标识")

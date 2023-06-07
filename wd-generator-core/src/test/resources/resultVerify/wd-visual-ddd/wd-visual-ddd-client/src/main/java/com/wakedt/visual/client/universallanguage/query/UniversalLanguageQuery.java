@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "统一语言详情查询对象")
+@ApiModel(description = "统一语言详情查询对象")
 public class UniversalLanguageQuery extends BaseQuery {
 
     @ApiModelProperty(value = "统一语言 ID")

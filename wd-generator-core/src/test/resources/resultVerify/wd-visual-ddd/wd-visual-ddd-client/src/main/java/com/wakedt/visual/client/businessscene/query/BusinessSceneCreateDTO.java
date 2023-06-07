@@ -8,7 +8,7 @@ import lombok.Data;
  * 新增业务场景
  */
 @Data
-@ApiModel(value = "新增业务场景")
+@ApiModel(description = "新增业务场景")
 public class BusinessSceneCreateDTO {
 
     @ApiModelProperty(value = "团队ID")

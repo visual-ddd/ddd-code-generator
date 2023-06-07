@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "账号验证码数据传输对象")
+@ApiModel(description = "账号验证码数据传输对象")
 public class AccountVerificationDTO extends BaseDTO {
 
     @ApiModelProperty(value = "实体唯一标识符")

@@ -8,7 +8,7 @@ import lombok.Data;
  * 编辑业务场景
  */
 @Data
-@ApiModel(value = "编辑业务场景")
+@ApiModel(description = "编辑业务场景")
 public class BusinessSceneModifyDTO {
 
     @ApiModelProperty(value = "业务场景 ID")

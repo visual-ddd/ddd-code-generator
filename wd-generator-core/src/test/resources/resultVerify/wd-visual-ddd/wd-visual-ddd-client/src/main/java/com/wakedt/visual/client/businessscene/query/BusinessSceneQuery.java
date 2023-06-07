@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务场景详情查询对象")
+@ApiModel(description = "业务场景详情查询对象")
 public class BusinessSceneQuery extends BaseQuery {
 
     @ApiModelProperty(value = "业务场景 ID")

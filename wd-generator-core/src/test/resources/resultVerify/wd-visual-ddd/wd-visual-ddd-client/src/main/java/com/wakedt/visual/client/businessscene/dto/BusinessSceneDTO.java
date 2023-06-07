@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务场景数据传输对象")
+@ApiModel(description = "业务场景数据传输对象")
 public class BusinessSceneDTO extends BaseDTO {
 
     @ApiModelProperty(value = "业务场景 ID")

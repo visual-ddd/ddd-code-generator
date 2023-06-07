@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * 账号登录
  */
 @Data
-@ApiModel(value = "账号登录")
+@ApiModel(description = "账号登录")
 public class Login {
 
     @ApiModelProperty(value = "账号唯一标识（邮箱）")

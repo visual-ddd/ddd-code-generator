@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "应用关联模块信息")
+@ApiModel(description = "应用关联模块信息")
 public class ApplicationBindModelInfoDTO extends BaseDTO {
 
     @ApiModelProperty(value = "应用版本的唯一标识")

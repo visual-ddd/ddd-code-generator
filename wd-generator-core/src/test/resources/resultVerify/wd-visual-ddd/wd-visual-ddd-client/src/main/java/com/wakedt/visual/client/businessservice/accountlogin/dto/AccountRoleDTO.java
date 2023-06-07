@@ -1,20 +1,19 @@
 package com.wakedt.visual.client.businessservice.accountlogin.dto;
 
-import io.swagger.annotations.ApiModel;
-import lombok.Data;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * 当前登录账号权限
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "当前登录账号权限")
+@ApiModel(description = "当前登录账号权限")
 public class AccountRoleDTO extends BaseDTO {
 
     @ApiModelProperty(value = "账号ID")

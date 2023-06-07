@@ -8,7 +8,7 @@ import lombok.Data;
  * 新增统一语言
  */
 @Data
-@ApiModel(value = "新增统一语言")
+@ApiModel(description = "新增统一语言")
 public class UniversalLanguageCreateDTO {
 
     @ApiModelProperty(value = "概念")

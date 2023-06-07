@@ -10,7 +10,7 @@ import java.util.Set;
  * 关联业务域版本
  */
 @Data
-@ApiModel(value = "关联业务域版本")
+@ApiModel(description = "关联业务域版本")
 public class DomainDesignVersionBindDTO {
 
     @ApiModelProperty(value = "应用版本ID")

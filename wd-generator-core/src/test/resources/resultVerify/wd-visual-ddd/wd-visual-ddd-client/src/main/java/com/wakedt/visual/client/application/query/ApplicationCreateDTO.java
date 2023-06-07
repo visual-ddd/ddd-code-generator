@@ -8,7 +8,7 @@ import lombok.Data;
  * 新增应用
  */
 @Data
-@ApiModel(value = "新增应用")
+@ApiModel(description = "新增应用")
 public class ApplicationCreateDTO {
 
     @ApiModelProperty(value = "团队ID")

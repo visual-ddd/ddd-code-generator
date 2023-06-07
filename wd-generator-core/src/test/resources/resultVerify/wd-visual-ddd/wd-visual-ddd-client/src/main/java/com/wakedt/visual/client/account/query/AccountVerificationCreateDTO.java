@@ -8,7 +8,7 @@ import lombok.Data;
  * 创建验证码
  */
 @Data
-@ApiModel(value = "创建验证码")
+@ApiModel(description = "创建验证码")
 public class AccountVerificationCreateDTO {
 
     @ApiModelProperty(value = "验证码")

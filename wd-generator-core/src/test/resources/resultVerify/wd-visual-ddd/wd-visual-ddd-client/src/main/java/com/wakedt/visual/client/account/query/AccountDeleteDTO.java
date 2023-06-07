@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除账号
  */
 @Data
-@ApiModel(value = "删除账号")
+@ApiModel(description = "删除账号")
 public class AccountDeleteDTO {
 
     @ApiModelProperty(value = "用户 ID")

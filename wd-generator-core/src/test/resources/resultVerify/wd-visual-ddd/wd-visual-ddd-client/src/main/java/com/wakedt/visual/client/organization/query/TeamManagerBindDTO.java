@@ -8,7 +8,7 @@ import lombok.Data;
  * 绑定团队管理员
  */
 @Data
-@ApiModel(value = "绑定团队管理员")
+@ApiModel(description = "绑定团队管理员")
 public class TeamManagerBindDTO {
 
     @ApiModelProperty(value = "团队 ID")

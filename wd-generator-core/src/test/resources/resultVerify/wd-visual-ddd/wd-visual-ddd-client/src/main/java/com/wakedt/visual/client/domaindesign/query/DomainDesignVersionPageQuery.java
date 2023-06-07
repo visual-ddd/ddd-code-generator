@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务域版本分页查询对象")
+@ApiModel(description = "业务域版本分页查询对象")
 public class DomainDesignVersionPageQuery extends PageQuery {
 
     @ApiModelProperty(value = "业务域ID")

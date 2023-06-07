@@ -8,7 +8,7 @@ import lombok.Data;
  * 获取最新应用版本信息
  */
 @Data
-@ApiModel(value = "获取最新应用版本信息")
+@ApiModel(description = "获取最新应用版本信息")
 public class GetLatestApplicationVersionInfo {
 
     @ApiModelProperty(value = "应用的唯一标识")

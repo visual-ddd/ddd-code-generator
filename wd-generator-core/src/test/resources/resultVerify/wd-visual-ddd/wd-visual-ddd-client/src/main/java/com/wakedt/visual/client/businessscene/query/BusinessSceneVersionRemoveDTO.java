@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除业务场景版本
  */
 @Data
-@ApiModel(value = "删除业务场景版本")
+@ApiModel(description = "删除业务场景版本")
 public class BusinessSceneVersionRemoveDTO {
 
     @ApiModelProperty(value = "业务场景 ID")

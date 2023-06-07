@@ -8,7 +8,7 @@ import lombok.Data;
  * 获取最新业务域版本信息
  */
 @Data
-@ApiModel(value = "获取最新业务域版本信息")
+@ApiModel(description = "获取最新业务域版本信息")
 public class GetLatestDomainDesignVersionInfo {
 
     @ApiModelProperty(value = "业务域的唯一标识")

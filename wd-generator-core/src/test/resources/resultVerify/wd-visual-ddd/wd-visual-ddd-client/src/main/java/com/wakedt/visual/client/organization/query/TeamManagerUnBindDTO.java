@@ -8,7 +8,7 @@ import lombok.Data;
  * 解绑团队管理员
  */
 @Data
-@ApiModel(value = "解绑团队管理员")
+@ApiModel(description = "解绑团队管理员")
 public class TeamManagerUnBindDTO {
 
     @ApiModelProperty(value = "主键")

@@ -8,7 +8,7 @@ import lombok.Data;
  * 更新业务域DSL
  */
 @Data
-@ApiModel(value = "更新业务域DSL")
+@ApiModel(description = "更新业务域DSL")
 public class DomainDesignDslUpdateDTO {
 
     @ApiModelProperty(value = "业务域场景ID")

@@ -10,7 +10,7 @@ import java.util.List;
  * 批量删除统一语言
  */
 @Data
-@ApiModel(value = "批量删除统一语言")
+@ApiModel(description = "批量删除统一语言")
 public class UniversalLanguageBatchRemove {
 
     @ApiModelProperty(value = "统一语言的唯一标识列表")

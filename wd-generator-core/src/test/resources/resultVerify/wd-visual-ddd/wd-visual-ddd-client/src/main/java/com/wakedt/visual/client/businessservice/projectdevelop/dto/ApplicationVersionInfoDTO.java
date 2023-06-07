@@ -13,7 +13,7 @@ import java.util.Set;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "应用版本信息")
+@ApiModel(description = "应用版本信息")
 public class ApplicationVersionInfoDTO extends BaseDTO {
 
     @ApiModelProperty(value = "应用版本ID")

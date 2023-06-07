@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "当前登录的账号信息")
+@ApiModel(description = "当前登录的账号信息")
 public class AccountInfoDTO extends BaseDTO {
 
     @ApiModelProperty(value = "账号ID")

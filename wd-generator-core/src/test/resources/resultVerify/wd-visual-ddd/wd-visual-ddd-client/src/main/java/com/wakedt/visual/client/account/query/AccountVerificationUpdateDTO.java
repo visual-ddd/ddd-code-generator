@@ -8,7 +8,7 @@ import lombok.Data;
  * 更新验证码
  */
 @Data
-@ApiModel(value = "更新验证码")
+@ApiModel(description = "更新验证码")
 public class AccountVerificationUpdateDTO {
 
     @ApiModelProperty(value = "主键")

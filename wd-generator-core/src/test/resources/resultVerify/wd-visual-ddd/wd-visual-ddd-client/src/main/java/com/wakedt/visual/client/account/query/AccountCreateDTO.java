@@ -8,7 +8,7 @@ import lombok.Data;
  * 创建账号
  */
 @Data
-@ApiModel(value = "创建账号")
+@ApiModel(description = "创建账号")
 public class AccountCreateDTO {
 
     @ApiModelProperty(value = "用户名")

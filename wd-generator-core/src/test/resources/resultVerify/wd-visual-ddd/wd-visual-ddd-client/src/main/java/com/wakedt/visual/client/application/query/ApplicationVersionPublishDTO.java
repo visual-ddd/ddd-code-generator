@@ -8,7 +8,7 @@ import lombok.Data;
  * 发布应用版本
  */
 @Data
-@ApiModel(value = "发布应用版本")
+@ApiModel(description = "发布应用版本")
 public class ApplicationVersionPublishDTO {
 
     @ApiModelProperty(value = "应用版本ID")

@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除应用版本
  */
 @Data
-@ApiModel(value = "删除应用版本")
+@ApiModel(description = "删除应用版本")
 public class ApplicationVersionRemoveDTO {
 
     @ApiModelProperty(value = "应用版本ID")

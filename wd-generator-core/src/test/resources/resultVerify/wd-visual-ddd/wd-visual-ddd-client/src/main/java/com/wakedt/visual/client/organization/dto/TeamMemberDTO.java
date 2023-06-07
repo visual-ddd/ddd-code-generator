@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "团队成员数据传输对象")
+@ApiModel(description = "团队成员数据传输对象")
 public class TeamMemberDTO extends BaseDTO {
 
     @ApiModelProperty(value = "团队成员ID")

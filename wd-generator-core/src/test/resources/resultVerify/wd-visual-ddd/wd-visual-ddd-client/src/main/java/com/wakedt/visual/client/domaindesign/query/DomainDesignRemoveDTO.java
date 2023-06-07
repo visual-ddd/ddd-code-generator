@@ -8,7 +8,7 @@ import lombok.Data;
  * 删除业务域
  */
 @Data
-@ApiModel(value = "删除业务域")
+@ApiModel(description = "删除业务域")
 public class DomainDesignRemoveDTO {
 
     @ApiModelProperty(value = "业务域 ID")

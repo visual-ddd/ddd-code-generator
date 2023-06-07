@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务域最新版本查询对象")
+@ApiModel(description = "业务域最新版本查询对象")
 public class DomainDesignLatestVersionQuery extends BaseQuery {
 
     @ApiModelProperty(value = "业务域ID")

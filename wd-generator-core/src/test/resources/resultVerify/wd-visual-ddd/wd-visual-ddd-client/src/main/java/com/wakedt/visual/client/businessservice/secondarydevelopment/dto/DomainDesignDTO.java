@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "业务域信息")
+@ApiModel(description = "业务域信息")
 public class DomainDesignDTO extends BaseDTO {
 
     @ApiModelProperty(value = "业务域的唯一标识")

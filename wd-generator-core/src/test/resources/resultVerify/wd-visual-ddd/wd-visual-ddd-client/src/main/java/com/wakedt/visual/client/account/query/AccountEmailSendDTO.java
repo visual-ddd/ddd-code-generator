@@ -8,7 +8,7 @@ import lombok.Data;
  * 发送重置密码邮件
  */
 @Data
-@ApiModel(value = "发送重置密码邮件")
+@ApiModel(description = "发送重置密码邮件")
 public class AccountEmailSendDTO {
 
     @ApiModelProperty(value = "账号ID")

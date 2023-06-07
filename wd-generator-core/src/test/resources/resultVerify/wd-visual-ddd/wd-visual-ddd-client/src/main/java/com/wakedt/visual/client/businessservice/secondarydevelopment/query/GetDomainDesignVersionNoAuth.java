@@ -8,7 +8,7 @@ import lombok.Data;
  * 免鉴权获取业务域版本信息
  */
 @Data
-@ApiModel(value = "免鉴权获取业务域版本信息")
+@ApiModel(description = "免鉴权获取业务域版本信息")
 public class GetDomainDesignVersionNoAuth {
 
     @ApiModelProperty(value = "业务域版本的唯一标识")

@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "组织信息")
+@ApiModel(description = "组织信息")
 public class OrganizationDTO extends BaseDTO {
 
     @ApiModelProperty(value = "组织ID")
