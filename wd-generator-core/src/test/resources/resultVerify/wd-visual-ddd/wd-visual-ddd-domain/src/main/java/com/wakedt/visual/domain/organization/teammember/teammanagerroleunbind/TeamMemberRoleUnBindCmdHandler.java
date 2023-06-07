@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.organization.teammember.TeamMember;
+import com.wakedt.visual.domain.organization.teammember.TeamMemberRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 解绑团队成员职位-指令处理器
@@ -20,6 +21,6 @@ public class TeamMemberRoleUnBindCmdHandler {
 
         repository.update(teamMember);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRoleUnBindEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRoleUnBindEvent(updateCmd));
     }
 }

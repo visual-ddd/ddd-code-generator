@@ -5980,13 +5980,21 @@
                 "rules": [],
                 "category": "businessSceneModify",
                 "repository": "modify",
-                "eventSendable": false,
+                "eventSendable": true,
                 "source": [
                   {
                     "type": "http"
                   },
                   {
                     "type": "rpc"
+                  },
+                  {
+                    "type": "event",
+                    "value": "businessSceneModifyEvent"
+                  },
+                  {
+                    "type": "schedule",
+                    "value": "0 0 2 * * ?"
                   }
                 ],
                 "properties": [

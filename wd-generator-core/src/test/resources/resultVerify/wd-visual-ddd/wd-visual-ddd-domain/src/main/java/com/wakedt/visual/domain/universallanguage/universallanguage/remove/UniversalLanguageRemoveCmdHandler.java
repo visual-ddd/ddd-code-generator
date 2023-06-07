@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage.remove;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.universallanguage.universallanguage.UniversalLanguage;
+import com.wakedt.visual.domain.universallanguage.universallanguage.UniversalLanguageRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
  * 删除统一语言-指令处理器
@@ -20,6 +21,6 @@ public class UniversalLanguageRemoveCmdHandler {
 
         repository.remove(universalLanguage);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageRemoveEvent(removeCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageRemoveEvent(removeCmd));
     }
 }

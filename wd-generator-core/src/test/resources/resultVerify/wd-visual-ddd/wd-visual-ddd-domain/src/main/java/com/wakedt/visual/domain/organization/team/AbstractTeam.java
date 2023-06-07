@@ -1,10 +1,6 @@
 package com.wakedt.visual.domain.organization.team;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
 
 /**
  * 团队-聚合根

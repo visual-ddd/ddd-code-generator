@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.account.account.accountmodify;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.account.account.Account;
+import com.wakedt.visual.domain.account.account.AccountRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 更新账号基本信息-指令处理器
@@ -22,6 +23,6 @@ public class AccountModifyCmdHandler {
 
         repository.update(account);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new AccountModifyEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new AccountModifyEvent(updateCmd));
     }
 }

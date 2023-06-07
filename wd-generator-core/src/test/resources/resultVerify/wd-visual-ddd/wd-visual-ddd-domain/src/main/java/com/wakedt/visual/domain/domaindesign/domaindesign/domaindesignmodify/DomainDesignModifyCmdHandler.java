@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignmodify;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.domaindesign.domaindesign.DomainDesign;
+import com.wakedt.visual.domain.domaindesign.domaindesign.DomainDesignRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.domaindesign.domaindesign.*;
 
 /**
  * 编辑业务域-指令处理器
@@ -20,6 +21,6 @@ public class DomainDesignModifyCmdHandler {
 
         repository.update(domainDesign);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignModifyEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignModifyEvent(updateCmd));
     }
 }

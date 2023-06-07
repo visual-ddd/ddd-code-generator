@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.application.application.applicationremove;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.application.application.Application;
+import com.wakedt.visual.domain.application.application.ApplicationRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.application.application.*;
 
 /**
  * 删除应用-指令处理器
@@ -22,6 +23,6 @@ public class ApplicationRemoveCmdHandler {
 
         repository.remove(application);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationRemoveEvent(removeCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationRemoveEvent(removeCmd));
     }
 }

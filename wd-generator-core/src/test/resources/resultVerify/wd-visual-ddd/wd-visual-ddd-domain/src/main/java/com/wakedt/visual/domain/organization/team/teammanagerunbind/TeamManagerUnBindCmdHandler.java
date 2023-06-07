@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.organization.team.teammanagerunbind;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.organization.team.Team;
+import com.wakedt.visual.domain.organization.team.TeamRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 解绑团队管理员-指令处理器
@@ -20,6 +21,6 @@ public class TeamManagerUnBindCmdHandler {
 
         repository.update(team);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerUnBindEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerUnBindEvent(updateCmd));
     }
 }

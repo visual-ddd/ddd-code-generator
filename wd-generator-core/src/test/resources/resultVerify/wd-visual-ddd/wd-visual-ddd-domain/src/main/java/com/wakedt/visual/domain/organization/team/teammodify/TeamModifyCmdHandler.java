@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.organization.team.teammodify;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.organization.team.Team;
+import com.wakedt.visual.domain.organization.team.TeamRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 编辑团队-指令处理器
@@ -22,6 +23,6 @@ public class TeamModifyCmdHandler {
 
         repository.update(team);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new TeamModifyEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new TeamModifyEvent(updateCmd));
     }
 }

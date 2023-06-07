@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.organization.teammember.teammemberremove;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.organization.teammember.TeamMember;
+import com.wakedt.visual.domain.organization.teammember.TeamMemberRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 删除团队成员-指令处理器
@@ -20,6 +21,6 @@ public class TeamMemberRemoveCmdHandler {
 
         repository.remove(teamMember);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRemoveEvent(removeCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRemoveEvent(removeCmd));
     }
 }

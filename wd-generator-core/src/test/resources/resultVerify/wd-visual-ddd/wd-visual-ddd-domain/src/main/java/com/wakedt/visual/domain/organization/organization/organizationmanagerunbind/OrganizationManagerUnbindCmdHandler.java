@@ -20,6 +20,6 @@ public class OrganizationManagerUnbindCmdHandler {
 
         repository.update(organization);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationManagerUnbindEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationManagerUnbindEvent(updateCmd));
     }
 }

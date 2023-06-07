@@ -2,7 +2,6 @@
 package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("Abstract${AGGREGATION_CLASS_NAME}")};
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;

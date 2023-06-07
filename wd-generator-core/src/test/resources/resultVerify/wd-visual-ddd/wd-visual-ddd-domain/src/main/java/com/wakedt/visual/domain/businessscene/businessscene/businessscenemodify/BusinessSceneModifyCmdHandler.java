@@ -1,9 +1,11 @@
 package com.wakedt.visual.domain.businessscene.businessscene.businessscenemodify;
 
 import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.businessscene.businessscene.BusinessScene;
+import com.wakedt.visual.domain.businessscene.businessscene.BusinessSceneRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 编辑业务场景-指令处理器
@@ -20,6 +22,6 @@ public class BusinessSceneModifyCmdHandler {
 
         repository.update(businessScene);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneModifyEvent(updateCmd));
+        DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneModifyEvent(updateCmd));
     }
 }

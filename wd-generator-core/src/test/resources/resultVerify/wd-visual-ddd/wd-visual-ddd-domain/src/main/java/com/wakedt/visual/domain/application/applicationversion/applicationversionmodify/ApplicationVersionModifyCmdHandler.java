@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.application.applicationversion.applicationversionmodify;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.application.applicationversion.ApplicationVersion;
+import com.wakedt.visual.domain.application.applicationversion.ApplicationVersionRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
  * 编辑应用版本-指令处理器
@@ -22,6 +23,6 @@ public class ApplicationVersionModifyCmdHandler {
 
         repository.update(applicationVersion);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionModifyEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionModifyEvent(updateCmd));
     }
 }

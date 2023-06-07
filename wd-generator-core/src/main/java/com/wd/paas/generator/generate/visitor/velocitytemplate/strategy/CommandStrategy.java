@@ -11,7 +11,10 @@ import com.wd.paas.generator.generate.element.DomainEventNode;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 /***
  * @author wangchensheng
@@ -37,9 +40,7 @@ public class CommandStrategy extends AbstractElementStrategy {
 
         // 事件
         DomainEventNode astDomainEvent = astCommand.getAstDomainEvent();
-        String inputEventName = astDomainEvent.getName();
-        String eventName = astCommand.getCmdNoSuffixName().concat(ModelUrlConstant.EVENT_CLASS);
-        astDomainEvent.setName(Optional.ofNullable(Boolean.TRUE.equals(astCommand.getEventEnable()) ? inputEventName : eventName).orElse(eventName));
+        astDomainEvent.setName(astCommand.getCmdNoSuffixName().concat(ModelUrlConstant.EVENT_CLASS));
         astDomainEvent.setPropertyList(getEventProperties());
         astDomainEvent.setTitle(astCommand.getTitle());
     }

@@ -22,6 +22,6 @@ public class OrganizationModifyCmdHandler {
 
         repository.update(organization);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationModifyEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationModifyEvent(updateCmd));
     }
 }

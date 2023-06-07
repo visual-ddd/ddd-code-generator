@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}RpcService {
 
 #foreach($cmd in ${DOMAIN_CMD_LIST})
-#if(${cmd.getSourceValue("rpc")})
+#if(${cmd.getSourceValue("http")})
     @Resource
     private ${cmd.name}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler;
 #end
@@ -36,7 +36,7 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
 #set($RootIdType = ${aggregation.getRoot().id.type})
 #set($RootIdName = ${aggregation.getRoot().getId().getName()})
 #foreach($cmd in ${aggregation.getCommandList()})
-#if(${cmd.getSourceValue("rpc")})
+#if(${cmd.getSourceValue("http")})
 
     @Override
 #if(${cmd.getRepository().getValue()} == "create")

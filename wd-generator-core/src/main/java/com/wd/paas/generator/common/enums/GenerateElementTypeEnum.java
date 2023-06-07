@@ -52,6 +52,8 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/{Domain}WebController.java.vm",
             // app
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{Domain}RpcServiceImpl.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/task/{Domain}Task.java.vm",
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
             // client
             "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{Domain}RpcService.java.vm",
             // infrastructure
@@ -138,6 +140,13 @@ public enum GenerateElementTypeEnum {
      * 删除指令处理器
      */
     DELETE_COMMAND_HANDLER("DeleteCommandHandler", new String[]{
+            "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/DeleteCommandHandler.java.vm",
+    }),
+
+    /**
+     * 外部事件
+     */
+    EXTERNAL_EVENT("ExternalEvent", new String[]{
             "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/DeleteCommandHandler.java.vm",
     }),
 

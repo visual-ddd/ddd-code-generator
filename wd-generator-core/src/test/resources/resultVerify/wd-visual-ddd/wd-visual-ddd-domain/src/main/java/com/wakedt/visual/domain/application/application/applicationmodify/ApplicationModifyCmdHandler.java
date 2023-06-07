@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.application.application.applicationmodify;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.application.application.Application;
+import com.wakedt.visual.domain.application.application.ApplicationRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.application.application.*;
 
 /**
  * 编辑应用-指令处理器
@@ -20,6 +21,6 @@ public class ApplicationModifyCmdHandler {
 
         repository.update(application);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationModifyEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationModifyEvent(updateCmd));
     }
 }

@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.account.account.accountremove;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.account.account.Account;
+import com.wakedt.visual.domain.account.account.AccountRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 删除账号-指令处理器
@@ -20,6 +21,6 @@ public class AccountDeleteCmdHandler {
 
         repository.remove(account);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new AccountDeleteEvent(removeCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new AccountDeleteEvent(removeCmd));
     }
 }

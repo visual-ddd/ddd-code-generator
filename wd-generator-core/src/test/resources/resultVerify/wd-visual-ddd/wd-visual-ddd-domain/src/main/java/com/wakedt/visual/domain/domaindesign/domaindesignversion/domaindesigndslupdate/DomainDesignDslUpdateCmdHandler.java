@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesigndslupdate;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.domaindesign.domaindesignversion.DomainDesignVersion;
+import com.wakedt.visual.domain.domaindesign.domaindesignversion.DomainDesignVersionRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
 
 /**
  * 更新业务域DSL-指令处理器
@@ -22,6 +23,6 @@ public class DomainDesignDslUpdateCmdHandler {
 
         repository.update(domainDesignVersion);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignDslUpdateEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignDslUpdateEvent(updateCmd));
     }
 }

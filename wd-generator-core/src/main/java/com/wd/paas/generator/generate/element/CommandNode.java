@@ -5,6 +5,7 @@ import com.wd.paas.common.ReturnInfo;
 import com.wd.paas.common.RuleInfo;
 import com.wd.paas.common.SourceInfo;
 import com.wd.paas.common.enums.RepositoryTypeEnum;
+import com.wd.paas.generator.common.enums.CommandSourceTypeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -40,10 +41,17 @@ public class CommandNode extends CompositeElement {
 
     private String cmdDTOName;
 
+    /**
+     * 提供给Velocity查询指令触发来源信息
+     *
+     * @param type 触发来源类型
+     * @return 触发来源对应的value
+     */
     public Object getSourceValue(String type) {
+        CommandSourceTypeEnum commandSourceType = CommandSourceTypeEnum.of(type);
         for (SourceInfo sourceInfo : this.sourceList) {
             String sourceInfoType = sourceInfo.getType();
-            if (type.equals(sourceInfoType)) {
+            if (commandSourceType.getValue().equals(sourceInfoType)) {
                 return Optional.ofNullable(sourceInfo.getValue()).orElse(true);
             }
         }

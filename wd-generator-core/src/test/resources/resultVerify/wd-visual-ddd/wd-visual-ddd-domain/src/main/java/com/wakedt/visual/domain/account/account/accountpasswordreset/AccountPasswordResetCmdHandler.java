@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.account.account.accountpasswordreset;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.account.account.Account;
+import com.wakedt.visual.domain.account.account.AccountRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 重置用户密码-指令处理器
@@ -20,6 +21,6 @@ public class AccountPasswordResetCmdHandler {
 
         repository.update(account);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new AccountPasswordResetEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new AccountPasswordResetEvent(updateCmd));
     }
 }

@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.application.applicationversion.domaindesignversionbind;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.application.applicationversion.ApplicationVersion;
+import com.wakedt.visual.domain.application.applicationversion.ApplicationVersionRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
  * 关联业务域版本-指令处理器
@@ -28,6 +29,6 @@ public class DomainDesignVersionBindCmdHandler {
 
         repository.update(applicationVersion);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionBindEvent(updateCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionBindEvent(updateCmd));
     }
 }

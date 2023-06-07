@@ -1,9 +1,10 @@
 package com.wakedt.visual.domain.organization.organization.organizationremove;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
+import com.wakedt.visual.domain.organization.organization.Organization;
+import com.wakedt.visual.domain.organization.organization.OrganizationRepository;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
-import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 删除组织-指令处理器
@@ -22,6 +23,6 @@ public class OrganizationRemoveCmdHandler {
 
         repository.remove(organization);
 
-        // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationRemoveEvent(removeCmd));
+       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationRemoveEvent(removeCmd));
     }
 }
