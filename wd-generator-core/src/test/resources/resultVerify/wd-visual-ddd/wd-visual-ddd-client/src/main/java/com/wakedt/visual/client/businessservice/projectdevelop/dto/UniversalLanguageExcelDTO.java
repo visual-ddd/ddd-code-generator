@@ -17,18 +17,23 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "统一语言Excel数据")
 public class UniversalLanguageExcelDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "概念")
     private String conception;
 
+    @NotNull
     @ApiModelProperty(value = "定义")
     private String definition;
 
+    @NotNull
     @ApiModelProperty(value = "英文名")
     private String englishName;
 
+    @NotNull
     @ApiModelProperty(value = "约束")
     private String restraint;
 
+    @NotNull
     @ApiModelProperty(value = "举例")
     private String example;
 

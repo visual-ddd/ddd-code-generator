@@ -17,18 +17,23 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "团队信息")
 public class TeamDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "团队ID")
     private Long id;
 
+    @NotNull
     @ApiModelProperty(value = "名称")
     private String name;
 
+    @NotNull
     @ApiModelProperty(value = "描述")
     private String description;
 
+    @NotNull
     @ApiModelProperty(value = "团队管理员")
     private String teamManagerId;
 
+    @NotNull
     @ApiModelProperty(value = "组织唯一标识")
     private String organizationId;
 

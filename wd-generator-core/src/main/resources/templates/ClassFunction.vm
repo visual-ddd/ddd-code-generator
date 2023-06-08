@@ -87,5 +87,8 @@ import ${importPackage};
     /** ${field.title} */
 #end
 #macro(printApiDesc $field)
+#if(!${field.optional})
+    @NotNull
+#end
     @ApiModelProperty(value = "${field.title}")
 #end

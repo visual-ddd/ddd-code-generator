@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 注册账号
@@ -15,18 +16,23 @@ import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
 @ApiModel(description = "注册账号")
 public class AccountRegister {
 
+    @NotNull
     @ApiModelProperty(value = "验证码")
     private String code;
 
+    @NotNull
     @ApiModelProperty(value = "账号(唯一标识)")
     private String accountNo;
 
+    @NotNull
     @ApiModelProperty(value = "用户名")
     private String userName;
 
+    @NotNull
     @ApiModelProperty(value = "密码")
     private String password;
 
+    @NotNull
     @ApiModelProperty(value = "用户头像")
     private String icon;
 

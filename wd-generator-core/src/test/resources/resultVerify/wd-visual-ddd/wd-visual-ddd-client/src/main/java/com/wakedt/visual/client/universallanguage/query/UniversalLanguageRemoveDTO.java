@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 删除统一语言
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @ApiModel(description = "删除统一语言")
 public class UniversalLanguageRemoveDTO {
 
+    @NotNull
     @ApiModelProperty(value = "统一语言 ID")
     public Long id;
 

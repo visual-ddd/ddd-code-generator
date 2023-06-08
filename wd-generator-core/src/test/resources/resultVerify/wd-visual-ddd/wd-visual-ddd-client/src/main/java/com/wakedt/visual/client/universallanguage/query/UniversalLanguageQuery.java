@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.universallanguage.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 统一语言详情查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.universallanguage.dto.*;
 @ApiModel(description = "统一语言详情查询对象")
 public class UniversalLanguageQuery extends BaseQuery {
 
+    @NotNull
     @ApiModelProperty(value = "统一语言 ID")
     private Long id;
 

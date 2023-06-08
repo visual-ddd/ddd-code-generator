@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessscene.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 业务场景版本详情查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.businessscene.dto.*;
 @ApiModel(description = "业务场景版本详情查询对象")
 public class BusinessSceneVersionQuery extends BaseQuery {
 
+    @NotNull
     @ApiModelProperty(value = "业务场景版本ID")
     private Long id;
 

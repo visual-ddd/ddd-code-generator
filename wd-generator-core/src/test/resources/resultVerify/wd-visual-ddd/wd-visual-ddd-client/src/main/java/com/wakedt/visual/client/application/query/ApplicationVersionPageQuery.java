@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.application.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 应用版本分页查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.application.dto.*;
 @ApiModel(description = "应用版本分页查询对象")
 public class ApplicationVersionPageQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "应用ID")
     private String applicationId;
 

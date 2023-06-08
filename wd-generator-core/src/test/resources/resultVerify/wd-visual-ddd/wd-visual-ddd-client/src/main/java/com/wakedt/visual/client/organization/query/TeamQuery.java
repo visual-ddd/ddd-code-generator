@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.organization.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 团队详情查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.organization.dto.*;
 @ApiModel(description = "团队详情查询对象")
 public class TeamQuery extends BaseQuery {
 
+    @NotNull
     @ApiModelProperty(value = "团队ID")
     private Long id;
 

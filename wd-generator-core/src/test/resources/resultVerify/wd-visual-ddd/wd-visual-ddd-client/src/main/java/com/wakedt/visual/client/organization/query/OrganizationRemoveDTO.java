@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 删除组织
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @ApiModel(description = "删除组织")
 public class OrganizationRemoveDTO {
 
+    @NotNull
     @ApiModelProperty(value = "组织 ID")
     public Long id;
 

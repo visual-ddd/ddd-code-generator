@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 获取应用关联的模块信息
@@ -15,6 +16,7 @@ import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.*;
 @ApiModel(description = "获取应用关联的模块信息")
 public class GetApplicationBindModelInfo {
 
+    @NotNull
     @ApiModelProperty(value = "应用的唯一标识")
     private Long applicationId;
 

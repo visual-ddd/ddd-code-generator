@@ -1038,7 +1038,8 @@
                 "description": "",
                 "meta": {},
                 "access": "public",
-                "type": "Long"
+                "type": "Long",
+                "optional": true
               }
             ],
             "return": {
@@ -1343,7 +1344,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "d9612643-a3a3-41b4-9e0a-d209671241f5",
@@ -1352,7 +1353,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "01a7d059-d491-440a-9a80-0ec84f5fad4c",
@@ -1361,7 +1362,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "9a497b30-6ecb-4105-9ecb-1cdbfbce58fa",
@@ -1371,7 +1372,7 @@
                 "meta": {},
                 "type": "Long",
                 "autoIncrement": false,
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -1400,7 +1401,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "679bc89b-7054-402c-9203-39a017a5d80a",
@@ -1409,7 +1410,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "80e2b88f-3b5f-4452-b41f-a6d719a28833",
@@ -1418,7 +1419,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "fd6069ab-c787-413d-883c-ecef05f471a0",
@@ -1427,7 +1428,7 @@
                 "description": "组织唯一标识",
                 "meta": {},
                 "type": "Long",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "4b4e2477-c6b5-4d65-a24c-ab6a957d007e",
@@ -1437,7 +1438,7 @@
                 "meta": {},
                 "type": "Long",
                 "autoIncrement": false,
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -1466,7 +1467,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "c24cf270-4bf4-47eb-97a6-3b2bd626a3e7",
@@ -1476,7 +1477,7 @@
                 "meta": {},
                 "type": "Long",
                 "autoIncrement": false,
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "00029556-b5c3-44d9-b1d9-cbcc5a094dfa",
@@ -1485,7 +1486,7 @@
                 "description": "团队成员的账号唯一标识",
                 "meta": {},
                 "type": "Long",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "0fc4d3e0-6edb-4ecc-abad-27b24cdaae70",
@@ -1494,7 +1495,7 @@
                 "description": "团队成员在所属团队中扮演的职位",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -2798,7 +2799,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "cd0fd398-fe91-4336-900d-14314f7f99f7",
@@ -2807,7 +2808,7 @@
                 "description": "用户登录的唯一标识，目前以用户邮箱作为账号",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "8b1cb14f-dcf6-4cad-8109-447c3b4f1f87",
@@ -2816,7 +2817,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "705e3e47-78c9-4e09-80e2-254a2cd9b89a",
@@ -2825,7 +2826,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "070adc40-092c-41e5-bf73-53d29c0c8773",
@@ -2834,7 +2835,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "9027b804-535f-42fe-b1d8-7e26e343574b",
@@ -2843,7 +2844,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "8684d7d0-c1da-44fb-9e10-0df2c9d84110",
@@ -2852,7 +2853,7 @@
                 "description": "用户重置密码时携带的唯一标识",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -2880,7 +2881,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "246d48be-2f5a-465d-a159-24976aeba476",
@@ -2889,7 +2890,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "7394d0bf-c892-478d-b56b-66b224c8cf87",
@@ -2898,7 +2899,7 @@
                 "description": "用户登录的唯一标识，目前以用户邮箱作为账号",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -3763,7 +3764,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "6de9ce89-73ec-49ca-ab66-038e2bc760a4",
@@ -3772,7 +3773,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "318119d8-9e8f-4bba-8dbe-2cd1054fa957",
@@ -3781,7 +3782,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "28dad664-218b-46eb-b968-46c2ee4dde93",
@@ -3790,7 +3791,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "c05dad4f-e8f8-4448-9425-b50fbd7d5c8b",
@@ -3799,7 +3800,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Integer",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "ea136723-db60-41fb-8293-9e6308c7aec0",
@@ -3808,7 +3809,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "52b277d4-d6b7-463e-bf9a-ba97b97934ff",
@@ -3818,7 +3819,7 @@
                 "meta": {},
                 "type": "Long",
                 "autoIncrement": false,
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "16aedff5-a740-4975-934d-84f6303069c4",
@@ -3827,7 +3828,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -5237,7 +5238,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "95c35852-136a-4b73-9411-ceb79e73c54e",
@@ -5246,7 +5247,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "7bb69b30-bda1-400a-addd-93d4f4b3a0af",
@@ -5255,7 +5256,7 @@
                 "description": "团队的唯一标识",
                 "meta": {},
                 "type": "Long",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "21df8e12-caec-462b-8fb2-cbb7c7d85bb5",
@@ -5264,7 +5265,7 @@
                 "description": "唯一标识，此处使用大驼峰命名",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "ccfa1864-148d-4f1c-ac09-5b8e04079245",
@@ -5273,7 +5274,7 @@
                 "description": "描述信息",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -5302,7 +5303,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "e0cb8eb6-beaa-411d-975f-4a69c4c37ea0",
@@ -5311,7 +5312,7 @@
                 "description": "业务域的唯一标识",
                 "meta": {},
                 "type": "Long",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "9b38c07f-3116-4d25-ba41-de70f28a5c6b",
@@ -5320,7 +5321,7 @@
                 "description": "第一次创建时，需要指定起始版本号",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "f42d88e8-f5f4-4821-a51c-998dcb2ec43e",
@@ -5329,7 +5330,7 @@
                 "description": "当前版本的唯一标识",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "e9cb278c-027a-4f22-86a2-88849b32ab63",
@@ -5338,7 +5339,7 @@
                 "description": "描述信息",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "3e6213a2-d188-4e65-bdb6-2939afef3b32",
@@ -5347,7 +5348,7 @@
                 "description": "业务域抽象文本描述语言",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "dc4ffa1a-561d-4393-8e4b-b9f224d90a8d",
@@ -5356,7 +5357,7 @@
                 "description": "图形的抽象文本描述语言",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "5692f9f7-1add-4af9-be1d-8d9023f60a24",
@@ -5365,7 +5366,7 @@
                 "description": "版本状态",
                 "meta": {},
                 "type": "Integer",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -6972,7 +6973,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "7b2027e2-2ce0-441a-aabc-a8b44abe64ac",
@@ -6981,7 +6982,7 @@
                 "description": "团队的唯一标识",
                 "meta": {},
                 "type": "Long",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "6df8e7d0-5ade-445e-99d0-b5f69794ff11",
@@ -6990,7 +6991,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "02af8c6f-898c-424c-bbe3-52f0a994a288",
@@ -6999,7 +7000,7 @@
                 "description": "唯一标识，此处使用大驼峰命名",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "870aa257-8a7f-4f0d-9123-b45c3a1d92f8",
@@ -7008,7 +7009,7 @@
                 "description": "描述信息",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -7037,7 +7038,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "48b6165e-18b6-4fe1-80d8-96069845e151",
@@ -7046,7 +7047,7 @@
                 "description": "业务场景的唯一标识",
                 "meta": {},
                 "type": "Long",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "f9960db7-7fbb-4b64-ad97-8884f4fadcba",
@@ -7055,7 +7056,7 @@
                 "description": "描述信息",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "60daf821-09c7-4f7c-9677-9bfd1e24e418",
@@ -7064,7 +7065,7 @@
                 "description": "第一次创建时，需要指定起始版本号",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "9190926f-c16c-40a4-94f6-84fadb649040",
@@ -7073,7 +7074,7 @@
                 "description": "当前版本的唯一标识",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "eea33bbf-5cb2-4353-bffc-e617bae9c28c",
@@ -7082,7 +7083,7 @@
                 "description": "业务场景抽象文本描述语言",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "2ad3895d-bbfc-41e2-9aa8-5c1587f3b741",
@@ -7091,7 +7092,7 @@
                 "description": "图形的抽象文本描述语言",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "25e873d8-89af-45e4-96c2-3a7587f5c942",
@@ -7100,7 +7101,7 @@
                 "description": "版本状态",
                 "meta": {},
                 "type": "Integer",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -8817,7 +8818,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "4ad245c1-f51e-4793-93e1-02d1af3ed898",
@@ -8826,7 +8827,7 @@
                 "description": "团队的唯一标识",
                 "meta": {},
                 "type": "Long",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "0c7d7b6f-7680-4f19-b362-abac7dd3b29d",
@@ -8835,7 +8836,7 @@
                 "description": "",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "f8519c48-6fc7-42be-b22f-3c3501836af1",
@@ -8844,7 +8845,7 @@
                 "description": "唯一标识，此处使用大驼峰命名",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "4663769d-fbda-4ad7-843b-980e2b74a08a",
@@ -8853,7 +8854,7 @@
                 "description": "生成项目时的包结构",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "5cc79e2b-ae09-4d1b-97a8-eb196447275a",
@@ -8862,7 +8863,7 @@
                 "description": "描述信息",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [
@@ -8891,7 +8892,7 @@
                 "description": "",
                 "meta": {},
                 "type": "Long",
-                "notNull": true
+                "optional": true
               },
               {
                 "uuid": "6d1d796b-19c4-4d2c-b094-0fd06a891573",
@@ -8901,7 +8902,7 @@
                 "meta": {},
                 "type": "Long",
                 "autoIncrement": false,
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "aec6178f-818d-4a1c-8a46-d1d86ef5fdd5",
@@ -8910,7 +8911,7 @@
                 "description": "第一次创建时，需要指定起始版本号",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "471fb1be-2edb-437b-8874-a45edd0efdcf",
@@ -8919,7 +8920,7 @@
                 "description": "当前版本的唯一标识",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "28132561-a63a-4fbe-82d9-276ddc80292c",
@@ -8928,7 +8929,7 @@
                 "description": "描述信息",
                 "meta": {},
                 "type": "String",
-                "notNull": false
+                "optional": false
               },
               {
                 "uuid": "c2aad9cf-2898-4443-b34b-e38950b198b2",
@@ -8937,7 +8938,7 @@
                 "description": "版本状态",
                 "meta": {},
                 "type": "Integer",
-                "notNull": false
+                "optional": false
               }
             ],
             "indexes": [

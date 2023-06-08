@@ -17,9 +17,11 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "账号所属团队信息")
 public class AccountTeamInfoDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "是否为团队管理员")
     private Boolean isTeamAdmin;
 
+    @NotNull
     @ApiModelProperty(value = "所属团队信息")
     private TeamDTO teamDTO;
 

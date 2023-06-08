@@ -17,9 +17,11 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "账号所属组织信息")
 public class AccountOrganizationInfoDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "是否为组织管理员")
     private Boolean isOrganizationAdmin;
 
+    @NotNull
     @ApiModelProperty(value = "所属组织信息")
     private OrganizationDTO organizationDTO;
 

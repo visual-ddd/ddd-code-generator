@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.application.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 应用详情查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.application.dto.*;
 @ApiModel(description = "应用详情查询对象")
 public class ApplicationQuery extends BaseQuery {
 
+    @NotNull
     @ApiModelProperty(value = "应用 ID")
     private Long id;
 

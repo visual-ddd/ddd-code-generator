@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 解绑团队成员职位
@@ -14,9 +15,11 @@ import java.time.LocalDateTime;
 @ApiModel(description = "解绑团队成员职位")
 public class TeamMemberRoleUnBindDTO {
 
+    @NotNull
     @ApiModelProperty(value = "团队成员ID")
     public Long id;
 
+    @NotNull
     @ApiModelProperty(value = "成员类型标签")
     public List<Integer> memberTypeList;
 

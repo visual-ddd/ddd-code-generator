@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 发送重置密码邮件
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @ApiModel(description = "发送重置密码邮件")
 public class AccountEmailSendDTO {
 
+    @NotNull
     @ApiModelProperty(value = "账号ID")
     public Long id;
 

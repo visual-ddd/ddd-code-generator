@@ -18,15 +18,19 @@ import java.time.LocalDateTime;
 @ApiModel(description = "团队成员数据传输对象")
 public class TeamMemberDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "团队成员ID")
     private Long id;
 
+    @NotNull
     @ApiModelProperty(value = "团队ID")
     private Long teamId;
 
+    @NotNull
     @ApiModelProperty(value = "成员账号ID")
     private Long accountId;
 
+    @NotNull
     @ApiModelProperty(value = "成员类型标签")
     private List<Integer> memberTypeList;
 

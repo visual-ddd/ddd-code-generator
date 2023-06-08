@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.domaindesign.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 业务域分页查询对象
@@ -18,9 +19,11 @@ import com.wakedt.visual.client.domaindesign.dto.*;
 @ApiModel(description = "业务域分页查询对象")
 public class DomainDesignPageQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "团队ID")
     private Long teamId;
 
+    @NotNull
     @ApiModelProperty(value = "名称")
     private String name;
 

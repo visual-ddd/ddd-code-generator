@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.application.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 应用分页查询对象
@@ -18,9 +19,11 @@ import com.wakedt.visual.client.application.dto.*;
 @ApiModel(description = "应用分页查询对象")
 public class ApplicationPageQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "团队ID")
     private Long teamId;
 
+    @NotNull
     @ApiModelProperty(value = "名称")
     private String name;
 

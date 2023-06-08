@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.universallanguage.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 统一语言分页查询对象
@@ -18,12 +19,15 @@ import com.wakedt.visual.client.universallanguage.dto.*;
 @ApiModel(description = "统一语言分页查询对象")
 public class UniversalLanguagePageQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "概念")
     private String conception;
 
+    @NotNull
     @ApiModelProperty(value = "统一语言类型")
     private String languageType;
 
+    @NotNull
     @ApiModelProperty(value = "所属唯一标识")
     private Long identity;
 

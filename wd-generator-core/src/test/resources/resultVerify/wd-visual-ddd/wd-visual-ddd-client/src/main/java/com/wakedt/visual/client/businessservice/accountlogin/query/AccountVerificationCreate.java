@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 发送注册账号验证码
@@ -15,9 +16,11 @@ import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
 @ApiModel(description = "发送注册账号验证码")
 public class AccountVerificationCreate {
 
+    @NotNull
     @ApiModelProperty(value = "账号唯一标识（邮箱）")
     private String accountNo;
 
+    @NotNull
     @ApiModelProperty(value = "验证码")
     private String code;
 

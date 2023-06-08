@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 获取最新应用版本信息
@@ -15,6 +16,7 @@ import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
 @ApiModel(description = "获取最新应用版本信息")
 public class GetLatestApplicationVersionInfo {
 
+    @NotNull
     @ApiModelProperty(value = "应用的唯一标识")
     private Long id;
 

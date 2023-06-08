@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.domaindesign.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 业务域最新版本查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.domaindesign.dto.*;
 @ApiModel(description = "业务域最新版本查询对象")
 public class DomainDesignLatestVersionQuery extends BaseQuery {
 
+    @NotNull
     @ApiModelProperty(value = "业务域ID")
     private Long id;
 

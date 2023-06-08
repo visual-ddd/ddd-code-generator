@@ -18,12 +18,15 @@ import java.time.LocalDateTime;
 @ApiModel(description = "账号验证码数据传输对象")
 public class AccountVerificationDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "实体唯一标识符")
     private Long id;
 
+    @NotNull
     @ApiModelProperty(value = "验证码")
     private String code;
 
+    @NotNull
     @ApiModelProperty(value = "账号标识")
     private String accountNo;
 

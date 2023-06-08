@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.application.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 应用列表查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.application.dto.*;
 @ApiModel(description = "应用列表查询对象")
 public class ApplicationListQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "应用的唯一标识列表")
     private List<Long> idList;
 

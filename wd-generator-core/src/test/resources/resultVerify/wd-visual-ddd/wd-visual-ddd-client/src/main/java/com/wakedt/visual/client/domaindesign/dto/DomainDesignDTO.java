@@ -18,18 +18,23 @@ import java.time.LocalDateTime;
 @ApiModel(description = "业务域数据传输对象")
 public class DomainDesignDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "业务域 ID")
     private Long id;
 
+    @NotNull
     @ApiModelProperty(value = "名称")
     private String name;
 
+    @NotNull
     @ApiModelProperty(value = "团队ID")
     private Long teamId;
 
+    @NotNull
     @ApiModelProperty(value = "标识符")
     private String identity;
 
+    @NotNull
     @ApiModelProperty(value = "描述")
     private String description;
 

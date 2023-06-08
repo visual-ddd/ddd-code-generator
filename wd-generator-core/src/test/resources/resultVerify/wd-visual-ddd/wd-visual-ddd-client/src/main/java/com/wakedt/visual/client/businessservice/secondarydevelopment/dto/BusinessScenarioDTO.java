@@ -17,15 +17,19 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "业务场景信息")
 public class BusinessScenarioDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "业务场景的唯一标识")
     private Long id;
 
+    @NotNull
     @ApiModelProperty(value = "名称")
     private String name;
 
+    @NotNull
     @ApiModelProperty(value = "标识符")
     private String identity;
 
+    @NotNull
     @ApiModelProperty(value = "描述信息")
     private String description;
 

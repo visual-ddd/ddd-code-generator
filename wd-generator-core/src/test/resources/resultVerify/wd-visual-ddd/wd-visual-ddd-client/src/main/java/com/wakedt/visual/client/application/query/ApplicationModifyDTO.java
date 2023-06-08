@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 编辑应用
@@ -14,15 +15,19 @@ import java.time.LocalDateTime;
 @ApiModel(description = "编辑应用")
 public class ApplicationModifyDTO {
 
+    @NotNull
     @ApiModelProperty(value = "应用 ID")
     public Long id;
 
+    @NotNull
     @ApiModelProperty(value = "名称")
     public String name;
 
+    @NotNull
     @ApiModelProperty(value = "包名")
     public String packageName;
 
+    @NotNull
     @ApiModelProperty(value = "描述")
     public String description;
 

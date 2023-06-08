@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.organization.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 组织分页查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.organization.dto.*;
 @ApiModel(description = "组织分页查询对象")
 public class OrganizationPageQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "组织名称")
     private String name;
 

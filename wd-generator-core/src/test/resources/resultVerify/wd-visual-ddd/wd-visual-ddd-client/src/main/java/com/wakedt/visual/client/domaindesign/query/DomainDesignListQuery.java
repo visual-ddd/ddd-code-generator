@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.domaindesign.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 业务域列表查询对象
@@ -18,6 +19,7 @@ import com.wakedt.visual.client.domaindesign.dto.*;
 @ApiModel(description = "业务域列表查询对象")
 public class DomainDesignListQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "业务域的唯一标识列表")
     private List<Long> idList;
 

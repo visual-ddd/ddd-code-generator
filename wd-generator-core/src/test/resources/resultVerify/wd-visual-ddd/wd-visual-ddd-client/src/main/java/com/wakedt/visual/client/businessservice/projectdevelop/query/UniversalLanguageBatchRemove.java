@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 批量删除统一语言
@@ -15,6 +16,7 @@ import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
 @ApiModel(description = "批量删除统一语言")
 public class UniversalLanguageBatchRemove {
 
+    @NotNull
     @ApiModelProperty(value = "统一语言的唯一标识列表")
     private List<Long> idList;
 

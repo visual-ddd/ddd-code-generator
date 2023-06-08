@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.accountlogin.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 获取当前登录账号信息

@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.organization.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 组织详情查询对象

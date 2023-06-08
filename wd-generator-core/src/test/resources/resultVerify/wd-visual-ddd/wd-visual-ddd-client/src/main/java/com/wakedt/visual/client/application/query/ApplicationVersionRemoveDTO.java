@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 删除应用版本
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @ApiModel(description = "删除应用版本")
 public class ApplicationVersionRemoveDTO {
 
+    @NotNull
     @ApiModelProperty(value = "应用版本ID")
     public Long id;
 

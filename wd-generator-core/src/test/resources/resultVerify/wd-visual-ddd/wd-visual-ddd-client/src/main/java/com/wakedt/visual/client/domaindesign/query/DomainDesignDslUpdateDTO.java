@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 更新业务域DSL
@@ -14,12 +15,15 @@ import java.time.LocalDateTime;
 @ApiModel(description = "更新业务域DSL")
 public class DomainDesignDslUpdateDTO {
 
+    @NotNull
     @ApiModelProperty(value = "业务域场景ID")
     public Long id;
 
+    @NotNull
     @ApiModelProperty(value = "业务域DSL")
     public String domainDesignDsl;
 
+    @NotNull
     @ApiModelProperty(value = "图形DSL")
     public String graphDsl;
 

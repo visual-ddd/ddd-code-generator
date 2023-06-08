@@ -9,6 +9,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.account.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 账号分页查询对象
@@ -18,12 +19,15 @@ import com.wakedt.visual.client.account.dto.*;
 @ApiModel(description = "账号分页查询对象")
 public class AccountPageQuery extends PageQuery {
 
+    @NotNull
     @ApiModelProperty(value = "用户名")
     private String userName;
 
+    @NotNull
     @ApiModelProperty(value = "所属组织ID")
     private String organizationId;
 
+    @NotNull
     @ApiModelProperty(value = "所属团队ID")
     private String teamId;
 

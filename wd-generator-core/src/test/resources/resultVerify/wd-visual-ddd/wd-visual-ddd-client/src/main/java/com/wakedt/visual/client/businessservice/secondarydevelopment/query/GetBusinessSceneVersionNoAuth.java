@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 免鉴权获取业务场景版本信息
@@ -15,6 +16,7 @@ import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.*;
 @ApiModel(description = "免鉴权获取业务场景版本信息")
 public class GetBusinessSceneVersionNoAuth {
 
+    @NotNull
     @ApiModelProperty(value = "业务域版本的唯一标识")
     private Long id;
 

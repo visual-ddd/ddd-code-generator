@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 删除业务场景
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @ApiModel(description = "删除业务场景")
 public class BusinessSceneRemoveDTO {
 
+    @NotNull
     @ApiModelProperty(value = "业务场景 ID")
     public Long id;
 

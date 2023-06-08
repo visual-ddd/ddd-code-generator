@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * Fork业务域版本
@@ -14,12 +15,15 @@ import java.time.LocalDateTime;
 @ApiModel(description = "Fork业务域版本")
 public class DomainDesignVersionForkDTO {
 
+    @NotNull
     @ApiModelProperty(value = "基版本的唯一标识")
     public Long startVersionId;
 
+    @NotNull
     @ApiModelProperty(value = "当前版本号")
     public String currentVersion;
 
+    @NotNull
     @ApiModelProperty(value = "描述")
     public String description;
 

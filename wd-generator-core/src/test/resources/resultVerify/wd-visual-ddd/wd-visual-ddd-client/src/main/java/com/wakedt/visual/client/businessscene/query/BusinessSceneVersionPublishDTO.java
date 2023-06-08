@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 发布业务场景版本
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @ApiModel(description = "发布业务场景版本")
 public class BusinessSceneVersionPublishDTO {
 
+    @NotNull
     @ApiModelProperty(value = "业务场景版本ID")
     public Long id;
 

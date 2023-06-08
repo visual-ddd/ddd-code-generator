@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 编辑应用版本
@@ -14,9 +15,11 @@ import java.time.LocalDateTime;
 @ApiModel(description = "编辑应用版本")
 public class ApplicationVersionModifyDTO {
 
+    @NotNull
     @ApiModelProperty(value = "应用版本ID")
     public Long id;
 
+    @NotNull
     @ApiModelProperty(value = "描述")
     public String description;
 

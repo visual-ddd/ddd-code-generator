@@ -7,6 +7,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Excel导入统一语言(业务域)
@@ -15,6 +16,7 @@ import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
 @ApiModel(description = "Excel导入统一语言(业务域)")
 public class BusinessImportUniversallanguageFromExcel {
 
+    @NotNull
     @ApiModelProperty(value = "Excel文件")
     private String file;
 

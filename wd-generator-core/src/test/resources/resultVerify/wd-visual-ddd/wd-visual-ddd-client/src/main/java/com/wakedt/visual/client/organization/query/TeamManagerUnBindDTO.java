@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 /**
  * 解绑团队管理员
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @ApiModel(description = "解绑团队管理员")
 public class TeamManagerUnBindDTO {
 
+    @NotNull
     @ApiModelProperty(value = "主键")
     public Long id;
 

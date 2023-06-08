@@ -17,18 +17,23 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "应用信息")
 public class ApplicationDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "应用的唯一标识")
     private Long id;
 
+    @NotNull
     @ApiModelProperty(value = "包名")
     private String packageName;
 
+    @NotNull
     @ApiModelProperty(value = "名称")
     private String name;
 
+    @NotNull
     @ApiModelProperty(value = "标识符")
     private String identity;
 
+    @NotNull
     @ApiModelProperty(value = "描述信息")
     private String description;
 

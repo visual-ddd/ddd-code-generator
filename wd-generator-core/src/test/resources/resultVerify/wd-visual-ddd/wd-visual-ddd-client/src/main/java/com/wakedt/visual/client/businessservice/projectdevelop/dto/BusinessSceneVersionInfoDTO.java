@@ -17,27 +17,35 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "业务场景版本信息")
 public class BusinessSceneVersionInfoDTO extends BaseDTO {
 
+    @NotNull
     @ApiModelProperty(value = "业务场景版本ID")
     private Long id;
 
+    @NotNull
     @ApiModelProperty(value = "业务场景ID")
     private Long businessSceneId;
 
+    @NotNull
     @ApiModelProperty(value = "起始版本号")
     private String startVersion;
 
+    @NotNull
     @ApiModelProperty(value = "当前版本号")
     private String currentVersion;
 
+    @NotNull
     @ApiModelProperty(value = "描述")
     private String description;
 
+    @NotNull
     @ApiModelProperty(value = "业务场景DSL")
     private String businessSceneDsl;
 
+    @NotNull
     @ApiModelProperty(value = "图形DSL")
     private String graphDsl;
 
+    @NotNull
     @ApiModelProperty(value = "版本状态")
     private Integer versionState;
 
