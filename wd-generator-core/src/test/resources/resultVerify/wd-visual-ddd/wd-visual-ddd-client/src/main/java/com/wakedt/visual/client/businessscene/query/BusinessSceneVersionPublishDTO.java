@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "发布业务场景版本")
 public class BusinessSceneVersionPublishDTO {
 
-    @NotNull
+    @NotNull(message = "业务场景版本ID不能为空！")
     @ApiModelProperty(value = "业务场景版本ID")
-    public Long id;
+    private Long id;
 
 }

@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "批量删除统一语言")
 public class UniversalLanguageBatchRemove {
 
-    @NotNull
+    @NotNull(message = "统一语言的唯一标识列表不能为空！")
     @ApiModelProperty(value = "统一语言的唯一标识列表")
     private List<Long> idList;
 

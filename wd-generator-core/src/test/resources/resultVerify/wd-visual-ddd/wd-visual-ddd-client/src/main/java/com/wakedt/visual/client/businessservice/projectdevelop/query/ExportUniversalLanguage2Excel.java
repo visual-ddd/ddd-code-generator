@@ -16,19 +16,19 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "统一语言导出Excel文件")
 public class ExportUniversalLanguage2Excel {
 
-    @NotNull
+    @NotNull(message = "http标准响应体不能为空！")
     @ApiModelProperty(value = "http标准响应体")
     private String response;
 
-    @NotNull
+    @NotNull(message = "概念不能为空！")
     @ApiModelProperty(value = "概念")
     private String conception;
 
-    @NotNull
+    @NotNull(message = "统一语言类型不能为空！")
     @ApiModelProperty(value = "统一语言类型")
     private Integer languageType;
 
-    @NotNull
+    @NotNull(message = "所属唯一标识不能为空！")
     @ApiModelProperty(value = "所属唯一标识")
     private Long identity;
 

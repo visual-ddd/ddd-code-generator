@@ -12,7 +12,7 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.businessscene
 import com.wakedt.visual.domain.businessscene.businesssceneversion.dslupdate.BusinessSceneVersionDSLUpdateCmdHandler;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionpublish.BusinessSceneVersionPublishCmdHandler;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionfork.BusinessSceneVersionForkCmdHandler;
-import com.wakedt.visual.app.businessscene.consumer.event.BusinessSceneModifyEvent;
+import com.wakedt.visual.app.businessscene.consumer.event.BusinessSceneCreateEvent;
 
 import javax.annotation.Resource;
 
@@ -30,7 +30,7 @@ public class BusinessSceneListener {
      * 消费事件 编辑业务场景
      */
     @DomainEventSubscribe
-    public void listenBusinessSceneModifyEvent(BusinessSceneModifyEvent event){
+    public void listenBusinessSceneCreateEvent(BusinessSceneCreateEvent event){
         // TODO 执行编辑业务场景
         businessSceneModifyCmdHandler.handle(null);
     }

@@ -8,6 +8,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 /**
  * 当前登录的账号信息
@@ -17,27 +18,27 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "当前登录的账号信息")
 public class AccountInfoDTO extends BaseDTO {
 
-    @NotNull
+    @NotNull(message = "账号ID不能为空！")
     @ApiModelProperty(value = "账号ID")
     private Long id;
 
-    @NotNull
+    @NotNull(message = "账号(唯一标识)不能为空！")
     @ApiModelProperty(value = "账号(唯一标识)")
     private String accountNo;
 
-    @NotNull
+    @NotNull(message = "用户名不能为空！")
     @ApiModelProperty(value = "用户名")
     private String userName;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
     private String description;
 
-    @NotNull
+    @NotNull(message = "是否为系统管理员不能为空！")
     @ApiModelProperty(value = "是否为系统管理员")
     private Boolean isAdmin;
 
-    @NotNull
+    @NotNull(message = "sessionId不能为空！")
     @ApiModelProperty(value = "sessionId")
     private String sessionId;
 

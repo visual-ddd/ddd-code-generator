@@ -19,11 +19,11 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "团队分页查询对象")
 public class TeamPageQuery extends PageQuery {
 
-    @NotNull
+    @NotNull(message = "组织ID不能为空！")
     @ApiModelProperty(value = "组织ID")
     private Long organizationId;
 
-    @NotNull
+    @NotNull(message = "团队名称不能为空！")
     @ApiModelProperty(value = "团队名称")
     private String name;
 

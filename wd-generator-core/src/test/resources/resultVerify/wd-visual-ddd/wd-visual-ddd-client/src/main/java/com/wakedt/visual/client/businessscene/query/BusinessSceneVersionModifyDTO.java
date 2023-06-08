@@ -15,12 +15,12 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "编辑业务场景版本")
 public class BusinessSceneVersionModifyDTO {
 
-    @NotNull
+    @NotNull(message = "业务场景 ID不能为空！")
     @ApiModelProperty(value = "业务场景 ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
-    public String description;
+    private String description;
 
 }

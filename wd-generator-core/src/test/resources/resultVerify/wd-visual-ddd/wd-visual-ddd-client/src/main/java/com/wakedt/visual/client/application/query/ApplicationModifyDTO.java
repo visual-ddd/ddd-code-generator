@@ -15,20 +15,20 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "编辑应用")
 public class ApplicationModifyDTO {
 
-    @NotNull
+    @NotNull(message = "应用 ID不能为空！")
     @ApiModelProperty(value = "应用 ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "名称不能为空！")
     @ApiModelProperty(value = "名称")
-    public String name;
+    private String name;
 
-    @NotNull
+    @NotNull(message = "包名不能为空！")
     @ApiModelProperty(value = "包名")
-    public String packageName;
+    private String packageName;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
-    public String description;
+    private String description;
 
 }

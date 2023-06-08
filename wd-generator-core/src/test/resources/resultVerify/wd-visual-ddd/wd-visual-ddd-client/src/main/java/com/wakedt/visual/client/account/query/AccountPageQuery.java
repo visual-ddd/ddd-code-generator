@@ -19,15 +19,15 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "账号分页查询对象")
 public class AccountPageQuery extends PageQuery {
 
-    @NotNull
+    @NotNull(message = "用户名不能为空！")
     @ApiModelProperty(value = "用户名")
     private String userName;
 
-    @NotNull
+    @NotNull(message = "所属组织ID不能为空！")
     @ApiModelProperty(value = "所属组织ID")
     private String organizationId;
 
-    @NotNull
+    @NotNull(message = "所属团队ID不能为空！")
     @ApiModelProperty(value = "所属团队ID")
     private String teamId;
 

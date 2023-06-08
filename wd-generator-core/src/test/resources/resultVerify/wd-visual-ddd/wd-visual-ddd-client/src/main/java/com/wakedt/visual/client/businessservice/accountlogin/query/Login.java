@@ -16,11 +16,11 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "账号登录")
 public class Login {
 
-    @NotNull
+    @NotNull(message = "账号唯一标识（邮箱）不能为空！")
     @ApiModelProperty(value = "账号唯一标识（邮箱）")
     private LocalDateTime accountNo;
 
-    @NotNull
+    @NotNull(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
     private String password;
 

@@ -15,12 +15,12 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "关联业务场景版本")
 public class BusinessSceneVersionBindDTO {
 
-    @NotNull
+    @NotNull(message = "应用版本ID不能为空！")
     @ApiModelProperty(value = "应用版本ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "关联业务场景列表不能为空！")
     @ApiModelProperty(value = "关联业务场景列表")
-    public Set<Long> businessSceneVersionIds;
+    private Set<Long> businessSceneVersionIds;
 
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 import java.util.*;
 import java.math.*;
@@ -18,15 +19,15 @@ import java.time.LocalDateTime;
 @ApiModel(description = "账号验证码数据传输对象")
 public class AccountVerificationDTO extends BaseDTO {
 
-    @NotNull
+    @NotNull(message = "实体唯一标识符不能为空！")
     @ApiModelProperty(value = "实体唯一标识符")
     private Long id;
 
-    @NotNull
+    @NotNull(message = "验证码不能为空！")
     @ApiModelProperty(value = "验证码")
     private String code;
 
-    @NotNull
+    @NotNull(message = "账号标识不能为空！")
     @ApiModelProperty(value = "账号标识")
     private String accountNo;
 

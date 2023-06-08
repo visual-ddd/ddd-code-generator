@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "获取最新应用版本信息")
 public class GetLatestApplicationVersionInfo {
 
-    @NotNull
+    @NotNull(message = "应用的唯一标识不能为空！")
     @ApiModelProperty(value = "应用的唯一标识")
     private Long id;
 

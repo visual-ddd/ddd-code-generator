@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "删除账号")
 public class AccountDeleteDTO {
 
-    @NotNull
+    @NotNull(message = "用户 ID不能为空！")
     @ApiModelProperty(value = "用户 ID")
-    public Long id;
+    private Long id;
 
 }

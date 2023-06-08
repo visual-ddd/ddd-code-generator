@@ -5991,7 +5991,7 @@
                   },
                   {
                     "type": "event",
-                    "value": "businessSceneModifyEvent"
+                    "value": "businessSceneCreateEvent"
                   },
                   {
                     "type": "schedule",

@@ -8,6 +8,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 /**
  * 账号所属团队信息
@@ -17,11 +18,11 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "账号所属团队信息")
 public class AccountTeamInfoDTO extends BaseDTO {
 
-    @NotNull
+    @NotNull(message = "是否为团队管理员不能为空！")
     @ApiModelProperty(value = "是否为团队管理员")
     private Boolean isTeamAdmin;
 
-    @NotNull
+    @NotNull(message = "所属团队信息不能为空！")
     @ApiModelProperty(value = "所属团队信息")
     private TeamDTO teamDTO;
 

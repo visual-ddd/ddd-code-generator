@@ -15,20 +15,20 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "新增业务场景版本")
 public class BusinessSceneVersionCreateDTO {
 
-    @NotNull
+    @NotNull(message = "业务场景ID不能为空！")
     @ApiModelProperty(value = "业务场景ID")
-    public Long businessSceneId;
+    private Long businessSceneId;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
-    public String description;
+    private String description;
 
-    @NotNull
+    @NotNull(message = "起始版本号不能为空！")
     @ApiModelProperty(value = "起始版本号")
-    public String startVersion;
+    private String startVersion;
 
-    @NotNull
+    @NotNull(message = "当前版本号不能为空！")
     @ApiModelProperty(value = "当前版本号")
-    public String currentVersion;
+    private String currentVersion;
 
 }

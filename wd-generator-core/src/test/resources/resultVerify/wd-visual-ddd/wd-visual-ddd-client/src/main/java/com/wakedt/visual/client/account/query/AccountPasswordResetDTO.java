@@ -15,16 +15,16 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "重置用户密码")
 public class AccountPasswordResetDTO {
 
-    @NotNull
+    @NotNull(message = "重置密码唯一标识不能为空！")
     @ApiModelProperty(value = "重置密码唯一标识")
-    public String uuid;
+    private String uuid;
 
-    @NotNull
+    @NotNull(message = "账号ID不能为空！")
     @ApiModelProperty(value = "账号ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
-    public String newPassword;
+    private String newPassword;
 
 }

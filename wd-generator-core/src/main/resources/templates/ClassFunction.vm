@@ -35,7 +35,7 @@ import ${importPackage};
 #foreach ($field in $filedList)
 
 #printApiDesc($field)
-    ${field.access} ${PARSE_TYPE_UTIL.parseDTOField(${field.type})} ${field.name};
+    private ${PARSE_TYPE_UTIL.parseDTOField(${field.type})} ${field.name};
 #end
 #end
 ## ============= 类方法列表 =============
@@ -88,7 +88,7 @@ import ${importPackage};
 #end
 #macro(printApiDesc $field)
 #if(!${field.optional})
-    @NotNull
+    @NotNull(message = "${field.title}不能为空！")
 #end
     @ApiModelProperty(value = "${field.title}")
 #end

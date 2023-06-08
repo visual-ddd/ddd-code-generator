@@ -15,28 +15,28 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "更新账号基本信息")
 public class AccountModifyDTO {
 
-    @NotNull
+    @NotNull(message = "用户 ID不能为空！")
     @ApiModelProperty(value = "用户 ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
-    public String description;
+    private String description;
 
-    @NotNull
+    @NotNull(message = "用户名不能为空！")
     @ApiModelProperty(value = "用户名")
-    public String userName;
+    private String userName;
 
-    @NotNull
+    @NotNull(message = "账号不能为空！")
     @ApiModelProperty(value = "账号")
-    public String accountNo;
+    private String accountNo;
 
-    @NotNull
+    @NotNull(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
-    public String newPassword;
+    private String newPassword;
 
-    @NotNull
+    @NotNull(message = "用户头像不能为空！")
     @ApiModelProperty(value = "用户头像")
-    public String icon;
+    private String icon;
 
 }

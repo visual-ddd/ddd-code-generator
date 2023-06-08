@@ -9,6 +9,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 #comment("$BUSINESS_DTO_CLASS_TITLE")
 @Data

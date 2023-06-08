@@ -15,32 +15,32 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "新增统一语言")
 public class UniversalLanguageCreateDTO {
 
-    @NotNull
+    @NotNull(message = "概念不能为空！")
     @ApiModelProperty(value = "概念")
-    public String conception;
+    private String conception;
 
-    @NotNull
+    @NotNull(message = "英文名不能为空！")
     @ApiModelProperty(value = "英文名")
-    public String englishName;
+    private String englishName;
 
-    @NotNull
+    @NotNull(message = "定义不能为空！")
     @ApiModelProperty(value = "定义")
-    public String definition;
+    private String definition;
 
-    @NotNull
+    @NotNull(message = "统一语言类型不能为空！")
     @ApiModelProperty(value = "统一语言类型")
-    public Integer languageType;
+    private Integer languageType;
 
-    @NotNull
+    @NotNull(message = "约束不能为空！")
     @ApiModelProperty(value = "约束")
-    public String restraint;
+    private String restraint;
 
-    @NotNull
+    @NotNull(message = "举例不能为空！")
     @ApiModelProperty(value = "举例")
-    public String example;
+    private String example;
 
-    @NotNull
+    @NotNull(message = "所属唯一标识不能为空！")
     @ApiModelProperty(value = "所属唯一标识")
-    public Long identity;
+    private Long identity;
 
 }

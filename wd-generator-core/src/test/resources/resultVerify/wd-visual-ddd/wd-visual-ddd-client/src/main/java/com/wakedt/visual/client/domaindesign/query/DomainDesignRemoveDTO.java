@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "删除业务域")
 public class DomainDesignRemoveDTO {
 
-    @NotNull
+    @NotNull(message = "业务域 ID不能为空！")
     @ApiModelProperty(value = "业务域 ID")
-    public Long id;
+    private Long id;
 
 }

@@ -15,12 +15,12 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "创建验证码")
 public class AccountVerificationCreateDTO {
 
-    @NotNull
+    @NotNull(message = "验证码不能为空！")
     @ApiModelProperty(value = "验证码")
-    public String code;
+    private String code;
 
-    @NotNull
+    @NotNull(message = "账号标识不能为空！")
     @ApiModelProperty(value = "账号标识")
-    public String accountNo;
+    private String accountNo;
 
 }

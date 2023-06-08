@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "发送重置密码邮件")
 public class AccountEmailSendDTO {
 
-    @NotNull
+    @NotNull(message = "账号ID不能为空！")
     @ApiModelProperty(value = "账号ID")
-    public Long id;
+    private Long id;
 
 }

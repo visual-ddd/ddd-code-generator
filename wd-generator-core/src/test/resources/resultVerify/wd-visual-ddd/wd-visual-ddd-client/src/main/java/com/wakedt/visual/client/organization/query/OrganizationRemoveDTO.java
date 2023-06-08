@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "删除组织")
 public class OrganizationRemoveDTO {
 
-    @NotNull
+    @NotNull(message = "组织 ID不能为空！")
     @ApiModelProperty(value = "组织 ID")
-    public Long id;
+    private Long id;
 
 }

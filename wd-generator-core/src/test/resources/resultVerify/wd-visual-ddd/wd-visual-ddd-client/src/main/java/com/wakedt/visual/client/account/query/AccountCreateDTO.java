@@ -15,20 +15,20 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "创建账号")
 public class AccountCreateDTO {
 
-    @NotNull
+    @NotNull(message = "用户名不能为空！")
     @ApiModelProperty(value = "用户名")
-    public String userName;
+    private String userName;
 
-    @NotNull
+    @NotNull(message = "账号不能为空！")
     @ApiModelProperty(value = "账号")
-    public String accountNo;
+    private String accountNo;
 
-    @NotNull
+    @NotNull(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
-    public String password;
+    private String password;
 
-    @NotNull
+    @NotNull(message = "用户头像不能为空！")
     @ApiModelProperty(value = "用户头像")
-    public String icon;
+    private String icon;
 
 }

@@ -16,23 +16,23 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "注册账号")
 public class AccountRegister {
 
-    @NotNull
+    @NotNull(message = "验证码不能为空！")
     @ApiModelProperty(value = "验证码")
     private String code;
 
-    @NotNull
+    @NotNull(message = "账号(唯一标识)不能为空！")
     @ApiModelProperty(value = "账号(唯一标识)")
     private String accountNo;
 
-    @NotNull
+    @NotNull(message = "用户名不能为空！")
     @ApiModelProperty(value = "用户名")
     private String userName;
 
-    @NotNull
+    @NotNull(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
     private String password;
 
-    @NotNull
+    @NotNull(message = "用户头像不能为空！")
     @ApiModelProperty(value = "用户头像")
     private String icon;
 

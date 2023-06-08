@@ -6,6 +6,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 import java.util.*;
 import java.math.*;

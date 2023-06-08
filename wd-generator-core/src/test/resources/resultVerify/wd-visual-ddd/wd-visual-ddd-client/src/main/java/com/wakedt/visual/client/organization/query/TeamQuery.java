@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "团队详情查询对象")
 public class TeamQuery extends BaseQuery {
 
-    @NotNull
+    @NotNull(message = "团队ID不能为空！")
     @ApiModelProperty(value = "团队ID")
     private Long id;
 

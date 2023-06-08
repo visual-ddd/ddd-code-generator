@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "业务场景列表查询对象")
 public class BusinessSceneListQuery extends PageQuery {
 
-    @NotNull
+    @NotNull(message = "业务场景的唯一标识列表不能为空！")
     @ApiModelProperty(value = "业务场景的唯一标识列表")
     private List<Long> idList;
 

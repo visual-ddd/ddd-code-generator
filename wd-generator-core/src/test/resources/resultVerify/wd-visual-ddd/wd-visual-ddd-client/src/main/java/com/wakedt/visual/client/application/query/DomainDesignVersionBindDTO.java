@@ -15,12 +15,12 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "关联业务域版本")
 public class DomainDesignVersionBindDTO {
 
-    @NotNull
+    @NotNull(message = "应用版本ID不能为空！")
     @ApiModelProperty(value = "应用版本ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "关联业务域列表不能为空！")
     @ApiModelProperty(value = "关联业务域列表")
-    public Set<Long> domainDesignVersionIds;
+    private Set<Long> domainDesignVersionIds;
 
 }

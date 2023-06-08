@@ -8,6 +8,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 /**
  * 统一语言Excel数据
@@ -17,23 +18,23 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "统一语言Excel数据")
 public class UniversalLanguageExcelDTO extends BaseDTO {
 
-    @NotNull
+    @NotNull(message = "概念不能为空！")
     @ApiModelProperty(value = "概念")
     private String conception;
 
-    @NotNull
+    @NotNull(message = "定义不能为空！")
     @ApiModelProperty(value = "定义")
     private String definition;
 
-    @NotNull
+    @NotNull(message = "英文名不能为空！")
     @ApiModelProperty(value = "英文名")
     private String englishName;
 
-    @NotNull
+    @NotNull(message = "约束不能为空！")
     @ApiModelProperty(value = "约束")
     private String restraint;
 
-    @NotNull
+    @NotNull(message = "举例不能为空！")
     @ApiModelProperty(value = "举例")
     private String example;
 

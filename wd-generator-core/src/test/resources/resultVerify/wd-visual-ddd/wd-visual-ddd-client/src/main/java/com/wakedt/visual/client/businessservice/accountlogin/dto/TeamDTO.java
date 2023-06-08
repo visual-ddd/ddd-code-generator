@@ -8,6 +8,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 /**
  * 团队信息
@@ -17,23 +18,23 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "团队信息")
 public class TeamDTO extends BaseDTO {
 
-    @NotNull
+    @NotNull(message = "团队ID不能为空！")
     @ApiModelProperty(value = "团队ID")
     private Long id;
 
-    @NotNull
+    @NotNull(message = "名称不能为空！")
     @ApiModelProperty(value = "名称")
     private String name;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
     private String description;
 
-    @NotNull
+    @NotNull(message = "团队管理员不能为空！")
     @ApiModelProperty(value = "团队管理员")
     private String teamManagerId;
 
-    @NotNull
+    @NotNull(message = "组织唯一标识不能为空！")
     @ApiModelProperty(value = "组织唯一标识")
     private String organizationId;
 

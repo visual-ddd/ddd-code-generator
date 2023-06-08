@@ -15,16 +15,16 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "添加团队成员")
 public class TeamMemberAddDTO {
 
-    @NotNull
+    @NotNull(message = "成员账号ID不能为空！")
     @ApiModelProperty(value = "成员账号ID")
-    public Long accountId;
+    private Long accountId;
 
-    @NotNull
+    @NotNull(message = "团队ID不能为空！")
     @ApiModelProperty(value = "团队ID")
-    public Long teamId;
+    private Long teamId;
 
-    @NotNull
+    @NotNull(message = "成员类型标签不能为空！")
     @ApiModelProperty(value = "成员类型标签")
-    public List<Integer> memberTypeList;
+    private List<Integer> memberTypeList;
 
 }

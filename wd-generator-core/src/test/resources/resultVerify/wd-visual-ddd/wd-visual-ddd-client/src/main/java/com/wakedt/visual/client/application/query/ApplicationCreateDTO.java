@@ -15,28 +15,28 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "新增应用")
 public class ApplicationCreateDTO {
 
-    @NotNull
+    @NotNull(message = "团队ID不能为空！")
     @ApiModelProperty(value = "团队ID")
-    public Long teamId;
+    private Long teamId;
 
-    @NotNull
+    @NotNull(message = "名称不能为空！")
     @ApiModelProperty(value = "名称")
-    public String name;
+    private String name;
 
-    @NotNull
+    @NotNull(message = "标识符不能为空！")
     @ApiModelProperty(value = "标识符")
-    public String identity;
+    private String identity;
 
-    @NotNull
+    @NotNull(message = "包名不能为空！")
     @ApiModelProperty(value = "包名")
-    public String packageName;
+    private String packageName;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
-    public String description;
+    private String description;
 
-    @NotNull
+    @NotNull(message = "起始版本号不能为空！")
     @ApiModelProperty(value = "起始版本号")
-    public String startVersion;
+    private String startVersion;
 
 }

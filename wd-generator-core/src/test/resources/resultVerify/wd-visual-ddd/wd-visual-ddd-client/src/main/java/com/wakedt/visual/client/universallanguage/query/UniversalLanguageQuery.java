@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "统一语言详情查询对象")
 public class UniversalLanguageQuery extends BaseQuery {
 
-    @NotNull
+    @NotNull(message = "统一语言 ID不能为空！")
     @ApiModelProperty(value = "统一语言 ID")
     private Long id;
 

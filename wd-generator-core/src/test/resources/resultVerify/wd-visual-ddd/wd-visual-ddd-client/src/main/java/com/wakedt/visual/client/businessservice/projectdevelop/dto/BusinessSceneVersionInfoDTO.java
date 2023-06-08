@@ -8,6 +8,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 /**
  * 业务场景版本信息
@@ -17,35 +18,35 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "业务场景版本信息")
 public class BusinessSceneVersionInfoDTO extends BaseDTO {
 
-    @NotNull
+    @NotNull(message = "业务场景版本ID不能为空！")
     @ApiModelProperty(value = "业务场景版本ID")
     private Long id;
 
-    @NotNull
+    @NotNull(message = "业务场景ID不能为空！")
     @ApiModelProperty(value = "业务场景ID")
     private Long businessSceneId;
 
-    @NotNull
+    @NotNull(message = "起始版本号不能为空！")
     @ApiModelProperty(value = "起始版本号")
     private String startVersion;
 
-    @NotNull
+    @NotNull(message = "当前版本号不能为空！")
     @ApiModelProperty(value = "当前版本号")
     private String currentVersion;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
     private String description;
 
-    @NotNull
+    @NotNull(message = "业务场景DSL不能为空！")
     @ApiModelProperty(value = "业务场景DSL")
     private String businessSceneDsl;
 
-    @NotNull
+    @NotNull(message = "图形DSL不能为空！")
     @ApiModelProperty(value = "图形DSL")
     private String graphDsl;
 
-    @NotNull
+    @NotNull(message = "版本状态不能为空！")
     @ApiModelProperty(value = "版本状态")
     private Integer versionState;
 

@@ -1,4 +1,4 @@
-package com.wakedt.visual.app.businessscene.consumer.event;
+package com.wakedt.visual.domain.businessscene.businessscene.businessscenemodify;
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
@@ -35,6 +35,6 @@ public class BusinessSceneModifyEvent extends BaseDomainEvent {
 
     @Override
     public String eventCode() {
-        return "${event.com.wakedt.visual.app.businessscene.consumer.event}";
+        return "${event.com.wakedt.visual.domain.businessscene.businessscene.businessscenemodify}";
     }
 }

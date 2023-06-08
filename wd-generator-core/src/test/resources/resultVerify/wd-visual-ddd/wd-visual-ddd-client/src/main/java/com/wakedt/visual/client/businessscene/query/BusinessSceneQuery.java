@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "业务场景详情查询对象")
 public class BusinessSceneQuery extends BaseQuery {
 
-    @NotNull
+    @NotNull(message = "业务场景 ID不能为空！")
     @ApiModelProperty(value = "业务场景 ID")
     private Long id;
 

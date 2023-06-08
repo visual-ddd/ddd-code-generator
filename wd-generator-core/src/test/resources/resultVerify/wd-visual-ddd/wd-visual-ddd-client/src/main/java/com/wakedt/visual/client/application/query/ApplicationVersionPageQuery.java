@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "应用版本分页查询对象")
 public class ApplicationVersionPageQuery extends PageQuery {
 
-    @NotNull
+    @NotNull(message = "应用ID不能为空！")
     @ApiModelProperty(value = "应用ID")
     private String applicationId;
 

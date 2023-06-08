@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "获取应用关联的模块信息")
 public class GetApplicationBindModelInfo {
 
-    @NotNull
+    @NotNull(message = "应用的唯一标识不能为空！")
     @ApiModelProperty(value = "应用的唯一标识")
     private Long applicationId;
 

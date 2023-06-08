@@ -15,16 +15,16 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "更新业务场景DSL")
 public class BusinessSceneVersionDSLUpdateDTO {
 
-    @NotNull
+    @NotNull(message = "业务场景版本ID不能为空！")
     @ApiModelProperty(value = "业务场景版本ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "图形DSL不能为空！")
     @ApiModelProperty(value = "图形DSL")
-    public String graphDsl;
+    private String graphDsl;
 
-    @NotNull
+    @NotNull(message = "业务场景DSL不能为空！")
     @ApiModelProperty(value = "业务场景DSL")
-    public String businessSceneDsl;
+    private String businessSceneDsl;
 
 }

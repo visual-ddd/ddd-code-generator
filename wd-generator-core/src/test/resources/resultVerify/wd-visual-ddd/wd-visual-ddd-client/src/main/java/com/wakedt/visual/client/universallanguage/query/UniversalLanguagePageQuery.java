@@ -19,15 +19,15 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "统一语言分页查询对象")
 public class UniversalLanguagePageQuery extends PageQuery {
 
-    @NotNull
+    @NotNull(message = "概念不能为空！")
     @ApiModelProperty(value = "概念")
     private String conception;
 
-    @NotNull
+    @NotNull(message = "统一语言类型不能为空！")
     @ApiModelProperty(value = "统一语言类型")
     private String languageType;
 
-    @NotNull
+    @NotNull(message = "所属唯一标识不能为空！")
     @ApiModelProperty(value = "所属唯一标识")
     private Long identity;
 

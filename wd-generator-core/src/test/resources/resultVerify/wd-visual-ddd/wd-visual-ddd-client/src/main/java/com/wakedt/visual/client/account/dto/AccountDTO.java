@@ -5,6 +5,7 @@ import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
 
 import java.util.*;
 import java.math.*;
@@ -18,31 +19,31 @@ import java.time.LocalDateTime;
 @ApiModel(description = "账号数据传输对象")
 public class AccountDTO extends BaseDTO {
 
-    @NotNull
+    @NotNull(message = "用户 ID不能为空！")
     @ApiModelProperty(value = "用户 ID")
     private Long id;
 
-    @NotNull
+    @NotNull(message = "账号不能为空！")
     @ApiModelProperty(value = "账号")
     private String accountNo;
 
-    @NotNull
+    @NotNull(message = "用户名不能为空！")
     @ApiModelProperty(value = "用户名")
     private String userName;
 
-    @NotNull
+    @NotNull(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
     private String password;
 
-    @NotNull
+    @NotNull(message = "用户头像不能为空！")
     @ApiModelProperty(value = "用户头像")
     private String icon;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
     private String description;
 
-    @NotNull
+    @NotNull(message = "重置密码唯一标识不能为空！")
     @ApiModelProperty(value = "重置密码唯一标识")
     private String uuid;
 

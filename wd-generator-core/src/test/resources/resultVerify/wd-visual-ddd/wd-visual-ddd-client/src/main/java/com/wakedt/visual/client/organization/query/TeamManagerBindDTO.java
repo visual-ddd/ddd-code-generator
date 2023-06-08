@@ -15,12 +15,12 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "绑定团队管理员")
 public class TeamManagerBindDTO {
 
-    @NotNull
+    @NotNull(message = "团队 ID不能为空！")
     @ApiModelProperty(value = "团队 ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "团队管理员不能为空！")
     @ApiModelProperty(value = "团队管理员")
-    public Long teamManagerId;
+    private Long teamManagerId;
 
 }

@@ -15,16 +15,16 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "修改用户密码")
 public class AccountPasswordUpdateDTO {
 
-    @NotNull
+    @NotNull(message = "主键不能为空！")
     @ApiModelProperty(value = "主键")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "旧密码不能为空！")
     @ApiModelProperty(value = "旧密码")
-    public String oldPassword;
+    private String oldPassword;
 
-    @NotNull
+    @NotNull(message = "新密码不能为空！")
     @ApiModelProperty(value = "新密码")
-    public String newPassword;
+    private String newPassword;
 
 }

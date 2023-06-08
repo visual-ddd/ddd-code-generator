@@ -15,12 +15,12 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "解绑团队成员职位")
 public class TeamMemberRoleUnBindDTO {
 
-    @NotNull
+    @NotNull(message = "团队成员ID不能为空！")
     @ApiModelProperty(value = "团队成员ID")
-    public Long id;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "成员类型标签不能为空！")
     @ApiModelProperty(value = "成员类型标签")
-    public List<Integer> memberTypeList;
+    private List<Integer> memberTypeList;
 
 }

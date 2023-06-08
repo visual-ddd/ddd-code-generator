@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "删除统一语言")
 public class UniversalLanguageRemoveDTO {
 
-    @NotNull
+    @NotNull(message = "统一语言 ID不能为空！")
     @ApiModelProperty(value = "统一语言 ID")
-    public Long id;
+    private Long id;
 
 }

@@ -15,20 +15,20 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "新增团队")
 public class TeamCreateDTO {
 
-    @NotNull
+    @NotNull(message = "名称不能为空！")
     @ApiModelProperty(value = "名称")
-    public String name;
+    private String name;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
-    public String description;
+    private String description;
 
-    @NotNull
+    @NotNull(message = "组织ID不能为空！")
     @ApiModelProperty(value = "组织ID")
-    public Long organizationId;
+    private Long organizationId;
 
-    @NotNull
+    @NotNull(message = "团队管理员不能为空！")
     @ApiModelProperty(value = "团队管理员")
-    public Long teamManagerId;
+    private Long teamManagerId;
 
 }

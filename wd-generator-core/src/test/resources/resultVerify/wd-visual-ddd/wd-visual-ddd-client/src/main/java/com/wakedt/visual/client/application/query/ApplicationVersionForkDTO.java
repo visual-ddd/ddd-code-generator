@@ -15,16 +15,16 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "Fork应用版本")
 public class ApplicationVersionForkDTO {
 
-    @NotNull
+    @NotNull(message = "基版本的唯一标识不能为空！")
     @ApiModelProperty(value = "基版本的唯一标识")
-    public Long startVersionId;
+    private Long startVersionId;
 
-    @NotNull
+    @NotNull(message = "当前版本号不能为空！")
     @ApiModelProperty(value = "当前版本号")
-    public String currentVersion;
+    private String currentVersion;
 
-    @NotNull
+    @NotNull(message = "描述不能为空！")
     @ApiModelProperty(value = "描述")
-    public String description;
+    private String description;
 
 }
