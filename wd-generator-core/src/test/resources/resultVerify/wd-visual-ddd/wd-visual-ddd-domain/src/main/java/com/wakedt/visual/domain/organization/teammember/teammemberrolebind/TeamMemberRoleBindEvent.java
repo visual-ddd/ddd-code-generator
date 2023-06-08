@@ -1,11 +1,12 @@
 package com.wakedt.visual.domain.organization.teammember.teammemberrolebind;
 
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
-import com.wakedt.visual.domain.organization.teammember.MemberType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.util.List;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 绑定团队成员职位-指令事件

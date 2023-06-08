@@ -1,17 +1,18 @@
 package com.wakedt.visual.app.organization.view;
 
-import com.github.pagehelper.PageHelper;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageHelper;
 import com.wakedata.common.core.dto.PageResultDTO;
-import com.wakedt.visual.app.organization.assembler.TeamDTO2TeamDOConvert;
-import com.wakedt.visual.client.organization.dto.TeamDTO;
-import com.wakedt.visual.client.organization.query.TeamPageQuery;
-import com.wakedt.visual.infrastructure.organization.repository.mapper.TeamMapper;
-import com.wakedt.visual.infrastructure.organization.repository.model.TeamDO;
-import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
-import java.util.List;
+import org.springframework.stereotype.Component;
+import com.wakedt.visual.client.organization.query.TeamPageQuery;
+import com.wakedt.visual.infrastructure.organization.repository.model.TeamDO;
+import com.wakedt.visual.infrastructure.organization.repository.mapper.TeamMapper;
+import com.wakedt.visual.client.organization.dto.TeamDTO;
+import com.wakedt.visual.app.organization.assembler.TeamDTO2TeamDOConvert;
 
 /**
  * 团队分页查询对象-查询器

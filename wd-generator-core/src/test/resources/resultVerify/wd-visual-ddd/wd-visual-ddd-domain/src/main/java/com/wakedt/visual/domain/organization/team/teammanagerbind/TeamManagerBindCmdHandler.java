@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.organization.team.teammanagerbind;
 
-import com.wakedt.visual.domain.organization.team.Team;
-import com.wakedt.visual.domain.organization.team.TeamRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 绑定团队管理员-指令处理器

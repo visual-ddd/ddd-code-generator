@@ -1,9 +1,12 @@
 package com.wakedt.visual.domain.organization.organization;
 
-import com.wakedt.visual.domain.organization.organization.organizationmanagerbind.OrganizationManagerBindCmd;
-import com.wakedt.visual.domain.organization.organization.organizationmanagerunbind.OrganizationManagerUnbindCmd;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import com.wakedt.visual.domain.organization.organization.organizationmodify.OrganizationModifyCmd;
 import com.wakedt.visual.domain.organization.organization.organizationremove.OrganizationRemoveCmd;
+import com.wakedt.visual.domain.organization.organization.organizationmanagerunbind.OrganizationManagerUnbindCmd;
+import com.wakedt.visual.domain.organization.organization.organizationmanagerbind.OrganizationManagerBindCmd;
 
 /**
  * 组织-聚合根能力

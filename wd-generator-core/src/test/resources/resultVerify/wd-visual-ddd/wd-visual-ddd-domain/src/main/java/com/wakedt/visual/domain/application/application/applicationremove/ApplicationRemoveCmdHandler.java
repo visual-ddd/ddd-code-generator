@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.application.application.applicationremove;
 
-import com.wakedt.visual.domain.application.application.Application;
-import com.wakedt.visual.domain.application.application.ApplicationRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.application.application.*;
 
 /**
  * 删除应用-指令处理器

@@ -1,13 +1,14 @@
 package com.wakedt.visual.infrastructure.application.repository.mapper;
 
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wakedt.visual.client.application.query.ApplicationLatestVersionQuery;
-import com.wakedt.visual.client.application.query.ApplicationVersionPageQuery;
-import com.wakedt.visual.client.application.query.ApplicationVersionQuery;
-import com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
+import com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO;
+import com.wakedt.visual.client.application.query.ApplicationVersionQuery;
+import com.wakedt.visual.client.application.query.ApplicationVersionPageQuery;
+import com.wakedt.visual.client.application.query.ApplicationLatestVersionQuery;
 
 /**
  * ApplicationVersionMapper接口

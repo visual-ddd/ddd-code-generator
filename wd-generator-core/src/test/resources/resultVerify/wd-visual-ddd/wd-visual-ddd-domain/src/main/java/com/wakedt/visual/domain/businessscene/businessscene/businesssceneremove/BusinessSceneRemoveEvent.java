@@ -3,6 +3,10 @@ package com.wakedt.visual.domain.businessscene.businessscene.businesssceneremove
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 删除业务场景-指令事件

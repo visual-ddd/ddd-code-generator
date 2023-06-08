@@ -3,6 +3,10 @@ package com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignds
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
 
 /**
  * 更新业务域DSL-指令事件

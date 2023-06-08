@@ -2,7 +2,11 @@ package com.wakedt.visual.domain.application.applicationversion.applicationversi
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import lombok.NoArgsConstructor;
+import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
  * 删除应用版本-指令

@@ -24,4 +24,10 @@ public class PropertyInfo extends Named {
      */
     @SerializedName("access")
     private String access;
+
+    /**
+     * 是否可选
+     */
+    @SerializedName("optional")
+    private Boolean optional;
 }

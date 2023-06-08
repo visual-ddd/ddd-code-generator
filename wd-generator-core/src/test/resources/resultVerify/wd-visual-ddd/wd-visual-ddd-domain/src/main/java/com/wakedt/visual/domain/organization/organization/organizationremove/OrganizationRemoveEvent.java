@@ -3,6 +3,10 @@ package com.wakedt.visual.domain.organization.organization.organizationremove;
 import com.wakedata.common.domainevent.model.BaseDomainEvent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 删除组织-指令事件

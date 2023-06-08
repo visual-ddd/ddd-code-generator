@@ -1,10 +1,11 @@
 package com.wakedt.visual.client.application.query;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import java.util.Set;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 关联业务场景版本

@@ -1,6 +1,9 @@
 package com.wakedt.visual.domain.businessscene.businessscene;
 
 import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 业务场景-聚合根

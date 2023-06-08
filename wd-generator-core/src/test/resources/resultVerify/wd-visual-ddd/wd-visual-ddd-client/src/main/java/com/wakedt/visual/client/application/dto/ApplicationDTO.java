@@ -1,10 +1,14 @@
 package com.wakedt.visual.client.application.dto;
 
-import com.wakedata.common.core.base.BaseDTO;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import com.wakedata.common.core.base.BaseDTO;
 import lombok.EqualsAndHashCode;
+
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 应用数据传输对象

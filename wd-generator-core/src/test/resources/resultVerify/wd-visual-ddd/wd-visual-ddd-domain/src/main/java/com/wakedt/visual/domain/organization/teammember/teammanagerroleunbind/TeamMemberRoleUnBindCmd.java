@@ -1,11 +1,12 @@
 package com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind;
 
-import com.wakedt.visual.domain.organization.teammember.MemberType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
+import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 解绑团队成员职位-指令

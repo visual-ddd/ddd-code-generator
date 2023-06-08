@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignversionremove;
 
-import com.wakedt.visual.domain.domaindesign.domaindesignversion.DomainDesignVersion;
-import com.wakedt.visual.domain.domaindesign.domaindesignversion.DomainDesignVersionRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
 
 /**
  * 删除业务域版本-指令处理器

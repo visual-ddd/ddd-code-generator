@@ -2,11 +2,27 @@ package com.wakedt.visual.client.application;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.wakedt.visual.client.application.query.ApplicationQuery;
+import com.wakedt.visual.client.application.query.ApplicationPageQuery;
+import com.wakedt.visual.client.application.query.ApplicationVersionQuery;
+import com.wakedt.visual.client.application.query.ApplicationVersionPageQuery;
+import com.wakedt.visual.client.application.query.ApplicationListQuery;
+import com.wakedt.visual.client.application.query.ApplicationLatestVersionQuery;
+import com.wakedt.visual.client.application.query.ApplicationCreateDTO;
+import com.wakedt.visual.client.application.query.ApplicationModifyDTO;
+import com.wakedt.visual.client.application.query.ApplicationRemoveDTO;
+import com.wakedt.visual.client.application.query.ApplicationVersionCreateDTO;
+import com.wakedt.visual.client.application.query.ApplicationVersionModifyDTO;
+import com.wakedt.visual.client.application.query.ApplicationVersionRemoveDTO;
+import com.wakedt.visual.client.application.query.BusinessSceneVersionBindDTO;
+import com.wakedt.visual.client.application.query.DomainDesignVersionBindDTO;
+import com.wakedt.visual.client.application.query.ApplicationVersionPublishDTO;
+import com.wakedt.visual.client.application.query.ApplicationVersionForkDTO;
 import com.wakedt.visual.client.application.dto.ApplicationDTO;
 import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
-import com.wakedt.visual.client.application.query.*;
-
-import java.util.List;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 应用域-RPC能力接口

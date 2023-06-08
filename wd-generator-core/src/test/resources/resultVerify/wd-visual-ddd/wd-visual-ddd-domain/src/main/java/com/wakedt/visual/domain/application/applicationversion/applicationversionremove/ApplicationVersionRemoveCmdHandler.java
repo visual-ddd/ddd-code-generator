@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.application.applicationversion.applicationversionremove;
 
-import com.wakedt.visual.domain.application.applicationversion.ApplicationVersion;
-import com.wakedt.visual.domain.application.applicationversion.ApplicationVersionRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
  * 删除应用版本-指令处理器

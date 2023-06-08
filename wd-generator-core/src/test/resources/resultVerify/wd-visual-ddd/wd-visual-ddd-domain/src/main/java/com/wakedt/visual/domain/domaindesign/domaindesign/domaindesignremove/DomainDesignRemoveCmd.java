@@ -2,7 +2,11 @@ package com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignremove;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import lombok.NoArgsConstructor;
+import com.wakedt.visual.domain.domaindesign.domaindesign.*;
 
 /**
  * 删除业务域-指令

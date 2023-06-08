@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.organization.organization.organizationremove;
 
-import com.wakedt.visual.domain.organization.organization.Organization;
-import com.wakedt.visual.domain.organization.organization.OrganizationRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 删除组织-指令处理器

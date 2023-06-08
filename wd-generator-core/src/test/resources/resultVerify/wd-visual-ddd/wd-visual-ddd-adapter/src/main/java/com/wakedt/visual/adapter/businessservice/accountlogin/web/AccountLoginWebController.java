@@ -1,19 +1,33 @@
 package com.wakedt.visual.adapter.businessservice.accountlogin.web;
 
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;import java.time.LocalDateTime;
+import javax.annotation.Resource;
+
+import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.client.businessservice.accountlogin.AccountLoginRpcService;
-import com.wakedt.visual.client.businessservice.accountlogin.dto.AccountInfoDTO;
-import com.wakedt.visual.client.businessservice.accountlogin.dto.AccountRoleDTO;
-import com.wakedt.visual.client.businessservice.accountlogin.query.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
+import com.wakedt.visual.client.businessservice.accountlogin.query.Login;
+import com.wakedt.visual.client.businessservice.accountlogin.query.Logout;
+import com.wakedt.visual.client.businessservice.accountlogin.query.AccountRegister;
+import com.wakedt.visual.client.businessservice.accountlogin.query.AccountVerificationCreate;
+import com.wakedt.visual.client.businessservice.accountlogin.query.GetAccountInfo;
+import com.wakedt.visual.client.businessservice.accountlogin.query.GetAccountRole;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.AccountInfoDTO;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.AccountRoleDTO;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.AccountTeamInfoDTO;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.AccountOrganizationInfoDTO;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.OrganizationDTO;
+import com.wakedt.visual.client.businessservice.accountlogin.dto.TeamDTO;
+import com.wakedt.visual.client.businessservice.accountlogin.AccountLoginRpcService;
 
 /**
  * 用户登录场景-B端

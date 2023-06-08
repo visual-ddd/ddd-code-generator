@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.account.account.accountpasswordreset;
 
-import com.wakedt.visual.domain.account.account.Account;
-import com.wakedt.visual.domain.account.account.AccountRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 重置用户密码-指令处理器

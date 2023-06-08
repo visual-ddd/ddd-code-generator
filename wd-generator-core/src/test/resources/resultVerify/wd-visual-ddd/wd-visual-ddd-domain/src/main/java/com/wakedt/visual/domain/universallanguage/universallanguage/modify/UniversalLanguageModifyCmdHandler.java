@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage.modify;
 
-import com.wakedt.visual.domain.universallanguage.universallanguage.UniversalLanguage;
-import com.wakedt.visual.domain.universallanguage.universallanguage.UniversalLanguageRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
  * 编辑统一语言-指令处理器

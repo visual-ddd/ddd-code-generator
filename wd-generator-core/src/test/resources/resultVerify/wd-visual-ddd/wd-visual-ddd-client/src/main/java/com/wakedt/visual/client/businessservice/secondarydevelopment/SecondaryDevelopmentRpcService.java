@@ -1,12 +1,21 @@
 package com.wakedt.visual.client.businessservice.secondarydevelopment;
 
+import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.ApplicationBindModelInfoDTO;
-import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.BusinessSceneVersionInfoDTO;
-import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.DomainDesignVersionInfoDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.query.GetDomainDesignVersionNoAuth;
 import com.wakedt.visual.client.businessservice.secondarydevelopment.query.GetApplicationBindModelInfo;
 import com.wakedt.visual.client.businessservice.secondarydevelopment.query.GetBusinessSceneVersionNoAuth;
-import com.wakedt.visual.client.businessservice.secondarydevelopment.query.GetDomainDesignVersionNoAuth;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.DomainDesignVersionInfoDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.DomainDesignDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.DomainDesignVersionBaseInfoDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.ApplicationBindModelInfoDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.BusinessScenarioVersionBaseInfoDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.BusinessScenarioDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.ApplicationDTO;
+import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.BusinessSceneVersionInfoDTO;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 二次开发场景-RPC能力接口

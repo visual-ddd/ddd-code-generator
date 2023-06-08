@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.organization.teammember.teammemberrolebind;
 
-import com.wakedt.visual.domain.organization.teammember.TeamMember;
-import com.wakedt.visual.domain.organization.teammember.TeamMemberRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 绑定团队成员职位-指令处理器

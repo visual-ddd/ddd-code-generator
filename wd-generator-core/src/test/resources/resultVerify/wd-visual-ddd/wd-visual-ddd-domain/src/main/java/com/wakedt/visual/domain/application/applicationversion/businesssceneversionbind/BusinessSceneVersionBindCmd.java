@@ -2,9 +2,11 @@ package com.wakedt.visual.domain.application.applicationversion.businessscenever
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
+import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
  * 关联业务场景版本-指令

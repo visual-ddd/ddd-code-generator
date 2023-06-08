@@ -1,12 +1,13 @@
 package com.wakedt.visual.infrastructure.universallanguage.repository.mapper;
 
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery;
-import com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
+import com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO;
+import com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery;
+import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery;
 
 /**
  * UniversalLanguageMapper接口

@@ -2,11 +2,22 @@ package com.wakedt.visual.client.account;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.wakedt.visual.client.account.query.AccountDetailQuery;
+import com.wakedt.visual.client.account.query.AccountPageQuery;
+import com.wakedt.visual.client.account.query.AccountVerificationDetailQuery;
+import com.wakedt.visual.client.account.query.AccountCreateDTO;
+import com.wakedt.visual.client.account.query.AccountModifyDTO;
+import com.wakedt.visual.client.account.query.AccountDeleteDTO;
+import com.wakedt.visual.client.account.query.AccountEmailSendDTO;
+import com.wakedt.visual.client.account.query.AccountPasswordResetDTO;
+import com.wakedt.visual.client.account.query.AccountPasswordUpdateDTO;
+import com.wakedt.visual.client.account.query.AccountVerificationCreateDTO;
+import com.wakedt.visual.client.account.query.AccountVerificationUpdateDTO;
 import com.wakedt.visual.client.account.dto.AccountDTO;
 import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
-import com.wakedt.visual.client.account.query.*;
-
-import java.util.List;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 账号域-RPC能力接口

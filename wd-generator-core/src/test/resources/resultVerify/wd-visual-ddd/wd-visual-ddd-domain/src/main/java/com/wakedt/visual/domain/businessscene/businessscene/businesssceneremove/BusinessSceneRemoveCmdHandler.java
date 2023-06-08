@@ -1,10 +1,9 @@
 package com.wakedt.visual.domain.businessscene.businessscene.businesssceneremove;
 
-import com.wakedt.visual.domain.businessscene.businessscene.BusinessScene;
-import com.wakedt.visual.domain.businessscene.businessscene.BusinessSceneRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 删除业务场景-指令处理器

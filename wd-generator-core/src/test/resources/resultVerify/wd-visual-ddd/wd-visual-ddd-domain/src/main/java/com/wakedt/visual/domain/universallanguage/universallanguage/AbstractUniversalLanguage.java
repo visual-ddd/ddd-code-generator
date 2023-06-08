@@ -1,6 +1,9 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage;
 
 import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 统一语言-聚合根
