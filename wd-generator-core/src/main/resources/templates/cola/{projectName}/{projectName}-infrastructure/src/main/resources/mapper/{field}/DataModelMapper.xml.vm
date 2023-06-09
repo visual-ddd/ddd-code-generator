@@ -21,7 +21,15 @@
                 AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} LIKE CONCAT('%',#{${queryFiled.name}},'%')
             </if>
 #end
-#if(${queryFiled.type} != 'String')
+#if(${queryFiled.type.contains("List<")} || ${queryFiled.type.contains("Set<")})
+            <if test="${queryFiled.name} != null">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} in
+                <foreach collection="${queryFiled.name}" separator="," open="(" close=")" item="item">
+                    #{item}
+                </foreach>
+            </if>
+#end
+#if(${queryFiled.type} != 'String' && !${queryFiled.type.contains("List<")} && !${queryFiled.type.contains("Set<")})
             <if test="${queryFiled.name} != null">
                 AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
             </if>

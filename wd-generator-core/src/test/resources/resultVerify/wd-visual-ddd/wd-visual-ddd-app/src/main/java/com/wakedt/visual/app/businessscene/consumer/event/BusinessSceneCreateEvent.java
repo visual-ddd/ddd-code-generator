@@ -16,7 +16,7 @@ public class BusinessSceneCreateEvent extends BaseDomainEvent {
 
     public BusinessSceneCreateEvent() {
         // TODO 添加外部事件属性字段
-        
+
     }
 
     @Override

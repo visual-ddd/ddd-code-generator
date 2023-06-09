@@ -33,7 +33,10 @@
         FROM wd_application t1
         <where>
             <if test="idList != null">
-                AND t1.id_list = #{idList}
+                AND t1.id_list in
+                <foreach collection="idList" separator="," open="(" close=")" item="item">
+                    #{item}
+                </foreach>
             </if>
         </where>
     </select>
