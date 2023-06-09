@@ -6278,12 +6278,6 @@
                 "repository": "create",
                 "eventSendable": false,
                 "source": [
-                  {
-                    "type": "http"
-                  },
-                  {
-                    "type": "rpc"
-                  }
                 ],
                 "properties": [
                   {
@@ -6361,9 +6355,6 @@
                 "repository": "modify",
                 "eventSendable": false,
                 "source": [
-                  {
-                    "type": "http"
-                  },
                   {
                     "type": "rpc"
                   }

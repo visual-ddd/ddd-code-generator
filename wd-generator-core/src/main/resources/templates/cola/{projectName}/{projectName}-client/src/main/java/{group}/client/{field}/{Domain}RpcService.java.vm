@@ -15,7 +15,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
 #set($RootIdType = ${aggregation.getRoot().getId().getType()})
 #foreach($cmd in ${aggregation.getCommandList()})
-#if(${cmd.getSourceValue("http")})
+#if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
 
     /** ${cmd.description.replaceAll("\n","\\n")} */
 #if(${cmd.getRepository().getValue()} == "create")

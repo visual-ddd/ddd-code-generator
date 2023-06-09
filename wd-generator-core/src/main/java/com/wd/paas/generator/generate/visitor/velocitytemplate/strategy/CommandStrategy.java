@@ -2,9 +2,9 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.google.common.base.CaseFormat;
 import com.wd.paas.common.PropertyInfo;
+import com.wd.paas.common.enums.CommandSourceTypeEnum;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.CommandSourceTypeEnum;
 import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;

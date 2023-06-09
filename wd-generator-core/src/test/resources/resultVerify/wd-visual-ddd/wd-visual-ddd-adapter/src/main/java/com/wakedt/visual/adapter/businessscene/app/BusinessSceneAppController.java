@@ -63,18 +63,6 @@ public class BusinessSceneAppController {
         return businessSceneRpcService.businessSceneRemove(dto);
     }
 
-    @ApiOperation("新增业务场景版本")
-    @PostMapping("/business-scene-version-create")
-    public ResultDTO<Long> businessSceneVersionCreate(@RequestBody @Valid BusinessSceneVersionCreateDTO dto) {
-        return businessSceneRpcService.businessSceneVersionCreate(dto);
-    }
-
-    @ApiOperation("编辑业务场景版本")
-    @PostMapping("/business-scene-version-modify")
-    public ResultDTO<Boolean> businessSceneVersionModify(@RequestBody @Valid BusinessSceneVersionModifyDTO dto) {
-        return businessSceneRpcService.businessSceneVersionModify(dto);
-    }
-
     @ApiOperation("删除业务场景版本")
     @PostMapping("/business-scene-version-remove")
     public ResultDTO<Boolean> businessSceneVersionRemove(@RequestBody @Valid BusinessSceneVersionRemoveDTO dto) {

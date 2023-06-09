@@ -56,7 +56,11 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
 
     @Override
     public List<String> getTemplatePathList() {
-        return Arrays.asList(GenerateElementTypeEnum.DOMAIN_CHART.getTemplateUrls());
+        List<String> domainChartTemplateList = new ArrayList<>();
+        domainChartTemplateList.addAll(Arrays.asList(GenerateElementTypeEnum.DOMAIN_CHART.getTemplateUrls()));
+        domainChartTemplateList.addAll(Arrays.asList(GenerateElementTypeEnum.DOMAIN_CHART_TASK.getTemplateUrls()));
+        domainChartTemplateList.addAll(Arrays.asList(GenerateElementTypeEnum.DOMAIN_CHART_LISTENER.getTemplateUrls()));
+        return domainChartTemplateList;
     }
 
     @Override
@@ -79,7 +83,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         return domainModel.getChildElementList(AggregateNode.class);
     }
 
-    private List<ElementNode> getEnumList() {
+    private List<EnumNode> getEnumList() {
         List<AggregateNode> aggregationList = getAggregationList();
         return aggregationList.stream()
                 .map(aggregate -> aggregate.getChildElementList(EnumNode.class))
@@ -87,7 +91,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private List<ElementNode> getValueObjectList() {
+    private List<ValueObjectNode> getValueObjectList() {
         List<AggregateNode> aggregationList = getAggregationList();
         return aggregationList.stream()
                 .map(aggregate -> aggregate.getChildElementList(ValueObjectNode.class))
@@ -95,7 +99,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private List<ElementNode> getEntityList() {
+    private List<EntityNode> getEntityList() {
         List<AggregateNode> aggregationList = getAggregationList();
         return aggregationList.stream()
                 .map(aggregate -> aggregate.getChildElementList(EntityNode.class))
@@ -103,7 +107,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private List<ElementNode> getCmdList() {
+    private List<CommandNode> getCmdList() {
         List<AggregateNode> aggregationList = getAggregationList();
         return aggregationList.stream()
                 .map(aggregate -> aggregate.getChildElementList(CommandNode.class))

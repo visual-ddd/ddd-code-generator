@@ -37,9 +37,6 @@ public interface BusinessSceneRpcService {
     /** 删除业务场景 */
     ResultDTO<Boolean> businessSceneRemove(BusinessSceneRemoveDTO dto);
 
-    /** 新增业务场景版本 */
-    ResultDTO<Long> businessSceneVersionCreate(BusinessSceneVersionCreateDTO dto);
-
     /** 编辑业务场景版本 */
     ResultDTO<Boolean> businessSceneVersionModify(BusinessSceneVersionModifyDTO dto);
 

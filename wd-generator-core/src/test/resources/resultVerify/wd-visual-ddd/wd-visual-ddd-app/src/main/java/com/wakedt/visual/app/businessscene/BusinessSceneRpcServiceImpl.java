@@ -64,8 +64,6 @@ public class BusinessSceneRpcServiceImpl implements BusinessSceneRpcService {
     @Resource
     private BusinessSceneRemoveCmdHandler businessSceneRemoveCmdHandler;
     @Resource
-    private BusinessSceneVersionCreateCmdHandler businessSceneVersionCreateCmdHandler;
-    @Resource
     private BusinessSceneVersionModifyCmdHandler businessSceneVersionModifyCmdHandler;
     @Resource
     private BusinessSceneVersionRemoveCmdHandler businessSceneVersionRemoveCmdHandler;
@@ -105,12 +103,6 @@ public class BusinessSceneRpcServiceImpl implements BusinessSceneRpcService {
     public ResultDTO<Boolean> businessSceneRemove(BusinessSceneRemoveDTO dto) {
         businessSceneRemoveCmdHandler.handle(BusinessSceneRemoveDTO2BusinessSceneRemoveCmdConvert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);
-    }
-
-    @Override
-    public ResultDTO<Long> businessSceneVersionCreate(BusinessSceneVersionCreateDTO dto) {
-        Long id = businessSceneVersionCreateCmdHandler.handle(BusinessSceneVersionCreateDTO2BusinessSceneVersionCreateCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
     }
 
     @Override

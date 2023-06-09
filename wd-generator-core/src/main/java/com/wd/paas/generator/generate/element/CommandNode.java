@@ -5,10 +5,11 @@ import com.wd.paas.common.ReturnInfo;
 import com.wd.paas.common.RuleInfo;
 import com.wd.paas.common.SourceInfo;
 import com.wd.paas.common.enums.RepositoryTypeEnum;
-import com.wd.paas.generator.common.enums.CommandSourceTypeEnum;
+import com.wd.paas.common.enums.CommandSourceTypeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 

@@ -52,14 +52,26 @@ public enum GenerateElementTypeEnum {
             "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/{Domain}WebController.java.vm",
             // app
             "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{Domain}RpcServiceImpl.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/task/{Domain}Task.java.vm",
-            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
             // client
             "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{Domain}RpcService.java.vm",
             // infrastructure
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
             "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJsonConvertor.java.vm",
+    }),
+
+    /**
+     * 业务域定时任务
+     */
+    DOMAIN_CHART_TASK("DomainChartTask", new String[]{
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/task/{Domain}Task.java.vm",
+    }),
+
+    /**
+     * 业务域事件监听
+     */
+    DOMAIN_CHART_LISTENER("DomainChartListener", new String[]{
+            "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
     }),
 
     /**
