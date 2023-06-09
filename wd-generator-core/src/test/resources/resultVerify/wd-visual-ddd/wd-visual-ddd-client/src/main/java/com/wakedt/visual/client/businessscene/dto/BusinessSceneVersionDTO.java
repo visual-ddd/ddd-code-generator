@@ -20,35 +20,35 @@ import java.time.LocalDateTime;
 public class BusinessSceneVersionDTO extends BaseDTO {
 
     @NotNull(message = "业务场景版本ID不能为空！")
-    @ApiModelProperty(value = "业务场景版本ID")
+    @ApiModelProperty(value = "业务场景版本ID" , required = true)
     private Long id;
 
     @NotNull(message = "业务场景ID不能为空！")
-    @ApiModelProperty(value = "业务场景ID")
+    @ApiModelProperty(value = "业务场景ID" , required = true)
     private Long businessSceneId;
 
     @NotNull(message = "描述不能为空！")
-    @ApiModelProperty(value = "描述")
+    @ApiModelProperty(value = "描述" , required = true)
     private String description;
 
     @NotNull(message = "起始版本号不能为空！")
-    @ApiModelProperty(value = "起始版本号")
+    @ApiModelProperty(value = "起始版本号" , required = true)
     private String startVersion;
 
     @NotNull(message = "当前版本号不能为空！")
-    @ApiModelProperty(value = "当前版本号")
+    @ApiModelProperty(value = "当前版本号" , required = true)
     private String currentVersion;
 
     @NotNull(message = "业务场景DSL不能为空！")
-    @ApiModelProperty(value = "业务场景DSL")
+    @ApiModelProperty(value = "业务场景DSL" , required = true)
     private String businessSceneDsl;
 
     @NotNull(message = "图形DSL不能为空！")
-    @ApiModelProperty(value = "图形DSL")
+    @ApiModelProperty(value = "图形DSL" , required = true)
     private String graphDsl;
 
     @NotNull(message = "版本状态不能为空！")
-    @ApiModelProperty(value = "版本状态")
+    @ApiModelProperty(value = "版本状态" , required = true)
     private Integer versionState;
 
 }

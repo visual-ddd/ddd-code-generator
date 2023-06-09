@@ -16,11 +16,11 @@ import javax.validation.constraints.NotNull;
 public class BusinessSceneVersionBindDTO {
 
     @NotNull(message = "应用版本ID不能为空！")
-    @ApiModelProperty(value = "应用版本ID")
+    @ApiModelProperty(value = "应用版本ID" , required = true)
     private Long id;
 
     @NotNull(message = "关联业务场景列表不能为空！")
-    @ApiModelProperty(value = "关联业务场景列表")
+    @ApiModelProperty(value = "关联业务场景列表" , required = true)
     private Set<Long> businessSceneVersionIds;
 
 }

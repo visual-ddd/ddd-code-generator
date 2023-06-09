@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "组织详情查询对象")
 public class OrganizationQuery extends BaseQuery {
 
-    @ApiModelProperty(value = "组织 ID")
+    @ApiModelProperty(value = "组织 ID" )
     private Long id;
 
 }

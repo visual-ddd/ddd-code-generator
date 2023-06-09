@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class BusinessImportUniversallanguageFromExcel {
 
     @NotNull(message = "Excel文件不能为空！")
-    @ApiModelProperty(value = "Excel文件")
+    @ApiModelProperty(value = "Excel文件" , required = true)
     private String file;
 
 }

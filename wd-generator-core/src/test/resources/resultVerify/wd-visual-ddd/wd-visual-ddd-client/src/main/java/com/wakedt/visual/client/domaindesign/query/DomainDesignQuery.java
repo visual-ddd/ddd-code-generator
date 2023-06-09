@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class DomainDesignQuery extends BaseQuery {
 
     @NotNull(message = "业务域 ID不能为空！")
-    @ApiModelProperty(value = "业务域 ID")
+    @ApiModelProperty(value = "业务域 ID" , required = true)
     private Long id;
 
 }

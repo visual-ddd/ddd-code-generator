@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class ApplicationListQuery extends PageQuery {
 
     @NotNull(message = "应用的唯一标识列表不能为空！")
-    @ApiModelProperty(value = "应用的唯一标识列表")
+    @ApiModelProperty(value = "应用的唯一标识列表" , required = true)
     private List<Long> idList;
 
 }

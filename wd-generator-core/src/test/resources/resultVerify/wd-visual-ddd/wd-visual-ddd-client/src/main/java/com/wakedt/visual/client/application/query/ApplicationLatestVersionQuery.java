@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class ApplicationLatestVersionQuery extends BaseQuery {
 
     @NotNull(message = "应用ID不能为空！")
-    @ApiModelProperty(value = "应用ID")
+    @ApiModelProperty(value = "应用ID" , required = true)
     private Long id;
 
 }

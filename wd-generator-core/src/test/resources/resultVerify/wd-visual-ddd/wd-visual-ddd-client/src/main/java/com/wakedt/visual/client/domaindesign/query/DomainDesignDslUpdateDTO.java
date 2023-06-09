@@ -16,15 +16,15 @@ import javax.validation.constraints.NotNull;
 public class DomainDesignDslUpdateDTO {
 
     @NotNull(message = "业务域场景ID不能为空！")
-    @ApiModelProperty(value = "业务域场景ID")
+    @ApiModelProperty(value = "业务域场景ID" , required = true)
     private Long id;
 
     @NotNull(message = "业务域DSL不能为空！")
-    @ApiModelProperty(value = "业务域DSL")
+    @ApiModelProperty(value = "业务域DSL" , required = true)
     private String domainDesignDsl;
 
     @NotNull(message = "图形DSL不能为空！")
-    @ApiModelProperty(value = "图形DSL")
+    @ApiModelProperty(value = "图形DSL" , required = true)
     private String graphDsl;
 
 }

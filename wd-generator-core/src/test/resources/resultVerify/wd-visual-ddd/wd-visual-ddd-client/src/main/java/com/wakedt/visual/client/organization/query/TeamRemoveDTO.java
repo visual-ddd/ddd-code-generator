@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class TeamRemoveDTO {
 
     @NotNull(message = "团队 ID不能为空！")
-    @ApiModelProperty(value = "团队 ID")
+    @ApiModelProperty(value = "团队 ID" , required = true)
     private Long id;
 
 }

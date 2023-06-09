@@ -19,11 +19,11 @@ import javax.validation.constraints.NotNull;
 public class AccountOrganizationInfoDTO extends BaseDTO {
 
     @NotNull(message = "是否为组织管理员不能为空！")
-    @ApiModelProperty(value = "是否为组织管理员")
+    @ApiModelProperty(value = "是否为组织管理员" , required = true)
     private Boolean isOrganizationAdmin;
 
     @NotNull(message = "所属组织信息不能为空！")
-    @ApiModelProperty(value = "所属组织信息")
+    @ApiModelProperty(value = "所属组织信息" , required = true)
     private OrganizationDTO organizationDTO;
 
 }

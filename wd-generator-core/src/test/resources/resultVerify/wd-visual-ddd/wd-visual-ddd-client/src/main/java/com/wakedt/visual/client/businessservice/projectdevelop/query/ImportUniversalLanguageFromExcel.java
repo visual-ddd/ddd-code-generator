@@ -17,15 +17,15 @@ import javax.validation.constraints.NotNull;
 public class ImportUniversalLanguageFromExcel {
 
     @NotNull(message = "Excel文件不能为空！")
-    @ApiModelProperty(value = "Excel文件")
+    @ApiModelProperty(value = "Excel文件" , required = true)
     private String file;
 
     @NotNull(message = "统一语言类型不能为空！")
-    @ApiModelProperty(value = "统一语言类型")
+    @ApiModelProperty(value = "统一语言类型" , required = true)
     private Integer languageType;
 
     @NotNull(message = "所属唯一标识不能为空！")
-    @ApiModelProperty(value = "所属唯一标识")
+    @ApiModelProperty(value = "所属唯一标识" , required = true)
     private Long identity;
 
 }

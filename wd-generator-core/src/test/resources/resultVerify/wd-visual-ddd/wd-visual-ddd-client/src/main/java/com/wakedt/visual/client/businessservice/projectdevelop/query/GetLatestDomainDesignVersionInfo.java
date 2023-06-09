@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class GetLatestDomainDesignVersionInfo {
 
     @NotNull(message = "业务域的唯一标识不能为空！")
-    @ApiModelProperty(value = "业务域的唯一标识")
+    @ApiModelProperty(value = "业务域的唯一标识" , required = true)
     private Long id;
 
 }

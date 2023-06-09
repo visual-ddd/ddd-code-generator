@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class GetLatestBusinessSceneVersionInfo {
 
     @NotNull(message = "业务场景的唯一标识不能为空！")
-    @ApiModelProperty(value = "业务场景的唯一标识")
+    @ApiModelProperty(value = "业务场景的唯一标识" , required = true)
     private Long id;
 
 }

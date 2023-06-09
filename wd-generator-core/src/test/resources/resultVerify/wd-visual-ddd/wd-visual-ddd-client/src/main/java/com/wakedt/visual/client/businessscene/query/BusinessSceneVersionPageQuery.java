@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class BusinessSceneVersionPageQuery extends PageQuery {
 
     @NotNull(message = "业务场景ID不能为空！")
-    @ApiModelProperty(value = "业务场景ID")
+    @ApiModelProperty(value = "业务场景ID" , required = true)
     private String businessSceneId;
 
 }

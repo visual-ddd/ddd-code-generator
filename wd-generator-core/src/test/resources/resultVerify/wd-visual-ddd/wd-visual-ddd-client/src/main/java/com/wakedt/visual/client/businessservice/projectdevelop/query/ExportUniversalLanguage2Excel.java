@@ -17,19 +17,19 @@ import javax.validation.constraints.NotNull;
 public class ExportUniversalLanguage2Excel {
 
     @NotNull(message = "http标准响应体不能为空！")
-    @ApiModelProperty(value = "http标准响应体")
+    @ApiModelProperty(value = "http标准响应体" , required = true)
     private String response;
 
     @NotNull(message = "概念不能为空！")
-    @ApiModelProperty(value = "概念")
+    @ApiModelProperty(value = "概念" , required = true)
     private String conception;
 
     @NotNull(message = "统一语言类型不能为空！")
-    @ApiModelProperty(value = "统一语言类型")
+    @ApiModelProperty(value = "统一语言类型" , required = true)
     private Integer languageType;
 
     @NotNull(message = "所属唯一标识不能为空！")
-    @ApiModelProperty(value = "所属唯一标识")
+    @ApiModelProperty(value = "所属唯一标识" , required = true)
     private Long identity;
 
 }

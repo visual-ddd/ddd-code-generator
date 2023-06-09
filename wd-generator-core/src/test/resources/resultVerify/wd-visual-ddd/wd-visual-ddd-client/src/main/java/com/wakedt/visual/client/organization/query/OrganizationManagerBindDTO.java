@@ -16,11 +16,11 @@ import javax.validation.constraints.NotNull;
 public class OrganizationManagerBindDTO {
 
     @NotNull(message = "组织 ID不能为空！")
-    @ApiModelProperty(value = "组织 ID")
+    @ApiModelProperty(value = "组织 ID" , required = true)
     private Long id;
 
     @NotNull(message = "组织管理员不能为空！")
-    @ApiModelProperty(value = "组织管理员")
+    @ApiModelProperty(value = "组织管理员" , required = true)
     private Long organizationManagerId;
 
 }

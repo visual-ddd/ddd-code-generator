@@ -90,5 +90,5 @@ import ${importPackage};
 #if(!${field.optional})
     @NotNull(message = "${field.title}不能为空！")
 #end
-    @ApiModelProperty(value = "${field.title}")
+    @ApiModelProperty(value = "${field.title}" #if(!${field.optional}), required = true#end)
 #end

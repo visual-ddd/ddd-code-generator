@@ -16,19 +16,19 @@ import javax.validation.constraints.NotNull;
 public class ApplicationVersionCreateDTO {
 
     @NotNull(message = "应用ID不能为空！")
-    @ApiModelProperty(value = "应用ID")
+    @ApiModelProperty(value = "应用ID" , required = true)
     private Long applicationId;
 
     @NotNull(message = "起始版本号不能为空！")
-    @ApiModelProperty(value = "起始版本号")
+    @ApiModelProperty(value = "起始版本号" , required = true)
     private String startVersion;
 
     @NotNull(message = "当前版本号不能为空！")
-    @ApiModelProperty(value = "当前版本号")
+    @ApiModelProperty(value = "当前版本号" , required = true)
     private String currentVersion;
 
     @NotNull(message = "描述不能为空！")
-    @ApiModelProperty(value = "描述")
+    @ApiModelProperty(value = "描述" , required = true)
     private String description;
 
 }

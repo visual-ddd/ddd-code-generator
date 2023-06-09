@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class ApplicationRemoveDTO {
 
     @NotNull(message = "应用 ID不能为空！")
-    @ApiModelProperty(value = "应用 ID")
+    @ApiModelProperty(value = "应用 ID" , required = true)
     private Long id;
 
 }

@@ -19,23 +19,23 @@ import javax.validation.constraints.NotNull;
 public class UniversalLanguageExcelDTO extends BaseDTO {
 
     @NotNull(message = "概念不能为空！")
-    @ApiModelProperty(value = "概念")
+    @ApiModelProperty(value = "概念" , required = true)
     private String conception;
 
     @NotNull(message = "定义不能为空！")
-    @ApiModelProperty(value = "定义")
+    @ApiModelProperty(value = "定义" , required = true)
     private String definition;
 
     @NotNull(message = "英文名不能为空！")
-    @ApiModelProperty(value = "英文名")
+    @ApiModelProperty(value = "英文名" , required = true)
     private String englishName;
 
     @NotNull(message = "约束不能为空！")
-    @ApiModelProperty(value = "约束")
+    @ApiModelProperty(value = "约束" , required = true)
     private String restraint;
 
     @NotNull(message = "举例不能为空！")
-    @ApiModelProperty(value = "举例")
+    @ApiModelProperty(value = "举例" , required = true)
     private String example;
 
 }

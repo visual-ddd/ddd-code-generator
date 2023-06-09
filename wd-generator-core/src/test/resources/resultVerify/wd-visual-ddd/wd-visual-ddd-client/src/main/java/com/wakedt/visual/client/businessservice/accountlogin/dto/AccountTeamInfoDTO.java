@@ -19,11 +19,11 @@ import javax.validation.constraints.NotNull;
 public class AccountTeamInfoDTO extends BaseDTO {
 
     @NotNull(message = "是否为团队管理员不能为空！")
-    @ApiModelProperty(value = "是否为团队管理员")
+    @ApiModelProperty(value = "是否为团队管理员" , required = true)
     private Boolean isTeamAdmin;
 
     @NotNull(message = "所属团队信息不能为空！")
-    @ApiModelProperty(value = "所属团队信息")
+    @ApiModelProperty(value = "所属团队信息" , required = true)
     private TeamDTO teamDTO;
 
 }

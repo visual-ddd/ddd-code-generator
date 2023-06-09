@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class OrganizationPageQuery extends PageQuery {
 
     @NotNull(message = "组织名称不能为空！")
-    @ApiModelProperty(value = "组织名称")
+    @ApiModelProperty(value = "组织名称" , required = true)
     private String name;
 
 }

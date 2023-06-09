@@ -16,19 +16,19 @@ import javax.validation.constraints.NotNull;
 public class DomainDesignVersionCreateDTO {
 
     @NotNull(message = "业务域ID不能为空！")
-    @ApiModelProperty(value = "业务域ID")
+    @ApiModelProperty(value = "业务域ID" , required = true)
     private Long domainDesignId;
 
     @NotNull(message = "起始版本号不能为空！")
-    @ApiModelProperty(value = "起始版本号")
+    @ApiModelProperty(value = "起始版本号" , required = true)
     private String startVersion;
 
     @NotNull(message = "当前版本号不能为空！")
-    @ApiModelProperty(value = "当前版本号")
+    @ApiModelProperty(value = "当前版本号" , required = true)
     private String currentVersion;
 
     @NotNull(message = "描述不能为空！")
-    @ApiModelProperty(value = "描述")
+    @ApiModelProperty(value = "描述" , required = true)
     private String description;
 
 }

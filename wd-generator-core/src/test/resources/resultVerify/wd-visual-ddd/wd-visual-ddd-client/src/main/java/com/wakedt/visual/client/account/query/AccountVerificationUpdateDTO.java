@@ -16,11 +16,11 @@ import javax.validation.constraints.NotNull;
 public class AccountVerificationUpdateDTO {
 
     @NotNull(message = "主键不能为空！")
-    @ApiModelProperty(value = "主键")
+    @ApiModelProperty(value = "主键" , required = true)
     private Long id;
 
     @NotNull(message = "验证码不能为空！")
-    @ApiModelProperty(value = "验证码")
+    @ApiModelProperty(value = "验证码" , required = true)
     private String code;
 
 }

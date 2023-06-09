@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class AccountVerificationDetailQuery extends BaseQuery {
 
     @NotNull(message = "账号标识不能为空！")
-    @ApiModelProperty(value = "账号标识")
+    @ApiModelProperty(value = "账号标识" , required = true)
     private String accountNo;
 
 }

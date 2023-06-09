@@ -17,11 +17,11 @@ import javax.validation.constraints.NotNull;
 public class AccountVerificationCreate {
 
     @NotNull(message = "账号唯一标识（邮箱）不能为空！")
-    @ApiModelProperty(value = "账号唯一标识（邮箱）")
+    @ApiModelProperty(value = "账号唯一标识（邮箱）" , required = true)
     private String accountNo;
 
     @NotNull(message = "验证码不能为空！")
-    @ApiModelProperty(value = "验证码")
+    @ApiModelProperty(value = "验证码" , required = true)
     private String code;
 
 }

@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class DomainDesignListQuery extends PageQuery {
 
     @NotNull(message = "业务域的唯一标识列表不能为空！")
-    @ApiModelProperty(value = "业务域的唯一标识列表")
+    @ApiModelProperty(value = "业务域的唯一标识列表" , required = true)
     private List<Long> idList;
 
 }

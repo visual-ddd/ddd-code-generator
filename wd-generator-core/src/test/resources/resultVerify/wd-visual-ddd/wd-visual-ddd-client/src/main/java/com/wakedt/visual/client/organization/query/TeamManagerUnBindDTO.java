@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class TeamManagerUnBindDTO {
 
     @NotNull(message = "主键不能为空！")
-    @ApiModelProperty(value = "主键")
+    @ApiModelProperty(value = "主键" , required = true)
     private Long id;
 
 }

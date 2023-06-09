@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class BusinessSceneRemoveDTO {
 
     @NotNull(message = "业务场景 ID不能为空！")
-    @ApiModelProperty(value = "业务场景 ID")
+    @ApiModelProperty(value = "业务场景 ID" , required = true)
     private Long id;
 
 }

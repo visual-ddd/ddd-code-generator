@@ -20,31 +20,31 @@ import java.time.LocalDateTime;
 public class AccountDTO extends BaseDTO {
 
     @NotNull(message = "用户 ID不能为空！")
-    @ApiModelProperty(value = "用户 ID")
+    @ApiModelProperty(value = "用户 ID" , required = true)
     private Long id;
 
     @NotNull(message = "账号不能为空！")
-    @ApiModelProperty(value = "账号")
+    @ApiModelProperty(value = "账号" , required = true)
     private String accountNo;
 
     @NotNull(message = "用户名不能为空！")
-    @ApiModelProperty(value = "用户名")
+    @ApiModelProperty(value = "用户名" , required = true)
     private String userName;
 
     @NotNull(message = "密码不能为空！")
-    @ApiModelProperty(value = "密码")
+    @ApiModelProperty(value = "密码" , required = true)
     private String password;
 
     @NotNull(message = "用户头像不能为空！")
-    @ApiModelProperty(value = "用户头像")
+    @ApiModelProperty(value = "用户头像" , required = true)
     private String icon;
 
     @NotNull(message = "描述不能为空！")
-    @ApiModelProperty(value = "描述")
+    @ApiModelProperty(value = "描述" , required = true)
     private String description;
 
     @NotNull(message = "重置密码唯一标识不能为空！")
-    @ApiModelProperty(value = "重置密码唯一标识")
+    @ApiModelProperty(value = "重置密码唯一标识" , required = true)
     private String uuid;
 
 }

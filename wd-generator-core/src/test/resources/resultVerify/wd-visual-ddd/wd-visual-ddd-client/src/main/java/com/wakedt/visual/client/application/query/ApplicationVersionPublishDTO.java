@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class ApplicationVersionPublishDTO {
 
     @NotNull(message = "应用版本ID不能为空！")
-    @ApiModelProperty(value = "应用版本ID")
+    @ApiModelProperty(value = "应用版本ID" , required = true)
     private Long id;
 
 }

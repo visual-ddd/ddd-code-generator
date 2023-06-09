@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class OrganizationManagerUnbindDTO {
 
     @NotNull(message = "组织 ID不能为空！")
-    @ApiModelProperty(value = "组织 ID")
+    @ApiModelProperty(value = "组织 ID" , required = true)
     private Long id;
 
 }

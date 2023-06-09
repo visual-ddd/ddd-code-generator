@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class AccountDetailQuery extends BaseQuery {
 
     @NotNull(message = "用户 ID不能为空！")
-    @ApiModelProperty(value = "用户 ID")
+    @ApiModelProperty(value = "用户 ID" , required = true)
     private Long id;
 
 }
