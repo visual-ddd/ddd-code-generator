@@ -1,17 +1,25 @@
 #parse("templates/ClassFunction.vm")
 package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${EXTERNAL_EVENT_CLASS_NAME}")};
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import lombok.NoArgsConstructor;
+import com.wakedata.common.domainevent.model.BaseDomainEvent;
+import lombok.EqualsAndHashCode;
 
 #comment("外部事件")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class ${EXTERNAL_EVENT_CLASS_NAME} {
+@EqualsAndHashCode(callSuper = true)
+public class ${EXTERNAL_EVENT_CLASS_NAME} extends BaseDomainEvent {
 
+    public ${EXTERNAL_EVENT_CLASS_NAME}() {
+        // TODO 添加外部事件属性字段
+
+    }
+
+    @Override
+    public String eventCode() {
+        return "${}";
+    }
 }
