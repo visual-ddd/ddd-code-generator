@@ -16,7 +16,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <wd-common-core.version>1.2.2-DDD11</wd-common-core.version>
+    <wd-common-core.version>1.2.3-DDD37</wd-common-core.version>
   </properties>
 
   <dependencyManagement>
@@ -58,6 +58,11 @@
       <dependency>
         <groupId>com.wakedata.common</groupId>
         <artifactId>wd-common-core</artifactId>
+        <version>${wd-common-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.wakedata.common</groupId>
+        <artifactId>wd-common-userinfo</artifactId>
         <version>${wd-common-core.version}</version>
       </dependency>
       <dependency>

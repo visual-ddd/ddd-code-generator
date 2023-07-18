@@ -1,16 +1,19 @@
 spring:
   application:
     name: wd_visual_ddd
+  redis:
+    host: ${redis.host}
+    password: ${redis.password}
+    port: ${redis.port}
   cloud:
     nacos:
-      server-addr: ${NACOS_CONFIG_SERVER:172.26.63.113:25889}
-      username: nacos
-      password: TkqwzJaAVP5nOvF2
+      server-addr: ${NACOS_CONFIG_SERVER:wdcloud-dev-nacos.wakedata-inc.com:80}
+      username: wdcloud-test
+      password: wdcloud-test
       discovery:
-        namespace: ${NACOS_CONFIG_NAMESPACE:bizpf-dev}
+        namespace: ${NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}
       config:
-        namespace: ${NACOS_CONFIG_NAMESPACE:bizpf-dev}
-        group: DEFAULT_GROUP
+        namespace: ${NACOS_CONFIG_NAMESPACE:wdcloud-base-dev}
         file-extension: yml
         shared-configs:
           - data-id: common.yml
@@ -26,8 +29,10 @@ spring:
           - data-id: common-storage-aws.yml
           - data-id: common-storage-aliyun.yml
           - data-id: common-storage-huawei.yml
-          - data-id: xxl-job.yml
+          - data-id: common-weixin.yml
+          - data-id: common-sms-tencent.yml
           - data-id: common-seata.yml
+          - data-id: xxl-job.yml
           - data-id: wd-event-source.yml
           # - data-id: wd_mtool_mq.yml
 

@@ -24,6 +24,14 @@
             <artifactId>${PROJECT_NAME}-client</artifactId>
         </dependency>
         <!--Project modules End -->
+
+        <!-- wd-common dependency start -->
+        <dependency>
+            <groupId>com.wakedata.common</groupId>
+            <artifactId>wd-common-mybatis</artifactId>
+        </dependency>
+        <!-- wd-common dependency end -->
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -41,11 +49,7 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.wakedata.common</groupId>
-            <artifactId>wd-common-mybatis</artifactId>
-        </dependency>
-        <!--jpa依赖 自动建表-->
+        <!-- JPA 自动建表-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>

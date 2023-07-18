@@ -1,19 +1,22 @@
-#set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.113:25889}")
-#set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
-#set($configNamespace = "{NACOS_CONFIG_NAMESPACE:bizpf-dev}")
+#set($serverAddr = "{NACOS_CONFIG_SERVER:wdcloud-dev-nacos.wakedata-inc.com:80}")
+#set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
+#set($configNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-dev}")
 spring:
   application:
     name: ${CASE_FORMAT_LOWER_UNDERSCORE.convert(${PROJECT_NAME}).replace("-", "_")}
+  redis:
+    host: ${redis.host}
+    password: ${redis.password}
+    port: ${redis.port}
   cloud:
     nacos:
       server-addr: $$serverAddr
-      username: nacos
-      password: TkqwzJaAVP5nOvF2
+      username: wdcloud-test
+      password: wdcloud-test
       discovery:
         namespace: $$discoveryNamespace
       config:
         namespace: $$configNamespace
-        group: DEFAULT_GROUP
         file-extension: yml
         shared-configs:
           - data-id: common.yml
@@ -29,8 +32,10 @@ spring:
           - data-id: common-storage-aws.yml
           - data-id: common-storage-aliyun.yml
           - data-id: common-storage-huawei.yml
-          - data-id: xxl-job.yml
+          - data-id: common-weixin.yml
+          - data-id: common-sms-tencent.yml
           - data-id: common-seata.yml
+          - data-id: xxl-job.yml
           - data-id: wd-event-source.yml
           # - data-id: wd_mtool_mq.yml
 
