@@ -1,13 +1,9 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
-import com.wd.paas.generator.common.util.PluginResourceLoader;
 import lombok.Data;
-import org.apache.velocity.app.Velocity;
-import org.apache.velocity.runtime.RuntimeConstants;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -22,8 +18,6 @@ public class TemplateContext {
     private String preFixOutPath;
     private ZipOutputStream zipOutputStream;
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
-
-    private PluginResourceLoader pluginResourceLoader = new PluginResourceLoader(TemplateContext.class.getClassLoader());
 
     public TemplateContext() {
         initTemplateContext();
@@ -44,14 +38,14 @@ public class TemplateContext {
      */
     protected void initTemplateContext() {
         // 设置velocity资源加载器
-        Properties properties = new Properties();
-
-        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
-        properties.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
-
-        // 定义字符集
-        properties.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
-        Velocity.setProperty("plugin.resource.loader.instance", pluginResourceLoader);
-        Velocity.init(properties);
+//        Properties properties = new Properties();
+//
+//        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
+//        properties.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
+//
+//        // 定义字符集
+//        properties.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
+//        Velocity.setProperty("plugin.resource.loader.instance", pluginResourceLoader);
+//        Velocity.init(properties);
     }
 }

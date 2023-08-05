@@ -1,4 +1,4 @@
-#parse("templates/ClassFunction.vm")
+#parse("templates/Domain.vm")
 package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Listener")};
 
 import com.wakedata.common.domainevent.annotation.DomainEventSubscribe;

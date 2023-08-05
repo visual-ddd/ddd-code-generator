@@ -1,4 +1,4 @@
-#parse("templates/ClassFunction.vm")
+#parse("templates/Aggregation.vm")
 package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_DTO_CLASS}2${CMD_CLASS_NAME}Convert")};
 
 import ${PROJECT_PACKAGE}.infrastructure.BaseConvert;

@@ -1,6 +1,7 @@
 package com.wd.paas.generator.common.util;
 
 import org.apache.commons.collections.ExtendedProperties;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.resource.Resource;
 import org.apache.velocity.runtime.resource.loader.ResourceLoader;
@@ -16,33 +17,41 @@ public class PluginResourceLoader extends ResourceLoader {
     }
 
     /**
-     * 得到一个资源输入流
+     * Get a resource input stream
+     *
+     * @param resourceName the name of the resource
+     * @return Optional of InputStream of the resource if found
+     * @throws ResourceNotFoundException if the resource is not found
      */
     @Override
-    public InputStream getResourceStream(String name) throws ResourceNotFoundException {
-        if (name == null || name.length() == 0) {
+    public InputStream getResourceStream(String resourceName) throws ResourceNotFoundException {
+        if (StringUtils.isEmpty(resourceName)) {
+            log.error("Template name is not specified");
             throw new ResourceNotFoundException("Need to specify a template name!");
         }
-        return classLoader.getResourceAsStream(name);
+        return classLoader.getResourceAsStream(resourceName);
     }
 
     @Override
-    public long getLastModified(Resource arg0) {
+    public long getLastModified(Resource resource) {
         return 0;
     }
 
     @Override
-    public void init(ExtendedProperties arg0) {
+    public void init(ExtendedProperties properties) {
         if (log.isTraceEnabled()) {
             log.trace("TestResourceLoader : initialization complete.");
         }
     }
 
     /**
-     * 检查资源是否被修改
+     * Checks if a resource has been modified
+     *
+     * @param resource the resource to check
+     * @return false as resources cannot be modified in this implementation
      */
     @Override
-    public boolean isSourceModified(Resource arg0) {
+    public boolean isSourceModified(Resource resource) {
         return false;
     }
 

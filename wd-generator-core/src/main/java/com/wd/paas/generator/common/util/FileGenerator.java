@@ -1,12 +1,14 @@
 package com.wd.paas.generator.common.util;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections.ExtendedProperties;
 import org.apache.commons.io.IOUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.Velocity;
+import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
+import org.apache.velocity.runtime.RuntimeConstants;
 
 import java.io.File;
 import java.io.IOException;
@@ -92,9 +94,18 @@ public class FileGenerator {
 
     private static Template getTemplate(String templateUrl) {
         Template tpl = new Template();
+        VelocityEngine velocityEngine = new VelocityEngine();
+        ExtendedProperties properties = new ExtendedProperties();
+        properties.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
+        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
+        properties.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
+        properties.setProperty("plugin.resource.loader.instance", new PluginResourceLoader(FileGenerator.class.getClassLoader()));
+        velocityEngine.setExtendedProperties(properties);
+        velocityEngine.init();
+
         try {
             // 获取模板(初始化templatePreUrl + templateUrl)
-            tpl = Velocity.getTemplate("templates/" + templateUrl, "UTF-8");
+            tpl = velocityEngine.getTemplate("templates/" + templateUrl, "UTF-8");
         } catch (ResourceNotFoundException e) {
             log.error("模版文件资源找不到！");
         } catch (ParseErrorException e) {
