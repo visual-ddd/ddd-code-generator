@@ -1,7 +1,6 @@
 package com.wd.paas.generator.common.util;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.ExtendedProperties;
 import org.apache.commons.io.IOUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -95,12 +94,10 @@ public class FileGenerator {
     private static Template getTemplate(String templateUrl) {
         Template tpl = new Template();
         VelocityEngine velocityEngine = new VelocityEngine();
-        ExtendedProperties properties = new ExtendedProperties();
-        properties.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
-        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
-        properties.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
-        properties.setProperty("plugin.resource.loader.instance", new PluginResourceLoader(FileGenerator.class.getClassLoader()));
-        velocityEngine.setExtendedProperties(properties);
+        velocityEngine.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
+        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
+        velocityEngine.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
+        velocityEngine.setProperty("plugin.resource.loader.instance", new PluginResourceLoader(FileGenerator.class.getClassLoader()));
         velocityEngine.init();
 
         try {
