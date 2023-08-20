@@ -1,0 +1,36 @@
+package com.wakedt.visual.domain.businessscene.businesssceneversion.dslupdate;
+
+import com.wakedata.common.domainevent.model.BaseDomainEvent;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * 更新业务场景DSL-指令事件
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class BusinessSceneVersionDSLUpdateEvent extends BaseDomainEvent {
+    
+    /** 业务场景版本ID */
+    private Long id;
+
+    /** 图形DSL */
+    private String graphDsl;
+
+    /** 业务场景DSL */
+    private String businessSceneDsl;
+    
+    public BusinessSceneVersionDSLUpdateEvent() {}
+
+    public BusinessSceneVersionDSLUpdateEvent(BusinessSceneVersionDSLUpdateCmd cmd
+    ) {
+        this.id = cmd.getId();
+        this.graphDsl = cmd.getGraphDsl();
+        this.businessSceneDsl = cmd.getBusinessSceneDsl();
+    }
+
+    @Override
+    public String eventCode() {
+        return "${event.com.wakedt.visual.domain.businessscene.businesssceneversion.dslupdate}";
+    }
+}
