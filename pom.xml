@@ -12,7 +12,7 @@
 
     <groupId>com.wd.paas</groupId>
     <artifactId>wd-code-generator</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-single-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -25,6 +25,17 @@
         <module>wd-generator-dsl</module>
         <module>wd-generator-core</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--  DSL协议  -->
+            <dependency>
+                <groupId>com.wd.paas</groupId>
+                <artifactId>wd-generator-dsl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>

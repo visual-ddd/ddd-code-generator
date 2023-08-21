@@ -1,11 +1,9 @@
 package com.wakedt.visual.organization.app.cmd.teammemberadd;
 
-import com.wakedt.visual.organization.domain.teammember.TeamMember;
-import com.wakedt.visual.organization.domain.teammember.TeamMemberFactory;
-import com.wakedt.visual.organization.domain.teammember.TeamMemberRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.organization.domain.teammember.*;
 
 /**
  * 添加团队成员-指令处理器

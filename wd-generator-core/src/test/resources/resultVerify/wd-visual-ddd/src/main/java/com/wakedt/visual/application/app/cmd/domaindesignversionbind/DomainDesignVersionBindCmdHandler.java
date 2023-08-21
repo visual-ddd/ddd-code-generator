@@ -1,10 +1,9 @@
 package com.wakedt.visual.application.app.cmd.domaindesignversionbind;
 
-import com.wakedt.visual.application.domain.applicationversion.ApplicationVersion;
-import com.wakedt.visual.application.domain.applicationversion.ApplicationVersionRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.application.domain.applicationversion.*;
 
 /**
  * 关联业务域版本-指令处理器

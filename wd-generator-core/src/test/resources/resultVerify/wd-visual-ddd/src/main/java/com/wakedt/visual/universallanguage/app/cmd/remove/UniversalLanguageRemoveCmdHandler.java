@@ -1,10 +1,9 @@
 package com.wakedt.visual.universallanguage.app.cmd.remove;
 
-import com.wakedt.visual.universallanguage.domain.universallanguage.UniversalLanguage;
-import com.wakedt.visual.universallanguage.domain.universallanguage.UniversalLanguageRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.universallanguage.domain.universallanguage.*;
 
 /**
  * 删除统一语言-指令处理器

@@ -6,11 +6,10 @@
     <parent>
         <groupId>com.wd.paas</groupId>
         <artifactId>wd-code-generator</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0-single-SNAPSHOT</version>
     </parent>
 
     <artifactId>wd-generator-core</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -31,7 +30,6 @@
         <dependency>
             <groupId>com.wd.paas</groupId>
             <artifactId>wd-generator-dsl</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>

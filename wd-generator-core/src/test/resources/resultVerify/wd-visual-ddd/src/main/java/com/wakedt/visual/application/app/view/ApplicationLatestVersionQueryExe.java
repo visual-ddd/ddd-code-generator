@@ -1,13 +1,13 @@
 package com.wakedt.visual.application.app.view;
 
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.application.app.assembler.ApplicationVersionDTO2ApplicationVersionDOConvert;
-import com.wakedt.visual.application.client.dto.ApplicationVersionDTO;
-import com.wakedt.visual.application.client.query.ApplicationLatestVersionQuery;
-import com.wakedt.visual.application.infrastructure.repository.mapper.ApplicationVersionMapper;
-import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import org.springframework.stereotype.Component;
+import com.wakedt.visual.application.client.query.ApplicationLatestVersionQuery;
+import com.wakedt.visual.application.infrastructure.repository.model.ApplicationVersionDO;
+import com.wakedt.visual.application.infrastructure.repository.mapper.ApplicationVersionMapper;
+import com.wakedt.visual.application.client.dto.ApplicationVersionDTO;
+import com.wakedt.visual.application.app.assembler.ApplicationVersionDTO2ApplicationVersionDOConvert;
 
 /**
  * 应用最新版本查询对象-查询器
