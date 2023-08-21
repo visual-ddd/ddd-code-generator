@@ -1,6 +1,7 @@
 #parse("templates/Aggregation.vm")
 package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get(${AGGREGATION_CLASS_NAME})};
 
+import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -10,9 +11,14 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};
 #end
 #end
 
-#comment("${AGGREGATION_CLASS_TITLE}-聚合根能力")
-public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME} {
-#overrideMethod($AGGREGATION_CLASS_METHODS)
+#comment("${AGGREGATION_CLASS_TITLE}-聚合根")
+@Data
+public class ${AGGREGATION_CLASS_NAME} {
+
+#printFieldDesc(${AGGREGATION_CLASS_ID})
+    private ${PARSE_TYPE_UTIL.parse(${AGGREGATION_CLASS_ID.getType()})} ${AGGREGATION_CLASS_ID.name};
+#filed(${AGGREGATION_CLASS_FIELDS})
+#method($AGGREGATION_CLASS_METHODS)
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "MODIFY")
 
@@ -42,4 +48,5 @@ public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME}
     }
 #end
 #end
+
 }

@@ -3,11 +3,27 @@ package com.wakedt.visual.organization.domain.teammember;
 import com.wakedt.visual.organization.app.cmd.teammanagerroleunbind.TeamMemberRoleUnBindCmd;
 import com.wakedt.visual.organization.app.cmd.teammemberremove.TeamMemberRemoveCmd;
 import com.wakedt.visual.organization.app.cmd.teammemberrolebind.TeamMemberRoleBindCmd;
+import lombok.Data;
+
+import java.util.List;
 
 /**
- * 团队成员-聚合根能力
+ * 团队成员-聚合根
  */
-public class TeamMember extends AbstractTeamMember {
+@Data
+public class TeamMember {
+
+    /** 团队成员ID */
+    private Long id;
+
+    /** 团队ID */
+    private Long teamId;
+
+    /** 成员账号ID */
+    private Long accountId;
+
+    /** 成员类型标签 */
+    private List<MemberType> memberTypeList;
 
     public void teamMemberRemove(TeamMemberRemoveCmd removeCmd) {
         this.setId(removeCmd.getId());
@@ -22,4 +38,5 @@ public class TeamMember extends AbstractTeamMember {
         this.setId(updateCmd.getId());
         this.setMemberTypeList(updateCmd.getMemberTypeList());
     }
+
 }

@@ -5,20 +5,43 @@ import com.wakedt.visual.account.app.cmd.accountpasswordreset.AccountPasswordRes
 import com.wakedt.visual.account.app.cmd.accountpasswordresetsendemail.AccountEmailSendCmd;
 import com.wakedt.visual.account.app.cmd.accountpasswordupdate.AccountPasswordUpdateCmd;
 import com.wakedt.visual.account.app.cmd.accountremove.AccountDeleteCmd;
+import lombok.Data;
 
 /**
- * 账号-聚合根能力
+ * 账号-聚合根
  */
-public class Account extends AbstractAccount {
+@Data
+public class Account {
 
-    @Override
-    public void checkLoginPass(String password) {
-        /* TODO 验证密码是否正确() */
+    /** 用户 ID */
+    private Long id;
+
+    /** 账号 */
+    private String accountNo;
+
+    /** 用户名 */
+    private String userName;
+
+    /** 密码 */
+    private String password;
+
+    /** 用户头像 */
+    private String icon;
+
+    /** 描述 */
+    private String description;
+
+    /** 重置密码唯一标识 */
+    private String uuid;
+
+    /** 验证密码是否正确 */
+    public void checkLoginPass(){
+        // TODO 验证密码是否正确()
     }
 
-    @Override
-    public void checkUuidPass(String uuid) {
-        /* TODO 验证重置密码唯一标识是否正确() */
+    /** 验证重置密码唯一标识是否正确 */
+    public void checkUuidPass(){
+        // TODO 验证重置密码唯一标识是否正确()
     }
 
     public void accountModify(AccountModifyCmd updateCmd) {
@@ -49,4 +72,5 @@ public class Account extends AbstractAccount {
         /* TODO 指令字段不匹配 updateCmd.getOldPassword(); */
         /* TODO 指令字段不匹配 updateCmd.getNewPassword(); */
     }
+
 }

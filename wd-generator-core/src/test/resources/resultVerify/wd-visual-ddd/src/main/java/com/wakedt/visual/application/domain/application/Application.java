@@ -2,11 +2,31 @@ package com.wakedt.visual.application.domain.application;
 
 import com.wakedt.visual.application.app.cmd.applicationmodify.ApplicationModifyCmd;
 import com.wakedt.visual.application.app.cmd.applicationremove.ApplicationRemoveCmd;
+import lombok.Data;
 
 /**
- * 应用-聚合根能力
+ * 应用-聚合根
  */
-public class Application extends AbstractApplication {
+@Data
+public class Application {
+
+    /** 应用 ID */
+    private Long id;
+
+    /** 团队ID */
+    private Long teamId;
+
+    /** 名称 */
+    private String name;
+
+    /** 标识符 */
+    private String identity;
+
+    /** 包名 */
+    private String packageName;
+
+    /** 描述 */
+    private String description;
 
     public void applicationModify(ApplicationModifyCmd updateCmd) {
         this.setId(updateCmd.getId());
@@ -18,4 +38,5 @@ public class Application extends AbstractApplication {
     public void applicationRemove(ApplicationRemoveCmd removeCmd) {
         this.setId(removeCmd.getId());
     }
+
 }

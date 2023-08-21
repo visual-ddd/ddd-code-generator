@@ -2,11 +2,28 @@ package com.wakedt.visual.domaindesign.domain.domaindesign;
 
 import com.wakedt.visual.domaindesign.app.cmd.domaindesignmodify.DomainDesignModifyCmd;
 import com.wakedt.visual.domaindesign.app.cmd.domaindesignremove.DomainDesignRemoveCmd;
+import lombok.Data;
 
 /**
- * 业务域-聚合根能力
+ * 业务域-聚合根
  */
-public class DomainDesign extends AbstractDomainDesign {
+@Data
+public class DomainDesign {
+
+    /** 业务域 ID */
+    private Long id;
+
+    /** 名称 */
+    private String name;
+
+    /** 团队ID */
+    private Long teamId;
+
+    /** 标识符 */
+    private String identity;
+
+    /** 描述 */
+    private String description;
 
     public void domainDesignModify(DomainDesignModifyCmd updateCmd) {
         this.setId(updateCmd.getId());
@@ -17,4 +34,5 @@ public class DomainDesign extends AbstractDomainDesign {
     public void domainDesignRemove(DomainDesignRemoveCmd removeCmd) {
         this.setId(removeCmd.getId());
     }
+
 }

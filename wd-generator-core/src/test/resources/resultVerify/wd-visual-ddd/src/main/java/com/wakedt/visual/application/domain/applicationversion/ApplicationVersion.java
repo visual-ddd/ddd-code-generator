@@ -5,25 +5,53 @@ import com.wakedt.visual.application.app.cmd.applicationversionpublish.Applicati
 import com.wakedt.visual.application.app.cmd.applicationversionremove.ApplicationVersionRemoveCmd;
 import com.wakedt.visual.application.app.cmd.businesssceneversionbind.BusinessSceneVersionBindCmd;
 import com.wakedt.visual.application.app.cmd.domaindesignversionbind.DomainDesignVersionBindCmd;
+import lombok.Data;
+
+import java.util.Set;
 
 /**
- * 应用版本-聚合根能力
+ * 应用版本-聚合根
  */
-public class ApplicationVersion extends AbstractApplicationVersion {
+@Data
+public class ApplicationVersion {
 
-    @Override
-    public void checkVersionPublishedException() {
-        /* TODO 发布锁定(当前版本发布后不能再进行任何操作) */
+    /** 应用版本ID */
+    private Long id;
+
+    /** 应用ID */
+    private Long applicationId;
+
+    /** 起始版本号 */
+    private String startVersion;
+
+    /** 当前版本号 */
+    private String currentVersion;
+
+    /** 描述 */
+    private String description;
+
+    /** 关联业务域列表 */
+    private Set<Long> domainDesignVersionIds;
+
+    /** 关联业务场景列表 */
+    private Set<Long> businessSceneVersionIds;
+
+    /** 版本状态 */
+    private VersionState versionState;
+
+    /** 发布锁定 */
+    public void checkVersionPublishedException(){
+        // TODO 发布锁定(当前版本发布后不能再进行任何操作)
     }
 
-    @Override
-    public void checkVersionUnPublishedException() {
-        /* TODO 未发布异常(当未发布时，抛出异常) */
+    /** 未发布异常 */
+    public void checkVersionUnPublishedException(){
+        // TODO 未发布异常(当未发布时，抛出异常)
     }
 
-    @Override
-    public void checkLegalVersion() {
-        /* TODO 版本号合法(校验版本号命名是否符合标准) */
+    /** 版本号合法 */
+    public void checkLegalVersion(){
+        // TODO 版本号合法(校验版本号命名是否符合标准)
     }
 
     public void applicationVersionModify(ApplicationVersionModifyCmd updateCmd) {
@@ -48,4 +76,5 @@ public class ApplicationVersion extends AbstractApplicationVersion {
     public void applicationVersionPublish(ApplicationVersionPublishCmd updateCmd) {
         this.setId(updateCmd.getId());
     }
+
 }

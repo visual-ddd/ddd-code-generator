@@ -4,11 +4,25 @@ import com.wakedt.visual.organization.app.cmd.organizationmanagerbind.Organizati
 import com.wakedt.visual.organization.app.cmd.organizationmanagerunbind.OrganizationManagerUnbindCmd;
 import com.wakedt.visual.organization.app.cmd.organizationmodify.OrganizationModifyCmd;
 import com.wakedt.visual.organization.app.cmd.organizationremove.OrganizationRemoveCmd;
+import lombok.Data;
 
 /**
- * 组织-聚合根能力
+ * 组织-聚合根
  */
-public class Organization extends AbstractOrganization {
+@Data
+public class Organization {
+
+    /** 组织 ID */
+    private Long id;
+
+    /** 名称 */
+    private String name;
+
+    /** 描述 */
+    private String description;
+
+    /** 组织管理员 */
+    private Long organizationManagerId;
 
     public void organizationModify(OrganizationModifyCmd updateCmd) {
         this.setId(updateCmd.getId());
@@ -29,4 +43,5 @@ public class Organization extends AbstractOrganization {
         this.setId(updateCmd.getId());
         this.setOrganizationManagerId(updateCmd.getOrganizationManagerId());
     }
+
 }

@@ -4,11 +4,28 @@ import com.wakedt.visual.organization.app.cmd.teammanagerbind.TeamManagerBindCmd
 import com.wakedt.visual.organization.app.cmd.teammanagerunbind.TeamManagerUnBindCmd;
 import com.wakedt.visual.organization.app.cmd.teammodify.TeamModifyCmd;
 import com.wakedt.visual.organization.app.cmd.teamremove.TeamRemoveCmd;
+import lombok.Data;
 
 /**
- * 团队-聚合根能力
+ * 团队-聚合根
  */
-public class Team extends AbstractTeam {
+@Data
+public class Team {
+
+    /** 团队ID */
+    private Long id;
+
+    /** 名称 */
+    private String name;
+
+    /** 描述 */
+    private String description;
+
+    /** 组织ID */
+    private Long organizationId;
+
+    /** 团队管理员 */
+    private Long teamManagerId;
 
     public void teamModify(TeamModifyCmd updateCmd) {
         this.setId(updateCmd.getId());
@@ -30,4 +47,5 @@ public class Team extends AbstractTeam {
     public void teamManagerUnbind(TeamManagerUnBindCmd updateCmd) {
         this.setId(updateCmd.getId());
     }
+
 }

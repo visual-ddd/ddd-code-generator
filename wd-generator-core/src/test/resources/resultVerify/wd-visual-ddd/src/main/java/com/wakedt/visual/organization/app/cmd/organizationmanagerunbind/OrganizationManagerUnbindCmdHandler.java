@@ -1,10 +1,9 @@
 package com.wakedt.visual.organization.app.cmd.organizationmanagerunbind;
 
-import com.wakedt.visual.organization.domain.organization.Organization;
-import com.wakedt.visual.organization.domain.organization.OrganizationRepository;
+import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
+import com.wakedt.visual.organization.domain.organization.*;
 
 /**
  * 解绑组织管理员-指令处理器

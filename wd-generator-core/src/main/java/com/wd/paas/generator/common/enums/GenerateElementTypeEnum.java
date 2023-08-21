@@ -85,7 +85,6 @@ public enum GenerateElementTypeEnum {
      */
     AGGREGATION_ROOT("AggregationRoot", new String[]{
             // domain
-            "cola/{projectName}/src/main/java/{group}/{field}/domain/{aggregation}/AbstractAggregation.java.vm",
             "cola/{projectName}/src/main/java/{group}/{field}/domain/{aggregation}/AggregationFactory.java.vm",
             "cola/{projectName}/src/main/java/{group}/{field}/domain/{aggregation}/AggregationRepository.java.vm",
             "cola/{projectName}/src/main/java/{group}/{field}/domain/{aggregation}/Aggregation.java.vm",

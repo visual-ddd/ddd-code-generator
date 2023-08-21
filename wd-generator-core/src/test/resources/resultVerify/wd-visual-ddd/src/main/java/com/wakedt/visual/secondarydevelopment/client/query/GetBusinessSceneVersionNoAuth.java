@@ -1,9 +1,12 @@
 package com.wakedt.visual.secondarydevelopment.client.query;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
+import io.swagger.annotations.ApiModelProperty;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedt.visual.secondarydevelopment.client.dto.*;
 import javax.validation.constraints.NotNull;
 
 /**
