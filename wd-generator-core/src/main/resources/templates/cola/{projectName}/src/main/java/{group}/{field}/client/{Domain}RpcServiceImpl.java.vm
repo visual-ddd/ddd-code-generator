@@ -1,0 +1,57 @@
+#parse("templates/Domain.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcServiceImpl")};
+
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
+#importDomainQuery()
+#importDomainCmdDTO()
+#importDomainDTO()
+import ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Application")}.${DOMAIN_CLASS_NAME}Application;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+
+#comment("${DOMAIN_TITLE}-RPC能力接口实现")
+@Service
+public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}RpcService {
+
+    @Resource
+    private ${DOMAIN_CLASS_NAME}Application application;
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+#set($RootIdType = ${aggregation.getRoot().id.type})
+#set($RootIdName = ${aggregation.getRoot().getId().getName()})
+#foreach($cmd in ${aggregation.getCommandList()})
+#if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
+
+    @Override
+#if(${cmd.getRepository().getValue()} == "create")
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        return application.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
+    }
+#end
+#if(${cmd.getRepository().getValue()} != "create")
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        return application.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
+    }
+#end
+#end
+#end
+#end
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+    @Override
+#if(${query.pagination})
+    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+        return application.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(pageQuery);
+    }
+#end
+#if(!${query.pagination})
+    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+        return application.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(query);
+    }
+#end
+#end
+}

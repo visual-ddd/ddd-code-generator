@@ -1,0 +1,24 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_QUERY_ID}).get(${BUSINESS_QUERY_CLASS_NAME})};
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_QUERY_ID}).get(${BUSINESS_QUERY_CLASS_NAME}).replace(".query", ".dto.*")};
+import javax.validation.constraints.NotNull;
+
+#comment(${BUSINESS_QUERY_CLASS_TITLE})
+@Data
+@ApiModel(description = "${BUSINESS_QUERY_CLASS_TITLE}")
+#if(!${BUSINESS_QUERY_PAGINATION})
+public class ${BUSINESS_QUERY_CLASS_NAME} {
+#end
+#if(${BUSINESS_QUERY_PAGINATION})
+public class ${BUSINESS_QUERY_CLASS_NAME} {
+#end
+#filedExt(${BUSINESS_QUERY_CLASS_FIELDS})
+
+}

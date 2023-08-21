@@ -1,0 +1,43 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${ENUM_ID}).get("${ENUM_CLASS_NAME}Converter")};
+
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONUtil;
+import com.wakedata.common.core.util.BaseEnumUtil;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+#comment("${ENUM_CLASS_TITLE}-枚举JSON转换器")
+public class ${ENUM_CLASS_NAME}Converter {
+
+    public ${ENUM_CODE_TYPE} convertToDatabaseColumn(${ENUM_CLASS_NAME} ${CASE_FORMAT_LOWER_CAMEL.convert(${ENUM_CLASS_NAME})}) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${ENUM_CLASS_NAME})}.getValue();
+    }
+
+    public ${ENUM_CLASS_NAME} convertToEntityAttribute(${ENUM_CODE_TYPE} value) {
+        return BaseEnumUtil.getEnumByValue(value, ${ENUM_CLASS_NAME}.class);
+    }
+
+    public String convertToDatabaseColumn(List<${ENUM_CLASS_NAME}> enumList) {
+        JSONArray jsonArray = new JSONArray();
+        for (${ENUM_CLASS_NAME} enumType : Optional.ofNullable(enumList).orElse(Collections.emptyList())) {
+            ${ENUM_CODE_TYPE} value = convertToDatabaseColumn(enumType);
+            jsonArray.add(value);
+        }
+        return jsonArray.toString();
+    }
+
+    public List<${ENUM_CLASS_NAME}> convertToDatabaseColumn(String jsonArray) {
+        List<${ENUM_CLASS_NAME}> enumList = new ArrayList<>();
+        List<${ENUM_CODE_TYPE}> values = JSONUtil.toList(jsonArray, ${ENUM_CODE_TYPE}.class);
+        for (${ENUM_CODE_TYPE} value : values) {
+            enumList.add(convertToEntityAttribute(value));
+        }
+        return enumList;
+    }
+}

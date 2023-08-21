@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 /**
  * ${PROJECT_TITLE}-启动类
  */
-// @EnableMessageCenter
+@EnableMessageCenter
 @SpringBootApplication(scanBasePackages = {"${PROJECT_PACKAGE}"})
-@MapperScan("${PROJECT_PACKAGE}.infrastructure.*.repository.mapper")
+@MapperScan("${PROJECT_PACKAGE}.*.infrastructure.repository.mapper")
 @EntityScan(basePackages = {"${PROJECT_PACKAGE}.infrastructure.*.repository.model"})
 public class StartApplication {
 

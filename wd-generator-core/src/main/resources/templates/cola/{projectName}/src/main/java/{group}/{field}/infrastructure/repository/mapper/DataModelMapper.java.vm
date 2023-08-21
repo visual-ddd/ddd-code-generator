@@ -1,0 +1,36 @@
+#parse("templates/ClassFunction.vm")
+#set($doClassName = ${DATA_OBJECT_CLASS_NAME})
+#set($doMapperClassName = "${DATA_MAPPER_CLASS_NAME}")
+#set($dtoId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${DATA_OBJECT_ID}")})
+package ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${DATA_MAPPER_CLASS_NAME}")};
+
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${doClassName}")}.${doClassName};
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+#if(${dtoId} == ${PARSE_TYPE_UTIL.getFirstId(${query.returnInfo.type})})
+import ${IMPORT_PACKAGE_MAP.get(${query.identity}).get(${query.name})}.${query.name};
+#end
+#end
+
+#comment("${doMapperClassName}接口")
+@Mapper
+public interface ${doMapperClassName} extends BaseMapper<${doClassName}> {
+## 只生成<聚合根>对应的查询模型接口
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+#if(${dtoId} == ${PARSE_TYPE_UTIL.getFirstId(${query.returnInfo.type})})
+
+#printMethodDesc($query)
+#if(!${query.pagination})
+    ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
+#end
+#if(${query.pagination})
+    List<${doClassName}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
+#end
+#end
+#end
+
+}

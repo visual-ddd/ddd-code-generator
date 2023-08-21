@@ -1,0 +1,12 @@
+#parse("templates/Controller.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}WebController")};
+
+#controllerImport()
+
+#comment("${DOMAIN_TITLE}-B端")
+@RestController
+@RequestMapping("/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}")
+@Api(value = "/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}", tags = "${DOMAIN_TITLE}-B端")
+public class ${DOMAIN_CLASS_NAME}WebController {
+#controller()
+}

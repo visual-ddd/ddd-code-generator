@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wakedt.visual.infrastructure.domaindesign.repository.mapper.DomainDesignMapper">
+<mapper namespace="com.wakedt.visual.domaindesign.infrastructure.repository.mapper.DomainDesignMapper">
 
-    <select id="domainDesignQuery" parameterType="com.wakedt.visual.client.domaindesign.query.DomainDesignQuery"
-            resultType="com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO">
+    <select id="domainDesignQuery" parameterType="com.wakedt.visual.domaindesign.client.query.DomainDesignQuery"
+            resultType="com.wakedt.visual.domaindesign.infrastructure.repository.model.DomainDesignDO">
         SELECT *
         FROM wd_domain_design t1
         <where>
@@ -13,8 +13,8 @@
         </where>
     </select>
 
-    <select id="domainDesignPageQuery" parameterType="com.wakedt.visual.client.domaindesign.query.DomainDesignPageQuery"
-            resultType="com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO">
+    <select id="domainDesignPageQuery" parameterType="com.wakedt.visual.domaindesign.client.query.DomainDesignPageQuery"
+            resultType="com.wakedt.visual.domaindesign.infrastructure.repository.model.DomainDesignDO">
         SELECT *
         FROM wd_domain_design t1
         <where>
@@ -27,8 +27,8 @@
         </where>
     </select>
 
-    <select id="domainDesignListQuery" parameterType="com.wakedt.visual.client.domaindesign.query.DomainDesignListQuery"
-            resultType="com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO">
+    <select id="domainDesignListQuery" parameterType="com.wakedt.visual.domaindesign.client.query.DomainDesignListQuery"
+            resultType="com.wakedt.visual.domaindesign.infrastructure.repository.model.DomainDesignDO">
         SELECT *
         FROM wd_domain_design t1
         <where>

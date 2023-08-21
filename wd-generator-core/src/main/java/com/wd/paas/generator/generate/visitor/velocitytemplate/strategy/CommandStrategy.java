@@ -65,7 +65,10 @@ public class CommandStrategy extends AbstractElementStrategy {
     public List<String> getTemplatePathList() {
         List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(GenerateElementTypeEnum.COMMAND.getTemplateUrls()));
-        list.addAll(Arrays.asList(GenerateElementTypeEnum.EVENT.getTemplateUrls()));
+
+        if (Boolean.TRUE.equals(astCommand.getEventEnable())) {
+            list.addAll(Arrays.asList(GenerateElementTypeEnum.EVENT.getTemplateUrls()));
+        }
 
         switch (astCommand.getRepository()) {
             case SAVE:

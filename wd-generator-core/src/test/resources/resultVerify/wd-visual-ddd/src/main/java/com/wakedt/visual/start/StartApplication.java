@@ -1,5 +1,6 @@
 package com.wakedt.visual.start;
 
+import com.wakedata.common.mq.annotation.EnableMessageCenter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +9,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 /**
  * DDD可视化开发平台-启动类
  */
-// @EnableMessageCenter
+@EnableMessageCenter
 @SpringBootApplication(scanBasePackages = {"com.wakedt.visual"})
-@MapperScan("com.wakedt.visual.infrastructure.*.repository.mapper")
+@MapperScan("com.wakedt.visual.*.infrastructure.repository.mapper")
 @EntityScan(basePackages = {"com.wakedt.visual.infrastructure.*.repository.model"})
 public class StartApplication {
 

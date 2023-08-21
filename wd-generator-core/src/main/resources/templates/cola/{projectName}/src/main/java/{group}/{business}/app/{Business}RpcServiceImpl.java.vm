@@ -1,0 +1,46 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}RpcServiceImpl")};
+
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
+#foreach ($query in ${BUSINESS_QUERY_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${query.identity}).get("${query.name}")}.${query.name};
+#end
+#foreach ($dto in ${BUSINESS_DTO_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name};
+#end
+import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}RpcService")}.${BUSINESS_CLASS_NAME}RpcService;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;import java.time.LocalDateTime;
+import org.springframework.stereotype.Service;
+
+#comment("${BUSINESS_TITLE}-RPC能力接口实现")
+@Service
+public class ${BUSINESS_CLASS_NAME}RpcServiceImpl implements ${BUSINESS_CLASS_NAME}RpcService {
+#foreach ($query in ${BUSINESS_QUERY_LIST})
+
+#if(${query.pagination})
+    @Override
+    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+#foreach($ruleInfo in ${query.ruleList})
+
+        /* TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description.replaceAll("\n","\\n")} */
+#end
+
+        return null;
+    }
+#end
+#if(!${query.pagination})
+    @Override
+    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} request) {
+#foreach($ruleInfo in ${query.ruleList})
+
+        /* TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description.replaceAll("\n","\\n")} */
+#end
+
+        return ResultDTO.success();
+    }
+#end
+#end
+}

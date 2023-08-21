@@ -1,0 +1,45 @@
+#parse("templates/Aggregation.vm")
+package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get(${AGGREGATION_CLASS_NAME})};
+
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+#foreach($cmd in ${AGGREGATION_CMD_LIST})
+#if(${cmd.repository} == "MODIFY" || ${cmd.repository} == "REMOVE")
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};
+#end
+#end
+
+#comment("${AGGREGATION_CLASS_TITLE}-聚合根能力")
+public class ${AGGREGATION_CLASS_NAME} extends Abstract${AGGREGATION_CLASS_NAME} {
+#overrideMethod($AGGREGATION_CLASS_METHODS)
+#foreach($cmd in ${AGGREGATION_CMD_LIST})
+#if(${cmd.repository} == "MODIFY")
+
+    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} updateCmd) {
+#foreach($cmdField in ${cmd.propertyList})
+#set($isCmdMatch = 0)
+#if(${cmdField.name} == ${AGGREGATION_CLASS_ID.name} && ${cmdField.type} == ${AGGREGATION_CLASS_ID.type})
+        this.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
+#set($isCmdMatch = 1)
+#end
+#foreach($rootField in ${AGGREGATION_CLASS_FIELDS})
+#if(${cmdField.name} == ${rootField.name} && ${cmdField.type} == ${rootField.type})
+        this.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
+#set($isCmdMatch = 1)
+#end
+#end
+#if($isCmdMatch == 0)
+        /* TODO 指令字段不匹配 updateCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(); */
+#end
+#end
+    }
+#end
+#if(${cmd.repository} == "REMOVE")
+
+    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} removeCmd) {
+        this.set${AGGREGATION_CLASS_ID.getName().substring(0, 1).toUpperCase()}${AGGREGATION_CLASS_ID.getName().substring(1)}(removeCmd.getId());
+    }
+#end
+#end
+}

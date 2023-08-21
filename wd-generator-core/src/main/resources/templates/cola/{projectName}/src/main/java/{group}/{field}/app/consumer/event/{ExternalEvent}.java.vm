@@ -1,0 +1,30 @@
+#parse("templates/ClassFunction.vm")
+#set($encode = "{event.${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get(${EXTERNAL_EVENT_CLASS_NAME})}}")
+package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${EXTERNAL_EVENT_CLASS_NAME}")};
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedata.common.domainevent.model.BaseDomainEvent;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+#comment("外部事件")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+public class ${EXTERNAL_EVENT_CLASS_NAME} extends BaseDomainEvent {
+
+    // TODO 添加外部事件属性字段
+    private String name;
+
+
+    @Override
+    public String eventCode() {
+        return "$$encode";
+    }
+
+}

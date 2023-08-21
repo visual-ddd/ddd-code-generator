@@ -1,0 +1,12 @@
+#parse("templates/BusinessController.vm")
+package ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}AppController")};
+
+#businessControllerImport()
+
+#comment("${BUSINESS_TITLE}-C端")
+@RestController
+@RequestMapping("/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}")
+@Api(value = "/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}", tags = "${BUSINESS_TITLE}-C端")
+public class ${BUSINESS_CLASS_NAME}AppController {
+#businessController()
+}

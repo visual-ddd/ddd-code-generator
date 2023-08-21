@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wakedt.visual.infrastructure.universallanguage.repository.mapper.UniversalLanguageMapper">
+<mapper namespace="com.wakedt.visual.universallanguage.infrastructure.repository.mapper.UniversalLanguageMapper">
 
-    <select id="universalLanguageQuery" parameterType="com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery"
-            resultType="com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO">
+    <select id="universalLanguageQuery" parameterType="com.wakedt.visual.universallanguage.client.query.UniversalLanguageQuery"
+            resultType="com.wakedt.visual.universallanguage.infrastructure.repository.model.UniversalLanguageDO">
         SELECT *
         FROM wd_universal_language t1
         <where>
@@ -13,8 +13,8 @@
         </where>
     </select>
 
-    <select id="universalLanguagePageQuery" parameterType="com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery"
-            resultType="com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO">
+    <select id="universalLanguagePageQuery" parameterType="com.wakedt.visual.universallanguage.client.query.UniversalLanguagePageQuery"
+            resultType="com.wakedt.visual.universallanguage.infrastructure.repository.model.UniversalLanguageDO">
         SELECT *
         FROM wd_universal_language t1
         <where>

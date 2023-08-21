@@ -1,0 +1,69 @@
+#parse("templates/Domain.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Application")};
+
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
+#importDomainRpcService()
+#importDomainQuery()
+#importDomainCmdDTO()
+#importDomainDTO()
+#importDomainQueryExe()
+#importDomainCmdDTO2CmdConvert()
+#importDomainCmdHandler()
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+
+#comment("${DOMAIN_TITLE}")
+@Service
+public class ${DOMAIN_CLASS_NAME}Application {
+
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+#if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
+    @Resource
+    private ${cmd.name}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler;
+#end
+#end
+#foreach($query in ${DOMAIN_QUERY_LIST})
+    @Resource
+    private ${query.name}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe;
+#end
+
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+#set($RootIdType = ${aggregation.getRoot().id.type})
+#set($RootIdName = ${aggregation.getRoot().getId().getName()})
+#foreach($cmd in ${aggregation.getCommandList()})
+#if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
+
+#if(${cmd.getRepository().getValue()} == "create")
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
+        return ResultDTO.success(${RootIdName});
+    }
+#end
+#if(${cmd.getRepository().getValue()} != "create")
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
+        return ResultDTO.success(Boolean.TRUE);
+    }
+#end
+#end
+#end
+#end
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+#if(${query.pagination})
+    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
+    }
+#end
+#if(!${query.pagination})
+    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
+    }
+#end
+#end
+}

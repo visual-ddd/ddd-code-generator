@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wakedt.visual.infrastructure.application.repository.mapper.ApplicationVersionMapper">
+<mapper namespace="com.wakedt.visual.application.infrastructure.repository.mapper.ApplicationVersionMapper">
 
-    <select id="applicationVersionQuery" parameterType="com.wakedt.visual.client.application.query.ApplicationVersionQuery"
-            resultType="com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO">
+    <select id="applicationVersionQuery" parameterType="com.wakedt.visual.application.client.query.ApplicationVersionQuery"
+            resultType="com.wakedt.visual.application.infrastructure.repository.model.ApplicationVersionDO">
         SELECT *
         FROM wd_application_version t1
         <where>
@@ -13,8 +13,8 @@
         </where>
     </select>
 
-    <select id="applicationVersionPageQuery" parameterType="com.wakedt.visual.client.application.query.ApplicationVersionPageQuery"
-            resultType="com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO">
+    <select id="applicationVersionPageQuery" parameterType="com.wakedt.visual.application.client.query.ApplicationVersionPageQuery"
+            resultType="com.wakedt.visual.application.infrastructure.repository.model.ApplicationVersionDO">
         SELECT *
         FROM wd_application_version t1
         <where>
@@ -24,8 +24,8 @@
         </where>
     </select>
 
-    <select id="applicationLatestVersionQuery" parameterType="com.wakedt.visual.client.application.query.ApplicationLatestVersionQuery"
-            resultType="com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO">
+    <select id="applicationLatestVersionQuery" parameterType="com.wakedt.visual.application.client.query.ApplicationLatestVersionQuery"
+            resultType="com.wakedt.visual.application.infrastructure.repository.model.ApplicationVersionDO">
         SELECT *
         FROM wd_application_version t1
         <where>

@@ -1,0 +1,18 @@
+package com.wakedt.visual.businessscene.app.cmd.businesssceneversionpublish;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 发布业务场景版本-指令
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class BusinessSceneVersionPublishCmd {
+
+    /** 业务场景版本ID */
+    private Long id;
+
+}

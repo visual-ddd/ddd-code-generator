@@ -1,0 +1,34 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${ENUM_ID}).get("${ENUM_CLASS_NAME}")};
+
+import com.wakedata.common.core.base.BaseEnum;
+
+#comment("${ENUM_CLASS_TITLE}-枚举")
+public enum ${ENUM_CLASS_NAME} implements BaseEnum {
+#foreach ($constant in ${ENUM_CLASS_CONSTANTS})
+
+#if($constant.title)
+    /** ${constant.title} */
+#end
+    ${constant.name}(${constant.code}, "${constant.description}"),
+#end
+    ;
+
+    private final ${ENUM_CODE_TYPE} value;
+    private final String desc;
+
+    ${ENUM_CLASS_NAME}(${ENUM_CODE_TYPE} value, String desc) {
+        this.value = value;
+        this.desc = desc;
+    }
+
+    @Override
+    public ${ENUM_CODE_TYPE} getValue() {
+        return this.value;
+    }
+
+    @Override
+    public String getDesc() {
+        return this.desc;
+    }
+}

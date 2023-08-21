@@ -1,0 +1,41 @@
+#parse("templates/Domain.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcService")};
+
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
+#importDomainQuery()
+#importDomainCmdDTO()
+#importDomainDTO()
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+
+#comment("${DOMAIN_TITLE}-RPC能力接口")
+public interface ${DOMAIN_CLASS_NAME}RpcService {
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+#set($RootIdType = ${aggregation.getRoot().getId().getType()})
+#foreach($cmd in ${aggregation.getCommandList()})
+#if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
+
+    /** ${cmd.description.replaceAll("\n","\\n")} */
+#if(${cmd.getRepository().getValue()} == "create")
+    ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
+#end
+#if(${cmd.getRepository().getValue()} != "create")
+    ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
+#end
+#end
+#end
+#end
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+    /** ${query.description.replaceAll("\n","\\n")} */
+#if(${query.pagination})
+    PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
+#end
+#if(!${query.pagination})
+    ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
+#end
+#end
+
+}

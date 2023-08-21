@@ -1,0 +1,41 @@
+#parse("templates/Aggregation.vm")
+package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}Factory")};
+
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import org.springframework.stereotype.Component;
+#foreach($cmd in ${AGGREGATION_CMD_LIST})
+#if(${cmd.repository} == "SAVE")
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};
+#end
+#end
+
+#comment("${AGGREGATION_CLASS_TITLE}-聚合根-工厂")
+@Component
+public class ${AGGREGATION_CLASS_NAME}Factory {
+#foreach($cmd in ${AGGREGATION_CMD_LIST})
+#if(${cmd.repository} == "SAVE")
+
+    public ${AGGREGATION_CLASS_NAME} getInstance(${cmd.name} createCmd) {
+        ${AGGREGATION_CLASS_NAME} instance = new ${AGGREGATION_CLASS_NAME}();
+#foreach($cmdField in ${cmd.propertyList})
+#set($isCmdMatch = 0)
+#foreach($rootField in ${AGGREGATION_CLASS_FIELDS})
+#if(${cmdField.name} == ${rootField.name} && ${cmdField.type} == ${rootField.type})
+#set($isCmdMatch = 1)
+#end
+#end
+#if($isCmdMatch == 1)
+        instance.set${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}());
+#end
+#if($isCmdMatch == 0)
+        /* TODO 指令字段不匹配 createCmd.get${cmdField.name.substring(0, 1).toUpperCase()}${cmdField.name.substring(1)}(); */
+#end
+#end
+        return instance;
+    }
+#end
+#end
+
+}

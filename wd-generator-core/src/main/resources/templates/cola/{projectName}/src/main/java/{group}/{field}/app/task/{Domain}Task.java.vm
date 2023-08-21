@@ -1,0 +1,37 @@
+#parse("templates/Domain.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Task")};
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+#importDomainCmdHandler()
+import javax.annotation.Resource;
+import org.springframework.scheduling.annotation.Scheduled;
+
+/**
+ * ${DOMAIN_CLASS_NAME} - 定时任务
+ */
+@Slf4j
+@Component
+public class ${DOMAIN_CLASS_NAME}Task {
+
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+#if(${cmd.getSourceValue("schedule")})
+    @Resource
+    private ${cmd.name}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler;
+#end
+#end
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+#if(${cmd.getSourceValue("schedule")})
+#set($cron = ${cmd.getSourceValue("schedule")})
+
+    /**
+     * 定时执行 ${cmd.title}
+     */
+    @Scheduled(cron = "${cron}")
+    public void pointEffectiveCheckTask() {
+        // TODO 执行${cmd.title}
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(null);
+    }
+#end
+#end
+}

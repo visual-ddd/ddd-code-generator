@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wakedt.visual.infrastructure.account.repository.mapper.AccountMapper">
+<mapper namespace="com.wakedt.visual.account.infrastructure.repository.mapper.AccountMapper">
 
-    <select id="accountDetailQuery" parameterType="com.wakedt.visual.client.account.query.AccountDetailQuery"
-            resultType="com.wakedt.visual.infrastructure.account.repository.model.AccountDO">
+    <select id="accountDetailQuery" parameterType="com.wakedt.visual.account.client.query.AccountDetailQuery"
+            resultType="com.wakedt.visual.account.infrastructure.repository.model.AccountDO">
         SELECT *
         FROM account t1
         <where>
@@ -13,8 +13,8 @@
         </where>
     </select>
 
-    <select id="accountPageQuery" parameterType="com.wakedt.visual.client.account.query.AccountPageQuery"
-            resultType="com.wakedt.visual.infrastructure.account.repository.model.AccountDO">
+    <select id="accountPageQuery" parameterType="com.wakedt.visual.account.client.query.AccountPageQuery"
+            resultType="com.wakedt.visual.account.infrastructure.repository.model.AccountDO">
         SELECT *
         FROM account t1
         <where>

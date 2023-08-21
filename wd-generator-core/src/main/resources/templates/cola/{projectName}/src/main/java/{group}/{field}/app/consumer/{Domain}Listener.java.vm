@@ -1,0 +1,43 @@
+#parse("templates/Domain.vm")
+package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Listener")};
+
+import com.wakedata.common.domainevent.annotation.DomainEventSubscribe;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+#importDomainCmdHandler()
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+#if(${cmd.getSourceValue("event")})
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.externalEventNode.name}")}.${cmd.externalEventNode.name};
+#end
+#end
+
+import javax.annotation.Resource;
+
+/**
+ * ${DOMAIN_CLASS_NAME} - 事件订阅
+ */
+@Slf4j
+@Component
+public class ${DOMAIN_CLASS_NAME}Listener {
+
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+#if(${cmd.getSourceValue("event")})
+    @Resource
+    private ${cmd.name}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler;
+#end
+#end
+#foreach($cmd in ${DOMAIN_CMD_LIST})
+#if(${cmd.getSourceValue("event")})
+#set($eventName = ${CASE_FORMAT_UPPER_CAMEL.convert(${cmd.getSourceValue("event")})})
+
+    /**
+     * 消费事件 ${cmd.title}
+     */
+    @DomainEventSubscribe
+    public void listen${cmd.externalEventNode.name}(${cmd.externalEventNode.name} event){
+        // TODO 执行${cmd.title}
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(null);
+    }
+#end
+#end
+}

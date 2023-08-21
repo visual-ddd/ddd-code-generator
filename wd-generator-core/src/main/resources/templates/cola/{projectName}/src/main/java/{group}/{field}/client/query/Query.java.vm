@@ -1,0 +1,32 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get(${QUERY_CLASS_NAME})};
+
+#if(!${QUERY_PAGINATION})
+import com.wakedata.common.core.base.BaseQuery;
+#end
+#if(${QUERY_PAGINATION})
+import com.wakedata.common.core.dto.PageQuery;
+#end
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get(${QUERY_CLASS_NAME}).replace(".query", ".dto.*")};
+import javax.validation.constraints.NotNull;
+
+#comment("${QUERY_CLASS_TITLE}")
+@Data
+@EqualsAndHashCode(callSuper = true)
+@ApiModel(description = "${QUERY_CLASS_TITLE}")
+#if(!${QUERY_PAGINATION})
+public class ${QUERY_CLASS_NAME} extends BaseQuery {
+#end
+#if(${QUERY_PAGINATION})
+public class ${QUERY_CLASS_NAME} extends PageQuery {
+#end
+#filedExt(${QUERY_CLASS_FIELDS})
+
+}

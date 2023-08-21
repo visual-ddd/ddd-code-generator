@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wakedt.visual.infrastructure.businessscene.repository.mapper.BusinessSceneMapper">
+<mapper namespace="com.wakedt.visual.businessscene.infrastructure.repository.mapper.BusinessSceneMapper">
 
-    <select id="businessSceneQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessSceneQuery"
-            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO">
+    <select id="businessSceneQuery" parameterType="com.wakedt.visual.businessscene.client.query.BusinessSceneQuery"
+            resultType="com.wakedt.visual.businessscene.infrastructure.repository.model.BusinessSceneDO">
         SELECT *
         FROM wd_business_scene t1
         <where>
@@ -13,8 +13,8 @@
         </where>
     </select>
 
-    <select id="businessScenePageQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessScenePageQuery"
-            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO">
+    <select id="businessScenePageQuery" parameterType="com.wakedt.visual.businessscene.client.query.BusinessScenePageQuery"
+            resultType="com.wakedt.visual.businessscene.infrastructure.repository.model.BusinessSceneDO">
         SELECT *
         FROM wd_business_scene t1
         <where>
@@ -27,8 +27,8 @@
         </where>
     </select>
 
-    <select id="businessSceneListQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery"
-            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO">
+    <select id="businessSceneListQuery" parameterType="com.wakedt.visual.businessscene.client.query.BusinessSceneListQuery"
+            resultType="com.wakedt.visual.businessscene.infrastructure.repository.model.BusinessSceneDO">
         SELECT *
         FROM wd_business_scene t1
         <where>
