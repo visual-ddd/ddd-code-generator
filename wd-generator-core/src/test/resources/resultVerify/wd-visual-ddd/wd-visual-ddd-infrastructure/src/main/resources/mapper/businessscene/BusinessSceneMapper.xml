@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wakedt.visual.infrastructure.businessscene.repository.mapper.BusinessSceneMapper">
+
+    <select id="businessSceneQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessSceneQuery"
+            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO">
+        SELECT *
+        FROM wd_business_scene t1
+        <where>
+            <if test="id != null">
+                AND t1.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="businessScenePageQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessScenePageQuery"
+            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO">
+        SELECT *
+        FROM wd_business_scene t1
+        <where>
+            <if test="teamId != null">
+                AND t1.team_id = #{teamId}
+            </if>
+            <if test="name != null and name != ''">
+                AND t1.name LIKE CONCAT('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="businessSceneListQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery"
+            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneDO">
+        SELECT *
+        FROM wd_business_scene t1
+        <where>
+            <if test="idList != null">
+                AND t1.id_list in
+                <foreach collection="idList" separator="," open="(" close=")" item="item">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+</mapper>

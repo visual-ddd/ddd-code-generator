@@ -41,11 +41,6 @@
       </dependency>
       <dependency>
         <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-log</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
         <artifactId>wd-common-mybatis</artifactId>
         <version>$${wdCommonVersion}</version>
       </dependency>

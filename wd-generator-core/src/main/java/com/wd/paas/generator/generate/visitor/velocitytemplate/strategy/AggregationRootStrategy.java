@@ -3,6 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.AggregateRootNode;
@@ -45,13 +46,13 @@ public class AggregationRootStrategy extends AbstractElementStrategy {
 
     @Override
     public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        return Arrays.asList(projectTemplateType.project());
+        return Arrays.asList(projectTemplateType.aggregationRoot());
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         AggregationStrategy aggregationStrategy = new AggregationStrategy((AggregateNode) aggregateRootNode.getParentNode());
-        String outputPath = aggregationStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String outputPath = aggregationStrategy.parseOutputPath(templateUrl, preFixOutPath, projectTemplateType);
 
         String[] searchList = {
                 ModelUrlConstant.AGGREGATION_CLASS

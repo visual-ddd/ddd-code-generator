@@ -6,6 +6,7 @@ import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.ObjectMapperNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
@@ -104,10 +105,10 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         BusinessDomainNode businessDomain = (BusinessDomainNode) astObjectMapper.getParentNode();
         BusinessDomainStrategy businessDomainStrategy = new BusinessDomainStrategy(businessDomain);
-        String outputPath = businessDomainStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String outputPath = businessDomainStrategy.parseOutputPath(templateUrl, preFixOutPath, projectTemplateType);
 
         String[] searchList = {
                 ModelUrlConstant.OBJECT_MAPPER_CONVERT_CLASS,

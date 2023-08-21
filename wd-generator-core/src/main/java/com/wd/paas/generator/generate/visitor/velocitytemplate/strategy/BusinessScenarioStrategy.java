@@ -4,6 +4,7 @@ import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.generate.element.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
@@ -48,9 +49,9 @@ public class BusinessScenarioStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         ApplicationStrategy applicationStrategy = new ApplicationStrategy((ApplicationNode) node.getParentNode());
-        String outputPath = applicationStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String outputPath = applicationStrategy.parseOutputPath(templateUrl, preFixOutPath, projectTemplateType);
         String[] searchList = {
                 ModelUrlConstant.BUSINESS,
                 ModelUrlConstant.BUSINESS_SERVICE_CLASS,

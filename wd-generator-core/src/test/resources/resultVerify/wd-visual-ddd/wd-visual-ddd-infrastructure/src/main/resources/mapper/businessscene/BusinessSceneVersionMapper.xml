@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wakedt.visual.infrastructure.businessscene.repository.mapper.BusinessSceneVersionMapper">
+
+    <select id="businessSceneVersionQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessSceneVersionQuery"
+            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneVersionDO">
+        SELECT *
+        FROM wd_business_scene_version t1
+        <where>
+            <if test="id != null">
+                AND t1.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="businessSceneVersionPageQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessSceneVersionPageQuery"
+            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneVersionDO">
+        SELECT *
+        FROM wd_business_scene_version t1
+        <where>
+            <if test="businessSceneId != null and businessSceneId != ''">
+                AND t1.business_scene_id LIKE CONCAT('%',#{businessSceneId},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="businessSceneLatestVersionQuery" parameterType="com.wakedt.visual.client.businessscene.query.BusinessSceneLatestVersionQuery"
+            resultType="com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneVersionDO">
+        SELECT *
+        FROM wd_business_scene_version t1
+        <where>
+            <if test="id != null">
+                AND t1.id = #{id}
+            </if>
+        </where>
+    </select>
+
+</mapper>

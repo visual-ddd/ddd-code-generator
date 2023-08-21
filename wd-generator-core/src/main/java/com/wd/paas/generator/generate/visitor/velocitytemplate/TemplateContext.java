@@ -20,6 +20,7 @@ public class TemplateContext {
     private ZipOutputStream zipOutputStream;
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
 
+    // 默认COLA分层架构
     private ProjectTemplateType projectTemplateType = ProjectTemplateType.COLA;
 
     public TemplateContext() {

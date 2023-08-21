@@ -5,6 +5,7 @@ import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.common.util.ParseStringUtil;
 import com.wd.paas.generator.common.util.ParseTypeSignUtil;
 import com.wd.paas.generator.generate.element.ApplicationNode;
@@ -55,9 +56,9 @@ public class ApplicationStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         String[] searchList = {
-                ModelUrlConstant.OUTPUT_PATH,
+                projectTemplateType.getValue(),
                 ModelUrlConstant.PROJECT_NAME,
                 ModelUrlConstant.GROUP,
                 ModelUrlConstant.VM

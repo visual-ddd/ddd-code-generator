@@ -11,7 +11,7 @@ public enum ProjectTemplateType {
 
     /**/
     COLA("cola", "默认COLA分层架构"),
-    COLA_SINGLE("cola_single", "COLA单体架构")
+    COLA_SINGLE("cola-single", "COLA单体架构")
     ;
 
     private final String value;

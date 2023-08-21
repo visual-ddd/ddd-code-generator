@@ -5,6 +5,7 @@ import com.wd.paas.common.DataIndexInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.DataObjectNode;
@@ -58,10 +59,10 @@ public class DataObjectStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         BusinessDomainNode parentNode = (BusinessDomainNode) dataObject.getParentNode();
         BusinessDomainStrategy businessDomainStrategy = new BusinessDomainStrategy(parentNode);
-        String outputPath = businessDomainStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String outputPath = businessDomainStrategy.parseOutputPath(templateUrl, preFixOutPath, projectTemplateType);
 
         String[] searchList = {
                 ModelUrlConstant.DATA_DO_CLASS,

@@ -3,6 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.ValueObjectNode;
@@ -49,10 +50,10 @@ public class ValueObjectStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         AggregateNode astAggregate = (AggregateNode) astValueObject.getParentNode();
         AggregationStrategy aggregationStrategy = new AggregationStrategy(astAggregate);
-        String outputPath = aggregationStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String outputPath = aggregationStrategy.parseOutputPath(templateUrl, preFixOutPath, projectTemplateType);
 
         String[] searchList = {
                 ModelUrlConstant.VALUE_OBJECT_DTO_CLASS,

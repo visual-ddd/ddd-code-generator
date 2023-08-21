@@ -4,6 +4,7 @@ import com.wd.paas.common.EnumMemberInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.EnumNode;
 import org.apache.commons.lang3.StringUtils;
@@ -51,10 +52,10 @@ public class EnumStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         AggregateNode parentNode = (AggregateNode) anEnum.getParentNode();
         AggregationStrategy aggregationStrategy = new AggregationStrategy(parentNode);
-        String outputPath = aggregationStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String outputPath = aggregationStrategy.parseOutputPath(templateUrl, preFixOutPath, projectTemplateType);
 
         String[] searchList = {
                 ModelUrlConstant.ENUM_CLASS

@@ -1,6 +1,7 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.strategy.ElementStrategy;
 import org.apache.velocity.VelocityContext;
 
@@ -39,9 +40,10 @@ public interface VelocityTemplateGenerate extends ElementStrategy {
     /**
      * 解析输出路径
      *
-     * @param templateUrl   需要解析的模版路径
-     * @param preFixOutPath 目标路径
+     * @param templateUrl         需要解析的模版路径
+     * @param preFixOutPath       目标路径
+     * @param projectTemplateType
      * @return 输出路径
      */
-    String parseOutputPath(String templateUrl, String preFixOutPath);
+    String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType);
 }

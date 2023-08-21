@@ -3,6 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.BusinessDTONode;
 import com.wd.paas.generator.generate.element.BusinessScenarioNode;
@@ -45,12 +46,12 @@ public class BusinessDTOStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public String parseOutputPath(String templateUrl, String preFixOutPath) {
+    public String parseOutputPath(String templateUrl, String preFixOutPath, ProjectTemplateType projectTemplateType) {
         BusinessServiceModelNode serviceModelNode = (BusinessServiceModelNode) node.getParentNode();
         BusinessScenarioNode businessScenarioNode = (BusinessScenarioNode) serviceModelNode.getParentNode();
         BusinessScenarioStrategy businessScenarioStrategy = new BusinessScenarioStrategy(businessScenarioNode);
 
-        String outputPath = businessScenarioStrategy.parseOutputPath(templateUrl, preFixOutPath);
+        String outputPath = businessScenarioStrategy.parseOutputPath(templateUrl, preFixOutPath, projectTemplateType);
         String[] searchList = {
                 ModelUrlConstant.BUSINESS_DTO_CLASS
         };
