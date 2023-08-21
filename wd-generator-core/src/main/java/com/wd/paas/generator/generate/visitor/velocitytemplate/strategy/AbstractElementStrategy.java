@@ -3,6 +3,10 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.generator.common.context.ElementContent;
 import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
+import com.wd.paas.generator.common.enums.ElementMappingV1;
+import com.wd.paas.generator.common.enums.ElementMappingV2;
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.common.util.FileGenerator;
 import com.wd.paas.generator.generate.element.ElementNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
@@ -65,7 +69,8 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
     private void storeOutPutPath(TemplateContext templateContext) {
         // 获取模版文件列表
         ElementContent elementContent = new ElementContent(elementNode);
-        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
+        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext)))
+                .orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getPreFixOutPath());
             ThreadContextHelper.storePath(elementContent, outputPath);
@@ -83,11 +88,30 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
      */
     private void generateFile(TemplateContext templateContext, VelocityContext velocityContext) {
         // 获取模版文件列表
-        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList()).orElse(Collections.emptyList());
+        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext))).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getPreFixOutPath());
             FileGenerator.run(velocityContext, templateContext.getZipOutputStream(), templateUrl, outputPath);
         }
+    }
+
+    /**
+     * 根据 <项目架构类型> 设置不同的模版
+     */
+    private static AbstractElementMapping getElementMapping(TemplateContext templateContext) {
+        ProjectTemplateType projectTemplateType = templateContext.getProjectTemplateType();
+        AbstractElementMapping elementMapping;
+        switch (projectTemplateType) {
+            case COLA:
+                elementMapping = new ElementMappingV1();
+                break;
+            case COLA_SINGLE:
+                elementMapping = new ElementMappingV2();
+                break;
+            default:
+                throw new IllegalStateException("项目架构类型设置非法！");
+        }
+        return elementMapping;
     }
 
 }

@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.generate.element.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
@@ -33,8 +33,8 @@ public class AggregationStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList() {
-        return Arrays.asList(GenerateElementTypeEnum.AGGREGATION.getTemplateUrls());
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return Arrays.asList(projectTemplateType.aggregationRoot());
     }
 
     @Override

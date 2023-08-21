@@ -2,7 +2,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.BusinessDTONode;
 import com.wd.paas.generator.generate.element.BusinessScenarioNode;
@@ -31,8 +31,8 @@ public class BusinessDTOStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList() {
-        return Arrays.asList(GenerateElementTypeEnum.BUSINESS_DTO.getTemplateUrls());
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return Arrays.asList(projectTemplateType.businessDto());
     }
 
     @Override

@@ -4,7 +4,7 @@ import com.google.common.base.CaseFormat;
 import com.wd.paas.common.DataIndexInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.DataObjectNode;
@@ -41,8 +41,8 @@ public class DataObjectStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList() {
-        return Arrays.asList(GenerateElementTypeEnum.DATA_MODEL.getTemplateUrls());
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return Arrays.asList(projectTemplateType.dataModel());
     }
 
     @Override

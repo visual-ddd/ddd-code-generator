@@ -4,7 +4,7 @@ import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.common.util.ParseStringUtil;
 import com.wd.paas.generator.common.util.ParseTypeSignUtil;
 import com.wd.paas.generator.generate.element.ApplicationNode;
@@ -50,8 +50,8 @@ public class ApplicationStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList() {
-        return Arrays.asList(GenerateElementTypeEnum.PROJECT.getTemplateUrls());
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return Arrays.asList(projectTemplateType.project());
     }
 
     @Override

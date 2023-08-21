@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
+import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -19,6 +20,8 @@ public class TemplateContext {
     private ZipOutputStream zipOutputStream;
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
 
+    private ProjectTemplateType projectTemplateType = ProjectTemplateType.COLA;
+
     public TemplateContext() {
         initTemplateContext();
     }
@@ -31,6 +34,10 @@ public class TemplateContext {
     public TemplateContext(ZipOutputStream zipOutputStream) {
         this();
         this.zipOutputStream = zipOutputStream;
+    }
+
+    public void setProjectTemplateType(ProjectTemplateType projectTemplateType) {
+        this.projectTemplateType = projectTemplateType;
     }
 
     /**

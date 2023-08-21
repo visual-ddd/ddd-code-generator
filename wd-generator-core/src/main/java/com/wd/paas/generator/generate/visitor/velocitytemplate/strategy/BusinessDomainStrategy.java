@@ -3,7 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.google.common.base.CaseFormat;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.generate.element.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
@@ -55,11 +55,11 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList() {
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
         List<String> domainChartTemplateList = new ArrayList<>();
-        domainChartTemplateList.addAll(Arrays.asList(GenerateElementTypeEnum.DOMAIN_CHART.getTemplateUrls()));
-        domainChartTemplateList.addAll(Arrays.asList(GenerateElementTypeEnum.DOMAIN_CHART_TASK.getTemplateUrls()));
-        domainChartTemplateList.addAll(Arrays.asList(GenerateElementTypeEnum.DOMAIN_CHART_LISTENER.getTemplateUrls()));
+        domainChartTemplateList.addAll(Arrays.asList(projectTemplateType.domainChart()));
+        domainChartTemplateList.addAll(Arrays.asList(projectTemplateType.domainChartTask()));
+        domainChartTemplateList.addAll(Arrays.asList(projectTemplateType.domainChartListener()));
         return domainChartTemplateList;
     }
 

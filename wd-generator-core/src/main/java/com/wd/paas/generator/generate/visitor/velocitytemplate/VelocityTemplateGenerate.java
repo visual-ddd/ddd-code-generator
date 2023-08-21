@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.strategy.ElementStrategy;
 import org.apache.velocity.VelocityContext;
 
@@ -26,7 +27,7 @@ public interface VelocityTemplateGenerate extends ElementStrategy {
      *
      * @return 模版路径列表
      */
-    List<String> getTemplatePathList();
+    List<String> getTemplatePathList(AbstractElementMapping projectTemplateType);
 
     /**
      * 填充当前元素标签到上下文中,用于进行变量映射

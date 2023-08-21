@@ -5,7 +5,7 @@ import com.wd.paas.common.enums.ConvertTypeEnum;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ThreadContextHelper;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.generate.element.BusinessDomainNode;
 import com.wd.paas.generator.generate.element.ObjectMapperNode;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
@@ -70,16 +70,16 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     }
 
     @Override
-    public List<String> getTemplatePathList() {
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
         List<String> list = new ArrayList<>();
         String type = astObjectMapper.getSource().getType();
         switch (ConvertTypeEnum.of(type)) {
             case ENTITY2DO:
-                list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL.getTemplateUrls()));
-                list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL_ENTITY_TO_DO.getTemplateUrls()));
+                list.addAll(Arrays.asList(projectTemplateType.objectMapperModel()));
+                list.addAll(Arrays.asList(projectTemplateType.Entity2Do()));
                 break;
             case DTO2DO:
-                list.addAll(Arrays.asList(GenerateElementTypeEnum.OBJECT_MAPPER_MODEL_DTO_TO_DO.getTemplateUrls()));
+                list.addAll(Arrays.asList(projectTemplateType.DTO2DO()));
                 break;
         }
         return list;

@@ -5,7 +5,7 @@ import com.wd.paas.common.PropertyInfo;
 import com.wd.paas.common.enums.CommandSourceTypeEnum;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.common.util.TypeConvertor;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.CommandNode;
@@ -62,29 +62,29 @@ public class CommandStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList() {
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
         List<String> list = new ArrayList<>();
-        list.addAll(Arrays.asList(GenerateElementTypeEnum.COMMAND.getTemplateUrls()));
+        list.addAll(Arrays.asList(projectTemplateType.command()));
 
         if (Boolean.TRUE.equals(astCommand.getEventEnable())) {
-            list.addAll(Arrays.asList(GenerateElementTypeEnum.EVENT.getTemplateUrls()));
+            list.addAll(Arrays.asList(projectTemplateType.event()));
         }
 
         switch (astCommand.getRepository()) {
             case SAVE:
-                list.addAll(Arrays.asList(GenerateElementTypeEnum.ADD_COMMAND_HANDLER.getTemplateUrls()));
+                list.addAll(Arrays.asList(projectTemplateType.addCommandHandler()));
                 break;
             case MODIFY:
-                list.addAll(Arrays.asList(GenerateElementTypeEnum.UPDATE_COMMAND_HANDLER.getTemplateUrls()));
+                list.addAll(Arrays.asList(projectTemplateType.updateCommandHandler()));
                 break;
             case REMOVE:
-                list.addAll(Arrays.asList(GenerateElementTypeEnum.DELETE_COMMAND_HANDLER.getTemplateUrls()));
+                list.addAll(Arrays.asList(projectTemplateType.deleteCommandHandler()));
                 break;
         }
 
         Object sourceValue = astCommand.getSourceValue(CommandSourceTypeEnum.EVENT.getValue());
         if (sourceValue instanceof String) {
-            list.addAll(Arrays.asList(GenerateElementTypeEnum.EXTERNAL_EVENT.getTemplateUrls()));
+            list.addAll(Arrays.asList(projectTemplateType.externalEvent()));
         }
 
         return list;

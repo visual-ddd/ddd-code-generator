@@ -3,7 +3,7 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 import com.wd.paas.common.EnumMemberInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
-import com.wd.paas.generator.common.enums.GenerateElementTypeEnum;
+import com.wd.paas.generator.common.enums.AbstractElementMapping;
 import com.wd.paas.generator.generate.element.AggregateNode;
 import com.wd.paas.generator.generate.element.EnumNode;
 import org.apache.commons.lang3.StringUtils;
@@ -36,8 +36,8 @@ public class EnumStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList() {
-        return Arrays.asList(GenerateElementTypeEnum.ENUM.getTemplateUrls());
+    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return Arrays.asList(projectTemplateType.enums());
     }
 
     @Override
