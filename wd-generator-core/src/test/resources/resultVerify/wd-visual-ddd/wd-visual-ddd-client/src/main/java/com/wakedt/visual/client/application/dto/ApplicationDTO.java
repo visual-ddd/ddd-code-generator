@@ -13,6 +13,9 @@ import java.time.LocalDateTime;
 
 /**
  * 应用数据传输对象
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

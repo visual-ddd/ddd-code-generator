@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
  * 删除应用版本-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationVersionRemoveCmdHandler {
@@ -22,6 +25,5 @@ public class ApplicationVersionRemoveCmdHandler {
 
         repository.remove(applicationVersion);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionRemoveEvent(removeCmd));
     }
 }

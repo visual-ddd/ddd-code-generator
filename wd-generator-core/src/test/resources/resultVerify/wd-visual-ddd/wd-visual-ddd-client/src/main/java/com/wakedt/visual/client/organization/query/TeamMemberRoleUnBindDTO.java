@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 解绑团队成员职位
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "解绑团队成员职位")

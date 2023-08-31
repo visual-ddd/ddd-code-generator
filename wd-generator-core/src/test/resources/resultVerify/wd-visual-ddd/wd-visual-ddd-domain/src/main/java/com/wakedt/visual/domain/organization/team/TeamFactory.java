@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.organization.team.teamcreate.TeamCreateCmd;
 
 /**
  * 团队-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamFactory {

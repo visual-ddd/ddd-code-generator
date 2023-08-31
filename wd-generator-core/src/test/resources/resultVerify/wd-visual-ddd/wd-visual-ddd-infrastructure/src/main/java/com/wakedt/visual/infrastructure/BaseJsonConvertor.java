@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * JsonConverter 基本数据类型json 与 List\Set 的相互转换
+ * JsonConverter 基本数据类型json 与 List、Set 的相互转换
+ *
+ * @author visual-ddd
+ * @since 1.0
  */
 public class BaseJsonConvertor {
 

@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 绑定团队管理员-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamManagerBindCmdHandler {
@@ -20,6 +23,5 @@ public class TeamManagerBindCmdHandler {
 
         repository.update(team);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new TeamManagerBindEvent(updateCmd));
     }
 }

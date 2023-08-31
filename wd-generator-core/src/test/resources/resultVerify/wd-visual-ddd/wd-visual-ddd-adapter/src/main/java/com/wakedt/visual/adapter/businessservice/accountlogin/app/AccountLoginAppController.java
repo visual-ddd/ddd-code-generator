@@ -31,6 +31,9 @@ import com.wakedt.visual.client.businessservice.accountlogin.AccountLoginRpcServ
 
 /**
  * 用户登录场景-C端
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/app/account-login")

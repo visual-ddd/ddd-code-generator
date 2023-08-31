@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.account.assembler.AccountVerification2Ac
 
 /**
  * AccountVerification-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class AccountVerificationRepositoryImpl implements AccountVerificationRep
 
     @Override
     public AccountVerification find(Long id) {
-        AccountVerificationDO result = accountVerificationMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        AccountVerificationDO result = Optional.ofNullable(accountVerificationMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return AccountVerification2AccountVerificationDOConvert.INSTANCE.do2Dto(result);
     }
 }

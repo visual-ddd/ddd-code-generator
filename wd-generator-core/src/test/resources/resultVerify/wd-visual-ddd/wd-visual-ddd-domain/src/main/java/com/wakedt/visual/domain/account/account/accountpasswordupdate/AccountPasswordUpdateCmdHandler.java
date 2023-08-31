@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 修改用户密码-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountPasswordUpdateCmdHandler {
@@ -22,6 +25,5 @@ public class AccountPasswordUpdateCmdHandler {
 
         repository.update(account);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new AccountPasswordUpdateEvent(updateCmd));
     }
 }

@@ -12,6 +12,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 统一语言Excel数据
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

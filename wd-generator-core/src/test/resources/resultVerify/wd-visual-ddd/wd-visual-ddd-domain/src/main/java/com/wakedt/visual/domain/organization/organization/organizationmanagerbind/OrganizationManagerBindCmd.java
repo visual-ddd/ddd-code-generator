@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 绑定组织管理员-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

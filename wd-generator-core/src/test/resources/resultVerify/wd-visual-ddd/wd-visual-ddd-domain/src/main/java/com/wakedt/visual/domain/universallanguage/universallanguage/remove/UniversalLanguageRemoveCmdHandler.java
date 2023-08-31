@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
  * 删除统一语言-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class UniversalLanguageRemoveCmdHandler {
@@ -20,6 +23,5 @@ public class UniversalLanguageRemoveCmdHandler {
 
         repository.remove(universalLanguage);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageRemoveEvent(removeCmd));
     }
 }

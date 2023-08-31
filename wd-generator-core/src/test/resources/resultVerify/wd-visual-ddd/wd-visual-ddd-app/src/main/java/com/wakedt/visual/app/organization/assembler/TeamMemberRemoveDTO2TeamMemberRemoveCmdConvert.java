@@ -8,6 +8,12 @@ import com.wakedt.visual.client.organization.query.TeamMemberRemoveDTO;
 import com.wakedt.visual.domain.organization.teammember.teammemberremove.TeamMemberRemoveCmd;
 import com.wakedt.visual.domain.organization.teammember.MemberTypeConverter;
 
+/**
+ * TeamMemberRemoveDTO2TeamMemberRemoveCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         MemberTypeConverter.class,

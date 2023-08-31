@@ -21,7 +21,10 @@ import com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind.Te
 import javax.annotation.Resource;
 
 /**
- * Organization - 事件订阅
+ * Organization-事件订阅
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component

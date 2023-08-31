@@ -11,6 +11,9 @@ import com.wakedt.visual.app.businessscene.assembler.BusinessSceneDTO2BusinessSc
 
 /**
  * 业务场景详情查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneQueryExe {

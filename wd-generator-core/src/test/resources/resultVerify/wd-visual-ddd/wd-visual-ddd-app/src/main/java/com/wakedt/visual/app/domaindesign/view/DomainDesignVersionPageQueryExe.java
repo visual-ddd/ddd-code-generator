@@ -4,7 +4,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
@@ -16,6 +16,9 @@ import com.wakedt.visual.app.domaindesign.assembler.DomainDesignVersionDTO2Domai
 
 /**
  * 业务域版本分页查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class DomainDesignVersionPageQueryExe {
@@ -24,7 +27,7 @@ public class DomainDesignVersionPageQueryExe {
     private DomainDesignVersionMapper mapper;
 
     public PageResultDTO<List<DomainDesignVersionDTO>> execute(DomainDesignVersionPageQuery pageQuery) {
-        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<DomainDesignVersionDO> pageInfo = new PageInfo<>(mapper.domainDesignVersionPageQuery(pageQuery));
         PageResultDTO<List<DomainDesignVersionDTO>> pageResultDTO = new PageResultDTO<>();

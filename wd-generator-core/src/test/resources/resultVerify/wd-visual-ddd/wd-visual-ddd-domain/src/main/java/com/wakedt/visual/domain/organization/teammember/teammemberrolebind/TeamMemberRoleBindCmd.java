@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 绑定团队成员职位-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

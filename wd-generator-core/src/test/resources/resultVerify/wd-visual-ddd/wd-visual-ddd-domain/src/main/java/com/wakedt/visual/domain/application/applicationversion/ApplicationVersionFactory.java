@@ -9,6 +9,9 @@ import com.wakedt.visual.domain.application.applicationversion.applicationversio
 
 /**
  * 应用版本-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationVersionFactory {

@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 编辑组织-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class OrganizationModifyCmdHandler {
@@ -22,6 +25,5 @@ public class OrganizationModifyCmdHandler {
 
         repository.update(organization);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationModifyEvent(updateCmd));
     }
 }

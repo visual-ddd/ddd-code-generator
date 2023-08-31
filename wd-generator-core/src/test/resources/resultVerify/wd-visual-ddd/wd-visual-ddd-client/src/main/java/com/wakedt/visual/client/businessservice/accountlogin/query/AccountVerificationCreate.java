@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 发送注册账号验证码
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "发送注册账号验证码")

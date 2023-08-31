@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 发送重置密码邮件
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "发送重置密码邮件")

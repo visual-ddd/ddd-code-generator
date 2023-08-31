@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 发布业务场景版本
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "发布业务场景版本")

@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 
 /**
  * 业务场景-聚合根
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 public abstract class AbstractBusinessScene {

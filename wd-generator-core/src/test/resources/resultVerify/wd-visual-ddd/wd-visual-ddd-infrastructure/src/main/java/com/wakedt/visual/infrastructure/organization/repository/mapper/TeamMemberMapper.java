@@ -10,11 +10,19 @@ import com.wakedt.visual.client.organization.query.TeamMemberByTeamIdPageQuery;
 
 /**
  * TeamMemberMapper接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Mapper
 public interface TeamMemberMapper extends BaseMapper<TeamMemberDO> {
 
-    /** 查询团队下的成员信息 */
+    /**
+     * 分页查询团队成员
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<TeamMemberDO> teamMemberByTeamIdPageQuery(TeamMemberByTeamIdPageQuery pageQuery);
 
 }

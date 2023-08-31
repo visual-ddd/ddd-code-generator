@@ -15,7 +15,10 @@ import com.wakedt.visual.domain.account.accountverification.verificationupdate.A
 import javax.annotation.Resource;
 
 /**
- * Account - 事件订阅
+ * Account-事件订阅
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component

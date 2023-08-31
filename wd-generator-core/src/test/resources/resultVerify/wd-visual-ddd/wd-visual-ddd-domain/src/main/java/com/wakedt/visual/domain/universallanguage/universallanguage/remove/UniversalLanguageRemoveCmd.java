@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
  * 删除统一语言-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

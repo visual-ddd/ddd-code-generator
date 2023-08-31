@@ -4,7 +4,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
@@ -16,6 +16,9 @@ import com.wakedt.visual.app.businessscene.assembler.BusinessSceneVersionDTO2Bus
 
 /**
  * 业务场景版本分页查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneVersionPageQueryExe {
@@ -24,7 +27,7 @@ public class BusinessSceneVersionPageQueryExe {
     private BusinessSceneVersionMapper mapper;
 
     public PageResultDTO<List<BusinessSceneVersionDTO>> execute(BusinessSceneVersionPageQuery pageQuery) {
-        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<BusinessSceneVersionDO> pageInfo = new PageInfo<>(mapper.businessSceneVersionPageQuery(pageQuery));
         PageResultDTO<List<BusinessSceneVersionDTO>> pageResultDTO = new PageResultDTO<>();

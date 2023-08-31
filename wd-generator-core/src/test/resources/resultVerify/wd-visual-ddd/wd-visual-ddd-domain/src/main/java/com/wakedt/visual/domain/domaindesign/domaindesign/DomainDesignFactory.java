@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesigncreate.Dom
 
 /**
  * 业务域-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class DomainDesignFactory {

@@ -16,7 +16,10 @@ import javax.annotation.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
 
 /**
- * Application - 定时任务
+ * Application-定时任务
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component

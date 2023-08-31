@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 删除团队成员-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamMemberRemoveCmdHandler {
@@ -20,6 +23,5 @@ public class TeamMemberRemoveCmdHandler {
 
         repository.remove(teamMember);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRemoveEvent(removeCmd));
     }
 }

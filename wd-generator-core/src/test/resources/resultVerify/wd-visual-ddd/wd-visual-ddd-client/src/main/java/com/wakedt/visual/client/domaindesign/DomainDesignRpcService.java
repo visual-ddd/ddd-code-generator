@@ -25,52 +25,130 @@ import java.time.LocalDateTime;
 
 /**
  * 业务域-RPC能力接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public interface DomainDesignRpcService {
 
-    /** 新增业务域 */
+    /**
+     * 新增业务域
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> domainDesignCreate(DomainDesignCreateDTO dto);
 
-    /** 编辑业务域 */
+    /**
+     * 编辑业务域
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> domainDesignModify(DomainDesignModifyDTO dto);
 
-    /** 删除业务域 */
+    /**
+     * 删除业务域
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> domainDesignRemove(DomainDesignRemoveDTO dto);
 
-    /** 新增业务域版本 */
+    /**
+     * 新增业务域版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> domainDesignVersionCreate(DomainDesignVersionCreateDTO dto);
 
-    /** 编辑业务域版本 */
+    /**
+     * 编辑业务域版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> domainDesignVersionModify(DomainDesignVersionModifyDTO dto);
 
-    /** 删除业务域版本 */
+    /**
+     * 删除业务域版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> domainDesignVersionRemove(DomainDesignVersionRemoveDTO dto);
 
-    /** 更新业务域DSL */
+    /**
+     * 更新业务域DSL
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> domainDesignDslUpdate(DomainDesignDslUpdateDTO dto);
 
-    /** 发布业务域版本 */
+    /**
+     * 发布业务域版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> domainDesignVersionPublish(DomainDesignVersionPublishDTO dto);
 
-    /** Fork业务域版本 */
+    /**
+     * Fork业务域版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> domainDesignVersionFork(DomainDesignVersionForkDTO dto);
 
-    /** 查询业务域详情 */
+    /**
+     * 查询业务域详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<DomainDesignDTO> domainDesignQuery(DomainDesignQuery query);
 
-    /** 分页查询业务域 */
+    /**
+     * 分页查询业务域
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<DomainDesignDTO>> domainDesignPageQuery(DomainDesignPageQuery pageQuery);
 
-    /** 查询业务域版本详情 */
+    /**
+     * 查询业务域版本详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<DomainDesignVersionDTO> domainDesignVersionQuery(DomainDesignVersionQuery query);
 
-    /** 分页查询业务域版本 */
+    /**
+     * 分页查询业务域版本
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<DomainDesignVersionDTO>> domainDesignVersionPageQuery(DomainDesignVersionPageQuery pageQuery);
 
-    /** 查询业务域下的最新版本 */
+    /**
+     * 查询业务域下的最新版本
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<DomainDesignVersionDTO> domainDesignLatestVersionQuery(DomainDesignLatestVersionQuery query);
 
-    /** 业务域列表查询对象 */
+    /**
+     * 业务域列表查询对象
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery pageQuery);
 
 }

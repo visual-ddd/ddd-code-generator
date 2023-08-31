@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.organization.assembler.Team2TeamDOConver
 
 /**
  * Team-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class TeamRepositoryImpl implements TeamRepository {
 
     @Override
     public Team find(Long id) {
-        TeamDO result = teamMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        TeamDO result = Optional.ofNullable(teamMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return Team2TeamDOConvert.INSTANCE.do2Dto(result);
     }
 }

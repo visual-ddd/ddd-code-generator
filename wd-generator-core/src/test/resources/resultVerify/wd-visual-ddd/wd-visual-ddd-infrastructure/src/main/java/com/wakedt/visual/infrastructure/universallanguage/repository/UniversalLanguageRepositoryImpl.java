@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.universallanguage.assembler.UniversalLan
 
 /**
  * UniversalLanguage-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class UniversalLanguageRepositoryImpl implements UniversalLanguageReposit
 
     @Override
     public UniversalLanguage find(Long id) {
-        UniversalLanguageDO result = universalLanguageMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        UniversalLanguageDO result = Optional.ofNullable(universalLanguageMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return UniversalLanguage2UniversalLanguageDOConvert.INSTANCE.do2Dto(result);
     }
 }

@@ -12,6 +12,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 当前登录账号权限
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

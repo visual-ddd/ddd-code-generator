@@ -48,6 +48,7 @@ public class ModelUrlConstant {
     public static final String QUERY_RESULT_CLASS = "QueryResult";
     public static final String QUERY_CLASS = "Query";
     public static final String DTO_SUFFIX = "DTO";
+    public static final String CONVERT_DTO_SUFFIX = "Dto";
     public static final String REQUEST_SUFFIX = "Request";
 
     // 数据模型

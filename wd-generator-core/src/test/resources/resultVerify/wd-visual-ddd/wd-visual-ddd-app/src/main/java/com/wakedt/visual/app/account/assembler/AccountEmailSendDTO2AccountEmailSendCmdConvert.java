@@ -7,6 +7,12 @@ import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.account.query.AccountEmailSendDTO;
 import com.wakedt.visual.domain.account.account.accountpasswordresetsendemail.AccountEmailSendCmd;
 
+/**
+ * AccountEmailSendDTO2AccountEmailSendCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })

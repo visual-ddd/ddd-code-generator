@@ -26,52 +26,130 @@ import java.time.LocalDateTime;
 
 /**
  * 应用域-RPC能力接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public interface ApplicationRpcService {
 
-    /** 新增应用 */
+    /**
+     * 新增应用
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> applicationCreate(ApplicationCreateDTO dto);
 
-    /** 编辑应用 */
+    /**
+     * 编辑应用
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> applicationModify(ApplicationModifyDTO dto);
 
-    /** 删除应用 */
+    /**
+     * 删除应用
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> applicationRemove(ApplicationRemoveDTO dto);
 
-    /** 新增应用版本 */
+    /**
+     * 新增应用版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> applicationVersionCreate(ApplicationVersionCreateDTO dto);
 
-    /** 删除应用版本 */
+    /**
+     * 删除应用版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> applicationVersionRemove(ApplicationVersionRemoveDTO dto);
 
-    /** 关联业务场景版本 */
+    /**
+     * 关联业务场景版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> businessSceneVersionBind(BusinessSceneVersionBindDTO dto);
 
-    /** 关联业务域版本 */
+    /**
+     * 关联业务域版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> domainDesignVersionBind(DomainDesignVersionBindDTO dto);
 
-    /** 发布应用版本 */
+    /**
+     * 发布应用版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> applicationVersionPublish(ApplicationVersionPublishDTO dto);
 
-    /** Fork应用版本 */
+    /**
+     * Fork应用版本
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> applicationVersionFork(ApplicationVersionForkDTO dto);
 
-    /** 查询应用详情 */
+    /**
+     * 查询应用详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<ApplicationDTO> applicationQuery(ApplicationQuery query);
 
-    /** 分页查询应用 */
+    /**
+     * 分页查询应用
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<ApplicationDTO>> applicationPageQuery(ApplicationPageQuery pageQuery);
 
-    /** 查询应用版本详情 */
+    /**
+     * 查询应用版本详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<ApplicationVersionDTO> applicationVersionQuery(ApplicationVersionQuery query);
 
-    /** 分页查询应用版本 */
+    /**
+     * 分页查询应用版本
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<ApplicationVersionDTO>> applicationVersionPageQuery(ApplicationVersionPageQuery pageQuery);
 
-    /** 应用列表查询对象 */
+    /**
+     * 应用列表查询对象
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery pageQuery);
 
-    /** 查询应用下的最新版本 */
+    /**
+     * 查询应用下的最新版本
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<ApplicationVersionDTO> applicationLatestVersionQuery(ApplicationLatestVersionQuery query);
 
 }

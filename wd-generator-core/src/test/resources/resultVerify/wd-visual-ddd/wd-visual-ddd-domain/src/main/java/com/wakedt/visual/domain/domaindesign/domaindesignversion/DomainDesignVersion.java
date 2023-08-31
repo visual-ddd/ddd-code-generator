@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignver
 
 /**
  * 业务域版本-聚合根能力
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class DomainDesignVersion extends AbstractDomainDesignVersion {
 

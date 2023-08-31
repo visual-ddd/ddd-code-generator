@@ -22,6 +22,9 @@ import org.springframework.stereotype.Service;
 
 /**
  * 用户登录场景-RPC能力接口实现
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Service
 public class AccountLoginRpcServiceImpl implements AccountLoginRpcService {

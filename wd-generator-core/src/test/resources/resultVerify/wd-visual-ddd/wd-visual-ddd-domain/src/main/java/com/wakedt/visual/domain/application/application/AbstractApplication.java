@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 
 /**
  * 应用-聚合根
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 public abstract class AbstractApplication {

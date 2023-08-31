@@ -11,6 +11,9 @@ import com.wakedt.visual.app.universallanguage.assembler.UniversalLanguageDTO2Un
 
 /**
  * 统一语言详情查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class UniversalLanguageQueryExe {

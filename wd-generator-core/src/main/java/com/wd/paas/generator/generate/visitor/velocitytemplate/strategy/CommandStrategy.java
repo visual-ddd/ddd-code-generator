@@ -64,8 +64,7 @@ public class CommandStrategy extends AbstractElementStrategy {
 
     @Override
     public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        List<String> list = new ArrayList<>();
-        list.addAll(Arrays.asList(projectTemplateType.command()));
+        List<String> list = new ArrayList<>(Arrays.asList(projectTemplateType.command()));
 
         if (Boolean.TRUE.equals(astCommand.getEventEnable())) {
             list.addAll(Arrays.asList(projectTemplateType.event()));
@@ -81,6 +80,8 @@ public class CommandStrategy extends AbstractElementStrategy {
             case REMOVE:
                 list.addAll(Arrays.asList(projectTemplateType.deleteCommandHandler()));
                 break;
+            default:
+                throw new IllegalArgumentException(String.format("%s非法的仓储类型！", astCommand.getRepository()));
         }
 
         Object sourceValue = astCommand.getSourceValue(CommandSourceTypeEnum.EVENT.getValue());

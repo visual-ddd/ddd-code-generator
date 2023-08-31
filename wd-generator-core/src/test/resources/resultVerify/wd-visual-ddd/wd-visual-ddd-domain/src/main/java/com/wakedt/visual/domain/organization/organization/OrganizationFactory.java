@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.organization.organization.organizationcreate.Org
 
 /**
  * 组织-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class OrganizationFactory {

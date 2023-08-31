@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.application.application.*;
 
 /**
  * 编辑应用-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationModifyCmdHandler {
@@ -20,6 +23,5 @@ public class ApplicationModifyCmdHandler {
 
         repository.update(application);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationModifyEvent(updateCmd));
     }
 }

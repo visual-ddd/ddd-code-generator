@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 解绑团队成员职位-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamMemberRoleUnBindCmdHandler {
@@ -20,6 +23,5 @@ public class TeamMemberRoleUnBindCmdHandler {
 
         repository.update(teamMember);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberRoleUnBindEvent(updateCmd));
     }
 }

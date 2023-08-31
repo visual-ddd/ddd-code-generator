@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 更新账号基本信息
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "更新账号基本信息")

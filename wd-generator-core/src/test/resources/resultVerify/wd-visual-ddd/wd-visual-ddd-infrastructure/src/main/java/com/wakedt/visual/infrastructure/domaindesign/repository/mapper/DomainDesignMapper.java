@@ -12,17 +12,35 @@ import com.wakedt.visual.client.domaindesign.query.DomainDesignListQuery;
 
 /**
  * DomainDesignMapper接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Mapper
 public interface DomainDesignMapper extends BaseMapper<DomainDesignDO> {
 
-    /** 业务域详情查询对象 */
+    /**
+     * 查询业务域详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     DomainDesignDO domainDesignQuery(DomainDesignQuery query);
 
-    /** 业务域分页查询对象 */
+    /**
+     * 分页查询业务域
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<DomainDesignDO> domainDesignPageQuery(DomainDesignPageQuery pageQuery);
 
-    /** 业务域列表查询对象 */
+    /**
+     * 业务域列表查询对象
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<DomainDesignDO> domainDesignListQuery(DomainDesignListQuery pageQuery);
 
 }

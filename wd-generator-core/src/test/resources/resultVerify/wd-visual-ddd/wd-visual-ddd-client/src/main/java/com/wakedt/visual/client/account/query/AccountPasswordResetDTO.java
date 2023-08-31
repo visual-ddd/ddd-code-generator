@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 重置用户密码
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "重置用户密码")

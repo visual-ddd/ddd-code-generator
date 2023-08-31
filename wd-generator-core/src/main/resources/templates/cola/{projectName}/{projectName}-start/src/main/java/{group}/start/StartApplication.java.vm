@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
  * ${PROJECT_TITLE}-启动类
+ *
+ * @author visual-ddd
+ * @since 1.0
  */
 @EnableMessageCenter
 @SpringBootApplication(scanBasePackages = {"${PROJECT_PACKAGE}"})

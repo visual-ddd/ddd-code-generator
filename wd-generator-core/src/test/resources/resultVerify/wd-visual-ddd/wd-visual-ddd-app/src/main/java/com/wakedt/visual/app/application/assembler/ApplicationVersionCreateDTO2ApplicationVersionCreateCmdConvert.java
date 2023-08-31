@@ -8,6 +8,12 @@ import com.wakedt.visual.client.application.query.ApplicationVersionCreateDTO;
 import com.wakedt.visual.domain.application.applicationversion.applicationversioncreate.ApplicationVersionCreateCmd;
 import com.wakedt.visual.domain.application.applicationversion.VersionStateConverter;
 
+/**
+ * ApplicationVersionCreateDTO2ApplicationVersionCreateCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         VersionStateConverter.class,

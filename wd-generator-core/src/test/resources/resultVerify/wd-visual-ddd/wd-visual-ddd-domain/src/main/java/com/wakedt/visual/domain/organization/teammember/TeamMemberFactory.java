@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.organization.teammember.teammemberadd.TeamMember
 
 /**
  * 团队成员-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamMemberFactory {

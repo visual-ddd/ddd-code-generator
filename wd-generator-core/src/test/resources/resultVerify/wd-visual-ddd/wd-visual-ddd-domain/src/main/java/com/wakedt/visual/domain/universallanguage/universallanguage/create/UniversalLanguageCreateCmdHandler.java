@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.*;
 
 /**
  * 新增统一语言-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class UniversalLanguageCreateCmdHandler {
@@ -21,7 +24,6 @@ public class UniversalLanguageCreateCmdHandler {
 
         UniversalLanguage newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new UniversalLanguageCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

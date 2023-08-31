@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 发送重置密码邮件-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountEmailSendCmdHandler {
@@ -24,6 +27,5 @@ public class AccountEmailSendCmdHandler {
 
         repository.update(account);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new AccountEmailSendEvent(updateCmd));
     }
 }

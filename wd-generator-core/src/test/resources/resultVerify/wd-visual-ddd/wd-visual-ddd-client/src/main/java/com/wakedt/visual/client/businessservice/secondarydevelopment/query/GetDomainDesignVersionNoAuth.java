@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 免鉴权获取业务域版本信息
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "免鉴权获取业务域版本信息")

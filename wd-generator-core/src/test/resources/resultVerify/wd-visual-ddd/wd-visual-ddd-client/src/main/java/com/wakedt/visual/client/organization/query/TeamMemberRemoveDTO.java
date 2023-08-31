@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 删除团队成员
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "删除团队成员")

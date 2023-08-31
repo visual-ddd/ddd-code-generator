@@ -9,10 +9,7 @@ import com.wd.paas.generator.generate.element.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -40,7 +37,7 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.DOMAIN_ID, astBusinessDomain.getIdentity());
         context.put(VelocityLabel.DOMAIN_NAME, astBusinessDomain.getName());
         context.put(VelocityLabel.DOMAIN_CLASS_NAME, astBusinessDomain.getName());
-        context.put(VelocityLabel.DOMAIN_AUTHOR, "visual-ddd");
+        context.put(VelocityLabel.DOMAIN_AUTHOR, Optional.ofNullable(context.get(VelocityLabel.DOMAIN_AUTHOR)).orElse("visual-ddd"));
         context.put(VelocityLabel.DOMAIN_TITLE, astBusinessDomain.getTitle());
         context.put(VelocityLabel.DOMAIN_DESCRIPTION, astBusinessDomain.getDescription());
 

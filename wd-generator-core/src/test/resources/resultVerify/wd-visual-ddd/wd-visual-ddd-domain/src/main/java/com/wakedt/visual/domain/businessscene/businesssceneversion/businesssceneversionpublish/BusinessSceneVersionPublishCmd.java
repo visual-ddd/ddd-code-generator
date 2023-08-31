@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
 
 /**
  * 发布业务场景版本-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

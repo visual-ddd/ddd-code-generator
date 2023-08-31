@@ -19,6 +19,9 @@ import com.wakedt.visual.client.businessservice.organizationmanagement.Organizat
 
 /**
  * 组织管理场景-C端
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/app/organization-management")

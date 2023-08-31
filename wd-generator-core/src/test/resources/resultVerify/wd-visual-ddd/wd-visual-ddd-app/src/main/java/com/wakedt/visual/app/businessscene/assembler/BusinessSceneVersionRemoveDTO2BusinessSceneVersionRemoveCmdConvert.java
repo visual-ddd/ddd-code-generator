@@ -8,6 +8,12 @@ import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionRemoveDT
 import com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionremove.BusinessSceneVersionRemoveCmd;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.VersionStateConverter;
 
+/**
+ * BusinessSceneVersionRemoveDTO2BusinessSceneVersionRemoveCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         VersionStateConverter.class,

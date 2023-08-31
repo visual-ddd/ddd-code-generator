@@ -13,6 +13,9 @@ import java.util.Optional;
 
 /**
  * 版本状态-枚举JSON转换器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class VersionStateConverter {
 

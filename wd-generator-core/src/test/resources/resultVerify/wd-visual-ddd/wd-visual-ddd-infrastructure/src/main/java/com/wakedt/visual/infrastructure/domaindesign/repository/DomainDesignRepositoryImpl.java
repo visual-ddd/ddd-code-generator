@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.domaindesign.assembler.DomainDesign2Doma
 
 /**
  * DomainDesign-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class DomainDesignRepositoryImpl implements DomainDesignRepository {
 
     @Override
     public DomainDesign find(Long id) {
-        DomainDesignDO result = domainDesignMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        DomainDesignDO result = Optional.ofNullable(domainDesignMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return DomainDesign2DomainDesignDOConvert.INSTANCE.do2Dto(result);
     }
 }

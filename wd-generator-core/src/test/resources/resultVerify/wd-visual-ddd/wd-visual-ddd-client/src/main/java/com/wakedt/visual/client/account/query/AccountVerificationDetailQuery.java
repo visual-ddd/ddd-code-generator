@@ -13,6 +13,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 账号验证码详情查询对象
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

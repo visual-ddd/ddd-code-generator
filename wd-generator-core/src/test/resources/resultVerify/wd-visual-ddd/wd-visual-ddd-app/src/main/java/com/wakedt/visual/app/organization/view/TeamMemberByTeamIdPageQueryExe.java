@@ -4,7 +4,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
@@ -16,6 +16,9 @@ import com.wakedt.visual.app.organization.assembler.TeamMemberDTO2TeamMemberDOCo
 
 /**
  * 查询团队下的成员信息-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamMemberByTeamIdPageQueryExe {
@@ -24,7 +27,7 @@ public class TeamMemberByTeamIdPageQueryExe {
     private TeamMemberMapper mapper;
 
     public PageResultDTO<List<TeamMemberDTO>> execute(TeamMemberByTeamIdPageQuery pageQuery) {
-        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<TeamMemberDO> pageInfo = new PageInfo<>(mapper.teamMemberByTeamIdPageQuery(pageQuery));
         PageResultDTO<List<TeamMemberDTO>> pageResultDTO = new PageResultDTO<>();

@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.businessscene.assembler.BusinessScene2Bu
 
 /**
  * BusinessScene-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class BusinessSceneRepositoryImpl implements BusinessSceneRepository {
 
     @Override
     public BusinessScene find(Long id) {
-        BusinessSceneDO result = businessSceneMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        BusinessSceneDO result = Optional.ofNullable(businessSceneMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return BusinessScene2BusinessSceneDOConvert.INSTANCE.do2Dto(result);
     }
 }

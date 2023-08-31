@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 删除统一语言
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "删除统一语言")

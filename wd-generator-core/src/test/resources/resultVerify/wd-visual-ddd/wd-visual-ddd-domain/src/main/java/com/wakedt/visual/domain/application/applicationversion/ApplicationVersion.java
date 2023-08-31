@@ -11,6 +11,9 @@ import com.wakedt.visual.domain.application.applicationversion.applicationversio
 
 /**
  * 应用版本-聚合根能力
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class ApplicationVersion extends AbstractApplicationVersion {
 

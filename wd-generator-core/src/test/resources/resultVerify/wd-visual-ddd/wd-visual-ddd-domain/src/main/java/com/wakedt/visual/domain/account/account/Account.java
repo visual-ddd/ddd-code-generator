@@ -11,6 +11,9 @@ import com.wakedt.visual.domain.account.account.accountpasswordupdate.AccountPas
 
 /**
  * 账号-聚合根能力
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class Account extends AbstractAccount {
 

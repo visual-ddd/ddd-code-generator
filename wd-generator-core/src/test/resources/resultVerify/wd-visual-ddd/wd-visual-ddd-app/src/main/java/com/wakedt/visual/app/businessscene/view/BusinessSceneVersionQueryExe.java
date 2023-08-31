@@ -11,6 +11,9 @@ import com.wakedt.visual.app.businessscene.assembler.BusinessSceneVersionDTO2Bus
 
 /**
  * 业务场景版本详情查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneVersionQueryExe {

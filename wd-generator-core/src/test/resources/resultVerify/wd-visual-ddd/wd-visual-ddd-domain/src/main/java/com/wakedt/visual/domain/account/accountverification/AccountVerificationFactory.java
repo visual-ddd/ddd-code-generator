@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.account.accountverification.verificationcreate.A
 
 /**
  * 账号验证码-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountVerificationFactory {

@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 删除团队-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

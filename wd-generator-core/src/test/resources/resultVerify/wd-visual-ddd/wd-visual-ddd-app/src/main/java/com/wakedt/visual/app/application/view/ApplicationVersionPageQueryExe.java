@@ -4,7 +4,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
@@ -16,6 +16,9 @@ import com.wakedt.visual.app.application.assembler.ApplicationVersionDTO2Applica
 
 /**
  * 应用版本分页查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationVersionPageQueryExe {
@@ -24,7 +27,7 @@ public class ApplicationVersionPageQueryExe {
     private ApplicationVersionMapper mapper;
 
     public PageResultDTO<List<ApplicationVersionDTO>> execute(ApplicationVersionPageQuery pageQuery) {
-        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<ApplicationVersionDO> pageInfo = new PageInfo<>(mapper.applicationVersionPageQuery(pageQuery));
         PageResultDTO<List<ApplicationVersionDTO>> pageResultDTO = new PageResultDTO<>();

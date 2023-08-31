@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.application.applicationversion.*;
 
 /**
  * Fork应用版本-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationVersionForkCmdHandler {
@@ -25,7 +28,6 @@ public class ApplicationVersionForkCmdHandler {
 
         ApplicationVersion newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationVersionForkEvent(createCmd));
         return newEntity.getId();
     }
 }

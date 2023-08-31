@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.account.account.accountcreate.AccountCreateCmd;
 
 /**
  * 账号-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountFactory {

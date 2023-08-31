@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 删除账号-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountDeleteCmdHandler {
@@ -20,6 +23,5 @@ public class AccountDeleteCmdHandler {
 
         repository.remove(account);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new AccountDeleteEvent(removeCmd));
     }
 }

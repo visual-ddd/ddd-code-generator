@@ -4,12 +4,35 @@ package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAM
 #comment("${AGGREGATION_CLASS_TITLE}-聚合根-仓储接口")
 public interface ${AGGREGATION_CLASS_NAME}Repository {
 
+    /**
+     * 存储
+     *
+     * @param ${AGGREGATION_CLASS_NAME_FIRST_LOWER} ${AGGREGATION_CLASS_TITLE}
+     * @return ${AGGREGATION_CLASS_NAME}
+     */
     ${AGGREGATION_CLASS_NAME} save(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER});
 
+    /**
+     * 更新
+     *
+     * @param ${AGGREGATION_CLASS_NAME_FIRST_LOWER} ${AGGREGATION_CLASS_TITLE}
+     * @return ${AGGREGATION_CLASS_NAME}
+     */
     ${AGGREGATION_CLASS_NAME} update(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER});
 
+    /**
+     * 删除
+     *
+     * @param ${AGGREGATION_CLASS_NAME_FIRST_LOWER} ${AGGREGATION_CLASS_TITLE}
+     */
     void remove(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER});
 
+    /**
+     * 查询
+     *
+     * @param ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_ID.name})} 唯一标识
+     * @return ${AGGREGATION_CLASS_NAME}
+     */
     ${AGGREGATION_CLASS_NAME} find(${AGGREGATION_CLASS_ID.type} ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_ID.name})});
 
 }

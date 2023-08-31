@@ -20,7 +20,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
 #end
 #if(!${QUERY_PAGINATION})
@@ -43,7 +43,7 @@ public class ${QUERY_CLASS_NAME}Exe {
 
 #if(${QUERY_PAGINATION})
     public PageResultDTO<List<${returnTypeSign}>> execute(${QUERY_CLASS_NAME} pageQuery) {
-        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<$doClassName> pageInfo = new PageInfo<>(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(pageQuery));
         PageResultDTO<List<${returnTypeClassName}>> pageResultDTO = new PageResultDTO<>();

@@ -7,6 +7,12 @@ import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.account.query.AccountPasswordResetDTO;
 import com.wakedt.visual.domain.account.account.accountpasswordreset.AccountPasswordResetCmd;
 
+/**
+ * AccountPasswordResetDTO2AccountPasswordResetCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })

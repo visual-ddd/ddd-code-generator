@@ -8,6 +8,12 @@ import com.wakedt.visual.client.universallanguage.query.UniversalLanguageModifyD
 import com.wakedt.visual.domain.universallanguage.universallanguage.modify.UniversalLanguageModifyCmd;
 import com.wakedt.visual.domain.universallanguage.universallanguage.LanguageTypeConverter;
 
+/**
+ * UniversalLanguageModifyDTO2UniversalLanguageModifyCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         LanguageTypeConverter.class,

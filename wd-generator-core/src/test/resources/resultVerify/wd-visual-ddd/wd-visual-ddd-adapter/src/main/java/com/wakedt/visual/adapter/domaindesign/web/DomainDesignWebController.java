@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -36,6 +35,9 @@ import com.wakedt.visual.client.domaindesign.dto.DomainDesignVersionDTO;
 
 /**
  * 业务域-B端
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/web/domain-design")
@@ -100,38 +102,38 @@ public class DomainDesignWebController {
     }
 
     @ApiOperation("业务域详情查询对象")
-    @GetMapping("/domain-design-query")
-    public ResultDTO<DomainDesignDTO> domainDesignQuery(DomainDesignQuery query) {
+    @PostMapping("/domain-design-query")
+    public ResultDTO<DomainDesignDTO> domainDesignQuery(@RequestBody @Valid DomainDesignQuery query) {
         return domainDesignRpcService.domainDesignQuery(query);
     }
 
     @ApiOperation("业务域分页查询对象")
-    @GetMapping("/domain-design-page-query")
-    public PageResultDTO<List<DomainDesignDTO>> domainDesignPageQuery(DomainDesignPageQuery pageQuery) {
+    @PostMapping("/domain-design-page-query")
+    public PageResultDTO<List<DomainDesignDTO>> domainDesignPageQuery(@RequestBody @Valid DomainDesignPageQuery pageQuery) {
         return domainDesignRpcService.domainDesignPageQuery(pageQuery);
     }
 
     @ApiOperation("业务域版本详情查询对象")
-    @GetMapping("/domain-design-version-query")
-    public ResultDTO<DomainDesignVersionDTO> domainDesignVersionQuery(DomainDesignVersionQuery query) {
+    @PostMapping("/domain-design-version-query")
+    public ResultDTO<DomainDesignVersionDTO> domainDesignVersionQuery(@RequestBody @Valid DomainDesignVersionQuery query) {
         return domainDesignRpcService.domainDesignVersionQuery(query);
     }
 
     @ApiOperation("业务域版本分页查询对象")
-    @GetMapping("/domain-design-version-page-query")
-    public PageResultDTO<List<DomainDesignVersionDTO>> domainDesignVersionPageQuery(DomainDesignVersionPageQuery pageQuery) {
+    @PostMapping("/domain-design-version-page-query")
+    public PageResultDTO<List<DomainDesignVersionDTO>> domainDesignVersionPageQuery(@RequestBody @Valid DomainDesignVersionPageQuery pageQuery) {
         return domainDesignRpcService.domainDesignVersionPageQuery(pageQuery);
     }
 
     @ApiOperation("业务域最新版本查询对象")
-    @GetMapping("/domain-design-latest-version-query")
-    public ResultDTO<DomainDesignVersionDTO> domainDesignLatestVersionQuery(DomainDesignLatestVersionQuery query) {
+    @PostMapping("/domain-design-latest-version-query")
+    public ResultDTO<DomainDesignVersionDTO> domainDesignLatestVersionQuery(@RequestBody @Valid DomainDesignLatestVersionQuery query) {
         return domainDesignRpcService.domainDesignLatestVersionQuery(query);
     }
 
     @ApiOperation("业务域列表查询对象")
-    @GetMapping("/domain-design-list-query")
-    public PageResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery pageQuery) {
+    @PostMapping("/domain-design-list-query")
+    public PageResultDTO<List<DomainDesignDTO>> domainDesignListQuery(@RequestBody @Valid DomainDesignListQuery pageQuery) {
         return domainDesignRpcService.domainDesignListQuery(pageQuery);
     }
 }

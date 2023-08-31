@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
 
 /**
  * 发布业务场景版本-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneVersionPublishCmdHandler {
@@ -22,6 +25,5 @@ public class BusinessSceneVersionPublishCmdHandler {
 
         repository.update(businessSceneVersion);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionPublishEvent(updateCmd));
     }
 }

@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.application.application.applicationcreate.Applic
 
 /**
  * 应用-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationFactory {

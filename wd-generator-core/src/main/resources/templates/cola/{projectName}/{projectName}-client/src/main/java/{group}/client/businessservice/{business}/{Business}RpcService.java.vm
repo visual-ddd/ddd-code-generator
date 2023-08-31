@@ -17,11 +17,22 @@ import java.time.LocalDateTime;
 public interface ${BUSINESS_CLASS_NAME}RpcService {
 #foreach ($query in ${BUSINESS_QUERY_LIST})
 
-    /** ${query.description.replaceAll("\n","\\n")} */
 #if(${query.pagination})
+    /**
+     * ${query.description.replaceAll("\n","\\n")}
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
 #end
 #if(!${query.pagination})
+    /**
+     * ${query.description.replaceAll("\n","\\n")}
+     *
+     * @param request 请求对象
+     * @return 返回结果
+     */
     ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} request);
 #end
 #end

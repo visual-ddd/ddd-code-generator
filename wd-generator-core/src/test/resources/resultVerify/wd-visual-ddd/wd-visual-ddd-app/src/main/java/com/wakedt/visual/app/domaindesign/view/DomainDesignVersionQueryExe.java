@@ -11,6 +11,9 @@ import com.wakedt.visual.app.domaindesign.assembler.DomainDesignVersionDTO2Domai
 
 /**
  * 业务域版本详情查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class DomainDesignVersionQueryExe {

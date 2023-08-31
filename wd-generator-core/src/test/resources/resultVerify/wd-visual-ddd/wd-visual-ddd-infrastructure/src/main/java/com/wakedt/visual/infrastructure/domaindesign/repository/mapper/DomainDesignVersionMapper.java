@@ -12,17 +12,35 @@ import com.wakedt.visual.client.domaindesign.query.DomainDesignLatestVersionQuer
 
 /**
  * DomainDesignVersionMapper接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Mapper
 public interface DomainDesignVersionMapper extends BaseMapper<DomainDesignVersionDO> {
 
-    /** 业务域版本详情查询对象 */
+    /**
+     * 查询业务域版本详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     DomainDesignVersionDO domainDesignVersionQuery(DomainDesignVersionQuery query);
 
-    /** 业务域版本分页查询对象 */
+    /**
+     * 分页查询业务域版本
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<DomainDesignVersionDO> domainDesignVersionPageQuery(DomainDesignVersionPageQuery pageQuery);
 
-    /** 业务域最新版本查询对象 */
+    /**
+     * 查询业务域下的最新版本
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     DomainDesignVersionDO domainDesignLatestVersionQuery(DomainDesignLatestVersionQuery query);
 
 }

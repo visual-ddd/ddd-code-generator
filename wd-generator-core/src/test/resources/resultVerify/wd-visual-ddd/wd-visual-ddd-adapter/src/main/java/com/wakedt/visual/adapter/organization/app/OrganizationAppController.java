@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -41,6 +40,9 @@ import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
 
 /**
  * 组织域-C端
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/app/organization")
@@ -135,32 +137,32 @@ public class OrganizationAppController {
     }
 
     @ApiOperation("组织详情查询对象")
-    @GetMapping("/organization-query")
-    public ResultDTO<OrganizationDTO> organizationQuery(OrganizationQuery query) {
+    @PostMapping("/organization-query")
+    public ResultDTO<OrganizationDTO> organizationQuery(@RequestBody @Valid OrganizationQuery query) {
         return organizationRpcService.organizationQuery(query);
     }
 
     @ApiOperation("组织分页查询对象")
-    @GetMapping("/organization-page-query")
-    public PageResultDTO<List<OrganizationDTO>> organizationPageQuery(OrganizationPageQuery pageQuery) {
+    @PostMapping("/organization-page-query")
+    public PageResultDTO<List<OrganizationDTO>> organizationPageQuery(@RequestBody @Valid OrganizationPageQuery pageQuery) {
         return organizationRpcService.organizationPageQuery(pageQuery);
     }
 
     @ApiOperation("团队详情查询对象")
-    @GetMapping("/team-query")
-    public ResultDTO<TeamDTO> teamQuery(TeamQuery query) {
+    @PostMapping("/team-query")
+    public ResultDTO<TeamDTO> teamQuery(@RequestBody @Valid TeamQuery query) {
         return organizationRpcService.teamQuery(query);
     }
 
     @ApiOperation("团队分页查询对象")
-    @GetMapping("/team-page-query")
-    public PageResultDTO<List<TeamDTO>> teamPageQuery(TeamPageQuery pageQuery) {
+    @PostMapping("/team-page-query")
+    public PageResultDTO<List<TeamDTO>> teamPageQuery(@RequestBody @Valid TeamPageQuery pageQuery) {
         return organizationRpcService.teamPageQuery(pageQuery);
     }
 
     @ApiOperation("查询团队下的成员信息")
-    @GetMapping("/team-member-by-team-id-page-query")
-    public PageResultDTO<List<TeamMemberDTO>> teamMemberByTeamIdPageQuery(TeamMemberByTeamIdPageQuery pageQuery) {
+    @PostMapping("/team-member-by-team-id-page-query")
+    public PageResultDTO<List<TeamMemberDTO>> teamMemberByTeamIdPageQuery(@RequestBody @Valid TeamMemberByTeamIdPageQuery pageQuery) {
         return organizationRpcService.teamMemberByTeamIdPageQuery(pageQuery);
     }
 }

@@ -53,6 +53,9 @@ import java.time.LocalDateTime;
 
 /**
  * 业务场景域-RPC能力接口实现
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Service
 public class BusinessSceneRpcServiceImpl implements BusinessSceneRpcService {

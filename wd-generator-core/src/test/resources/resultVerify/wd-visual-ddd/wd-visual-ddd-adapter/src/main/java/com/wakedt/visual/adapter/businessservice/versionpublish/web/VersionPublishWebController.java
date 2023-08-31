@@ -19,6 +19,9 @@ import com.wakedt.visual.client.businessservice.versionpublish.VersionPublishRpc
 
 /**
  * 版本发布场景-B端
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/web/version-publish")

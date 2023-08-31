@@ -8,6 +8,12 @@ import com.wakedt.visual.client.domaindesign.query.DomainDesignDslUpdateDTO;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesigndslupdate.DomainDesignDslUpdateCmd;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.VersionStateConverter;
 
+/**
+ * DomainDesignDslUpdateDTO2DomainDesignDslUpdateCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         VersionStateConverter.class,

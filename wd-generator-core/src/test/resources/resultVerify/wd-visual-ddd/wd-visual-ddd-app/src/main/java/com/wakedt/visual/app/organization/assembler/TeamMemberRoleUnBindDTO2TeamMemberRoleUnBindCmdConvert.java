@@ -8,6 +8,12 @@ import com.wakedt.visual.client.organization.query.TeamMemberRoleUnBindDTO;
 import com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind.TeamMemberRoleUnBindCmd;
 import com.wakedt.visual.domain.organization.teammember.MemberTypeConverter;
 
+/**
+ * TeamMemberRoleUnBindDTO2TeamMemberRoleUnBindCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         MemberTypeConverter.class,

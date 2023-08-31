@@ -18,9 +18,10 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class ${EXTERNAL_EVENT_CLASS_NAME} extends BaseDomainEvent {
 
-    // TODO 添加外部事件属性字段
+    /**
+     * TODO 添加外部事件属性字段
+     */
     private String name;
-
 
     @Override
     public String eventCode() {

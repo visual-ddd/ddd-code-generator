@@ -7,6 +7,12 @@ import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.application.query.ApplicationRemoveDTO;
 import com.wakedt.visual.domain.application.application.applicationremove.ApplicationRemoveCmd;
 
+/**
+ * ApplicationRemoveDTO2ApplicationRemoveCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })

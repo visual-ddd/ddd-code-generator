@@ -24,6 +24,8 @@ public class ${CMD_CLASS_NAME}Handler {
 
         repository.remove(${aggregation});
 
-       #if(!${CMD_EVENT_ENABLE})//#end DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(removeCmd));
+#if(${CMD_EVENT_ENABLE})
+        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(removeCmd));
+#end
     }
 }

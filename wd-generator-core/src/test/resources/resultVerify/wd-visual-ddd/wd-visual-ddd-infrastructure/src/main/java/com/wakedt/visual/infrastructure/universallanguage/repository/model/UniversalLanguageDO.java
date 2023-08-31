@@ -15,6 +15,9 @@ import com.wakedt.visual.infrastructure.BaseJpaAggregate;
 
 /**
  * 统一语言实体类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

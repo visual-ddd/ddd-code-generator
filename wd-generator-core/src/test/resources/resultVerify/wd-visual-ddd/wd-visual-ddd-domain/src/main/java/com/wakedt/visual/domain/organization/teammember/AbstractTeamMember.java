@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 
 /**
  * 团队成员-聚合根
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 public abstract class AbstractTeamMember {

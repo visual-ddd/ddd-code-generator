@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.account.accountverification.*;
 
 /**
  * 更新验证码-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountVerificationUpdateCmdHandler {
@@ -20,6 +23,5 @@ public class AccountVerificationUpdateCmdHandler {
 
         repository.update(accountVerification);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new AccountVerificationUpdateEvent(updateCmd));
     }
 }

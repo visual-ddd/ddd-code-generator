@@ -1,7 +1,9 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
+import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import lombok.Data;
+import org.apache.velocity.VelocityContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,12 +21,11 @@ public class TemplateContext {
     private String preFixOutPath;
     private ZipOutputStream zipOutputStream;
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
-
-    // 默认COLA分层架构
     private ProjectTemplateType projectTemplateType = ProjectTemplateType.COLA;
 
+    private String authorName = "visual-ddd";
+
     public TemplateContext() {
-        initTemplateContext();
     }
 
     public TemplateContext(String preFixOutPath) {
@@ -37,23 +38,31 @@ public class TemplateContext {
         this.zipOutputStream = zipOutputStream;
     }
 
+    /**
+     * 初始化velocity上下文
+     */
+    public VelocityContext initTemplateContext() {
+        VelocityContext velocityContext = new VelocityContext(context);
+        velocityContext.put(VelocityLabel.DOMAIN_AUTHOR, authorName);
+        return velocityContext;
+    }
+
+    /**
+     * 设置生成的项目架构类型
+     *
+     * @param projectTemplateType ProjectTemplateType
+     */
     public void setProjectTemplateType(ProjectTemplateType projectTemplateType) {
         this.projectTemplateType = projectTemplateType;
     }
 
     /**
-     * 配置velocity上下文
+     * 设置javadoc author注释
+     *
+     * @param authorName 作者
      */
-    protected void initTemplateContext() {
-        // 设置velocity资源加载器
-//        Properties properties = new Properties();
-//
-//        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
-//        properties.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
-//
-//        // 定义字符集
-//        properties.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
-//        Velocity.setProperty("plugin.resource.loader.instance", pluginResourceLoader);
-//        Velocity.init(properties);
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
+
 }

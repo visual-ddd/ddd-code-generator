@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.organization.organization.organizationmanagerbin
 
 /**
  * 组织-聚合根能力
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class Organization extends AbstractOrganization {
 

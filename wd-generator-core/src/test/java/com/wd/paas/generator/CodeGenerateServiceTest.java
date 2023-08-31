@@ -59,6 +59,7 @@ public class CodeGenerateServiceTest {
         CodeGenerateService codeGenerateService = new CodeGenerateService(applicationDSLJson);
         TemplateContext templateContext = new TemplateContext(CodeGenerateServiceTest.RESULT_VERIFY_PATH);
         templateContext.setIsGenerateProjectFrame(isGenerateProjectFrame);
+        templateContext.setAuthorName("shimmer");
         TemplateVisitor templateVisitor = new TemplateVisitor(templateContext);
         codeGenerateService.run(templateVisitor);
 

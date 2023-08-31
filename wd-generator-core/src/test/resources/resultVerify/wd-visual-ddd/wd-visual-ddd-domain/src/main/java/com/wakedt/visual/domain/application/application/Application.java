@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.application.application.applicationremove.Applic
 
 /**
  * 应用-聚合根能力
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class Application extends AbstractApplication {
 

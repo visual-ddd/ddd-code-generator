@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 新增组织-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class OrganizationCreateCmdHandler {
@@ -23,7 +26,6 @@ public class OrganizationCreateCmdHandler {
 
         Organization newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

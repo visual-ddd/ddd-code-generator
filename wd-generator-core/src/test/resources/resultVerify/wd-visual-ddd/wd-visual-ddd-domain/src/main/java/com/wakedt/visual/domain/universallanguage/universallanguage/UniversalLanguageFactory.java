@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.create.Unive
 
 /**
  * 统一语言-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class UniversalLanguageFactory {

@@ -10,11 +10,19 @@ import com.wakedt.visual.client.account.query.AccountVerificationDetailQuery;
 
 /**
  * AccountVerificationMapper接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Mapper
 public interface AccountVerificationMapper extends BaseMapper<AccountVerificationDO> {
 
-    /** 账号验证码详情查询对象 */
+    /**
+     * 查询账号验证码详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     AccountVerificationDO accountVerificationDetailQuery(AccountVerificationDetailQuery query);
 
 }

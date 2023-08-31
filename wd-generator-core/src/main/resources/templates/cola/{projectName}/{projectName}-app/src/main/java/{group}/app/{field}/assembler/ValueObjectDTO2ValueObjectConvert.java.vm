@@ -9,6 +9,7 @@ import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_DTO_NAME
 import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get(${VALUE_OBJECT_CLASS_NAME})}.${VALUE_OBJECT_CLASS_NAME};
 #importEnumConverter()
 
+#comment("${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert")
 @Mapper(uses = {
         BaseJsonConvertor.class,
 #foreach($aggregationEnum in ${AGGREGATION_ENUM_LIST})

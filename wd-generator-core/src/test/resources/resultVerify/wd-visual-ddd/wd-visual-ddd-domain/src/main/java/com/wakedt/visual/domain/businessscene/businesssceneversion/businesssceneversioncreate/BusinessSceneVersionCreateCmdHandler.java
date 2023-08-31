@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
 
 /**
  * 新增业务场景版本-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneVersionCreateCmdHandler {
@@ -25,7 +28,6 @@ public class BusinessSceneVersionCreateCmdHandler {
 
         BusinessSceneVersion newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

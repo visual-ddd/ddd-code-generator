@@ -9,6 +9,12 @@ import com.wakedt.visual.domain.application.applicationversion.ApplicationVersio
 import com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO;
 import com.wakedt.visual.domain.application.applicationversion.VersionStateConverter;
 
+/**
+ * ApplicationVersion2ApplicationVersionDOConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         VersionStateConverter.class,
@@ -17,21 +23,4 @@ public interface ApplicationVersion2ApplicationVersionDOConvert extends BaseConv
 
     ApplicationVersion2ApplicationVersionDOConvert INSTANCE = Mappers.getMapper(ApplicationVersion2ApplicationVersionDOConvert.class);
 
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "applicationId", target = "applicationId")
-    @Mapping(source = "startVersion", target = "startVersion")
-    @Mapping(source = "currentVersion", target = "currentVersion")
-    @Mapping(source = "description", target = "description")
-    @Mapping(source = "versionState", target = "versionState")
-    @Override
-    ApplicationVersionDO dto2Do(ApplicationVersion dto);
-
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "applicationId", target = "applicationId")
-    @Mapping(source = "startVersion", target = "startVersion")
-    @Mapping(source = "currentVersion", target = "currentVersion")
-    @Mapping(source = "description", target = "description")
-    @Mapping(source = "versionState", target = "versionState")
-    @Override
-    ApplicationVersion do2Dto(ApplicationVersionDO d);
 }

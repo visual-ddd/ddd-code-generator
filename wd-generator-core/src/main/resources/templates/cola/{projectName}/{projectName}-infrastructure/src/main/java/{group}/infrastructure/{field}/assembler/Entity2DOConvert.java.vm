@@ -29,6 +29,7 @@ import ${IMPORT_PACKAGE_MAP.get(${entity.identity}).get("${entity.name}Converter
 #end
 #end
 
+#comment("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")
 @Mapper(uses = {
         BaseJsonConvertor.class,
 #foreach($enum in ${DOMAIN_ENUM_LIST})
@@ -51,19 +52,19 @@ public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Co
 
     ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert.class);
 
-#foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
-#if(${mapper.sourceField} && ${mapper.targetField})
-    @Mapping(source = "${mapper.sourceField}", target = "${mapper.targetField}")
-#end
-#end
-    @Override
-    ${OBJECT_MAPPER_TARGET_OBJECT} dto2Do(${OBJECT_MAPPER_SOURCE_OBJECT} dto);
-
-#foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
-#if(${mapper.sourceField} && ${mapper.targetField})
-    @Mapping(source = "${mapper.targetField}", target = "${mapper.sourceField}")
-#end
-#end
-    @Override
-    ${OBJECT_MAPPER_SOURCE_OBJECT} do2Dto(${OBJECT_MAPPER_TARGET_OBJECT} d);
+###foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
+###if(${mapper.sourceField} && ${mapper.targetField})
+##    @Mapping(source = "${mapper.sourceField}", target = "${mapper.targetField}")
+###end
+###end
+##    @Override
+##    ${OBJECT_MAPPER_TARGET_OBJECT} dto2Do(${OBJECT_MAPPER_SOURCE_OBJECT} dto);
+##
+###foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
+###if(${mapper.sourceField} && ${mapper.targetField})
+##    @Mapping(source = "${mapper.targetField}", target = "${mapper.sourceField}")
+###end
+###end
+##    @Override
+##    ${OBJECT_MAPPER_SOURCE_OBJECT} do2Dto(${OBJECT_MAPPER_TARGET_OBJECT} d);
 }

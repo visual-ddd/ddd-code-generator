@@ -9,6 +9,12 @@ import com.wakedt.visual.domain.organization.teammember.TeamMember;
 import com.wakedt.visual.infrastructure.organization.repository.model.TeamMemberDO;
 import com.wakedt.visual.domain.organization.teammember.MemberTypeConverter;
 
+/**
+ * TeamMember2TeamMemberDOConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         MemberTypeConverter.class,
@@ -17,15 +23,4 @@ public interface TeamMember2TeamMemberDOConvert extends BaseConvert<TeamMember, 
 
     TeamMember2TeamMemberDOConvert INSTANCE = Mappers.getMapper(TeamMember2TeamMemberDOConvert.class);
 
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "teamId", target = "teamId")
-    @Mapping(source = "accountId", target = "accountId")
-    @Override
-    TeamMemberDO dto2Do(TeamMember dto);
-
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "teamId", target = "teamId")
-    @Mapping(source = "accountId", target = "accountId")
-    @Override
-    TeamMember do2Dto(TeamMemberDO d);
 }

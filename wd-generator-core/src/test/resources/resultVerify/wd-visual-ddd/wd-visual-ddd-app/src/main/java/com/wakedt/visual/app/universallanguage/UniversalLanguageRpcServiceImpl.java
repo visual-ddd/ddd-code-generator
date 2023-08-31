@@ -26,6 +26,9 @@ import java.time.LocalDateTime;
 
 /**
  * 统一语言域-RPC能力接口实现
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Service
 public class UniversalLanguageRpcServiceImpl implements UniversalLanguageRpcService {

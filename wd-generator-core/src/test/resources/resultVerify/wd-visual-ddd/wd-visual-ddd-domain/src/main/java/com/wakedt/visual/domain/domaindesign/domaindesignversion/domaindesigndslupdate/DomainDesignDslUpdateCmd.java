@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
 
 /**
  * 更新业务域DSL-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

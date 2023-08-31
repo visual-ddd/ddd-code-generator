@@ -19,16 +19,34 @@ import java.time.LocalDateTime;
 
 /**
  * 二次开发场景-RPC能力接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public interface SecondaryDevelopmentRpcService {
 
-    /** 免鉴权获取业务域版本信息 */
+    /**
+     * 免鉴权获取业务域版本信息
+     *
+     * @param request 请求对象
+     * @return 返回结果
+     */
     ResultDTO<DomainDesignVersionInfoDTO> getDomainDesignVersionNoAuth(GetDomainDesignVersionNoAuth request);
 
-    /** 获取应用关联的模块信息 */
+    /**
+     * 获取应用关联的模块信息
+     *
+     * @param request 请求对象
+     * @return 返回结果
+     */
     ResultDTO<ApplicationBindModelInfoDTO> getApplicationBindModelInfo(GetApplicationBindModelInfo request);
 
-    /** 免鉴权获取业务场景版本信息 */
+    /**
+     * 免鉴权获取业务场景版本信息
+     *
+     * @param request 请求对象
+     * @return 返回结果
+     */
     ResultDTO<BusinessSceneVersionInfoDTO> getBusinessSceneVersionNoAuth(GetBusinessSceneVersionNoAuth request);
 
 }

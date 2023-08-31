@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 
 /**
  * 业务域版本-聚合根
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 public abstract class AbstractDomainDesignVersion {
@@ -35,13 +38,19 @@ public abstract class AbstractDomainDesignVersion {
     /** 版本状态 */
     private VersionState versionState;
 
-    /** 版本号合法 */
+    /**
+      * 版本号合法
+      */
     public abstract void checkLegalVersion();
 
-    /** 发布锁定 */
+    /**
+      * 发布锁定
+      */
     public abstract void checkVersionPublishedException();
 
-    /** 未发布异常 */
+    /**
+      * 未发布异常
+      */
     public abstract void checkVersionUnPublishedException();
 
 }

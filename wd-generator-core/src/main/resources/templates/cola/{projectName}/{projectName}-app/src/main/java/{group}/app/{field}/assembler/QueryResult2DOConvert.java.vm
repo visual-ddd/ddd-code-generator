@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_SOURCE_OBJECT_ID}).get(${OBJECT_MAPPER_SOURCE_OBJECT})}.${OBJECT_MAPPER_SOURCE_OBJECT};
 import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT_ID}).get(${OBJECT_MAPPER_TARGET_OBJECT})}.${OBJECT_MAPPER_TARGET_OBJECT};
 
+#comment("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })
@@ -16,19 +17,4 @@ public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Co
 
     ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert.class);
 
-#foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
-#if(${mapper.sourceField} && ${mapper.targetField})
-    @Mapping(source = "${mapper.sourceField}", target = "${mapper.targetField}")
-#end
-#end
-    @Override
-    ${OBJECT_MAPPER_TARGET_OBJECT} dto2Do(${OBJECT_MAPPER_SOURCE_OBJECT} dto);
-
-#foreach ($mapper in ${OBJECT_MAPPER_OBJECT_FIELD_LIST})
-#if(${mapper.sourceField} && ${mapper.targetField})
-    @Mapping(source = "${mapper.targetField}", target = "${mapper.sourceField}")
-#end
-#end
-    @Override
-    ${OBJECT_MAPPER_SOURCE_OBJECT} do2Dto(${OBJECT_MAPPER_TARGET_OBJECT} d);
 }

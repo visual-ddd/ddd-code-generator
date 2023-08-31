@@ -8,6 +8,12 @@ import org.mapstruct.Mapping;
 import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
 import com.wakedt.visual.infrastructure.account.repository.model.AccountVerificationDO;
 
+/**
+ * AccountVerificationDTO2AccountVerificationDOConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })
@@ -15,15 +21,4 @@ public interface AccountVerificationDTO2AccountVerificationDOConvert extends Bas
 
     AccountVerificationDTO2AccountVerificationDOConvert INSTANCE = Mappers.getMapper(AccountVerificationDTO2AccountVerificationDOConvert.class);
 
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "code", target = "code")
-    @Mapping(source = "accountNo", target = "accountNo")
-    @Override
-    AccountVerificationDO dto2Do(AccountVerificationDTO dto);
-
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "code", target = "code")
-    @Mapping(source = "accountNo", target = "accountNo")
-    @Override
-    AccountVerificationDTO do2Dto(AccountVerificationDO d);
 }

@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.application.assembler.ApplicationVersion
 
 /**
  * ApplicationVersion-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class ApplicationVersionRepositoryImpl implements ApplicationVersionRepos
 
     @Override
     public ApplicationVersion find(Long id) {
-        ApplicationVersionDO result = applicationVersionMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        ApplicationVersionDO result = Optional.ofNullable(applicationVersionMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return ApplicationVersion2ApplicationVersionDOConvert.INSTANCE.do2Dto(result);
     }
 }

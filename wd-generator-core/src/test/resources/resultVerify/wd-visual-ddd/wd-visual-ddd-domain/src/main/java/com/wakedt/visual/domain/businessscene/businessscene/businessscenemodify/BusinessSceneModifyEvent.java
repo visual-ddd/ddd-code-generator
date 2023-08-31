@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 编辑业务场景-指令事件
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

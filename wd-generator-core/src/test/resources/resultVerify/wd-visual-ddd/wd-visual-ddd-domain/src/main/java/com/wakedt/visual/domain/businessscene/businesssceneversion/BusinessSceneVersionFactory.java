@@ -9,6 +9,9 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.businessscene
 
 /**
  * 业务场景版本-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneVersionFactory {

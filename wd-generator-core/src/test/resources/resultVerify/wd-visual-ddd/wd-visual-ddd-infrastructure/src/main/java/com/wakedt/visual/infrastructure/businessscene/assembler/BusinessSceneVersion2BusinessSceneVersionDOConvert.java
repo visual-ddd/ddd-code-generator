@@ -9,6 +9,12 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.BusinessScene
 import com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneVersionDO;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.VersionStateConverter;
 
+/**
+ * BusinessSceneVersion2BusinessSceneVersionDOConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
         VersionStateConverter.class,
@@ -17,25 +23,4 @@ public interface BusinessSceneVersion2BusinessSceneVersionDOConvert extends Base
 
     BusinessSceneVersion2BusinessSceneVersionDOConvert INSTANCE = Mappers.getMapper(BusinessSceneVersion2BusinessSceneVersionDOConvert.class);
 
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "businessSceneId", target = "businessSceneId")
-    @Mapping(source = "description", target = "description")
-    @Mapping(source = "startVersion", target = "startVersion")
-    @Mapping(source = "currentVersion", target = "currentVersion")
-    @Mapping(source = "businessSceneDsl", target = "businessSceneDsl")
-    @Mapping(source = "graphDsl", target = "graphDsl")
-    @Mapping(source = "versionState", target = "versionState")
-    @Override
-    BusinessSceneVersionDO dto2Do(BusinessSceneVersion dto);
-
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "businessSceneId", target = "businessSceneId")
-    @Mapping(source = "description", target = "description")
-    @Mapping(source = "startVersion", target = "startVersion")
-    @Mapping(source = "currentVersion", target = "currentVersion")
-    @Mapping(source = "businessSceneDsl", target = "businessSceneDsl")
-    @Mapping(source = "graphDsl", target = "graphDsl")
-    @Mapping(source = "versionState", target = "versionState")
-    @Override
-    BusinessSceneVersion do2Dto(BusinessSceneVersionDO d);
 }

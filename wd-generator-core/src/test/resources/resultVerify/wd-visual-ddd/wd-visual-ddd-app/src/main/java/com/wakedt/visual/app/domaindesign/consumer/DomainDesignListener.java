@@ -16,7 +16,10 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignver
 import javax.annotation.Resource;
 
 /**
- * DomainDesign - 事件订阅
+ * DomainDesign-事件订阅
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component

@@ -13,6 +13,9 @@ import java.util.Optional;
 
 /**
  * 团队成员类型-枚举JSON转换器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class MemberTypeConverter {
 

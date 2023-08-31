@@ -23,11 +23,22 @@ public interface ${doMapperClassName} extends BaseMapper<${doClassName}> {
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 #if(${dtoId} == ${PARSE_TYPE_UTIL.getFirstId(${query.returnInfo.type})})
 
-#printMethodDesc($query)
 #if(!${query.pagination})
+    /**
+     * ${query.description.replaceAll("\n","\\n")}
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query);
 #end
 #if(${query.pagination})
+    /**
+     * ${query.description.replaceAll("\n","\\n")}
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<${doClassName}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
 #end
 #end

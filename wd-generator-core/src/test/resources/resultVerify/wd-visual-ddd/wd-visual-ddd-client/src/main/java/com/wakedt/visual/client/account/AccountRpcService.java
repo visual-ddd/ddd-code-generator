@@ -21,40 +21,98 @@ import java.time.LocalDateTime;
 
 /**
  * 账号域-RPC能力接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public interface AccountRpcService {
 
-    /** 创建账号 */
+    /**
+     * 创建账号
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> accountCreate(AccountCreateDTO dto);
 
-    /** 更新账号基本信息 */
+    /**
+     * 更新账号基本信息
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> accountModify(AccountModifyDTO dto);
 
-    /** 删除账号 */
+    /**
+     * 删除账号
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> accountRemove(AccountDeleteDTO dto);
 
-    /** 发送重置密码邮件 */
+    /**
+     * 发送重置密码邮件
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> accountPasswordResetSendEmail(AccountEmailSendDTO dto);
 
-    /** 重置用户密码 */
+    /**
+     * 重置用户密码
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> accountPasswordReset(AccountPasswordResetDTO dto);
 
-    /** 修改用户密码 */
+    /**
+     * 修改用户密码
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> accountPasswordUpdate(AccountPasswordUpdateDTO dto);
 
-    /** 创建验证码 */
+    /**
+     * 创建验证码
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> verificationCreate(AccountVerificationCreateDTO dto);
 
-    /** 更新验证码 */
+    /**
+     * 更新验证码
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> verificationUpdate(AccountVerificationUpdateDTO dto);
 
-    /** 查询账号详情 */
+    /**
+     * 查询账号详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<AccountDTO> accountDetailQuery(AccountDetailQuery query);
 
-    /** 分页查询账号 */
+    /**
+     * 分页查询账号
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<AccountDTO>> accountPageQuery(AccountPageQuery pageQuery);
 
-    /** 查询账号验证码详情 */
+    /**
+     * 查询账号验证码详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<AccountVerificationDTO> accountVerificationDetailQuery(AccountVerificationDetailQuery query);
 
 }

@@ -44,6 +44,9 @@ import java.time.LocalDateTime;
 
 /**
  * 账号域-RPC能力接口实现
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Service
 public class AccountRpcServiceImpl implements AccountRpcService {

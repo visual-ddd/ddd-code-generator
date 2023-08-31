@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 删除组织-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class OrganizationRemoveCmdHandler {
@@ -22,6 +25,5 @@ public class OrganizationRemoveCmdHandler {
 
         repository.remove(organization);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationRemoveEvent(removeCmd));
     }
 }

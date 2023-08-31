@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.application.assembler.Application2Applic
 
 /**
  * Application-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
 
     @Override
     public Application find(Long id) {
-        ApplicationDO result = applicationMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        ApplicationDO result = Optional.ofNullable(applicationMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return Application2ApplicationDOConvert.INSTANCE.do2Dto(result);
     }
 }

@@ -12,17 +12,35 @@ import com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery;
 
 /**
  * BusinessSceneMapper接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Mapper
 public interface BusinessSceneMapper extends BaseMapper<BusinessSceneDO> {
 
-    /** 业务场景详情查询对象 */
+    /**
+     * 查询业务场景详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     BusinessSceneDO businessSceneQuery(BusinessSceneQuery query);
 
-    /** 业务场景分页查询对象 */
+    /**
+     * 分页查询业务场景
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<BusinessSceneDO> businessScenePageQuery(BusinessScenePageQuery pageQuery);
 
-    /** 业务场景列表查询对象 */
+    /**
+     * 业务场景列表查询对象
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<BusinessSceneDO> businessSceneListQuery(BusinessSceneListQuery pageQuery);
 
 }

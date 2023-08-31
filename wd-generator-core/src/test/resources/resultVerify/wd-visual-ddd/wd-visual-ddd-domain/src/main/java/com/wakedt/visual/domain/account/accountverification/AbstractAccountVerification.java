@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 
 /**
  * 账号验证码-聚合根
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 public abstract class AbstractAccountVerification {

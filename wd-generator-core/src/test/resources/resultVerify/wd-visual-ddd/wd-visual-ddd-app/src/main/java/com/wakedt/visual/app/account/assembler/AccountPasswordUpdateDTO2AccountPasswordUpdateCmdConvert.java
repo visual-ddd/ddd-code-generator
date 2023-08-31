@@ -7,6 +7,12 @@ import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.account.query.AccountPasswordUpdateDTO;
 import com.wakedt.visual.domain.account.account.accountpasswordupdate.AccountPasswordUpdateCmd;
 
+/**
+ * AccountPasswordUpdateDTO2AccountPasswordUpdateCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })

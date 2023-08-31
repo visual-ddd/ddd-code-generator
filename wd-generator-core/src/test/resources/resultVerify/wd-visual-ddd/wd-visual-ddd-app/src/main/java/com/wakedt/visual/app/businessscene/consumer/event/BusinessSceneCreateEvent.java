@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * 外部事件
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor
@@ -18,9 +21,10 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class BusinessSceneCreateEvent extends BaseDomainEvent {
 
-    // TODO 添加外部事件属性字段
+    /**
+     * TODO 添加外部事件属性字段
+     */
     private String name;
-
 
     @Override
     public String eventCode() {

@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.application.application.*;
 
 /**
  * 新增应用-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

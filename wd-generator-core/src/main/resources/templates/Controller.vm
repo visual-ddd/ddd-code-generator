@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -48,14 +47,14 @@ import javax.validation.Valid;
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
     @ApiOperation("${query.title}")
-    @GetMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.name})}")
+    @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.name})}")
 #if(${query.pagination})
-    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
+    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(@RequestBody @Valid ${query.name} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(pageQuery);
     }
 #end
 #if(!${query.pagination})
-    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
+    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(@RequestBody @Valid ${query.name} query) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(query);
     }
 #end

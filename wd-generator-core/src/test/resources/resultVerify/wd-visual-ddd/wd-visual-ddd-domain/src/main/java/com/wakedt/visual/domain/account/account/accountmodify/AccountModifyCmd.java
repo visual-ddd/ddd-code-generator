@@ -10,6 +10,9 @@ import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 更新账号基本信息-指令
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

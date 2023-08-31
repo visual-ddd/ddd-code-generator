@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.organization.assembler.Organization2Orga
 
 /**
  * Organization-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class OrganizationRepositoryImpl implements OrganizationRepository {
 
     @Override
     public Organization find(Long id) {
-        OrganizationDO result = organizationMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        OrganizationDO result = Optional.ofNullable(organizationMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return Organization2OrganizationDOConvert.INSTANCE.do2Dto(result);
     }
 }

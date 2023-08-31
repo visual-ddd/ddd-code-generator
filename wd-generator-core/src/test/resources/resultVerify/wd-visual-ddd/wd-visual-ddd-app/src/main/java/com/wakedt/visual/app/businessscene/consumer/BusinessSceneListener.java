@@ -17,7 +17,10 @@ import com.wakedt.visual.app.businessscene.consumer.event.BusinessSceneCreateEve
 import javax.annotation.Resource;
 
 /**
- * BusinessScene - 事件订阅
+ * BusinessScene-事件订阅
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component

@@ -54,8 +54,8 @@ public class ${aggregationClass}RepositoryImpl implements ${aggregationClass}Rep
 
     @Override
     public ${aggregationClass} find(Long id) {
-        ${doClassName} result = ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        ${doClassName} result = Optional.ofNullable(${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return ${convertClassName}.INSTANCE.do2Dto(result);
     }
 }

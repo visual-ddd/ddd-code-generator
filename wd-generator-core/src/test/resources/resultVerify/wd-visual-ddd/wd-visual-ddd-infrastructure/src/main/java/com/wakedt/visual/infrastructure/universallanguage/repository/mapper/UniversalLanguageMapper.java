@@ -11,14 +11,27 @@ import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQue
 
 /**
  * UniversalLanguageMapper接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Mapper
 public interface UniversalLanguageMapper extends BaseMapper<UniversalLanguageDO> {
 
-    /** 统一语言详情查询对象 */
+    /**
+     * 查询统一语言详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     UniversalLanguageDO universalLanguageQuery(UniversalLanguageQuery query);
 
-    /** 统一语言分页查询对象 */
+    /**
+     * 分页查询统一语言
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<UniversalLanguageDO> universalLanguagePageQuery(UniversalLanguagePageQuery pageQuery);
 
 }

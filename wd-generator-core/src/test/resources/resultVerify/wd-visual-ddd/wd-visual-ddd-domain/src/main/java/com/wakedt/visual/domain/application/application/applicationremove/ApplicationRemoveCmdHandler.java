@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.application.application.*;
 
 /**
  * 删除应用-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationRemoveCmdHandler {
@@ -22,6 +25,5 @@ public class ApplicationRemoveCmdHandler {
 
         repository.remove(application);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationRemoveEvent(removeCmd));
     }
 }

@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.domaindesign.domaindesign.domaindesignremove.Dom
 
 /**
  * 业务域-聚合根能力
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class DomainDesign extends AbstractDomainDesign {
 

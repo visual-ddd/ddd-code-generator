@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.account.accountverification.*;
 
 /**
  * 创建验证码-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountVerificationCreateCmdHandler {
@@ -23,7 +26,6 @@ public class AccountVerificationCreateCmdHandler {
 
         AccountVerification newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new AccountVerificationCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

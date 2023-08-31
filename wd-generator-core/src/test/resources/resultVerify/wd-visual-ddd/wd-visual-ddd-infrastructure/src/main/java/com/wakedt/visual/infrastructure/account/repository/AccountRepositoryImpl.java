@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.account.assembler.Account2AccountDOConve
 
 /**
  * Account-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Account find(Long id) {
-        AccountDO result = accountMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        AccountDO result = Optional.ofNullable(accountMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return Account2AccountDOConvert.INSTANCE.do2Dto(result);
     }
 }

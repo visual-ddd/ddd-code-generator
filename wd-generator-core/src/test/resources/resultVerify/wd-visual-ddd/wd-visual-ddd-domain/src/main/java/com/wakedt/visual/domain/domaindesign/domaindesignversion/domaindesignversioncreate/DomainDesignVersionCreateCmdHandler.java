@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
 
 /**
  * 新增业务域版本-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class DomainDesignVersionCreateCmdHandler {
@@ -25,7 +28,6 @@ public class DomainDesignVersionCreateCmdHandler {
 
         DomainDesignVersion newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignVersionCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
  * DDD可视化开发平台-启动类
+ *
+ * @author visual-ddd
+ * @since 1.0
  */
 @EnableMessageCenter
 @SpringBootApplication(scanBasePackages = {"com.wakedt.visual"})

@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -32,6 +31,9 @@ import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
 
 /**
  * 账号域-C端
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/app/account")
@@ -90,20 +92,20 @@ public class AccountAppController {
     }
 
     @ApiOperation("账号详情查询对象")
-    @GetMapping("/account-detail-query")
-    public ResultDTO<AccountDTO> accountDetailQuery(AccountDetailQuery query) {
+    @PostMapping("/account-detail-query")
+    public ResultDTO<AccountDTO> accountDetailQuery(@RequestBody @Valid AccountDetailQuery query) {
         return accountRpcService.accountDetailQuery(query);
     }
 
     @ApiOperation("账号分页查询对象")
-    @GetMapping("/account-page-query")
-    public PageResultDTO<List<AccountDTO>> accountPageQuery(AccountPageQuery pageQuery) {
+    @PostMapping("/account-page-query")
+    public PageResultDTO<List<AccountDTO>> accountPageQuery(@RequestBody @Valid AccountPageQuery pageQuery) {
         return accountRpcService.accountPageQuery(pageQuery);
     }
 
     @ApiOperation("账号验证码详情查询对象")
-    @GetMapping("/account-verification-detail-query")
-    public ResultDTO<AccountVerificationDTO> accountVerificationDetailQuery(AccountVerificationDetailQuery query) {
+    @PostMapping("/account-verification-detail-query")
+    public ResultDTO<AccountVerificationDTO> accountVerificationDetailQuery(@RequestBody @Valid AccountVerificationDetailQuery query) {
         return accountRpcService.accountVerificationDetailQuery(query);
     }
 }

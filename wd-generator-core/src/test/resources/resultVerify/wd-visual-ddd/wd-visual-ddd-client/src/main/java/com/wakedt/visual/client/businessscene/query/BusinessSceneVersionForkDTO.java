@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Fork业务场景版本
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "Fork业务场景版本")

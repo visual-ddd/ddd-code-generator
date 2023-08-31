@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.domaindesign.domaindesign.*;
 
 /**
  * 删除业务域-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class DomainDesignRemoveCmdHandler {
@@ -20,6 +23,5 @@ public class DomainDesignRemoveCmdHandler {
 
         repository.remove(domainDesign);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new DomainDesignRemoveEvent(removeCmd));
     }
 }

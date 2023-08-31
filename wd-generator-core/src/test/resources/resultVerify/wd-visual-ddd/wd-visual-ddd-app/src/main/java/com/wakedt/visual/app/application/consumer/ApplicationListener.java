@@ -17,7 +17,10 @@ import com.wakedt.visual.domain.application.applicationversion.applicationversio
 import javax.annotation.Resource;
 
 /**
- * Application - 事件订阅
+ * Application-事件订阅
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component

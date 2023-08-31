@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.team.*;
 
 /**
  * 编辑团队-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamModifyCmdHandler {
@@ -22,6 +25,5 @@ public class TeamModifyCmdHandler {
 
         repository.update(team);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new TeamModifyEvent(updateCmd));
     }
 }

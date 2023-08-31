@@ -13,9 +13,7 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.externalEventNode.na
 
 import javax.annotation.Resource;
 
-/**
- * ${DOMAIN_CLASS_NAME} - 事件订阅
- */
+#comment("${DOMAIN_CLASS_NAME}-事件订阅")
 @Slf4j
 @Component
 public class ${DOMAIN_CLASS_NAME}Listener {

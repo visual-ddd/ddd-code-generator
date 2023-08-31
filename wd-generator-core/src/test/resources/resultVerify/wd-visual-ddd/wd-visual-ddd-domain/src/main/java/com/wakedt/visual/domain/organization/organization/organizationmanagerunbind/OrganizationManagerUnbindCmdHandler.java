@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.organization.*;
 
 /**
  * 解绑组织管理员-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class OrganizationManagerUnbindCmdHandler {
@@ -20,6 +23,5 @@ public class OrganizationManagerUnbindCmdHandler {
 
         repository.update(organization);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new OrganizationManagerUnbindEvent(updateCmd));
     }
 }

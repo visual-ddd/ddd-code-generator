@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.application.application.*;
 
 /**
  * 新增应用-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationCreateCmdHandler {
@@ -25,7 +28,6 @@ public class ApplicationCreateCmdHandler {
 
         Application newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new ApplicationCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

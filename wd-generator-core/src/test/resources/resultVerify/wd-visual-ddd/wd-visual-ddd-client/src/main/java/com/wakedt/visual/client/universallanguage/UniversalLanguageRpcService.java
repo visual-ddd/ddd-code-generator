@@ -14,22 +14,50 @@ import java.time.LocalDateTime;
 
 /**
  * 统一语言域-RPC能力接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public interface UniversalLanguageRpcService {
 
-    /** 新增统一语言 */
+    /**
+     * 新增统一语言
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Long> create(UniversalLanguageCreateDTO dto);
 
-    /** 编辑统一语言 */
+    /**
+     * 编辑统一语言
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> modify(UniversalLanguageModifyDTO dto);
 
-    /** 删除统一语言 */
+    /**
+     * 删除统一语言
+     *
+     * @param dto 请求体
+     * @return 执行结果
+     */
     ResultDTO<Boolean> remove(UniversalLanguageRemoveDTO dto);
 
-    /** 查询统一语言详情 */
+    /**
+     * 查询统一语言详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     ResultDTO<UniversalLanguageDTO> universalLanguageQuery(UniversalLanguageQuery query);
 
-    /** 分页查询统一语言 */
+    /**
+     * 分页查询统一语言
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果
+     */
     PageResultDTO<List<UniversalLanguageDTO>> universalLanguagePageQuery(UniversalLanguagePageQuery pageQuery);
 
 }

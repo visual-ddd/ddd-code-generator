@@ -8,10 +8,10 @@ import ${importPackage};
 #macro(comment $description)
 /**
  * $description
-## *
-## * @author ${DOMAIN_AUTHOR}
+ *
+ * @author ${DOMAIN_AUTHOR}
 ## * @date ${DOMAIN_DATE_TIME}
-## * @since 1.0
+ * @since 1.0
  */
 #end
 ## ============= 类字段列表 =============
@@ -81,7 +81,9 @@ import ${importPackage};
 #end
 #end
 #macro(printMethodDesc $method)
-    /** ${method.title} */
+    /**
+      * ${method.title}
+      */
 #end
 #macro(printFieldDesc $field)
     /** ${field.title} */

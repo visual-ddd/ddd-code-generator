@@ -7,6 +7,12 @@ import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.organization.query.TeamManagerUnBindDTO;
 import com.wakedt.visual.domain.organization.team.teammanagerunbind.TeamManagerUnBindCmd;
 
+/**
+ * TeamManagerUnBindDTO2TeamManagerUnBindCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })

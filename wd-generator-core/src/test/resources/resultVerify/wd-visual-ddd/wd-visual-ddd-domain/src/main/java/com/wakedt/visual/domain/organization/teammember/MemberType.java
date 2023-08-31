@@ -4,6 +4,9 @@ import com.wakedata.common.core.base.BaseEnum;
 
 /**
  * 团队成员类型-枚举
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public enum MemberType implements BaseEnum {
 

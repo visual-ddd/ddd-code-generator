@@ -10,7 +10,10 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.remove.Unive
 import javax.annotation.Resource;
 
 /**
- * UniversalLanguage - 事件订阅
+ * UniversalLanguage-事件订阅
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component

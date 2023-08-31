@@ -1,6 +1,7 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
+import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ElementContent;
 import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
@@ -49,7 +50,7 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
 
     @Override
     public void execute(TemplateContext templateContext) {
-        VelocityContext velocityContext = new VelocityContext(templateContext.getContext());
+        VelocityContext velocityContext = templateContext.initTemplateContext();
         this.putVelocityContext(velocityContext);
         if (Boolean.TRUE.equals(this.process(templateContext))) {
             // 生成文件

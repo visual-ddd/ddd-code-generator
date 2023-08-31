@@ -30,6 +30,9 @@ import com.wakedt.visual.client.businessservice.secondarydevelopment.SecondaryDe
 
 /**
  * 二次开发场景-C端
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/app/secondary-development")

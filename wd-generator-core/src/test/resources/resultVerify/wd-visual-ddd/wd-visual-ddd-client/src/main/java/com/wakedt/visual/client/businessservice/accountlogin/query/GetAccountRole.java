@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 获取用户权限信息
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "获取用户权限信息")

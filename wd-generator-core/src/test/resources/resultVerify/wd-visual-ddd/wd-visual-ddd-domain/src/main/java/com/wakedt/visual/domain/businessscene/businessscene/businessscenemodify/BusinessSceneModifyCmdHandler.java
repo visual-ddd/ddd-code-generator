@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 编辑业务场景-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneModifyCmdHandler {

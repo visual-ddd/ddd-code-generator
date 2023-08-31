@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 绑定团队管理员
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @ApiModel(description = "绑定团队管理员")

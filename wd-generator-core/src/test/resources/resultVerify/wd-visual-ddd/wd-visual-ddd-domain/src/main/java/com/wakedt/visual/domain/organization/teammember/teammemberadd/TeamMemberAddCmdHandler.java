@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.organization.teammember.*;
 
 /**
  * 添加团队成员-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class TeamMemberAddCmdHandler {
@@ -23,7 +26,6 @@ public class TeamMemberAddCmdHandler {
 
         TeamMember newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new TeamMemberAddEvent(createCmd));
         return newEntity.getId();
     }
 }

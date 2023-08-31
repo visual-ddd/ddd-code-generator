@@ -16,7 +16,9 @@ import java.net.UnknownHostException;
 import java.util.Enumeration;
 
 /***
- * @author wangchensheng
+ * 启动信息打印配置
+ *
+ * @author visual-ddd
  * @version 1.0
  */
 @Slf4j

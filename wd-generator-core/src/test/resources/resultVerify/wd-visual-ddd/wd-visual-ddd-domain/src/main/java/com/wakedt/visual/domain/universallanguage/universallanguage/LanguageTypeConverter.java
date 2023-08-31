@@ -13,6 +13,9 @@ import java.util.Optional;
 
 /**
  * 统一语言类型-枚举JSON转换器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class LanguageTypeConverter {
 

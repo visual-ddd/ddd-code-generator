@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.organization.assembler.TeamMember2TeamMe
 
 /**
  * TeamMember-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class TeamMemberRepositoryImpl implements TeamMemberRepository {
 
     @Override
     public TeamMember find(Long id) {
-        TeamMemberDO result = teamMemberMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        TeamMemberDO result = Optional.ofNullable(teamMemberMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return TeamMember2TeamMemberDOConvert.INSTANCE.do2Dto(result);
     }
 }

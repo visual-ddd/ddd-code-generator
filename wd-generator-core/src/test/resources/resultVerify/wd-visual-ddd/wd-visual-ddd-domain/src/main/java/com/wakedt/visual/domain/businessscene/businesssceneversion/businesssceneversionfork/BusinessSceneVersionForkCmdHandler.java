@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
 
 /**
  * Fork业务场景版本-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneVersionForkCmdHandler {
@@ -21,7 +24,6 @@ public class BusinessSceneVersionForkCmdHandler {
 
         BusinessSceneVersion newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneVersionForkEvent(createCmd));
         return newEntity.getId();
     }
 }

@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 
 /**
  * 账号-聚合根
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 public abstract class AbstractAccount {
@@ -32,10 +35,14 @@ public abstract class AbstractAccount {
     /** 重置密码唯一标识 */
     private String uuid;
 
-    /** 验证密码是否正确 */
+    /**
+      * 验证密码是否正确
+      */
     public abstract void checkLoginPass(String password);
 
-    /** 验证重置密码唯一标识是否正确 */
+    /**
+      * 验证重置密码唯一标识是否正确
+      */
     public abstract void checkUuidPass(String uuid);
 
 }

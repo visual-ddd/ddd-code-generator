@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.businessscene.assembler.BusinessSceneVer
 
 /**
  * BusinessSceneVersion-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class BusinessSceneVersionRepositoryImpl implements BusinessSceneVersionR
 
     @Override
     public BusinessSceneVersion find(Long id) {
-        BusinessSceneVersionDO result = businessSceneVersionMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        BusinessSceneVersionDO result = Optional.ofNullable(businessSceneVersionMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return BusinessSceneVersion2BusinessSceneVersionDOConvert.INSTANCE.do2Dto(result);
     }
 }

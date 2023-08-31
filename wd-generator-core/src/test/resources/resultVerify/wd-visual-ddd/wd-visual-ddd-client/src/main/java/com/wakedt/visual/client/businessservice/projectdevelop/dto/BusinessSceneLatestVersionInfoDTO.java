@@ -12,6 +12,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 业务场景最新版本信息
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

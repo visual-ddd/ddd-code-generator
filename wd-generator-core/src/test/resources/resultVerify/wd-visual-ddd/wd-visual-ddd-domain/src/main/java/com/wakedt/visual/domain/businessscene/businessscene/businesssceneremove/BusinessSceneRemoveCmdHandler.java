@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.businessscene.businessscene.*;
 
 /**
  * 删除业务场景-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneRemoveCmdHandler {
@@ -22,6 +25,5 @@ public class BusinessSceneRemoveCmdHandler {
 
         repository.remove(businessScene);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneRemoveEvent(removeCmd));
     }
 }

@@ -11,6 +11,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+
+/**
+ * 封装公共DO字段，并添加JPA相关注解
+ *
+ * @author visual-ddd
+ * @since 1.0
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @MappedSuperclass
@@ -38,11 +45,6 @@ public abstract class BaseJpaAggregate extends BaseDO {
     @Column(columnDefinition = "varchar(40) COMMENT '更新人'")
     @TableField(value = "update_by", fill = FieldFill.INSERT_UPDATE)
     protected String updateBy;
-
-//    @Version
-//    @Column(name = "version")
-//    @Setter(AccessLevel.PRIVATE)
-//    private Integer version;
 
 }
 

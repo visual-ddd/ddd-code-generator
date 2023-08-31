@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.businessscene.businessscene.businessscenecreate.
 
 /**
  * 业务场景-聚合根-工厂
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class BusinessSceneFactory {

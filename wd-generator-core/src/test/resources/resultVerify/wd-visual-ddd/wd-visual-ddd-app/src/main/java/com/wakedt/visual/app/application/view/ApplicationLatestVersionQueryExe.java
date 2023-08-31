@@ -11,6 +11,9 @@ import com.wakedt.visual.app.application.assembler.ApplicationVersionDTO2Applica
 
 /**
  * 应用最新版本查询对象-查询器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class ApplicationLatestVersionQueryExe {

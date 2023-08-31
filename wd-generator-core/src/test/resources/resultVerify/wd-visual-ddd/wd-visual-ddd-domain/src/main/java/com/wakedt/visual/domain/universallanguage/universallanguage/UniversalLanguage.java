@@ -8,6 +8,9 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.remove.Unive
 
 /**
  * 统一语言-聚合根能力
+ *
+ * @author shimmer
+ * @since 1.0
  */
 public class UniversalLanguage extends AbstractUniversalLanguage {
 

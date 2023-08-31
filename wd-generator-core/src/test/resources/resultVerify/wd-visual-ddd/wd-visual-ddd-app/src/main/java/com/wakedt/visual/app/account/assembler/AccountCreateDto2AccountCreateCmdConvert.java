@@ -7,6 +7,12 @@ import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.account.query.AccountCreateDTO;
 import com.wakedt.visual.domain.account.account.accountcreate.AccountCreateCmd;
 
+/**
+ * AccountCreateDTO2AccountCreateCmdConvert
+ *
+ * @author shimmer
+ * @since 1.0
+ */
 @Mapper(uses = {
         BaseJsonConvertor.class,
 })

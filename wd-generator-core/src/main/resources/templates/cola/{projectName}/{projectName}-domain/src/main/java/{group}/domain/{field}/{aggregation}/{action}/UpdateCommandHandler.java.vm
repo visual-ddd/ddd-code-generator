@@ -24,6 +24,8 @@ public class ${CMD_CLASS_NAME}Handler {
 
         repository.update(${aggregation});
 
-       #if(!${CMD_EVENT_ENABLE})//#end DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(updateCmd));
+#if(${CMD_EVENT_ENABLE})
+        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(updateCmd));
+#end
     }
 }

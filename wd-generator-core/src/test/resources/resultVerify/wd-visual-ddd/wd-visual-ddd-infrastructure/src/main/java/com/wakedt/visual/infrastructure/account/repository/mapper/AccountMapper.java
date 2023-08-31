@@ -11,14 +11,27 @@ import com.wakedt.visual.client.account.query.AccountPageQuery;
 
 /**
  * AccountMapper接口
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Mapper
 public interface AccountMapper extends BaseMapper<AccountDO> {
 
-    /** 账号详情查询对象 */
+    /**
+     * 查询账号详情
+     *
+     * @param query 查询参数
+     * @return 查询结果
+     */
     AccountDO accountDetailQuery(AccountDetailQuery query);
 
-    /** 账号分页查询对象 */
+    /**
+     * 分页查询账号
+     *
+     * @param pageQuery 分页查询参数
+     * @return 查询结果集
+     */
     List<AccountDO> accountPageQuery(AccountPageQuery pageQuery);
 
 }

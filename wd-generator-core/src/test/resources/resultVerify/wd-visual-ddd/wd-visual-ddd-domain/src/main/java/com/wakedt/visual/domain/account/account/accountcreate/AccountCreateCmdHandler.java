@@ -7,6 +7,9 @@ import com.wakedt.visual.domain.account.account.*;
 
 /**
  * 创建账号-指令处理器
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Component
 public class AccountCreateCmdHandler {
@@ -23,7 +26,6 @@ public class AccountCreateCmdHandler {
 
         Account newEntity = repository.save(entity);
 
-       // DomainEventPublisher.getInstance().postAfterCommit(new AccountCreateEvent(createCmd));
         return newEntity.getId();
     }
 }

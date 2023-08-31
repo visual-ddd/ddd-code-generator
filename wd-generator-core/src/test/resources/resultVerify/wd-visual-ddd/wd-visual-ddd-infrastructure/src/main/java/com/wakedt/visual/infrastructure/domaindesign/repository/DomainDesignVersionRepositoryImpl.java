@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.domaindesign.assembler.DomainDesignVersi
 
 /**
  * DomainDesignVersion-聚合仓储实现类
+ *
+ * @author shimmer
+ * @since 1.0
  */
 @Slf4j
 @Component
@@ -48,8 +51,8 @@ public class DomainDesignVersionRepositoryImpl implements DomainDesignVersionRep
 
     @Override
     public DomainDesignVersion find(Long id) {
-        DomainDesignVersionDO result = domainDesignVersionMapper.selectById(id);
-        if (result == null) throw new BizException("id不存在!");
+        DomainDesignVersionDO result = Optional.ofNullable(domainDesignVersionMapper.selectById(id))
+                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
         return DomainDesignVersion2DomainDesignVersionDOConvert.INSTANCE.do2Dto(result);
     }
 }
