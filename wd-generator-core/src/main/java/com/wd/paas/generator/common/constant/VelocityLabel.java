@@ -96,7 +96,6 @@ public class VelocityLabel {
     public static final String CMD_ID = "CMD_ID";
     public static final String CMD_CLASS_NAME = "CMD_CLASS_NAME";
     public static final String CMD_DTO_CLASS = "CMD_DTO_CLASS";
-    public static final String CMD_DTO_CAMEL_CLASS = "CMD_DTO_CAMEL_CLASS";
     public static final String CMD_RULE_LIST = "CMD_RULE_LIST";
     public static final String CMD_CLASS_DESCRIPTION = "CMD_CLASS_DESCRIPTION";
     public static final String CMD_CLASS_TITLE = "CMD_CLASS_TITLE";
