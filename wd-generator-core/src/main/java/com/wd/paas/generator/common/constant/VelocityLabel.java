@@ -16,6 +16,7 @@ public class VelocityLabel {
     public static final String PROJECT_TITLE = "PROJECT_TITLE";
     public static final String PROJECT_DESCRIPTION = "PROJECT_DESCRIPTION";
     public static final String PROJECT_VERSION = "PROJECT_VERSION";
+    public static final String PROJECT_DATE_TIME = "PROJECT_DATE_TIME";
 
     // 业务域
     public static final String DOMAIN_ID = "DOMAIN_ID";

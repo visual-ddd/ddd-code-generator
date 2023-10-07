@@ -19,7 +19,7 @@ public class Knife4jConfiguration {
     @Value("${server.servlet.context-path}")
     private String contextPath;
 
-    private static final String BASE_PACKAGE = "${PROJECT_PACKAGE}.adapter";
+    private static final String BASE_PACKAGE = "${PROJECT_PACKAGE}";
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

@@ -13,6 +13,8 @@ import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,6 +37,7 @@ public class ApplicationStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.PROJECT_DESCRIPTION, astApplication.getDescription());
         context.put(VelocityLabel.PROJECT_PACKAGE, astApplication.getPackageName());
         context.put(VelocityLabel.PROJECT_VERSION, astApplication.getVersion());
+        context.put(VelocityLabel.PROJECT_DATE_TIME, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         context.put(VelocityLabel.CASE_FORMAT_LOWER_HYPHEN,
                 CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.LOWER_HYPHEN));

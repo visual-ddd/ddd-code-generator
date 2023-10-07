@@ -10,8 +10,7 @@ import ${importPackage};
  * $description
  *
  * @author ${DOMAIN_AUTHOR}
-## * @date ${DOMAIN_DATE_TIME}
- * @since 1.0
+ * @since 1.0 on ${PROJECT_DATE_TIME}
  */
 #end
 ## ============= 类字段列表 =============
