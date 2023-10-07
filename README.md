@@ -1,1060 +1,141 @@
-#### 需求分析
+# 代码生成模块最佳实践
 
-- 一个项目下包含多张领域图谱
-- 每个领域图谱中结构如下
-    - 故事节点
-        - 动作
-            - 事件
-            - 指令
-            - 规则
-    - 聚合
-    - 值对象
+## 一、概述
 
-- 能够进行图谱管理（存储、还原、修改、删除）
-    -   [ ] 每个聚合都有唯一的颜色，通过颜色区分聚合对象
-    -   [ ] 元素通过颜色绑定聚合
-    -   [ ] 当聚合进行颜色修改、删除时，需要更新相应的元素
-    -   [ ] 故事节点下的元素和故事节点用于相同生命周期
-- 要求能够通过领域图谱的信息生成对应的领域层代码模板
-    - 项目
-    - 指令
-        - Command.java.vm
-        - CommandHandler.java.vm
-    - 事件
-        - Event.java.vm
-    - 聚合
-        - Aggregation.java.vm
-        - AggregationFactory.java.vm
-        - AggregationRepository.java.vm
-        - IAggregation.java.vm
-    - 值对象
-        - ValueObject.java.vm
+为了简化开发者从设计模型到规范代码的实现，DDD可视化平台提供了一种平台模型到代码的单向生成功能。本文介绍DDD可视化平台单向生成功能，以及设计思路，将平台模型到代码的单向生成顺畅融入到已有的研发流程中，有效降低项目设计到编码初期的开发成本。
 
-#### 功能实现
+## 二、项目结构
 
-数据模型
+```txt
+wake-code-generator			
+    ├── wd-generator-core		-- 核心模块
+    └── wd-generator-dsl		-- DSL协议结构
+```
 
-<img src="https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132100103-1295660491.svg" alt="DomainChartGenerateDto_structure" style="zoom:67%;" />
+## 三、流程设计
 
+用户通过DDD可视化平台图形界面绘制模型后，前端根据 DSL协议
+以json的形式组装DSL模型并返回给后端，后端需要依据DSL模型生成相应的源码文件并返回。为了实现DSL模型到源码文件的生成，本模块设计了如下流程：
+![](images/20230918_1452198268.png)<br/>
 
-说明
+## 1、读取DSL结构
 
-- 领域图谱 -》 DomainChartGenerateDto
-    - 故事节点 -》 StoryNode
-        - 动作
-            - 事件 -》 event
-            - 指令 -》 cmd
-            - 规则 -》 无（只用于展示，不需要生成）
-    - 聚合 -》 aggregations
-    - 值对象 -》 valueObjects
+依据 DSL协议，在dsl包下定义了相应的数据结构，用于接收DSL数据。
+![image.png](images/20230918_1452199646.png)<br/>
 
-json数据结构及映射关系
+## 2、构建多叉元素树，并通过访问者遍历元素树
 
-接口文档
-链接: https://www.apifox.cn/apidoc/shared-ddfabd53-ac7c-456e-9af0-a591a93e07ba  访问密码 : AiMnt9xo
+由于DSL数据结构较为复杂，采用直接遍历的方式将增加遍历的复杂度，为了降低遍历的复杂度、减少遍历代码的维护成本，我们将数据结构的复杂度转移到构建阶段，根据DSL构建一棵多叉树结构，简化遍历元素的过程。
+多叉树节点分为如下类型：
 
-1. 与输出路径的映射
-   ![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726145948061-1949655835.jpg)
+1. ElementNode 元素节点：抽象的节点类型，包含一个指向父节点的属性；
+2. CompositeElement 容器节点：继承 ElementNode，并包含一个子节点列表childElementNodeList，子节点类型可以为容器节点和叶子节点；
+3. LeafElement 叶子节点：继承 ElementNode，代表树最下层节点。
 
+![](images/20230918_1452217163.png)<br/>
+原DSL结构 构建后的元素树结构
+遍历思路：深度遍历，访问元素树结构，根据元素种类往叶子元素进行遍历；同时遍历到每个元素的同时，调用元素具体的访问方法
+![](images/20230918_1452218628.png)<br/>
 
-2. 与前端的映射
-   ![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726150254933-1148833488.jpg)
+## 3、第一次遍历，访问每个元素节点(对元素的预处理)，访问者执行预解析逻辑
 
-#### 主要问题
+> Tips: 该阶段可以做一些数据预处理操作（关系缓存、字段修改）
 
-**问题1：元素与模板映射关系**
+根据深度遍历访问每一个元素并调用访问者提供的预处理方法；
+访问者内部根据元素的类名获取元素相对应的策略类，并执行相对应的预处理策略
+![](images/20230918_1452223940.png)<br/>
 
-方案：通过枚举类DomainShapeEnum记录元素和对应模板文件位置的映射关系
+## 4、第二次遍历，访问每个元素节点(预处理后的元素)，访问者执行生成逻辑
 
-<img src="https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726131835497-101931167.png" alt="DomainChartGenerateDto_structure" style="zoom:67%;" />
+> Tips: 该阶段为核心生成逻辑（代码生成、文件输出、流操作）
 
+同上，根据深度遍历访问每一个元素并调用访问者提供的生成方法；
+访问者内部根据元素的类名获取元素相对应的策略类，并执行相对应的生成策略
+![](images/20230918_1452223788.png)<br/>
 
-**问题2：类的包路径和导入路径的解析**
+## 5、执行统一后置处理
 
-方案：
+对ThreadLocal线程上下文进行清理等统一后置处理操作。
 
-1. 缓存所有生成的类对应的包路径，通过解析方法和属性的参数类型名映射对应类的包路径，其中基本类型使用配置文件加载
+## 四、访问者模式
 
-2. 使用IDEA自带的优化导入功能（采用）
+> 由上述流程设计可知，访问者需要提供预处理、生成逻辑、后置处理等功能，因此定义一个访问者接口，具体逻辑由不同访问者实现。
 
-**问题3：模板的输入文件夹和输出文件夹路径**
+```java
+/**
+ * 访问者, 提供具体元素的操作方法
+ *
+ * @author shimmer
+ */
+public interface Visitor {
 
-方案：通过全局变量TemplateConfig进行管理
+    /**
+     * 预解析元素方法
+     *
+     * @param elementNode 元素节点
+     */
+    void preHandle(ElementNode elementNode);
 
-<img src="https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132138595-1310277239.png" alt="DomainChartGenerateDto_structure" style="zoom:67%;" />
+    /**
+     * 元素生成方法
+     *
+     * @param elementNode 元素节点
+     */
+    void generate(ElementNode elementNode);
 
-**问题4：代码生成实现原理**
-
-方案：采用Velocity模板引擎，基于velocity的模板语法编写好需要生成的模板，进行代码生成时，将封装的数据以map的形式保存到VelocityContext上下文中，将上下文和模板路径传递给velocity模板引擎，模板引擎将读取指定路径的模板文件，并从上下文中找到与之对应的value用来替换其中的变量。
-
-<img src="https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132152053-582330358.png" alt="DomainChartGenerateDto_structure" style="zoom:80%;" />
-
-#### 使用说明
-
-第一步，前端传递json对象请求接口http://localhost:8080/code/generate/generateCodeByChart
-
-```json
-{
-    "name": "拼团领域图谱",
-    "filed": "spellgroup",
-    "author": "shimmer",
-    "projectName": "wk-mtool",
-    "group": "com.wakedata.wk.mtool",
-    "dateTime": "2022/07/25",
-    "storyNodes": [
-        {
-            "name": "设置平台拼团规则",
-            "events": [
-                {
-                    "description": "规则已设置事件"
-                }
-            ],
-            "cmdList": [
-                {
-                    "description": "规则设置指令"
-                }
-            ],
-            "packageName": ""
-        },
-        {
-            "name": "创建拼团活动",
-            "events": [
-                {
-                    "name": "SpellGroupActivityCreateedEvent",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编码"
-                        },
-                        {
-                            "name": "itemNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "商品编码"
-                        },
-                        {
-                            "name": "activityStartTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动开始时间"
-                        },
-                        {
-                            "name": "activityEndTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动结束时间"
-                        }
-                    ],
-                    "description": "活动已创建"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupActivityCreateCmd",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityName",
-                            "type": "String",
-                            "modifier": "private",
-                            "description": "活动名称"
-                        },
-                        {
-                            "name": "itemNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "商品编码"
-                        },
-                        {
-                            "name": "activityStartTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动开始时间"
-                        },
-                        {
-                            "name": "activityEndTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动结束时间"
-                        },
-                        {
-                            "name": "storeNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "店铺编号"
-                        },
-                        {
-                            "name": "limitTimes",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "开团最大限制次数"
-                        },
-                        {
-                            "name": "limitItemCount",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "单次购买商品数量限制"
-                        },
-                        {
-                            "name": "duration",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "拼团时长"
-                        },
-                        {
-                            "name": "groupType",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "拼团类型：1.普通拼团；2.老带新拼团"
-                        },
-                        {
-                            "name": "enableRobot",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "是否开启机器人拼团：0.不开启；1：开启"
-                        }
-                    ],
-                    "description": "活动创建"
-                }
-            ],
-            "packageName": "create"
-        },
-        {
-            "name": "加入拼团活动",
-            "events": [
-                {
-                    "name": "SpellGroupItemJoinedEvent",
-                    "color": "#ffe6cc",
-                    "fieldList": [],
-                    "description": "商品加入活动事件"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupItemJoinCmd",
-                    "color": "#ffe6cc",
-                    "fieldList": [],
-                    "methodList": [],
-                    "description": "商品加入活动指令"
-                }
-            ],
-            "packageName": "join"
-        },
-        {
-            "name": "编辑拼团活动",
-            "events": [
-                {
-                    "name": "SpellGroupActivityModifyedEvent",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        },
-                        {
-                            "name": "itemNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "商品编码"
-                        },
-                        {
-                            "name": "activityStartTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动开始时间"
-                        },
-                        {
-                            "name": "activityEndTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动结束时间"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "活动已编辑事件"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupActivityModifyCmd",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        }
-                    ],
-                    "description": "编辑活动指令"
-                }
-            ],
-            "packageName": "modify"
-        },
-        {
-            "name": "审核拼团活动",
-            "events": [
-                {
-                    "description": "活动已审核"
-                }
-            ],
-            "cmdList": [],
-            "packageName": ""
-        },
-        {
-            "name": "开始拼团活动",
-            "events": [
-                {
-                    "name": "SpellGroupActivityStartedEvent",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        },
-                        {
-                            "name": "activityFinishTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动完成时间"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "活动已开始"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupActivityStartCmd",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "活动开始指令"
-                }
-            ],
-            "packageName": "start"
-        },
-        {
-            "name": "开启拼团",
-            "events": [
-                {
-                    "name": "SpellGroupCreateedEvent",
-                    "color": "#cce5ff",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        },
-                        {
-                            "name": "finishTime",
-                            "type": "LocalDateTime",
-                            "modifier": "private",
-                            "description": "活动完成时间"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "开启拼团事件"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupCreateCmd",
-                    "color": "#cce5ff",
-                    "fieldList": [
-                        {
-                            "name": "uniqueAccountId",
-                            "type": "String",
-                            "modifier": "private",
-                            "description": "团长账号"
-                        },
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编码"
-                        },
-                        {
-                            "name": "itemCount",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "购买商品数量"
-                        },
-                        {
-                            "name": "itemNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "购买商品编号"
-                        },
-                        {
-                            "name": "itemBarcode",
-                            "type": "String",
-                            "modifier": "private",
-                            "description": "购买商品条形码"
-                        },
-                        {
-                            "name": "peopleCount",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "成团人数"
-                        },
-                        {
-                            "name": "orderNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "订单编号"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "开启拼团指令"
-                }
-            ],
-            "packageName": "create"
-        },
-        {
-            "name": "参与拼团活动",
-            "events": [
-                {
-                    "name": "SpellGroupJoinedEvent",
-                    "color": "#cce5ff",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        },
-                        {
-                            "name": "isSuccess",
-                            "type": "Boolean",
-                            "modifier": "private",
-                            "description": "拼团是否成功"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "邀请好友已参团"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupJoinCmd",
-                    "color": "#cce5ff",
-                    "fieldList": [],
-                    "methodList": [],
-                    "description": "参与拼团活动指令"
-                }
-            ],
-            "packageName": "join"
-        },
-        {
-            "name": "拼团退款",
-            "events": [
-                {
-                    "name": "SpellGroupRefundedEvent",
-                    "color": "#cce5ff",
-                    "fieldList": [
-                        {
-                            "name": "refundType",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "退款操作： 1.发起退款；2.退款成功；3.取消退款"
-                        },
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "拼团活动编号"
-                        },
-                        {
-                            "name": "uniqueAccountId",
-                            "type": "String",
-                            "modifier": "private",
-                            "description": "会员账号"
-                        },
-                        {
-                            "name": "isLeader",
-                            "type": "Boolean",
-                            "modifier": "private",
-                            "description": "是否为团长"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团已退款"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupRefundCmd",
-                    "color": "#cce5ff",
-                    "fieldList": [
-                        {
-                            "name": "refundType",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "退款操作： 1.发起退款；2.退款成功；3.取消退款"
-                        },
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "拼团活动编号"
-                        },
-                        {
-                            "name": "uniqueAccountId",
-                            "type": "String",
-                            "modifier": "private",
-                            "description": "会员账号"
-                        },
-                        {
-                            "name": "isLeader",
-                            "type": "Boolean",
-                            "modifier": "private",
-                            "description": "是否为团长"
-                        },
-                        {
-                            "name": "itemNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "退款的商品编码"
-                        },
-                        {
-                            "name": "itemBarcode",
-                            "type": "String",
-                            "modifier": "private",
-                            "description": "退款的商品条形码"
-                        },
-                        {
-                            "name": "itemCount",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "退款的商品数量"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团退款指令"
-                }
-            ],
-            "packageName": "refund"
-        },
-        {
-            "name": "结束拼团",
-            "events": [
-                {
-                    "name": "SpellGroupFinishedEvent",
-                    "color": "#cce5ff",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编码"
-                        },
-                        {
-                            "name": "isSuccess",
-                            "type": "Boolean",
-                            "modifier": "private",
-                            "description": "是否拼团成功"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团已结束"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupFinishCmd",
-                    "color": "#cce5ff",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团结束指令"
-                }
-            ],
-            "packageName": "finish"
-        },
-        {
-            "name": "结束拼团活动",
-            "events": [
-                {
-                    "name": "SpellGroupActivityFinishedEvent",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编码"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团活动已结束"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupActivityFinishCmd",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        },
-                        {
-                            "name": "finishType",
-                            "type": "Integer",
-                            "modifier": "private",
-                            "description": "结束类型"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团活动结束指令"
-                }
-            ],
-            "packageName": "finish"
-        },
-        {
-            "name": "删除拼团活动",
-            "events": [
-                {
-                    "name": "SpellGroupActivityRemoveedEvent",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编码"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团活动已删除"
-                }
-            ],
-            "cmdList": [
-                {
-                    "name": "SpellGroupActivityRemoveCmd",
-                    "color": "#e6ffcc",
-                    "fieldList": [
-                        {
-                            "name": "activityNo",
-                            "type": "Long",
-                            "modifier": "private",
-                            "description": "活动编号"
-                        }
-                    ],
-                    "methodList": [],
-                    "description": "拼团活动删除指令"
-                }
-            ],
-            "packageName": "remove"
-        }
-    ],
-    "aggregations": [
-        {
-            "name": "SpellGroupActivity",
-            "color": "#e6ffcc",
-            "fieldList": [
-                {
-                    "name": "activityNo",
-                    "type": "Long",
-                    "modifier": "private",
-                    "description": "活动编号"
-                },
-                {
-                    "name": "activityName",
-                    "type": "String",
-                    "modifier": "private",
-                    "description": "活动名称"
-                },
-                {
-                    "name": "activityStartTime",
-                    "type": "LocalDateTime",
-                    "modifier": "private",
-                    "description": "活动开始时间"
-                },
-                {
-                    "name": "activityEndTime",
-                    "type": "LocalDateTime",
-                    "modifier": "private",
-                    "description": "活动结束时间"
-                },
-                {
-                    "name": "storeNo",
-                    "type": "Long",
-                    "modifier": "private",
-                    "description": "店铺编号"
-                },
-                {
-                    "name": "limitTimes",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "开团最大限制次数"
-                },
-                {
-                    "name": "limitItemCount",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "单次购买商品数量限制"
-                },
-                {
-                    "name": "duration",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "拼团时长"
-                },
-                {
-                    "name": "groupType",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "拼团类型：1.普通拼团；2.老带新拼团"
-                },
-                {
-                    "name": "enableRobot",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "是否开启机器人拼团：0.不开启；1：开启"
-                },
-                {
-                    "name": "activityStatus",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "活动状态：-1.已删除；0.未开始；1.进行中；2.已结束"
-                }
-            ],
-            "methodList": [
-                {
-                    "name": "isProceed",
-                    "modifier": "public",
-                    "returnType": "Boolean",
-                    "description": "活动是否在进行中",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "modify",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "修改拼团活动",
-                    "attributeLabel": "SpellGroupActivityModifyCmd spellGroupActivityModifyCmd, SpellGroupItem spellGroupItem"
-                },
-                {
-                    "name": "start",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "开启拼团活动",
-                    "attributeLabel": "SpellGroupActivityStartCmd spellGroupActivityStartCmd"
-                },
-                {
-                    "name": "finish",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "完成拼团活动",
-                    "attributeLabel": "SpellGroupActivityFinishCmd spellGroupActivityFinishCmd"
-                },
-                {
-                    "name": "remove",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "删除拼团活动",
-                    "attributeLabel": "SpellGroupActivityRemoveCmd spellGroupActivityRemoveCmd"
-                },
-                {
-                    "name": "getLimitTimes",
-                    "modifier": "public",
-                    "returnType": "Integer",
-                    "description": "获取拼团活动开团最大限制次数",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "checkBuyItemCountOrError",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "验证购买商品数量是否超出活动限制",
-                    "attributeLabel": "Integer itemCount"
-                },
-                {
-                    "name": "getDuration",
-                    "modifier": "public",
-                    "returnType": "Integer",
-                    "description": "获取单个拼团时长（单位：小时）",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "isAgedBandNew",
-                    "modifier": "public",
-                    "returnType": "Boolean",
-                    "description": "是否为老带新拼团",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "isEnableRobot",
-                    "modifier": "public",
-                    "returnType": "Boolean",
-                    "description": "是否开启机器人拼团",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "getActivityEndTime",
-                    "modifier": "public",
-                    "returnType": "LocalDateTime",
-                    "description": "获取活动完成时间",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "getActivityStartTime",
-                    "modifier": "public",
-                    "returnType": "LocalDateTime",
-                    "description": "获取活动开始时间",
-                    "attributeLabel": ""
-                }
-            ],
-            "description": "拼团活动聚合"
-        },
-        {
-            "name": "SpellGroupItem",
-            "color": "#ffe6cc",
-            "fieldList": [
-                {
-                    "name": "itemNo",
-                    "type": "Long",
-                    "modifier": "private",
-                    "description": "商品编号"
-                },
-                {
-                    "name": "itemActivityList",
-                    "type": "List<ItemActivity>",
-                    "modifier": "private",
-                    "description": "已加入的活动列表"
-                }
-            ],
-            "methodList": [
-                {
-                    "name": "checkItemJoinActivityAndError",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "检测商品是否可以加入活动",
-                    "attributeLabel": "SpellGroupItemJoinCmd spellGroupItemJoinCmd"
-                }
-            ],
-            "description": "商品加入拼团活动聚合"
-        },
-        {
-            "name": "SpellGroup",
-            "color": "#cce5ff",
-            "fieldList": [
-                {
-                    "name": "uniqueAccountId",
-                    "type": "String",
-                    "modifier": "private",
-                    "description": "团长账号"
-                },
-                {
-                    "name": "activityNo",
-                    "type": "Long",
-                    "modifier": "private",
-                    "description": "活动编码"
-                },
-                {
-                    "name": "itemCount",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "购买商品数量"
-                },
-                {
-                    "name": "itemNo",
-                    "type": "Long",
-                    "modifier": "private",
-                    "description": "购买商品编号"
-                },
-                {
-                    "name": "itemBarcode",
-                    "type": "String",
-                    "modifier": "private",
-                    "description": "购买商品条形码"
-                },
-                {
-                    "name": "peopleCount",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "成团人数"
-                },
-                {
-                    "name": "orderNo",
-                    "type": "Long",
-                    "modifier": "private",
-                    "description": "订单编号"
-                },
-                {
-                    "name": "groupStatus",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "拼团状态：1.拼团中；2.拼团成功；3.拼团失败；4.退款中"
-                },
-                {
-                    "name": "startTime",
-                    "type": "LocalDateTime",
-                    "modifier": "private",
-                    "description": "拼团开始时间"
-                },
-                {
-                    "name": "finishTime",
-                    "type": "LocalDateTime",
-                    "modifier": "private",
-                    "description": "拼团完成时间"
-                },
-                {
-                    "name": "groupMemberList",
-                    "type": "List<GroupMember>",
-                    "modifier": "private",
-                    "description": "拼团会员"
-                }
-            ],
-            "methodList": [
-                {
-                    "name": "isFinish",
-                    "modifier": "public",
-                    "returnType": "Boolean",
-                    "description": "拼团是否已结束",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "isSuccess",
-                    "modifier": "public",
-                    "returnType": "Boolean",
-                    "description": "拼团是否成功",
-                    "attributeLabel": ""
-                },
-                {
-                    "name": "join",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "参与拼团活动",
-                    "attributeLabel": "SpellGroupJoinCmd spellGroupJoinCmd, SpellGroupActivity spellGroupActivity"
-                },
-                {
-                    "name": "refund",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "拼团退款",
-                    "attributeLabel": "SpellGroupRefundCmd spellGroupRefundCmd"
-                },
-                {
-                    "name": "finish",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "拼团结束",
-                    "attributeLabel": "SpellGroupFinishCmd spellGroupFinishCmd, SpellGroupActivity spellGroupActivity"
-                },
-                {
-                    "name": "checkOrError",
-                    "modifier": "public",
-                    "returnType": "void",
-                    "description": "检查是否允许参团",
-                    "attributeLabel": "SpellGroupJoinCmd spellGroupJoinCmd, SpellGroupActivity spellGroupActivity"
-                }
-            ],
-            "description": "拼团聚合"
-        }
-    ],
-    "valueObjects": [
-        {
-            "name": "GroupMember",
-            "color": "#cce5ff",
-            "fieldList": [
-                {
-                    "name": "uniqueAccountId",
-                    "type": "String",
-                    "modifier": "private",
-                    "description": "会员账号"
-                },
-                {
-                    "name": "itemCount",
-                    "type": "Integer",
-                    "modifier": "private",
-                    "description": "购买商品数量"
-                }
-            ],
-            "methodList": [],
-            "description": "拼团成员"
-        },
-        {
-            "name": "ItemActivity",
-            "color": "#ffe6cc",
-            "fieldList": [
-                {
-                    "name": "activityNo",
-                    "type": "Long",
-                    "modifier": "private",
-                    "description": "活动编码"
-                },
-                {
-                    "name": "activityStartTime",
-                    "type": "LocalDateTime",
-                    "modifier": "private",
-                    "description": "活动开始时间"
-                },
-                {
-                    "name": "activityEndTime",
-                    "type": "LocalDateTime",
-                    "modifier": "private",
-                    "description": "活动结束时间"
-                }
-            ],
-            "methodList": [],
-            "description": "活动"
-        }
-    ]
+    /**
+     * 统一后置处理方法
+     */
+    void globalAfterHandle();
 }
 ```
 
-第二步，使用IDEA打开对应生成的项目，并等待项目加载完成
+## Velocity模版引擎实现生成逻辑
 
-![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132228996-1008832281.png)
+> 原理：Velocity模版引擎是一种静态生成模版文件的模版引擎，基于vm模版语法和模版上下文替换对应的模版变量，可以得到替换后的模版文件流。
 
-第三步，右键项目，通过IDEA自带的优化导入功能优化代码
+实现逻辑：填充变量到Velocity上下文、获取需要生成的模版路径，然后将原始路径解析为输出路径，最后调用Velocity模版引擎生成新文件。
+![](images/20230918_1452232431.png)<br/>
+封装变化点：根据上述过程，将变量填充、模版路径列表获取、解析路径等变化点封装到接口中，由不同元素提供具体实现逻辑。
 
-![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132255244-1889400543.png)
+```java
+/**
+ * Velocity模版引擎生成接口
+ *
+ * @author ZhuXueLiang
+ * @version 1.0
+ */
+public interface VelocityTemplateGenerate extends ElementStrategy {
 
-第四步，正常配置数据库、端口等信息，启动项目
+    /**
+     * 获取生成需要的模版路径列表
+     *
+     * @return 模版路径列表
+     */
+    List<String> getTemplatePathList();
 
-![image](https://img2022.cnblogs.com/blog/1994693/202207/1994693-20220726132309443-1593822570.png)
+    /**
+     * 填充当前元素标签到上下文中,用于进行变量映射
+     *
+     * @param context velocity上下文
+     */
+    void putVelocityContext(VelocityContext context);
 
-### 总结
+    /**
+     * 解析输出路径
+     *
+     * @param templateUrl   需要解析的模版路径
+     * @param preFixOutPath 目标路径
+     * @return 输出路径
+     */
+    String parseOutputPath(String templateUrl, String preFixOutPath);
 
-本项目设计的代码生成器依赖于DDD领域建模，需要使用者具备基本的领域建模知识。实现原理也较为简单，采用的是Velocity模板引擎进行模板替换。
-项目的主要工作：
-
-- 设计领域图谱数据模型
-- 实现数据模型与模板的映射规则
-- 规范COLA框架的模板文件
-
-目前支持的能力：
-
--   [X] 支持COLA项目结构
--   [X] 支持domain层代码
--   [X] 支持infrastructure层代码
--   [ ] 支持app层代码
--   [ ] 支持client层代码
--   [ ] 支持adpter层代码
+    /**
+     * 处理逻辑(处理各个元素的单独逻辑)
+     *
+     * @param templateContext 上下文信息
+     * @return true/false
+     */
+    Boolean process(TemplateContext templateContext);
+}
+```
