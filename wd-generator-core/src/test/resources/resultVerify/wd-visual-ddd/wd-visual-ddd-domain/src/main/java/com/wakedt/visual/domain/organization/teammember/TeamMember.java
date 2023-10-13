@@ -11,7 +11,7 @@ import com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind.Te
  * 团队成员-聚合根能力
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 public class TeamMember extends AbstractTeamMember {
 

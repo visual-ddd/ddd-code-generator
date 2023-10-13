@@ -37,7 +37,7 @@ import com.wakedt.visual.client.domaindesign.dto.DomainDesignVersionDTO;
  * 业务域-B端
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 @RestController
 @RequestMapping("/web/domain-design")

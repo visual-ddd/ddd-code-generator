@@ -21,7 +21,7 @@ import com.wakedt.visual.client.businessservice.versionpublish.VersionPublishRpc
  * 版本发布场景-C端
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:53
+ * @since 1.0 on 2023-10-13 19:59:44
  */
 @RestController
 @RequestMapping("/app/version-publish")

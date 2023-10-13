@@ -12,7 +12,7 @@ import com.wakedt.visual.domain.organization.team.*;
  * 编辑团队-指令
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 @Data
 @AllArgsConstructor

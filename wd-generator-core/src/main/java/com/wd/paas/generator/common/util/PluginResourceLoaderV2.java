@@ -11,11 +11,15 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 
-public class PluginResourceLoader extends ResourceLoader {
+/**
+ * 插件资源加载器
+ * 支持Velocity 2.3版本
+ */
+public class PluginResourceLoaderV2 extends ResourceLoader {
 
     private final ClassLoader classLoader;
 
-    public PluginResourceLoader(ClassLoader classLoader) {
+    public PluginResourceLoaderV2(ClassLoader classLoader) {
         this.classLoader = classLoader;
     }
 

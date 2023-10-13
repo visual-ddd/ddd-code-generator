@@ -18,7 +18,7 @@ import com.wakedt.visual.app.organization.assembler.OrganizationDTO2Organization
  * 组织分页查询对象-查询器
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 @Component
 public class OrganizationPageQueryExe {

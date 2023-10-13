@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
  * 绑定团队管理员
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 @Data
 @ApiModel(description = "绑定团队管理员")

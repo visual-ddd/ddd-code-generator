@@ -12,7 +12,7 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.businessscene
  * 业务场景版本-聚合根能力
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 public class BusinessSceneVersion extends AbstractBusinessSceneVersion {
 

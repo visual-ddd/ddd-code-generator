@@ -37,7 +37,7 @@ import com.wakedt.visual.businessscene.client.dto.BusinessSceneVersionDTO;
  * 业务场景域-B端
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @RestController
 @RequestMapping("/web/business-scene")

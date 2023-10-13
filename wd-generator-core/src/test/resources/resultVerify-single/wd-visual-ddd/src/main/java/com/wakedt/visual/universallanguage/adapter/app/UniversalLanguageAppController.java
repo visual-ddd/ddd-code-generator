@@ -26,7 +26,7 @@ import com.wakedt.visual.universallanguage.client.dto.UniversalLanguageDTO;
  * 统一语言域-C端
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @RestController
 @RequestMapping("/app/universal-language")

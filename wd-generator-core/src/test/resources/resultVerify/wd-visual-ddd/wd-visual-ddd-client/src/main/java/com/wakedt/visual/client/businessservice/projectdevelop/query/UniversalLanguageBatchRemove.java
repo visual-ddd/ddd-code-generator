@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  * 批量删除统一语言
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:53
+ * @since 1.0 on 2023-10-13 19:59:44
  */
 @Data
 @ApiModel(description = "批量删除统一语言")

@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
  * 关联业务域版本
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 @Data
 @ApiModel(description = "关联业务域版本")

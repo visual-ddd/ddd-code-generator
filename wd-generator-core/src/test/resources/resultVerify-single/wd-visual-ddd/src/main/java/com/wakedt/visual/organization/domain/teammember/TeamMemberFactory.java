@@ -10,7 +10,7 @@ import com.wakedt.visual.organization.app.cmd.teammemberadd.TeamMemberAddCmd;
  * 团队成员-聚合根-工厂
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @Component
 public class TeamMemberFactory {

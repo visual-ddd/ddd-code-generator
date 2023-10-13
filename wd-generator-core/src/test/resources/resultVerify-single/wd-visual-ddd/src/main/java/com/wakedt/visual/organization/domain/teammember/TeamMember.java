@@ -12,7 +12,7 @@ import com.wakedt.visual.organization.app.cmd.teammanagerroleunbind.TeamMemberRo
  * 团队成员-聚合根
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @Data
 public class TeamMember {

@@ -13,7 +13,7 @@ import com.wakedt.visual.account.app.assembler.AccountDTO2AccountDOConvert;
  * 账号详情查询对象-查询器
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @Component
 public class AccountDetailQueryExe {

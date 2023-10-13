@@ -18,7 +18,7 @@ import com.wakedt.visual.businessscene.app.assembler.BusinessSceneVersionDTO2Bus
  * 业务场景版本分页查询对象-查询器
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @Component
 public class BusinessSceneVersionPageQueryExe {

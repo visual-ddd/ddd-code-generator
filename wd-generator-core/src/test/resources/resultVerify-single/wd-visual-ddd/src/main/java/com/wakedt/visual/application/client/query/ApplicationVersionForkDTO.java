@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
  * Fork应用版本
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @Data
 @ApiModel(description = "Fork应用版本")

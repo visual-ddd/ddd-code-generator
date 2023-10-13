@@ -42,7 +42,7 @@ import com.wakedt.visual.organization.client.dto.TeamMemberDTO;
  * 组织域-B端
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @RestController
 @RequestMapping("/web/organization")

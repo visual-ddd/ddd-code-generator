@@ -9,7 +9,7 @@ import com.wakedt.visual.domain.account.accountverification.verificationupdate.A
  * 账号验证码-聚合根能力
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 public class AccountVerification extends AbstractAccountVerification {
 

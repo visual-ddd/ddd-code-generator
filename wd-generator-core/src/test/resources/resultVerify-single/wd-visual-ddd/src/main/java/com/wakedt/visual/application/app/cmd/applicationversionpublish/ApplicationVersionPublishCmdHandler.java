@@ -9,7 +9,7 @@ import com.wakedt.visual.application.domain.applicationversion.*;
  * 发布应用版本-指令处理器
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @Component
 public class ApplicationVersionPublishCmdHandler {

@@ -13,7 +13,12 @@ import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.VelocityTemplateGenerate;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -91,7 +96,15 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
         List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext))).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getPreFixOutPath(), templateContext.getProjectTemplateType());
+
+            // fixed：IDEA插件线程调用时，类加载器异常
+            final ClassLoader oldContextClassLoader = Thread.currentThread().getContextClassLoader();
+            Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
+
             FileGenerator.run(velocityContext, templateContext.getZipOutputStream(), templateContext.newVelocityEngine(), templateUrl, outputPath);
+
+            // set back default class loader
+            Thread.currentThread().setContextClassLoader(oldContextClassLoader);
         }
     }
 

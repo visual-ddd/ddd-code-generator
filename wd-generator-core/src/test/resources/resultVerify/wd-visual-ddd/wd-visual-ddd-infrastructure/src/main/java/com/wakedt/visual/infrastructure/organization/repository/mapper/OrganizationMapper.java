@@ -13,7 +13,7 @@ import com.wakedt.visual.client.organization.query.OrganizationPageQuery;
  * OrganizationMapper接口
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 18:12:52
+ * @since 1.0 on 2023-10-13 19:59:41
  */
 @Mapper
 public interface OrganizationMapper extends BaseMapper<OrganizationDO> {

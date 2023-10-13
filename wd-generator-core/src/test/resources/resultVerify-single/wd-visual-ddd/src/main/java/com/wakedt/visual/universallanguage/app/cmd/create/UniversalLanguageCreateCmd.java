@@ -12,7 +12,7 @@ import com.wakedt.visual.universallanguage.domain.universallanguage.*;
  * 新增统一语言-指令
  *
  * @author visual-ddd
- * @since 1.0 on 2023-10-13 18:17:47
+ * @since 1.0 on 2023-10-13 19:59:55
  */
 @Data
 @AllArgsConstructor

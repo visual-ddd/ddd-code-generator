@@ -3,15 +3,15 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.ProjectTemplateType;
 import com.wd.paas.generator.common.util.FileGenerator;
-import com.wd.paas.generator.common.util.PluginResourceLoader;
+import com.wd.paas.generator.common.util.PluginResourceLoaderV2;
 import lombok.Data;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
+import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -100,9 +100,8 @@ public class TemplateContext {
     private VelocityEngine defaultEngine() {
         VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
-        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADERS, "plugin");
-        velocityEngine.setProperty("resource.loader.plugin.class", PluginResourceLoader.class.getName());
-        velocityEngine.setProperty("resource.loader.plugin.instance", new PluginResourceLoader(FileGenerator.class.getClassLoader()));
+        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
+        velocityEngine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
         velocityEngine.init();
         this.velocityEngine = velocityEngine;
         return velocityEngine;
