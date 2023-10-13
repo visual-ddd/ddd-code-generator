@@ -4,7 +4,7 @@ package com.wakedt.visual.domain.organization.team;
  * 团队-聚合根-仓储接口
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 public interface TeamRepository {
 

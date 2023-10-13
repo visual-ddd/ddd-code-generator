@@ -1,11 +1,15 @@
 package com.wd.paas.generator;
 
+import com.wd.paas.generator.common.util.FileGenerator;
+import com.wd.paas.generator.common.util.PluginResourceLoader;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateVisitor;
 import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.RuntimeConstants;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
@@ -60,6 +64,7 @@ public class CodeGenerateServiceTest {
         TemplateContext templateContext = new TemplateContext(CodeGenerateServiceTest.RESULT_VERIFY_PATH);
         templateContext.setIsGenerateProjectFrame(isGenerateProjectFrame);
         templateContext.setAuthorName("shimmer");
+        templateContext.setVelocityEngine(VelocityEngineSetting.getVelocityEngine());
         TemplateVisitor templateVisitor = new TemplateVisitor(templateContext);
         codeGenerateService.run(templateVisitor);
 

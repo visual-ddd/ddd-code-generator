@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 解绑团队成员职位
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @ApiModel(description = "解绑团队成员职位")

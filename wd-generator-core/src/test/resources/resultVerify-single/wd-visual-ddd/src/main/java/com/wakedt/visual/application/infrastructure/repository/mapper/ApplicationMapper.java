@@ -12,17 +12,26 @@ import com.wakedt.visual.application.client.query.ApplicationListQuery;
 
 /**
  * ApplicationMapper接口
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Mapper
 public interface ApplicationMapper extends BaseMapper<ApplicationDO> {
 
-    /** 应用详情查询对象 */
+    /**
+      * 应用详情查询对象
+      */
     ApplicationDO applicationQuery(ApplicationQuery query);
 
-    /** 应用分页查询对象 */
+    /**
+      * 应用分页查询对象
+      */
     List<ApplicationDO> applicationPageQuery(ApplicationPageQuery pageQuery);
 
-    /** 应用列表查询对象 */
+    /**
+      * 应用列表查询对象
+      */
     List<ApplicationDO> applicationListQuery(ApplicationListQuery pageQuery);
 
 }

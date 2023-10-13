@@ -10,6 +10,9 @@ import com.wakedt.visual.account.domain.account.*;
 
 /**
  * 更新账号基本信息-指令
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @AllArgsConstructor

@@ -10,6 +10,9 @@ import com.wakedt.visual.application.domain.application.*;
 
 /**
  * 新增应用-指令
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @AllArgsConstructor

@@ -16,6 +16,9 @@ import com.wakedt.visual.domaindesign.app.assembler.DomainDesignDTO2DomainDesign
 
 /**
  * 业务域分页查询对象-查询器
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Component
 public class DomainDesignPageQueryExe {

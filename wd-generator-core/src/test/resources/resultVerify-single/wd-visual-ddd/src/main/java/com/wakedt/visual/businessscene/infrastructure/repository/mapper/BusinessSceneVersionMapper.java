@@ -12,17 +12,26 @@ import com.wakedt.visual.businessscene.client.query.BusinessSceneLatestVersionQu
 
 /**
  * BusinessSceneVersionMapper接口
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Mapper
 public interface BusinessSceneVersionMapper extends BaseMapper<BusinessSceneVersionDO> {
 
-    /** 业务场景版本详情查询对象 */
+    /**
+      * 业务场景版本详情查询对象
+      */
     BusinessSceneVersionDO businessSceneVersionQuery(BusinessSceneVersionQuery query);
 
-    /** 业务场景版本分页查询对象 */
+    /**
+      * 业务场景版本分页查询对象
+      */
     List<BusinessSceneVersionDO> businessSceneVersionPageQuery(BusinessSceneVersionPageQuery pageQuery);
 
-    /** 应用最新版本查询对象 */
+    /**
+      * 应用最新版本查询对象
+      */
     BusinessSceneVersionDO businessSceneLatestVersionQuery(BusinessSceneLatestVersionQuery query);
 
 }

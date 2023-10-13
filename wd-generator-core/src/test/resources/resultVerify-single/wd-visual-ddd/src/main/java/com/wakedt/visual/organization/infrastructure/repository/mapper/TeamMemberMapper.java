@@ -10,11 +10,16 @@ import com.wakedt.visual.organization.client.query.TeamMemberByTeamIdPageQuery;
 
 /**
  * TeamMemberMapper接口
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Mapper
 public interface TeamMemberMapper extends BaseMapper<TeamMemberDO> {
 
-    /** 查询团队下的成员信息 */
+    /**
+      * 查询团队下的成员信息
+      */
     List<TeamMemberDO> teamMemberByTeamIdPageQuery(TeamMemberByTeamIdPageQuery pageQuery);
 
 }

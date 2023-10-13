@@ -61,6 +61,7 @@ public class CodeGenerateServiceV2Test {
         TemplateContext templateContext = new TemplateContext(CodeGenerateServiceV2Test.RESULT_VERIFY_PATH);
         templateContext.setIsGenerateProjectFrame(isGenerateProjectFrame);
         templateContext.setProjectTemplateType(ProjectTemplateType.COLA_SINGLE);
+        templateContext.setVelocityEngine(VelocityEngineSetting.getVelocityEngine());
         TemplateVisitor templateVisitor = new TemplateVisitor(templateContext);
         codeGenerateService.run(templateVisitor);
 

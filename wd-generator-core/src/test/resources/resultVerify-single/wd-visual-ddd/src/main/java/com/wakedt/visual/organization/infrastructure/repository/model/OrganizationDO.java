@@ -15,6 +15,9 @@ import com.wakedt.visual.organization.infrastructure.BaseJpaAggregate;
 
 /**
  * 组织实体类
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

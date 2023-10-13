@@ -13,6 +13,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 账号详情查询对象
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

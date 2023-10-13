@@ -12,7 +12,7 @@ import com.wakedt.visual.domain.account.account.*;
  * 删除账号-指令
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @Data
 @AllArgsConstructor

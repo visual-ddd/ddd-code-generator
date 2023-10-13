@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 
 /**
  * 统一语言域-RPC能力接口
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 public interface UniversalLanguageRpcService {
 

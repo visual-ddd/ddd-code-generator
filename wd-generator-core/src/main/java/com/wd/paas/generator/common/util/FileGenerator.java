@@ -40,19 +40,19 @@ public class FileGenerator {
      * @param templateMap key: 模板路径 value: 输出全路径
      */
     public static void run(VelocityContext context, Map<String, String> templateMap,
-                           ZipOutputStream zipOutputStream) {
+                           ZipOutputStream zipOutputStream, VelocityEngine velocityEngine) {
         if (Objects.isNull(templateMap)) {
             return;
         }
         for (Entry<String, String> entry : templateMap.entrySet()) {
             String templateUrl = entry.getKey();
             String outputUrl = entry.getValue();
-            run(context, zipOutputStream, templateUrl, outputUrl);
+            run(context, zipOutputStream,velocityEngine, templateUrl, outputUrl);
         }
     }
 
-    public static void run(VelocityContext context, ZipOutputStream zipOutputStream, String templateUrl, String outputUrl) {
-        Template tpl = getTemplate(templateUrl);
+    public static void run(VelocityContext context, ZipOutputStream zipOutputStream, VelocityEngine velocityEngine, String templateUrl, String outputUrl) {
+        Template tpl = getTemplate(templateUrl, velocityEngine);
         generateFile(context, outputUrl, tpl, zipOutputStream);
     }
 
@@ -91,14 +91,8 @@ public class FileGenerator {
         return outputStream;
     }
 
-    private static Template getTemplate(String templateUrl) {
+    private static Template getTemplate(String templateUrl, VelocityEngine velocityEngine) {
         Template tpl = new Template();
-        VelocityEngine velocityEngine = new VelocityEngine();
-        velocityEngine.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
-        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "plugin");
-        velocityEngine.setProperty("plugin.resource.loader.class", PluginResourceLoader.class.getName());
-        velocityEngine.setProperty("plugin.resource.loader.instance", new PluginResourceLoader(FileGenerator.class.getClassLoader()));
-        velocityEngine.init();
 
         try {
             // 获取模板(初始化templatePreUrl + templateUrl)

@@ -12,7 +12,7 @@ import com.wakedt.visual.infrastructure.account.repository.model.AccountVerifica
  * AccountVerificationDTO2AccountVerificationDOConvert
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,

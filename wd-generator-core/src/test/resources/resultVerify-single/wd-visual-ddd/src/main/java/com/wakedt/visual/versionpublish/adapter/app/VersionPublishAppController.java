@@ -19,6 +19,9 @@ import com.wakedt.visual.versionpublish.client.VersionPublishRpcService;
 
 /**
  * 版本发布场景-C端
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:49
  */
 @RestController
 @RequestMapping("/app/version-publish")

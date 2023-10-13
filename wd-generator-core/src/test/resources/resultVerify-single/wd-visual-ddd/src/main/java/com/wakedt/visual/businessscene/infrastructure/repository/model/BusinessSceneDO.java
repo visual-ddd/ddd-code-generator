@@ -15,6 +15,9 @@ import com.wakedt.visual.businessscene.infrastructure.BaseJpaAggregate;
 
 /**
  * 业务场景实体类
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

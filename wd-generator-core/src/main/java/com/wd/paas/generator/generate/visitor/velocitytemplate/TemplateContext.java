@@ -2,11 +2,16 @@ package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.ProjectTemplateType;
+import com.wd.paas.generator.common.util.FileGenerator;
+import com.wd.paas.generator.common.util.PluginResourceLoader;
 import lombok.Data;
 import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.RuntimeConstants;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -23,7 +28,10 @@ public class TemplateContext {
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
     private ProjectTemplateType projectTemplateType = ProjectTemplateType.COLA;
 
-    private String authorName = "visual-ddd";
+    private String authorName = "visual-ddd" ;
+
+    // 设置模版引擎
+    private VelocityEngine velocityEngine;
 
     public TemplateContext() {
     }
@@ -63,6 +71,41 @@ public class TemplateContext {
      */
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
+    }
+
+    /**
+     * 支持配置自定义Velocity引擎
+     *
+     * @param velocityEngine 自定义的引擎
+     */
+    public void setVelocityEngine(VelocityEngine velocityEngine) {
+        this.velocityEngine = velocityEngine;
+    }
+
+    /**
+     * 根据配置, 创建一个velocity引擎
+     *
+     * @return velocity引擎
+     */
+    public VelocityEngine newVelocityEngine() {
+        if (velocityEngine != null) return velocityEngine;
+        return defaultEngine();
+    }
+
+    /**
+     * 默认为 Velocity 2.3 版本的引擎配置
+     *
+     * @return 兼容Velocity 2.3版本的引擎
+     */
+    private VelocityEngine defaultEngine() {
+        VelocityEngine velocityEngine = new VelocityEngine();
+        velocityEngine.setProperty(RuntimeConstants.INPUT_ENCODING, "UTF-8");
+        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADERS, "plugin");
+        velocityEngine.setProperty("resource.loader.plugin.class", PluginResourceLoader.class.getName());
+        velocityEngine.setProperty("resource.loader.plugin.instance", new PluginResourceLoader(FileGenerator.class.getClassLoader()));
+        velocityEngine.init();
+        this.velocityEngine = velocityEngine;
+        return velocityEngine;
     }
 
 }

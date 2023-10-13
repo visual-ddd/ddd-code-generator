@@ -19,7 +19,7 @@ public class Knife4jConfiguration {
     @Value("${server.servlet.context-path}")
     private String contextPath;
 
-    private static final String BASE_PACKAGE = "com.wakedt.visual.adapter";
+    private static final String BASE_PACKAGE = "com.wakedt.visual";
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

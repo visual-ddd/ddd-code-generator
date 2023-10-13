@@ -12,6 +12,9 @@ import com.wakedt.visual.account.app.cmd.accountpasswordupdate.AccountPasswordUp
 
 /**
  * 账号-聚合根
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 public class Account {
@@ -37,12 +40,16 @@ public class Account {
     /** 重置密码唯一标识 */
     private String uuid;
 
-    /** 验证密码是否正确 */
+    /**
+      * 验证密码是否正确
+      */
     public void checkLoginPass(){
         // TODO 验证密码是否正确()
     }
 
-    /** 验证重置密码唯一标识是否正确 */
+    /**
+      * 验证重置密码唯一标识是否正确
+      */
     public void checkUuidPass(){
         // TODO 验证重置密码唯一标识是否正确()
     }

@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
  * 更新业务域DSL
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @Data
 @ApiModel(description = "更新业务域DSL")

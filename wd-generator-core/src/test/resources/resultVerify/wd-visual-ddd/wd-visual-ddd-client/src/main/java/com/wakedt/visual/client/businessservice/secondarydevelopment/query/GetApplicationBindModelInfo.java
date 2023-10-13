@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  * 获取应用关联的模块信息
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:53
  */
 @Data
 @ApiModel(description = "获取应用关联的模块信息")

@@ -4,6 +4,9 @@ import com.wakedata.common.core.base.BaseEnum;
 
 /**
  * 统一语言类型-枚举
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 public enum LanguageType implements BaseEnum {
 

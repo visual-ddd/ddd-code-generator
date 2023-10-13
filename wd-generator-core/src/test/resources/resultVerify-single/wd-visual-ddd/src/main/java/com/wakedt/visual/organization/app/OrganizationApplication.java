@@ -67,6 +67,9 @@ import java.time.LocalDateTime;
 
 /**
  * 组织域
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Service
 public class OrganizationApplication {

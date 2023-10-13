@@ -37,7 +37,7 @@ import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
  * 业务场景域-C端
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @RestController
 @RequestMapping("/app/business-scene")

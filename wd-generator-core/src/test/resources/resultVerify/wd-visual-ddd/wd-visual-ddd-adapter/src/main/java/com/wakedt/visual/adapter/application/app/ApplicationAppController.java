@@ -38,7 +38,7 @@ import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
  * 应用域-C端
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @RestController
 @RequestMapping("/app/application")

@@ -6,7 +6,7 @@ import com.wakedata.common.core.base.BaseEnum;
  * 团队成员类型-枚举
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 public enum MemberType implements BaseEnum {
 

@@ -42,7 +42,7 @@ import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
  * 组织域-B端
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @RestController
 @RequestMapping("/web/organization")

@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -37,6 +36,9 @@ import com.wakedt.visual.application.client.dto.ApplicationVersionDTO;
 
 /**
  * 应用域-C端
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @RestController
 @RequestMapping("/app/application")
@@ -101,38 +103,38 @@ public class ApplicationAppController {
     }
 
     @ApiOperation("应用详情查询对象")
-    @GetMapping("/application-query")
-    public ResultDTO<ApplicationDTO> applicationQuery(ApplicationQuery query) {
+    @PostMapping("/application-query")
+    public ResultDTO<ApplicationDTO> applicationQuery(@RequestBody @Valid ApplicationQuery query) {
         return applicationRpcService.applicationQuery(query);
     }
 
     @ApiOperation("应用分页查询对象")
-    @GetMapping("/application-page-query")
-    public PageResultDTO<List<ApplicationDTO>> applicationPageQuery(ApplicationPageQuery pageQuery) {
+    @PostMapping("/application-page-query")
+    public PageResultDTO<List<ApplicationDTO>> applicationPageQuery(@RequestBody @Valid ApplicationPageQuery pageQuery) {
         return applicationRpcService.applicationPageQuery(pageQuery);
     }
 
     @ApiOperation("应用版本详情查询对象")
-    @GetMapping("/application-version-query")
-    public ResultDTO<ApplicationVersionDTO> applicationVersionQuery(ApplicationVersionQuery query) {
+    @PostMapping("/application-version-query")
+    public ResultDTO<ApplicationVersionDTO> applicationVersionQuery(@RequestBody @Valid ApplicationVersionQuery query) {
         return applicationRpcService.applicationVersionQuery(query);
     }
 
     @ApiOperation("应用版本分页查询对象")
-    @GetMapping("/application-version-page-query")
-    public PageResultDTO<List<ApplicationVersionDTO>> applicationVersionPageQuery(ApplicationVersionPageQuery pageQuery) {
+    @PostMapping("/application-version-page-query")
+    public PageResultDTO<List<ApplicationVersionDTO>> applicationVersionPageQuery(@RequestBody @Valid ApplicationVersionPageQuery pageQuery) {
         return applicationRpcService.applicationVersionPageQuery(pageQuery);
     }
 
     @ApiOperation("应用列表查询对象")
-    @GetMapping("/application-list-query")
-    public PageResultDTO<List<ApplicationDTO>> applicationListQuery(ApplicationListQuery pageQuery) {
+    @PostMapping("/application-list-query")
+    public PageResultDTO<List<ApplicationDTO>> applicationListQuery(@RequestBody @Valid ApplicationListQuery pageQuery) {
         return applicationRpcService.applicationListQuery(pageQuery);
     }
 
     @ApiOperation("应用最新版本查询对象")
-    @GetMapping("/application-latest-version-query")
-    public ResultDTO<ApplicationVersionDTO> applicationLatestVersionQuery(ApplicationLatestVersionQuery query) {
+    @PostMapping("/application-latest-version-query")
+    public ResultDTO<ApplicationVersionDTO> applicationLatestVersionQuery(@RequestBody @Valid ApplicationLatestVersionQuery query) {
         return applicationRpcService.applicationLatestVersionQuery(query);
     }
 }

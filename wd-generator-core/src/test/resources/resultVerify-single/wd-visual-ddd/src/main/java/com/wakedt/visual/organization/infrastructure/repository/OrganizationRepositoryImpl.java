@@ -16,6 +16,9 @@ import com.wakedt.visual.organization.infrastructure.assembler.Organization2Orga
 
 /**
  * Organization-聚合仓储实现类
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Slf4j
 @Component

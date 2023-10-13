@@ -16,6 +16,9 @@ import com.wakedt.visual.application.app.assembler.ApplicationDTO2ApplicationDOC
 
 /**
  * 应用列表查询对象-查询器
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Component
 public class ApplicationListQueryExe {

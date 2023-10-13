@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * 组织管理场景-RPC能力接口实现
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:53
  */
 @Service
 public class OrganizationManagementRpcServiceImpl implements OrganizationManagementRpcService {

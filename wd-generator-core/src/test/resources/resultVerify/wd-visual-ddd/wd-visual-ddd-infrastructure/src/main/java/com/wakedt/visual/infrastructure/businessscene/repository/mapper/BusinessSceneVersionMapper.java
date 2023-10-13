@@ -14,7 +14,7 @@ import com.wakedt.visual.client.businessscene.query.BusinessSceneLatestVersionQu
  * BusinessSceneVersionMapper接口
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @Mapper
 public interface BusinessSceneVersionMapper extends BaseMapper<BusinessSceneVersionDO> {

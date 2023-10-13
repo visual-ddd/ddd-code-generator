@@ -11,6 +11,9 @@ import com.wakedt.visual.account.app.assembler.AccountVerificationDTO2AccountVer
 
 /**
  * 账号验证码详情查询对象-查询器
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Component
 public class AccountVerificationDetailQueryExe {

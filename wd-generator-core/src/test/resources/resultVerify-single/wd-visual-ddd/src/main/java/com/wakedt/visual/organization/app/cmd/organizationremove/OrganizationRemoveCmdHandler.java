@@ -7,6 +7,9 @@ import com.wakedt.visual.organization.domain.organization.*;
 
 /**
  * 删除组织-指令处理器
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Component
 public class OrganizationRemoveCmdHandler {

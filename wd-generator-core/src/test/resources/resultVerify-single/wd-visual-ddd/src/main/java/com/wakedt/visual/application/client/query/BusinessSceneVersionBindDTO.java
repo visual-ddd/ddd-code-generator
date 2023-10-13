@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 关联业务场景版本
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @ApiModel(description = "关联业务场景版本")

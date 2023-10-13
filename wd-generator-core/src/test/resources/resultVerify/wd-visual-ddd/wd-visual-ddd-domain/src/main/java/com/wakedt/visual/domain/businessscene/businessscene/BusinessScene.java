@@ -10,7 +10,7 @@ import com.wakedt.visual.domain.businessscene.businessscene.businesssceneremove.
  * 业务场景-聚合根能力
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 public class BusinessScene extends AbstractBusinessScene {
 

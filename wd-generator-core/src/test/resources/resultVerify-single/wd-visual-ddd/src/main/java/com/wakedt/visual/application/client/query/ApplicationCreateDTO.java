@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 新增应用
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @ApiModel(description = "新增应用")

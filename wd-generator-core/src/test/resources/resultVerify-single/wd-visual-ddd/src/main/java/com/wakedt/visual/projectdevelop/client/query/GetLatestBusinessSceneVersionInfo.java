@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 获取最新业务场景版本信息
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:49
  */
 @Data
 @ApiModel(description = "获取最新业务场景版本信息")

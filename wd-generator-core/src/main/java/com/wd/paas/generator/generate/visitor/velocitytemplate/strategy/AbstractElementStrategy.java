@@ -1,7 +1,5 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
-import com.wd.paas.generator.common.constant.ModelUrlConstant;
-import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.context.ElementContent;
 import com.wd.paas.generator.common.context.ThreadContextHelper;
 import com.wd.paas.generator.common.context.ThreadLocalUtil;
@@ -93,7 +91,7 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
         List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext))).orElse(Collections.emptyList());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getPreFixOutPath(), templateContext.getProjectTemplateType());
-            FileGenerator.run(velocityContext, templateContext.getZipOutputStream(), templateUrl, outputPath);
+            FileGenerator.run(velocityContext, templateContext.getZipOutputStream(), templateContext.newVelocityEngine(), templateUrl, outputPath);
         }
     }
 

@@ -10,7 +10,7 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.remove.Unive
  * 统一语言-聚合根能力
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 public class UniversalLanguage extends AbstractUniversalLanguage {
 

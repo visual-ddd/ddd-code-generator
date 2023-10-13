@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 更新业务场景DSL
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @ApiModel(description = "更新业务场景DSL")

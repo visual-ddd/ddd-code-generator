@@ -12,12 +12,12 @@ import com.wakedt.visual.domain.businessscene.businessscene.*;
  * 编辑业务场景-指令事件
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BusinessSceneModifyEvent extends BaseDomainEvent {
-    
+
     /** 业务场景 ID */
     private Long id;
 
@@ -26,7 +26,7 @@ public class BusinessSceneModifyEvent extends BaseDomainEvent {
 
     /** 描述 */
     private String description;
-    
+
     public BusinessSceneModifyEvent() {}
 
     public BusinessSceneModifyEvent(BusinessSceneModifyCmd cmd

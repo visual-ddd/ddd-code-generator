@@ -1,12 +1,15 @@
 package com.wd.paas.generator.common.util;
 
-import org.apache.commons.collections.ExtendedProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.resource.Resource;
 import org.apache.velocity.runtime.resource.loader.ResourceLoader;
+import org.apache.velocity.util.ExtProperties;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 
 public class PluginResourceLoader extends ResourceLoader {
 
@@ -16,20 +19,20 @@ public class PluginResourceLoader extends ResourceLoader {
         this.classLoader = classLoader;
     }
 
-    /**
-     * Get a resource input stream
-     *
-     * @param resourceName the name of the resource
-     * @return Optional of InputStream of the resource if found
-     * @throws ResourceNotFoundException if the resource is not found
-     */
     @Override
-    public InputStream getResourceStream(String resourceName) throws ResourceNotFoundException {
-        if (StringUtils.isEmpty(resourceName)) {
-            log.error("Template name is not specified");
+    public Reader getResourceReader(String source, String encoding) throws ResourceNotFoundException {
+        if (StringUtils.isEmpty(source)) {
             throw new ResourceNotFoundException("Need to specify a template name!");
         }
-        return classLoader.getResourceAsStream(resourceName);
+        InputStream inputStream = classLoader.getResourceAsStream(source);
+        if (inputStream == null) {
+            throw new ResourceNotFoundException("Template not found: " + source);
+        }
+        try {
+            return new InputStreamReader(inputStream, encoding);
+        } catch (UnsupportedEncodingException e) {
+            throw new ResourceNotFoundException("Unsupported encoding: " + encoding, e);
+        }
     }
 
     @Override
@@ -38,7 +41,7 @@ public class PluginResourceLoader extends ResourceLoader {
     }
 
     @Override
-    public void init(ExtendedProperties properties) {
+    public void init(ExtProperties configuration) {
         if (log.isTraceEnabled()) {
             log.trace("TestResourceLoader : initialization complete.");
         }

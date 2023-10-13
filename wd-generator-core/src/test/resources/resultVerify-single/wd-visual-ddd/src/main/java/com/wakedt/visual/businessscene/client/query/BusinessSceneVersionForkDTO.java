@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Fork业务场景版本
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Data
 @ApiModel(description = "Fork业务场景版本")

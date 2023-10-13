@@ -13,7 +13,7 @@ import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQue
  * UniversalLanguageMapper接口
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @Mapper
 public interface UniversalLanguageMapper extends BaseMapper<UniversalLanguageDO> {

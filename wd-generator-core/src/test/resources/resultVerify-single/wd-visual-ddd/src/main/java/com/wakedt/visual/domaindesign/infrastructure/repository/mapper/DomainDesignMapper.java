@@ -12,17 +12,26 @@ import com.wakedt.visual.domaindesign.client.query.DomainDesignListQuery;
 
 /**
  * DomainDesignMapper接口
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Mapper
 public interface DomainDesignMapper extends BaseMapper<DomainDesignDO> {
 
-    /** 业务域详情查询对象 */
+    /**
+      * 业务域详情查询对象
+      */
     DomainDesignDO domainDesignQuery(DomainDesignQuery query);
 
-    /** 业务域分页查询对象 */
+    /**
+      * 业务域分页查询对象
+      */
     List<DomainDesignDO> domainDesignPageQuery(DomainDesignPageQuery pageQuery);
 
-    /** 业务域列表查询对象 */
+    /**
+      * 业务域列表查询对象
+      */
     List<DomainDesignDO> domainDesignListQuery(DomainDesignListQuery pageQuery);
 
 }

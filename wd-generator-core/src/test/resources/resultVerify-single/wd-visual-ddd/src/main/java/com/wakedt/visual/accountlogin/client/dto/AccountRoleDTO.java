@@ -12,6 +12,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 当前登录账号权限
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:49
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

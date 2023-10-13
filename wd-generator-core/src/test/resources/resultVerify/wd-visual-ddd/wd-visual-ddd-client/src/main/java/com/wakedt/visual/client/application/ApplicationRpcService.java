@@ -28,7 +28,7 @@ import java.time.LocalDateTime;
  * 应用域-RPC能力接口
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 public interface ApplicationRpcService {
 

@@ -13,6 +13,9 @@ import java.util.Optional;
 
 /**
  * 团队成员类型-枚举JSON转换器
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 public class MemberTypeConverter {
 

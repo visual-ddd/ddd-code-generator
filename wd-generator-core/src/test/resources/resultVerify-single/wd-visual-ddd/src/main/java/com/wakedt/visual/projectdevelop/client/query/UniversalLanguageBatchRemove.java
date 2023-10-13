@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 批量删除统一语言
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:49
  */
 @Data
 @ApiModel(description = "批量删除统一语言")

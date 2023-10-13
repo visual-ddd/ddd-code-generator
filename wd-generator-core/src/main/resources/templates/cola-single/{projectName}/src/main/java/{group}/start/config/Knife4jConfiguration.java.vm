@@ -1,3 +1,4 @@
+#set($contextPath = "{server.servlet.context-path}")
 package ${PROJECT_PACKAGE}.start.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableSwagger2WebMvc
 public class Knife4jConfiguration {
 
-    @Value("${server.servlet.context-path}")
+    @Value("$${contextPath}")
     private String contextPath;
 
     private static final String BASE_PACKAGE = "${PROJECT_PACKAGE}";

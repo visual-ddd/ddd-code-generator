@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -25,6 +24,9 @@ import com.wakedt.visual.universallanguage.client.dto.UniversalLanguageDTO;
 
 /**
  * 统一语言域-C端
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @RestController
 @RequestMapping("/app/universal-language")
@@ -53,14 +55,14 @@ public class UniversalLanguageAppController {
     }
 
     @ApiOperation("统一语言详情查询对象")
-    @GetMapping("/universal-language-query")
-    public ResultDTO<UniversalLanguageDTO> universalLanguageQuery(UniversalLanguageQuery query) {
+    @PostMapping("/universal-language-query")
+    public ResultDTO<UniversalLanguageDTO> universalLanguageQuery(@RequestBody @Valid UniversalLanguageQuery query) {
         return universalLanguageRpcService.universalLanguageQuery(query);
     }
 
     @ApiOperation("统一语言分页查询对象")
-    @GetMapping("/universal-language-page-query")
-    public PageResultDTO<List<UniversalLanguageDTO>> universalLanguagePageQuery(UniversalLanguagePageQuery pageQuery) {
+    @PostMapping("/universal-language-page-query")
+    public PageResultDTO<List<UniversalLanguageDTO>> universalLanguagePageQuery(@RequestBody @Valid UniversalLanguagePageQuery pageQuery) {
         return universalLanguageRpcService.universalLanguagePageQuery(pageQuery);
     }
 }

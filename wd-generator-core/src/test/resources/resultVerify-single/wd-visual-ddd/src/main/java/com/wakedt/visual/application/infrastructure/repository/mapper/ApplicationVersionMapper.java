@@ -12,17 +12,26 @@ import com.wakedt.visual.application.client.query.ApplicationLatestVersionQuery;
 
 /**
  * ApplicationVersionMapper接口
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Mapper
 public interface ApplicationVersionMapper extends BaseMapper<ApplicationVersionDO> {
 
-    /** 应用版本详情查询对象 */
+    /**
+      * 应用版本详情查询对象
+      */
     ApplicationVersionDO applicationVersionQuery(ApplicationVersionQuery query);
 
-    /** 应用版本分页查询对象 */
+    /**
+      * 应用版本分页查询对象
+      */
     List<ApplicationVersionDO> applicationVersionPageQuery(ApplicationVersionPageQuery pageQuery);
 
-    /** 应用最新版本查询对象 */
+    /**
+      * 应用最新版本查询对象
+      */
     ApplicationVersionDO applicationLatestVersionQuery(ApplicationLatestVersionQuery query);
 
 }

@@ -25,6 +25,9 @@ import java.time.LocalDateTime;
 
 /**
  * 业务场景域-RPC能力接口
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 public interface BusinessSceneRpcService {
 

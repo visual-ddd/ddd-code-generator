@@ -7,6 +7,9 @@ import com.wakedt.visual.application.domain.applicationversion.*;
 
 /**
  * 关联业务场景版本-指令处理器
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Component
 public class BusinessSceneVersionBindCmdHandler {

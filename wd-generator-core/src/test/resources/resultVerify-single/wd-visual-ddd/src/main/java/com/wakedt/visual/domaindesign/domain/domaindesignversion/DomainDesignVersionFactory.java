@@ -9,6 +9,9 @@ import com.wakedt.visual.domaindesign.app.cmd.domaindesignversionfork.DomainDesi
 
 /**
  * 业务域版本-聚合根-工厂
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Component
 public class DomainDesignVersionFactory {

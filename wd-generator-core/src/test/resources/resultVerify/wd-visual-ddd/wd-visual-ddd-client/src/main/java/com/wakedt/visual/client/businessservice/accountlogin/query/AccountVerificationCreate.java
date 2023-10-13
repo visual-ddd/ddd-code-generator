@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  * 发送注册账号验证码
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:53
  */
 @Data
 @ApiModel(description = "发送注册账号验证码")

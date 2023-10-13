@@ -8,6 +8,9 @@ import com.wakedt.visual.businessscene.app.cmd.businessscenecreate.BusinessScene
 
 /**
  * 业务场景-聚合根-工厂
+ *
+ * @author visual-ddd
+ * @since 1.0 on 2023-10-13 18:17:47
  */
 @Component
 public class BusinessSceneFactory {

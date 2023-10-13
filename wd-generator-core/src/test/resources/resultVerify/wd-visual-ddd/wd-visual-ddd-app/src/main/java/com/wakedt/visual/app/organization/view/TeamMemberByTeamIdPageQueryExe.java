@@ -18,7 +18,7 @@ import com.wakedt.visual.app.organization.assembler.TeamMemberDTO2TeamMemberDOCo
  * 查询团队下的成员信息-查询器
  *
  * @author shimmer
- * @since 1.0
+ * @since 1.0 on 2023-10-13 18:12:52
  */
 @Component
 public class TeamMemberByTeamIdPageQueryExe {
