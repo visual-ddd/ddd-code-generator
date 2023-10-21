@@ -6,7 +6,7 @@ import com.wakedata.common.core.base.BaseEnum;
  * 统一语言类型-枚举
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 public enum LanguageType implements BaseEnum {
 

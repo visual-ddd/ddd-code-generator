@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  * 应用数据传输对象
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

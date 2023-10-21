@@ -34,6 +34,7 @@ public class ElementMappingV2 implements AbstractElementMapping {
     @Override
     public String[] domainChart() {
         return new String[]{
+                // adapter
                 "cola-single/{projectName}/src/main/java/{group}/{field}/adapter/app/{Domain}AppController.java.vm",
                 "cola-single/{projectName}/src/main/java/{group}/{field}/adapter/web/{Domain}WebController.java.vm",
                 // app

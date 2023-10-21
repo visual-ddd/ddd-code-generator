@@ -1,42 +1,14 @@
 package com.wakedt.visual.domain.application.application;
 
+import com.wakedt.visual.domain.BaseRepository;
+
 /**
  * 应用-聚合根-仓储接口
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
-public interface ApplicationRepository {
+public interface ApplicationRepository extends BaseRepository<Application, Long> {
 
-    /**
-     * 存储
-     *
-     * @param application 应用
-     * @return Application
-     */
-    Application save(Application application);
-
-    /**
-     * 更新
-     *
-     * @param application 应用
-     * @return Application
-     */
-    Application update(Application application);
-
-    /**
-     * 删除
-     *
-     * @param application 应用
-     */
-    void remove(Application application);
-
-    /**
-     * 查询
-     *
-     * @param id 唯一标识
-     * @return Application
-     */
-    Application find(Long id);
 
 }

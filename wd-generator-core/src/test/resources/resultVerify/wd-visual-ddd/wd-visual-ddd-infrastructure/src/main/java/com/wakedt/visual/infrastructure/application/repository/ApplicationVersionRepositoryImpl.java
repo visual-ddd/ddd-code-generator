@@ -18,7 +18,7 @@ import com.wakedt.visual.infrastructure.application.assembler.ApplicationVersion
  * ApplicationVersion-聚合仓储实现类
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Slf4j
 @Component

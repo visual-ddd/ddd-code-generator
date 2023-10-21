@@ -1,42 +1,14 @@
 package com.wakedt.visual.domain.account.account;
 
+import com.wakedt.visual.domain.BaseRepository;
+
 /**
  * 账号-聚合根-仓储接口
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
-public interface AccountRepository {
+public interface AccountRepository extends BaseRepository<Account, Long> {
 
-    /**
-     * 存储
-     *
-     * @param account 账号
-     * @return Account
-     */
-    Account save(Account account);
-
-    /**
-     * 更新
-     *
-     * @param account 账号
-     * @return Account
-     */
-    Account update(Account account);
-
-    /**
-     * 删除
-     *
-     * @param account 账号
-     */
-    void remove(Account account);
-
-    /**
-     * 查询
-     *
-     * @param id 唯一标识
-     * @return Account
-     */
-    Account find(Long id);
 
 }

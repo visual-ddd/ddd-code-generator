@@ -18,7 +18,7 @@ import com.wakedt.visual.app.domaindesign.assembler.DomainDesignDTO2DomainDesign
  * 业务域列表查询对象-查询器
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Component
 public class DomainDesignListQueryExe {

@@ -11,7 +11,7 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignver
  * 业务域版本-聚合根-工厂
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Component
 public class DomainDesignVersionFactory {

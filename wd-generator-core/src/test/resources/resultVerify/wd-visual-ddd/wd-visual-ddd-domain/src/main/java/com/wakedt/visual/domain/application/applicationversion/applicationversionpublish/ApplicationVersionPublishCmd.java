@@ -12,7 +12,7 @@ import com.wakedt.visual.domain.application.applicationversion.*;
  * 发布应用版本-指令
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

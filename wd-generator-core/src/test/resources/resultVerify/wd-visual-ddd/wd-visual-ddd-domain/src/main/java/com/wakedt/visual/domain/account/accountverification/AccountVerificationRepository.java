@@ -1,42 +1,14 @@
 package com.wakedt.visual.domain.account.accountverification;
 
+import com.wakedt.visual.domain.BaseRepository;
+
 /**
  * 账号验证码-聚合根-仓储接口
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
-public interface AccountVerificationRepository {
+public interface AccountVerificationRepository extends BaseRepository<AccountVerification, Long> {
 
-    /**
-     * 存储
-     *
-     * @param accountVerification 账号验证码
-     * @return AccountVerification
-     */
-    AccountVerification save(AccountVerification accountVerification);
-
-    /**
-     * 更新
-     *
-     * @param accountVerification 账号验证码
-     * @return AccountVerification
-     */
-    AccountVerification update(AccountVerification accountVerification);
-
-    /**
-     * 删除
-     *
-     * @param accountVerification 账号验证码
-     */
-    void remove(AccountVerification accountVerification);
-
-    /**
-     * 查询
-     *
-     * @param id 唯一标识
-     * @return AccountVerification
-     */
-    AccountVerification find(Long id);
 
 }

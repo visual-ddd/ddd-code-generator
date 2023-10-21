@@ -9,7 +9,7 @@ import com.wakedt.visual.domain.organization.team.*;
  * 删除团队-指令处理器
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Component
 public class TeamRemoveCmdHandler {

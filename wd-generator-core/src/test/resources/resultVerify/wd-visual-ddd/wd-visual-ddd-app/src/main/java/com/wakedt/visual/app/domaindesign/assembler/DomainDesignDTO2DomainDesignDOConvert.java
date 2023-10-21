@@ -12,7 +12,7 @@ import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesi
  * DomainDesignDTO2DomainDesignDOConvert
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,

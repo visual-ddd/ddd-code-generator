@@ -10,7 +10,7 @@ import com.wakedt.visual.domain.application.application.applicationcreate.Applic
  * 应用-聚合根-工厂
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Component
 public class ApplicationFactory {

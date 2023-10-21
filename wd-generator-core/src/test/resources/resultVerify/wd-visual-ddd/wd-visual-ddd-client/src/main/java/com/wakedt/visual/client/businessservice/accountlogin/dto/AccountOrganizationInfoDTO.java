@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
  * 账号所属组织信息
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:44
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

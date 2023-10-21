@@ -56,6 +56,8 @@ public class ElementMappingV1 implements AbstractElementMapping {
                 "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
                 // client
                 "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{Domain}RpcService.java.vm",
+                // domain
+                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/BaseRepository.java.vm",
                 // infrastructure
                 "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
                 "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",

@@ -12,7 +12,7 @@ import com.wakedt.visual.domain.organization.team.teammanagerunbind.TeamManagerU
  * 团队-聚合根能力
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 public class Team extends AbstractTeam {
 

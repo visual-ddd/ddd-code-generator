@@ -13,7 +13,7 @@ import com.wakedt.visual.client.account.query.AccountPageQuery;
  * AccountMapper接口
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Mapper
 public interface AccountMapper extends BaseMapper<AccountDO> {

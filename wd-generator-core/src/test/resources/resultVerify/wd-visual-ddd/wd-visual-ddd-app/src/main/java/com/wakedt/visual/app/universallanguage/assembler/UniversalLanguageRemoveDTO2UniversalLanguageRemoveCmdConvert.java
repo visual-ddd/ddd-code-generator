@@ -12,7 +12,7 @@ import com.wakedt.visual.domain.universallanguage.universallanguage.LanguageType
  * UniversalLanguageRemoveDTO2UniversalLanguageRemoveCmdConvert
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,

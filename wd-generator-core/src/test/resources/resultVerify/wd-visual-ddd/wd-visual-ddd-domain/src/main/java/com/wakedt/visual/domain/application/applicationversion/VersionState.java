@@ -6,7 +6,7 @@ import com.wakedata.common.core.base.BaseEnum;
  * 版本状态-枚举
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 public enum VersionState implements BaseEnum {
 

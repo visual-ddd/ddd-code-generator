@@ -13,7 +13,7 @@ import com.wakedt.visual.app.application.assembler.ApplicationDTO2ApplicationDOC
  * 应用详情查询对象-查询器
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Component
 public class ApplicationQueryExe {

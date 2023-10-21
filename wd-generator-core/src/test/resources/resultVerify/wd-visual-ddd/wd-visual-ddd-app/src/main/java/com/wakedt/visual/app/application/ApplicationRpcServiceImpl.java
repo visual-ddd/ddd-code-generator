@@ -58,7 +58,7 @@ import java.time.LocalDateTime;
  * 应用域-RPC能力接口实现
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @Service
 public class ApplicationRpcServiceImpl implements ApplicationRpcService {

@@ -26,7 +26,7 @@ import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
  * 统一语言域-B端
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/web/universal-language")

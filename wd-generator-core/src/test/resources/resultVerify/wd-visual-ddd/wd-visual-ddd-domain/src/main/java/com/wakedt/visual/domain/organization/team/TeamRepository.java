@@ -1,42 +1,14 @@
 package com.wakedt.visual.domain.organization.team;
 
+import com.wakedt.visual.domain.BaseRepository;
+
 /**
  * 团队-聚合根-仓储接口
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
-public interface TeamRepository {
+public interface TeamRepository extends BaseRepository<Team, Long> {
 
-    /**
-     * 存储
-     *
-     * @param team 团队
-     * @return Team
-     */
-    Team save(Team team);
-
-    /**
-     * 更新
-     *
-     * @param team 团队
-     * @return Team
-     */
-    Team update(Team team);
-
-    /**
-     * 删除
-     *
-     * @param team 团队
-     */
-    void remove(Team team);
-
-    /**
-     * 查询
-     *
-     * @param id 唯一标识
-     * @return Team
-     */
-    Team find(Long id);
 
 }

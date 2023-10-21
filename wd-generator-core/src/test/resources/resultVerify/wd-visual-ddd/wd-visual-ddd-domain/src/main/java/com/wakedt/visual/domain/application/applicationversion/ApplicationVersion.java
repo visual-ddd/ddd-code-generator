@@ -13,7 +13,7 @@ import com.wakedt.visual.domain.application.applicationversion.applicationversio
  * 应用版本-聚合根能力
  *
  * @author shimmer
- * @since 1.0 on 2023-10-13 19:59:41
+ * @since 1.0
  */
 public class ApplicationVersion extends AbstractApplicationVersion {
 
