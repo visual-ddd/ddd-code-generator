@@ -1,6 +1,5 @@
 package com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionmodify;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.*;

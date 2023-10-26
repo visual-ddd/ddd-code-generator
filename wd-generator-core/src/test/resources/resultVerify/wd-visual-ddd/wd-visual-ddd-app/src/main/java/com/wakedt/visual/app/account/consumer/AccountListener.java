@@ -1,6 +1,5 @@
 package com.wakedt.visual.app.account.consumer;
 
-import com.wakedata.common.domainevent.annotation.DomainEventSubscribe;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.account.account.accountcreate.AccountCreateCmdHandler;

@@ -1,6 +1,5 @@
 package com.wakedt.visual.domain.universallanguage.universallanguage.remove;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.universallanguage.universallanguage.*;

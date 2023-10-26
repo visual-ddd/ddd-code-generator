@@ -1,6 +1,5 @@
 package com.wakedt.visual.domain.account.account.accountpasswordupdate;
 
-import com.wakedata.common.domainevent.DomainEventPublisher;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.account.account.*;

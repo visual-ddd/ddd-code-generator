@@ -1,7 +1,9 @@
 #parse("templates/Domain.vm")
 package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Listener")};
 
+#if(${CMD_EVENT_ENABLE})
 import com.wakedata.common.domainevent.annotation.DomainEventSubscribe;
+#end
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 #importDomainCmdHandler()

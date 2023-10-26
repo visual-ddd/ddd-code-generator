@@ -2,7 +2,9 @@
 #set($aggregation = ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})})
 package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_CLASS_NAME}Handler")};
 
+#if(${CMD_EVENT_ENABLE})
 import com.wakedata.common.domainevent.DomainEventPublisher;
+#end
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}")}.*;

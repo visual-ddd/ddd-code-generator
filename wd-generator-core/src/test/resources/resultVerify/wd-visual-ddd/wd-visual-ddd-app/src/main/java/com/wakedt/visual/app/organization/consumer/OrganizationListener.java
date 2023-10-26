@@ -1,6 +1,5 @@
 package com.wakedt.visual.app.organization.consumer;
 
-import com.wakedata.common.domainevent.annotation.DomainEventSubscribe;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.domain.organization.organization.organizationcreate.OrganizationCreateCmdHandler;
