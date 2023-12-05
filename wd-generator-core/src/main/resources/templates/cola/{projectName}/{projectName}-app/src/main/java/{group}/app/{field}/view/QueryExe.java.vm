@@ -22,8 +22,7 @@ import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
-#end
-#if(!${QUERY_PAGINATION})
+#else
 import com.wakedata.common.core.dto.ResultDTO;
 #end
 import javax.annotation.Resource;
@@ -53,8 +52,7 @@ public class ${QUERY_CLASS_NAME}Exe {
         pageResultDTO.setTotalCount(pageInfo.getTotal());
         return pageResultDTO;
     }
-#end
-#if(!${QUERY_PAGINATION})
+#else
     public ResultDTO<${returnTypeSign}> execute(${QUERY_CLASS_NAME} query) {
         return ResultDTO.success(
                 ${convertClassName}.INSTANCE.do2Dto(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query)));

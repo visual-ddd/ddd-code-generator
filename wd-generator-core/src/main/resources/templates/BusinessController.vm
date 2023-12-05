@@ -35,8 +35,7 @@ import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}RpcSe
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(@RequestBody @Valid ${query.name} request) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${BUSINESS_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(request);
     }
-#end
-#if(!${query.pagination})
+#else
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(@RequestBody @Valid ${query.name} request) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${BUSINESS_CLASS_NAME})}RpcService.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(request);
     }

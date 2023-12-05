@@ -43,8 +43,7 @@ public class ${DOMAIN_CLASS_NAME}Application {
         ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(${RootIdName});
     }
-#end
-#if(${cmd.getRepository().getValue()} != "create")
+#else
     public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
         ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
         return ResultDTO.success(Boolean.TRUE);
@@ -59,8 +58,7 @@ public class ${DOMAIN_CLASS_NAME}Application {
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
     }
-#end
-#if(!${query.pagination})
+#else
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
         return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
     }

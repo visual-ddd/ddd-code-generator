@@ -20,8 +20,7 @@ public interface ${BUSINESS_CLASS_NAME}RpcService {
     /** ${query.description.replaceAll("\n","\\n")} */
 #if(${query.pagination})
     PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
-#end
-#if(!${query.pagination})
+#else
     ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} request);
 #end
 #end

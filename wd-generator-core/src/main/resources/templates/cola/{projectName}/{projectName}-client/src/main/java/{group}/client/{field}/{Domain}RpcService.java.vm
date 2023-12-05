@@ -25,8 +25,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
      */
 #if(${cmd.getRepository().getValue()} == "create")
     ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
-#end
-#if(${cmd.getRepository().getValue()} != "create")
+#else
     ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto);
 #end
 #end
@@ -42,8 +41,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
      * @return 查询结果
      */
     PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery);
-#end
-#if(!${query.pagination})
+#else
     /**
      * ${query.description.replaceAll("\n","\\n")}
      *

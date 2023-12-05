@@ -31,8 +31,7 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
     public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
         return application.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
     }
-#end
-#if(${cmd.getRepository().getValue()} != "create")
+#else
     public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
         return application.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
     }
@@ -47,8 +46,7 @@ public class ${DOMAIN_CLASS_NAME}RpcServiceImpl implements ${DOMAIN_CLASS_NAME}R
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
         return application.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(pageQuery);
     }
-#end
-#if(!${query.pagination})
+#else
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
         return application.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(query);
     }

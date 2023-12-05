@@ -30,8 +30,7 @@ public class ${BUSINESS_CLASS_NAME}RpcServiceImpl implements ${BUSINESS_CLASS_NA
 
         return null;
     }
-#end
-#if(!${query.pagination})
+#else
     @Override
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} request) {
 #foreach($ruleInfo in ${query.ruleList})
