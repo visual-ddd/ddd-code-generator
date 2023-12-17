@@ -1,38 +1,21 @@
 package com.wakedt.visual.adapter.application.web;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import javax.annotation.Resource;
-
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import javax.validation.Valid;
 import com.wakedt.visual.client.application.ApplicationRpcService;
-import com.wakedt.visual.client.application.query.ApplicationQuery;
-import com.wakedt.visual.client.application.query.ApplicationPageQuery;
-import com.wakedt.visual.client.application.query.ApplicationVersionQuery;
-import com.wakedt.visual.client.application.query.ApplicationVersionPageQuery;
-import com.wakedt.visual.client.application.query.ApplicationListQuery;
-import com.wakedt.visual.client.application.query.ApplicationLatestVersionQuery;
-import com.wakedt.visual.client.application.query.ApplicationCreateDTO;
-import com.wakedt.visual.client.application.query.ApplicationModifyDTO;
-import com.wakedt.visual.client.application.query.ApplicationRemoveDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionCreateDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionModifyDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionRemoveDTO;
-import com.wakedt.visual.client.application.query.BusinessSceneVersionBindDTO;
-import com.wakedt.visual.client.application.query.DomainDesignVersionBindDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionPublishDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionForkDTO;
 import com.wakedt.visual.client.application.dto.ApplicationDTO;
 import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
+import com.wakedt.visual.client.application.query.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 应用域-B端
@@ -42,7 +25,7 @@ import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
  */
 @RestController
 @RequestMapping("/web/application")
-@Api(value = "/web/application", tags = "应用域-B端")
+@Api(value = "/web/application", tags = "[WEB] 应用域")
 public class ApplicationWebController {
 
     @Resource

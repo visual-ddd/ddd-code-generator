@@ -6,7 +6,7 @@ package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}WebContr
 #comment("${DOMAIN_TITLE}-B端")
 @RestController
 @RequestMapping("/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}")
-@Api(value = "/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}", tags = "${DOMAIN_TITLE}-B端")
+@Api(value = "/web/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}", tags = "[WEB] ${DOMAIN_TITLE}")
 public class ${DOMAIN_CLASS_NAME}WebController {
 #controller()
 }

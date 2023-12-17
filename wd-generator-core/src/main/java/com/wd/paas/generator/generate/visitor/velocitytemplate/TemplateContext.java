@@ -1,9 +1,8 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate;
 
 import com.wd.paas.generator.common.constant.VelocityLabel;
+import com.wd.paas.generator.common.enums.GenerateOperationTypeEnum;
 import com.wd.paas.generator.common.enums.ProjectTemplateType;
-import com.wd.paas.generator.common.util.FileGenerator;
-import com.wd.paas.generator.common.util.PluginResourceLoaderV2;
 import lombok.Data;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -32,6 +31,11 @@ public class TemplateContext {
 
     // 设置模版引擎
     private VelocityEngine velocityEngine;
+
+    /**
+     * 设置操作类型
+     */
+    private GenerateOperationTypeEnum operationTypeEnum = GenerateOperationTypeEnum.INIT_CODE;
 
     public TemplateContext() {
     }

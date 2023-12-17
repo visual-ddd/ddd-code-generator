@@ -3,55 +3,61 @@ package com.wd.paas.generator.common.enums;
 /**
  * 元素类型模版映射
  */
-public interface AbstractElementMapping {
+public abstract class AbstractElementMapping {
 
-    String[] project();
-    
-    String[] domainChart();
+    protected GenerateOperationTypeEnum operationTypeEnum;
 
-    String[] domainChartTask();
+    public AbstractElementMapping(GenerateOperationTypeEnum operationTypeEnum) {
+        this.operationTypeEnum = operationTypeEnum;
+    }
 
-    String[] domainChartListener();
+    public abstract String[] project();
 
-    String[] aggregation();
+    public abstract String[] domainChart();
 
-    String[] aggregationRoot();
+    public abstract String[] domainChartTask();
 
-    String[] entity();
+    public abstract String[] domainChartListener();
 
-    String[] valueObject();
+    public abstract String[] aggregation();
 
-    String[] enums();
+    public abstract String[] aggregationRoot();
 
-    String[] command();
+    public abstract String[] entity();
 
-    String[] commandHandler();
+    public abstract String[] valueObject();
 
-    String[] addCommandHandler();
+    public abstract String[] enums();
 
-    String[] updateCommandHandler();
+    public abstract String[] command();
 
-    String[] deleteCommandHandler();
+    public abstract String[] commandHandler();
 
-    String[] externalEvent();
+    public abstract String[] addCommandHandler();
 
-    String[] event();
+    public abstract String[] updateCommandHandler();
 
-    String[] query();
+    public abstract String[] deleteCommandHandler();
 
-    String[] queryResult();
+    public abstract String[] externalEvent();
 
-    String[] dataModel();
+    public abstract String[] event();
 
-    String[] objectMapperModel();
+    public abstract String[] query();
 
-    String[] Entity2Do();
+    public abstract String[] queryResult();
 
-    String[] DTO2DO();
+    public abstract String[] dataModel();
 
-    String[] businessScenario();
+    public abstract String[] objectMapperModel();
 
-    String[] businessQuery();
+    public abstract String[] Entity2Do();
 
-    String[] businessDto();
+    public abstract String[] DTO2DO();
+
+    public abstract String[] businessScenario();
+
+    public abstract String[] businessQuery();
+
+    public abstract String[] businessDto();
 }

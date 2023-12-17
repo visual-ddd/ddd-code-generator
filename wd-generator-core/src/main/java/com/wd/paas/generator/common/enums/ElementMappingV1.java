@@ -6,7 +6,11 @@ package com.wd.paas.generator.common.enums;
  * @author ZhuXueLiang
  * @since 1.0
  */
-public class ElementMappingV1 implements AbstractElementMapping {
+public class ElementMappingV1 extends AbstractElementMapping {
+
+    public ElementMappingV1(GenerateOperationTypeEnum operationTypeEnum) {
+        super(operationTypeEnum);
+    }
 
     /**
      * 项目
@@ -20,12 +24,12 @@ public class ElementMappingV1 implements AbstractElementMapping {
                 "cola/{projectName}/{projectName}-domain/pom.xml.vm",
                 // adapter
                 "cola/{projectName}/{projectName}-adapter/pom.xml.vm",
-                "cola/{projectName}/{projectName}-adapter/src/resources/i18n/messages_zh_CN.properties",
-                "cola/{projectName}/{projectName}-adapter/src/resources/i18n/messages_en_US.properties",
                 // app
                 "cola/{projectName}/{projectName}-app/pom.xml.vm",
                 // client
                 "cola/{projectName}/{projectName}-client/pom.xml.vm",
+                "cola/{projectName}/{projectName}-client/src/resources/i18n/messages_zh_CN.properties",
+                "cola/{projectName}/{projectName}-client/src/resources/i18n/messages_en_US.properties",
                 // infrastructure
                 "cola/{projectName}/{projectName}-infrastructure/pom.xml.vm",
                 // start
@@ -46,23 +50,38 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] domainChart() {
-        return new String[]{
-                // controller
-                "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/{Domain}AppController.java.vm",
-                "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/{Domain}WebController.java.vm",
-                // app
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{Domain}RpcServiceImpl.java.vm",
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/task/{Domain}Task.java.vm",
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
-                // client
-                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{Domain}RpcService.java.vm",
-                // domain
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/BaseRepository.java.vm",
-                // infrastructure
-                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
-                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
-                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJsonConvertor.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        // controller
+                        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/app/{Domain}AppController.java.vm",
+                        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/{field}/web/{Domain}WebController.java.vm",
+                        // app
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/{Domain}RpcServiceImpl.java.vm",
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/task/{Domain}Task.java.vm",
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
+                        // client
+                        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{Domain}RpcService.java.vm",
+                        // domain
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/BaseRepository.java.vm",
+                        // infrastructure
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJsonConvertor.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        // client
+                        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/{Domain}RpcService.java.vm",
+                        // domain
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/BaseRepository.java.vm",
+                        // infrastructure
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJpaAggregate.java.vm",
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseConvert.java.vm",
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/BaseJsonConvertor.java.vm",
+                };
+        }
     }
 
     /**
@@ -70,9 +89,15 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] domainChartTask() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/task/{Domain}Task.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/task/{Domain}Task.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     /**
@@ -80,9 +105,15 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] domainChartListener() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/{Domain}Listener.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     /**
@@ -98,13 +129,23 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] aggregationRoot() {
-        return new String[]{
-                // domain
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationFactory.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationRepository.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        // domain
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationFactory.java.vm",
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationRepository.java.vm",
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        // domain
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
+                };
+        }
     }
 
     /**
@@ -149,11 +190,16 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] command() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
-                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/CommandDTO.java.vm",
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/CommandDTO2CommandConvert.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case UPDATE_CODE:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/Command.java.vm",
+                        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/CommandDTO.java.vm",
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/CommandDTO2CommandConvert.java.vm",
+                };
+        }
     }
 
     /**
@@ -161,9 +207,15 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] commandHandler() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/CommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/CommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     /**
@@ -171,9 +223,15 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] addCommandHandler() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/AddCommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/AddCommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     /**
@@ -181,9 +239,15 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] updateCommandHandler() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/UpdateCommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/UpdateCommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     /**
@@ -191,9 +255,15 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] deleteCommandHandler() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/DeleteCommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{action}/DeleteCommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     /**
@@ -201,9 +271,15 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] externalEvent() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/event/{ExternalEvent}.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/consumer/event/{ExternalEvent}.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     /**
@@ -221,10 +297,18 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] query() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/Query.java.vm",
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/view/QueryExe.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/Query.java.vm",
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/view/QueryExe.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/Query.java.vm",
+                };
+        }
     }
 
     /**
@@ -242,18 +326,32 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] dataModel() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/DataModelMapper.xml.vm",
-                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/DataModelMapper.java.vm",
-                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/DataModelDO.java.vm"
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/resources/mapper/{field}/DataModelMapper.xml.vm",
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/mapper/DataModelMapper.java.vm",
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/DataModelDO.java.vm"
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/model/DataModelDO.java.vm"
+                };
+        }
     }
 
     @Override
     public String[] objectMapperModel() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     @Override
@@ -275,12 +373,20 @@ public class ElementMappingV1 implements AbstractElementMapping {
      */
     @Override
     public String[] businessScenario() {
-        return new String[]{
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/businessservice/{business}/{Business}RpcServiceImpl.java.vm",
-                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/businessservice/{business}/{Business}RpcService.java.vm",
-                "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/businessservice/{business}/app/{Business}AppController.java.vm",
-                "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/businessservice/{business}/web/{Business}WebController.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/businessservice/{business}/{Business}RpcServiceImpl.java.vm",
+                        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/businessservice/{business}/{Business}RpcService.java.vm",
+                        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/businessservice/{business}/app/{Business}AppController.java.vm",
+                        "cola/{projectName}/{projectName}-adapter/src/main/java/{group}/adapter/businessservice/{business}/web/{Business}WebController.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/businessservice/{business}/{Business}RpcService.java.vm",
+                };
+        }
     }
 
     /**

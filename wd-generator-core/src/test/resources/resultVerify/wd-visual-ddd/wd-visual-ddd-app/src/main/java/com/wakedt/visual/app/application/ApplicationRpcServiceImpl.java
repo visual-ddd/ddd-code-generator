@@ -2,57 +2,26 @@ package com.wakedt.visual.app.application;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.wakedt.visual.app.application.assembler.*;
+import com.wakedt.visual.app.application.view.*;
 import com.wakedt.visual.client.application.ApplicationRpcService;
-import com.wakedt.visual.client.application.query.ApplicationQuery;
-import com.wakedt.visual.client.application.query.ApplicationPageQuery;
-import com.wakedt.visual.client.application.query.ApplicationVersionQuery;
-import com.wakedt.visual.client.application.query.ApplicationVersionPageQuery;
-import com.wakedt.visual.client.application.query.ApplicationListQuery;
-import com.wakedt.visual.client.application.query.ApplicationLatestVersionQuery;
-import com.wakedt.visual.client.application.query.ApplicationCreateDTO;
-import com.wakedt.visual.client.application.query.ApplicationModifyDTO;
-import com.wakedt.visual.client.application.query.ApplicationRemoveDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionCreateDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionModifyDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionRemoveDTO;
-import com.wakedt.visual.client.application.query.BusinessSceneVersionBindDTO;
-import com.wakedt.visual.client.application.query.DomainDesignVersionBindDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionPublishDTO;
-import com.wakedt.visual.client.application.query.ApplicationVersionForkDTO;
 import com.wakedt.visual.client.application.dto.ApplicationDTO;
 import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
-import com.wakedt.visual.app.application.view.ApplicationQueryExe;
-import com.wakedt.visual.app.application.view.ApplicationPageQueryExe;
-import com.wakedt.visual.app.application.view.ApplicationVersionQueryExe;
-import com.wakedt.visual.app.application.view.ApplicationVersionPageQueryExe;
-import com.wakedt.visual.app.application.view.ApplicationListQueryExe;
-import com.wakedt.visual.app.application.view.ApplicationLatestVersionQueryExe;
-import com.wakedt.visual.app.application.assembler.ApplicationCreateDTO2ApplicationCreateCmdConvert;
-import com.wakedt.visual.app.application.assembler.ApplicationModifyDTO2ApplicationModifyCmdConvert;
-import com.wakedt.visual.app.application.assembler.ApplicationRemoveDTO2ApplicationRemoveCmdConvert;
-import com.wakedt.visual.app.application.assembler.ApplicationVersionCreateDTO2ApplicationVersionCreateCmdConvert;
-import com.wakedt.visual.app.application.assembler.ApplicationVersionModifyDTO2ApplicationVersionModifyCmdConvert;
-import com.wakedt.visual.app.application.assembler.ApplicationVersionRemoveDTO2ApplicationVersionRemoveCmdConvert;
-import com.wakedt.visual.app.application.assembler.BusinessSceneVersionBindDTO2BusinessSceneVersionBindCmdConvert;
-import com.wakedt.visual.app.application.assembler.DomainDesignVersionBindDTO2DomainDesignVersionBindCmdConvert;
-import com.wakedt.visual.app.application.assembler.ApplicationVersionPublishDTO2ApplicationVersionPublishCmdConvert;
-import com.wakedt.visual.app.application.assembler.ApplicationVersionForkDTO2ApplicationVersionForkCmdConvert;
+import com.wakedt.visual.client.application.query.*;
 import com.wakedt.visual.domain.application.application.applicationcreate.ApplicationCreateCmdHandler;
 import com.wakedt.visual.domain.application.application.applicationmodify.ApplicationModifyCmdHandler;
 import com.wakedt.visual.domain.application.application.applicationremove.ApplicationRemoveCmdHandler;
 import com.wakedt.visual.domain.application.applicationversion.applicationversioncreate.ApplicationVersionCreateCmdHandler;
-import com.wakedt.visual.domain.application.applicationversion.applicationversionmodify.ApplicationVersionModifyCmdHandler;
+import com.wakedt.visual.domain.application.applicationversion.applicationversionfork.ApplicationVersionForkCmdHandler;
+import com.wakedt.visual.domain.application.applicationversion.applicationversionpublish.ApplicationVersionPublishCmdHandler;
 import com.wakedt.visual.domain.application.applicationversion.applicationversionremove.ApplicationVersionRemoveCmdHandler;
 import com.wakedt.visual.domain.application.applicationversion.businesssceneversionbind.BusinessSceneVersionBindCmdHandler;
 import com.wakedt.visual.domain.application.applicationversion.domaindesignversionbind.DomainDesignVersionBindCmdHandler;
-import com.wakedt.visual.domain.application.applicationversion.applicationversionpublish.ApplicationVersionPublishCmdHandler;
-import com.wakedt.visual.domain.application.applicationversion.applicationversionfork.ApplicationVersionForkCmdHandler;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 应用域-RPC能力接口实现
@@ -60,7 +29,8 @@ import java.time.LocalDateTime;
  * @author shimmer
  * @since 1.0
  */
-@Service
+@RestController
+@RequestMapping("/rpc/application")
 public class ApplicationRpcServiceImpl implements ApplicationRpcService {
 
     @Resource

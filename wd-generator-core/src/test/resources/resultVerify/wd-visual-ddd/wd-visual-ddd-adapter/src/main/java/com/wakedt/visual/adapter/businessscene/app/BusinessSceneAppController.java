@@ -1,37 +1,21 @@
 package com.wakedt.visual.adapter.businessscene.app;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import javax.annotation.Resource;
-
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import javax.validation.Valid;
 import com.wakedt.visual.client.businessscene.BusinessSceneRpcService;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessScenePageQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionPageQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneLatestVersionQuery;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneCreateDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneModifyDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneRemoveDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionCreateDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionModifyDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionRemoveDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionDSLUpdateDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionPublishDTO;
-import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionForkDTO;
 import com.wakedt.visual.client.businessscene.dto.BusinessSceneDTO;
 import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
+import com.wakedt.visual.client.businessscene.query.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 业务场景域-C端
@@ -41,7 +25,7 @@ import com.wakedt.visual.client.businessscene.dto.BusinessSceneVersionDTO;
  */
 @RestController
 @RequestMapping("/app/business-scene")
-@Api(value = "/app/business-scene", tags = "业务场景域-C端")
+@Api(value = "/app/business-scene", tags = "[APP] 业务场景域")
 public class BusinessSceneAppController {
 
     @Resource

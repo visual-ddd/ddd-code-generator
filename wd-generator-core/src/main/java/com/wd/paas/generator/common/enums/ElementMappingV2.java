@@ -6,7 +6,11 @@ package com.wd.paas.generator.common.enums;
  * @author ZhuXueLiang
  * @since 1.0
  */
-public class ElementMappingV2 implements AbstractElementMapping {
+public class ElementMappingV2 extends AbstractElementMapping {
+
+    public ElementMappingV2(GenerateOperationTypeEnum operationTypeEnum) {
+        super(operationTypeEnum);
+    }
 
     /**
      * 项目

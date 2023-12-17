@@ -6,7 +6,7 @@ package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}AppContr
 #comment("${DOMAIN_TITLE}-C端")
 @RestController
 @RequestMapping("/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}")
-@Api(value = "/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}", tags = "${DOMAIN_TITLE}-C端")
+@Api(value = "/app/${CASE_FORMAT_LOWER_HYPHEN.convert(${DOMAIN_CLASS_NAME})}", tags = "[APP] ${DOMAIN_TITLE}")
 public class ${DOMAIN_CLASS_NAME}AppController {
 #controller()
 }

@@ -1,42 +1,22 @@
 package com.wakedt.visual.adapter.organization.app;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import javax.annotation.Resource;
-
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import javax.validation.Valid;
 import com.wakedt.visual.client.organization.OrganizationRpcService;
-import com.wakedt.visual.client.organization.query.OrganizationQuery;
-import com.wakedt.visual.client.organization.query.OrganizationPageQuery;
-import com.wakedt.visual.client.organization.query.TeamQuery;
-import com.wakedt.visual.client.organization.query.TeamPageQuery;
-import com.wakedt.visual.client.organization.query.TeamMemberByTeamIdPageQuery;
-import com.wakedt.visual.client.organization.query.OrganizationCreateDTO;
-import com.wakedt.visual.client.organization.query.OrganizationModifyDTO;
-import com.wakedt.visual.client.organization.query.OrganizationRemoveDTO;
-import com.wakedt.visual.client.organization.query.OrganizationManagerUnbindDTO;
-import com.wakedt.visual.client.organization.query.OrganizationManagerBindDTO;
-import com.wakedt.visual.client.organization.query.TeamCreateDTO;
-import com.wakedt.visual.client.organization.query.TeamModifyDTO;
-import com.wakedt.visual.client.organization.query.TeamRemoveDTO;
-import com.wakedt.visual.client.organization.query.TeamManagerBindDTO;
-import com.wakedt.visual.client.organization.query.TeamManagerUnBindDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberAddDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberRemoveDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberRoleBindDTO;
-import com.wakedt.visual.client.organization.query.TeamMemberRoleUnBindDTO;
 import com.wakedt.visual.client.organization.dto.OrganizationDTO;
 import com.wakedt.visual.client.organization.dto.TeamDTO;
 import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
+import com.wakedt.visual.client.organization.query.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 组织域-C端
@@ -46,7 +26,7 @@ import com.wakedt.visual.client.organization.dto.TeamMemberDTO;
  */
 @RestController
 @RequestMapping("/app/organization")
-@Api(value = "/app/organization", tags = "组织域-C端")
+@Api(value = "/app/organization", tags = "[APP] 组织域")
 public class OrganizationAppController {
 
     @Resource

@@ -1,26 +1,20 @@
 package com.wakedt.visual.adapter.universallanguage.app;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import javax.annotation.Resource;
-
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.wakedt.visual.client.universallanguage.UniversalLanguageRpcService;
+import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
+import com.wakedt.visual.client.universallanguage.query.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 import javax.validation.Valid;
-import com.wakedt.visual.client.universallanguage.UniversalLanguageRpcService;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageCreateDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageModifyDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveDTO;
-import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
+import java.util.List;
 
 /**
  * 统一语言域-C端
@@ -30,7 +24,7 @@ import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
  */
 @RestController
 @RequestMapping("/app/universal-language")
-@Api(value = "/app/universal-language", tags = "统一语言域-C端")
+@Api(value = "/app/universal-language", tags = "[APP] 统一语言域")
 public class UniversalLanguageAppController {
 
     @Resource

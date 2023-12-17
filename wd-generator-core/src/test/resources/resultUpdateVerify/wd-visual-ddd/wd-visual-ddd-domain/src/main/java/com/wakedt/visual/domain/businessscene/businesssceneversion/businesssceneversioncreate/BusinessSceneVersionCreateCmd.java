@@ -1,0 +1,30 @@
+package com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversioncreate;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 新增业务场景版本-指令
+ *
+ * @author shimmer
+ * @since 1.0
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class BusinessSceneVersionCreateCmd {
+
+    /** 业务场景ID */
+    private Long businessSceneId;
+
+    /** 描述 */
+    private String description;
+
+    /** 起始版本号 */
+    private String startVersion;
+
+    /** 当前版本号 */
+    private String currentVersion;
+
+}
