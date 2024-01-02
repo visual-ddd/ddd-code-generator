@@ -6,7 +6,8 @@ import com.wakedt.visual.client.businessservice.organizationmanagement.Organizat
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;import java.time.LocalDateTime;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 组织管理场景-RPC能力接口实现
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
  * @author shimmer
  * @since 1.0
  */
-@Service
+@RestController
+@RequestMapping("/rpc/organization-management")
 public class OrganizationManagementRpcServiceImpl implements OrganizationManagementRpcService {
 }

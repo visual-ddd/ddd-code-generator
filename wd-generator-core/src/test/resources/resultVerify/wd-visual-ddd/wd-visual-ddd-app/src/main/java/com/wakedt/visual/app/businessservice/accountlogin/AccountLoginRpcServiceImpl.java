@@ -18,7 +18,8 @@ import com.wakedt.visual.client.businessservice.accountlogin.AccountLoginRpcServ
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;import java.time.LocalDateTime;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 用户登录场景-RPC能力接口实现
@@ -26,7 +27,8 @@ import org.springframework.stereotype.Service;
  * @author shimmer
  * @since 1.0
  */
-@Service
+@RestController
+@RequestMapping("/rpc/account-login")
 public class AccountLoginRpcServiceImpl implements AccountLoginRpcService {
 
     @Override

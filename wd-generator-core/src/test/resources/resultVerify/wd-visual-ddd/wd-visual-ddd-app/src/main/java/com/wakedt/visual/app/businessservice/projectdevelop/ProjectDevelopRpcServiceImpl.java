@@ -21,7 +21,8 @@ import com.wakedt.visual.client.businessservice.projectdevelop.ProjectDevelopRpc
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;import java.time.LocalDateTime;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 项目开发场景-RPC能力接口实现
@@ -29,7 +30,8 @@ import org.springframework.stereotype.Service;
  * @author shimmer
  * @since 1.0
  */
-@Service
+@RestController
+@RequestMapping("/rpc/project-develop")
 public class ProjectDevelopRpcServiceImpl implements ProjectDevelopRpcService {
 
     @Override

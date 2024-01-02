@@ -13,10 +13,12 @@ import ${IMPORT_PACKAGE_MAP.get(${BUSINESS_ID}).get("${BUSINESS_CLASS_NAME}RpcSe
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;import java.time.LocalDateTime;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 #comment("${BUSINESS_TITLE}-RPC能力接口实现")
-@Service
+@RestController
+@RequestMapping("/rpc/${CASE_FORMAT_LOWER_HYPHEN.convert(${BUSINESS_CLASS_NAME})}")
 public class ${BUSINESS_CLASS_NAME}RpcServiceImpl implements ${BUSINESS_CLASS_NAME}RpcService {
 #foreach ($query in ${BUSINESS_QUERY_LIST})
 

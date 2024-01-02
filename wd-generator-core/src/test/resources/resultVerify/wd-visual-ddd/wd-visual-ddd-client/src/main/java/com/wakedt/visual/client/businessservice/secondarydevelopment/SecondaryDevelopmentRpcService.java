@@ -16,6 +16,8 @@ import com.wakedt.visual.client.businessservice.secondarydevelopment.dto.Busines
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import org.springframework.web.bind.annotation.RequestBody;
+import javax.validation.Valid;
 
 /**
  * 二次开发场景-RPC能力接口
@@ -23,30 +25,20 @@ import java.time.LocalDateTime;
  * @author shimmer
  * @since 1.0
  */
+@FeignClient(name = "wd-visual-ddd", path = "/wd-visual-ddd/rpc/secondary-development")
+@Api(tags = "[RPC] 二次开发场景")
 public interface SecondaryDevelopmentRpcService {
 
-    /**
-     * 免鉴权获取业务域版本信息
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<DomainDesignVersionInfoDTO> getDomainDesignVersionNoAuth(GetDomainDesignVersionNoAuth request);
+@ApiOperation("免鉴权获取业务域版本信息")
+@PostMapping("/get-domain-design-version-no-auth")
+    ResultDTO<DomainDesignVersionInfoDTO> getDomainDesignVersionNoAuth(@RequestBody @Valid GetDomainDesignVersionNoAuth request);
 
-    /**
-     * 获取应用关联的模块信息
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<ApplicationBindModelInfoDTO> getApplicationBindModelInfo(GetApplicationBindModelInfo request);
+@ApiOperation("获取应用关联的模块信息")
+@PostMapping("/get-application-bind-model-info")
+    ResultDTO<ApplicationBindModelInfoDTO> getApplicationBindModelInfo(@RequestBody @Valid GetApplicationBindModelInfo request);
 
-    /**
-     * 免鉴权获取业务场景版本信息
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<BusinessSceneVersionInfoDTO> getBusinessSceneVersionNoAuth(GetBusinessSceneVersionNoAuth request);
+@ApiOperation("免鉴权获取业务场景版本信息")
+@PostMapping("/get-business-scene-version-no-auth")
+    ResultDTO<BusinessSceneVersionInfoDTO> getBusinessSceneVersionNoAuth(@RequestBody @Valid GetBusinessSceneVersionNoAuth request);
 
 }

@@ -17,6 +17,8 @@ import com.wakedt.visual.client.businessservice.accountlogin.dto.TeamDTO;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
+import org.springframework.web.bind.annotation.RequestBody;
+import javax.validation.Valid;
 
 /**
  * 用户登录场景-RPC能力接口
@@ -24,54 +26,32 @@ import java.time.LocalDateTime;
  * @author shimmer
  * @since 1.0
  */
+@FeignClient(name = "wd-visual-ddd", path = "/wd-visual-ddd/rpc/account-login")
+@Api(tags = "[RPC] 用户登录场景")
 public interface AccountLoginRpcService {
 
-    /**
-     * 验证账号密码，\n并返回用户信息，供存储到session
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<AccountInfoDTO> login(Login request);
+@ApiOperation("账号登录")
+@PostMapping("/login")
+    ResultDTO<AccountInfoDTO> login(@RequestBody @Valid Login request);
 
-    /**
-     * 退出登录
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<Boolean> logout(Logout request);
+@ApiOperation("退出登录")
+@PostMapping("/logout")
+    ResultDTO<Boolean> logout(@RequestBody @Valid Logout request);
 
-    /**
-     * 校验注册验证码，创建账号
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<Boolean> accountRegister(AccountRegister request);
+@ApiOperation("注册账号")
+@PostMapping("/account-register")
+    ResultDTO<Boolean> accountRegister(@RequestBody @Valid AccountRegister request);
 
-    /**
-     * 发送注册账号验证码
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<Boolean> accountVerificationCreate(AccountVerificationCreate request);
+@ApiOperation("发送注册账号验证码")
+@PostMapping("/account-verification-create")
+    ResultDTO<Boolean> accountVerificationCreate(@RequestBody @Valid AccountVerificationCreate request);
 
-    /**
-     * 获取登录账号的基本信息
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<AccountInfoDTO> getAccountInfo(GetAccountInfo request);
+@ApiOperation("获取当前登录账号信息")
+@PostMapping("/get-account-info")
+    ResultDTO<AccountInfoDTO> getAccountInfo(@RequestBody @Valid GetAccountInfo request);
 
-    /**
-     * 获取当前登录账号的权限信息，包含所属组织、团队等信息
-     *
-     * @param request 请求对象
-     * @return 返回结果
-     */
-    ResultDTO<AccountRoleDTO> getAccountRole(GetAccountRole request);
+@ApiOperation("获取用户权限信息")
+@PostMapping("/get-account-role")
+    ResultDTO<AccountRoleDTO> getAccountRole(@RequestBody @Valid GetAccountRole request);
 
 }
