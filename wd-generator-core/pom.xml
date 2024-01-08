@@ -6,17 +6,11 @@
     <parent>
         <groupId>com.wd.paas</groupId>
         <artifactId>ddd-code-generator</artifactId>
-        <version>3.0.0-SNAPSHOT</version>
+        <version>4.0.1-RC01-SNAPSHOT</version>
     </parent>
 
     <artifactId>wd-generator-core</artifactId>
     <packaging>jar</packaging>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -25,11 +19,11 @@
             <version>3.20.0</version>
         </dependency>
 
-
         <!--  DSL协议  -->
         <dependency>
             <groupId>com.wd.paas</groupId>
             <artifactId>wd-generator-dsl</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -38,16 +32,9 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- velocity模板引擎 -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.velocity</groupId>-->
-<!--            <artifactId>velocity</artifactId>-->
-<!--            <version>1.7</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-engine-core</artifactId>
-            <version>2.3</version>
         </dependency>
 
         <!-- IO操作 -->
@@ -67,12 +54,6 @@
             <artifactId>mapstruct</artifactId>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>junit</groupId>-->
-        <!--            <artifactId>junit</artifactId>-->
-        <!--            <scope>test</scope>-->
-        <!--        </dependency>-->
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -88,6 +69,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

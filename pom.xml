@@ -7,18 +7,21 @@
     <parent>
         <groupId>com.wakedata</groupId>
         <artifactId>wd-parent</artifactId>
-        <version>1.1.0-DDD04</version>
+        <version>1.1.0-VD001</version>
     </parent>
 
     <groupId>com.wd.paas</groupId>
     <artifactId>ddd-code-generator</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>4.0.1-RC01-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <description>Visual DDD 代码生成器组件</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <commons-lang3.version>3.7</commons-lang3.version>
+        <velocity-engine-core.version>2.3</velocity-engine-core.version>
     </properties>
 
     <modules>
@@ -28,11 +31,17 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--  DSL协议  -->
+
             <dependency>
-                <groupId>com.wd.paas</groupId>
-                <artifactId>wd-generator-dsl</artifactId>
-                <version>${project.version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity-engine-core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -41,22 +50,14 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.7</version>
         </dependency>
     </dependencies>
 
     <distributionManagement>
-        <!-- 配置release版本发布的仓库-->
         <repository>
-            <id>central</id>
-            <name>libs-release-local</name>
-            <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
+            <id>github</id>
+            <name>GitHub Visual DDD Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/visual-ddd/ddd-code-generator</url>
         </repository>
-        <!-- 配置快照版本发布的仓库-->
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>libs-snapshot-local</name>
-            <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
-        </snapshotRepository>
     </distributionManagement>
 </project>

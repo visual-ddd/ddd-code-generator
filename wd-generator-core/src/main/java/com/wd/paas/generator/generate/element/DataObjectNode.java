@@ -5,6 +5,7 @@ import com.wd.paas.common.DataPropertyInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * author Wangchensheng@wakedata.com
  * date 2023年01月31日 15:25:55
  */
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
