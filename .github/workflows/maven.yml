@@ -10,9 +10,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "dev" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
       - name: Configure settings.xml
         run: |
           mkdir -p $HOME/.m2
-          echo "<settings><servers><server><id>github</id><username>${{ MAVEN_USERNAME }}</username><password>${{ MAVEN_TOKEN }}</password></server></servers></settings>" > $HOME/.m2/settings.xml
+          echo "<settings><servers><server><id>github</id><username>${{ secrets.MAVEN_USERNAME }}</username><password>${{ secrets.MAVEN_TOKEN }}</password></server></servers></settings>" > $HOME/.m2/settings.xml
 
       - name: Build and deploy
         run: mvn deploy
