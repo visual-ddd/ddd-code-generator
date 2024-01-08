@@ -33,7 +33,9 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '8'
+          distribution: 'temurin'
           maven-version: '3.6.3'
+          cache: maven
 
       - name: Configure settings.xml
         run: |
