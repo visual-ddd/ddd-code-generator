@@ -40,9 +40,7 @@ jobs:
       - name: Configure settings.xml
         run: |
           mkdir -p $HOME/.m2
-          echo "<settings><servers><server><id>github</id><username>USERNAME</username><password>TOKEN</password></server></servers></settings>" > $HOME/.m2/settings.xml
-          sed -i 's/USERNAME/${{ secrets.MAVEN_USERNAME }}/g' $HOME/.m2/settings.xml
-          sed -i 's/TOKEN/${{ secrets.MAVEN_TOKEN }}/g' $HOME/.m2/settings.xml
+          echo "<settings><servers><server><id>github</id><username>${{ secrets.MAVEN_USERNAME }}</username><password>${{ secrets.MAVEN_TOKEN }}</password></server></servers></settings>" > $HOME/.m2/settings.xml
 
       - name: Build and deploy
         run: mvn deploy
