@@ -1,9 +1,8 @@
 package com.wakedt.visual.app.universallanguage.assembler;
 
 import cn.hutool.json.JSONUtil;
-import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
-
 import java.util.List;
+import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
 
 /**
  * 统一语言数据传输对象-查询结果集JSON转换器

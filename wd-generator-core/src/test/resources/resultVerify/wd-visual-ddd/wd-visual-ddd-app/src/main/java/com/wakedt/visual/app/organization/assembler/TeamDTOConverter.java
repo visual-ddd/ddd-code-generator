@@ -1,9 +1,8 @@
 package com.wakedt.visual.app.organization.assembler;
 
 import cn.hutool.json.JSONUtil;
-import com.wakedt.visual.client.organization.dto.TeamDTO;
-
 import java.util.List;
+import com.wakedt.visual.client.organization.dto.TeamDTO;
 
 /**
  * 团队数据传输对象-查询结果集JSON转换器

@@ -1,9 +1,8 @@
 package com.wakedt.visual.app.application.assembler;
 
 import cn.hutool.json.JSONUtil;
-import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
-
 import java.util.List;
+import com.wakedt.visual.client.application.dto.ApplicationVersionDTO;
 
 /**
  * 应用版本数据传输对象-查询结果集JSON转换器

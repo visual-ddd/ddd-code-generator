@@ -1,9 +1,8 @@
 package com.wakedt.visual.app.domaindesign.assembler;
 
 import cn.hutool.json.JSONUtil;
-import com.wakedt.visual.client.domaindesign.dto.DomainDesignDTO;
-
 import java.util.List;
+import com.wakedt.visual.client.domaindesign.dto.DomainDesignDTO;
 
 /**
  * 业务域数据传输对象-查询结果集JSON转换器

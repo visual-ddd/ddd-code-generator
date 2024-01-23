@@ -1,11 +1,12 @@
 package com.wakedt.visual.app.application.assembler;
 
-import com.wakedt.visual.client.application.dto.ApplicationDTO;
 import com.wakedt.visual.infrastructure.BaseConvert;
 import com.wakedt.visual.infrastructure.BaseJsonConvertor;
-import com.wakedt.visual.infrastructure.application.repository.model.ApplicationDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mapping;
+import com.wakedt.visual.client.application.dto.ApplicationDTO;
+import com.wakedt.visual.infrastructure.application.repository.model.ApplicationDO;
 
 /**
  * ApplicationDTO2ApplicationDOConvert

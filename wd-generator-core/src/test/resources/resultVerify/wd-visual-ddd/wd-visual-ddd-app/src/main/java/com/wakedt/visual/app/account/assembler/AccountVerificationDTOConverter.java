@@ -1,9 +1,8 @@
 package com.wakedt.visual.app.account.assembler;
 
 import cn.hutool.json.JSONUtil;
-import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
-
 import java.util.List;
+import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
 
 /**
  * 账号验证码数据传输对象-查询结果集JSON转换器
