@@ -12,6 +12,9 @@ import ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_TARGET_OBJECT_ID}).get(${OBJECT_
 #comment("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")
 @Mapper(uses = {
         BaseJsonConvertor.class,
+#foreach($dto in ${DOMAIN_DTO_LIST})
+        ${dto.name}Converter.class,
+#end
 })
 public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
 

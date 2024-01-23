@@ -1,0 +1,66 @@
+#parse("templates/Aggregation.vm")
+package ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}RepositoryImpl")};
+
+#set($aggregationId = ${AGGREGATION_ID})
+#set($doId = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${aggregationId}")})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($doMapperClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.dataObjectMapperName})
+#set($AGGREGATION_CLASS_NAME_FIRST_LOWER = ${CASE_FORMAT_LOWER_CAMEL.convert(${AGGREGATION_CLASS_NAME})})
+#foreach($objectMapper in ${DOMAIN_OBJECT_MAPPER_LIST})
+#if(${objectMapper.source.id} == ${aggregationId})
+#set($objectMappertId = ${objectMapper.identity})
+#set($convertClassName = ${objectMapper.entity2DOConvertName})
+#end
+#end
+import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import javax.annotation.Resource;
+import org.springframework.util.Assert;
+import ${IMPORT_PACKAGE_MAP.get(${aggregationId}).get("${AGGREGATION_CLASS_NAME}")}.${AGGREGATION_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get(${aggregationId}).get("${AGGREGATION_CLASS_NAME}Repository")}.${AGGREGATION_CLASS_NAME}Repository;
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doClassName}")}.${doClassName};
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapperClassName};
+import ${IMPORT_PACKAGE_MAP.get(${objectMappertId}).get("${convertClassName}")}.${convertClassName};
+
+#comment("${AGGREGATION_CLASS_TITLE}-聚合仓储实现类")
+@Slf4j
+@Component
+public class ${AGGREGATION_CLASS_NAME}RepositoryImpl implements ${AGGREGATION_CLASS_NAME}Repository {
+
+    @Resource
+    private ${doMapperClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})};
+
+    @Override
+    public ${AGGREGATION_CLASS_NAME} save(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
+        ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        int insert = ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.insert(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
+        Assert.isTrue(insert == 1, "插入数据库异常，请联系管理员");
+        return ${convertClassName}.INSTANCE.do2Dto(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
+    }
+
+    @Override
+    public ${AGGREGATION_CLASS_NAME} update(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
+        ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        int update = ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.updateById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
+        Assert.isTrue(update == 1, "更新数据库异常，请联系管理员");
+        return ${convertClassName}.INSTANCE.do2Dto(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})});
+    }
+
+    @Override
+    public void remove(${AGGREGATION_CLASS_NAME} ${AGGREGATION_CLASS_NAME_FIRST_LOWER}) {
+        ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${convertClassName}.INSTANCE.dto2Do(${AGGREGATION_CLASS_NAME_FIRST_LOWER});
+        ${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.deleteById(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})}.getId());
+    }
+
+    @Override
+    public ${AGGREGATION_CLASS_NAME} find(Long id) {
+        ${doClassName} result = Optional.ofNullable(${CASE_FORMAT_LOWER_CAMEL.convert(${doMapperClassName})}.selectById(id))
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
+        return ${convertClassName}.INSTANCE.do2Dto(result);
+    }
+}

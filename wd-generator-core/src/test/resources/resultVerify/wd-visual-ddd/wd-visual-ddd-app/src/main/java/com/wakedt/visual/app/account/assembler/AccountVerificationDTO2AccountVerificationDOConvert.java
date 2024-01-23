@@ -1,12 +1,11 @@
 package com.wakedt.visual.app.account.assembler;
 
+import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
 import com.wakedt.visual.infrastructure.BaseConvert;
 import com.wakedt.visual.infrastructure.BaseJsonConvertor;
+import com.wakedt.visual.infrastructure.account.repository.model.AccountVerificationDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import org.mapstruct.Mapping;
-import com.wakedt.visual.client.account.dto.AccountVerificationDTO;
-import com.wakedt.visual.infrastructure.account.repository.model.AccountVerificationDO;
 
 /**
  * AccountVerificationDTO2AccountVerificationDOConvert
@@ -16,6 +15,8 @@ import com.wakedt.visual.infrastructure.account.repository.model.AccountVerifica
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        AccountDTOConverter.class,
+        AccountVerificationDTOConverter.class,
 })
 public interface AccountVerificationDTO2AccountVerificationDOConvert extends BaseConvert<AccountVerificationDTO, AccountVerificationDO> {
 

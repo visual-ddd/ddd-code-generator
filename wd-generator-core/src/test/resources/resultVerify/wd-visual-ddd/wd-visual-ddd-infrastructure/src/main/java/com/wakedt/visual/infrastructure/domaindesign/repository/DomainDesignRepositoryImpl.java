@@ -1,21 +1,21 @@
 package com.wakedt.visual.infrastructure.domaindesign.repository;
 
 import com.wakedata.common.core.exception.BizException;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import javax.annotation.Resource;
-import org.springframework.util.Assert;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import com.wakedt.visual.domain.domaindesign.domaindesign.DomainDesign;
 import com.wakedt.visual.domain.domaindesign.domaindesign.DomainDesignRepository;
-import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO;
-import com.wakedt.visual.infrastructure.domaindesign.repository.mapper.DomainDesignMapper;
 import com.wakedt.visual.infrastructure.domaindesign.assembler.DomainDesign2DomainDesignDOConvert;
+import com.wakedt.visual.infrastructure.domaindesign.repository.mapper.DomainDesignMapper;
+import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignDO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
+
+import javax.annotation.Resource;
+import java.util.Optional;
 
 /**
- * DomainDesign-聚合仓储实现类
+ * 业务域-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +52,7 @@ public class DomainDesignRepositoryImpl implements DomainDesignRepository {
     @Override
     public DomainDesign find(Long id) {
         DomainDesignDO result = Optional.ofNullable(domainDesignMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return DomainDesign2DomainDesignDOConvert.INSTANCE.do2Dto(result);
     }
 }
