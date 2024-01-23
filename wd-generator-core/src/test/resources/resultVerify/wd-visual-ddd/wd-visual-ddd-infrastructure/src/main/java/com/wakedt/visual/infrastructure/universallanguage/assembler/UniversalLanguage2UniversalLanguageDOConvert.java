@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.domain.universallanguage.universallanguage.UniversalLanguage;
 import com.wakedt.visual.infrastructure.universallanguage.repository.model.UniversalLanguageDO;
-import com.wakedt.visual.domain.universallanguage.universallanguage.LanguageTypeConverter;
+import com.wakedt.visual.infrastructure.universallanguage.assembler.LanguageTypeConverter;
 
 /**
  * UniversalLanguage2UniversalLanguageDOConvert

@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.organization.query.TeamMemberRoleUnBindDTO;
 import com.wakedt.visual.domain.organization.teammember.teammanagerroleunbind.TeamMemberRoleUnBindCmd;
-import com.wakedt.visual.domain.organization.teammember.MemberTypeConverter;
+import com.wakedt.visual.infrastructure.organization.assembler.MemberTypeConverter;
 
 /**
  * TeamMemberRoleUnBindDTO2TeamMemberRoleUnBindCmdConvert

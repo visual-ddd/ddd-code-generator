@@ -16,6 +16,9 @@ import com.wakedt.visual.infrastructure.organization.repository.model.TeamDO;
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        OrganizationDTOConverter.class,
+        TeamDTOConverter.class,
+        TeamMemberDTOConverter.class,
 })
 public interface TeamDTO2TeamDOConvert extends BaseConvert<TeamDTO, TeamDO> {
 

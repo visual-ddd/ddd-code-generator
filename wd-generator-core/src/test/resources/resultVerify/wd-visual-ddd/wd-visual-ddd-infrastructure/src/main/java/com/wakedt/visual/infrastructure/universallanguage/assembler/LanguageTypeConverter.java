@@ -1,4 +1,4 @@
-package com.wakedt.visual.domain.businessscene.businesssceneversion;
+package com.wakedt.visual.infrastructure.universallanguage.assembler;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
@@ -12,32 +12,32 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 /**
- * 版本状态-枚举JSON转换器
+ * 统一语言类型-枚举JSON转换器
  *
  * @author shimmer
  * @since 1.0
  */
-public class VersionStateConverter {
+public class LanguageTypeConverter {
 
-    public Integer convertToDatabaseColumn(VersionState versionState) {
-        return versionState.getValue();
+    public Integer convertToDatabaseColumn(LanguageType languageType) {
+        return languageType.getValue();
     }
 
-    public VersionState convertToEntityAttribute(Integer value) {
-        return BaseEnumUtil.getEnumByValue(value, VersionState.class);
+    public LanguageType convertToEntityAttribute(Integer value) {
+        return BaseEnumUtil.getEnumByValue(value, LanguageType.class);
     }
 
-    public String convertToDatabaseColumn(List<VersionState> enumList) {
+    public String convertToDatabaseColumn(List<LanguageType> enumList) {
         JSONArray jsonArray = new JSONArray();
-        for (VersionState enumType : Optional.ofNullable(enumList).orElse(Collections.emptyList())) {
+        for (LanguageType enumType : Optional.ofNullable(enumList).orElse(Collections.emptyList())) {
             Integer value = convertToDatabaseColumn(enumType);
             jsonArray.add(value);
         }
         return jsonArray.toString();
     }
 
-    public List<VersionState> convertToDatabaseColumn(String jsonArray) {
-        List<VersionState> enumList = new ArrayList<>();
+    public List<LanguageType> convertToDatabaseColumn(String jsonArray) {
+        List<LanguageType> enumList = new ArrayList<>();
         List<Integer> values = JSONUtil.toList(jsonArray, Integer.class);
         for (Integer value : values) {
             enumList.add(convertToEntityAttribute(value));

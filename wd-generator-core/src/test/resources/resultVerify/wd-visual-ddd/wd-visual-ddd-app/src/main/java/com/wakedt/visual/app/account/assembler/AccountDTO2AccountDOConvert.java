@@ -16,6 +16,8 @@ import com.wakedt.visual.infrastructure.account.repository.model.AccountDO;
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        AccountDTOConverter.class,
+        AccountVerificationDTOConverter.class,
 })
 public interface AccountDTO2AccountDOConvert extends BaseConvert<AccountDTO, AccountDO> {
 

@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.account.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.account.repository.mapper.AccountVerific
 import com.wakedt.visual.infrastructure.account.assembler.AccountVerification2AccountVerificationDOConvert;
 
 /**
- * AccountVerification-聚合仓储实现类
+ * 账号验证码-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class AccountVerificationRepositoryImpl implements AccountVerificationRep
     @Override
     public AccountVerification find(Long id) {
         AccountVerificationDO result = Optional.ofNullable(accountVerificationMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return AccountVerification2AccountVerificationDOConvert.INSTANCE.do2Dto(result);
     }
 }

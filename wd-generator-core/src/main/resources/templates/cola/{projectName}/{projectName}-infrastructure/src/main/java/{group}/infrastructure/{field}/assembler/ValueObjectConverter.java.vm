@@ -4,6 +4,7 @@ package ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_CLASS_N
 import cn.hutool.json.JSONUtil;
 
 import java.util.List;
+import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_CLASS_NAME}")}.${VALUE_OBJECT_CLASS_NAME};
 
 #comment("${VALUE_OBJECT_CLASS_TITLE}-值对象JSON转换器")
 public class ${VALUE_OBJECT_CLASS_NAME}Converter {

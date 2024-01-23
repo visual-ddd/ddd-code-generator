@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.domaindesign.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.domaindesign.repository.mapper.DomainDes
 import com.wakedt.visual.infrastructure.domaindesign.assembler.DomainDesignVersion2DomainDesignVersionDOConvert;
 
 /**
- * DomainDesignVersion-聚合仓储实现类
+ * 业务域版本-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class DomainDesignVersionRepositoryImpl implements DomainDesignVersionRep
     @Override
     public DomainDesignVersion find(Long id) {
         DomainDesignVersionDO result = Optional.ofNullable(domainDesignVersionMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return DomainDesignVersion2DomainDesignVersionDOConvert.INSTANCE.do2Dto(result);
     }
 }

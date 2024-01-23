@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.organization.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.organization.repository.mapper.TeamMappe
 import com.wakedt.visual.infrastructure.organization.assembler.Team2TeamDOConvert;
 
 /**
- * Team-聚合仓储实现类
+ * 团队-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class TeamRepositoryImpl implements TeamRepository {
     @Override
     public Team find(Long id) {
         TeamDO result = Optional.ofNullable(teamMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return Team2TeamDOConvert.INSTANCE.do2Dto(result);
     }
 }

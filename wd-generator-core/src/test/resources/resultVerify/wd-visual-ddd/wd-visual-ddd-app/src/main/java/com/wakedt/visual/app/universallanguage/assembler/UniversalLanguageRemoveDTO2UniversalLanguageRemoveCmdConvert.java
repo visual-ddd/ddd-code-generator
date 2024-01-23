@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveDTO;
 import com.wakedt.visual.domain.universallanguage.universallanguage.remove.UniversalLanguageRemoveCmd;
-import com.wakedt.visual.domain.universallanguage.universallanguage.LanguageTypeConverter;
+import com.wakedt.visual.infrastructure.universallanguage.assembler.LanguageTypeConverter;
 
 /**
  * UniversalLanguageRemoveDTO2UniversalLanguageRemoveCmdConvert

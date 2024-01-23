@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.organization.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.organization.repository.mapper.TeamMembe
 import com.wakedt.visual.infrastructure.organization.assembler.TeamMember2TeamMemberDOConvert;
 
 /**
- * TeamMember-聚合仓储实现类
+ * 团队成员-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class TeamMemberRepositoryImpl implements TeamMemberRepository {
     @Override
     public TeamMember find(Long id) {
         TeamMemberDO result = Optional.ofNullable(teamMemberMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return TeamMember2TeamMemberDOConvert.INSTANCE.do2Dto(result);
     }
 }

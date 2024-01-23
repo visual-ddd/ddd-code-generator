@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.account.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.account.repository.mapper.AccountMapper;
 import com.wakedt.visual.infrastructure.account.assembler.Account2AccountDOConvert;
 
 /**
- * Account-聚合仓储实现类
+ * 账号-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public Account find(Long id) {
         AccountDO result = Optional.ofNullable(accountMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return Account2AccountDOConvert.INSTANCE.do2Dto(result);
     }
 }

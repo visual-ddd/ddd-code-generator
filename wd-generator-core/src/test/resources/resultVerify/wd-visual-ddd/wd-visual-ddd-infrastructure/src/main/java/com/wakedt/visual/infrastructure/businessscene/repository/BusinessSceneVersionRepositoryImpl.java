@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.businessscene.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.businessscene.repository.mapper.Business
 import com.wakedt.visual.infrastructure.businessscene.assembler.BusinessSceneVersion2BusinessSceneVersionDOConvert;
 
 /**
- * BusinessSceneVersion-聚合仓储实现类
+ * 业务场景版本-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class BusinessSceneVersionRepositoryImpl implements BusinessSceneVersionR
     @Override
     public BusinessSceneVersion find(Long id) {
         BusinessSceneVersionDO result = Optional.ofNullable(businessSceneVersionMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return BusinessSceneVersion2BusinessSceneVersionDOConvert.INSTANCE.do2Dto(result);
     }
 }

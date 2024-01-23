@@ -16,6 +16,8 @@ import com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessS
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        BusinessSceneDTOConverter.class,
+        BusinessSceneVersionDTOConverter.class,
 })
 public interface BusinessSceneDTO2BusinessSceneDOConvert extends BaseConvert<BusinessSceneDTO, BusinessSceneDO> {
 

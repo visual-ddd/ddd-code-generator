@@ -26,7 +26,8 @@ public class ${CMD_CLASS_NAME}Handler {
 
         repository.update(${aggregation});
 #if(${CMD_EVENT_ENABLE})
-        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}(updateCmd));
+        // TODO 根据业务需要，发布<${CMD_CLASS_TITLE}>领域事件
+        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}());
 #end
     }
 }

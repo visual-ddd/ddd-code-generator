@@ -41,7 +41,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
                 "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/Knife4jConfiguration.java.vm",
                 "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/ProjectExceptionHandler.java.vm",
                 "cola/{projectName}/{projectName}-start/src/main/java/{group}/start/config/StartInfoPrintListener.java.vm",
-                "cola/{projectName}/{projectName}-start/src/main/docker/Dockerfile",
+                "cola/{projectName}/{projectName}-start/Dockerfile",
         };
     }
 
@@ -138,6 +138,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
                         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationFactory.java.vm",
                         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AggregationRepository.java.vm",
                         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
+                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/AggregationRepositoryImpl.java.vm",
                 };
             case UPDATE_CODE:
                 return new String[]{
@@ -154,10 +155,10 @@ public class ElementMappingV1 extends AbstractElementMapping {
     @Override
     public String[] entity() {
         return new String[]{
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Entity.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/EntityConverter.java.vm",
-                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/EntityDTO.java.vm",
-                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/EntityDTO2EntityConvert.java.vm"
+                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{Entity}.java.vm",
+                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/{Entity}Converter.java.vm",
+                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/{EntityDTO}.java.vm",
+                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/{EntityDTO}2{Entity}Convert.java.vm",
         };
     }
 
@@ -170,7 +171,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
                 "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObject.java.vm",
                 "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/ValueObjectDTO.java.vm",
                 "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/ValueObjectDTO2ValueObjectConvert.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObjectConverter.java.vm"
+                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ValueObjectConverter.java.vm"
         };
     }
 
@@ -181,7 +182,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
     public String[] enums() {
         return new String[]{
                 "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Enum.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/EnumConverter.java.vm",
+                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/EnumConverter.java.vm",
         };
     }
 
@@ -317,7 +318,8 @@ public class ElementMappingV1 extends AbstractElementMapping {
     @Override
     public String[] queryResult() {
         return new String[]{
-                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/QueryResult.java.vm",
+                "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/dto/{QueryResult}.java.vm",
+                "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/{QueryResult}Converter.java.vm"
         };
     }
 
@@ -347,7 +349,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
             default:
             case INIT_CODE:
                 return new String[]{
-                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
+//                        "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/repository/ObjectMapperRepositoryImpl.java.vm",
                 };
             case UPDATE_CODE:
                 return new String[]{};

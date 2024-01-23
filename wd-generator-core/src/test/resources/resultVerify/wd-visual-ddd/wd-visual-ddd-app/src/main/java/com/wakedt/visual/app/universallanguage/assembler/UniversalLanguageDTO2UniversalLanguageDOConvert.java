@@ -16,6 +16,7 @@ import com.wakedt.visual.infrastructure.universallanguage.repository.model.Unive
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        UniversalLanguageDTOConverter.class,
 })
 public interface UniversalLanguageDTO2UniversalLanguageDOConvert extends BaseConvert<UniversalLanguageDTO, UniversalLanguageDO> {
 

@@ -1,3 +1,5 @@
+#set($projectBaseDir = "{project.basedir}")
+#set($projectVersion = "{project.version}")
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
@@ -91,40 +93,29 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.31.0</version>
+                <version>0.38.1</version>
+                <executions>
+                    <execution>
+                        <id>build-docker-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <dockerHost>tcp://127.0.0.1:2375</dockerHost>
+                    <skip>true</skip>
                     <images>
                         <image>
-                            <!--suppress UnresolvedMavenProperty -->
-                            <name>172.26.59.200/wk-dss/origin/${git.branch}/wd-mtool:${project.version}</name>
-                            <alias>dockerfile</alias>
+                            <name>${PROJECT_NAME}/server</name>
                             <build>
-                                <contextDir>${project.basedir}/src/main/docker</contextDir>
-                                <assembly>
-                                    <descriptorRef>artifact</descriptorRef>
-                                </assembly>
+                                <dockerFileDir>$${projectBaseDir}</dockerFileDir>
+                                <tags>
+                                    <tag>$${projectVersion}</tag>
+                                </tags>
                             </build>
-                            <run>
-                                <ports>
-                                    <port>8090:8090</port>
-                                </ports>
-                            </run>
                         </image>
-                        <!--            <image>-->
-                        <!--              <name>ccr.ccs.tencentyun.com/wk-dss/${project.name}:${project.version}</name>-->
-                        <!--              <build>-->
-                        <!--                <contextDir>${project.basedir}/src/main/docker</contextDir>-->
-                        <!--                <assembly>-->
-                        <!--                  <descriptorRef>artifact</descriptorRef>-->
-                        <!--                </assembly>-->
-                        <!--              </build>-->
-                        <!--            </image>-->
                     </images>
-                    <authConfig>
-                        <username>100012941374</username>
-                        <password>z8dFKIEz6QWqWCfD</password>
-                    </authConfig>
                 </configuration>
             </plugin>
         </plugins>

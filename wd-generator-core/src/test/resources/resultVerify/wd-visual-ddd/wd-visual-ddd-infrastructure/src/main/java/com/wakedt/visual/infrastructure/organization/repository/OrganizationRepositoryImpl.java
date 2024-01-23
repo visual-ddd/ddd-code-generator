@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.organization.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.organization.repository.mapper.Organizat
 import com.wakedt.visual.infrastructure.organization.assembler.Organization2OrganizationDOConvert;
 
 /**
- * Organization-聚合仓储实现类
+ * 组织-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class OrganizationRepositoryImpl implements OrganizationRepository {
     @Override
     public Organization find(Long id) {
         OrganizationDO result = Optional.ofNullable(organizationMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return Organization2OrganizationDOConvert.INSTANCE.do2Dto(result);
     }
 }

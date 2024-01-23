@@ -16,6 +16,8 @@ import com.wakedt.visual.infrastructure.account.repository.model.AccountVerifica
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        AccountDTOConverter.class,
+        AccountVerificationDTOConverter.class,
 })
 public interface AccountVerificationDTO2AccountVerificationDOConvert extends BaseConvert<AccountVerificationDTO, AccountVerificationDO> {
 

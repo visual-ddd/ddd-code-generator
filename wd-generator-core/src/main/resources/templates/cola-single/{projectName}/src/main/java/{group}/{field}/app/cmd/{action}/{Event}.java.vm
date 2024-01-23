@@ -24,7 +24,7 @@ public class ${CMD_EVENT_CLASS_NAME} extends BaseDomainEvent {
 #set($result = 0)
 #isFieldParttern($eventField.name, $result)
 #if($result == 0)
-        , $eventField.type $eventField.name
+        , ${PARSE_TYPE_UTIL.parse($eventField.type)} $eventField.name
 #end
 #end
     ) {

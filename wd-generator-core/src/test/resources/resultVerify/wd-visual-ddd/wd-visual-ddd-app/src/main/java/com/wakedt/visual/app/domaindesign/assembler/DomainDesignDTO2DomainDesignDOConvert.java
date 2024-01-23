@@ -16,6 +16,8 @@ import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesi
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        DomainDesignDTOConverter.class,
+        DomainDesignVersionDTOConverter.class,
 })
 public interface DomainDesignDTO2DomainDesignDOConvert extends BaseConvert<DomainDesignDTO, DomainDesignDO> {
 

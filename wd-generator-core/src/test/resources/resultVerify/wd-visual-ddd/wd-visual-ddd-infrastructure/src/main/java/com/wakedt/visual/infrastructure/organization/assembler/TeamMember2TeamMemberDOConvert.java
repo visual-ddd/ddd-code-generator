@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.domain.organization.teammember.TeamMember;
 import com.wakedt.visual.infrastructure.organization.repository.model.TeamMemberDO;
-import com.wakedt.visual.domain.organization.teammember.MemberTypeConverter;
+import com.wakedt.visual.infrastructure.organization.assembler.MemberTypeConverter;
 
 /**
  * TeamMember2TeamMemberDOConvert

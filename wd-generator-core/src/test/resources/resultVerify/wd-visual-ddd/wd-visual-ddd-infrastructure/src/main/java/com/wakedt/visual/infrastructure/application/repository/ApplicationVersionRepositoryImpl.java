@@ -1,6 +1,7 @@
 package com.wakedt.visual.infrastructure.application.repository;
 
 import com.wakedata.common.core.exception.BizException;
+import com.wakedata.common.core.resultcode.CommonResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -15,7 +16,7 @@ import com.wakedt.visual.infrastructure.application.repository.mapper.Applicatio
 import com.wakedt.visual.infrastructure.application.assembler.ApplicationVersion2ApplicationVersionDOConvert;
 
 /**
- * ApplicationVersion-聚合仓储实现类
+ * 应用版本-聚合仓储实现类
  *
  * @author shimmer
  * @since 1.0
@@ -52,7 +53,7 @@ public class ApplicationVersionRepositoryImpl implements ApplicationVersionRepos
     @Override
     public ApplicationVersion find(Long id) {
         ApplicationVersionDO result = Optional.ofNullable(applicationVersionMapper.selectById(id))
-                .orElseThrow(() -> new IllegalArgumentException("id不存在!"));
+                .orElseThrow(() -> new BizException(CommonResultCode.NOT_EXISTS));
         return ApplicationVersion2ApplicationVersionDOConvert.INSTANCE.do2Dto(result);
     }
 }

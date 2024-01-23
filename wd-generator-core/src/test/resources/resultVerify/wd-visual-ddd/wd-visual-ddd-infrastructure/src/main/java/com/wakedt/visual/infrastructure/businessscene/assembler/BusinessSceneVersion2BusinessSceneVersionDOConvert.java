@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.BusinessSceneVersion;
 import com.wakedt.visual.infrastructure.businessscene.repository.model.BusinessSceneVersionDO;
-import com.wakedt.visual.domain.businessscene.businesssceneversion.VersionStateConverter;
+import com.wakedt.visual.infrastructure.businessscene.assembler.VersionStateConverter;
 
 /**
  * BusinessSceneVersion2BusinessSceneVersionDOConvert

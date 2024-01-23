@@ -16,6 +16,8 @@ import com.wakedt.visual.infrastructure.application.repository.model.Application
  */
 @Mapper(uses = {
         BaseJsonConvertor.class,
+        ApplicationDTOConverter.class,
+        ApplicationVersionDTOConverter.class,
 })
 public interface ApplicationVersionDTO2ApplicationVersionDOConvert extends BaseConvert<ApplicationVersionDTO, ApplicationVersionDO> {
 
