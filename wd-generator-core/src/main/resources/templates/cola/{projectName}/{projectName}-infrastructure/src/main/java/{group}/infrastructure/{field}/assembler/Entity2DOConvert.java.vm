@@ -13,21 +13,21 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import ${IMPORT_PACKAGE_MAP.get(${aggregationRootId}).get(${aggregationRootClass})}.${aggregationRootClass};
 import ${IMPORT_PACKAGE_MAP.get(${doId}).get(${doClassName})}.${doClassName};
-#foreach($enum in ${DOMAIN_ENUM_LIST})
-#if(${enum.getParentNode().identity} == ${aggregationId})
-import ${IMPORT_PACKAGE_MAP.get(${enum.identity}).get("${enum.name}Converter")}.${enum.name}Converter;
-#end
-#end
-#foreach($valueObject in ${DOMAIN_VALUE_OBJECT_LIST})
-#if(${valueObject.getParentNode().identity} == ${aggregationId})
-import ${IMPORT_PACKAGE_MAP.get(${valueObject.identity}).get("${valueObject.name}Converter")}.${valueObject.name}Converter;
-#end
-#end
-#foreach($entity in ${DOMAIN_ENTITY_LIST})
-#if(${entity.getParentNode().identity} == ${aggregationId})
-import ${IMPORT_PACKAGE_MAP.get(${entity.identity}).get("${entity.name}Converter")}.${entity.name}Converter;
-#end
-#end
+###foreach($enum in ${DOMAIN_ENUM_LIST})
+###if(${enum.getParentNode().identity} == ${aggregationId})
+##import ${IMPORT_PACKAGE_MAP.get(${enum.identity}).get("${enum.name}Converter")}.${enum.name}Converter;
+###end
+###end
+###foreach($valueObject in ${DOMAIN_VALUE_OBJECT_LIST})
+###if(${valueObject.getParentNode().identity} == ${aggregationId})
+##import ${IMPORT_PACKAGE_MAP.get(${valueObject.identity}).get("${valueObject.name}Converter")}.${valueObject.name}Converter;
+###end
+###end
+###foreach($entity in ${DOMAIN_ENTITY_LIST})
+###if(${entity.getParentNode().identity} == ${aggregationId})
+##import ${IMPORT_PACKAGE_MAP.get(${entity.identity}).get("${entity.name}Converter")}.${entity.name}Converter;
+###end
+###end
 
 #comment("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")
 @Mapper(uses = {

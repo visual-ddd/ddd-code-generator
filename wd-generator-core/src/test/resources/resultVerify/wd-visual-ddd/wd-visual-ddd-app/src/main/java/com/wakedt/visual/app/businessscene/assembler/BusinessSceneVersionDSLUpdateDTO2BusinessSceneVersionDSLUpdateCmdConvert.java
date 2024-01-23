@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.businessscene.query.BusinessSceneVersionDSLUpdateDTO;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.dslupdate.BusinessSceneVersionDSLUpdateCmd;
-import com.wakedt.visual.domain.businessscene.businesssceneversion.VersionStateConverter;
+import com.wakedt.visual.infrastructure.businessscene.assembler.VersionStateConverter;
 
 /**
  * BusinessSceneVersionDSLUpdateDTO2BusinessSceneVersionDSLUpdateCmdConvert

@@ -1,4 +1,4 @@
-package com.wakedt.visual.domain.application.applicationversion;
+package com.wakedt.visual.infrastructure.application.assembler;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;

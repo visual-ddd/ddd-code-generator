@@ -156,7 +156,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
     public String[] entity() {
         return new String[]{
                 "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{Entity}.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/{Entity}Converter.java.vm",
+                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/{Entity}Converter.java.vm",
                 "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/{EntityDTO}.java.vm",
                 "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/{EntityDTO}2{Entity}Convert.java.vm",
         };
@@ -171,7 +171,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
                 "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObject.java.vm",
                 "cola/{projectName}/{projectName}-client/src/main/java/{group}/client/{field}/query/ValueObjectDTO.java.vm",
                 "cola/{projectName}/{projectName}-app/src/main/java/{group}/app/{field}/assembler/ValueObjectDTO2ValueObjectConvert.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/ValueObjectConverter.java.vm"
+                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/ValueObjectConverter.java.vm"
         };
     }
 
@@ -182,7 +182,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
     public String[] enums() {
         return new String[]{
                 "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Enum.java.vm",
-                "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/EnumConverter.java.vm",
+                "cola/{projectName}/{projectName}-infrastructure/src/main/java/{group}/infrastructure/{field}/assembler/EnumConverter.java.vm",
         };
     }
 

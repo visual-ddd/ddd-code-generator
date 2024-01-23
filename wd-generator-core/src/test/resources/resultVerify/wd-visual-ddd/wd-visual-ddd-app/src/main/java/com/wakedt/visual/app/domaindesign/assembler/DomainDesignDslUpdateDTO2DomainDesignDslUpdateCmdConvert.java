@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.domaindesign.query.DomainDesignDslUpdateDTO;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesigndslupdate.DomainDesignDslUpdateCmd;
-import com.wakedt.visual.domain.domaindesign.domaindesignversion.VersionStateConverter;
+import com.wakedt.visual.infrastructure.domaindesign.assembler.VersionStateConverter;
 
 /**
  * DomainDesignDslUpdateDTO2DomainDesignDslUpdateCmdConvert

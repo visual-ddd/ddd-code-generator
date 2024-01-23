@@ -23,6 +23,7 @@ public class BusinessSceneModifyCmdHandler {
 
         repository.update(businessScene);
 
-        DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneModifyEvent(updateCmd));
+        // TODO 根据业务需要，发布<编辑业务场景>领域事件
+        DomainEventPublisher.getInstance().postAfterCommit(new BusinessSceneModifyEvent());
     }
 }

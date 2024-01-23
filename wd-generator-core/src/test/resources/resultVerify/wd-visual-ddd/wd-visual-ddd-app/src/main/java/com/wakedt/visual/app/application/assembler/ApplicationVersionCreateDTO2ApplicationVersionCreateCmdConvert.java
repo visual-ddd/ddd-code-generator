@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.application.query.ApplicationVersionCreateDTO;
 import com.wakedt.visual.domain.application.applicationversion.applicationversioncreate.ApplicationVersionCreateCmd;
-import com.wakedt.visual.domain.application.applicationversion.VersionStateConverter;
+import com.wakedt.visual.infrastructure.application.assembler.VersionStateConverter;
 
 /**
  * ApplicationVersionCreateDTO2ApplicationVersionCreateCmdConvert

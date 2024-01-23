@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.application.query.ApplicationVersionForkDTO;
 import com.wakedt.visual.domain.application.applicationversion.applicationversionfork.ApplicationVersionForkCmd;
-import com.wakedt.visual.domain.application.applicationversion.VersionStateConverter;
+import com.wakedt.visual.infrastructure.application.assembler.VersionStateConverter;
 
 /**
  * ApplicationVersionForkDTO2ApplicationVersionForkCmdConvert

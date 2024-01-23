@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.application.query.DomainDesignVersionBindDTO;
 import com.wakedt.visual.domain.application.applicationversion.domaindesignversionbind.DomainDesignVersionBindCmd;
-import com.wakedt.visual.domain.application.applicationversion.VersionStateConverter;
+import com.wakedt.visual.infrastructure.application.assembler.VersionStateConverter;
 
 /**
  * DomainDesignVersionBindDTO2DomainDesignVersionBindCmdConvert

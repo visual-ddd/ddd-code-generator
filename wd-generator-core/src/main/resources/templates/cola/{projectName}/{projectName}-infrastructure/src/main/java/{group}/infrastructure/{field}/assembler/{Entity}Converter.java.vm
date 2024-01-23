@@ -4,6 +4,7 @@ package ${IMPORT_PACKAGE_MAP.get(${ENTITY_ID}).get("${ENTITY_CLASS_NAME}Converte
 import cn.hutool.json.JSONUtil;
 
 import java.util.List;
+import ${IMPORT_PACKAGE_MAP.get(${ENTITY_ID}).get("${ENTITY_CLASS_NAME}")}.${ENTITY_CLASS_NAME};
 
 #comment("${ENTITY_CLASS_TITLE}-实体JSON转换器")
 public class ${ENTITY_CLASS_NAME}Converter {

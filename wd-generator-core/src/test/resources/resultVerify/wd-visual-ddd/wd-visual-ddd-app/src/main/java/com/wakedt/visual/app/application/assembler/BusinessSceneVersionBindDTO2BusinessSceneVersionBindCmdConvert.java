@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.client.application.query.BusinessSceneVersionBindDTO;
 import com.wakedt.visual.domain.application.applicationversion.businesssceneversionbind.BusinessSceneVersionBindCmd;
-import com.wakedt.visual.domain.application.applicationversion.VersionStateConverter;
+import com.wakedt.visual.infrastructure.application.assembler.VersionStateConverter;
 
 /**
  * BusinessSceneVersionBindDTO2BusinessSceneVersionBindCmdConvert
