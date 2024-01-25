@@ -7,7 +7,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.domain.application.applicationversion.ApplicationVersion;
 import com.wakedt.visual.infrastructure.application.repository.model.ApplicationVersionDO;
-import com.wakedt.visual.infrastructure.application.assembler.VersionStateConverter;
 
 /**
  * ApplicationVersion2ApplicationVersionDOConvert

@@ -10,6 +10,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import java.util.Optional;
+import com.wakedt.visual.domain.organization.teammember.MemberType;
 
 /**
  * 团队成员类型-枚举JSON转换器

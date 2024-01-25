@@ -7,7 +7,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.DomainDesignVersion;
 import com.wakedt.visual.infrastructure.domaindesign.repository.model.DomainDesignVersionDO;
-import com.wakedt.visual.infrastructure.domaindesign.assembler.VersionStateConverter;
 
 /**
  * DomainDesignVersion2DomainDesignVersionDOConvert

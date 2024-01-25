@@ -10,6 +10,7 @@ import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
 import java.util.Optional;
+import com.wakedt.visual.domain.domaindesign.domaindesignversion.VersionState;
 
 /**
  * 版本状态-枚举JSON转换器
