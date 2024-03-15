@@ -13,10 +13,10 @@ import com.wd.paas.generator.generate.visitor.velocitytemplate.TemplateContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class ObjectMapperStrategy extends AbstractElementStrategy{
 
@@ -71,19 +71,19 @@ public class ObjectMapperStrategy extends AbstractElementStrategy{
     }
 
     @Override
-    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        List<String> list = new ArrayList<>();
+    public Set<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        Set<String> result = new HashSet<>();
         String type = astObjectMapper.getSource().getType();
         switch (ConvertTypeEnum.of(type)) {
             case ENTITY2DO:
-                list.addAll(Arrays.asList(projectTemplateType.objectMapperModel()));
-                list.addAll(Arrays.asList(projectTemplateType.Entity2Do()));
+                result.addAll(Arrays.asList(projectTemplateType.objectMapperModel()));
+                result.addAll(Arrays.asList(projectTemplateType.Entity2Do()));
                 break;
             case DTO2DO:
-                list.addAll(Arrays.asList(projectTemplateType.DTO2DO()));
+                result.addAll(Arrays.asList(projectTemplateType.DTO2DO()));
                 break;
         }
-        return list;
+        return result;
     }
 
     @Override

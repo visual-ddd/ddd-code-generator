@@ -15,10 +15,7 @@ import com.wd.paas.generator.generate.element.ExternalEventNode;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /***
  * @author wangchensheng
@@ -63,22 +60,22 @@ public class CommandStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        List<String> list = new ArrayList<>(Arrays.asList(projectTemplateType.command()));
+    public Set<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        Set<String> result = new HashSet<>(Arrays.asList(projectTemplateType.command()));
 
         if (Boolean.TRUE.equals(astCommand.getEventEnable())) {
-            list.addAll(Arrays.asList(projectTemplateType.event()));
+            result.addAll(Arrays.asList(projectTemplateType.event()));
         }
 
         switch (astCommand.getRepository()) {
             case SAVE:
-                list.addAll(Arrays.asList(projectTemplateType.addCommandHandler()));
+                result.addAll(Arrays.asList(projectTemplateType.addCommandHandler()));
                 break;
             case MODIFY:
-                list.addAll(Arrays.asList(projectTemplateType.updateCommandHandler()));
+                result.addAll(Arrays.asList(projectTemplateType.updateCommandHandler()));
                 break;
             case REMOVE:
-                list.addAll(Arrays.asList(projectTemplateType.deleteCommandHandler()));
+                result.addAll(Arrays.asList(projectTemplateType.deleteCommandHandler()));
                 break;
             default:
                 throw new IllegalArgumentException(String.format("%s非法的仓储类型！", astCommand.getRepository()));
@@ -86,10 +83,10 @@ public class CommandStrategy extends AbstractElementStrategy {
 
         Object sourceValue = astCommand.getSourceValue(CommandSourceTypeEnum.EVENT.getValue());
         if (sourceValue instanceof String) {
-            list.addAll(Arrays.asList(projectTemplateType.externalEvent()));
+            result.addAll(Arrays.asList(projectTemplateType.externalEvent()));
         }
 
-        return list;
+        return result;
     }
 
     @Override

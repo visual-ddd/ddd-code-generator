@@ -9,8 +9,11 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
+import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -21,21 +24,45 @@ import java.util.zip.ZipOutputStream;
 @Data
 public class TemplateContext {
 
+    /**
+     * Velocity上下文
+     */
     private Map<String, Object> context = new HashMap<>();
+    /**
+     * 输出文件路径集合
+     */
+    private Set<String> outputFileSet = new HashSet<>();
+    /**
+     * 输出文件路径前缀
+     */
     private String preFixOutPath;
+    /**
+     * 压缩输出流（可选）
+     */
     private ZipOutputStream zipOutputStream;
+
+    /**
+     * 生成配置选项
+     */
     private Boolean isGenerateProjectFrame = Boolean.TRUE;
     private ProjectTemplateType projectTemplateType = ProjectTemplateType.COLA;
-
-    private String authorName = "visual-ddd" ;
-
-    // 设置模版引擎
+    private GenerateOperationTypeEnum operationTypeEnum = GenerateOperationTypeEnum.INIT_CODE;
+    private String authorName = "visual-ddd";
     private VelocityEngine velocityEngine;
 
     /**
-     * 设置操作类型
+     * 公共文件
      */
-    private GenerateOperationTypeEnum operationTypeEnum = GenerateOperationTypeEnum.INIT_CODE;
+    private static Set<String> publicFiles;
+
+    static {
+        publicFiles = new HashSet<>();
+        // domain
+        publicFiles.add("BaseRepository.java");
+        publicFiles.add("BaseJpaAggregate.java");
+        publicFiles.add("BaseConvert.java");
+        publicFiles.add("BaseJsonConvertor.java");
+    }
 
     public TemplateContext() {
     }
@@ -60,30 +87,22 @@ public class TemplateContext {
     }
 
     /**
-     * 设置生成的项目架构类型
+     * 添加输出文件路径
      *
-     * @param projectTemplateType ProjectTemplateType
+     * @param outputFileUrl 输出文件路径
+     * @return 是否添加成功
      */
-    public void setProjectTemplateType(ProjectTemplateType projectTemplateType) {
-        this.projectTemplateType = projectTemplateType;
-    }
+    public boolean addOutputFileUrl(String outputFileUrl) {
+        boolean success = outputFileSet.add(outputFileUrl);
+        if (success) {
+            return true;
+        }
+        String fileName = new File(outputFileUrl).getAbsoluteFile().getName();
 
-    /**
-     * 设置javadoc author注释
-     *
-     * @param authorName 作者
-     */
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
-
-    /**
-     * 支持配置自定义Velocity引擎
-     *
-     * @param velocityEngine 自定义的引擎
-     */
-    public void setVelocityEngine(VelocityEngine velocityEngine) {
-        this.velocityEngine = velocityEngine;
+        if (publicFiles.contains(fileName)) {
+            return false;
+        }
+        throw new RuntimeException("文件已存在, 请检查文件名是否重复: " + outputFileUrl);
     }
 
     /**

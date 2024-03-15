@@ -12,7 +12,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DTOStrategy extends AbstractElementStrategy {
 
@@ -32,8 +33,8 @@ public class DTOStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        return Arrays.asList(projectTemplateType.queryResult());
+    public Set<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return new HashSet<>(Arrays.asList(projectTemplateType.queryResult()));
     }
 
     @Override

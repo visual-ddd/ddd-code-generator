@@ -12,8 +12,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * 元素生成策略抽象类（Velocity 模版生成）
@@ -66,8 +66,8 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
     private void storeOutPutPath(TemplateContext templateContext) {
         // 获取模版文件列表
         ElementContent elementContent = new ElementContent(elementNode);
-        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext, Boolean.TRUE)))
-                .orElse(Collections.emptyList());
+        Set<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext, Boolean.TRUE)))
+                .orElse(Collections.emptySet());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getPreFixOutPath(), templateContext.getProjectTemplateType());
             ThreadContextHelper.storePath(elementContent, outputPath);
@@ -85,9 +85,14 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
      */
     private void generateFile(TemplateContext templateContext, VelocityContext velocityContext) {
         // 获取模版文件列表
-        List<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext, Boolean.FALSE))).orElse(Collections.emptyList());
+        Set<String> templatePathList = Optional.ofNullable(this.getTemplatePathList(getElementMapping(templateContext, Boolean.FALSE))).orElse(Collections.emptySet());
         for (String templateUrl : templatePathList) {
             String outputPath = this.parseOutputPath(templateUrl, templateContext.getPreFixOutPath(), templateContext.getProjectTemplateType());
+
+            boolean isAdded = templateContext.addOutputFileUrl(outputPath);
+            if (!isAdded) {
+                continue;
+            }
 
             // fixed：IDEA插件线程调用时，类加载器异常
             final ClassLoader oldContextClassLoader = Thread.currentThread().getContextClassLoader();

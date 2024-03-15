@@ -7,7 +7,6 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
-import org.apache.velocity.runtime.RuntimeConstants;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +18,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -71,6 +71,8 @@ public class FileGenerator {
             tpl.merge(context, sw);
             IOUtils.write(sw.toString(), getOutputStream(outputUrl, zipOutputStream), StandardCharsets.UTF_8);
             IOUtils.closeQuietly();
+        } catch (ZipException e) {
+            throw new IllegalStateException("压缩文件失败！" + e);
         } catch (Exception e) {
             log.error("Velocity模版合并失败！" + tpl);
             throw new IllegalStateException("Velocity模版合并失败！" + e);

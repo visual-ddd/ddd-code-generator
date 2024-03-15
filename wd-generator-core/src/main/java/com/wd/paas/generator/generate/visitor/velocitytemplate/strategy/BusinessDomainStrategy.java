@@ -53,12 +53,13 @@ public class BusinessDomainStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        List<String> domainChartTemplateList = new ArrayList<>();
-        domainChartTemplateList.addAll(Arrays.asList(projectTemplateType.domainChart()));
-        domainChartTemplateList.addAll(Arrays.asList(projectTemplateType.domainChartTask()));
-        domainChartTemplateList.addAll(Arrays.asList(projectTemplateType.domainChartListener()));
-        return domainChartTemplateList;
+    public Set<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        Set<String> result = new HashSet<>();
+        result.addAll(Arrays.asList(projectTemplateType.domainChart()));
+        // TODO 根据配置决定是否生成定时任务和事件监听器
+        result.addAll(Arrays.asList(projectTemplateType.domainChartTask()));
+        result.addAll(Arrays.asList(projectTemplateType.domainChartListener()));
+        return result;
     }
 
     @Override

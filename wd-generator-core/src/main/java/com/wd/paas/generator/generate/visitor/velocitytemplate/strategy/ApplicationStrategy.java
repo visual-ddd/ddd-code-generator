@@ -16,7 +16,8 @@ import org.apache.velocity.VelocityContext;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author shimmer
@@ -54,8 +55,8 @@ public class ApplicationStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        return Arrays.asList(projectTemplateType.project());
+    public Set<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return new HashSet<>(Arrays.asList(projectTemplateType.project()));
     }
 
     @Override
