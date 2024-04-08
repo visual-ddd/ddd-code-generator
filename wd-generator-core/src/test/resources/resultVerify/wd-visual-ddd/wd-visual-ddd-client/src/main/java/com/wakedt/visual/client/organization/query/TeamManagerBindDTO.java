@@ -1,11 +1,9 @@
 package com.wakedt.visual.client.organization.query;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -19,11 +17,11 @@ import javax.validation.constraints.NotNull;
 public class TeamManagerBindDTO {
 
     @NotNull(message = "团队 ID不能为空！")
-    @ApiModelProperty(value = "团队 ID" , required = true)
+    @ApiModelProperty(value = "团队 ID", required = true)
     private Long id;
 
     @NotNull(message = "团队管理员不能为空！")
-    @ApiModelProperty(value = "团队管理员" , required = true)
+    @ApiModelProperty(value = "团队管理员", required = true)
     private Long teamManagerId;
 
 }

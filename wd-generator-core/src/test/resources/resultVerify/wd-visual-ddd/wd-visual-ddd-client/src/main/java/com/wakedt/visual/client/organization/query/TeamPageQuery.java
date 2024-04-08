@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import com.wakedt.visual.client.organization.dto.*;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,11 +20,11 @@ import javax.validation.constraints.NotNull;
 public class TeamPageQuery extends PageQuery {
 
     @NotNull(message = "组织ID不能为空！")
-    @ApiModelProperty(value = "组织ID" , required = true)
+    @ApiModelProperty(value = "组织ID", required = true)
     private Long organizationId;
 
     @NotNull(message = "团队名称不能为空！")
-    @ApiModelProperty(value = "团队名称" , required = true)
+    @ApiModelProperty(value = "团队名称", required = true)
     private String name;
 
 }

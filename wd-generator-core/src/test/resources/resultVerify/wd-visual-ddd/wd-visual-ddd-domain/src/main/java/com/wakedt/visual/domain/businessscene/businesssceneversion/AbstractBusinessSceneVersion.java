@@ -1,9 +1,6 @@
 package com.wakedt.visual.domain.businessscene.businesssceneversion;
 
 import lombok.Data;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
 
 /**
  * 业务场景版本-聚合根
@@ -39,18 +36,18 @@ public abstract class AbstractBusinessSceneVersion {
     private VersionState versionState;
 
     /**
-      * 版本号合法
-      */
+     * 版本号合法
+     */
     public abstract void checkLegalVersion();
 
     /**
-      * 发布锁定
-      */
+     * 发布锁定
+     */
     public abstract void checkVersionPublishedException();
 
     /**
-      * 未发布异常
-      */
+     * 未发布异常
+     */
     public abstract void checkVersionUnPublishedException();
 
 }

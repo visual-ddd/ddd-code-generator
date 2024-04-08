@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import com.wakedt.visual.client.application.dto.*;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class ApplicationQuery extends BaseQuery {
 
     @NotNull(message = "应用 ID不能为空！")
-    @ApiModelProperty(value = "应用 ID" , required = true)
+    @ApiModelProperty(value = "应用 ID", required = true)
     private Long id;
 
 }

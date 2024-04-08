@@ -1,9 +1,6 @@
 package com.wakedt.visual.domain.account.account;
 
 import lombok.Data;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
 
 /**
  * 账号-聚合根
@@ -36,13 +33,13 @@ public abstract class AbstractAccount {
     private String uuid;
 
     /**
-      * 验证密码是否正确
-      */
+     * 验证密码是否正确
+     */
     public abstract void checkLoginPass(String password);
 
     /**
-      * 验证重置密码唯一标识是否正确
-      */
+     * 验证重置密码唯一标识是否正确
+     */
     public abstract void checkUuidPass(String uuid);
 
 }

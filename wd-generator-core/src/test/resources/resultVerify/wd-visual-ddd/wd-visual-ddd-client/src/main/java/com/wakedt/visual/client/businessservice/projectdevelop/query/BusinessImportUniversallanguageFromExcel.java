@@ -1,12 +1,9 @@
 package com.wakedt.visual.client.businessservice.projectdevelop.query;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import com.wakedt.visual.client.businessservice.projectdevelop.dto.*;
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -20,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class BusinessImportUniversallanguageFromExcel {
 
     @NotNull(message = "Excel文件不能为空！")
-    @ApiModelProperty(value = "Excel文件" , required = true)
+    @ApiModelProperty(value = "Excel文件", required = true)
     private String file;
 
 }

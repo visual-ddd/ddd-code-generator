@@ -5,11 +5,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import com.wakedt.visual.client.organization.dto.*;
-import javax.validation.constraints.NotNull;
 
 /**
  * 组织详情查询对象
@@ -22,7 +17,7 @@ import javax.validation.constraints.NotNull;
 @ApiModel(description = "组织详情查询对象")
 public class OrganizationQuery extends BaseQuery {
 
-    @ApiModelProperty(value = "组织 ID" )
+    @ApiModelProperty(value = "组织 ID")
     private Long id;
 
 }

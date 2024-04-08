@@ -142,7 +142,6 @@ public class ElementMappingV1 extends AbstractElementMapping {
                 return new String[]{
                         // domain
                         "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/AbstractAggregation.java.vm",
-                        "cola/{projectName}/{projectName}-domain/src/main/java/{group}/domain/{field}/{aggregation}/Aggregation.java.vm",
                 };
         }
     }

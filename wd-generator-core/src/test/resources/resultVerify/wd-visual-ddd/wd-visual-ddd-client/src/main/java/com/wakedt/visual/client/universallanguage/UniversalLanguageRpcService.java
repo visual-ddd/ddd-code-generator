@@ -2,15 +2,8 @@ package com.wakedt.visual.client.universallanguage;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageCreateDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageModifyDTO;
-import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveDTO;
 import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import com.wakedt.visual.client.universallanguage.query.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -30,22 +23,37 @@ import java.util.List;
 @Api(tags = "[RPC] 统一语言域")
 public interface UniversalLanguageRpcService {
 
+    /**
+     * 新增统一语言
+     */
     @ApiOperation("新增统一语言")
     @PostMapping("/create")
     ResultDTO<Long> create(@RequestBody @Valid UniversalLanguageCreateDTO dto);
 
+    /**
+     * 编辑统一语言
+     */
     @ApiOperation("编辑统一语言")
     @PostMapping("/modify")
     ResultDTO<Boolean> modify(@RequestBody @Valid UniversalLanguageModifyDTO dto);
 
+    /**
+     * 删除统一语言
+     */
     @ApiOperation("删除统一语言")
     @PostMapping("/remove")
     ResultDTO<Boolean> remove(@RequestBody @Valid UniversalLanguageRemoveDTO dto);
 
+    /**
+     * 统一语言详情查询对象
+     */
     @ApiOperation("统一语言详情查询对象")
     @PostMapping("/universal-language-query")
     ResultDTO<UniversalLanguageDTO> universalLanguageQuery(@RequestBody @Valid UniversalLanguageQuery query);
 
+    /**
+     * 统一语言分页查询对象
+     */
     @ApiOperation("统一语言分页查询对象")
     @PostMapping("/universal-language-page-query")
     PageResultDTO<List<UniversalLanguageDTO>> universalLanguagePageQuery(@RequestBody @Valid UniversalLanguagePageQuery pageQuery);

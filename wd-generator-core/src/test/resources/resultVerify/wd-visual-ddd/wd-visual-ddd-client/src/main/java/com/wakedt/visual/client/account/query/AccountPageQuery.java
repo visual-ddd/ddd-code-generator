@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import com.wakedt.visual.client.account.dto.*;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,15 +20,15 @@ import javax.validation.constraints.NotNull;
 public class AccountPageQuery extends PageQuery {
 
     @NotNull(message = "用户名不能为空！")
-    @ApiModelProperty(value = "用户名" , required = true)
+    @ApiModelProperty(value = "用户名", required = true)
     private String userName;
 
     @NotNull(message = "所属组织ID不能为空！")
-    @ApiModelProperty(value = "所属组织ID" , required = true)
+    @ApiModelProperty(value = "所属组织ID", required = true)
     private String organizationId;
 
     @NotNull(message = "所属团队ID不能为空！")
-    @ApiModelProperty(value = "所属团队ID" , required = true)
+    @ApiModelProperty(value = "所属团队ID", required = true)
     private String teamId;
 
 }

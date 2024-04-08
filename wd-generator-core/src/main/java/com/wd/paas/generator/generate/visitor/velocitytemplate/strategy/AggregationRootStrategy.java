@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.common.SignatureInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
@@ -31,6 +32,12 @@ public class AggregationRootStrategy extends AbstractElementStrategy {
         super.initProperties();
         aggregateRootNode.getPropertyList().forEach(propertyInfo ->
                 propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
+        aggregateRootNode.getMethodList().forEach(propertyInfo -> {
+            SignatureInfo signature = propertyInfo.getSignature();
+            signature.getReturnInfo().setType(TypeConvertor.convertFileType(signature.getReturnInfo().getType()));
+            signature.getParameterList().forEach(parameterInfo ->
+                    parameterInfo.setType(TypeConvertor.convertFileType(parameterInfo.getType())));
+        });
     }
 
 

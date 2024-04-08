@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import com.wakedt.visual.client.universallanguage.dto.*;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class UniversalLanguageQuery extends BaseQuery {
 
     @NotNull(message = "统一语言 ID不能为空！")
-    @ApiModelProperty(value = "统一语言 ID" , required = true)
+    @ApiModelProperty(value = "统一语言 ID", required = true)
     private Long id;
 
 }

@@ -1,11 +1,9 @@
 package com.wakedt.visual.client.businessscene.query;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -19,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class BusinessSceneVersionRemoveDTO {
 
     @NotNull(message = "业务场景 ID不能为空！")
-    @ApiModelProperty(value = "业务场景 ID" , required = true)
+    @ApiModelProperty(value = "业务场景 ID", required = true)
     private Long id;
 
 }

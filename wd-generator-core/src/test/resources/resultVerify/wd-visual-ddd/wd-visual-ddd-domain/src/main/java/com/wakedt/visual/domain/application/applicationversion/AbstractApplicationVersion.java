@@ -1,9 +1,8 @@
 package com.wakedt.visual.domain.application.applicationversion;
 
 import lombok.Data;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+
+import java.util.Set;
 
 /**
  * 应用版本-聚合根
@@ -39,18 +38,18 @@ public abstract class AbstractApplicationVersion {
     private VersionState versionState;
 
     /**
-      * 发布锁定
-      */
+     * 发布锁定
+     */
     public abstract void checkVersionPublishedException();
 
     /**
-      * 未发布异常
-      */
+     * 未发布异常
+     */
     public abstract void checkVersionUnPublishedException();
 
     /**
-      * 版本号合法
-      */
+     * 版本号合法
+     */
     public abstract void checkLegalVersion();
 
 }

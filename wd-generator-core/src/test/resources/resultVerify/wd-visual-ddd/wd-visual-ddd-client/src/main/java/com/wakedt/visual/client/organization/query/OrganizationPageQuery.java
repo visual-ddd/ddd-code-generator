@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
-import com.wakedt.visual.client.organization.dto.*;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class OrganizationPageQuery extends PageQuery {
 
     @NotNull(message = "组织名称不能为空！")
-    @ApiModelProperty(value = "组织名称" , required = true)
+    @ApiModelProperty(value = "组织名称", required = true)
     private String name;
 
 }
