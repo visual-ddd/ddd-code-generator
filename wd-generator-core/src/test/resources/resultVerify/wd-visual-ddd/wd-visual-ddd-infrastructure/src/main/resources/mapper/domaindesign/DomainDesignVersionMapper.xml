@@ -22,6 +22,7 @@
                 AND t1.domain_design_id LIKE CONCAT('%',#{domainDesignId},'%')
             </if>
         </where>
+        ORDER BY t1.create_time
     </select>
 
     <select id="domainDesignLatestVersionQuery" parameterType="com.wakedt.visual.client.domaindesign.query.DomainDesignLatestVersionQuery"
