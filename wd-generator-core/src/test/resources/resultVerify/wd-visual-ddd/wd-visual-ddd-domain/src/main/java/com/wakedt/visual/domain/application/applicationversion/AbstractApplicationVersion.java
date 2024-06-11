@@ -1,8 +1,9 @@
 package com.wakedt.visual.domain.application.applicationversion;
 
 import lombok.Data;
-
-import java.util.Set;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 应用版本-聚合根

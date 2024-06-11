@@ -5,9 +5,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.wakedt.visual.client.domaindesign.dto.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * 业务域列表查询对象

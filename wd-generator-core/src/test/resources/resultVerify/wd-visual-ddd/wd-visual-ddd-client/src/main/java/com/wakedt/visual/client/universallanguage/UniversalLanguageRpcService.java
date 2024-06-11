@@ -2,8 +2,15 @@ package com.wakedt.visual.client.universallanguage;
 
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.wakedt.visual.client.universallanguage.query.UniversalLanguageQuery;
+import com.wakedt.visual.client.universallanguage.query.UniversalLanguagePageQuery;
+import com.wakedt.visual.client.universallanguage.query.UniversalLanguageCreateDTO;
+import com.wakedt.visual.client.universallanguage.query.UniversalLanguageModifyDTO;
+import com.wakedt.visual.client.universallanguage.query.UniversalLanguageRemoveDTO;
 import com.wakedt.visual.client.universallanguage.dto.UniversalLanguageDTO;
-import com.wakedt.visual.client.universallanguage.query.*;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;

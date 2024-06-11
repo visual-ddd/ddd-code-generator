@@ -1,6 +1,9 @@
 package com.wakedt.visual.domain.domaindesign.domaindesignversion;
 
 import lombok.Data;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
 
 /**
  * 业务域版本-聚合根
