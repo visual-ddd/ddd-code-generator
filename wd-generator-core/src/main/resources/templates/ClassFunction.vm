@@ -81,8 +81,8 @@ import ${importPackage};
 #end
 #macro(printMethodDesc $method)
     /**
-      * ${method.title}
-      */
+     * ${method.title}
+     */
 #end
 #macro(printFieldDesc $field)
     /** ${field.title} */
@@ -91,5 +91,5 @@ import ${importPackage};
 #if(!${field.optional})
     @NotNull(message = "${field.title}不能为空！")
 #end
-    @ApiModelProperty(value = "${field.title}" #if(!${field.optional}), required = true#end)
+    @ApiModelProperty(value = "${field.title}"#if(!${field.optional}), required = true#end)
 #end

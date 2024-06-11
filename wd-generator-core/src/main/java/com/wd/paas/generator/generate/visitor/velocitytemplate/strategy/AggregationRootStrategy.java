@@ -1,5 +1,6 @@
 package com.wd.paas.generator.generate.visitor.velocitytemplate.strategy;
 
+import com.wd.paas.common.SignatureInfo;
 import com.wd.paas.generator.common.constant.ModelUrlConstant;
 import com.wd.paas.generator.common.constant.VelocityLabel;
 import com.wd.paas.generator.common.enums.AbstractElementMapping;
@@ -11,7 +12,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author shimmer
@@ -30,6 +32,12 @@ public class AggregationRootStrategy extends AbstractElementStrategy {
         super.initProperties();
         aggregateRootNode.getPropertyList().forEach(propertyInfo ->
                 propertyInfo.setType(TypeConvertor.convertFileType(propertyInfo.getType())));
+        aggregateRootNode.getMethodList().forEach(propertyInfo -> {
+            SignatureInfo signature = propertyInfo.getSignature();
+            signature.getReturnInfo().setType(TypeConvertor.convertFileType(signature.getReturnInfo().getType()));
+            signature.getParameterList().forEach(parameterInfo ->
+                    parameterInfo.setType(TypeConvertor.convertFileType(parameterInfo.getType())));
+        });
     }
 
 
@@ -45,8 +53,8 @@ public class AggregationRootStrategy extends AbstractElementStrategy {
     }
 
     @Override
-    public List<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
-        return Arrays.asList(projectTemplateType.aggregationRoot());
+    public Set<String> getTemplatePathList(AbstractElementMapping projectTemplateType) {
+        return new HashSet<>(Arrays.asList(projectTemplateType.aggregationRoot()));
     }
 
     @Override

@@ -27,6 +27,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 #foreach($cmd in ${aggregation.getCommandList()})
 #if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
 
+    #printMethodDesc(${cmd})
     @ApiOperation("${cmd.title}")
     @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.category})}")
 #if(${cmd.getRepository().getValue()} == "create")
@@ -39,6 +40,7 @@ public interface ${DOMAIN_CLASS_NAME}RpcService {
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
 
+    #printMethodDesc(${query})
     @ApiOperation("${query.title}")
     @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.name})}")
 #if(${query.pagination})
