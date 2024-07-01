@@ -2,142 +2,142 @@
 #set($mavenCompilerPluginVersion = "{maven-compiler-plugin.version}")
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.wakedata</groupId>
-    <artifactId>wd-parent</artifactId>
-    <version>1.1.0-VD002</version>
-  </parent>
+    <parent>
+        <groupId>com.wakedata</groupId>
+        <artifactId>wd-parent</artifactId>
+        <version>1.1.0-VD002</version>
+    </parent>
 
-  <groupId>${PROJECT_PACKAGE}</groupId>
-  <artifactId>${PROJECT_NAME}</artifactId>
-  <version>${PROJECT_VERSION}</version>
-  <packaging>pom</packaging>
+    <groupId>${PROJECT_PACKAGE}</groupId>
+    <artifactId>${PROJECT_NAME}</artifactId>
+    <version>${PROJECT_VERSION}</version>
+    <packaging>pom</packaging>
 
-  <properties>
-    <wd-common-core.version>1.2.3-VD002</wd-common-core.version>
-  </properties>
+    <properties>
+        <wd-common-core.version>1.2.3-VD002</wd-common-core.version>
+    </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <!--Project modules-->
-      <dependency>
-        <groupId>${PROJECT_PACKAGE}</groupId>
-        <artifactId>${PROJECT_NAME}-adapter</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${PROJECT_PACKAGE}</groupId>
-        <artifactId>${PROJECT_NAME}-app</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${PROJECT_PACKAGE}</groupId>
-        <artifactId>${PROJECT_NAME}-client</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${PROJECT_PACKAGE}</groupId>
-        <artifactId>${PROJECT_NAME}-domain</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${PROJECT_PACKAGE}</groupId>
-        <artifactId>${PROJECT_NAME}-infrastructure</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <!--Project modules End-->
+    <dependencyManagement>
+        <dependencies>
+            <!--Project modules-->
+            <dependency>
+                <groupId>${PROJECT_PACKAGE}</groupId>
+                <artifactId>${PROJECT_NAME}-adapter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${PROJECT_PACKAGE}</groupId>
+                <artifactId>${PROJECT_NAME}-app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${PROJECT_PACKAGE}</groupId>
+                <artifactId>${PROJECT_NAME}-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${PROJECT_PACKAGE}</groupId>
+                <artifactId>${PROJECT_NAME}-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${PROJECT_PACKAGE}</groupId>
+                <artifactId>${PROJECT_NAME}-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--Project modules End-->
 
-      <!-- wd-common dependency start-->
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-spring</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-core</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-userinfo</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-feign</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-mybatis</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-mq</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-domainevent</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.wakedata.common</groupId>
-        <artifactId>wd-common-redis</artifactId>
-        <version>$${wdCommonVersion}</version>
-      </dependency>
-      <dependency>
-          <groupId>com.wakedata</groupId>
-          <artifactId>spring-boot-xxl-job-starter</artifactId>
-          <version>2.2.0-WK</version>
-      </dependency>
-      <!-- wd-common dependency end-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.26</version>
-        </dependency>
-    </dependencies>
-  </dependencyManagement>
+            <!-- wd-common dependency start-->
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-spring</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-core</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-userinfo</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-feign</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-mybatis</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-mq</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-domainevent</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata.common</groupId>
+                <artifactId>wd-common-redis</artifactId>
+                <version>$${wdCommonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wakedata</groupId>
+                <artifactId>spring-boot-xxl-job-starter</artifactId>
+                <version>2.2.0-WK</version>
+            </dependency>
+            <!-- wd-common dependency end-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.26</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-  <!-- 使用父模块编译配置 -->
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>$${mavenCompilerPluginVersion}</version>
-      </plugin>
-    </plugins>
-  </build>
+    <!-- 使用父模块编译配置 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>$${mavenCompilerPluginVersion}</version>
+            </plugin>
+        </plugins>
+    </build>
 
-  <distributionManagement>
-    <!-- 配置release版本发布的仓库-->
-    <repository>
-      <id>central</id>
-      <name>libs-release-local</name>
-      <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
-    </repository>
-    <!-- 配置快照版本发布的仓库-->
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>libs-snapshot-local</name>
-      <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
-    </snapshotRepository>
-  </distributionManagement>
+    <distributionManagement>
+        <!-- 配置release版本发布的仓库-->
+        <repository>
+            <id>central</id>
+            <name>libs-release-local</name>
+            <url>http://172.26.59.85:8081/artifactory/libs-release-local</url>
+        </repository>
+        <!-- 配置快照版本发布的仓库-->
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>libs-snapshot-local</name>
+            <url>http://172.26.59.85:8081/artifactory/libs-snapshot-local/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
-  <modules>
-    <module>${PROJECT_NAME}-adapter</module>
-    <module>${PROJECT_NAME}-app</module>
-    <module>${PROJECT_NAME}-client</module>
-    <module>${PROJECT_NAME}-domain</module>
-    <module>${PROJECT_NAME}-infrastructure</module>
-    <module>${PROJECT_NAME}-start</module>
-  </modules>
+    <modules>
+        <module>${PROJECT_NAME}-adapter</module>
+        <module>${PROJECT_NAME}-app</module>
+        <module>${PROJECT_NAME}-client</module>
+        <module>${PROJECT_NAME}-domain</module>
+        <module>${PROJECT_NAME}-infrastructure</module>
+        <module>${PROJECT_NAME}-start</module>
+    </modules>
 </project>

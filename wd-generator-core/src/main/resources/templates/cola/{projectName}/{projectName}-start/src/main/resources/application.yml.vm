@@ -1,6 +1,6 @@
 #set($commonMysqlConfig = "{common.mysql")
 server:
-  port: 8080
+  port: 0
   servlet:
     context-path: /${PROJECT_NAME}
 

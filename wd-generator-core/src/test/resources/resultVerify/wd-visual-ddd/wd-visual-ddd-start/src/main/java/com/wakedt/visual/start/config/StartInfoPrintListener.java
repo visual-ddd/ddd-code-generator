@@ -1,18 +1,16 @@
 package com.wakedt.visual.start.config;
 
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ApplicationContextEvent;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.net.UnknownHostException;
 import java.util.Enumeration;
 
 /***
@@ -23,37 +21,29 @@ import java.util.Enumeration;
  */
 @Slf4j
 @Component
-public class StartInfoPrintListener implements ApplicationListener<ApplicationContextEvent> {
+@Scope("singleton")
+public class StartInfoPrintListener implements ApplicationRunner {
 
-    private static final String PORT = "server.port";
-    public static final String DEFAULT_PORT = "8080";
-    public static final String SERVER_SERVLET_CONTEXT_PATH = "server.servlet.context-path";
+    @Resource
+    private Environment environment;
 
-    @SneakyThrows
     @Override
-    public void onApplicationEvent(ApplicationContextEvent event) {
-        ApplicationContext applicationContext = event.getApplicationContext();
-        startInfoPrint(applicationContext);
-    }
-
-    /**
-     * 打印启动日志
-     *
-     * @param application application
-     */
-    private static void startInfoPrint(ApplicationContext application) {
-        Environment env = application.getEnvironment();
+    public void run(ApplicationArguments args) {
         String ip = getIpAddress();
-        String port = env.getProperty(PORT);
-        port = port == null ? DEFAULT_PORT : port;
-        String path = env.getProperty(SERVER_SERVLET_CONTEXT_PATH);
-        path = path == null ? StringUtils.EMPTY : path;
-        log.info("\n----------------------------------------------------------\n\t" +
-                "Application Demo is running! Access URLs:\n\t" +
-                "本地访问地址: \thttp://localhost:" + port + path + "\n\t" +
-                "外部访问地址: \thttp://" + ip + ":" + port + path + "\n\t" +
-                "Swagger文档: \thttp://" + ip + ":" + port + path + "/doc.html\n" +
-                "----------------------------------------------------------");
+        String port = environment.getProperty("local.server.port");
+        String contextPath = environment.getProperty("server.servlet.context-path");
+        String externalUrl = String.format("http://%s:%s%s", ip, port, contextPath);
+        String localUrl = String.format("http://localhost:%s%s", port, contextPath);
+        String localSwaggerDocUrl = String.format("%s/doc.html", localUrl);
+        String swaggerDocUrl = String.format("%s/doc.html", externalUrl);
+
+        System.out.println("===========================================================");
+        System.out.println("\tApplication Demo is running! Access URLs:");
+        System.out.println("\t本地访问地址: \t" + localUrl);
+        System.out.println("\t外部访问地址: \t" + externalUrl);
+        System.out.println("\t本地Swagger文档: \t" + localSwaggerDocUrl);
+        System.out.println("\t外部Swagger文档: \t" + swaggerDocUrl);
+        System.out.println("===========================================================");
     }
 
     /**
@@ -81,7 +71,7 @@ public class StartInfoPrintListener implements ApplicationListener<ApplicationCo
                 }
             }
         } catch (Exception e) {
-            log.error("IP地址获取失败" + e);
+            System.out.println("IP地址获取失败" + e);
         }
         return "";
     }

@@ -7,11 +7,11 @@ spring:
     port: ${redis.port}
   cloud:
     nacos:
-      server-addr: ${NACOS_CONFIG_SERVER:wdcloud-dev-nacos.wakedata-inc.com:80}
-      username: wdcloud-test
-      password: wdcloud-test
+      server-addr: ${NACOS_CONFIG_SERVER:172.26.63.113:27065}
+      username: nacos
+      password: nacos
       discovery:
-        namespace: ${NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}
+        namespace: ${NACOS_CONFIG_NAMESPACE:local-dev}
       config:
         namespace: ${NACOS_CONFIG_NAMESPACE:wdcloud-base-dev}
         file-extension: yml
