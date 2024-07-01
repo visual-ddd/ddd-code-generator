@@ -48,7 +48,7 @@ public class StartInfoPrintListener implements ApplicationListener<ApplicationCo
         port = port == null ? DEFAULT_PORT : port;
         String path = env.getProperty(SERVER_SERVLET_CONTEXT_PATH);
         path = path == null ? StringUtils.EMPTY : path;
-        log.info("\n----------------------------------------------------------\n\t" +
+        System.out.println("\n----------------------------------------------------------\n\t" +
                 "Application Demo is running! Access URLs:\n\t" +
                 "本地访问地址: \thttp://localhost:" + port + path + "\n\t" +
                 "外部访问地址: \thttp://" + ip + ":" + port + path + "\n\t" +
@@ -81,7 +81,7 @@ public class StartInfoPrintListener implements ApplicationListener<ApplicationCo
                 }
             }
         } catch (Exception e) {
-            log.error("IP地址获取失败" + e);
+            System.out.println("IP地址获取失败" + e);
         }
         return "";
     }

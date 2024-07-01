@@ -20,6 +20,7 @@ public class ElementMappingV1 extends AbstractElementMapping {
         return new String[]{
                 // project
                 "cola/{projectName}/pom.xml.vm",
+                "cola/{projectName}/.gitignore",
                 // domain
                 "cola/{projectName}/{projectName}-domain/pom.xml.vm",
                 // adapter

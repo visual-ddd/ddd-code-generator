@@ -1,5 +1,5 @@
-#set($serverAddr = "{NACOS_CONFIG_SERVER:wdcloud-dev-nacos.wakedata-inc.com:80}")
-#set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-public-dev}")
+#set($serverAddr = "{NACOS_CONFIG_SERVER:172.26.63.113:27065}")
+#set($discoveryNamespace = "{NACOS_CONFIG_NAMESPACE:local-dev}")
 #set($configNamespace = "{NACOS_CONFIG_NAMESPACE:wdcloud-base-dev}")
 spring:
   application:
@@ -11,8 +11,8 @@ spring:
   cloud:
     nacos:
       server-addr: $$serverAddr
-      username: wdcloud-test
-      password: wdcloud-test
+      username: nacos
+      password: nacos
       discovery:
         namespace: $$discoveryNamespace
       config:
