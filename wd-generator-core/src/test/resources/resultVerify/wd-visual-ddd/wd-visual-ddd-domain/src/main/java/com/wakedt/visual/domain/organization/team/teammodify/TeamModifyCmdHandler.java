@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.organization.team.teammodify;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.organization.team.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.organization.team.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class TeamModifyCmdHandler {
 
@@ -17,6 +19,8 @@ public class TeamModifyCmdHandler {
     private TeamRepository repository;
 
     public void handle(TeamModifyCmd updateCmd) {
+        log.info("编辑团队-指令处理器:{}", updateCmd);
+
         Team team = repository.find(updateCmd.getId());
         team.teamModify(updateCmd);
 

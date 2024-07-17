@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionpublish;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class BusinessSceneVersionPublishCmdHandler {
 
@@ -17,6 +19,8 @@ public class BusinessSceneVersionPublishCmdHandler {
     private BusinessSceneVersionRepository repository;
 
     public void handle(BusinessSceneVersionPublishCmd updateCmd) {
+        log.info("发布业务场景版本-指令处理器:{}", updateCmd);
+
         BusinessSceneVersion businessSceneVersion = repository.find(updateCmd.getId());
         businessSceneVersion.businessSceneVersionPublish(updateCmd);
 

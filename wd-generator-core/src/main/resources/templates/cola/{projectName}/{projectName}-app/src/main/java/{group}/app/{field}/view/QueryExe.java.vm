@@ -25,6 +25,7 @@ import com.wakedata.common.core.dto.PageResultDTO;
 #else
 import com.wakedata.common.core.dto.ResultDTO;
 #end
+import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get(${QUERY_CLASS_NAME})}.${QUERY_CLASS_NAME};
@@ -34,6 +35,7 @@ import ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).get(${returnTypeClassName})}.${
 import ${IMPORT_PACKAGE_MAP.get(${objectMapperId}).get(${convertClassName})}.${convertClassName};
 
 #comment("${QUERY_CLASS_TITLE}-查询器")
+@Slf4j
 @Component
 public class ${QUERY_CLASS_NAME}Exe {
 
@@ -42,6 +44,7 @@ public class ${QUERY_CLASS_NAME}Exe {
 
 #if(${QUERY_PAGINATION})
     public PageResultDTO<List<${returnTypeSign}>> execute(${QUERY_CLASS_NAME} pageQuery) {
+        log.info("${QUERY_CLASS_TITLE}-查询器:{}", pageQuery);
         PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<$doClassName> pageInfo = new PageInfo<>(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(pageQuery));
@@ -54,8 +57,10 @@ public class ${QUERY_CLASS_NAME}Exe {
     }
 #else
     public ResultDTO<${returnTypeSign}> execute(${QUERY_CLASS_NAME} query) {
-        return ResultDTO.success(
-                ${convertClassName}.INSTANCE.do2Dto(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query)));
+        log.info("${QUERY_CLASS_TITLE}-查询器:{}", query);
+        return ResultDTO.success(${convertClassName}.INSTANCE.do2Dto(
+                mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query)
+        ));
     }
 #end
 }

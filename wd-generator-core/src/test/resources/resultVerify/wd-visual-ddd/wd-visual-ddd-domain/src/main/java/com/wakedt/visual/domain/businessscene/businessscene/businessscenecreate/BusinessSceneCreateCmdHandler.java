@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.businessscene.businessscene.businessscenecreate;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.businessscene.businessscene.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.businessscene.businessscene.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class BusinessSceneCreateCmdHandler {
 
@@ -19,6 +21,8 @@ public class BusinessSceneCreateCmdHandler {
     private BusinessSceneFactory factory;
 
     public Long handle(BusinessSceneCreateCmd createCmd) {
+        log.info("新增业务场景-指令处理器:{}", createCmd);
+
         BusinessScene entity = factory.getInstance(createCmd);
 
         /* TODO CheckRepeatedIdentity(标识符唯一) 校验当前团队下业务场景标识符是否重复 */

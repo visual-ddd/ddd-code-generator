@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
+import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.application.query.ApplicationPageQuery;
@@ -20,6 +21,7 @@ import com.wakedt.visual.app.application.assembler.ApplicationDTO2ApplicationDOC
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class ApplicationPageQueryExe {
 
@@ -27,6 +29,7 @@ public class ApplicationPageQueryExe {
     private ApplicationMapper mapper;
 
     public PageResultDTO<List<ApplicationDTO>> execute(ApplicationPageQuery pageQuery) {
+        log.info("应用分页查询对象-查询器:{}", pageQuery);
         PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<ApplicationDO> pageInfo = new PageInfo<>(mapper.applicationPageQuery(pageQuery));

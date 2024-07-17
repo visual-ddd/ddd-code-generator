@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.organization.organization.organizationremove;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.organization.organization.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.organization.organization.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class OrganizationRemoveCmdHandler {
 
@@ -17,6 +19,8 @@ public class OrganizationRemoveCmdHandler {
     private OrganizationRepository repository;
 
     public void handle(OrganizationRemoveCmd removeCmd) {
+        log.info("删除组织-指令处理器:{}", removeCmd);
+
         Organization organization = repository.find(removeCmd.getId());
         organization.organizationRemove(removeCmd);
 

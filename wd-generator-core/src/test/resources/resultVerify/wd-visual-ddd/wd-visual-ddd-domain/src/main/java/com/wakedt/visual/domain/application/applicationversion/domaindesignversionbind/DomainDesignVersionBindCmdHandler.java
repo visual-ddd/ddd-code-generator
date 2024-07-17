@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.application.applicationversion.domaindesignversionbind;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.application.applicationversion.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.application.applicationversion.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class DomainDesignVersionBindCmdHandler {
 
@@ -17,6 +19,8 @@ public class DomainDesignVersionBindCmdHandler {
     private ApplicationVersionRepository repository;
 
     public void handle(DomainDesignVersionBindCmd updateCmd) {
+        log.info("关联业务域版本-指令处理器:{}", updateCmd);
+
         ApplicationVersion applicationVersion = repository.find(updateCmd.getId());
         applicationVersion.domainDesignVersionBind(updateCmd);
 

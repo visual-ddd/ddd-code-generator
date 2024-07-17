@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.application.applicationversion.applicationversionfork;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.application.applicationversion.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.application.applicationversion.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class ApplicationVersionForkCmdHandler {
 
@@ -19,6 +21,8 @@ public class ApplicationVersionForkCmdHandler {
     private ApplicationVersionFactory factory;
 
     public Long handle(ApplicationVersionForkCmd createCmd) {
+        log.info("Fork应用版本-指令处理器:{}", createCmd);
+
         ApplicationVersion entity = factory.getInstance(createCmd);
 
         /* TODO CheckLegalVersion(版本号合法) 校验版本号命名是否符合标准 */

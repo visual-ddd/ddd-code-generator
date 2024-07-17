@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignversionremove;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class DomainDesignVersionRemoveCmdHandler {
 
@@ -17,6 +19,8 @@ public class DomainDesignVersionRemoveCmdHandler {
     private DomainDesignVersionRepository repository;
 
     public void handle(DomainDesignVersionRemoveCmd removeCmd) {
+        log.info("删除业务域版本-指令处理器:{}", removeCmd);
+
         DomainDesignVersion domainDesignVersion = repository.find(removeCmd.getId());
         domainDesignVersion.domainDesignVersionRemove(removeCmd);
 

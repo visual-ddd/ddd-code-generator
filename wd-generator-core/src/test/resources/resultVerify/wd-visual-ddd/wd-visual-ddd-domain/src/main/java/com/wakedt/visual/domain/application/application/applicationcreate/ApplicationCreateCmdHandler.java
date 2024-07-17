@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.application.application.applicationcreate;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.application.application.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.application.application.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class ApplicationCreateCmdHandler {
 
@@ -19,6 +21,8 @@ public class ApplicationCreateCmdHandler {
     private ApplicationFactory factory;
 
     public Long handle(ApplicationCreateCmd createCmd) {
+        log.info("新增应用-指令处理器:{}", createCmd);
+
         Application entity = factory.getInstance(createCmd);
 
         /* TODO CheckRepeatedIdentity(标识符唯一) 校验当前团队下标识符是否重复 */

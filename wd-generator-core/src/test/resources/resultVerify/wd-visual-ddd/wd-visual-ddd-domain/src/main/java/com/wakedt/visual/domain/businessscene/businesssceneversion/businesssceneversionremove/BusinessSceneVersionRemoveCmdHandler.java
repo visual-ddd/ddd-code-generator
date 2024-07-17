@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.businessscene.businesssceneversion.businesssceneversionremove;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.businessscene.businesssceneversion.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class BusinessSceneVersionRemoveCmdHandler {
 
@@ -17,6 +19,8 @@ public class BusinessSceneVersionRemoveCmdHandler {
     private BusinessSceneVersionRepository repository;
 
     public void handle(BusinessSceneVersionRemoveCmd removeCmd) {
+        log.info("删除业务场景版本-指令处理器:{}", removeCmd);
+
         BusinessSceneVersion businessSceneVersion = repository.find(removeCmd.getId());
         businessSceneVersion.businessSceneVersionRemove(removeCmd);
 

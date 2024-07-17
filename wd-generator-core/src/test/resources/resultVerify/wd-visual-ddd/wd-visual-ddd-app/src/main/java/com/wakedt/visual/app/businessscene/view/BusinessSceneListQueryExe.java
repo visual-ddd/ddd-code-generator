@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
 import com.wakedata.common.core.dto.PageResultDTO;
+import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.businessscene.query.BusinessSceneListQuery;
@@ -20,6 +21,7 @@ import com.wakedt.visual.app.businessscene.assembler.BusinessSceneDTO2BusinessSc
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class BusinessSceneListQueryExe {
 
@@ -27,6 +29,7 @@ public class BusinessSceneListQueryExe {
     private BusinessSceneMapper mapper;
 
     public PageResultDTO<List<BusinessSceneDTO>> execute(BusinessSceneListQuery pageQuery) {
+        log.info("业务场景列表查询对象-查询器:{}", pageQuery);
         PageMethod.startPage(pageQuery.getPageNo(), pageQuery.getPageSize());
 
         PageInfo<BusinessSceneDO> pageInfo = new PageInfo<>(mapper.businessSceneListQuery(pageQuery));

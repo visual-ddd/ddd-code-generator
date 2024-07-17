@@ -1,6 +1,7 @@
 package com.wakedt.visual.app.businessscene.view;
 
 import com.wakedata.common.core.dto.ResultDTO;
+import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.businessscene.query.BusinessSceneLatestVersionQuery;
@@ -15,6 +16,7 @@ import com.wakedt.visual.app.businessscene.assembler.BusinessSceneVersionDTO2Bus
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class BusinessSceneLatestVersionQueryExe {
 
@@ -22,7 +24,9 @@ public class BusinessSceneLatestVersionQueryExe {
     private BusinessSceneVersionMapper mapper;
 
     public ResultDTO<BusinessSceneVersionDTO> execute(BusinessSceneLatestVersionQuery query) {
-        return ResultDTO.success(
-                BusinessSceneVersionDTO2BusinessSceneVersionDOConvert.INSTANCE.do2Dto(mapper.businessSceneLatestVersionQuery(query)));
+        log.info("应用最新版本查询对象-查询器:{}", query);
+        return ResultDTO.success(BusinessSceneVersionDTO2BusinessSceneVersionDOConvert.INSTANCE.do2Dto(
+                mapper.businessSceneLatestVersionQuery(query)
+        ));
     }
 }

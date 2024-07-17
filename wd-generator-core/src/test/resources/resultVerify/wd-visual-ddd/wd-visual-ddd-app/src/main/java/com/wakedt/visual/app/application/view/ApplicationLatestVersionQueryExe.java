@@ -1,6 +1,7 @@
 package com.wakedt.visual.app.application.view;
 
 import com.wakedata.common.core.dto.ResultDTO;
+import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.application.query.ApplicationLatestVersionQuery;
@@ -15,6 +16,7 @@ import com.wakedt.visual.app.application.assembler.ApplicationVersionDTO2Applica
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class ApplicationLatestVersionQueryExe {
 
@@ -22,7 +24,9 @@ public class ApplicationLatestVersionQueryExe {
     private ApplicationVersionMapper mapper;
 
     public ResultDTO<ApplicationVersionDTO> execute(ApplicationLatestVersionQuery query) {
-        return ResultDTO.success(
-                ApplicationVersionDTO2ApplicationVersionDOConvert.INSTANCE.do2Dto(mapper.applicationLatestVersionQuery(query)));
+        log.info("应用最新版本查询对象-查询器:{}", query);
+        return ResultDTO.success(ApplicationVersionDTO2ApplicationVersionDOConvert.INSTANCE.do2Dto(
+                mapper.applicationLatestVersionQuery(query)
+        ));
     }
 }

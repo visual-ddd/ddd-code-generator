@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.application.application.applicationremove;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.application.application.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.application.application.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class ApplicationRemoveCmdHandler {
 
@@ -17,6 +19,8 @@ public class ApplicationRemoveCmdHandler {
     private ApplicationRepository repository;
 
     public void handle(ApplicationRemoveCmd removeCmd) {
+        log.info("删除应用-指令处理器:{}", removeCmd);
+
         Application application = repository.find(removeCmd.getId());
         application.applicationRemove(removeCmd);
 

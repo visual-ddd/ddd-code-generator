@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.domaindesign.domaindesignversion.domaindesignversionfork;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.domaindesign.domaindesignversion.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class DomainDesignVersionForkCmdHandler {
 
@@ -19,6 +21,8 @@ public class DomainDesignVersionForkCmdHandler {
     private DomainDesignVersionFactory factory;
 
     public Long handle(DomainDesignVersionForkCmd createCmd) {
+        log.info("Fork业务域版本-指令处理器:{}", createCmd);
+
         DomainDesignVersion entity = factory.getInstance(createCmd);
 
         /* TODO CheckDomainVersionIdentityUnique(版本号唯一) 校验当前业务域下版本号是否唯一 */

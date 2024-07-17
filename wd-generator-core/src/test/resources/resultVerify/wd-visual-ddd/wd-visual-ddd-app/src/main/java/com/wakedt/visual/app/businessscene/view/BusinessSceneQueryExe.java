@@ -1,6 +1,7 @@
 package com.wakedt.visual.app.businessscene.view;
 
 import com.wakedata.common.core.dto.ResultDTO;
+import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import com.wakedt.visual.client.businessscene.query.BusinessSceneQuery;
@@ -15,6 +16,7 @@ import com.wakedt.visual.app.businessscene.assembler.BusinessSceneDTO2BusinessSc
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class BusinessSceneQueryExe {
 
@@ -22,7 +24,9 @@ public class BusinessSceneQueryExe {
     private BusinessSceneMapper mapper;
 
     public ResultDTO<BusinessSceneDTO> execute(BusinessSceneQuery query) {
-        return ResultDTO.success(
-                BusinessSceneDTO2BusinessSceneDOConvert.INSTANCE.do2Dto(mapper.businessSceneQuery(query)));
+        log.info("业务场景详情查询对象-查询器:{}", query);
+        return ResultDTO.success(BusinessSceneDTO2BusinessSceneDOConvert.INSTANCE.do2Dto(
+                mapper.businessSceneQuery(query)
+        ));
     }
 }

@@ -27,6 +27,8 @@ public class ${DOMAIN_CLASS_NAME}Task {
      */
     @Scheduled(cron = "${cron}")
     public void pointEffectiveCheckTask() {
+        log.info("${cmd.title}-定时执行");
+
         // TODO 执行${cmd.title}
         ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(null);
     }

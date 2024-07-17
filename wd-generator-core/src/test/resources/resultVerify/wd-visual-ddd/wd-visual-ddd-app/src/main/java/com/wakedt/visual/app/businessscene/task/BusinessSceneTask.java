@@ -32,6 +32,8 @@ public class BusinessSceneTask {
      */
     @Scheduled(cron = "0 0 2 * * ?")
     public void pointEffectiveCheckTask() {
+        log.info("编辑业务场景-定时执行");
+
         // TODO 执行编辑业务场景
         businessSceneModifyCmdHandler.handle(null);
     }

@@ -1,5 +1,6 @@
 package com.wakedt.visual.domain.organization.team.teamremove;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.organization.team.*;
@@ -10,6 +11,7 @@ import com.wakedt.visual.domain.organization.team.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class TeamRemoveCmdHandler {
 
@@ -17,6 +19,8 @@ public class TeamRemoveCmdHandler {
     private TeamRepository repository;
 
     public void handle(TeamRemoveCmd removeCmd) {
+        log.info("删除团队-指令处理器:{}", removeCmd);
+
         Team team = repository.find(removeCmd.getId());
         team.teamRemove(removeCmd);
 

@@ -32,6 +32,8 @@ public class BusinessSceneListener {
      * 消费事件 编辑业务场景
      */
     public void listenBusinessSceneCreateEvent(BusinessSceneCreateEvent event){
+        log.info("编辑业务场景-消费事件:{}", event);
+
         // TODO 执行编辑业务场景
         businessSceneModifyCmdHandler.handle(null);
     }

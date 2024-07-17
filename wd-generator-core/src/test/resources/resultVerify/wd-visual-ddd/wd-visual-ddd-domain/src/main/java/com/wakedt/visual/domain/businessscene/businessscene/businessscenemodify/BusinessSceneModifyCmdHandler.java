@@ -1,6 +1,7 @@
 package com.wakedt.visual.domain.businessscene.businessscene.businessscenemodify;
 
 import com.wakedata.common.domainevent.DomainEventPublisher;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import com.wakedt.visual.domain.businessscene.businessscene.*;
@@ -11,6 +12,7 @@ import com.wakedt.visual.domain.businessscene.businessscene.*;
  * @author shimmer
  * @since 1.0
  */
+@Slf4j
 @Component
 public class BusinessSceneModifyCmdHandler {
 
@@ -18,6 +20,8 @@ public class BusinessSceneModifyCmdHandler {
     private BusinessSceneRepository repository;
 
     public void handle(BusinessSceneModifyCmd updateCmd) {
+        log.info("编辑业务场景-指令处理器:{}", updateCmd);
+
         BusinessScene businessScene = repository.find(updateCmd.getId());
         businessScene.businessSceneModify(updateCmd);
 

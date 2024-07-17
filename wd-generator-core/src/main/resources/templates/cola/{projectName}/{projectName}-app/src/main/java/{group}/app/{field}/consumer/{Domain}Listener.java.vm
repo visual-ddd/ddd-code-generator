@@ -34,6 +34,8 @@ public class ${DOMAIN_CLASS_NAME}Listener {
      * 消费事件 ${cmd.title}
      */
     public void listen${cmd.externalEventNode.name}(${cmd.externalEventNode.name} event){
+        log.info("${cmd.title}-消费事件:{}", event);
+
         // TODO 执行${cmd.title}
         ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(null);
     }
