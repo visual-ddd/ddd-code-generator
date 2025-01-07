@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.mapper.DomainDesignMapper">
+
+    <select id="domainDesignQuery" parameterType="com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignQuery"
+            resultType="com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignDO">
+        SELECT *
+        FROM wd_domain_design t1
+        <where>
+            <if test="id != null">
+                AND t1.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="domainDesignPageQuery" parameterType="com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignPageQuery"
+            resultType="com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignDO">
+        SELECT *
+        FROM wd_domain_design t1
+        <where>
+            <if test="teamId != null">
+                AND t1.team_id = #{teamId}
+            </if>
+            <if test="name != null and name != ''">
+                AND t1.name LIKE CONCAT('%',#{name},'%')
+            </if>
+        </where>
+        ORDER BY t1.create_time
+    </select>
+
+    <select id="domainDesignListQuery" parameterType="com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignListQuery"
+            resultType="com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignDO">
+        SELECT *
+        FROM wd_domain_design t1
+        <where>
+            <if test="idList != null">
+                AND t1.id_list in
+                <foreach collection="idList" separator="," open="(" close=")" item="item">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY t1.create_time
+    </select>
+
+</mapper>

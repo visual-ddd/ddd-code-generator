@@ -1,0 +1,8 @@
+/**
+ * 领域层
+ * 负责业务逻辑的实现
+ *
+ * @author ${PROJECT_AUTHOR}
+ * @date ${PROJECT_DATE_TIME}
+ */
+package ${PROJECT_PACKAGE}.domain;

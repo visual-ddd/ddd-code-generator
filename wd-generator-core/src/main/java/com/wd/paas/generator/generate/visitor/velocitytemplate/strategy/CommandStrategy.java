@@ -99,7 +99,8 @@ public class CommandStrategy extends AbstractElementStrategy {
         context.put(VelocityLabel.CMD_CLASS_TITLE, astCommand.getTitle());
         context.put(VelocityLabel.CMD_CLASS_FIELDS, astCommand.getPropertyList());
 
-        context.put(VelocityLabel.CMD_EVENT_ENABLE, astCommand.getEventEnable());
+//        context.put(VelocityLabel.CMD_EVENT_ENABLE, astCommand.getEventEnable());
+        context.put(VelocityLabel.CMD_EVENT_ENABLE, false);
         context.put(VelocityLabel.CMD_EVENT_CLASS_NAME, astCommand.getAstDomainEvent().getName());
         context.put(VelocityLabel.CMD_EVENT_CLASS_FIELDS, astCommand.getAstDomainEvent().getPropertyList());
         context.put(VelocityLabel.CMD_EVENT_CLASS_DESCRIPTION, astCommand.getAstDomainEvent().getDescription());

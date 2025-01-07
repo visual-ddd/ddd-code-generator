@@ -30,9 +30,14 @@ public class ParseTypeSignUtil {
         while (m.find()) {
             String elementId = m.group(2);
             ElementContent elementContent = ThreadLocalUtil.get(elementId);
-            String name = Optional.ofNullable(elementContent)
-                    .map(ElementContent::getElementNode)
-                    .map(ElementNode::getName).orElse("NotFoundType");
+            ElementNode elementNode = Optional.ofNullable(elementContent)
+                    .map(ElementContent::getElementNode).orElse(null);
+            String name;
+            if (elementNode instanceof EnumNode) {
+                name = "Integer";
+            } else {
+                name = Optional.ofNullable(elementNode).map(ElementNode::getName).orElse("NotFoundType");
+            }
             result = m.replaceAll(name);
         }
         return result;

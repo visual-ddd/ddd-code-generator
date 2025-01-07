@@ -1,0 +1,52 @@
+server:
+  port: 0
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: @project.artifactId@
+  # 上传文件大小限制
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  messages:
+    basename: classpath:i18n/messages;classpath:i18n/validate;classpath:i18n/common;
+
+  # 数据库相关配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: mysqluser
+    password: mysqluser
+    host: 172.31.13.152:3306
+    url: jdbc:mysql://${spring.datasource.host}/wd_visual_ddd?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+
+# 分页查询插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#--------------如下配置尽量不要变动-------------
+# mybatis-plus 配置
+mybatis-plus:
+  type-aliases-package: com.wakedt.visual.bizdomain.*.infrastructure.repository.model
+  mapper-locations: classpath:mapper/**/*.xml                 # 对应mapper映射xml文件的所在路径
+  configuration:
+    map-underscore-to-camel-case: true                        # 是否开启自动驼峰命名规则映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl     # sql打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl #关闭sql日志
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+logging:
+  config: classpath:logback-spring.xml

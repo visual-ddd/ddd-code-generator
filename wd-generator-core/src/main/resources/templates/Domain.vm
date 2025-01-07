@@ -16,6 +16,9 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}")}.${cmd
 import ${IMPORT_PACKAGE_MAP.get(${dto.identity}).get("${dto.name}")}.${dto.name};
 #end
 #end
+#macro(importDomainApplication)
+import ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Application")}.${DOMAIN_CLASS_NAME}Application;
+#end
 #macro(importDomainRpcService)
 import ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}RpcService")}.${DOMAIN_CLASS_NAME}RpcService;
 #end

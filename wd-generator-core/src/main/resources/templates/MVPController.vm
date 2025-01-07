@@ -1,0 +1,60 @@
+#parse("templates/Domain.vm")
+#macro(controllerImport)
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import javax.annotation.Resource;
+
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import javax.validation.Valid;
+#importDomainApplication()
+#importDomainQuery()
+#importDomainCmdDTO()
+#importDomainDTO()
+#end
+#macro(controller)
+
+    @Resource
+    private ${DOMAIN_CLASS_NAME}Application ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}Application;
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+#set($RootIdType = ${aggregation.getRoot().getId().getType()})
+#set($RootIdName = ${aggregation.getRoot().getId().getName()})
+#foreach($cmd in ${aggregation.getCommandList()})
+#if(${cmd.getSourceValue("http")})
+
+    @ApiOperation("${cmd.title}")
+    @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${cmd.category})}")
+#if(${cmd.getRepository().getValue()} == "create")
+    public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.cmdDTOName} dto) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}Application.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
+    }
+#else
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(@RequestBody @Valid ${cmd.cmdDTOName} dto) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}Application.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
+    }
+#end
+#end
+#end
+#end
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+
+    @ApiOperation("${query.title}")
+    @PostMapping("/${CASE_FORMAT_LOWER_HYPHEN.convert(${query.name})}")
+#if(${query.pagination})
+    public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(@RequestBody @Valid ${query.name} pageQuery) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}Application.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(pageQuery);
+    }
+#else
+    public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(@RequestBody @Valid ${query.name} query) {
+        return ${CASE_FORMAT_LOWER_CAMEL.convert(${DOMAIN_CLASS_NAME})}Application.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(query);
+    }
+#end
+#end
+#end

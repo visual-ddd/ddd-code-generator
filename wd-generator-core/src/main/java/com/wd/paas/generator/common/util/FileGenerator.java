@@ -95,12 +95,14 @@ public class FileGenerator {
 
     private static Template getTemplate(String templateUrl, VelocityEngine velocityEngine) {
         Template tpl = new Template();
+        // 获取模板(初始化templatePreUrl + templateUrl)
+        String url = "templates/" + templateUrl;
 
         try {
-            // 获取模板(初始化templatePreUrl + templateUrl)
-            tpl = velocityEngine.getTemplate("templates/" + templateUrl, "UTF-8");
+            tpl = velocityEngine.getTemplate(url, "UTF-8");
         } catch (ResourceNotFoundException e) {
-            log.error("模版文件资源找不到！");
+            log.error("模版文件资源找不到！url：{}", url);
+            throw new IllegalStateException(String.format("模版文件资源找不到！url：%s", url));
         } catch (ParseErrorException e) {
             log.error("解析模版文件失败！");
         }

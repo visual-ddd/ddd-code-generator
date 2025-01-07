@@ -120,6 +120,9 @@ public abstract class AbstractElementStrategy implements VelocityTemplateGenerat
             case COLA_SINGLE:
                 elementMapping = new ElementMappingV2(operationTypeEnum);
                 break;
+            case COLA_SINGLE_MVP:
+                elementMapping = new ElementMappingSingleMvp(operationTypeEnum);
+                break;
             default:
                 throw new IllegalStateException("项目架构类型设置非法！");
         }

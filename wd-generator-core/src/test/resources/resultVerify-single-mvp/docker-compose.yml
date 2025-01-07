@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+  mysql:
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - spring_cloud_default
+
+  wd-visual-ddd:
+    build:
+      context: ./wd-visual-ddd
+    restart: always
+    container_name: wd-visual-ddd
+    hostname: wd-visual-ddd
+    image: wd-visual-ddd
+    networks:
+      - spring_cloud_default
+
+  wd-visual-ddd-ui:
+    build:
+      context: ./wd-visual-ddd-ui
+    restart: always
+    container_name: wd-visual-ddd-ui
+    image: wd-visual-ddd-ui
+    ports:
+      - "80:80"
+    networks:
+      - spring_cloud_default
+
+networks:
+  spring_cloud_default:
+    driver: bridge

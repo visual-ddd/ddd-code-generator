@@ -1,0 +1,57 @@
+#parse("templates/ClassFunction.vm")
+#set($encode = "{event.${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get(${CMD_EVENT_CLASS_NAME})}}")
+package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_EVENT_CLASS_NAME}")};
+
+import com.wakedata.common.domainevent.model.BaseDomainEvent;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}")}.*;
+
+#comment("${CMD_EVENT_CLASS_TITLE}-指令事件")
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class ${CMD_EVENT_CLASS_NAME} extends BaseDomainEvent {
+    #filed($CMD_EVENT_CLASS_FIELDS)
+    #method($CMD_EVENT_CLASS_METHODS)
+
+    public ${CMD_EVENT_CLASS_NAME}() {}
+
+    public ${CMD_EVENT_CLASS_NAME}(${CMD_CLASS_NAME} cmd
+#foreach($eventField in ${CMD_EVENT_CLASS_FIELDS})
+#set($result = 0)
+#isFieldParttern($eventField.name, $result)
+#if($result == 0)
+        , ${PARSE_TYPE_UTIL.parse($eventField.type)} $eventField.name
+#end
+#end
+    ) {
+#foreach ($eventField in ${CMD_EVENT_CLASS_FIELDS})
+        #set($hasPrint = 0)
+#foreach($cmdField in ${CMD_CLASS_FIELDS})
+#if($eventField.name == $cmdField.name)
+        this.${eventField.name} = cmd.get${eventField.name.substring(0, 1).toUpperCase()}${eventField.name.substring(1)}();
+#set($hasPrint = 1)
+#end
+#end
+#if($hasPrint == 0)
+        this.${eventField.name} = ${eventField.name};
+#set($hasPrint = 1)
+#end
+#end
+    }
+
+    @Override
+    public String eventCode() {
+        return "$$encode";
+    }
+}
+#macro(isFieldParttern $eventFieldName, $result)
+#foreach($cmdField in ${CMD_CLASS_FIELDS})
+#if($eventFieldName == $cmdField.name)
+#set($result = 1)
+#end
+#end
+#end

@@ -1,0 +1,17 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert")};
+
+import com.wakedata.common.core.base.BaseConvert;
+import com.wakedata.common.core.base.BaseJsonConvertor;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get("${VALUE_OBJECT_DTO_NAME}")}.${VALUE_OBJECT_DTO_NAME};
+import ${IMPORT_PACKAGE_MAP.get(${VALUE_OBJECT_ID}).get(${VALUE_OBJECT_CLASS_NAME})}.${VALUE_OBJECT_CLASS_NAME};
+
+@Mapper(uses = {
+        BaseJsonConvertor.class,
+})
+public interface ${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert extends BaseConvert<${VALUE_OBJECT_DTO_NAME}, ${VALUE_OBJECT_CLASS_NAME}> {
+
+    ${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert INSTANCE = Mappers.getMapper(${VALUE_OBJECT_DTO_NAME}2${VALUE_OBJECT_CLASS_NAME}Convert.class);
+}

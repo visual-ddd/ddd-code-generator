@@ -1,0 +1,53 @@
+#parse("templates/ClassFunction.vm")
+#set($doId = ${DATA_OBJECT_ID})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($doMapperClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.dataObjectMapperName})
+#set($dtoId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${doId}")})
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapperClassName}">
+## 只生成<聚合根>对应的查询模型接口
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+#if(${dtoId} == ${PARSE_TYPE_UTIL.getFirstId(${query.returnInfo.type})})
+
+    <select id="${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}" parameterType="${IMPORT_PACKAGE_MAP.get(${query.identity}).get(${query.name})}.${query.name}"
+            resultType="${IMPORT_PACKAGE_MAP.get(${doId}).get("${doClassName}")}.${doClassName}">
+        SELECT *
+        FROM ${DATA_OBJECT_TABLE_NAME} t1
+        <where>
+#foreach($queryFiled in $query.propertyList)
+#if(${queryFiled.type} == 'String')
+            <if test="${queryFiled.name} != null and ${queryFiled.name} != ''">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} LIKE CONCAT('%',#{${queryFiled.name}},'%')
+            </if>
+#end
+#if(${queryFiled.type.contains("List<")} || ${queryFiled.type.contains("Set<")})
+            <if test="${queryFiled.name} != null">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} in
+                <foreach collection="${queryFiled.name}" separator="," open="(" close=")" item="item">
+                    #{item}
+                </foreach>
+            </if>
+#end
+#if(${queryFiled.type} != 'String' && !${queryFiled.type.contains("List<")} && !${queryFiled.type.contains("Set<")})
+            <if test="${queryFiled.name} != null">
+                AND t1.${CASE_FORMAT_LOWER_UNDERSCORE.convert(${queryFiled.name})} = #{${queryFiled.name}}
+            </if>
+#end
+#end
+        </where>
+#if(${query.pagination})
+        ORDER BY t1.create_time
+#end
+    </select>
+#end
+#end
+##    <resultMap id="BaseResultMap" type="${DOPackagePath}.${AGGREGATION_CLASS_NAME}DO">
+##
+##        <id property="id" column="id" jdbcType="BIGINT"/>
+##        #foreach($field in ${AGGREGATION_CLASS_FIELDS})
+##            <result property="tenantId" column="tenant_id" jdbcType="BIGINT"/>
+##        #end
+##    </resultMap>
+
+</mapper>

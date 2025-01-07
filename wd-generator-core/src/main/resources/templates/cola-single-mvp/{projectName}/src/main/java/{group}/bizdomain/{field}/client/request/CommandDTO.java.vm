@@ -1,0 +1,18 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_DTO_CLASS}")};
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
+
+#comment("${CMD_CLASS_TITLE}")
+@Data
+@ApiModel(description = "${CMD_CLASS_TITLE}")
+public class ${CMD_DTO_CLASS} {
+#dtoFiled(${CMD_CLASS_FIELDS})
+
+}

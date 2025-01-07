@@ -1,0 +1,61 @@
+#parse("templates/ClassFunction.vm")
+#set($returnTypeSign = ${PARSE_TYPE_UTIL.parse(${QUERY_RETURN_TYPE})})
+#set($returnTypeId = ${PARSE_TYPE_UTIL.getFirstId(${QUERY_RETURN_TYPE})})
+#set($returnTypeClassName = ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).elementNode.name})
+#set($doId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${returnTypeId}")})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($doMapperClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.dataObjectMapperName})
+#set($aggregationId = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doId}")})
+#set($aggregationClassName = ${IMPORT_PACKAGE_MAP.get(${aggregationId}).elementNode.name})
+#set($convertClassName = "${returnTypeClassName}2${doClassName}Convert")
+#foreach($objectMapper in ${DOMAIN_OBJECT_MAPPER_LIST})
+#if(${objectMapper.source.id} == ${returnTypeId} && ${objectMapper.target.id} == ${doId})
+#set($objectMapperId = ${objectMapper.identity})
+#end
+#end
+package ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get("${QUERY_CLASS_NAME}Exe")};
+
+#if(${QUERY_PAGINATION})
+import java.util.*;
+import java.math.*;
+import java.time.LocalDateTime;
+import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageHelper;
+import com.wakedata.common.core.dto.PageResultDTO;
+#else
+import com.wakedata.common.core.dto.ResultDTO;
+#end
+import javax.annotation.Resource;
+import org.springframework.stereotype.Component;
+import ${IMPORT_PACKAGE_MAP.get(${QUERY_ID}).get(${QUERY_CLASS_NAME})}.${QUERY_CLASS_NAME};
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doClassName}")}.${doClassName};
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get("${doMapperClassName}")}.${doMapperClassName};
+import ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).get(${returnTypeClassName})}.${returnTypeClassName};
+import ${IMPORT_PACKAGE_MAP.get(${objectMapperId}).get(${convertClassName})}.${convertClassName};
+
+#comment("${QUERY_CLASS_TITLE}-查询器")
+@Component
+public class ${QUERY_CLASS_NAME}Exe {
+
+    @Resource
+    private ${doMapperClassName} mapper;
+
+#if(${QUERY_PAGINATION})
+    public PageResultDTO<List<${returnTypeSign}>> execute(${QUERY_CLASS_NAME} pageQuery) {
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+
+        PageInfo<$doClassName> pageInfo = new PageInfo<>(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(pageQuery));
+        PageResultDTO<List<${returnTypeClassName}>> pageResultDTO = new PageResultDTO<>();
+        pageResultDTO.setData(${convertClassName}.INSTANCE.doList2DtoList(pageInfo.getList()));
+        pageResultDTO.setPageNo(pageInfo.getPageNum());
+        pageResultDTO.setPageSize(pageInfo.getSize());
+        pageResultDTO.setTotalCount(pageInfo.getTotal());
+        return pageResultDTO;
+    }
+#else
+    public ResultDTO<${returnTypeSign}> execute(${QUERY_CLASS_NAME} query) {
+        return ResultDTO.success(
+                ${convertClassName}.INSTANCE.do2Dto(mapper.${CASE_FORMAT_LOWER_CAMEL.convert(${QUERY_CLASS_NAME})}(query)));
+    }
+#end
+}

@@ -1,0 +1,43 @@
+#parse("templates/ClassFunction.vm")
+#set($doId = ${OBJECT_MAPPER_TARGET_OBJECT_ID})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($aggregationRootId = ${IMPORT_PACKAGE_MAP.get("mapper::entity::${doId}")})
+#set($aggregationRootClass = ${IMPORT_PACKAGE_MAP.get(${aggregationRootId}).elementNode.name})
+#set($aggregationId = ${IMPORT_PACKAGE_MAP.get(${aggregationRootId}).elementNode.getParentNode().identity})
+package ${IMPORT_PACKAGE_MAP.get(${OBJECT_MAPPER_ID}).get("${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert")};
+
+import com.wakedata.common.core.base.BaseConvert;
+import com.wakedata.common.core.base.BaseJsonConvertor;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+import ${IMPORT_PACKAGE_MAP.get(${aggregationRootId}).get(${aggregationRootClass})}.${aggregationRootClass};
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get(${doClassName})}.${doClassName};
+#foreach($valueObject in ${DOMAIN_VALUE_OBJECT_LIST})
+#if(${valueObject.getParentNode().identity} == ${aggregationId})
+import ${IMPORT_PACKAGE_MAP.get(${valueObject.identity}).get("${valueObject.name}Converter")}.${valueObject.name}Converter;
+#end
+#end
+#foreach($entity in ${DOMAIN_ENTITY_LIST})
+#if(${entity.getParentNode().identity} == ${aggregationId})
+import ${IMPORT_PACKAGE_MAP.get(${entity.identity}).get("${entity.name}Converter")}.${entity.name}Converter;
+#end
+#end
+
+@Mapper(uses = {
+        BaseJsonConvertor.class,
+#foreach($valueObject in ${DOMAIN_VALUE_OBJECT_LIST})
+#if(${valueObject.getParentNode().identity} == ${aggregationId})
+        ${valueObject.name}Converter.class,
+#end
+#end
+#foreach($entity in ${DOMAIN_ENTITY_LIST})
+#if(${entity.getParentNode().identity} == ${aggregationId})
+        ${entity.name}Converter.class,
+#end
+#end
+})
+public interface ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert extends BaseConvert<${OBJECT_MAPPER_SOURCE_OBJECT}, ${OBJECT_MAPPER_TARGET_OBJECT}> {
+
+    ${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert INSTANCE = Mappers.getMapper(${OBJECT_MAPPER_SOURCE_OBJECT}2${OBJECT_MAPPER_TARGET_OBJECT}Convert.class);
+
+}

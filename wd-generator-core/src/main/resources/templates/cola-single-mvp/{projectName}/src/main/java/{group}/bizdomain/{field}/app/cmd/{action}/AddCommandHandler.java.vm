@@ -1,0 +1,34 @@
+#parse("templates/ClassFunction.vm")
+package ${IMPORT_PACKAGE_MAP.get(${CMD_ID}).get("${CMD_CLASS_NAME}Handler")};
+
+#if(${CMD_EVENT_ENABLE})
+import com.wakedata.common.domainevent.DomainEventPublisher;
+#end
+import org.springframework.stereotype.Component;
+import javax.annotation.Resource;
+import ${IMPORT_PACKAGE_MAP.get(${AGGREGATION_ID}).get("${AGGREGATION_CLASS_NAME}")}.*;
+
+#comment("${CMD_CLASS_TITLE}-指令处理器")
+@Component
+public class ${CMD_CLASS_NAME}Handler {
+
+    @Resource
+    private ${AGGREGATION_CLASS_NAME}Repository repository;
+    @Resource
+    private ${AGGREGATION_CLASS_NAME}Factory factory;
+
+    public ${AGGREGATION_CLASS_ID.getType()} handle(${CMD_CLASS_NAME} createCmd) {
+        ${AGGREGATION_CLASS_NAME} entity = factory.getInstance(createCmd);
+#foreach($ruleInfo in ${CMD_RULE_LIST})
+
+        /* TODO ${ruleInfo.name}(${ruleInfo.title}) ${ruleInfo.description.replaceAll("\n","\\n")} */
+#end
+
+        ${AGGREGATION_CLASS_NAME} newEntity = repository.save(entity);
+#if(${CMD_EVENT_ENABLE})
+        // TODO 根据业务需要，发布<${CMD_CLASS_TITLE}>领域事件
+        DomainEventPublisher.getInstance().postAfterCommit(new ${CMD_EVENT_CLASS_NAME}());
+#end
+        return newEntity.get${CASE_FORMAT_UPPER_CAMEL.convert(${AGGREGATION_CLASS_ID.getName()})}();
+    }
+}
