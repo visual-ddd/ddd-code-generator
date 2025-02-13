@@ -12,7 +12,7 @@
 
     <groupId>com.wd.paas</groupId>
     <artifactId>ddd-code-generator</artifactId>
-    <version>4.1.0-RC01</version>
+    <version>4.1.0-RC01-SNAPSHOT</version>
     <packaging>pom</packaging>
     <description>Visual DDD 代码生成器组件</description>
 

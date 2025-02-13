@@ -22,7 +22,7 @@ spring:
   # 数据库相关配置
   datasource:
 
-    # 内存数据库配置（适合快速开发、无数据库环境）
+    # 内存数据库配置（适用于开发阶段的快速原型设计和测试、无需数据库环境）
     url: jdbc:h2:mem:devDatabase
     username: dev
     password: dev

@@ -17,40 +17,72 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] project() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/pom.xml.vm",
-                "cola-single-mvp/{projectName}/Dockerfile",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/start/StartApplication.java.vm",
-                "cola-single-mvp/{projectName}/src/main/resources/application.yml.vm",
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/pom.xml.vm",
+                        "cola-single-mvp/{projectName}/Dockerfile",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/start/StartApplication.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/resources/application.yml.vm",
 //                "cola-single-mvp/{projectName}/src/main/resources/application-dev.yml.vm",
-                "cola-single-mvp/{projectName}/src/main/resources/logback-spring.xml.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/start/config/Knife4jConfig.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/start/config/StartInfoPrinter.java.vm",
-                "cola-single-mvp/docker-compose.yml.vm",
+                        "cola-single-mvp/{projectName}/src/main/resources/logback-spring.xml.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/start/config/Knife4jConfig.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/start/config/StartInfoPrinter.java.vm",
+                        "cola-single-mvp/docker-compose.yml.vm",
 
-                // common
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/DTO.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseEnum.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseQuery.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseDTO.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseVO.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageQuery.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/ResultDTO.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageResultDTO.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/SortingField.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseConvert.java",
-//                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseJpaAggregate.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseJsonConvertor.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/SysException.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/BizDialogException.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/BizException.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/ResultCode.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/CommonResultCode.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseDO.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseJpaAggregate.java",
-                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageConstant.java",
+                        // common
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/DTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseEnum.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseQuery.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseDTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseVO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageQuery.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/ResultDTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageResultDTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/SortingField.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseConvert.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseJsonConvertor.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/SysException.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/BizDialogException.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/BizException.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/ResultCode.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/CommonResultCode.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseDO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseJpaAggregate.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageConstant.java",
 
-        };
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/Dockerfile",
+                        "cola-single-mvp/{projectName}/src/main/resources/logback-spring.xml.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/start/config/Knife4jConfig.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/start/config/StartInfoPrinter.java.vm",
+                        "cola-single-mvp/docker-compose.yml.vm",
+
+                        // common
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/DTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseEnum.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseQuery.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseDTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseVO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageQuery.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/ResultDTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageResultDTO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/SortingField.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseConvert.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/base/BaseJsonConvertor.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/SysException.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/BizDialogException.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/exception/BizException.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/ResultCode.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/CommonResultCode.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseDO.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseJpaAggregate.java",
+                        "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageConstant.java",
+                };
+        }
     }
 
     /**
@@ -58,13 +90,21 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] domainChart() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/adapter/{Domain}AppController.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/adapter/{Domain}WebController.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/{Domain}Application.java.vm",
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/adapter/{Domain}AppController.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/adapter/{Domain}WebController.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/{Domain}Application.java.vm",
 //                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/client/{Domain}RpcService.java.vm",
 //                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/client/{Domain}RpcServiceImpl.java.vm",
-        };
+                };
+            case UPDATE_CODE:
+                return new String[]{
+
+                };
+        }
     }
 
     /**
@@ -72,9 +112,17 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] domainChartTask() {
-        return new String[]{
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
 //                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/task/{Domain}Task.java.vm",
-        };
+                };
+            case UPDATE_CODE:
+                return new String[]{
+
+                };
+        }
     }
 
     /**
@@ -82,9 +130,17 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] domainChartListener() {
-        return new String[]{
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
 //                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/consumer/{Domain}Listener.java.vm",
-        };
+                };
+            case UPDATE_CODE:
+                return new String[]{
+
+                };
+        }
     }
 
     /**
@@ -100,11 +156,19 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] aggregationRoot() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/AggregationFactory.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/AggregationRepository.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/Aggregation.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/AggregationFactory.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/AggregationRepository.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/Aggregation.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/Aggregation.java.vm",
+                };
+        }
     }
 
     /**
@@ -161,9 +225,16 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] commandHandler() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/CommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/CommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                };
+        }
     }
 
     /**
@@ -171,9 +242,16 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] addCommandHandler() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/AddCommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/AddCommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                };
+        }
     }
 
     /**
@@ -181,9 +259,16 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] updateCommandHandler() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/UpdateCommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/UpdateCommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                };
+        }
     }
 
     /**
@@ -191,9 +276,16 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] deleteCommandHandler() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/DeleteCommandHandler.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/DeleteCommandHandler.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                };
+        }
     }
 
     /**
@@ -221,10 +313,18 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] query() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/client/request/Query.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/view/QueryExe.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/client/request/Query.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/view/QueryExe.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/client/request/Query.java.vm",
+                };
+        }
     }
 
     /**
@@ -242,18 +342,32 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] dataModel() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/resources/mapper/{field}/DataModelMapper.xml.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/infrastructure/repository/mapper/DataModelMapper.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/infrastructure/repository/model/DataModelDO.java.vm"
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/resources/mapper/{field}/DataModelMapper.xml.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/infrastructure/repository/mapper/DataModelMapper.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/infrastructure/repository/model/DataModelDO.java.vm"
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/infrastructure/repository/model/DataModelDO.java.vm"
+                };
+        }
     }
 
     @Override
     public String[] objectMapperModel() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/infrastructure/repository/ObjectMapperRepositoryImpl.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/infrastructure/repository/ObjectMapperRepositoryImpl.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{};
+        }
     }
 
     @Override
@@ -275,12 +389,20 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
      */
     @Override
     public String[] businessScenario() {
-        return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/app/{Business}RpcServiceImpl.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/client/{Business}RpcService.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/adapter/{Business}AppController.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/adapter/{Business}WebController.java.vm",
-        };
+        switch (operationTypeEnum) {
+            default:
+            case INIT_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/app/{Business}RpcServiceImpl.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/client/{Business}RpcService.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/adapter/{Business}AppController.java.vm",
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/adapter/{Business}WebController.java.vm",
+                };
+            case UPDATE_CODE:
+                return new String[]{
+                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizservice/{business}/client/{Business}RpcService.java.vm",
+                };
+        }
     }
 
     /**
