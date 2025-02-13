@@ -3,13 +3,11 @@ package com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wakedata.common.mybatis.plus.po.BaseDO;
+import com.wakedata.common.mybatis.plus.po.BaseJpaAggregate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 /**
  * 业务域实体类
@@ -20,9 +18,13 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("wd_domain_design")
-public class DomainDesignDO extends BaseDO {
+@Table(name = "wd_domain_design")
+@Entity
+public class DomainDesignDO extends BaseJpaAggregate {
 
     /** 业务域 ID */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableId(type = IdType.AUTO)
     private Long id;
 

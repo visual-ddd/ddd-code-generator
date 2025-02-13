@@ -3,13 +3,11 @@ package com.wakedt.visual.bizdomain.account.infrastructure.repository.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wakedata.common.mybatis.plus.po.BaseDO;
+import com.wakedata.common.mybatis.plus.po.BaseJpaAggregate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 /**
  * 账号验证码实体类
@@ -20,9 +18,13 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("account_verification")
-public class AccountVerificationDO extends BaseDO {
+@Table(name = "account_verification")
+@Entity
+public class AccountVerificationDO extends BaseJpaAggregate {
 
     /** 实体唯一标识符 */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableId(type = IdType.AUTO)
     private Long id;
 

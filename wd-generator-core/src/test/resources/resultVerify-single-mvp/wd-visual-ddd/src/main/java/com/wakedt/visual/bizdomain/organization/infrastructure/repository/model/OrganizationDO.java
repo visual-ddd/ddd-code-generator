@@ -3,13 +3,11 @@ package com.wakedt.visual.bizdomain.organization.infrastructure.repository.model
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wakedata.common.mybatis.plus.po.BaseDO;
+import com.wakedata.common.mybatis.plus.po.BaseJpaAggregate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 /**
  * 组织实体类
@@ -20,9 +18,13 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("wd_organization")
-public class OrganizationDO extends BaseDO {
+@Table(name = "wd_organization")
+@Entity
+public class OrganizationDO extends BaseJpaAggregate {
 
     /** 组织 ID */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableId(type = IdType.AUTO)
     private Long id;
 

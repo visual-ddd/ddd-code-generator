@@ -3,13 +3,11 @@ package com.wakedt.visual.bizdomain.application.infrastructure.repository.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wakedata.common.mybatis.plus.po.BaseDO;
+import com.wakedata.common.mybatis.plus.po.BaseJpaAggregate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 /**
  * 应用版本实体类
@@ -20,9 +18,13 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("wd_application_version")
-public class ApplicationVersionDO extends BaseDO {
+@Table(name = "wd_application_version")
+@Entity
+public class ApplicationVersionDO extends BaseJpaAggregate {
 
     /** 应用版本ID */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableId(type = IdType.AUTO)
     private Long id;
 

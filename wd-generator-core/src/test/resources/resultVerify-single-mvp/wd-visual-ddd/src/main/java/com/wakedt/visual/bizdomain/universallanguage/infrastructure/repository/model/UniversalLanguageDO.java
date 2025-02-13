@@ -3,13 +3,11 @@ package com.wakedt.visual.bizdomain.universallanguage.infrastructure.repository.
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wakedata.common.mybatis.plus.po.BaseDO;
+import com.wakedata.common.mybatis.plus.po.BaseJpaAggregate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 /**
  * 统一语言实体类
@@ -20,9 +18,13 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("wd_universal_language")
-public class UniversalLanguageDO extends BaseDO {
+@Table(name = "wd_universal_language")
+@Entity
+public class UniversalLanguageDO extends BaseJpaAggregate {
 
     /** 统一语言 ID */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableId(type = IdType.AUTO)
     private Long id;
 

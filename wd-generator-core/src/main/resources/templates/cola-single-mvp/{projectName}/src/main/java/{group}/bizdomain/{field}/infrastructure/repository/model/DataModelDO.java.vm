@@ -4,23 +4,25 @@ package ${IMPORT_PACKAGE_MAP.get(${DATA_OBJECT_ID}).get("${DATA_OBJECT_CLASS_NAM
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wakedata.common.mybatis.plus.po.BaseDO;
+import com.wakedata.common.mybatis.plus.po.BaseJpaAggregate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.*;
-import java.math.*;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 #comment("${DATA_OBJECT_CLASS_TITLE}实体类")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("${DATA_OBJECT_TABLE_NAME}")
-public class ${DATA_OBJECT_CLASS_NAME} extends BaseDO {
+@Table(name = "${DATA_OBJECT_TABLE_NAME}")
+@Entity
+public class ${DATA_OBJECT_CLASS_NAME} extends BaseJpaAggregate {
 #foreach ($field in $DATA_OBJECT_CLASS_FIELDS)
 
 #if(${field.name}==${DATA_OBJECT_CLASS_PRIMARY_KEY})
 #printFieldDesc($field)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableId(type = IdType.AUTO)
     private ${field.dataType} ${field.name};
 #end

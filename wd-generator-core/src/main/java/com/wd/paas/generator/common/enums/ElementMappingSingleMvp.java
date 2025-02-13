@@ -47,6 +47,7 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
                 "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/ResultCode.java",
                 "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/resultcode/CommonResultCode.java",
                 "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseDO.java",
+                "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/mybatis/plus/po/BaseJpaAggregate.java",
                 "cola-single-mvp/{projectName}/src/main/java/com/wakedata/common/core/dto/PageConstant.java",
 
         };
