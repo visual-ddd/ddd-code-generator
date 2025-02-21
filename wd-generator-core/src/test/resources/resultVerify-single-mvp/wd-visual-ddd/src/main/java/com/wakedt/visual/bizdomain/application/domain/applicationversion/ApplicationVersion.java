@@ -4,11 +4,11 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.application.app.cmd.applicationversionmodify.ApplicationVersionModifyCmd;
-import com.wakedt.visual.bizdomain.application.app.cmd.applicationversionremove.ApplicationVersionRemoveCmd;
-import com.wakedt.visual.bizdomain.application.app.cmd.businesssceneversionbind.BusinessSceneVersionBindCmd;
-import com.wakedt.visual.bizdomain.application.app.cmd.domaindesignversionbind.DomainDesignVersionBindCmd;
-import com.wakedt.visual.bizdomain.application.app.cmd.applicationversionpublish.ApplicationVersionPublishCmd;
+import com.wakedt.visual.bizdomain.application.client.request.ApplicationVersionModifyDTO;
+import com.wakedt.visual.bizdomain.application.client.request.ApplicationVersionRemoveDTO;
+import com.wakedt.visual.bizdomain.application.client.request.BusinessSceneVersionBindDTO;
+import com.wakedt.visual.bizdomain.application.client.request.DomainDesignVersionBindDTO;
+import com.wakedt.visual.bizdomain.application.client.request.ApplicationVersionPublishDTO;
 
 /**
  * 应用版本-聚合根
@@ -64,26 +64,26 @@ public class ApplicationVersion {
         // TODO 版本号合法(校验版本号命名是否符合标准)
     }
 
-    public void applicationVersionModify(ApplicationVersionModifyCmd updateCmd) {
+    public void applicationVersionModify(ApplicationVersionModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setDescription(updateCmd.getDescription());
     }
 
-    public void applicationVersionRemove(ApplicationVersionRemoveCmd removeCmd) {
+    public void applicationVersionRemove(ApplicationVersionRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 
-    public void businessSceneVersionBind(BusinessSceneVersionBindCmd updateCmd) {
+    public void businessSceneVersionBind(BusinessSceneVersionBindDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setBusinessSceneVersionIds(updateCmd.getBusinessSceneVersionIds());
     }
 
-    public void domainDesignVersionBind(DomainDesignVersionBindCmd updateCmd) {
+    public void domainDesignVersionBind(DomainDesignVersionBindDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setDomainDesignVersionIds(updateCmd.getDomainDesignVersionIds());
     }
 
-    public void applicationVersionPublish(ApplicationVersionPublishCmd updateCmd) {
+    public void applicationVersionPublish(ApplicationVersionPublishDTO updateCmd) {
         this.setId(updateCmd.getId());
     }
 

@@ -4,10 +4,10 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversionmodify.BusinessSceneVersionModifyCmd;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversionremove.BusinessSceneVersionRemoveCmd;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.dslupdate.BusinessSceneVersionDSLUpdateCmd;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversionpublish.BusinessSceneVersionPublishCmd;
+import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVersionModifyDTO;
+import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVersionRemoveDTO;
+import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVersionDSLUpdateDTO;
+import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVersionPublishDTO;
 
 /**
  * 业务场景版本-聚合根
@@ -63,22 +63,22 @@ public class BusinessSceneVersion {
         // TODO 未发布异常(当未发布时，抛出异常)
     }
 
-    public void businessSceneVersionModify(BusinessSceneVersionModifyCmd updateCmd) {
+    public void businessSceneVersionModify(BusinessSceneVersionModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setDescription(updateCmd.getDescription());
     }
 
-    public void businessSceneVersionRemove(BusinessSceneVersionRemoveCmd removeCmd) {
+    public void businessSceneVersionRemove(BusinessSceneVersionRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 
-    public void dslUpdate(BusinessSceneVersionDSLUpdateCmd updateCmd) {
+    public void dslUpdate(BusinessSceneVersionDSLUpdateDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setGraphDsl(updateCmd.getGraphDsl());
         this.setBusinessSceneDsl(updateCmd.getBusinessSceneDsl());
     }
 
-    public void businessSceneVersionPublish(BusinessSceneVersionPublishCmd updateCmd) {
+    public void businessSceneVersionPublish(BusinessSceneVersionPublishDTO updateCmd) {
         this.setId(updateCmd.getId());
     }
 

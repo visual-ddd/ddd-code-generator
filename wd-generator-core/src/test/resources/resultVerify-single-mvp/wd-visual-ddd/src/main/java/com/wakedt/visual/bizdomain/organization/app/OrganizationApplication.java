@@ -1,7 +1,10 @@
 package com.wakedt.visual.bizdomain.organization.app;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedt.visual.bizdomain.organization.client.request.OrganizationQuery;
 import com.wakedt.visual.bizdomain.organization.client.request.OrganizationPageQuery;
 import com.wakedt.visual.bizdomain.organization.client.request.TeamQuery;
@@ -24,39 +27,25 @@ import com.wakedt.visual.bizdomain.organization.client.request.TeamMemberRoleUnB
 import com.wakedt.visual.bizdomain.organization.client.response.OrganizationDTO;
 import com.wakedt.visual.bizdomain.organization.client.response.TeamDTO;
 import com.wakedt.visual.bizdomain.organization.client.response.TeamMemberDTO;
-import com.wakedt.visual.bizdomain.organization.app.view.OrganizationQueryExe;
-import com.wakedt.visual.bizdomain.organization.app.view.OrganizationPageQueryExe;
-import com.wakedt.visual.bizdomain.organization.app.view.TeamQueryExe;
-import com.wakedt.visual.bizdomain.organization.app.view.TeamPageQueryExe;
-import com.wakedt.visual.bizdomain.organization.app.view.TeamMemberByTeamIdPageQueryExe;
-import com.wakedt.visual.bizdomain.organization.app.assembler.OrganizationCreateDTO2OrganizationCreateCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.OrganizationModifyDTO2OrganizationModifyCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.OrganizationRemoveDTO2OrganizationRemoveCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.OrganizationManagerUnbindDTO2OrganizationManagerUnbindCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.OrganizationManagerBindDTO2OrganizationManagerBindCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamCreateDTO2TeamCreateCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamModifyDTO2TeamModifyCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamRemoveDTO2TeamRemoveCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamManagerBindDTO2TeamManagerBindCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamManagerUnBindDTO2TeamManagerUnBindCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamMemberAddDTO2TeamMemberAddCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamMemberRemoveDTO2TeamMemberRemoveCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamMemberRoleBindDTO2TeamMemberRoleBindCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.assembler.TeamMemberRoleUnBindDTO2TeamMemberRoleUnBindCmdConvert;
-import com.wakedt.visual.bizdomain.organization.app.cmd.organizationcreate.OrganizationCreateCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.organizationmodify.OrganizationModifyCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.organizationremove.OrganizationRemoveCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.organizationmanagerunbind.OrganizationManagerUnbindCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.organizationmanagerbind.OrganizationManagerBindCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teamcreate.TeamCreateCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammodify.TeamModifyCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teamremove.TeamRemoveCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammanagerbind.TeamManagerBindCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammanagerunbind.TeamManagerUnBindCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammemberadd.TeamMemberAddCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammemberremove.TeamMemberRemoveCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammemberrolebind.TeamMemberRoleBindCmdHandler;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammanagerroleunbind.TeamMemberRoleUnBindCmdHandler;
+import com.wakedt.visual.bizdomain.organization.domain.organization.OrganizationRepository;
+import com.wakedt.visual.bizdomain.organization.domain.team.TeamRepository;
+import com.wakedt.visual.bizdomain.organization.domain.teammember.TeamMemberRepository;
+import com.wakedt.visual.bizdomain.organization.domain.organization.Organization;
+import com.wakedt.visual.bizdomain.organization.domain.team.Team;
+import com.wakedt.visual.bizdomain.organization.domain.teammember.TeamMember;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.mapper.OrganizationMapper;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.mapper.TeamMapper;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.mapper.TeamMemberMapper;
+import com.wakedt.visual.bizdomain.organization.app.assembler.OrganizationDTO2OrganizationDOConvert;
+import com.wakedt.visual.bizdomain.organization.app.assembler.OrganizationDTO2OrganizationDOConvert;
+import com.wakedt.visual.bizdomain.organization.app.assembler.TeamDTO2TeamDOConvert;
+import com.wakedt.visual.bizdomain.organization.app.assembler.TeamDTO2TeamDOConvert;
+import com.wakedt.visual.bizdomain.organization.app.assembler.TeamMemberDTO2TeamMemberDOConvert;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.OrganizationDO;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.OrganizationDO;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.TeamDO;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.TeamDO;
+import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.TeamMemberDO;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -74,114 +63,120 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class OrganizationApplication {
 
-    private OrganizationCreateCmdHandler organizationCreateCmdHandler;
-    private OrganizationModifyCmdHandler organizationModifyCmdHandler;
-    private OrganizationRemoveCmdHandler organizationRemoveCmdHandler;
-    private OrganizationManagerUnbindCmdHandler organizationManagerUnbindCmdHandler;
-    private OrganizationManagerBindCmdHandler organizationManagerBindCmdHandler;
-    private TeamCreateCmdHandler teamCreateCmdHandler;
-    private TeamModifyCmdHandler teamModifyCmdHandler;
-    private TeamRemoveCmdHandler teamRemoveCmdHandler;
-    private TeamManagerBindCmdHandler teamManagerBindCmdHandler;
-    private TeamManagerUnBindCmdHandler teamManagerUnBindCmdHandler;
-    private TeamMemberAddCmdHandler teamMemberAddCmdHandler;
-    private TeamMemberRemoveCmdHandler teamMemberRemoveCmdHandler;
-    private TeamMemberRoleBindCmdHandler teamMemberRoleBindCmdHandler;
-    private TeamMemberRoleUnBindCmdHandler teamMemberRoleUnBindCmdHandler;
-    private OrganizationQueryExe organizationQueryExe;
-    private OrganizationPageQueryExe organizationPageQueryExe;
-    private TeamQueryExe teamQueryExe;
-    private TeamPageQueryExe teamPageQueryExe;
-    private TeamMemberByTeamIdPageQueryExe teamMemberByTeamIdPageQueryExe;
-
+    private OrganizationRepository organizationRepository;
+    private TeamRepository teamRepository;
+    private TeamMemberRepository teamMemberRepository;
+    private OrganizationMapper organizationMapper;
+    private TeamMapper teamMapper;
+    private TeamMemberMapper teamMemberMapper;
 
     public ResultDTO<Long> organizationCreate(OrganizationCreateDTO dto) {
-        Long id = organizationCreateCmdHandler.handle(OrganizationCreateDTO2OrganizationCreateCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        Organization entity = BeanUtil.copyProperties(dto, Organization.class);
+        Organization newEntity = organizationRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
-
     public ResultDTO<Boolean> organizationModify(OrganizationModifyDTO dto) {
-        organizationModifyCmdHandler.handle(OrganizationModifyDTO2OrganizationModifyCmdConvert.INSTANCE.dto2Do(dto));
+        Organization entity = organizationRepository.find(dto.getId());
+        entity.organizationModify(dto);
+        organizationRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> organizationRemove(OrganizationRemoveDTO dto) {
-        organizationRemoveCmdHandler.handle(OrganizationRemoveDTO2OrganizationRemoveCmdConvert.INSTANCE.dto2Do(dto));
+        Organization entity = organizationRepository.find(dto.getId());
+        entity.organizationRemove(dto);
+        organizationRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> organizationManagerUnbind(OrganizationManagerUnbindDTO dto) {
-        organizationManagerUnbindCmdHandler.handle(OrganizationManagerUnbindDTO2OrganizationManagerUnbindCmdConvert.INSTANCE.dto2Do(dto));
+        Organization entity = organizationRepository.find(dto.getId());
+        entity.organizationManagerUnbind(dto);
+        organizationRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> organizationManagerBind(OrganizationManagerBindDTO dto) {
-        organizationManagerBindCmdHandler.handle(OrganizationManagerBindDTO2OrganizationManagerBindCmdConvert.INSTANCE.dto2Do(dto));
+        Organization entity = organizationRepository.find(dto.getId());
+        entity.organizationManagerBind(dto);
+        organizationRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Long> teamCreate(TeamCreateDTO dto) {
-        Long id = teamCreateCmdHandler.handle(TeamCreateDTO2TeamCreateCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        Team entity = BeanUtil.copyProperties(dto, Team.class);
+        Team newEntity = teamRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
-
     public ResultDTO<Boolean> teamModify(TeamModifyDTO dto) {
-        teamModifyCmdHandler.handle(TeamModifyDTO2TeamModifyCmdConvert.INSTANCE.dto2Do(dto));
+        Team entity = teamRepository.find(dto.getId());
+        entity.teamModify(dto);
+        teamRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> teamRemove(TeamRemoveDTO dto) {
-        teamRemoveCmdHandler.handle(TeamRemoveDTO2TeamRemoveCmdConvert.INSTANCE.dto2Do(dto));
+        Team entity = teamRepository.find(dto.getId());
+        entity.teamRemove(dto);
+        teamRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> teamManagerBind(TeamManagerBindDTO dto) {
-        teamManagerBindCmdHandler.handle(TeamManagerBindDTO2TeamManagerBindCmdConvert.INSTANCE.dto2Do(dto));
+        Team entity = teamRepository.find(dto.getId());
+        entity.teamManagerBind(dto);
+        teamRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> teamManagerUnbind(TeamManagerUnBindDTO dto) {
-        teamManagerUnBindCmdHandler.handle(TeamManagerUnBindDTO2TeamManagerUnBindCmdConvert.INSTANCE.dto2Do(dto));
+        Team entity = teamRepository.find(dto.getId());
+        entity.teamManagerUnbind(dto);
+        teamRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Long> teamMemberAdd(TeamMemberAddDTO dto) {
-        Long id = teamMemberAddCmdHandler.handle(TeamMemberAddDTO2TeamMemberAddCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        TeamMember entity = BeanUtil.copyProperties(dto, TeamMember.class);
+        TeamMember newEntity = teamMemberRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
-
     public ResultDTO<Boolean> teamMemberRemove(TeamMemberRemoveDTO dto) {
-        teamMemberRemoveCmdHandler.handle(TeamMemberRemoveDTO2TeamMemberRemoveCmdConvert.INSTANCE.dto2Do(dto));
+        TeamMember entity = teamMemberRepository.find(dto.getId());
+        entity.teamMemberRemove(dto);
+        teamMemberRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> teamMemberRoleBind(TeamMemberRoleBindDTO dto) {
-        teamMemberRoleBindCmdHandler.handle(TeamMemberRoleBindDTO2TeamMemberRoleBindCmdConvert.INSTANCE.dto2Do(dto));
+        TeamMember entity = teamMemberRepository.find(dto.getId());
+        entity.teamMemberRoleBind(dto);
+        teamMemberRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> teamManagerRoleUnbind(TeamMemberRoleUnBindDTO dto) {
-        teamMemberRoleUnBindCmdHandler.handle(TeamMemberRoleUnBindDTO2TeamMemberRoleUnBindCmdConvert.INSTANCE.dto2Do(dto));
+        TeamMember entity = teamMemberRepository.find(dto.getId());
+        entity.teamManagerRoleUnbind(dto);
+        teamMemberRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
 
     public ResultDTO<OrganizationDTO> organizationQuery(OrganizationQuery query) {
-        return organizationQueryExe.execute(query);
+        OrganizationDO organizationDO = organizationMapper.organizationQuery(query);
+        return ResultDTO.success(OrganizationDTO2OrganizationDOConvert.INSTANCE.do2Dto(organizationDO));
     }
 
     public PageResultDTO<List<OrganizationDTO>> organizationPageQuery(OrganizationPageQuery pageQuery) {
-        return organizationPageQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<OrganizationDO> pageInfo = new PageInfo<>(organizationMapper.organizationPageQuery(pageQuery));
+        return OrganizationDTO2OrganizationDOConvert.INSTANCE.convertPage(pageInfo);
     }
 
     public ResultDTO<TeamDTO> teamQuery(TeamQuery query) {
-        return teamQueryExe.execute(query);
+        TeamDO teamDO = teamMapper.teamQuery(query);
+        return ResultDTO.success(TeamDTO2TeamDOConvert.INSTANCE.do2Dto(teamDO));
     }
 
     public PageResultDTO<List<TeamDTO>> teamPageQuery(TeamPageQuery pageQuery) {
-        return teamPageQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<TeamDO> pageInfo = new PageInfo<>(teamMapper.teamPageQuery(pageQuery));
+        return TeamDTO2TeamDOConvert.INSTANCE.convertPage(pageInfo);
     }
 
     public PageResultDTO<List<TeamMemberDTO>> teamMemberByTeamIdPageQuery(TeamMemberByTeamIdPageQuery pageQuery) {
-        return teamMemberByTeamIdPageQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<TeamMemberDO> pageInfo = new PageInfo<>(teamMemberMapper.teamMemberByTeamIdPageQuery(pageQuery));
+        return TeamMemberDTO2TeamMemberDOConvert.INSTANCE.convertPage(pageInfo);
     }
 }

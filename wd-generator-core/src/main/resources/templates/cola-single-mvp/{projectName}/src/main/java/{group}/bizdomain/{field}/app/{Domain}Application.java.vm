@@ -1,15 +1,20 @@
 #parse("templates/Domain.vm")
 package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Application")};
 
+import cn.hutool.core.bean.BeanUtil;
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
-###importDomainRpcService()
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.wakedt.visual.bizdomain.application.client.request.*;
 #importDomainQuery()
 #importDomainCmdDTO()
 #importDomainDTO()
-#importDomainQueryExe()
-#importDomainCmdDTO2CmdConvert()
-#importDomainCmdHandler()
+#importDomainAggregationRepository()
+#importDomainAggregation()
+#importDataObjectMapper()
+#importDTO2DOConvert()
+#importQueryResultDO()
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -22,31 +27,43 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ${DOMAIN_CLASS_NAME}Application {
 
-#foreach($cmd in ${DOMAIN_CMD_LIST})
-#if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
-##    @Resource
-    private ${cmd.name}Handler ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler;
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+    private ${aggregation.getRoot().name}Repository ${CASE_FORMAT_LOWER_CAMEL.convert("${aggregation.root.name}Repository")};
 #end
-#end
-#foreach($query in ${DOMAIN_QUERY_LIST})
-##    @Resource
-    private ${query.name}Exe ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe;
+#foreach($dataobject in ${DOMAIN_DATA_LIST})
+    private ${dataobject.dataObjectMapperName} ${CASE_FORMAT_LOWER_CAMEL.convert(${dataobject.dataObjectMapperName})};
 #end
 
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
 #set($RootIdType = ${aggregation.getRoot().id.type})
+#set($RootName = ${aggregation.root.getName()})
 #set($RootIdName = ${aggregation.getRoot().getId().getName()})
+#set($repositoryName = ${CASE_FORMAT_LOWER_CAMEL.convert("${aggregation.root.name}Repository")})
 #foreach($cmd in ${aggregation.getCommandList()})
 #if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
-
 #if(${cmd.getRepository().getValue()} == "create")
     public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
-        ${RootIdType} ${RootIdName} = ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(${RootIdName});
+        ${RootName} entity = BeanUtil.copyProperties(dto, ${RootName}.class);
+        ${RootName} newEntity = ${repositoryName}.save(entity);
+        return ResultDTO.success(newEntity.get${CASE_FORMAT_UPPER_CAMEL.convert(${RootIdName})}());
+    }
+#elseif(${cmd.getRepository().getValue()} == "modify")
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        ${RootName} entity = ${repositoryName}.find(dto.get${CASE_FORMAT_UPPER_CAMEL.convert(${RootIdName})}());
+        entity.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
+        ${repositoryName}.update(entity);
+        return ResultDTO.success(Boolean.TRUE);
+    }
+#elseif(${cmd.getRepository().getValue()} == "remove")
+    public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
+        ${RootName} entity = ${repositoryName}.find(dto.get${CASE_FORMAT_UPPER_CAMEL.convert(${RootIdName})}());
+        entity.${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(dto);
+        ${repositoryName}.remove(entity);
+        return ResultDTO.success(Boolean.TRUE);
     }
 #else
     public ResultDTO<Boolean> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
-        ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.name})}Handler.handle(${cmd.cmdDTOName}2${cmd.name}Convert.INSTANCE.dto2Do(dto));
+        // TODO
         return ResultDTO.success(Boolean.TRUE);
     }
 #end
@@ -54,14 +71,23 @@ public class ${DOMAIN_CLASS_NAME}Application {
 #end
 #end
 #foreach ($query in ${DOMAIN_QUERY_LIST})
+#set($returnTypeId = ${PARSE_TYPE_UTIL.getFirstId(${query.returnInfo.type})})
+#set($returnTypeClassName = ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).elementNode.name})
+#set($doId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${returnTypeId}")})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($convertClassName = "${returnTypeClassName}2${doClassName}Convert")
+#set($mapperName = ${CASE_FORMAT_LOWER_CAMEL.convert(${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.dataObjectMapperName})})
 
 #if(${query.pagination})
     public PageResultDTO<List<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}>> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} pageQuery) {
-        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<${doClassName}> pageInfo = new PageInfo<>(${mapperName}.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(pageQuery));
+        return ${convertClassName}.INSTANCE.convertPage(pageInfo);
     }
 #else
     public ResultDTO<${PARSE_TYPE_UTIL.parse(${query.returnInfo.type})}> ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(${query.name} query) {
-        return ${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}Exe.execute(query);
+        ${doClassName} ${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})} = ${mapperName}.${CASE_FORMAT_LOWER_CAMEL.convert(${query.name})}(query);
+        return ResultDTO.success(${convertClassName}.INSTANCE.do2Dto(${CASE_FORMAT_LOWER_CAMEL.convert(${doClassName})}));
     }
 #end
 #end

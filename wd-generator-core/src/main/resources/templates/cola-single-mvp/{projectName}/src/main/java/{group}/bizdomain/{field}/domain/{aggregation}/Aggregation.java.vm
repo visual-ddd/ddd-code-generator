@@ -7,7 +7,7 @@ import java.math.*;
 import java.time.LocalDateTime;
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "MODIFY" || ${cmd.repository} == "REMOVE")
-import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.name})}.${cmd.name};
+import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get(${cmd.cmdDTOName})}.${cmd.cmdDTOName};
 #end
 #end
 
@@ -22,7 +22,7 @@ public class ${AGGREGATION_CLASS_NAME} {
 #foreach($cmd in ${AGGREGATION_CMD_LIST})
 #if(${cmd.repository} == "MODIFY")
 
-    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} updateCmd) {
+    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} updateCmd) {
 #foreach($cmdField in ${cmd.propertyList})
 #set($isCmdMatch = 0)
 #if(${cmdField.name} == ${AGGREGATION_CLASS_ID.name} && ${cmdField.type} == ${AGGREGATION_CLASS_ID.type})
@@ -43,7 +43,7 @@ public class ${AGGREGATION_CLASS_NAME} {
 #end
 #if(${cmd.repository} == "REMOVE")
 
-    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.name} removeCmd) {
+    public void ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} removeCmd) {
         this.set${AGGREGATION_CLASS_ID.getName().substring(0, 1).toUpperCase()}${AGGREGATION_CLASS_ID.getName().substring(1)}(removeCmd.getId());
     }
 #end

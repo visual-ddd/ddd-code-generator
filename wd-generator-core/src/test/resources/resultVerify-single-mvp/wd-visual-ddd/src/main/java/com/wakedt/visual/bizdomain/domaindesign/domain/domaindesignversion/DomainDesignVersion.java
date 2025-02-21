@@ -4,10 +4,10 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversionmodify.DomainDesignVersionModifyCmd;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversionremove.DomainDesignVersionRemoveCmd;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesigndslupdate.DomainDesignDslUpdateCmd;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversionpublish.DomainDesignVersionPublishCmd;
+import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignVersionModifyDTO;
+import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignVersionRemoveDTO;
+import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignDslUpdateDTO;
+import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignVersionPublishDTO;
 
 /**
  * 业务域版本-聚合根
@@ -63,22 +63,22 @@ public class DomainDesignVersion {
         // TODO 未发布异常(当未发布时，抛出异常)
     }
 
-    public void domainDesignVersionModify(DomainDesignVersionModifyCmd updateCmd) {
+    public void domainDesignVersionModify(DomainDesignVersionModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setDescription(updateCmd.getDescription());
     }
 
-    public void domainDesignVersionRemove(DomainDesignVersionRemoveCmd removeCmd) {
+    public void domainDesignVersionRemove(DomainDesignVersionRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 
-    public void domainDesignDslUpdate(DomainDesignDslUpdateCmd updateCmd) {
+    public void domainDesignDslUpdate(DomainDesignDslUpdateDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setDomainDesignDsl(updateCmd.getDomainDesignDsl());
         this.setGraphDsl(updateCmd.getGraphDsl());
     }
 
-    public void domainDesignVersionPublish(DomainDesignVersionPublishCmd updateCmd) {
+    public void domainDesignVersionPublish(DomainDesignVersionPublishDTO updateCmd) {
         this.setId(updateCmd.getId());
     }
 

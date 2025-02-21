@@ -1,7 +1,10 @@
 package com.wakedt.visual.bizdomain.businessscene.app;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneQuery;
 import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessScenePageQuery;
 import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVersionQuery;
@@ -19,30 +22,24 @@ import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVer
 import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVersionForkDTO;
 import com.wakedt.visual.bizdomain.businessscene.client.response.BusinessSceneDTO;
 import com.wakedt.visual.bizdomain.businessscene.client.response.BusinessSceneVersionDTO;
-import com.wakedt.visual.bizdomain.businessscene.app.view.BusinessSceneQueryExe;
-import com.wakedt.visual.bizdomain.businessscene.app.view.BusinessScenePageQueryExe;
-import com.wakedt.visual.bizdomain.businessscene.app.view.BusinessSceneVersionQueryExe;
-import com.wakedt.visual.bizdomain.businessscene.app.view.BusinessSceneVersionPageQueryExe;
-import com.wakedt.visual.bizdomain.businessscene.app.view.BusinessSceneListQueryExe;
-import com.wakedt.visual.bizdomain.businessscene.app.view.BusinessSceneLatestVersionQueryExe;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneCreateDTO2BusinessSceneCreateCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneModifyDTO2BusinessSceneModifyCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneRemoveDTO2BusinessSceneRemoveCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionCreateDTO2BusinessSceneVersionCreateCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionModifyDTO2BusinessSceneVersionModifyCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionRemoveDTO2BusinessSceneVersionRemoveCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionDSLUpdateDTO2BusinessSceneVersionDSLUpdateCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionPublishDTO2BusinessSceneVersionPublishCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionForkDTO2BusinessSceneVersionForkCmdConvert;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businessscenecreate.BusinessSceneCreateCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businessscenemodify.BusinessSceneModifyCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneremove.BusinessSceneRemoveCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversioncreate.BusinessSceneVersionCreateCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversionmodify.BusinessSceneVersionModifyCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversionremove.BusinessSceneVersionRemoveCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.dslupdate.BusinessSceneVersionDSLUpdateCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversionpublish.BusinessSceneVersionPublishCmdHandler;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneversionfork.BusinessSceneVersionForkCmdHandler;
+import com.wakedt.visual.bizdomain.businessscene.domain.businessscene.BusinessSceneRepository;
+import com.wakedt.visual.bizdomain.businessscene.domain.businesssceneversion.BusinessSceneVersionRepository;
+import com.wakedt.visual.bizdomain.businessscene.domain.businessscene.BusinessScene;
+import com.wakedt.visual.bizdomain.businessscene.domain.businesssceneversion.BusinessSceneVersion;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.mapper.BusinessSceneMapper;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.mapper.BusinessSceneVersionMapper;
+import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneDTO2BusinessSceneDOConvert;
+import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneDTO2BusinessSceneDOConvert;
+import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionDTO2BusinessSceneVersionDOConvert;
+import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionDTO2BusinessSceneVersionDOConvert;
+import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneDTO2BusinessSceneDOConvert;
+import com.wakedt.visual.bizdomain.businessscene.app.assembler.BusinessSceneVersionDTO2BusinessSceneVersionDOConvert;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneDO;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneDO;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneVersionDO;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneVersionDO;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneDO;
+import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneVersionDO;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -60,83 +57,88 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class BusinessSceneApplication {
 
-    private BusinessSceneCreateCmdHandler businessSceneCreateCmdHandler;
-    private BusinessSceneModifyCmdHandler businessSceneModifyCmdHandler;
-    private BusinessSceneRemoveCmdHandler businessSceneRemoveCmdHandler;
-    private BusinessSceneVersionModifyCmdHandler businessSceneVersionModifyCmdHandler;
-    private BusinessSceneVersionRemoveCmdHandler businessSceneVersionRemoveCmdHandler;
-    private BusinessSceneVersionDSLUpdateCmdHandler businessSceneVersionDSLUpdateCmdHandler;
-    private BusinessSceneVersionPublishCmdHandler businessSceneVersionPublishCmdHandler;
-    private BusinessSceneVersionForkCmdHandler businessSceneVersionForkCmdHandler;
-    private BusinessSceneQueryExe businessSceneQueryExe;
-    private BusinessScenePageQueryExe businessScenePageQueryExe;
-    private BusinessSceneVersionQueryExe businessSceneVersionQueryExe;
-    private BusinessSceneVersionPageQueryExe businessSceneVersionPageQueryExe;
-    private BusinessSceneListQueryExe businessSceneListQueryExe;
-    private BusinessSceneLatestVersionQueryExe businessSceneLatestVersionQueryExe;
-
+    private BusinessSceneRepository businessSceneRepository;
+    private BusinessSceneVersionRepository businessSceneVersionRepository;
+    private BusinessSceneMapper businessSceneMapper;
+    private BusinessSceneVersionMapper businessSceneVersionMapper;
 
     public ResultDTO<Long> businessSceneCreate(BusinessSceneCreateDTO dto) {
-        Long id = businessSceneCreateCmdHandler.handle(BusinessSceneCreateDTO2BusinessSceneCreateCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        BusinessScene entity = BeanUtil.copyProperties(dto, BusinessScene.class);
+        BusinessScene newEntity = businessSceneRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
-
     public ResultDTO<Boolean> businessSceneModify(BusinessSceneModifyDTO dto) {
-        businessSceneModifyCmdHandler.handle(BusinessSceneModifyDTO2BusinessSceneModifyCmdConvert.INSTANCE.dto2Do(dto));
+        BusinessScene entity = businessSceneRepository.find(dto.getId());
+        entity.businessSceneModify(dto);
+        businessSceneRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> businessSceneRemove(BusinessSceneRemoveDTO dto) {
-        businessSceneRemoveCmdHandler.handle(BusinessSceneRemoveDTO2BusinessSceneRemoveCmdConvert.INSTANCE.dto2Do(dto));
+        BusinessScene entity = businessSceneRepository.find(dto.getId());
+        entity.businessSceneRemove(dto);
+        businessSceneRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> businessSceneVersionModify(BusinessSceneVersionModifyDTO dto) {
-        businessSceneVersionModifyCmdHandler.handle(BusinessSceneVersionModifyDTO2BusinessSceneVersionModifyCmdConvert.INSTANCE.dto2Do(dto));
+        BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
+        entity.businessSceneVersionModify(dto);
+        businessSceneVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> businessSceneVersionRemove(BusinessSceneVersionRemoveDTO dto) {
-        businessSceneVersionRemoveCmdHandler.handle(BusinessSceneVersionRemoveDTO2BusinessSceneVersionRemoveCmdConvert.INSTANCE.dto2Do(dto));
+        BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
+        entity.businessSceneVersionRemove(dto);
+        businessSceneVersionRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> dslUpdate(BusinessSceneVersionDSLUpdateDTO dto) {
-        businessSceneVersionDSLUpdateCmdHandler.handle(BusinessSceneVersionDSLUpdateDTO2BusinessSceneVersionDSLUpdateCmdConvert.INSTANCE.dto2Do(dto));
+        BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
+        entity.dslUpdate(dto);
+        businessSceneVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> businessSceneVersionPublish(BusinessSceneVersionPublishDTO dto) {
-        businessSceneVersionPublishCmdHandler.handle(BusinessSceneVersionPublishDTO2BusinessSceneVersionPublishCmdConvert.INSTANCE.dto2Do(dto));
+        BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
+        entity.businessSceneVersionPublish(dto);
+        businessSceneVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Long> businessSceneVersionFork(BusinessSceneVersionForkDTO dto) {
-        Long id = businessSceneVersionForkCmdHandler.handle(BusinessSceneVersionForkDTO2BusinessSceneVersionForkCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        BusinessSceneVersion entity = BeanUtil.copyProperties(dto, BusinessSceneVersion.class);
+        BusinessSceneVersion newEntity = businessSceneVersionRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
 
     public ResultDTO<BusinessSceneDTO> businessSceneQuery(BusinessSceneQuery query) {
-        return businessSceneQueryExe.execute(query);
+        BusinessSceneDO businessSceneDO = businessSceneMapper.businessSceneQuery(query);
+        return ResultDTO.success(BusinessSceneDTO2BusinessSceneDOConvert.INSTANCE.do2Dto(businessSceneDO));
     }
 
     public PageResultDTO<List<BusinessSceneDTO>> businessScenePageQuery(BusinessScenePageQuery pageQuery) {
-        return businessScenePageQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<BusinessSceneDO> pageInfo = new PageInfo<>(businessSceneMapper.businessScenePageQuery(pageQuery));
+        return BusinessSceneDTO2BusinessSceneDOConvert.INSTANCE.convertPage(pageInfo);
     }
 
     public ResultDTO<BusinessSceneVersionDTO> businessSceneVersionQuery(BusinessSceneVersionQuery query) {
-        return businessSceneVersionQueryExe.execute(query);
+        BusinessSceneVersionDO businessSceneVersionDO = businessSceneVersionMapper.businessSceneVersionQuery(query);
+        return ResultDTO.success(BusinessSceneVersionDTO2BusinessSceneVersionDOConvert.INSTANCE.do2Dto(businessSceneVersionDO));
     }
 
     public PageResultDTO<List<BusinessSceneVersionDTO>> businessSceneVersionPageQuery(BusinessSceneVersionPageQuery pageQuery) {
-        return businessSceneVersionPageQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<BusinessSceneVersionDO> pageInfo = new PageInfo<>(businessSceneVersionMapper.businessSceneVersionPageQuery(pageQuery));
+        return BusinessSceneVersionDTO2BusinessSceneVersionDOConvert.INSTANCE.convertPage(pageInfo);
     }
 
     public PageResultDTO<List<BusinessSceneDTO>> businessSceneListQuery(BusinessSceneListQuery pageQuery) {
-        return businessSceneListQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<BusinessSceneDO> pageInfo = new PageInfo<>(businessSceneMapper.businessSceneListQuery(pageQuery));
+        return BusinessSceneDTO2BusinessSceneDOConvert.INSTANCE.convertPage(pageInfo);
     }
 
     public ResultDTO<BusinessSceneVersionDTO> businessSceneLatestVersionQuery(BusinessSceneLatestVersionQuery query) {
-        return businessSceneLatestVersionQueryExe.execute(query);
+        BusinessSceneVersionDO businessSceneVersionDO = businessSceneVersionMapper.businessSceneLatestVersionQuery(query);
+        return ResultDTO.success(BusinessSceneVersionDTO2BusinessSceneVersionDOConvert.INSTANCE.do2Dto(businessSceneVersionDO));
     }
 }

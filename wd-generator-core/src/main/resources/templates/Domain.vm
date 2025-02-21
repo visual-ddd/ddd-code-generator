@@ -37,3 +37,41 @@ import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.cmdDTOName}2${cmd.na
 import ${IMPORT_PACKAGE_MAP.get(${cmd.identity}).get("${cmd.name}Handler")}.${cmd.name}Handler;
 #end
 #end
+#macro(importDomainAggregation)
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${aggregation.root.identity}).get("${aggregation.root.name}")}.${aggregation.name};
+#end
+#end
+#macro(importDomainAggregationRepository)
+#foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${aggregation.root.identity}).get("${aggregation.root.name}Repository")}.${aggregation.name}Repository;
+#end
+#end
+#macro(importDataObjectMapper)
+#foreach($dataobject in ${DOMAIN_DATA_LIST})
+import ${IMPORT_PACKAGE_MAP.get(${dataobject.identity}).get("${dataobject.dataObjectMapperName}")}.${dataobject.dataObjectMapperName};
+#end
+#end
+#macro(importDTO2DOConvert)
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+#set($returnTypeId = ${PARSE_TYPE_UTIL.getFirstId(${query.returnInfo.type})})
+#set($returnTypeClassName = ${IMPORT_PACKAGE_MAP.get(${returnTypeId}).elementNode.name})
+#set($doId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${returnTypeId}")})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+#set($convertClassName = "${returnTypeClassName}2${doClassName}Convert")
+#foreach($objectMapper in ${DOMAIN_OBJECT_MAPPER_LIST})
+#if(${objectMapper.source.id} == ${returnTypeId} && ${objectMapper.target.id} == ${doId})
+#set($objectMapperId = ${objectMapper.identity})
+#end
+#end
+import ${IMPORT_PACKAGE_MAP.get(${objectMapperId}).get(${convertClassName})}.${convertClassName};
+#end
+#end
+#macro(importQueryResultDO)
+#foreach ($query in ${DOMAIN_QUERY_LIST})
+#set($returnTypeId = ${PARSE_TYPE_UTIL.getFirstId(${query.returnInfo.type})})
+#set($doId = ${IMPORT_PACKAGE_MAP.get("mapper::dto::${returnTypeId}")})
+#set($doClassName = ${IMPORT_PACKAGE_MAP.get(${doId}).elementNode.name})
+import ${IMPORT_PACKAGE_MAP.get(${doId}).get(${doClassName})}.${doClassName};
+#end
+#end

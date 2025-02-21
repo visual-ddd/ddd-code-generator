@@ -1,7 +1,10 @@
 package com.wakedt.visual.bizdomain.domaindesign.app;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.wakedata.common.core.dto.PageResultDTO;
 import com.wakedata.common.core.dto.ResultDTO;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignQuery;
 import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignPageQuery;
 import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignVersionQuery;
@@ -19,30 +22,24 @@ import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignVersi
 import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignVersionForkDTO;
 import com.wakedt.visual.bizdomain.domaindesign.client.response.DomainDesignDTO;
 import com.wakedt.visual.bizdomain.domaindesign.client.response.DomainDesignVersionDTO;
-import com.wakedt.visual.bizdomain.domaindesign.app.view.DomainDesignQueryExe;
-import com.wakedt.visual.bizdomain.domaindesign.app.view.DomainDesignPageQueryExe;
-import com.wakedt.visual.bizdomain.domaindesign.app.view.DomainDesignVersionQueryExe;
-import com.wakedt.visual.bizdomain.domaindesign.app.view.DomainDesignVersionPageQueryExe;
-import com.wakedt.visual.bizdomain.domaindesign.app.view.DomainDesignLatestVersionQueryExe;
-import com.wakedt.visual.bizdomain.domaindesign.app.view.DomainDesignListQueryExe;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignCreateDTO2DomainDesignCreateCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignModifyDTO2DomainDesignModifyCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignRemoveDTO2DomainDesignRemoveCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionCreateDTO2DomainDesignVersionCreateCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionModifyDTO2DomainDesignVersionModifyCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionRemoveDTO2DomainDesignVersionRemoveCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignDslUpdateDTO2DomainDesignDslUpdateCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionPublishDTO2DomainDesignVersionPublishCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionForkDTO2DomainDesignVersionForkCmdConvert;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesigncreate.DomainDesignCreateCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignmodify.DomainDesignModifyCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignremove.DomainDesignRemoveCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversioncreate.DomainDesignVersionCreateCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversionmodify.DomainDesignVersionModifyCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversionremove.DomainDesignVersionRemoveCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesigndslupdate.DomainDesignDslUpdateCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversionpublish.DomainDesignVersionPublishCmdHandler;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignversionfork.DomainDesignVersionForkCmdHandler;
+import com.wakedt.visual.bizdomain.domaindesign.domain.domaindesign.DomainDesignRepository;
+import com.wakedt.visual.bizdomain.domaindesign.domain.domaindesignversion.DomainDesignVersionRepository;
+import com.wakedt.visual.bizdomain.domaindesign.domain.domaindesign.DomainDesign;
+import com.wakedt.visual.bizdomain.domaindesign.domain.domaindesignversion.DomainDesignVersion;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.mapper.DomainDesignMapper;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.mapper.DomainDesignVersionMapper;
+import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignDTO2DomainDesignDOConvert;
+import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignDTO2DomainDesignDOConvert;
+import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionDTO2DomainDesignVersionDOConvert;
+import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionDTO2DomainDesignVersionDOConvert;
+import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignVersionDTO2DomainDesignVersionDOConvert;
+import com.wakedt.visual.bizdomain.domaindesign.app.assembler.DomainDesignDTO2DomainDesignDOConvert;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignDO;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignDO;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignVersionDO;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignVersionDO;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignVersionDO;
+import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignDO;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -60,89 +57,93 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class DomainDesignApplication {
 
-    private DomainDesignCreateCmdHandler domainDesignCreateCmdHandler;
-    private DomainDesignModifyCmdHandler domainDesignModifyCmdHandler;
-    private DomainDesignRemoveCmdHandler domainDesignRemoveCmdHandler;
-    private DomainDesignVersionCreateCmdHandler domainDesignVersionCreateCmdHandler;
-    private DomainDesignVersionModifyCmdHandler domainDesignVersionModifyCmdHandler;
-    private DomainDesignVersionRemoveCmdHandler domainDesignVersionRemoveCmdHandler;
-    private DomainDesignDslUpdateCmdHandler domainDesignDslUpdateCmdHandler;
-    private DomainDesignVersionPublishCmdHandler domainDesignVersionPublishCmdHandler;
-    private DomainDesignVersionForkCmdHandler domainDesignVersionForkCmdHandler;
-    private DomainDesignQueryExe domainDesignQueryExe;
-    private DomainDesignPageQueryExe domainDesignPageQueryExe;
-    private DomainDesignVersionQueryExe domainDesignVersionQueryExe;
-    private DomainDesignVersionPageQueryExe domainDesignVersionPageQueryExe;
-    private DomainDesignLatestVersionQueryExe domainDesignLatestVersionQueryExe;
-    private DomainDesignListQueryExe domainDesignListQueryExe;
-
+    private DomainDesignRepository domainDesignRepository;
+    private DomainDesignVersionRepository domainDesignVersionRepository;
+    private DomainDesignMapper domainDesignMapper;
+    private DomainDesignVersionMapper domainDesignVersionMapper;
 
     public ResultDTO<Long> domainDesignCreate(DomainDesignCreateDTO dto) {
-        Long id = domainDesignCreateCmdHandler.handle(DomainDesignCreateDTO2DomainDesignCreateCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        DomainDesign entity = BeanUtil.copyProperties(dto, DomainDesign.class);
+        DomainDesign newEntity = domainDesignRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
-
     public ResultDTO<Boolean> domainDesignModify(DomainDesignModifyDTO dto) {
-        domainDesignModifyCmdHandler.handle(DomainDesignModifyDTO2DomainDesignModifyCmdConvert.INSTANCE.dto2Do(dto));
+        DomainDesign entity = domainDesignRepository.find(dto.getId());
+        entity.domainDesignModify(dto);
+        domainDesignRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> domainDesignRemove(DomainDesignRemoveDTO dto) {
-        domainDesignRemoveCmdHandler.handle(DomainDesignRemoveDTO2DomainDesignRemoveCmdConvert.INSTANCE.dto2Do(dto));
+        DomainDesign entity = domainDesignRepository.find(dto.getId());
+        entity.domainDesignRemove(dto);
+        domainDesignRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Long> domainDesignVersionCreate(DomainDesignVersionCreateDTO dto) {
-        Long id = domainDesignVersionCreateCmdHandler.handle(DomainDesignVersionCreateDTO2DomainDesignVersionCreateCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        DomainDesignVersion entity = BeanUtil.copyProperties(dto, DomainDesignVersion.class);
+        DomainDesignVersion newEntity = domainDesignVersionRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
-
     public ResultDTO<Boolean> domainDesignVersionModify(DomainDesignVersionModifyDTO dto) {
-        domainDesignVersionModifyCmdHandler.handle(DomainDesignVersionModifyDTO2DomainDesignVersionModifyCmdConvert.INSTANCE.dto2Do(dto));
+        DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
+        entity.domainDesignVersionModify(dto);
+        domainDesignVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> domainDesignVersionRemove(DomainDesignVersionRemoveDTO dto) {
-        domainDesignVersionRemoveCmdHandler.handle(DomainDesignVersionRemoveDTO2DomainDesignVersionRemoveCmdConvert.INSTANCE.dto2Do(dto));
+        DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
+        entity.domainDesignVersionRemove(dto);
+        domainDesignVersionRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> domainDesignDslUpdate(DomainDesignDslUpdateDTO dto) {
-        domainDesignDslUpdateCmdHandler.handle(DomainDesignDslUpdateDTO2DomainDesignDslUpdateCmdConvert.INSTANCE.dto2Do(dto));
+        DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
+        entity.domainDesignDslUpdate(dto);
+        domainDesignVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Boolean> domainDesignVersionPublish(DomainDesignVersionPublishDTO dto) {
-        domainDesignVersionPublishCmdHandler.handle(DomainDesignVersionPublishDTO2DomainDesignVersionPublishCmdConvert.INSTANCE.dto2Do(dto));
+        DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
+        entity.domainDesignVersionPublish(dto);
+        domainDesignVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
-
     public ResultDTO<Long> domainDesignVersionFork(DomainDesignVersionForkDTO dto) {
-        Long id = domainDesignVersionForkCmdHandler.handle(DomainDesignVersionForkDTO2DomainDesignVersionForkCmdConvert.INSTANCE.dto2Do(dto));
-        return ResultDTO.success(id);
+        DomainDesignVersion entity = BeanUtil.copyProperties(dto, DomainDesignVersion.class);
+        DomainDesignVersion newEntity = domainDesignVersionRepository.save(entity);
+        return ResultDTO.success(newEntity.getId());
     }
 
     public ResultDTO<DomainDesignDTO> domainDesignQuery(DomainDesignQuery query) {
-        return domainDesignQueryExe.execute(query);
+        DomainDesignDO domainDesignDO = domainDesignMapper.domainDesignQuery(query);
+        return ResultDTO.success(DomainDesignDTO2DomainDesignDOConvert.INSTANCE.do2Dto(domainDesignDO));
     }
 
     public PageResultDTO<List<DomainDesignDTO>> domainDesignPageQuery(DomainDesignPageQuery pageQuery) {
-        return domainDesignPageQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<DomainDesignDO> pageInfo = new PageInfo<>(domainDesignMapper.domainDesignPageQuery(pageQuery));
+        return DomainDesignDTO2DomainDesignDOConvert.INSTANCE.convertPage(pageInfo);
     }
 
     public ResultDTO<DomainDesignVersionDTO> domainDesignVersionQuery(DomainDesignVersionQuery query) {
-        return domainDesignVersionQueryExe.execute(query);
+        DomainDesignVersionDO domainDesignVersionDO = domainDesignVersionMapper.domainDesignVersionQuery(query);
+        return ResultDTO.success(DomainDesignVersionDTO2DomainDesignVersionDOConvert.INSTANCE.do2Dto(domainDesignVersionDO));
     }
 
     public PageResultDTO<List<DomainDesignVersionDTO>> domainDesignVersionPageQuery(DomainDesignVersionPageQuery pageQuery) {
-        return domainDesignVersionPageQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<DomainDesignVersionDO> pageInfo = new PageInfo<>(domainDesignVersionMapper.domainDesignVersionPageQuery(pageQuery));
+        return DomainDesignVersionDTO2DomainDesignVersionDOConvert.INSTANCE.convertPage(pageInfo);
     }
 
     public ResultDTO<DomainDesignVersionDTO> domainDesignLatestVersionQuery(DomainDesignLatestVersionQuery query) {
-        return domainDesignLatestVersionQueryExe.execute(query);
+        DomainDesignVersionDO domainDesignVersionDO = domainDesignVersionMapper.domainDesignLatestVersionQuery(query);
+        return ResultDTO.success(DomainDesignVersionDTO2DomainDesignVersionDOConvert.INSTANCE.do2Dto(domainDesignVersionDO));
     }
 
     public PageResultDTO<List<DomainDesignDTO>> domainDesignListQuery(DomainDesignListQuery pageQuery) {
-        return domainDesignListQueryExe.execute(pageQuery);
+        PageHelper.startPage(pageQuery.getPageNo(),pageQuery.getPageSize());
+        PageInfo<DomainDesignDO> pageInfo = new PageInfo<>(domainDesignMapper.domainDesignListQuery(pageQuery));
+        return DomainDesignDTO2DomainDesignDOConvert.INSTANCE.convertPage(pageInfo);
     }
 }

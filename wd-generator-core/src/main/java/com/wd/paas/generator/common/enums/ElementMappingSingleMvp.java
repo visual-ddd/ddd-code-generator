@@ -160,7 +160,7 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
             default:
             case INIT_CODE:
                 return new String[]{
-                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/AggregationFactory.java.vm",
+//                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/AggregationFactory.java.vm",
                         "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/AggregationRepository.java.vm",
                         "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/domain/{aggregation}/Aggregation.java.vm",
                 };
@@ -214,9 +214,9 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
     @Override
     public String[] command() {
         return new String[]{
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/Command.java.vm",
+//                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/Command.java.vm",
                 "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/client/request/CommandDTO.java.vm",
-                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/assembler/CommandDTO2CommandConvert.java.vm",
+//                "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/assembler/CommandDTO2CommandConvert.java.vm",
         };
     }
 
@@ -229,7 +229,7 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
             default:
             case INIT_CODE:
                 return new String[]{
-                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/CommandHandler.java.vm",
+//                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/CommandHandler.java.vm",
                 };
             case UPDATE_CODE:
                 return new String[]{
@@ -246,7 +246,7 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
             default:
             case INIT_CODE:
                 return new String[]{
-                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/AddCommandHandler.java.vm",
+//                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/AddCommandHandler.java.vm",
                 };
             case UPDATE_CODE:
                 return new String[]{
@@ -263,7 +263,7 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
             default:
             case INIT_CODE:
                 return new String[]{
-                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/UpdateCommandHandler.java.vm",
+//                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/UpdateCommandHandler.java.vm",
                 };
             case UPDATE_CODE:
                 return new String[]{
@@ -280,7 +280,7 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
             default:
             case INIT_CODE:
                 return new String[]{
-                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/DeleteCommandHandler.java.vm",
+//                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/cmd/{action}/DeleteCommandHandler.java.vm",
                 };
             case UPDATE_CODE:
                 return new String[]{
@@ -318,7 +318,7 @@ public class ElementMappingSingleMvp extends AbstractElementMapping {
             case INIT_CODE:
                 return new String[]{
                         "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/client/request/Query.java.vm",
-                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/view/QueryExe.java.vm",
+//                        "cola-single-mvp/{projectName}/src/main/java/{group}/bizdomain/{field}/app/view/QueryExe.java.vm",
                 };
             case UPDATE_CODE:
                 return new String[]{
