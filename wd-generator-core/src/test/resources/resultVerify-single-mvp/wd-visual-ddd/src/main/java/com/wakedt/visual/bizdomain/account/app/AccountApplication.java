@@ -1,10 +1,10 @@
 package com.wakedt.visual.bizdomain.account.app;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.wakedata.common.core.dto.PageResultDTO;
-import com.wakedata.common.core.dto.ResultDTO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedt.visual.bizdomain.account.client.request.AccountDetailQuery;
 import com.wakedt.visual.bizdomain.account.client.request.AccountPageQuery;
 import com.wakedt.visual.bizdomain.account.client.request.AccountVerificationDetailQuery;
@@ -30,9 +30,9 @@ import com.wakedt.visual.bizdomain.account.app.assembler.AccountVerificationDTO2
 import com.wakedt.visual.bizdomain.account.infrastructure.repository.model.AccountDO;
 import com.wakedt.visual.bizdomain.account.infrastructure.repository.model.AccountDO;
 import com.wakedt.visual.bizdomain.account.infrastructure.repository.model.AccountVerificationDO;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -57,41 +57,48 @@ public class AccountApplication {
         Account newEntity = accountRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> accountModify(AccountModifyDTO dto) {
         Account entity = accountRepository.find(dto.getId());
         entity.accountModify(dto);
         accountRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> accountRemove(AccountDeleteDTO dto) {
         Account entity = accountRepository.find(dto.getId());
         entity.accountRemove(dto);
         accountRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> accountPasswordResetSendEmail(AccountEmailSendDTO dto) {
         Account entity = accountRepository.find(dto.getId());
         entity.accountPasswordResetSendEmail(dto);
         accountRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> accountPasswordReset(AccountPasswordResetDTO dto) {
         Account entity = accountRepository.find(dto.getId());
         entity.accountPasswordReset(dto);
         accountRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> accountPasswordUpdate(AccountPasswordUpdateDTO dto) {
         Account entity = accountRepository.find(dto.getId());
         entity.accountPasswordUpdate(dto);
         accountRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Long> verificationCreate(AccountVerificationCreateDTO dto) {
         AccountVerification entity = BeanUtil.copyProperties(dto, AccountVerification.class);
         AccountVerification newEntity = accountVerificationRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> verificationUpdate(AccountVerificationUpdateDTO dto) {
         AccountVerification entity = accountVerificationRepository.find(dto.getId());
         entity.verificationUpdate(dto);

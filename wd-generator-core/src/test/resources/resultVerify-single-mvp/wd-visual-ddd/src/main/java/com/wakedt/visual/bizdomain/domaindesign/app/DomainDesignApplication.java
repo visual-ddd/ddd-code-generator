@@ -1,10 +1,10 @@
 package com.wakedt.visual.bizdomain.domaindesign.app;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.wakedata.common.core.dto.PageResultDTO;
-import com.wakedata.common.core.dto.ResultDTO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignQuery;
 import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignPageQuery;
 import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignVersionQuery;
@@ -40,9 +40,9 @@ import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.
 import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignVersionDO;
 import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignVersionDO;
 import com.wakedt.visual.bizdomain.domaindesign.infrastructure.repository.model.DomainDesignDO;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -67,47 +67,55 @@ public class DomainDesignApplication {
         DomainDesign newEntity = domainDesignRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> domainDesignModify(DomainDesignModifyDTO dto) {
         DomainDesign entity = domainDesignRepository.find(dto.getId());
         entity.domainDesignModify(dto);
         domainDesignRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> domainDesignRemove(DomainDesignRemoveDTO dto) {
         DomainDesign entity = domainDesignRepository.find(dto.getId());
         entity.domainDesignRemove(dto);
         domainDesignRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Long> domainDesignVersionCreate(DomainDesignVersionCreateDTO dto) {
         DomainDesignVersion entity = BeanUtil.copyProperties(dto, DomainDesignVersion.class);
         DomainDesignVersion newEntity = domainDesignVersionRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> domainDesignVersionModify(DomainDesignVersionModifyDTO dto) {
         DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
         entity.domainDesignVersionModify(dto);
         domainDesignVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> domainDesignVersionRemove(DomainDesignVersionRemoveDTO dto) {
         DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
         entity.domainDesignVersionRemove(dto);
         domainDesignVersionRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> domainDesignDslUpdate(DomainDesignDslUpdateDTO dto) {
         DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
         entity.domainDesignDslUpdate(dto);
         domainDesignVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> domainDesignVersionPublish(DomainDesignVersionPublishDTO dto) {
         DomainDesignVersion entity = domainDesignVersionRepository.find(dto.getId());
         entity.domainDesignVersionPublish(dto);
         domainDesignVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Long> domainDesignVersionFork(DomainDesignVersionForkDTO dto) {
         DomainDesignVersion entity = BeanUtil.copyProperties(dto, DomainDesignVersion.class);
         DomainDesignVersion newEntity = domainDesignVersionRepository.save(entity);

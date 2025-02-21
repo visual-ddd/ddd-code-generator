@@ -1,10 +1,10 @@
 package com.wakedt.visual.bizdomain.universallanguage.app;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.wakedata.common.core.dto.PageResultDTO;
-import com.wakedata.common.core.dto.ResultDTO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedt.visual.bizdomain.universallanguage.client.request.UniversalLanguageQuery;
 import com.wakedt.visual.bizdomain.universallanguage.client.request.UniversalLanguagePageQuery;
 import com.wakedt.visual.bizdomain.universallanguage.client.request.UniversalLanguageCreateDTO;
@@ -18,9 +18,9 @@ import com.wakedt.visual.bizdomain.universallanguage.app.assembler.UniversalLang
 import com.wakedt.visual.bizdomain.universallanguage.app.assembler.UniversalLanguageDTO2UniversalLanguageDOConvert;
 import com.wakedt.visual.bizdomain.universallanguage.infrastructure.repository.model.UniversalLanguageDO;
 import com.wakedt.visual.bizdomain.universallanguage.infrastructure.repository.model.UniversalLanguageDO;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -43,12 +43,14 @@ public class UniversalLanguageApplication {
         UniversalLanguage newEntity = universalLanguageRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> modify(UniversalLanguageModifyDTO dto) {
         UniversalLanguage entity = universalLanguageRepository.find(dto.getId());
         entity.modify(dto);
         universalLanguageRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> remove(UniversalLanguageRemoveDTO dto) {
         UniversalLanguage entity = universalLanguageRepository.find(dto.getId());
         entity.remove(dto);

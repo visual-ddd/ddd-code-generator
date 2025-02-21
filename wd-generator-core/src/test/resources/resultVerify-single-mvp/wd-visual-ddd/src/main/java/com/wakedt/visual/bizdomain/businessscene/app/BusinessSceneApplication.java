@@ -1,10 +1,10 @@
 package com.wakedt.visual.bizdomain.businessscene.app;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.wakedata.common.core.dto.PageResultDTO;
-import com.wakedata.common.core.dto.ResultDTO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneQuery;
 import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessScenePageQuery;
 import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneVersionQuery;
@@ -40,9 +40,9 @@ import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model
 import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneVersionDO;
 import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneDO;
 import com.wakedt.visual.bizdomain.businessscene.infrastructure.repository.model.BusinessSceneVersionDO;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -67,42 +67,49 @@ public class BusinessSceneApplication {
         BusinessScene newEntity = businessSceneRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> businessSceneModify(BusinessSceneModifyDTO dto) {
         BusinessScene entity = businessSceneRepository.find(dto.getId());
         entity.businessSceneModify(dto);
         businessSceneRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> businessSceneRemove(BusinessSceneRemoveDTO dto) {
         BusinessScene entity = businessSceneRepository.find(dto.getId());
         entity.businessSceneRemove(dto);
         businessSceneRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> businessSceneVersionModify(BusinessSceneVersionModifyDTO dto) {
         BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
         entity.businessSceneVersionModify(dto);
         businessSceneVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> businessSceneVersionRemove(BusinessSceneVersionRemoveDTO dto) {
         BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
         entity.businessSceneVersionRemove(dto);
         businessSceneVersionRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> dslUpdate(BusinessSceneVersionDSLUpdateDTO dto) {
         BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
         entity.dslUpdate(dto);
         businessSceneVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> businessSceneVersionPublish(BusinessSceneVersionPublishDTO dto) {
         BusinessSceneVersion entity = businessSceneVersionRepository.find(dto.getId());
         entity.businessSceneVersionPublish(dto);
         businessSceneVersionRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Long> businessSceneVersionFork(BusinessSceneVersionForkDTO dto) {
         BusinessSceneVersion entity = BeanUtil.copyProperties(dto, BusinessSceneVersion.class);
         BusinessSceneVersion newEntity = businessSceneVersionRepository.save(entity);

@@ -1,10 +1,10 @@
 package com.wakedt.visual.bizdomain.organization.app;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.wakedata.common.core.dto.PageResultDTO;
-import com.wakedata.common.core.dto.ResultDTO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
 import com.wakedt.visual.bizdomain.organization.client.request.OrganizationQuery;
 import com.wakedt.visual.bizdomain.organization.client.request.OrganizationPageQuery;
 import com.wakedt.visual.bizdomain.organization.client.request.TeamQuery;
@@ -46,9 +46,9 @@ import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.
 import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.TeamDO;
 import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.TeamDO;
 import com.wakedt.visual.bizdomain.organization.infrastructure.repository.model.TeamMemberDO;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -75,76 +75,89 @@ public class OrganizationApplication {
         Organization newEntity = organizationRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> organizationModify(OrganizationModifyDTO dto) {
         Organization entity = organizationRepository.find(dto.getId());
         entity.organizationModify(dto);
         organizationRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> organizationRemove(OrganizationRemoveDTO dto) {
         Organization entity = organizationRepository.find(dto.getId());
         entity.organizationRemove(dto);
         organizationRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> organizationManagerUnbind(OrganizationManagerUnbindDTO dto) {
         Organization entity = organizationRepository.find(dto.getId());
         entity.organizationManagerUnbind(dto);
         organizationRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> organizationManagerBind(OrganizationManagerBindDTO dto) {
         Organization entity = organizationRepository.find(dto.getId());
         entity.organizationManagerBind(dto);
         organizationRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Long> teamCreate(TeamCreateDTO dto) {
         Team entity = BeanUtil.copyProperties(dto, Team.class);
         Team newEntity = teamRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> teamModify(TeamModifyDTO dto) {
         Team entity = teamRepository.find(dto.getId());
         entity.teamModify(dto);
         teamRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> teamRemove(TeamRemoveDTO dto) {
         Team entity = teamRepository.find(dto.getId());
         entity.teamRemove(dto);
         teamRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> teamManagerBind(TeamManagerBindDTO dto) {
         Team entity = teamRepository.find(dto.getId());
         entity.teamManagerBind(dto);
         teamRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> teamManagerUnbind(TeamManagerUnBindDTO dto) {
         Team entity = teamRepository.find(dto.getId());
         entity.teamManagerUnbind(dto);
         teamRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Long> teamMemberAdd(TeamMemberAddDTO dto) {
         TeamMember entity = BeanUtil.copyProperties(dto, TeamMember.class);
         TeamMember newEntity = teamMemberRepository.save(entity);
         return ResultDTO.success(newEntity.getId());
     }
+
     public ResultDTO<Boolean> teamMemberRemove(TeamMemberRemoveDTO dto) {
         TeamMember entity = teamMemberRepository.find(dto.getId());
         entity.teamMemberRemove(dto);
         teamMemberRepository.remove(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> teamMemberRoleBind(TeamMemberRoleBindDTO dto) {
         TeamMember entity = teamMemberRepository.find(dto.getId());
         entity.teamMemberRoleBind(dto);
         teamMemberRepository.update(entity);
         return ResultDTO.success(Boolean.TRUE);
     }
+
     public ResultDTO<Boolean> teamManagerRoleUnbind(TeamMemberRoleUnBindDTO dto) {
         TeamMember entity = teamMemberRepository.find(dto.getId());
         entity.teamManagerRoleUnbind(dto);

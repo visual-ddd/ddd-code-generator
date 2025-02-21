@@ -2,11 +2,10 @@
 package ${IMPORT_PACKAGE_MAP.get(${DOMAIN_ID}).get("${DOMAIN_CLASS_NAME}Application")};
 
 import cn.hutool.core.bean.BeanUtil;
-import com.wakedata.common.core.dto.PageResultDTO;
-import com.wakedata.common.core.dto.ResultDTO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.wakedt.visual.bizdomain.application.client.request.*;
+import com.wakedata.common.core.dto.PageResultDTO;
+import com.wakedata.common.core.dto.ResultDTO;
 #importDomainQuery()
 #importDomainCmdDTO()
 #importDomainDTO()
@@ -15,9 +14,9 @@ import com.wakedt.visual.bizdomain.application.client.request.*;
 #importDataObjectMapper()
 #importDTO2DOConvert()
 #importQueryResultDO()
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -33,7 +32,6 @@ public class ${DOMAIN_CLASS_NAME}Application {
 #foreach($dataobject in ${DOMAIN_DATA_LIST})
     private ${dataobject.dataObjectMapperName} ${CASE_FORMAT_LOWER_CAMEL.convert(${dataobject.dataObjectMapperName})};
 #end
-
 #foreach($aggregation in ${DOMAIN_AGGREGATION_LIST})
 #set($RootIdType = ${aggregation.getRoot().id.type})
 #set($RootName = ${aggregation.root.getName()})
@@ -41,6 +39,7 @@ public class ${DOMAIN_CLASS_NAME}Application {
 #set($repositoryName = ${CASE_FORMAT_LOWER_CAMEL.convert("${aggregation.root.name}Repository")})
 #foreach($cmd in ${aggregation.getCommandList()})
 #if(${cmd.getSourceValue("http")} || ${cmd.getSourceValue("rpc")})
+
 #if(${cmd.getRepository().getValue()} == "create")
     public ResultDTO<${RootIdType}> ${CASE_FORMAT_LOWER_CAMEL.convert(${cmd.category})}(${cmd.cmdDTOName} dto) {
         ${RootName} entity = BeanUtil.copyProperties(dto, ${RootName}.class);
