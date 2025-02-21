@@ -4,8 +4,8 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.universallanguage.app.cmd.modify.UniversalLanguageModifyCmd;
-import com.wakedt.visual.bizdomain.universallanguage.app.cmd.remove.UniversalLanguageRemoveCmd;
+import com.wakedt.visual.bizdomain.universallanguage.client.request.UniversalLanguageModifyDTO;
+import com.wakedt.visual.bizdomain.universallanguage.client.request.UniversalLanguageRemoveDTO;
 
 /**
  * 统一语言-聚合根
@@ -40,7 +40,7 @@ public class UniversalLanguage {
     /** 所属唯一标识 */
     private Long identity;
 
-    public void modify(UniversalLanguageModifyCmd updateCmd) {
+    public void modify(UniversalLanguageModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setConception(updateCmd.getConception());
         this.setEnglishName(updateCmd.getEnglishName());
@@ -50,7 +50,7 @@ public class UniversalLanguage {
         this.setIdentity(updateCmd.getIdentity());
     }
 
-    public void remove(UniversalLanguageRemoveCmd removeCmd) {
+    public void remove(UniversalLanguageRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 

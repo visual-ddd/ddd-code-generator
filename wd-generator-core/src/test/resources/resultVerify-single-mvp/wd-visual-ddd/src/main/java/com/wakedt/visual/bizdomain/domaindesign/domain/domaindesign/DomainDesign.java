@@ -4,8 +4,8 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignmodify.DomainDesignModifyCmd;
-import com.wakedt.visual.bizdomain.domaindesign.app.cmd.domaindesignremove.DomainDesignRemoveCmd;
+import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignModifyDTO;
+import com.wakedt.visual.bizdomain.domaindesign.client.request.DomainDesignRemoveDTO;
 
 /**
  * 业务域-聚合根
@@ -31,13 +31,13 @@ public class DomainDesign {
     /** 描述 */
     private String description;
 
-    public void domainDesignModify(DomainDesignModifyCmd updateCmd) {
+    public void domainDesignModify(DomainDesignModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setName(updateCmd.getName());
         this.setDescription(updateCmd.getDescription());
     }
 
-    public void domainDesignRemove(DomainDesignRemoveCmd removeCmd) {
+    public void domainDesignRemove(DomainDesignRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 

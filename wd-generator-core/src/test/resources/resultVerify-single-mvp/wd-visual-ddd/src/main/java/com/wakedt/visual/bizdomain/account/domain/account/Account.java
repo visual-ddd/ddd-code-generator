@@ -4,11 +4,11 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.account.app.cmd.accountmodify.AccountModifyCmd;
-import com.wakedt.visual.bizdomain.account.app.cmd.accountremove.AccountDeleteCmd;
-import com.wakedt.visual.bizdomain.account.app.cmd.accountpasswordresetsendemail.AccountEmailSendCmd;
-import com.wakedt.visual.bizdomain.account.app.cmd.accountpasswordreset.AccountPasswordResetCmd;
-import com.wakedt.visual.bizdomain.account.app.cmd.accountpasswordupdate.AccountPasswordUpdateCmd;
+import com.wakedt.visual.bizdomain.account.client.request.AccountModifyDTO;
+import com.wakedt.visual.bizdomain.account.client.request.AccountDeleteDTO;
+import com.wakedt.visual.bizdomain.account.client.request.AccountEmailSendDTO;
+import com.wakedt.visual.bizdomain.account.client.request.AccountPasswordResetDTO;
+import com.wakedt.visual.bizdomain.account.client.request.AccountPasswordUpdateDTO;
 
 /**
  * 账号-聚合根
@@ -54,7 +54,7 @@ public class Account {
         // TODO 验证重置密码唯一标识是否正确()
     }
 
-    public void accountModify(AccountModifyCmd updateCmd) {
+    public void accountModify(AccountModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setDescription(updateCmd.getDescription());
         this.setUserName(updateCmd.getUserName());
@@ -63,21 +63,21 @@ public class Account {
         this.setIcon(updateCmd.getIcon());
     }
 
-    public void accountRemove(AccountDeleteCmd removeCmd) {
+    public void accountRemove(AccountDeleteDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 
-    public void accountPasswordResetSendEmail(AccountEmailSendCmd updateCmd) {
+    public void accountPasswordResetSendEmail(AccountEmailSendDTO updateCmd) {
         this.setId(updateCmd.getId());
     }
 
-    public void accountPasswordReset(AccountPasswordResetCmd updateCmd) {
+    public void accountPasswordReset(AccountPasswordResetDTO updateCmd) {
         this.setUuid(updateCmd.getUuid());
         this.setId(updateCmd.getId());
         /* TODO 指令字段不匹配 updateCmd.getNewPassword(); */
     }
 
-    public void accountPasswordUpdate(AccountPasswordUpdateCmd updateCmd) {
+    public void accountPasswordUpdate(AccountPasswordUpdateDTO updateCmd) {
         this.setId(updateCmd.getId());
         /* TODO 指令字段不匹配 updateCmd.getOldPassword(); */
         /* TODO 指令字段不匹配 updateCmd.getNewPassword(); */

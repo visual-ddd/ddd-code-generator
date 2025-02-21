@@ -4,8 +4,8 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.application.app.cmd.applicationmodify.ApplicationModifyCmd;
-import com.wakedt.visual.bizdomain.application.app.cmd.applicationremove.ApplicationRemoveCmd;
+import com.wakedt.visual.bizdomain.application.client.request.ApplicationModifyDTO;
+import com.wakedt.visual.bizdomain.application.client.request.ApplicationRemoveDTO;
 
 /**
  * 应用-聚合根
@@ -34,14 +34,14 @@ public class Application {
     /** 描述 */
     private String description;
 
-    public void applicationModify(ApplicationModifyCmd updateCmd) {
+    public void applicationModify(ApplicationModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setName(updateCmd.getName());
         this.setPackageName(updateCmd.getPackageName());
         this.setDescription(updateCmd.getDescription());
     }
 
-    public void applicationRemove(ApplicationRemoveCmd removeCmd) {
+    public void applicationRemove(ApplicationRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 

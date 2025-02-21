@@ -4,7 +4,7 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.account.app.cmd.verificationupdate.AccountVerificationUpdateCmd;
+import com.wakedt.visual.bizdomain.account.client.request.AccountVerificationUpdateDTO;
 
 /**
  * 账号验证码-聚合根
@@ -24,7 +24,7 @@ public class AccountVerification {
     /** 账号标识 */
     private String accountNo;
 
-    public void verificationUpdate(AccountVerificationUpdateCmd updateCmd) {
+    public void verificationUpdate(AccountVerificationUpdateDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setCode(updateCmd.getCode());
     }

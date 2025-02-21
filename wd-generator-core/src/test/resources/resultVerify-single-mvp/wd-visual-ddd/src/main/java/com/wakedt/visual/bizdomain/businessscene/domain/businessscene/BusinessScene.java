@@ -4,8 +4,8 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businessscenemodify.BusinessSceneModifyCmd;
-import com.wakedt.visual.bizdomain.businessscene.app.cmd.businesssceneremove.BusinessSceneRemoveCmd;
+import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneModifyDTO;
+import com.wakedt.visual.bizdomain.businessscene.client.request.BusinessSceneRemoveDTO;
 
 /**
  * 业务场景-聚合根
@@ -31,13 +31,13 @@ public class BusinessScene {
     /** 描述 */
     private String description;
 
-    public void businessSceneModify(BusinessSceneModifyCmd updateCmd) {
+    public void businessSceneModify(BusinessSceneModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setName(updateCmd.getName());
         this.setDescription(updateCmd.getDescription());
     }
 
-    public void businessSceneRemove(BusinessSceneRemoveCmd removeCmd) {
+    public void businessSceneRemove(BusinessSceneRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 

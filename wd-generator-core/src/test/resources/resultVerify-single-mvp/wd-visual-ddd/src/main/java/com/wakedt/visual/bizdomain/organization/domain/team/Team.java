@@ -4,10 +4,10 @@ import lombok.Data;
 import java.util.*;
 import java.math.*;
 import java.time.LocalDateTime;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammodify.TeamModifyCmd;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teamremove.TeamRemoveCmd;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammanagerbind.TeamManagerBindCmd;
-import com.wakedt.visual.bizdomain.organization.app.cmd.teammanagerunbind.TeamManagerUnBindCmd;
+import com.wakedt.visual.bizdomain.organization.client.request.TeamModifyDTO;
+import com.wakedt.visual.bizdomain.organization.client.request.TeamRemoveDTO;
+import com.wakedt.visual.bizdomain.organization.client.request.TeamManagerBindDTO;
+import com.wakedt.visual.bizdomain.organization.client.request.TeamManagerUnBindDTO;
 
 /**
  * 团队-聚合根
@@ -33,7 +33,7 @@ public class Team {
     /** 团队管理员 */
     private Long teamManagerId;
 
-    public void teamModify(TeamModifyCmd updateCmd) {
+    public void teamModify(TeamModifyDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setName(updateCmd.getName());
         this.setDescription(updateCmd.getDescription());
@@ -41,16 +41,16 @@ public class Team {
         this.setTeamManagerId(updateCmd.getTeamManagerId());
     }
 
-    public void teamRemove(TeamRemoveCmd removeCmd) {
+    public void teamRemove(TeamRemoveDTO removeCmd) {
         this.setId(removeCmd.getId());
     }
 
-    public void teamManagerBind(TeamManagerBindCmd updateCmd) {
+    public void teamManagerBind(TeamManagerBindDTO updateCmd) {
         this.setId(updateCmd.getId());
         this.setTeamManagerId(updateCmd.getTeamManagerId());
     }
 
-    public void teamManagerUnbind(TeamManagerUnBindCmd updateCmd) {
+    public void teamManagerUnbind(TeamManagerUnBindDTO updateCmd) {
         this.setId(updateCmd.getId());
     }
 
