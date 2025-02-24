@@ -1,0 +1,26 @@
+# resources/templates/core.yml
+templates:
+  - type: AGGREGATE
+    description: 聚合根模板
+    templatePath: /newTemplates/aggregate.vm
+    outputPathRule: "src/main/java/${package}/domain/${className}.java"
+    variableMappings:
+      - targetVar: "package"
+        sourceType: ELEMENT_PROP
+        sourceExpression: "element.rootPackage"
+      - targetVar: "className"
+        sourceType: ELEMENT_PROP
+        sourceExpression: "element.name"
+      - targetVar: "fields"
+        sourceType: ELEMENT_PROP
+        sourceExpression: "element.properties.fields"
+
+    subTemplates:
+      - type: REPOSITORY
+        description: 仓储接口模板
+        templatePath: /newTemplates/repository.vm
+        outputPathRule: "src/main/java/${package}/repository/${className}Repository.java"
+        variableMappings:
+          - targetVar: "package"
+            sourceType: DIRECT
+            sourceExpression: "${element.rootPackage}.repository"

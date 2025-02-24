@@ -1,0 +1,8 @@
+<!-- src/main/resources/toolbox.xml -->
+<toolbox>
+    <tool>
+        <key>StringUtils</key>
+        <scope>application</scope>
+        <class>org.apache.commons.lang3.StringUtils</class>
+    </tool>
+</toolbox>

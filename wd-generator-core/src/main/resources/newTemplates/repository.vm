@@ -1,0 +1,15 @@
+package ${package};
+
+// 聚合根模板
+public class ${className} {
+#foreach($field in $fields)
+private ${field.type} ${field.name};
+#end
+
+// 生成getter/setter
+#foreach($field in $fields)
+public ${field.type} get${StringUtils.capitalize($field.name)}() {
+return this.${field.name};
+}
+#end
+}
