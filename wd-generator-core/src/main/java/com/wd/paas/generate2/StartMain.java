@@ -11,7 +11,7 @@ public class StartMain {
 
     public static void main(String[] args) {
         TemplateLoader templateLoader = new TemplateLoader();
-        templateLoader.loadTemplates("/Users/shimmer/Project/Idea/GitHub/visual-ddd/ddd-code-generator/wd-generator-core/src/main/resources/template-config.yml");
+        templateLoader.loadTemplates("newTemplates/template-config.yml");
         CodeGenerator codeGenerator = new CodeGenerator(templateLoader, new VariableResolver());
 
         DslElement element = new DslElement();
@@ -23,7 +23,11 @@ public class StartMain {
         Map<Object, Object> filedMap = new HashMap<>();
         filedMap.put("type", "Long");
         filedMap.put("name", "id");
-        element.setProperties(Collections.singletonMap("fields", Collections.singletonList(filedMap)));
+        HashMap<String, Object> variables = new HashMap<>();
+        variables.put("package", "com.wd.paas.domain");
+        variables.put("className", "Member");
+        variables.put("fields", Collections.singletonList(filedMap));
+        element.setVariables(variables);
         element.setChildren(Lists.newArrayList());
         element.setReferences(Lists.newArrayList());
         element.setModel(new DSLModel("model-1"));

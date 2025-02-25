@@ -1,11 +1,8 @@
 package com.wd.paas.generate2;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.apache.velocity.context.Context;
 
 /**
  * 变量解析工具
@@ -14,33 +11,49 @@ public class VariableResolver {
 
     // 元素属性前缀
     private static final String ELEMENT_PROP_PREFIX = "element.";
-    
-    public Map<String, Object> resolveVariables(DslElement element, TemplateMeta template) {
-        Map<String, Object> context = new HashMap<>();
 
+    public void resolveVariables(DslElement element, TemplateMeta template, Context context) {
         // 遍历变量映射，解析变量
-        template.getVariableMappings().forEach(mapping -> {
+        template.getVariables().forEach(mapping -> {
             Object value = resolveSingleVariable(element, mapping);
-            context.put(mapping.getTargetVar(), value);
+            context.put(mapping.getTarget(), processValue(value, mapping));
         });
-        
-        return context;
     }
-    
-    private Object resolveSingleVariable(DslElement element, VariableMapping mapping) {
+
+    private Object processValue(Object rawValue, TemplateMeta.VariableMapping mapping) {
+        if (mapping.getConverter() != null) {
+//            return ConverterRegistry.getConverter(mapping.getConverter())
+//                    .convert(rawValue);
+        }
+        return rawValue;
+    }
+
+    private Object resolveSingleVariable(DslElement element, TemplateMeta.VariableMapping mapping) {
+        if (mapping.getSourceType() == null) {
+            if (mapping.getSource() == null) {
+                // 默认从 variables 动态属性集取值，简化配置
+                String propPath = "variables." + mapping.getTarget();
+                return resolveNestedProperty(element, propPath);
+            }
+            return DirectVariableResolver.resolveDirectValue(element, mapping.getSource());
+        }
         switch (mapping.getSourceType()) {
             case DIRECT:
-                return mapping.getSourceExpression();
+                return DirectVariableResolver.resolveDirectValue(element, mapping.getSource());
             case ELEMENT_PROP:
-                String propPath = mapping.getSourceExpression()
-                    .replace(ELEMENT_PROP_PREFIX, StringUtils.EMPTY);
-                return resolveNestedProperty(element, propPath);
+                return resolveElementProp(element, mapping);
             case FUNCTION:
                 // TODO 函数执行器
 //                return FunctionExecutor.execute(mapping.getSourceExpression(), element);
             default:
-                throw new UnsupportedOperationException();
+                return mapping.getSource();
         }
+    }
+
+    private Object resolveElementProp(DslElement element, TemplateMeta.VariableMapping mapping) {
+        String propPath = mapping.getSource()
+            .replace(ELEMENT_PROP_PREFIX, StringUtils.EMPTY);
+        return resolveNestedProperty(element, propPath);
     }
 
     public Object resolveNestedProperty(DslElement element, String propPath) {

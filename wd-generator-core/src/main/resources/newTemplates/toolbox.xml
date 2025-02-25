@@ -1,4 +1,3 @@
-<!-- src/main/resources/toolbox.xml -->
 <toolbox>
     <tool>
         <key>StringUtils</key>

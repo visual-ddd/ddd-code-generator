@@ -48,8 +48,8 @@ class CodeGeneratorTest {
         testElement = DslElement.builder().id("OrderAggregate").type("AGGREGATE").build();
         validTemplate = new TemplateMeta();
         validTemplate.setEnabled(true);
-        validTemplate.setTemplatePath("/templates/aggregate.vm");
-        validTemplate.setOutputPathRule("domain/${className}.java");
+        validTemplate.setTemplate("/templates/aggregate.vm");
+        validTemplate.setOutput("domain/${className}.java");
     }
 
     @Test

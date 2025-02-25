@@ -29,6 +29,12 @@ public class DslElement {
     // 元素名称
     private String name;
 
+    // 动态属性集
+    private Map<String, Object> variables;
+
+    // 直接关联子元素
+    private List<DslElement> children;
+
     // 包路径
     private String rootPackage;
 
@@ -40,12 +46,6 @@ public class DslElement {
 
     // 所属模型
     private DSLModel model;
-
-    // 动态属性集
-    private Map<String, Object> properties;
-
-    // 直接关联子元素
-    private List<DslElement> children;
 
 
     public void addReference(DSLReference newReference) {

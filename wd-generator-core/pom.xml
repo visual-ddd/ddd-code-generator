@@ -105,6 +105,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.velocity.tools</groupId>
+            <artifactId>velocity-tools-generic</artifactId>
+            <version>3.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

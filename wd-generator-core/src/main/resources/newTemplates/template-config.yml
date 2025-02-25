@@ -1,26 +1,44 @@
 # resources/templates/core.yml
 templates:
-  - type: AGGREGATE
+  - type: "AGGREGATE"
+#    dependencies: ["VALUE_OBJECT"]
     description: 聚合根模板
-    templatePath: /newTemplates/aggregate.vm
-    outputPathRule: "src/main/java/${package}/domain/${className}.java"
-    variableMappings:
-      - targetVar: "package"
-        sourceType: ELEMENT_PROP
-        sourceExpression: "element.rootPackage"
-      - targetVar: "className"
-        sourceType: ELEMENT_PROP
-        sourceExpression: "element.name"
-      - targetVar: "fields"
-        sourceType: ELEMENT_PROP
-        sourceExpression: "element.properties.fields"
-
+    template: "/newTemplates/aggregate.vm"
+    output: "src/main/java/${package}/${className}.java"
+    variables:
+      - target: "package"
+        source: "${rootPackage}/domain"
+      - target: "className"
+        source: "${name}"
+      - target: "fields"
     subTemplates:
-      - type: REPOSITORY
-        description: 仓储接口模板
-        templatePath: /newTemplates/repository.vm
-        outputPathRule: "src/main/java/${package}/repository/${className}Repository.java"
-        variableMappings:
-          - targetVar: "package"
-            sourceType: DIRECT
-            sourceExpression: "${element.rootPackage}.repository"
+      - type: "REPOSITORY"
+        description: 聚合根-仓储接口模板
+        enabled: false
+        template: "/newTemplates/repository.vm"
+        output: "src/main/java/${package}/${className}.java"
+        variables:
+          - target: "package"
+            source: "${rootPackage}/domain"
+          - target: "className"
+            source: "${name}Repository"
+
+  - type: "ENTITY"
+    description: 实体模板
+    template: "/newTemplates/entity.vm"
+    output: "src/main/java/${package}/${className}.java"
+    variables:
+      - target: "package"
+        source: "${rootPackage}/domain"
+      - target: "className"
+        source: "${name}"
+
+  - type: "VALUE_OBJECT"
+    description: 值对象模板
+    template: "/newTemplates/valueObject.vm"
+    output: "src/main/java/${package}/${className}.java"
+    variables:
+      - target: "package"
+        source: "${rootPackage}/domain"
+      - target: "className"
+        source: "${name}"
